@@ -10,7 +10,8 @@ var path = require('path');
 var notifier = require('node-notifier');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge2');
-var shell = require('gulp-shell')
+var shell = require('gulp-shell');
+var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 
 
@@ -45,6 +46,20 @@ gulp.task('ts', function () {
     ]);
 });
 
+gulp.task('serve', function () {
+    gulp.src('www')
+        .pipe(server({
+            livereload: {
+                enable: true,
+                filter: function (filePath, cb) {
+                    cb(!(/lib/.test(filePath)));
+                }
+            },
+            directoryListing: false,
+            open: true
+        }));
+});
+
 gulp.task('locale', function () {
     gulp.src('./www-develop/locale/**/*').pipe(gulp.dest('./www/locale'));
 });
@@ -67,7 +82,7 @@ gulp.task('watch', ['ts', 'html', 'css', 'lib', 'locale'], function () {
     gulp.watch('./www-develop/**/*.html', ['html']);
     gulp.watch('./www-develop/locale/**/*', ['locale']);
 
-    gulp.run('ionicserve');
+    gulp.start('serve');
 });
 
 
