@@ -1,0 +1,45 @@
+{
+    "version": "v4",
+    "repo": "borisyankov/DefinitelyTyped",
+    "ref": "master",
+    "path": "typings",
+    "bundle": "typings/tsd.d.ts",
+    "installed": {
+        "jquery/jquery.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "text-buffer/text-buffer.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "space-pen/space-pen.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "mixto/mixto.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "atom/atom.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "q/Q.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "emissary/emissary.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "node/node.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "pathwatcher/pathwatcher.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "angularjs/angular.d.ts": {
+            "commit": "f8f1b95d00c9fc5653268b94333d149aec11acd7"
+        },
+        "angular-translate/angular-translate.d.ts": {
+            "commit": "954c64c100478ebb0b3cd1d9949237c2ee6c2a9d"
+        },
+        "moment/moment.d.ts": {
+            "commit": "ed38db403a56da84731a6f77b545762ee477a45b"
+        }
+    }
+}
