@@ -1,0 +1,21 @@
+{
+    "NAV_DASHBOARD": "Dashboard",
+    "NAV_PROFILE": "Profile",
+    "NAV_GROUPS": "Groups",
+
+    "GRP_COMMENTS": "Comments",
+    "GRP_COMMENT": "Comment",
+    "GRP_OVERVIEW": "Group overview",
+    "GRP_SUBSCRIBED": "Subscribed groups",
+    "GRP_SUGGESTED": "Suggested groups",
+    "GRP_GLOBAL": "Global groups",
+
+    "PRF_PROFILE": "Profile",
+    "PRF_EDIT": "Edit profile",
+    "PRF_MAJOR": "Major",
+    "PRF_SAVE":  "Save",
+    "PRF_CANCEL": "Cancel",
+
+    "DOC_DOCUMENTS": "Documents",
+    "DOC_ADD_DOCUMENT": "Add Document"
+}
