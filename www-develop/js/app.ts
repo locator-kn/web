@@ -2,6 +2,7 @@
 /// <reference path="../../typings/angular-translate/angular-translate.d.ts" />
 /// <reference path="../../typings/moment/moment.d.ts" />
 
+/// <reference path="./controller/slideCtrl.ts" />
 
 /// <reference path="./controller/triplerCtrl.ts" />
 /// <reference path="./service/triplerService.ts" />
@@ -10,7 +11,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
+angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
     .constant('basePath', '/api/')
 
@@ -58,6 +59,7 @@ angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate'
     })
 
     .controller(Controller.TriplerCtrl.controllerId, Controller.TriplerCtrl)
+    .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .service(Service.TriplerService.serviceId, Service.TriplerService)
 
 
