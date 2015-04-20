@@ -33,16 +33,7 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                     }
                 }
             })
-
-            .state('app.welcome', {
-                url: "/welcome",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/welcome.html"
-                    }
-                }
-            })
-
+            
             .state('app.profile', {
                 url: "/profile",
                 views: {
