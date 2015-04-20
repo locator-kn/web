@@ -13,7 +13,6 @@ angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate'
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-
             .state('app', {
                 url: "/app",
                 abstract: true
@@ -52,7 +51,7 @@ angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate'
                 }
             });
 
-        //$urlRouterProvider.otherwise('/app/welcome')
+        $urlRouterProvider.otherwise('/welcome')
     })
 
 
