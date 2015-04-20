@@ -13,7 +13,6 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-
             .state('app', {
                 url: "/app",
                 abstract: true
@@ -34,14 +33,6 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                 }
             })
 
-            .state('app.welcome', {
-                url: "/welcome",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/welcome.html"
-                    }
-                }
-            })
 
             .state('app.profile', {
                 url: "/profile",
@@ -61,7 +52,7 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                 }
             });
 
-        //$urlRouterProvider.otherwise('/app/welcome')
+        $urlRouterProvider.otherwise('/welcome')
     })
 
 
