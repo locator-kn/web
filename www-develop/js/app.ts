@@ -32,8 +32,7 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                     }
                 }
             })
-
-
+            
             .state('app.profile', {
                 url: "/profile",
                 views: {
