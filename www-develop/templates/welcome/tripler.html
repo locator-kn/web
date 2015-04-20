@@ -1,13 +1,18 @@
 <div class="tripler">
     <div class="row">
+        <label>{{'WC_TRIPLER_TRAVEL_DESTINATION' | translate}}:</label>
         <input type="text">
+        <label>{{'WC_TRIPLER_DATE_FROM' | translate}}:</label>
         <input type="date">
+        <label>{{'WC_TRIPLER_DATE_TO' | translate}}:</label>
         <input type="date">
     </div>
     <div class="row">
         <p>Personenzahl als Icons</p>
     </div>
-    <div class="budget-picker">
-
+    <div class="row">
+        <label>Budget:</label>
+        <input ng-model="budget" type="range" min="50" max="500" step="5" value="50"/>
+        <label>{{budget}}€</label>
     </div>
 </div>

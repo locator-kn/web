@@ -17,5 +17,9 @@
     "PRF_CANCEL": "Abbrechen",
 
     "DOC_DOCUMENTS": "Dokumente",
-    "DOC_ADD_DOCUMENT": "Dokument hinzufügen"
+    "DOC_ADD_DOCUMENT": "Dokument hinzufügen",
+
+    "WC_TRIPLER_TRAVEL_DESTINATION": "Reiseziel",
+    "WC_TRIPLER_DATE_FROM": "Von",
+    "WC_TRIPLER_DATE_TO": "Bis"
 }
