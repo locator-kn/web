@@ -10,6 +10,7 @@
     "angular-ui-router": "~0.2.13",
     "bower": "*",
     "install": "~1.0.4",
-    "ngSmoothScroll": "~1.7.1"
+    "ngSmoothScroll": "~1.7.1",
+    "bootstrap": "~3.3.4"
   }
 }
