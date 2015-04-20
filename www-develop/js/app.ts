@@ -54,6 +54,10 @@ angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate'
         $urlRouterProvider.otherwise('/welcome')
     })
 
+    .controller(Controller.TriplerCtrl.controllerId, Controller.TriplerCtrl)
+
+    .service(Service.TriplerService.serviceId, Service.TriplerService)
+
 
     .directive('megadate', function () {
         return {
