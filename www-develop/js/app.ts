@@ -7,7 +7,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
+angular.module('starter', ['smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
     .constant('basePath', '/api/')
 
@@ -32,7 +32,7 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                     }
                 }
             })
-            
+
             .state('app.profile', {
                 url: "/profile",
                 views: {

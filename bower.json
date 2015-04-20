@@ -7,6 +7,9 @@
     "angular-emoji-filter": "~0.0.2",
     "angular-base64": "~2.0.4",
     "moment": "~2.10.2",
-    "angular-ui-router": "~0.2.13"
+    "angular-ui-router": "~0.2.13",
+    "bower": "*",
+    "install": "~1.0.4",
+    "ngSmoothScroll": "~1.7.1"
   }
 }
