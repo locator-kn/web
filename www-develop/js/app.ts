@@ -16,24 +16,29 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
 
             .state('app', {
                 url: "/app",
-                abstract: true,
-                templateUrl: "templates/menu.html"
+                abstract: true
+            })
+
+            .state('welcome', {
+                url: "/welcome",
+                templateUrl: "../templates/welcome.html"
+
             })
 
             .state('app.login', {
                 url: "/login",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/login.html"
+                        templateUrl: "../templates/login.html"
                     }
                 }
             })
 
-            .state('app.dashboard', {
-                url: "/dashboard",
+            .state('app.welcome', {
+                url: "/welcome",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/dashboard.html"
+                        templateUrl: "../templates/welcome.html"
                     }
                 }
             })
@@ -42,7 +47,7 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                 url: "/profile",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/profile.html"
+                        templateUrl: "../templates/profile.html"
                     }
                 }
             })
@@ -51,19 +56,19 @@ angular.module('starter', ['ui.router', 'pascalprecht.translate', 'emoji', 'base
                 url: "/profileEdit",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/profileEdit.html"
+                        templateUrl: "../templates/profileEdit.html"
                     }
                 }
             });
 
-        $urlRouterProvider.otherwise('/app/login')
+        //$urlRouterProvider.otherwise('/app/welcome')
     })
 
 
     .directive('megadate', function () {
         return {
-            scope: { date: '='},
-            controller: function($scope) {
+            scope: {date: '='},
+            controller: function ($scope) {
                 var date = new Date($scope.date);
                 $scope.date = moment(date).startOf('minute').fromNow();
             },
