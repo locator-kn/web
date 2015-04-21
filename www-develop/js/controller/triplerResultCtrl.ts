@@ -2,8 +2,16 @@
 module Controller {
     export class TriplerResultCtrl {
 
-        constructor($scope, private TriplerService) {
+        trips;
 
+        constructor($scope, private TriplerService) {
+            this.filteredQuery();
+        }
+
+        filteredQuery() {
+            this.TriplerService.filteredQue().then(result => {
+                this.trips = result;
+            })
         }
 
         static controllerId:string = "TriplerResultCtrl";
