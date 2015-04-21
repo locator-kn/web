@@ -1,5 +1,9 @@
-<div class="fullsize" ng-controller="tripResultCtrl as ctrl">
+<div class="fullsize" ng-controller="TriplerResultCtrl as ctrl">
     <div class="row">
         <h2>Results</h2>
+        <div class="col-xs-3 trip" ng-repeat="trip in ctrl.trips">
+            {{trip.title}}
+            {{trip.city}}
+        </div>
     </div>
 </div>
