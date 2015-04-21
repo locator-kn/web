@@ -1,5 +1,5 @@
 module Service {
-    export class TriplerService {
+    export class TripService {
         constructor(private $q) {
 
         }
@@ -27,6 +27,6 @@ module Service {
                 }, 500);
             });
         }
-        static serviceId:string="TriplerService";
+        static serviceId:string="TripService";
     }
 }

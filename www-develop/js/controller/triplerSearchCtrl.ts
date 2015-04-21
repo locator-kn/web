@@ -1,5 +1,5 @@
 module Controller {
-    export class TriplerCtrl {
+    export class TriplerSearchCtrl {
 
         cities;
 
@@ -13,6 +13,6 @@ module Controller {
             });
         }
 
-        static controllerId:string="TriplerCtrl";
+        static controllerId:string="TriplerSearchCtrl";
     }
 }
