@@ -4,8 +4,11 @@
 
 /// <reference path="./controller/slideCtrl.ts" />
 
-/// <reference path="./controller/triplerCtrl.ts" />
+
 /// <reference path="./service/triplerService.ts" />
+
+/// <reference path="./controller/triplerSearchCtrl.ts" />
+/// <reference path="./controller/triplerResultCtrl.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -27,6 +30,11 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
                 url: "/welcome",
                 templateUrl: "../templates/welcome.html"
 
+            })
+
+            .state('tripresults', {
+                url: "/tripresults",
+                templateUrl: "../templates/results.html"
             })
 
             .state('app.login', {
@@ -59,7 +67,8 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
         $urlRouterProvider.otherwise('/welcome')
     })
 
-    .controller(Controller.TriplerCtrl.controllerId, Controller.TriplerCtrl)
+    .controller(Controller.TriplerSearchCtrl.controllerId, Controller.TriplerSearchCtrl)
+    .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .service(Service.TriplerService.serviceId, Service.TriplerService)
 
