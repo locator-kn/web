@@ -2,13 +2,13 @@
     <div class="container">
         <div class="tripler-input-group">
             <div class="form-group">
-                <div class="col-md-4">
+                <div class="col-xs-4">
                     <input type="text" class="form-control" placeholder="{{'WC_TRIPLER_TRAVEL_DESTINATION' | translate}}">
                 </div>
-                <div class="col-md-4">
+                <div class="col-xs-4">
                     <input type="date" class="form-control" placeholder="{{'WC_TRIPLER_DATE_FROM' | translate}}">
                 </div>
-                <div class="col-md-4">
+                <div class="col-xs-4">
                     <input type="date" class="form-control" placeholder="{{'WC_TRIPLER_DATE_TO' | translate}}">
                 </div>
 
@@ -16,7 +16,7 @@
         </div>
 
         <div class="tripler-persons-amount">
-            <div class="col-md-12">
+            <div class="col-xs-12">
                 1
                 <input type="image" src="http://simpleicon.com/wp-content/uploads/user1.png" width="100" height="100">
                 2
@@ -30,19 +30,19 @@
 
 
         <div class="tripler-budget">
-            <div class="col-md-2">
+            <div class="col-xs-2">
                 <label>Budget:</label>
             </div>
-            <div class="col-md-3">
+            <div class="col-xs-3">
                 <input ng-model="budget" type="range" min="50" max="500" step="5" value="50"/>
             </div>
-            <div class="col-md-7">
+            <div class="col-xs-7">
                 <label>{{budget}}€</label>
             </div>
         </div>
 
         <div class="tripler-submit">
-            <div class="col-md-12 text-center">
+            <div class="col-xs-12 text-center">
                 <a ng-href="#/trips/551bd8d9c528474af52dbd7e/overnight">
                     <button class="btn btn-default btn-lg" >Weiter</button>
                 </a>
