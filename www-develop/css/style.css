@@ -41,6 +41,9 @@
 .absolute-front {
     z-index: 100;
     position: absolute;
+    float: left;
+    width: 100%;
+    padding-top: 80px;
 }
 
 .vertical-center {
@@ -60,3 +63,21 @@
     background-color: #b0c4de
 }
 
+.opener .flex-direction-nav {
+    display: none;
+}
+
+.opener h2 u {
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    text-decoration: none;
+}
+
+.opener .headline {
+    margin-bottom: 20px;
+}
+
+.opener .slides img {
+    height: 100vh;
+    width: 100vw;
+}
