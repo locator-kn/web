@@ -3,10 +3,9 @@ module Controller {
 
         constructor($scope) {
             $scope.slides = [
-                'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-                'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-                'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-                'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg'
+                'https://download.unsplash.com/photo-1428591501234-1ffcb0d6871f',
+                'https://download.unsplash.com/photo-1428342319217-5fdaf6d7898e',
+                'https://download.unsplash.com/photo-1422433555807-2559a27433bd',
             ];
         }
 
