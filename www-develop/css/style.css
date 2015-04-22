@@ -106,4 +106,13 @@
     width: 100%;
     margin-left: -15px;
 }
+.mood {
+    min-height: 170px;
+    background: black;
+    border: 15px solid white;
+}
 
+.mood h3 {
+    color: white;
+    text-align: center;
+}
