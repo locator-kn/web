@@ -12,6 +12,8 @@
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
+/// <reference path="./controller/moodCtrl.ts" />
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -73,6 +75,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
+    .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
     .service(Service.TriplerService.serviceId, Service.TriplerService)
 
 
