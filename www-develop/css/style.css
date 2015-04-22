@@ -1,3 +1,9 @@
+
+.opener h2 {
+    font-family: Helvetica neue, Arial;
+    font-weight: 100;
+}
+
 .fullsize {
     height: 100vh;
 }
@@ -49,8 +55,8 @@
 .vertical-center {
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .modus-container {
@@ -68,7 +74,7 @@
 }
 
 .opener h2 u {
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     padding: 20px;
     text-decoration: none;
 }
