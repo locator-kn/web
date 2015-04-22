@@ -112,7 +112,14 @@
     border: 15px solid white;
 }
 
+
 .mood h3 {
     color: white;
     text-align: center;
 }
+
+.tripler {
+    background-color: #f7e1b5;
+}
+
+
