@@ -107,7 +107,23 @@
     margin-left: -15px;
 }
 
+.mood {
+    min-height: 170px;
+    background: black;
+    border: 15px solid white;
+}
+
+.mood.selected {
+    background: green;
+}
+
+.mood h3 {
+    color: white;
+    text-align: center;
+}
+
 .tripler {
     background-color: #f7e1b5;
 }
+
 

@@ -1,0 +1,19 @@
+<div class="moods" ng-controller="MoodCtrl as mc">
+
+    <div class="row">
+        <div class="center">
+
+            <div class="col-xs-12 headline">
+                <h2>Choose your Moods..</h2>
+            </div>
+
+            <div ng-repeat="mood in mc.moods" class="mood col-sm-4" ng-class="{selected: mc.isSelected(mood._id)}" ng-click="mc.selectMood(mood._id)">
+
+                <h3>{{mood.title}}</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
