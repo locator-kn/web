@@ -4,6 +4,8 @@
 
 /// <reference path="./controller/slideCtrl.ts" />
 
+/// <reference path="./controller/modusChooserCtrl.ts" />
+
 
 /// <reference path="./service/triplerService.ts" />
 
@@ -70,6 +72,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.TriplerSearchCtrl.controllerId, Controller.TriplerSearchCtrl)
     .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
+    .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
     .service(Service.TriplerService.serviceId, Service.TriplerService)
 
 
