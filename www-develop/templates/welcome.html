@@ -1,9 +1,14 @@
-<div class="fullsize opener" ng-include="'templates/welcome/opener.html'"></div>
-<div class="fullsize" ng-include="'templates/welcome/modusChooser.html'"></div>
-<div ng-show="showTriplerView">
-    <div class="fullsize" ng-include="'templates/welcome/tripler.html'"></div>
-    <div class="fullsize" ng-include="'templates/welcome/moods.html'"></div>
+<div class="no-scroll">
+
+    <div openerscroll class="fullsize opener" ng-include="'templates/welcome/opener.html'" id="opener"></div>
+    <div class="fullsize" ng-include="'templates/welcome/modusChooser.html'" id="modus"></div>
+    <div ng-show="showTriplerView">
+        <div class="fullsize" ng-include="'templates/welcome/tripler.html'"></div>
+        <div class="fullsize" ng-include="'templates/welcome/moods.html'"></div>
+    </div>
+    <div id="local" ng-show="showLocalView">
+        <h1>Local View here</h1>
+    </div>
+
 </div>
-<div id="local" ng-show="showLocalView">
-    <h1>Local View here</h1>
-</div>
+
