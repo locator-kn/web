@@ -101,31 +101,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
             template: '<p>{{date}}</p>'
         };
     })
-
-    /*.directive('openerscroll', ['smoothScroll', function (smoothScroll) {
-        return {
-            scope: {},
-            link: function ($scope, element, attrs) {
-
-                $('body').addClass('no-scroll');
-
-                element.bind('mousewheel', function (e) {
-                    if (e.originalEvent.wheelDelta < 0) {
-
-                        smoothScroll(document.getElementById('modus'));
-                        console.log('Down');
-                    } else {
-                        //scroll up
-                        console.log('Up');
-                    }
-
-                    //prevent page fom scrolling
-                    return false;
-                });
-            }
-        };
-    }])*/
-
+    
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'locale/locale-',
