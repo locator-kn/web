@@ -133,7 +133,7 @@
     background-color: #f7e1b5;
 }
 
-.no-scroll {
+body.no-scroll {
     overflow: hidden;
 }
 
