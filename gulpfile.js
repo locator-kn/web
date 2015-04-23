@@ -10,7 +10,6 @@ var path = require('path');
 var notifier = require('node-notifier');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge2');
-var shell = require('gulp-shell');
 var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 
