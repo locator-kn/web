@@ -6,7 +6,6 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var ts = require('gulp-typescript');
-var path = require('path');
 var notifier = require('node-notifier');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge2');
