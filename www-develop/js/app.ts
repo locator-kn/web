@@ -18,7 +18,6 @@
 /// <reference path="./controller/moodCtrl.ts" />
 
 
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -102,6 +101,24 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
             template: '<p>{{date}}</p>'
         };
     })
+
+    .directive('openerscroll', ['smoothScroll', function (smoothScroll) {
+        return {
+            scope: {},
+            link: function ($scope, element, attrs) {
+
+                var lastScrollTop = 0;
+                angular.element(window).one('scroll', function (event) {
+                    console.info('scroll');
+                    var st = $(this).scrollTop();
+                    if (st > lastScrollTop) {
+                        smoothScroll(document.getElementById('modus'));
+                    }
+                    lastScrollTop = st;
+                });
+            }
+        };
+    }])
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
