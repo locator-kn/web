@@ -9,16 +9,19 @@ module Service {
                 setTimeout(function () {
                     resolve([
                         {
-                            "_id": "551bd8d98fe8ee54fe79fbe0",
-                            "name": "couch"
+                            "_id": "1",
+                            "name": "couch",
+                            selected: false
                         },
                         {
-                            "_id": "551bd8d96ac6271311173b03",
-                            "name": "room"
+                            "_id": "2",
+                            "name": "room",
+                            selected: false
                         },
                         {
-                            "_id": "551bd8d9c528474af52dbd7e",
-                            "name": "holiday_flat"
+                            "_id": "3",
+                            "name": "holiday_flat",
+                            selected: false
                         }
                     ]);
                 }, 500);
