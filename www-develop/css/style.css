@@ -111,10 +111,17 @@
     min-height: 170px;
     background: black;
     border: 15px solid white;
+    cursor: pointer;
+
+    transition-duration: 0.7s;
 }
 
 .mood.selected {
     background: green;
+}
+
+.mood.excluded {
+    opacity: 0.5;
 }
 
 .mood h3 {
