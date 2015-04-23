@@ -111,10 +111,15 @@
     min-height: 170px;
     background: black;
     border: 15px solid white;
+    cursor: pointer;
 }
 
 .mood.selected {
     background: green;
+}
+
+.mood.excluded {
+    background: whitesmoke;
 }
 
 .mood h3 {
