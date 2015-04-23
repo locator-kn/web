@@ -102,23 +102,29 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
         };
     })
 
-    .directive('openerscroll', ['smoothScroll', function (smoothScroll) {
+    /*.directive('openerscroll', ['smoothScroll', function (smoothScroll) {
         return {
             scope: {},
             link: function ($scope, element, attrs) {
 
-                var lastScrollTop = 0;
-                angular.element(window).one('scroll', function (event) {
-                    console.info('scroll');
-                    var st = $(this).scrollTop();
-                    if (st > lastScrollTop) {
+                $('body').addClass('no-scroll');
+
+                element.bind('mousewheel', function (e) {
+                    if (e.originalEvent.wheelDelta < 0) {
+
                         smoothScroll(document.getElementById('modus'));
+                        console.log('Down');
+                    } else {
+                        //scroll up
+                        console.log('Up');
                     }
-                    lastScrollTop = st;
+
+                    //prevent page fom scrolling
+                    return false;
                 });
             }
         };
-    }])
+    }])*/
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({

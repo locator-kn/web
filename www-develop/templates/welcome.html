@@ -1,15 +1,14 @@
-<div class="no-scroll">
+<div class="fullsize opener" ng-include="'templates/welcome/opener.html'" id="opener"></div>
+<div class="fullsize" ng-include="'templates/welcome/modusChooser.html'" id="modus"></div>
 
-    <div openerscroll class="fullsize opener" ng-include="'templates/welcome/opener.html'" id="opener"></div>
-    <div class="fullsize" ng-include="'templates/welcome/modusChooser.html'" id="modus"></div>
-    
-    <div ng-show="showTriplerView">
-        <div class="fullsize" ng-include="'templates/welcome/tripler.html'"></div>
-        <div class="fullsize" ng-include="'templates/overnight.html'"></div>
-        <div class="fullsize" ng-include="'templates/welcome/moods.html'"></div>
-    </div>
-    <div id="local" ng-show="showLocalView">
-        <h1>Local View here</h1>
-    </div>
-
+<div ng-show="showTriplerView">
+    <div class="fullsize" ng-include="'templates/welcome/tripler.html'"></div>
+    <div class="fullsize" ng-include="'templates/overnight.html'"></div>
+    <div class="fullsize" ng-include="'templates/welcome/moods.html'"></div>
 </div>
+<div id="local" ng-show="showLocalView">
+    <h1>Local View here</h1>
+</div>
+
+
+
