@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/tripl-kn/web.svg?label=ready&title=Ready)](http://waffle.io/tripl-kn/web)
+[![Stories in Ready](https://badge.waffle.io/locator-kn/web.svg?label=ready&title=Ready)](http://waffle.io/locator-kn/web)
 
 # wemily
 
