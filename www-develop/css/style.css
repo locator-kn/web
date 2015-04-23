@@ -133,4 +133,8 @@
     background-color: #f7e1b5;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 
