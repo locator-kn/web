@@ -12,7 +12,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '2',
@@ -20,8 +21,9 @@ module Controller {
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
-                    selected: false
+                    excludes: ['4', '5'],
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '3',
@@ -30,7 +32,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '4',
@@ -39,7 +42,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '5',
@@ -48,7 +52,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '6',
@@ -57,7 +62,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '7',
@@ -65,8 +71,9 @@ module Controller {
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
-                    selected: false
+                    excludes: ['4'],
+                    selected: false,
+                    excluded: 0
                 },
                 {
                     _id: '8',
@@ -75,7 +82,8 @@ module Controller {
                     image: '',
                     description: '',
                     excludes: '',
-                    selected: false
+                    selected: false,
+                    excluded: 0
                 }
             ];
         }
@@ -100,8 +108,20 @@ module Controller {
         selectMood(_id) {
             if (this.isSelected(_id)) {
                 this.deSelectMood((_id));
+
+                // include the excludes again from Mood with _id
+                for (var i = 0; i < this.getExcludes(_id).length; i++) {
+                    this.include(this.getExcludes(_id)[i]);
+                }
+
+
             } else {
-                this.moods[_id - 1].selected = true;
+                this.getMoodById(_id).selected = true;
+
+                // exclude the excludes from Mood with _id
+                for (var i = 0; i < this.getExcludes(_id).length; i++) {
+                    this.exclude(this.getExcludes(_id)[i]);
+                }
             }
 
             console.info('ID: ' + _id + 'selected');
@@ -109,12 +129,40 @@ module Controller {
         }
 
         deSelectMood(_id) {
-            this.moods[_id - 1].selected = false;
+            this.getMoodById(_id).selected = false;
         }
 
         isSelected(_id) {
-            return this.moods[_id - 1].selected;
+            return this.getMoodById(_id).selected;
         }
+
+        isExcluded(_id) {
+
+            return this.getMoodById(_id).excluded > 0;
+
+        }
+
+        exclude(_id) {
+            this.getMoodById(_id).excluded += 1;
+        }
+
+        include(_id) {
+
+            if (this.getMoodById(_id).excluded > 0) {
+                this.getMoodById(_id).excluded -= 1;
+            }
+
+        }
+
+        getExcludes(_id) {
+            return this.getMoodById(_id).excludes;
+        }
+
+        getMoodById(_id) {
+            return this.moods[_id - 1];
+        }
+
+
 
         static controllerId:string = "MoodCtrl";
     }
