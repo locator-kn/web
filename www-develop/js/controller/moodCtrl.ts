@@ -7,17 +7,17 @@ module Controller {
             this.moods = [
                 {
                     _id: '1',
-                    title: 'Mod1',
+                    title: 'Family Fun',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '2',
-                    title: 'Mod2',
+                    title: 'Girls on Tour',
                     icon: '',
                     image: '',
                     description: '',
@@ -27,61 +27,101 @@ module Controller {
                 },
                 {
                     _id: '3',
-                    title: 'Mod3',
+                    title: 'Buddytrip',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '4',
-                    title: 'Mod4',
+                    title: 'Singles unter sich',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '5',
-                    title: 'Mod5',
+                    title: 'Sturm der Liebe',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '6',
-                    title: 'Mod6',
+                    title: 'Halligalli Drecksaufest',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '7',
-                    title: 'Mod7',
+                    title: 'Muskelkater',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: ['4'],
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 },
                 {
                     _id: '8',
-                    title: 'Mod8',
+                    title: 'Leckermäulchen',
                     icon: '',
                     image: '',
                     description: '',
-                    excludes: '',
+                    excludes: [],
+                    selected: false,
+                    excluded: 0
+                },
+                {
+                    _id: '9',
+                    title: 'Grüner gehts nicht',
+                    icon: '',
+                    image: '',
+                    description: '',
+                    excludes: [],
+                    selected: false,
+                    excluded: 0
+                },
+                {
+                    _id: '10',
+                    title: 'Entspannung pur',
+                    icon: '',
+                    image: '',
+                    description: '',
+                    excludes: [],
+                    selected: false,
+                    excluded: 0
+                },
+                {
+                    _id: '11',
+                    title: 'Kultur und Sightseeing',
+                    icon: '',
+                    image: '',
+                    description: '',
+                    excludes: [],
+                    selected: false,
+                    excluded: 0
+                },
+                {
+                    _id: '12',
+                    title: 'Haste nicht gesehn',
+                    icon: '',
+                    image: '',
+                    description: '',
+                    excludes: [],
                     selected: false,
                     excluded: 0
                 }
@@ -104,8 +144,15 @@ module Controller {
             }
         }
 
-        //trigger selection
+        /*
+         triggers selection of the mood with _id.
+         */
         selectMood(_id) {
+
+            if (this.isExcluded(_id)) {
+                return;
+            }
+
             if (this.isSelected(_id)) {
                 this.deSelectMood((_id));
 
@@ -161,7 +208,6 @@ module Controller {
         getMoodById(_id) {
             return this.moods[_id - 1];
         }
-
 
 
         static controllerId:string = "MoodCtrl";
