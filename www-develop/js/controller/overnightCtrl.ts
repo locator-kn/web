@@ -3,12 +3,12 @@ module Controller {
 
         sleepPlaces;
 
-        constructor(private $scope, private OvernightService) {
-            this.getSleepplaces();
+        constructor(private $scope, private DataService) {
+            this.getAccomodations();
         }
 
-        getSleepplaces () {
-            this.OvernightService.sleepplace().then(result => {
+        getAccomodations () {
+            this.DataService.getAccomodations().then(result => {
                 this.sleepPlaces = result;
             })
             console.info(this.sleepPlaces);
