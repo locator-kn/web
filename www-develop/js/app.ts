@@ -17,6 +17,8 @@
 
 /// <reference path="./controller/moodCtrl.ts" />
 
+/// <reference path="./controller/tripCtrl.ts" />
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -41,13 +43,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
 
             .state('tripresults', {
                 url: "/tripresults",
-                templateUrl: "../templates/results.html"
-            })
-
-            .state('overnight', {
-                url: "/trips/:tripID/overnight",
-                templateUrl: "../templates/welcome/accomodation.html"
-
+                templateUrl: "../templates/tripresults.html"
             })
 
             .state('app.login', {
@@ -86,6 +82,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
     .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
+    .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)
     .service(Service.DataService.serviceId, Service.DataService)
