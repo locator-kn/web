@@ -13,7 +13,7 @@
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
 /// <reference path="./controller/overnightCtrl.ts" />
-/// <reference path="./service/overnightService.ts" />
+/// <reference path="./service/dataService.ts" />
 
 /// <reference path="./controller/moodCtrl.ts" />
 
@@ -88,7 +88,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)
-    .service(Service.OvernightService.serviceId, Service.OvernightService)
+    .service(Service.DataService.serviceId, Service.DataService)
 
 
     .directive('megadate', function () {
@@ -101,7 +101,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
             template: '<p>{{date}}</p>'
         };
     })
-    
+
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'locale/locale-',
