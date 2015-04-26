@@ -3,12 +3,12 @@ module Controller {
 
         cities;
 
-        constructor(private $scope, private TriplerService) {
+        constructor(private $scope, private TriplerService, private DataService) {
             this.getCities();
         }
 
         getCities() {
-            this.TriplerService.cities().then(result => {
+            this.DataService.getCities().then(result => {
                this.cities = result;
             });
         }
