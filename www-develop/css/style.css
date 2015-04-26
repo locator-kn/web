@@ -5,7 +5,7 @@
 }
 
 .fullsize {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .absolute-slider {
@@ -61,7 +61,7 @@
 
 .modus-container {
     position: relative;
-    height: 50%;
+    height: 50vh;
 }
 
 .local-container {
@@ -139,5 +139,16 @@ body.no-scroll {
 
 #specificTrip {
     background: orange;
+}
+
+.trip .trip-image {
+    width: 100%;
+}
+
+.trip-img-wrapper {
+    width: 100%
+    float: left;
+    overflow: hidden;
+    max-height: 800px;
 }
 
