@@ -12,7 +12,7 @@
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
-/// <reference path="./controller/overnightCtrl.ts" />
+/// <reference path="./controller/accomodationCtrl.ts" />
 /// <reference path="./service/dataService.ts" />
 
 /// <reference path="./controller/moodCtrl.ts" />
@@ -84,7 +84,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
-    .controller(Controller.OvernightCtrl.controllerId, Controller.OvernightCtrl)
+    .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)

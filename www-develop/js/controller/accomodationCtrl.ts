@@ -1,5 +1,5 @@
 module Controller {
-    export class OvernightCtrl {
+    export class AccomodationCtrl {
 
         sleepPlaces;
 
@@ -50,6 +50,6 @@ module Controller {
         }
 
 
-        static controllerId:string = "OvernightCtrl";
+        static controllerId:string = "AccomodationCtrl";
     }
 }
