@@ -78,7 +78,7 @@ module Service {
                         {
                             "_id": "1849ef313fbc39f078084f9168000e16",
                             "_rev": "4-c726329a4e810962443ce5a7a176b00c",
-                            "title": "my trip",
+                            "title": "Trip to the moon",
                             "description": "bla bla bla",
                             "city": "constance",
                             "start_date": "2015-04-20T00:00:00.000Z",
