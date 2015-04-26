@@ -1,4 +1,4 @@
-<div id="overnight" class="overnight" ng-controller="OvernightCtrl as oc">
+<div id="overnight" class="overnight" ng-controller="AccomodationCtrl as ac">
 
     <div class="row">
         <div class="center">
@@ -7,7 +7,7 @@
                 <h2>Choose your place to sleep...</h2>
             </div>
 
-            <div ng-repeat="place in oc.sleepPlaces" class="mood col-sm-4" ng-class="{selected: oc.isSelected(place._id)}" ng-click="oc.selectSleepPlace(place._id)">
+            <div ng-repeat="place in ac.sleepPlaces" class="mood col-sm-4" ng-class="{selected: ac.isSelected(place._id)}" ng-click="ac.selectSleepPlace(place._id)">
 
                 <h3>{{place.name}}</h3>
 
