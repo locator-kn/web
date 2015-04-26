@@ -4,12 +4,18 @@
         <div class="trip-img-wrapper"><img ng-repeat="picture in ctrl.trip.pictures" class="trip-image"
                                            src="{{picture}}"></div>
 
-        <div class="col-xs-12">
-
+        <div class="col-sm-6">
             <h2>{{ctrl.trip.title}}</h2>
             <h3>{{ctrl.trip.city}}</h3>
             <h4>{{ctrl.trip.description}}</h4>
         </div>
+
+        <div class="col-sm-6">
+            <img src="{{ctrl.local.image}}">
+            <h2>{{ctrl.local.name}}</h2>
+            <h4>{{ctrl.local.description}}</h4>
+        </div>
+
     </div>
 </div>
 
