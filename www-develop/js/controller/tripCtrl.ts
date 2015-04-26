@@ -2,18 +2,29 @@ module Controller {
     export class TripCtrl {
 
         trip;
+        local;
 
-        constructor(private $scope, private TriplerService, private DataService) {
-            this.getTrip();
+        constructor(private $scope, private TriplerService, private DataService, private UserService) {
+            this.getTrip(1);
         }
 
-        getTrip() {
+        getTrip(trip_ID) {
             this.TriplerService.getTrip().then(result => {
                 this.trip = result;
-                console.info(this.trip);
+
+                //get local information when localID is returned by getTrip()
+                this.UserService.getUser(this.trip.local).then(result => {
+                    this.local = result;
+                });
             });
         }
 
-        static controllerId:string="TripCtrl";
+        getLocalInformation(_localId) {
+            this.UserService.getUser().then(result => {
+                this.trip = result;
+            });
+        }
+
+        static controllerId:string = "TripCtrl";
     }
 }
