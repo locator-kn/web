@@ -19,6 +19,8 @@
 
 /// <reference path="./controller/tripCtrl.ts" />
 
+/// <reference path="./service/userService.ts" />
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -86,6 +88,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)
     .service(Service.DataService.serviceId, Service.DataService)
+    .service(Service.UserService.serviceId, Service.UserService)
 
 
     .directive('megadate', function () {
