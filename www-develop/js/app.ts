@@ -46,7 +46,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
 
             .state('overnight', {
                 url: "/trips/:tripID/overnight",
-                templateUrl: "../templates/overnight.html"
+                templateUrl: "../templates/accomodation.html"
 
             })
 
