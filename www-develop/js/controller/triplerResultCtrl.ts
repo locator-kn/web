@@ -4,7 +4,7 @@ module Controller {
 
         trips;
 
-        constructor($scope, private TriplerService) {
+        constructor($scope, private TriplerService, private $rootScope) {
             this.filteredQuery();
         }
 
@@ -12,6 +12,14 @@ module Controller {
             this.TriplerService.filteredQue().then(result => {
                 this.trips = result;
             })
+        }
+
+        selectTrip(_id) {
+            this.$rootScope.tripselected = true;
+        }
+
+        deselectTrip() {
+            this.$rootScope.tripselected = false;
         }
 
         static controllerId:string = "TriplerResultCtrl";
