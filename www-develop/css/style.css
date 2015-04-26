@@ -152,3 +152,7 @@ body.no-scroll {
     max-height: 800px;
 }
 
+.tripwrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
