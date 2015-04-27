@@ -50,7 +50,7 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
             })
 
             .state('tripresults', {
-                url: "/trips?city&budget&checkin&checkout&persons",
+                url: "/trips?city&budget&checkin&checkout&persons&moods&accomodations",
                 templateUrl: "../templates/tripresults.html"
             })
 
