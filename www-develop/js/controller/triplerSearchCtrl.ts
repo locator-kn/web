@@ -12,10 +12,11 @@ module Controller {
             persons: undefined,
             checkin: undefined,
             checkout: undefined,
-            accomodation: undefined
+            accomodations: undefined,
+            moods: undefined
         };
 
-        constructor(private $scope, private TriplerService, private DataService) {
+        constructor(private $scope, private TriplerService, private DataService, private $location) {
             this.getCities();
             this.getAccomodations();
             this.getMoods();
@@ -39,16 +40,8 @@ module Controller {
             return this.params.persons = value;
         }
 
-        setCheckin(value) {
-            return this.params.checkin = value;
-        }
-
-        setCheckout(value) {
-            return this.params.checkout = value;
-        }
-
         setAccomodation(value) {
-            return this.params.accomodation = value;
+            return this.params.accomodations = value;
         }
 
 
@@ -88,13 +81,14 @@ module Controller {
         }
 
         getSelectedSleepPlaces() {
-            var selectedMoods = []
+            var selectedSleepPlaces = []
             for (var i = 0; i < this.sleepPlaces.length; i++) {
                 if (this.isSelected(i + 1)) {
-                    selectedMoods.push(this.sleepPlaces[i]);
+                    selectedSleepPlaces.push(this.sleepPlaces[i]._id);
                 }
             }
-            return selectedMoods;
+            this.params.accomodations = selectedSleepPlaces.join('.');
+            return selectedSleepPlaces;
         }
 
         // accomodation end //
@@ -118,9 +112,11 @@ module Controller {
             var selectedMoods = []
             for (var i = 0; i < this.moods.length; i++) {
                 if (this.moodIsSelected(i + 1)) {
-                    selectedMoods.push(this.moods[i]);
+                    selectedMoods.push(this.moods[i]._id);
                 }
             }
+            //this.$location.search('test', selectedMoods.join('.'))
+            this.params.moods = selectedMoods.join('.');
             return selectedMoods;
         }
 
@@ -196,10 +192,6 @@ module Controller {
 
         getMoodById(_id) {
             return this.moods[_id - 1];
-        }
-
-        getMoodBinary(selectedMoods) {
-            var binary = '000000000000';
         }
 
         // moodctrl end //
