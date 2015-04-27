@@ -88,6 +88,8 @@ module Controller {
                 }
             }
             this.params.accomodations = selectedSleepPlaces.join('.');
+            //manipulate url
+            this.$location.search('accomodations', this.params.accomodations);
             return selectedSleepPlaces;
         }
 
@@ -115,8 +117,10 @@ module Controller {
                     selectedMoods.push(this.moods[i]._id);
                 }
             }
-            //this.$location.search('test', selectedMoods.join('.'))
+
             this.params.moods = selectedMoods.join('.');
+            //manipulate url
+            this.$location.search('moods', this.params.moods);
             return selectedMoods;
         }
 
