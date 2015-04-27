@@ -5,7 +5,7 @@
 }
 
 .fullsize {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .absolute-slider {
@@ -61,7 +61,7 @@
 
 .modus-container {
     position: relative;
-    height: 50%;
+    height: 50vh;
 }
 
 .local-container {
@@ -87,18 +87,18 @@
     width: 100vw;
 }
 
-.trip-img {
+#results .trip-img {
     height: 100%;
     width: 100%;
 }
 
-.trip {
+#results .trip {
     min-height: 300px;
     background-size: cover;
     border: 15px solid white;
 }
 
-.trip .caption {
+#results .trip .caption {
     background: rgba(255, 255, 255, 0.6);
     padding: 15px;
     position: absolute;
@@ -137,4 +137,22 @@ body.no-scroll {
     overflow: hidden;
 }
 
+#specificTrip {
+    background: orange;
+}
 
+.trip .trip-image {
+    width: 100%;
+}
+
+.trip-img-wrapper {
+    width: 100%
+    float: left;
+    overflow: hidden;
+    max-height: 800px;
+}
+
+.tripwrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

@@ -1,0 +1,21 @@
+<div id="overnight" class="overnight" ng-controller="AccomodationCtrl as ac">
+
+    <div class="row">
+        <div class="center">
+
+            <div class="col-xs-12 headline">
+                <h2>Choose your place to sleep...</h2>
+            </div>
+
+            <div ng-repeat="place in ac.sleepPlaces" class="mood col-sm-4"
+                 ng-class="{selected: ac.isSelected(place._id)}" ng-click="ac.selectSleepPlace(place._id)">
+
+                <h3>{{place.name}}</h3>
+
+            </div>
+
+            <a ng-href="#/tripresults" class="btn btn-default btn-lg">Weiter</a>
+        </div>
+
+    </div>
+</div>

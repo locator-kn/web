@@ -1,14 +1,14 @@
 module Controller {
-    export class OvernightCtrl {
+    export class AccomodationCtrl {
 
         sleepPlaces;
 
-        constructor(private $scope, private OvernightService) {
-            this.getSleepplaces();
+        constructor(private $scope, private DataService) {
+            this.getAccomodations();
         }
 
-        getSleepplaces () {
-            this.OvernightService.sleepplace().then(result => {
+        getAccomodations () {
+            this.DataService.getAccomodations().then(result => {
                 this.sleepPlaces = result;
             })
             console.info(this.sleepPlaces);
@@ -50,6 +50,6 @@ module Controller {
         }
 
 
-        static controllerId:string = "OvernightCtrl";
+        static controllerId:string = "AccomodationCtrl";
     }
 }

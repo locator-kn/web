@@ -12,10 +12,14 @@
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
-/// <reference path="./controller/overnightCtrl.ts" />
-/// <reference path="./service/overnightService.ts" />
+/// <reference path="./controller/accomodationCtrl.ts" />
+/// <reference path="./service/dataService.ts" />
 
 /// <reference path="./controller/moodCtrl.ts" />
+
+/// <reference path="./controller/tripCtrl.ts" />
+
+/// <reference path="./service/userService.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -41,13 +45,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
 
             .state('tripresults', {
                 url: "/tripresults",
-                templateUrl: "../templates/results.html"
-            })
-
-            .state('overnight', {
-                url: "/trips/:tripID/overnight",
-                templateUrl: "../templates/overnight.html"
-
+                templateUrl: "../templates/tripresults.html"
             })
 
             .state('app.login', {
@@ -84,11 +82,13 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
-    .controller(Controller.OvernightCtrl.controllerId, Controller.OvernightCtrl)
+    .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
+    .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)
-    .service(Service.OvernightService.serviceId, Service.OvernightService)
+    .service(Service.DataService.serviceId, Service.DataService)
+    .service(Service.UserService.serviceId, Service.UserService)
 
 
     .directive('megadate', function () {
@@ -101,7 +101,7 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
             template: '<p>{{date}}</p>'
         };
     })
-    
+
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'locale/locale-',
