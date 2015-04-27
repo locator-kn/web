@@ -1,4 +1,4 @@
-<div id="moods" class="moods" ng-controller="MoodCtrl as mc">
+<div id="moods" class="moods">
 
     <div class="row">
         <div class="center">
@@ -7,7 +7,7 @@
                 <h2>Choose your Moods..</h2>
             </div>
 
-            <div ng-repeat="mood in mc.moods" class="mood col-sm-4" ng-class="{selected: mc.isSelected(mood._id), excluded: mc.isExcluded(mood._id)}" ng-click="mc.selectMood(mood._id)">
+            <div ng-repeat="mood in tsc.moods" class="mood col-sm-4" ng-class="{selected: tsc.moodIsSelected(mood._id), excluded: tsc.moodIsExcluded(mood._id)}" ng-click="tsc.selectMood(mood._id)">
 
                 <h3>{{mood.title}}</h3>
 
