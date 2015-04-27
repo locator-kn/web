@@ -10,6 +10,12 @@ module Controller {
         getMoods() {
             this.DataService.getMoods().then(result => {
                 this.moods = result;
+
+                //exclude initial
+                for (var i= 0; i < this.moods.length; i++) {
+                    this.moods[i].excluded = 0;
+                }
+
             });
         }
 
