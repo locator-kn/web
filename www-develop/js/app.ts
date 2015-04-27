@@ -12,6 +12,9 @@
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
+/// <reference path="./controller/editProfileCtrl.ts" />
+/// <reference path="./service/editProfileService.ts" />
+
 /// <reference path="./controller/accomodationCtrl.ts" />
 /// <reference path="./service/dataService.ts" />
 
@@ -66,13 +69,9 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
                 }
             })
 
-            .state('app.profileEdit', {
-                url: "/profileEdit",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/profileEdit.html"
-                    }
-                }
+            .state('editProfile', {
+                url: "/editProfile",
+                templateUrl: "../templates/userProfile/editProfile.html"
             });
 
         $urlRouterProvider.otherwise('/welcome')
@@ -85,10 +84,12 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
+    .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
 
     .service(Service.TriplerService.serviceId, Service.TriplerService)
     .service(Service.DataService.serviceId, Service.DataService)
     .service(Service.UserService.serviceId, Service.UserService)
+    .service(Service.EditProfileService.serviceId, Service.EditProfileService)
 
 
     .directive('megadate', function () {
