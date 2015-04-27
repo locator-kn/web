@@ -7,26 +7,33 @@
 /// <reference path="./controller/modusChooserCtrl.ts" />
 
 
-/// <reference path="./service/triplerService.ts" />
-
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
 /// <reference path="./controller/accomodationCtrl.ts" />
-/// <reference path="./service/dataService.ts" />
 
 /// <reference path="./controller/moodCtrl.ts" />
 
 /// <reference path="./controller/tripCtrl.ts" />
 
+
 /// <reference path="./service/userService.ts" />
+/// <reference path="./service/triplerService.ts" />
+/// <reference path="./service/dataService.ts" />
+
+/// <reference path="./mockedservice/userService.ts" />
+/// <reference path="./mockedservice/triplerService.ts" />
+/// <reference path="./mockedservice/dataService.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
+//set to false if backend is running on localhost
+var mocked = true;
+
+var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
     .constant('basePath', '/api/')
 
@@ -86,11 +93,6 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
 
-    .service(Service.TriplerService.serviceId, Service.TriplerService)
-    .service(Service.DataService.serviceId, Service.DataService)
-    .service(Service.UserService.serviceId, Service.UserService)
-
-
     .directive('megadate', function () {
         return {
             scope: {date: '='},
@@ -108,6 +110,16 @@ angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'p
             suffix: '.json'
         }).preferredLanguage('de');
     });
+
+if (!mocked) {
+    app.service(Service.TriplerService.serviceId, Service.TriplerService)
+        .service(Service.DataService.serviceId, Service.DataService)
+        .service(Service.UserService.serviceId, Service.UserService)
+} else {
+    app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
+        .service(MockedService.DataService.serviceId, MockedService.DataService)
+        .service(MockedService.UserService.serviceId, MockedService.UserService)
+}
 
 
 
