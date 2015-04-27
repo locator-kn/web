@@ -1,0 +1,46 @@
+<div class="editProfile" ng-controller="EditProfileCtrl as ctrl">
+    <div class="container">
+        <h2>Edit profile</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p>Name</p>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <p>{{ctrl.userProfile.name}}</p>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2">
+                        <a href="#">Bearbeiten</a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p>Surname</p>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <p>{{ctrl.userProfile.surname}}</p>
+                    </div>
+                    <div class="col-xs-2 col-xs-offset-2">
+                        <a href="#">Bearbeiten</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="col-xs-12"><h2>Results</h2></div>-->
+        <!--<div class="col-xs-3 trip relative"-->
+             <!--style="background-image: url(https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/10914117_1621555901409542_588958256_n.jpg);"-->
+             <!--ng-repeat="trip in ctrl.trips" ng-click="ctrl.selectTrip(trip._id)" scroll-to="specificTrip">-->
+
+            <!--<div class="caption">-->
+                <!--<h2>{{trip.title}}</h2>-->
+                <!--<h3>{{trip.city}}</h3>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>

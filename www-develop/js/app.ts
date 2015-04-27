@@ -10,6 +10,9 @@
 /// <reference path="./controller/triplerSearchCtrl.ts" />
 /// <reference path="./controller/triplerResultCtrl.ts" />
 
+/// <reference path="./controller/editProfileCtrl.ts" />
+/// <reference path="./service/editProfileService.ts" />
+
 /// <reference path="./controller/accomodationCtrl.ts" />
 
 /// <reference path="./controller/moodCtrl.ts" />
@@ -73,13 +76,9 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
                 }
             })
 
-            .state('app.profileEdit', {
-                url: "/profileEdit",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/profileEdit.html"
-                    }
-                }
+            .state('editProfile', {
+                url: "/editProfile",
+                templateUrl: "../templates/userProfile/editProfile.html"
             });
 
         $urlRouterProvider.otherwise('/welcome')
@@ -92,6 +91,9 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
     .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
     .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
+    .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
+
+
 
     .directive('megadate', function () {
         return {
@@ -119,6 +121,7 @@ if (!mocked) {
     app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
         .service(MockedService.DataService.serviceId, MockedService.DataService)
         .service(MockedService.UserService.serviceId, MockedService.UserService)
+        .service(MockedService.EditProfileService.serviceId, MockedService.EditProfileService)
 }
 
 
