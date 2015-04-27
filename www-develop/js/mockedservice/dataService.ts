@@ -34,18 +34,15 @@ module MockedService {
                     resolve([
                         {
                             "_id": "1",
-                            "name": "couch",
-                            selected: false
+                            "name": "couch"
                         },
                         {
                             "_id": "2",
-                            "name": "room",
-                            selected: false
+                            "name": "room"
                         },
                         {
                             "_id": "3",
-                            "name": "holiday_flat",
-                            selected: false
+                            "name": "holiday_flat"
                         }
                     ]);
                 }, 500);
