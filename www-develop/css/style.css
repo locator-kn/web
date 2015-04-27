@@ -146,10 +146,10 @@ body.no-scroll {
 }
 
 .trip-img-wrapper {
-    width: 100%
+    width: 100%;
     float: left;
     overflow: hidden;
-    max-height: 800px;
+    max-height: 600px;
 }
 
 .tripwrapper {
