@@ -4,7 +4,7 @@ module Controller {
 
         trips;
 
-        constructor($scope,  private TriplerService, private $rootScope) {
+        constructor($scope,  private TriplerService, private $rootScope, private $state, private $stateParams) {
             this.filteredQuery();
             this.$rootScope.tripselected = false;
         }
