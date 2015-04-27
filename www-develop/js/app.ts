@@ -13,10 +13,6 @@
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
-/// <reference path="./controller/accomodationCtrl.ts" />
-
-/// <reference path="./controller/moodCtrl.ts" />
-
 /// <reference path="./controller/tripCtrl.ts" />
 
 
@@ -54,7 +50,7 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
             })
 
             .state('tripresults', {
-                url: "/tripresults",
+                url: "/trips?city&budget&checkin&checkout&persons",
                 templateUrl: "../templates/tripresults.html"
             })
 
@@ -88,8 +84,6 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
     .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
-    .controller(Controller.AccomodationCtrl.controllerId, Controller.AccomodationCtrl)
-    .controller(Controller.MoodCtrl.controllerId, Controller.MoodCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
 
