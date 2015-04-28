@@ -9,7 +9,7 @@ module Service {
         }
 
         getAccomodations() {
-            return this.$http.get(this.basePath + '/data/acc');
+            return this.$http.get(this.basePath + '/data/accommodations');
         }
 
         getMoods() {
