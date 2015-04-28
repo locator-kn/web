@@ -39,19 +39,23 @@ module MockedService {
                             data: [
                                 {
                                     "_id": "1",
-                                    "name": "couch"
+                                    "name": "couch",
+                                    "query_name": 'couch'
                                 },
                                 {
                                     "_id": "2",
-                                    "name": "room"
+                                    "name": "room",
+                                    "query_name": 'room'
                                 },
                                 {
                                     "_id": "3",
-                                    "name": "holiday_flat"
+                                    "name": "holiday_flat",
+                                    "query_name": 'holiday_flat'
                                 },
                                 {
                                     "_id": "4",
-                                    "name": "nothing"
+                                    "name": "none",
+                                    "query_name": 'none'
                                 }
                             ]
                         });
@@ -72,6 +76,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'family_fun',
                                     excludes: []
                                 },
                                 {
@@ -80,6 +85,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'girls_on_tour',
                                     excludes: ['4', '5']
                                 },
                                 {
@@ -88,6 +94,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'buddytrip',
                                     excludes: []
                                 },
                                 {
@@ -96,6 +103,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'singles',
                                     excludes: []
                                 },
                                 {
@@ -104,6 +112,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'liebe',
                                     excludes: []
                                 },
                                 {
@@ -112,6 +121,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'drecksaufest',
                                     excludes: []
                                 },
                                 {
@@ -120,6 +130,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'muskelkater',
                                     excludes: []
                                 },
                                 {
@@ -128,6 +139,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'lecker',
                                     excludes: []
                                 },
                                 {
@@ -136,6 +148,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'gruen',
                                     excludes: []
                                 },
                                 {
@@ -144,6 +157,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'entspannung',
                                     excludes: []
                                 },
                                 {
@@ -152,6 +166,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'kultur',
                                     excludes: []
                                 },
                                 {
@@ -160,6 +175,7 @@ module MockedService {
                                     icon: '',
                                     image: '',
                                     description: '',
+                                    query_name: 'haste_nicht_gesehen',
                                     excludes: []
                                 }]
                         }
