@@ -48,6 +48,10 @@ module MockedService {
                                 {
                                     "_id": "3",
                                     "name": "holiday_flat"
+                                },
+                                {
+                                    "_id": "4",
+                                    "name": "nothing"
                                 }
                             ]
                         });
