@@ -1,19 +1,19 @@
 module Service {
     export class DataService {
-        constructor(private $http) {
+        constructor(private $http, private basePath) {
 
         }
 
         getCities() {
-            return this.$http.get('/data/cities');
+            return this.$http.get(this.basePath + '/data/cities');
         }
 
         getAccomodations() {
-            return this.$http.get('/data/accomodations');
+            return this.$http.get(this.basePath + '/data/acc');
         }
 
         getMoods() {
-            return this.$http.get('/data/moods');
+            return this.$http.get(this.basePath + '/data/moods');
         }
 
         static serviceId:string = "DataService";

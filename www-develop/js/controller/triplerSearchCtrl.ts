@@ -1,4 +1,6 @@
+
 module Controller {
+
     export class TriplerSearchCtrl {
 
         cities;
@@ -20,11 +22,12 @@ module Controller {
             this.getCities();
             this.getAccomodations();
             this.getMoods();
+
         }
 
         getCities() {
             this.DataService.getCities().then(result => {
-                this.cities = result;
+                this.cities = result.data;
             });
         }
 
@@ -49,9 +52,8 @@ module Controller {
 
         getAccomodations () {
             this.DataService.getAccomodations().then(result => {
-                this.sleepPlaces = result;
+                this.sleepPlaces = result.data;
             })
-            console.info(this.sleepPlaces);
         }
 
         selectSleepPlace(_id) {
@@ -100,7 +102,7 @@ module Controller {
 
         getMoods() {
             this.DataService.getMoods().then(result => {
-                this.moods = result;
+                this.moods = result.data;
 
                 //exclude initial
                 for (var i= 0; i < this.moods.length; i++) {

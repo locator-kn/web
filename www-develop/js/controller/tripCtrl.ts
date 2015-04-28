@@ -10,18 +10,18 @@ module Controller {
 
         getTrip(trip_ID) {
             this.TriplerService.getTrip().then(result => {
-                this.trip = result;
+                this.trip = result.data;
 
                 //get local information when localID is returned by getTrip()
                 this.UserService.getUser(this.trip.local).then(result => {
-                    this.local = result;
+                    this.local = result.data;
                 });
             });
         }
 
         getLocalInformation(_localId) {
             this.UserService.getUser().then(result => {
-                this.trip = result;
+                this.trip = result.data;
             });
         }
 

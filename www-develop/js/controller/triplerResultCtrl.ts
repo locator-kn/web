@@ -11,7 +11,7 @@ module Controller {
 
         filteredQuery() {
             this.TriplerService.filteredQue().then(result => {
-                this.trips = result;
+                this.trips = result.data;
             })
         }
 
