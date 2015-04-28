@@ -34,7 +34,7 @@ var mocked = true;
 
 var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
-    .constant('basePath', '/api/')
+    .constant('basePath', 'http://localhost:3001/api/v1')
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
