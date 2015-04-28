@@ -1,4 +1,3 @@
-
 module Controller {
 
     export class TriplerSearchCtrl {
@@ -7,7 +6,10 @@ module Controller {
         accomodations;
         moods;
         selectedMoods = {};
+        selectedMoods_querys = []
         selectedAccomodations = {};
+        selectedAccomodations_querys = []
+
 
         //params for result state
         params = {
@@ -16,7 +18,7 @@ module Controller {
             travellersCount: undefined,
             checkin: undefined,
             checkout: undefined,
-            accomodation: undefined,
+            accomodations: undefined,
             moods: undefined
         };
 
@@ -44,21 +46,19 @@ module Controller {
             return this.params.travellersCount = value;
         }
 
-        setAccomodation(value) {
-            return this.params.accomodation = value;
-        }
-
 
         // accomodation begin //
 
-        getAccomodations () {
+        getAccomodations() {
             this.DataService.getAccomodations().then(result => {
                 this.accomodations = result.data;
             })
         }
 
         toggleAccomodation(accomodation) {
-            this.selectedAccomodations[accomodation.query_name] = !!!this.selectedAccomodations[accomodation.query_name];
+            var querystring = this.toggle(this.selectedAccomodations, accomodation);
+            this.$location.search('accomodation', querystring);
+            this.params.accomodations = querystring;
         }
 
 
@@ -74,7 +74,28 @@ module Controller {
         }
 
         toggleMood(mood) {
-            this.selectedMoods[mood.query_name] = !!!this.selectedMoods[mood.query_name];
+            var querystring = this.toggle(this.selectedMoods, mood);
+            this.$location.search('moods', querystring);
+            this.params.moods = querystring;
+
+        }
+
+
+        toggle(selection, item) {
+            selection[item.query_name] = !!!selection[item.query_name];
+            var querystring = '';
+            for (var key in selection) {
+                if (selection.hasOwnProperty(key)) {
+                    var obj = selection[key];
+                    if (obj === true) {
+                        querystring += key + '.'
+                    }
+                }
+            }
+            querystring = querystring.substring(0, querystring.length - 1);
+            querystring = querystring || null;
+
+            return querystring;
         }
 
         // moodctrl end //
