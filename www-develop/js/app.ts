@@ -107,7 +107,7 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
         }).preferredLanguage('de');
     });
 
-if (!live) {
+if (live) {
     app.service(Service.TriplerService.serviceId, Service.TriplerService)
         .service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
