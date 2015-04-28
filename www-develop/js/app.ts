@@ -30,7 +30,7 @@
 // the 2nd parameter is an array of 'requires'
 
 //set to false if backend is running on localhost
-var mocked = true;
+var live = '<%= live %>';
 
 var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
@@ -107,7 +107,7 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
         }).preferredLanguage('de');
     });
 
-if (!mocked) {
+if (!live) {
     app.service(Service.TriplerService.serviceId, Service.TriplerService)
         .service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
