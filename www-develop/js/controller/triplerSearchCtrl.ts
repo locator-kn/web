@@ -4,17 +4,19 @@ module Controller {
     export class TriplerSearchCtrl {
 
         cities;
-        sleepPlaces;
+        accomodations;
         moods;
+        selectedMoods = {};
+        selectedAccomodations = {};
 
         //params for result state
         params = {
             city: undefined,
             budget: undefined,
-            persons: undefined,
+            travellersCount: undefined,
             checkin: undefined,
             checkout: undefined,
-            accomodations: undefined,
+            accomodation: undefined,
             moods: undefined
         };
 
@@ -22,7 +24,6 @@ module Controller {
             this.getCities();
             this.getAccomodations();
             this.getMoods();
-
         }
 
         getCities() {
@@ -40,11 +41,11 @@ module Controller {
         }
 
         setPersons(value) {
-            return this.params.persons = value;
+            return this.params.travellersCount = value;
         }
 
         setAccomodation(value) {
-            return this.params.accomodations = value;
+            return this.params.accomodation = value;
         }
 
 
@@ -52,152 +53,28 @@ module Controller {
 
         getAccomodations () {
             this.DataService.getAccomodations().then(result => {
-                this.sleepPlaces = result.data;
+                this.accomodations = result.data;
             })
         }
 
-        selectSleepPlace(_id) {
-
-            if (this.isSelected(_id)) {
-                this.deSelectSleepPlace((_id));
-            } else {
-                this.getSleepPlaceById(_id).selected = true;
-            }
-
-            console.info('ID: ' + _id + ' selected');
-            console.info(this.getSelectedSleepPlaces());
-
+        toggleAccomodation(accomodation) {
+            this.selectedAccomodations[accomodation.query_name] = !!!this.selectedAccomodations[accomodation.query_name];
         }
 
-        deSelectSleepPlace(_id) {
-            this.getSleepPlaceById(_id).selected = false;
-        }
-
-        isSelected(_id) {
-            return this.getSleepPlaceById(_id).selected;
-        }
-
-
-        getSleepPlaceById(_id) {
-            return this.sleepPlaces[_id - 1];
-        }
-
-        getSelectedSleepPlaces() {
-            var selectedSleepPlaces = []
-            for (var i = 0; i < this.sleepPlaces.length; i++) {
-                if (this.isSelected(i + 1)) {
-                    selectedSleepPlaces.push(this.sleepPlaces[i]._id);
-                }
-            }
-            this.params.accomodations = selectedSleepPlaces.join('.');
-            //manipulate url
-            this.$location.search('accomodations', this.params.accomodations);
-            return selectedSleepPlaces;
-        }
 
         // accomodation end //
 
 
         // moods begin //
-
         getMoods() {
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
-
-                //exclude initial
-                for (var i= 0; i < this.moods.length; i++) {
-                    this.moods[i].excluded = 0;
-                }
-
+                console.info(this.moods)
             });
         }
 
-        getSelectedMoods() {
-            var selectedMoods = []
-            for (var i = 0; i < this.moods.length; i++) {
-                if (this.moodIsSelected(i + 1)) {
-                    selectedMoods.push(this.moods[i]._id);
-                }
-            }
-
-            this.params.moods = selectedMoods.join('.');
-            //manipulate url
-            this.$location.search('moods', this.params.moods);
-            return selectedMoods;
-        }
-
-        deselectAllMoods() {
-            for (var i = 0; i < this.moods.length; i++) {
-                this.deSelectMood(i);
-            }
-        }
-
-        /*
-         triggers selection of the mood with _id.
-         */
-        selectMood(_id) {
-
-            if (this.moodIsExcluded(_id)) {
-                return;
-            }
-
-            if (this.moodIsSelected(_id)) {
-                this.deSelectMood((_id));
-
-                // include the excludes again from Mood with _id
-                for (var i = 0; i < this.getMoodExcludes(_id).length; i++) {
-                    this.includeMood(this.getMoodExcludes(_id)[i]);
-                }
-
-
-            } else {
-                this.getMoodById(_id).selected = true;
-
-                // exclude the excludes from Mood with _id
-                for (var i = 0; i < this.getMoodExcludes(_id).length; i++) {
-                    this.excludeMood(this.getMoodExcludes(_id)[i]);
-                }
-            }
-
-            console.info('ID: ' + _id + 'selected');
-            console.info(this.getSelectedMoods());
-        }
-
-        deSelectMood(_id) {
-            this.getMoodById(_id).selected = false;
-        }
-
-        moodIsSelected(_id) {
-            if (!this.moodIsExcluded(_id)) {
-                return this.getMoodById(_id).selected;
-            }
-
-        }
-
-        moodIsExcluded(_id) {
-
-            return this.getMoodById(_id).excluded > 0;
-
-        }
-
-        excludeMood(_id) {
-            this.getMoodById(_id).excluded += 1;
-        }
-
-        includeMood(_id) {
-
-            if (this.getMoodById(_id).excluded > 0) {
-                this.getMoodById(_id).excluded -= 1;
-            }
-
-        }
-
-        getMoodExcludes(_id) {
-            return this.getMoodById(_id).excludes;
-        }
-
-        getMoodById(_id) {
-            return this.moods[_id - 1];
+        toggleMood(mood) {
+            this.selectedMoods[mood.query_name] = !!!this.selectedMoods[mood.query_name];
         }
 
         // moodctrl end //

@@ -7,8 +7,8 @@
                 <h2>Choose your place to sleep...</h2>
             </div>
 
-            <div ng-repeat="place in tsc.sleepPlaces" class="mood col-sm-3"
-                 ng-class="{selected: tsc.isSelected(place._id)}" ng-click="tsc.selectSleepPlace(place._id)">
+            <div ng-repeat="place in tsc.accomodations" class="mood col-sm-3"
+                 ng-class="{selected: tsc.selectedAccomodations[place.query_name]}" ng-click="tsc.toggleAccomodation(place)">
 
                 <h3>{{place.name}}</h3>
 
