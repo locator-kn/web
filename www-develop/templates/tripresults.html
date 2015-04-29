@@ -1,4 +1,7 @@
-<div ng-include="'templates/tripresults/navbar.html'" id="nav"></div>
-<div class="container-fluid fullsize" ng-include="'templates/tripresults/results.html'" id="results"></div>
-<!-- this div is just shown, when a specific trip is selected -->
-<div ng-show="tripselected" class="container-fluid fullsize" ng-include="'templates/tripresults/trip.html'" id="specificTrip"></div>
+<div ng-controller="TripResultsCtrl as trc">
+    <div ng-include="'templates/tripresults/navbar.html'" id="nav"></div>
+    <div class="container-fluid fullsize" ng-include="'templates/tripresults/results.html'" id="results"></div>
+    <!-- this div is just shown, when a specific trip is selected -->
+    <div ng-show="tripselected" class="container-fluid fullsize" ng-include="'templates/tripresults/trip.html'"
+         id="specificTrip"></div>
+</div>

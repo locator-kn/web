@@ -1,9 +1,9 @@
-<div class="results" ng-controller="TriplerResultCtrl as ctrl">
+<div class="results">
     <div class="row">
         <div class="col-xs-12"><h2>Results</h2></div>
         <div class="col-xs-3 trip relative"
              style="background-image: url(https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/10914117_1621555901409542_588958256_n.jpg);"
-             ng-repeat="trip in ctrl.trips" ng-click="ctrl.selectTrip(trip._id)" scroll-to="specificTrip">
+             ng-repeat="trip in trc.trips" ng-click="trc.selectTrip(trip._id)" scroll-to="specificTrip">
 
             <div class="caption">
                 <h2>{{trip.title}}</h2>

@@ -1,6 +1,6 @@
 module Controller {
 
-    export class TriplerSearchCtrl {
+    export class TripSearchCtrl {
 
         cities;
         accomodations;
@@ -103,6 +103,6 @@ module Controller {
         }
 
         // moodctrl end //
-        static controllerId:string = "TriplerSearchCtrl";
+        static controllerId:string = "TripSearchCtrl";
     }
 }

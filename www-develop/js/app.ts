@@ -7,8 +7,8 @@
 /// <reference path="./controller/modusChooserCtrl.ts" />
 
 
-/// <reference path="./controller/triplerSearchCtrl.ts" />
-/// <reference path="./controller/triplerResultCtrl.ts" />
+/// <reference path="./controller/tripSearchCtrl.ts" />
+/// <reference path="./controller/tripResultsCtrl.ts" />
 
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
@@ -82,8 +82,8 @@ var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothSc
         $urlRouterProvider.otherwise('/welcome')
     })
 
-    .controller(Controller.TriplerSearchCtrl.controllerId, Controller.TriplerSearchCtrl)
-    .controller(Controller.TriplerResultCtrl.controllerId, Controller.TriplerResultCtrl)
+    .controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
+    .controller(Controller.TripResultsCtrl.controllerId, Controller.TripResultsCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)

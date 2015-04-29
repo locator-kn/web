@@ -1,6 +1,6 @@
 
 module Controller {
-    export class TriplerResultCtrl {
+    export class TripResultsCtrl {
 
         trips;
 
@@ -23,6 +23,6 @@ module Controller {
             this.$rootScope.tripselected = false;
         }
 
-        static controllerId:string = "TriplerResultCtrl";
+        static controllerId:string = "TripResultsCtrl";
     }
 }
