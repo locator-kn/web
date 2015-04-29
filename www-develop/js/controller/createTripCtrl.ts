@@ -14,8 +14,10 @@ module Controller {
         }
 
         open() {
-            this.ngDialog.open({template: './templates/modal/locations.html'});
-            console.info("yo");
+            this.ngDialog.open({
+                template: './templates/modal/locations.html',
+                className: 'ngdialog-theme-default locations'
+            });
         }
 
 
