@@ -31,10 +31,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-//set to false if backend is running on localhost
+//set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
+var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64'])
 
     .constant('basePath', 'http://localhost:3001/api/v1')
 
