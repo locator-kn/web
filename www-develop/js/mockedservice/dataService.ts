@@ -1,7 +1,19 @@
 module MockedService {
     export class DataService {
-        constructor(private $q) {
 
+        checkinDate;
+        checkoutDate;
+
+        constructor(private $q) {
+            this.checkinDate = new Date();
+            this.checkoutDate = moment(this.checkinDate).add('days', 3).toDate();
+        }
+
+        getDates() {
+            return {
+                "checkinDate": this.checkinDate,
+                "checkoutDate": this.checkoutDate
+            }
         }
 
         getCities() {

@@ -1,7 +1,19 @@
 module Service {
     export class DataService {
-        constructor(private $http, private basePath) {
 
+        checkinDate;
+        checkoutDate;
+
+        constructor(private $http, private basePath) {
+            this.checkinDate = new Date();
+            this.checkoutDate = moment(this.checkinDate).add('days', 3).toDate();
+        }
+
+        getDates() {
+            return {
+                "checkinDate": this.checkinDate,
+                "checkoutDate": this.checkoutDate
+            }
         }
 
         getCities() {
