@@ -26,6 +26,10 @@ module Controller {
             this.getCities();
             this.getAccomodations();
             this.getMoods();
+
+            // initial loading of todays and todays + 3 date
+            this.params.checkin = DataService.getDates().checkinDate;
+            this.params.checkout = DataService.getDates().checkoutDate;
         }
 
         getCities() {
