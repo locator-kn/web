@@ -15,7 +15,7 @@
 
 /// <reference path="./controller/tripCtrl.ts" />
 
-/// <reference path="./controller/createTrip.ts" />
+/// <reference path="./controller/createTripCtrl.ts" />
 
 
 /// <reference path="./service/userService.ts" />
