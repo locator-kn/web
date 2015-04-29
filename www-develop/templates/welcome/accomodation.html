@@ -8,12 +8,15 @@
             </div>
 
             <div ng-repeat="place in tsc.accomodations" class="mood col-sm-3"
-                 ng-class="{selected: tsc.selectedAccomodations[place.query_name]}" ng-click="tsc.toggleAccomodation(place)">
+                 ng-class="{selected: tsc.selectedAccomodations[place.query_name]}"
+                 ng-click="tsc.toggleAccomodation(place)">
 
                 <h3>{{place.name}}</h3>
 
             </div>
         </div>
+
         <a ui-sref="tripresults(tsc.params)" class="btn btn-default btn-lg">Weiter</a>
+
     </div>
 </div>

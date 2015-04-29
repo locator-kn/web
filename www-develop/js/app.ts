@@ -15,6 +15,10 @@
 
 /// <reference path="./controller/tripCtrl.ts" />
 
+/// <reference path="./controller/provideTripCtrl.ts" />
+
+
+
 
 /// <reference path="./service/userService.ts" />
 /// <reference path="./service/triplerService.ts" />
@@ -86,6 +90,7 @@ var app = angular.module('starter', ['angular-flexslider', 'smoothScroll', 'ui.r
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
+    .controller(Controller.ProvideTripCtrl.controllerId, Controller.ProvideTripCtrl)
 
 
 

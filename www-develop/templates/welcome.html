@@ -6,9 +6,9 @@
     <div class="container-fluid fullsize" ng-include="'templates/welcome/moods.html'"></div>
     <div class="container-fluid fullsize" ng-include="'templates/welcome/accomodation.html'"></div>
 </div>
-<div id="local" ng-show="showLocalView">
-    <h1>Local View here</h1>
-</div>
 
+<div ng-show="showLocalView" ng-controller="ProvideTripCtrl as ptc">
+    <div class="container-fluid fullsize" ng-include="'templates/welcome/provideTrip.html'"></div>
+</div>
 
 
