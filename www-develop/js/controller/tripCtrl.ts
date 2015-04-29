@@ -18,13 +18,7 @@ module Controller {
                 });
             });
         }
-
-        getLocalInformation(_localId) {
-            this.UserService.getUser().then(result => {
-                this.trip = result.data;
-            });
-        }
-
+        
         static controllerId:string = "TripCtrl";
     }
 }
