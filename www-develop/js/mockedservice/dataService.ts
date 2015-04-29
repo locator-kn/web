@@ -6,7 +6,7 @@ module MockedService {
 
         constructor(private $q) {
             this.checkinDate = new Date();
-            this.checkoutDate = moment(this.checkinDate).add('days', 3).toDate();
+            this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
         }
 
         getDates() {
