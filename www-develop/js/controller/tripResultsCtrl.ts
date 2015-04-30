@@ -1,17 +1,17 @@
 
 module Controller {
-    export class TriplerResultCtrl {
+    export class TripResultsCtrl {
 
         trips;
 
-        constructor($scope,  private TriplerService, private $rootScope) {
+        constructor($scope,  private TriplerService, private $rootScope, private $state, private $stateParams) {
             this.filteredQuery();
             this.$rootScope.tripselected = false;
         }
 
         filteredQuery() {
             this.TriplerService.filteredQue().then(result => {
-                this.trips = result;
+                this.trips = result.data;
             })
         }
 
@@ -23,6 +23,6 @@ module Controller {
             this.$rootScope.tripselected = false;
         }
 
-        static controllerId:string = "TriplerResultCtrl";
+        static controllerId:string = "TripResultsCtrl";
     }
 }

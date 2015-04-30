@@ -21,5 +21,13 @@
 
     "WC_TRIPLER_TRAVEL_DESTINATION": "Reiseziel",
     "WC_TRIPLER_DATE_FROM": "Von",
-    "WC_TRIPLER_DATE_TO": "Bis"
+    "WC_TRIPLER_DATE_TO": "Bis",
+
+    "TITLE": "Titel",
+    "DESCRIPTION": "Beschreibung",
+    "CHECKIN": "Checkin",
+    "CHECKOUT": "Checkout",
+    "CITY": "Stadt",
+
+    "TRIP_SUBMIT": "Einstellen"
 }

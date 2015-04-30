@@ -156,3 +156,8 @@ body.no-scroll {
     padding-top: 40px;
     padding-bottom: 40px;
 }
+
+.container-fluid .container {
+    padding-left: 0;
+    padding-right: 0;
+}

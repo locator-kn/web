@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-href="#/">Locator</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <form class="navbar-form navbar-left">
+                    <div class="form">
+                        <input type="text" class="form-control" placeholder="Konstanz">
+                    </div>
+                </form>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="date" value="2013-01-08" class="form-control">
+                    </div>
+                </form>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="date" value="2015-04-27" class="form-control">
+                    </div>
+                </form>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <label>4</label>
+                        <img src="http://simpleicon.com/wp-content/uploads/user1.png" width="10" height="10">
+                        <span class="caret">
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </li>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input ng-model="budget" type="range" min="50" max="500" step="5" value="50"/>
+                        50€
+                    </div>
+                </form>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">accomodations <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">moods <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="trc.filteredQuery()">
+                            Go for it!
+                        </button>
+                    </div>
+                </form>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

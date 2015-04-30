@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge2');
 var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
+var template = require('gulp-template');
 
 
 var tsProjectEmily = ts.createProject({
@@ -23,7 +24,9 @@ gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale']);
 
 
 gulp.task('ts', function () {
+    var live = process.argv[2] === '--live' || process.argv[3] === '--live';
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
+        .pipe(template({live: live || ''}))
         .pipe(sourcemaps.init())
         .pipe(ts(tsProjectEmily));
 

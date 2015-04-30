@@ -1,0 +1,115 @@
+<div class="editProfile" ng-controller="EditProfileCtrl as ctrl">
+    <div class="container">
+        <h2>Edit profile</h2>
+        <div id="menu">
+            <div class="panel list-group">
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#edit-name" data-parent="#menu">Name
+                    <span class="glyphicon glyphicon-tag pull-right pull-right"></span>
+                </a>
+                <div id="edit-name" class="sublinks collapse">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                                <p>Name</p>
+                            </div>
+                            <div class="col-xs-2" style="margin-top: 10px">
+                                <input type="text" value="{{ctrl.userProfile.name}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-3">
+                                <p>Nachname</p>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" value="{{ctrl.userProfile.surname}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-3">
+                                <button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-name">Save changes</button>
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-name">Cancel</button>
+                            </div>
+                        </div>
+                </div>
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#edit-email" data-parent="#menu">Email<span class="glyphicon glyphicon-envelope pull-right"></span></a>
+                <div id="edit-email" class="sublinks collapse">
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                            <p>E-Mail</p>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 10px">
+                            <input type="text" value="{{ctrl.userProfile.mail}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3">
+                            <button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-email">Save changes</button>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-email">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#edit-password" data-parent="#menu">Password<span class="glyphicon glyphicon-log-in pull-right"></span></a>
+                <div id="edit-password" class="sublinks collapse">
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                            <p>Actual password</p>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 10px">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                            <p>New password</p>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 10px">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                            <p>Confirm new password</p>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 10px">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3">
+                            <button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-password">Save changes</button>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-password">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="list-group-item" data-toggle="collapse" data-target="#edit-picture" data-parent="#menu">Picture<span class="glyphicon glyphicon-picture pull-right"></span></a>
+                <div id="edit-picture" class="sublinks collapse">
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                            <img src="{{ctrl.userProfile.picture}}" style="width: 200px; height=200px">
+                        </div>
+                        <div class="col-xs-2 col-xs-offset-1" style="margin-top: 50px">
+                            <div class="input-group-btn">
+                                <div class="btn btn-info btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Browse … <input id="input-browse" type="file" class="file"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-xs-offset-3">
+                            <button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Save changes</button>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
