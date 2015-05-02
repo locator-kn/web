@@ -89,22 +89,27 @@
                 <a href="#" class="list-group-item" data-toggle="collapse" data-target="#edit-picture" data-parent="#menu">Picture<span class="glyphicon glyphicon-picture pull-right"></span></a>
                 <div id="edit-picture" class="sublinks collapse">
                     <div class="row">
-                        <div class="col-xs-2 col-xs-offset-3" style="margin-top: 10px">
+                        <div class="col-xs-2 col-xs-offset-1" style="margin-top: 10px">
                             <img src="{{ctrl.userProfile.picture}}" style="width: 200px; height=200px">
                         </div>
-                        <div class="col-xs-2 col-xs-offset-1" style="margin-top: 50px">
-                            <div class="input-group-btn">
-                                <div class="btn btn-info btn-file"> <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Browse … <input id="input-browse" type="file" class="file"></div>
+                        <div class="col-xs-8 col-xs-offset-1">
+                            <input style="margin-top: 10px" type="file" nv-file-select="" uploader="ctrl.uploader"/>
+                            <div class="upload-area" ng-repeat="item in ctrl.uploader.queue">
+                                <button class="btn btn-primary" ng-click="item.upload()" style="margin-top: 15px">
+                                    Upload image
+                                </button>
+                                <div class="progress" style="margin-top: 20px;">
+                                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2 col-xs-offset-3">
-                            <button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Save changes</button>
-                        </div>
-                        <div class="col-xs-2">
-                            <button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Cancel</button>
-                        </div>
+                        
+                        <!--<div class="col-xs-2 col-xs-offset-3">-->
+                            <!--<button class="btn btn-primary" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Save changes</button>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-2">-->
+                            <!--<button class="btn btn-danger" style="width: 150px" data-toggle="collapse" data-target="#edit-picture">Cancel</button>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
