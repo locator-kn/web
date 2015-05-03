@@ -3,9 +3,9 @@ module Controller {
 
         constructor($scope) {
             $scope.slides = [
-                'https://download.unsplash.com/photo-1428591501234-1ffcb0d6871f',
-                'https://download.unsplash.com/photo-1428342319217-5fdaf6d7898e',
-                'https://download.unsplash.com/photo-1422433555807-2559a27433bd',
+                'https://ununsplash.imgix.net/photo-1429105049372-8d928fd29ba1?fit=crop&fm=jpg&h=700&q=75&w=1050',
+                'https://ununsplash.imgix.net/photo-1429043794791-eb8f26f44081?fit=crop&fm=jpg&h=775&q=75&w=1050',
+                'https://unsplash.imgix.net/photo-1428908799722-0a74e26ce7f6?fit=crop&fm=jpg&h=700&q=75&w=1050',
             ];
         }
 
