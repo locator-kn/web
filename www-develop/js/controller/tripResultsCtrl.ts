@@ -9,7 +9,8 @@ module Controller {
             this.filteredQuery();
             this.$rootScope.tripselected = false;
             this.params = $stateParams;
-            console.log(this.params.travellersCount);
+            this.params.checkin = new Date(this.params.checkin);
+            this.params.checkout = new Date(this.params.checkout);
         }
 
         filteredQuery() {
