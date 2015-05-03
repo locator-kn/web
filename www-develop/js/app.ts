@@ -52,7 +52,7 @@ var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothSc
             })
 
             .state('tripresults', {
-                url: "/trips?city&budget&checkin&checkout&persons&moods&accomodations",
+                url: "/trips?city&budget&checkin&checkout&travellersCount&moods&accomodations",
                 templateUrl: "../templates/tripresults.html"
             })
 
