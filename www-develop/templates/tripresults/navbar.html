@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav">
                 <form class="navbar-form navbar-left">
                     <div class="form">
-                        <input type="text" class="form-control" placeholder="Konstanz">
+                        <input type="text" class="form-control" placeholder="{{trc.params.city}}">
                     </div>
                 </form>
                 <form class="navbar-form navbar-left">
@@ -31,7 +31,7 @@
                 </form>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <label>4</label>
+                        <label>{{trc.params.travellersCount}}</label>
                         <img src="http://simpleicon.com/wp-content/uploads/user1.png" width="10" height="10">
                         <span class="caret">
                         </span>
@@ -45,8 +45,8 @@
                 </li>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input ng-model="budget" type="range" min="50" max="500" step="5" value="50"/>
-                        50€
+                        <input ng-model="trc.params.budget" type="range" min="50" max="500" step="5" value="50"/>
+                        {{trc.params.budget}}€
                     </div>
                 </form>
                 <li class="dropdown">

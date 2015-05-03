@@ -3,10 +3,13 @@ module Controller {
     export class TripResultsCtrl {
 
         trips;
+        params;
 
         constructor($scope,  private TriplerService, private $rootScope, private $state, private $stateParams) {
             this.filteredQuery();
             this.$rootScope.tripselected = false;
+            this.params = $stateParams;
+            console.log(this.params.travellersCount);
         }
 
         filteredQuery() {
