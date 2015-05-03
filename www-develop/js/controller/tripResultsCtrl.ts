@@ -27,6 +27,10 @@ module Controller {
             this.$rootScope.tripselected = false;
         }
 
+        setTraveller(value) {
+            this.params.travellersCount = value;
+        }
+
         static controllerId:string = "TripResultsCtrl";
     }
 }
