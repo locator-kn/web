@@ -47,7 +47,7 @@ gulp.task('serve', function () {
     gulp.src('www')
         .pipe(server({
             livereload: {
-                enable: true,
+                enable: false,
                 filter: function (filePath, cb) {
                     cb(!(/lib/.test(filePath)));
                 }
@@ -73,7 +73,11 @@ gulp.task('lib', function () {
     gulp.src('./www-develop/lib/**/*').pipe(gulp.dest('./www/lib'));
 });
 
-gulp.task('watch', ['ts', 'html', 'css', 'lib', 'locale'], function () {
+gulp.task('img', function () {
+    gulp.src('./www-develop/images/**/*').pipe(gulp.dest('./www/images'));
+});
+
+gulp.task('watch', ['ts', 'html', 'css', 'lib', 'img', 'locale'], function () {
     gulp.watch('./www-develop/**/*.ts', ['ts']);
     gulp.watch('./www-develop/**/*.css', ['css']);
     gulp.watch('./www-develop/**/*.html', ['html']);
