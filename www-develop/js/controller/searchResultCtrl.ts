@@ -1,17 +1,15 @@
 module Controller {
     export class SearchResultCtrl {
-        result:any;
+        results:any;
         constructor(private $scope, private $rootScope, private $location, private SearchService) {
-            this.query = $location.search();
 
             $rootScope.$on('loading', () => {
-                console.log('loading')
-                this.result = 'loading'
+                console.log('loading');
             });
 
             $rootScope.$on('newSearchResults', (scope, result) => {
                 console.log('newSearchResults', arguments);
-                this.result = result;
+                this.results = result;
             });
         }
 

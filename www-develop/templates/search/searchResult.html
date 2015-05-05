@@ -1,3 +1,15 @@
 <div ng-controller="SearchResultCtrl as src">
-    {{src.result}}
+    <div class="results" ng-repeat="result in src.results">
+        <div class="result">
+            <h3>{{result.title}}</h3><br/>
+            <p>{{result.description}}</p><br/>
+            city: {{result.city}}<br/>
+            start_date: {{result.start_date}}<br/>
+            end_date: {{result.end_date}}<br/>
+            budget: {{result.budget}}<br/>
+            category: {{result.category}}<br/>
+            locations: {{result.locations}}<br/>
+            pics: {{result.pics}}
+        </div>
+    </div>
 </div>
