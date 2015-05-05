@@ -4,6 +4,11 @@
 
 /// <reference path="./controller/slideCtrl.ts" />
 
+/// <reference path="./controller/searchMainCtrl.ts" />
+/// <reference path="./controller/searchCtrl.ts" />
+
+/// <reference path="./controller/userHeaderCtrl.ts" />
+
 /// <reference path="./controller/modusChooserCtrl.ts" />
 
 
@@ -34,7 +39,7 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngImgCrop'])
+var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload'])
 
     .constant('basePath', '/api/v1')
 
@@ -48,6 +53,14 @@ var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothSc
             .state('welcome', {
                 url: "/welcome",
                 templateUrl: "../templates/welcome.html"
+
+            })
+
+            .state('search', {
+                url: "/search?city&dateFrom&dateTo&range",
+                templateUrl: "../templates/search/search.html",
+                controller: 'SearchCtrl',
+                controllerAs: 'sc'
 
             })
 
@@ -89,6 +102,9 @@ var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothSc
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.CreateTripCtrl.controllerId, Controller.CreateTripCtrl)
+    .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
+    .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
+    .controller(Controller.UserHeaderCtrl.controllerId, Controller.UserHeaderCtrl)
 
 
 

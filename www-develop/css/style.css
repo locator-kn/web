@@ -1,6 +1,8 @@
-
+* {
+    font-family: 'Signika', Helvetica neue, Arial;
+}
 .opener h2 {
-    font-family: Helvetica neue, Arial;
+    font-family: 'Signika', Helvetica neue, Arial;
     font-weight: 100;
 }
 
@@ -10,6 +12,7 @@
 
 .absolute-slider {
     position: absolute;
+    z-index: -1;
     width: 100%;
     height: 100%;
     left: 0;
@@ -161,3 +164,110 @@ body.no-scroll {
     padding-left: 0;
     padding-right: 0;
 }
+
+/* new home */
+.home-searchbar {
+    width: 100%;
+    position: absolute;
+    bottom: 170px;
+    left:0;
+    z-index: 99999;
+}
+.home-searchbar .search .white {
+    color: #fff;
+}
+.home-searchbar .search .padding-top {
+    padding: 15px 0 0 0;
+}
+.home-searchbar .search {
+    width: 80%;
+    float: left;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-left: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+.home-searchbar .search .search-arrow-left {
+    background: url("./../images/arrow-left.png");
+    height: 58px;
+    width: 127px;
+    float: left;
+}
+
+.home-searchbar .search .search-button-right {
+    background: #fff;
+    height: 58px;
+    width: 128px;
+    float: right;
+}
+
+.home-searchbar .search .search-range-slider {
+    height: 58px;
+    width: 255px;
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+.home-searchbar .search .search-date-button {
+    background: #fff;
+    height: 58px;
+    width: 60px;
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+.home-searchbar .create {
+    width: 10%;
+    float: right;
+
+}
+.home-searchbar .create .create-arrow-right {
+    background: url("./../images/arrow-right.png");
+    height: 58px;
+    width: 127px;
+}
+
+.input-city, .input-city:focus {
+    background: none;
+    border:none;
+    outline: none;
+}
+
+.logo {
+    width: 100%;
+    margin: 0 auto;
+}
+.logo .home-logo {
+    width: 155px;
+    margin: 50px auto;
+}
+
+.input-city::-webkit-input-placeholder { color:#fff; }
+.input-city::-moz-placeholder { color:#fff; } /* firefox 19+ */
+.input-city:-ms-input-placeholder { color:#fff; } /* ie */
+.input-city:-moz-placeholder { color:#fff; }
+
+.user-header-bar {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.user-header-bar .btn-group {
+    width: 300px;
+    padding: 10px 50px;
+    float: right;
+}
+.user-header-bar .btn-group a {
+    color:#fff;
+}
+.user-header-bar .btn-group a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+.user-header-bar .btn-group .register, .user-header-bar .btn-group .login {
+    padding: 5px;
+    margin: 0 5px;
+    float: left;
+}
+

@@ -1,27 +1,25 @@
 <div class="opener">
-
-    <div class="absolute-slider" ng-controller="SlideCtrl">
-        <flex-slider class="static" slide="s in slides">
-            <li>
-                <img ng-src="{{s}}">
-            </li>
-        </flex-slider>
-    </div>
-
-    <div class="row">
-        <div class="absolute-front">
-            <div class="center">
-
-                <div class="col-xs-12 headline">
-                    <h2><u>Tripl</u></h2>
-                </div>
-
-                <div class="col-xs-12 headline">
-                    <h2><u>Dein Trip, wie du ihn möchtest</u></h2>
-                </div>
-
-                <a href="#" scroll-to="modus">Click me!</a>
-            </div>
+    <div class="logo">
+        <div class="home-logo">
+            <img src="../../images/locator-logo-big.png" alt=""/>
         </div>
     </div>
+    <div class="home-searchbar" ng-controller="SearchMainCtrl as smc">
+        <div class="search">
+            <div class="search-arrow-left">ico</div>
+            <div class="search-button-right padding-top" ui-sref="search({city: smc.query.city, dateFrom: smc.query.dateFrom, dateTo: smc.query.dateTo, range: smc.query.range})">suchen</div>
+
+            <div class="search-range-slider white padding-top">
+                <input ng-model="smc.query.range" type="range" min="1" max="10" step="1" /> {{smc.query.range}}
+            </div>
+            <div class="search-date-button padding-top">date</div>
+            <div class="search-location white padding-top">
+                <input type="text" class="input-city" ng-model="smc.query.city" placeholder="wohin solls gehn"/>
+            </div>
+        </div>
+        <div class="create">
+            <div class="create-arrow-right"></div>
+        </div>
+    </div>
+
 </div>
