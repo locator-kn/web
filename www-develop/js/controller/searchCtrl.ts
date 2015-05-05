@@ -1,10 +1,12 @@
 module Controller {
     export class SearchCtrl {
         query:any;
-        constructor(private $scope, private $location, private SearchService) {
+        constructor(private $scope, private $rootScope, private $location, private SearchService) {
             this.query = $location.search();
 
-            this.search();
+
+
+            this.$rootScope.$emit('loading');
 
             console.log(this.query);
             this.$scope.$watch(angular.bind(this, (query) => {
@@ -31,6 +33,10 @@ module Controller {
                 this.updateUrl()
             });
 
+            setTimeout(() => {
+                this.search();
+            }, 1000)
+
         }
 
         updateUrl() {
@@ -38,7 +44,7 @@ module Controller {
         }
 
         search() {
-            this.$scope.$emit('loading');
+            this.$rootScope.$emit('loading');
             this.SearchService.getAllTrips()
                 .then(result => {
                     this.emitResult(result.data);
@@ -46,7 +52,7 @@ module Controller {
         }
 
         emitResult(result) {
-            this.$scope.$emit('newSearchResults', result);
+            this.$rootScope.$emit('newSearchResults', result);
         }
 
         static controllerId:string = "SearchCtrl";
