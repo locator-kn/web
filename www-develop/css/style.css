@@ -189,9 +189,6 @@ body.no-scroll {
     font-weight: 400;
 }
 .home-searchbar .search .search-arrow-left {
-    background: url("./../images/arrow-left.png");
-    height: 58px;
-    width: 127px;
     float: left;
 }
 
@@ -218,14 +215,8 @@ body.no-scroll {
 }
 
 .home-searchbar .create {
-    width: 10%;
     float: right;
 
-}
-.home-searchbar .create .create-arrow-right {
-    background: url("./../images/arrow-right.png");
-    height: 58px;
-    width: 127px;
 }
 
 .input-city, .input-city:focus {
