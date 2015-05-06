@@ -43,17 +43,20 @@
 </head>
 
 <body ng-app="starter">
-    <div class="container-fluid" ng-include="'templates/user/userHeader.html'"></div>
 
+<div class="absolute-slider" ng-controller="SlideCtrl">
+    <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in slides">
+        <li>
+            <img ng-src="{{s}}">
+        </li>
+    </flex-slider>
+</div>
 
-    <div class="absolute-slider" ng-controller="SlideCtrl">
-        <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in slides">
-            <li>
-                <img ng-src="{{s}}">
-            </li>
-        </flex-slider>
+<div class="container-fluid fullsize">
+    <div class="row" ng-include="'templates/user/userHeader.html'"></div>
+
+    <div ui-view>
     </div>
-<div ui-view>
 
 
 </div>
