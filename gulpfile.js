@@ -20,7 +20,7 @@ var tsProjectEmily = ts.createProject({
     typescript: typescript15
 });
 
-gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale']);
+gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale', 'img']);
 
 
 gulp.task('ts', function () {
