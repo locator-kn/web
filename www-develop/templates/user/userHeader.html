@@ -1,6 +1,10 @@
-<div class="user-header-bar" ng-controller="UserHeaderCtrl as uhc">
-    <div class="btn-group">
-        <div class="register"><a >Registieren</a></div>
-        <div class="login"><a >Login</a></div>
+<div class="user-header-bar logged-out" ng-controller="UserHeaderCtrl as uhc">
+    <div ng-if="!authenticated" class="btn-group">
+        <div class="register"><a>Registieren</a></div>
+        <div class="login"><a ng-click="uhc.openLoginDialog()">Login</a></div>
     </div>
+
+    <div ng-if="authenticated" class="btn-group">
+    </div>
+
 </div>
