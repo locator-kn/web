@@ -8,10 +8,18 @@ module Controller {
         google:any;
 
 
-        constructor(private $scope, private $rootScope, private $location, private UserService, private $element, private basePath) {
+        constructor(private hotkeys, private $scope, private $rootScope, private $location, private UserService, private $element, private basePath) {
             this.getMe();
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
+
+            this.hotkeys.add({
+                combo: 'esc',
+                description: 'Close the Modal',
+                callback: () => {
+                    this.closeLoginDialog();
+                }
+            });
         }
 
         login() {
