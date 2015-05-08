@@ -377,3 +377,9 @@ ul.slides {
 #loginmodal a.login:hover {
     text-decoration: none;
 }
+
+#loginmodal .btn-grp-white a {
+    color: white;
+    width: 100%;
+    float: left;
+}
