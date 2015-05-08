@@ -10,12 +10,14 @@ module Controller {
 
         openLoginDialog() {
             console.info('hey');
-            this.ngDialog.open({template: './templates/modal/login.html'});
+            this.ngDialog.open({
+                template: './templates/modal/login.html'
+            });
         }
 
         login() {
+            console.info('heyxd');
             this.UserService.login(this.inputMail, this.inputPassword)
-
                 .error(function (resp) {
                     console.info("Login Error");
                     this.$rootScope.authenticated = false;
