@@ -1,6 +1,7 @@
 * {
     font-family: 'Signika', Helvetica neue, Arial;
 }
+
 .opener h2 {
     font-family: 'Signika', Helvetica neue, Arial;
     font-weight: 100;
@@ -170,15 +171,18 @@ body.no-scroll {
     width: 100%;
     position: absolute;
     bottom: 170px;
-    left:0;
+    left: 0;
     z-index: 99;
 }
+
 .home-searchbar .search .white {
     color: #fff;
 }
+
 .home-searchbar .search .padding-top {
     padding: 15px 0 0 0;
 }
+
 .home-searchbar .search {
     width: 80%;
     float: left;
@@ -188,6 +192,7 @@ body.no-scroll {
     font-size: 16px;
     font-weight: 400;
 }
+
 .home-searchbar .search .search-arrow-left {
     float: left;
 }
@@ -221,7 +226,7 @@ body.no-scroll {
 
 .input-city, .input-city:focus {
     background: none;
-    border:none;
+    border: none;
     outline: none;
 }
 
@@ -229,15 +234,29 @@ body.no-scroll {
     width: 100%;
     margin: 0 auto;
 }
+
 .logo .home-logo {
     width: 155px;
     margin: 50px auto;
 }
 
-.input-city::-webkit-input-placeholder { color:#fff; }
-.input-city::-moz-placeholder { color:#fff; } /* firefox 19+ */
-.input-city:-ms-input-placeholder { color:#fff; } /* ie */
-.input-city:-moz-placeholder { color:#fff; }
+.input-city::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.input-city::-moz-placeholder {
+    color: #fff;
+}
+
+/* firefox 19+ */
+.input-city:-ms-input-placeholder {
+    color: #fff;
+}
+
+/* ie */
+.input-city:-moz-placeholder {
+    color: #fff;
+}
 
 .user-header-bar {
     width: 100%;
@@ -249,13 +268,16 @@ body.no-scroll {
     padding: 10px 50px;
     float: right;
 }
+
 .user-header-bar .btn-group a {
-    color:#fff;
+    color: #fff;
 }
+
 .user-header-bar .btn-group a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
 .user-header-bar .btn-group .register, .user-header-bar .btn-group .login {
     padding: 5px;
     margin: 0 5px;
@@ -285,4 +307,53 @@ ul.slides {
     float: left;
     width: 100%;
     height: 100%;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    z-index: -1;
+}
+
+.overlay.active {
+    opacity: 1;
+    display: block;
+    z-index: 999;
+}
+
+.moodal {
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 120px;
+    margin-left: -150px;
+    margin-top: -150px;
+    opacity: 0;
+
+    transition-duration: 0.3s;
+    transition-property: opacity;
+}
+
+.moodal.active {
+    z-index: 1000;
+    opacity: 1;
+}
+
+.moodal input {
+    width: 100%;
+    padding: 3px;
+}
+
+.profile_thumbnail {
+    height: 50px;
+    border-radius: 100px;
+    width: auto;
 }
