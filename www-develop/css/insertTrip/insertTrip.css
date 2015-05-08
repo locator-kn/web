@@ -1,0 +1,62 @@
+/*Nav bar*/
+.nav-bar-insert-trip {
+    float: right;
+    background-color: #ff632d;
+    width: 300px;
+    height: 700px;
+    margin-right: 100px;
+}
+
+.nav-bar-entries {
+    margin-top: 100px;
+}
+
+.nav-bar-entries .insert-trip {
+    padding: 10px;
+    background-color: #ff814e;
+    width: 130%;
+}
+
+.insert-trip .insert-icon {
+    float: right;
+    margin-right: 20px;
+}
+
+.nav-bar-entries .edit-trip {
+    padding: 10px;
+    width: 130%;
+}
+
+.edit-trip .edit-text {
+    visibility: hidden;
+}
+
+.edit-trip .edit-icon {
+    float: right;
+    margin-right: 20px;
+}
+
+/*Icon bar*/
+/*.icon-bar {
+    float: right;
+    width: 100px;
+    margin-left: 30px;
+}
+
+.icon-bar .icons {
+    margin-top: 100px;
+}
+
+.icon-bar .icons .edit-trip-icon {
+    margin-top: 30px;
+}
+
+.icon-bar .icons .edit-profile-icon {
+    margin-top: 30px;
+}
+
+.icon-bar .icons .messages-trip-icon {
+    margin-top: 30px;
+}*/
+
+

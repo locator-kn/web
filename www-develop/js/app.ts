@@ -89,6 +89,11 @@ var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothSc
                 }
             })
 
+            .state('insertTrip', {
+                url: "/insertTrip",
+                templateUrl: "../templates/insertTrip/insertTrip.html"
+            })
+
             .state('editProfile', {
                 url: "/editProfile",
                 templateUrl: "../templates/userProfile/editProfile.html"
