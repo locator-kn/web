@@ -171,7 +171,7 @@ body.no-scroll {
     position: absolute;
     bottom: 170px;
     left:0;
-    z-index: 99999;
+    z-index: 99;
 }
 .home-searchbar .search .white {
     color: #fff;

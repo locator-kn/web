@@ -43,7 +43,7 @@ var live = '<%= live %>';
 
 var app = angular.module('starter', ['ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload'])
 
-    .constant('basePath', '/api/v1')
+    .constant('basePath', 'http://localhost:3001/api/v1')
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
