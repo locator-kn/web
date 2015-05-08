@@ -28,8 +28,8 @@ module Controller {
                     this.getMe();
                     this.$rootScope.authenticated = true;
 
-                    angular.element('.overlay').removeClass('active');
-                    angular.element(this.$element).find('.moodal').removeClass('active');
+                    //close the dialog after success
+                    this.closeLoginDialog();
 
                 });
         }
@@ -37,6 +37,16 @@ module Controller {
         openLoginDialog() {
             angular.element('.overlay').addClass('active');
             angular.element(this.$element).find('.moodal').addClass('active');
+
+            angular.element('.overlay').bind('click', () => {
+                this.closeLoginDialog();
+            });
+
+        }
+
+        closeLoginDialog() {
+            angular.element('.overlay').removeClass('active');
+            angular.element(this.$element).find('.moodal').removeClass('active');
         }
 
 
@@ -67,7 +77,8 @@ module Controller {
                 });
         }
 
-        static controllerId:string = "UserHeaderCtrl";
+        static
+            controllerId:string = "UserHeaderCtrl";
 
     }
 }
