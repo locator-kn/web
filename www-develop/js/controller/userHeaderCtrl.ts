@@ -2,38 +2,62 @@ module Controller {
     export class UserHeaderCtrl {
         user:any;
 
-        inputMail:any;
-        inputPassword:any;
+
 
         constructor(private $scope, private $rootScope, private $location, private UserService, private ngDialog) {
+            this.getMe();
+
+            $scope.password = '';
+            $scope.mail = '';
+
+            this.$scope.login = () => {
+                debugger
+                console.info('Login ' + this.$scope.mail);
+
+                this.UserService.login(this.$scope.mail, this.$scope.password)
+
+                    .error((resp) => {
+                        console.info("Login Error");
+                    })
+
+                    .then(result => {
+                        console.info("Login Success");
+                        this.getMe();
+                        this.$rootScope.authenticated = true;
+                    });
+            }
+
+
         }
 
         openLoginDialog() {
             console.info('hey');
             this.ngDialog.open({
-                template: './templates/modal/login.html'
+                template: './templates/modal/login.html',
+                scope: this.$scope
+
             });
         }
 
-        login() {
-            console.info('heyxd');
-            this.UserService.login(this.inputMail, this.inputPassword)
-                .error(function (resp) {
-                    console.info("Login Error");
-                    this.$rootScope.authenticated = false;
+
+
+        logout() {
+            console.info('Logout');
+            this.UserService.logout()
+                .error((resp) => {
+                    console.info("Logout Error");
                 })
 
                 .then(result => {
-                    console.info("Login Success");
-                    this.getMe();
-                    this.$rootScope.authenticated = true;
+                    console.info("Logout Success");
+                    this.$rootScope.authenticated = false;
                 });
         }
 
         getMe() {
             this.UserService.getMe()
 
-                .error(function (resp) {
+                .error((resp) => {
                     this.$rootScope.authenticated = false;
                 })
 

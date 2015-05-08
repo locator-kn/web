@@ -15,6 +15,10 @@ module Service {
             return this.$http.post(this.basePath + '/login', {"mail": mail, "password": password})
         }
 
+        logout() {
+            return this.$http.get(this.basePath  + '/logout');
+        }
+
         static serviceId:string = "UserService";
     }
 }
