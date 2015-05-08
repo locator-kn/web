@@ -36,6 +36,34 @@
     margin-right: 20px;
 }
 
+.nav-bar-entries .my-profile {
+    padding: 10px;
+    width: 130%;
+}
+
+.my-profile .profile-text {
+    visibility: hidden;
+}
+
+.my-profile .profile-icon {
+    float: right;
+    margin-right: 20px;
+}
+
+.nav-bar-entries .my-messages {
+    padding: 10px;
+    width: 130%;
+}
+
+.my-messages .messages-text {
+    visibility: hidden;
+}
+
+.my-messages .messages-icon {
+    float: right;
+    margin-right: 20px;
+}
+
 /*Icon bar*/
 /*.icon-bar {
     float: right;
