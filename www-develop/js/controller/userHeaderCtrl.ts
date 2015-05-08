@@ -2,43 +2,39 @@ module Controller {
     export class UserHeaderCtrl {
         user:any;
 
+        mail:any;
+        password:any;
 
 
-        constructor(private $scope, private $rootScope, private $location, private UserService, private ngDialog) {
+        constructor(private $scope, private $rootScope, private $location, private UserService, private $element) {
             this.getMe();
 
-            $scope.password = '';
-            $scope.mail = '';
+        }
 
-            this.$scope.login = () => {
-                debugger
-                console.info('Login ' + this.$scope.mail);
+        login() {
+            console.info('Login ' + this.mail);
 
-                this.UserService.login(this.$scope.mail, this.$scope.password)
+            this.UserService.login(this.mail, this.password)
 
-                    .error((resp) => {
-                        console.info("Login Error");
-                    })
+                .error((resp) => {
+                    console.info("Login Error");
+                })
 
-                    .then(result => {
-                        console.info("Login Success");
-                        this.getMe();
-                        this.$rootScope.authenticated = true;
-                    });
-            }
+                .then(result => {
+                    console.info("Login Success");
+                    this.getMe();
+                    this.$rootScope.authenticated = true;
 
+                    angular.element('.overlay').removeClass('active');
+                    angular.element(this.$element).find('.moodal').removeClass('active');
 
+                });
         }
 
         openLoginDialog() {
-            console.info('hey');
-            this.ngDialog.open({
-                template: './templates/modal/login.html',
-                scope: this.$scope
-
-            });
+            angular.element('.overlay').addClass('active');
+            angular.element(this.$element).find('.moodal').addClass('active');
         }
-
 
 
         logout() {
@@ -64,6 +60,7 @@ module Controller {
                 .then(result => {
                     this.user = result.data;
                     this.$rootScope.authenticated = true;
+                    console.info(this.user);
                 });
         }
 
