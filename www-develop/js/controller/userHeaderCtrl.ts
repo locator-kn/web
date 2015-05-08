@@ -4,11 +4,14 @@ module Controller {
 
         mail:any;
         password:any;
+        facebook:any;
+        google:any;
 
 
-        constructor(private $scope, private $rootScope, private $location, private UserService, private $element) {
+        constructor(private $scope, private $rootScope, private $location, private UserService, private $element, private basePath) {
             this.getMe();
-
+            this.facebook = this.basePath + '/loginFacebook';
+            this.google = this.basePath + '/loginGoogle';
         }
 
         login() {
