@@ -1,16 +1,16 @@
 <div class="user-header-bar logged-out" ng-controller="UserHeaderCtrl as uhc">
     <div ng-if="!authenticated" class="btn-group">
-        <a class="register">Registieren</a>
-        <a class="login" ng-click="uhc.openLoginDialog()">Login</a>
+        <a class="padding register">Registieren</a>
+        <a class="padding login" ng-click="uhc.openLoginDialog()">Login</a>
     </div>
 
     <div ng-if="authenticated" class="btn-group">
-        <a><span class="username">{{uhc.user.name}}</span>
-            <img class="profile_thumbnail" ng-src="{{uhc.user.picture}}"></a>
+        <a><img class="profile_thumbnail" ng-src="{{uhc.user.picture}}">
+            <a class="username padding">{{uhc.user.name}}</a>
+        </a>
         <a class="logout" ng-click="uhc.logout()">Logout</a>
     </div>
 
-    <div class="moodal" ng-include="'templates/modal/login.html'"></div>
-
+    <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
 
 </div>
