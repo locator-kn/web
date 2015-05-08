@@ -1,5 +1,6 @@
 * {
     font-family: 'Signika', Helvetica neue, Arial;
+    outline: none;
 }
 
 .opener h2 {
@@ -264,7 +265,6 @@ body.no-scroll {
 }
 
 .user-header-bar .btn-group {
-    width: 300px;
     padding: 10px 50px;
     float: right;
 }
@@ -278,10 +278,9 @@ body.no-scroll {
     cursor: pointer;
 }
 
-.user-header-bar .btn-group .register, .user-header-bar .btn-group .login {
+a.padding {
     padding: 5px;
     margin: 0 5px;
-    float: left;
 }
 
 .result {
@@ -356,4 +355,25 @@ ul.slides {
     height: 50px;
     border-radius: 100px;
     width: auto;
+}
+#loginmodal input {
+    border-radius: 3px;
+    border: 1px solid white;
+    background: none;
+    padding: 8px 13px;
+    margin: 3px 0;
+    color: white;
+}
+
+#loginmodal a.login {
+    width: 100%;
+    background: white;
+    color: black;
+    float: left;
+    border-radius: 3px;
+    padding: 8px 13px;
+}
+
+#loginmodal a.login:hover {
+    text-decoration: none;
 }
