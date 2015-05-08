@@ -8,7 +8,7 @@ module Controller {
             });
 
             $rootScope.$on('newSearchResults', (scope, result) => {
-                console.log('newSearchResults', arguments);
+                //console.log('newSearchResults', arguments);
                 this.results = result;
             });
         }
