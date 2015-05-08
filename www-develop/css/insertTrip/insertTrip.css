@@ -11,17 +11,25 @@
     margin-top: 100px;
 }
 
+/*Insert trip*/
 .nav-bar-entries .insert-trip {
-    padding: 10px;
+    padding: 20px;
     background-color: #ff814e;
     width: 130%;
 }
 
-.insert-trip .insert-icon {
-    float: right;
-    margin-right: 20px;
+.insert-trip .insert-text {
+    font-size: 18px;
 }
 
+.insert-trip .insert-icon {
+    float: right;
+    margin-right: 10px;
+    position: relative;
+    bottom: 24px;
+}
+
+/*Edit trip*/
 .nav-bar-entries .edit-trip {
     padding: 10px;
     width: 130%;
@@ -36,27 +44,42 @@
     margin-right: 20px;
 }
 
-/*Icon bar*/
-/*.icon-bar {
+/*My profile*/
+.nav-bar-entries .my-profile {
+    padding: 10px;
+    width: 130%;
+}
+
+.my-profile .profile-text {
+    visibility: hidden;
+}
+
+.my-profile .profile-icon {
     float: right;
-    width: 100px;
-    margin-left: 30px;
+    margin-right: 20px;
 }
 
-.icon-bar .icons {
-    margin-top: 100px;
+/*My messages*/
+.nav-bar-entries .my-messages {
+    padding: 10px;
+    width: 130%;
 }
 
-.icon-bar .icons .edit-trip-icon {
-    margin-top: 30px;
+.my-messages .messages-text {
+    visibility: hidden;
 }
 
-.icon-bar .icons .edit-profile-icon {
-    margin-top: 30px;
+.my-messages .messages-icon {
+    float: right;
+    margin-right: 20px;
 }
 
-.icon-bar .icons .messages-trip-icon {
-    margin-top: 30px;
-}*/
+/*Input fields container*/
+.input-fields-container {
+    float: right;
+    width: 600px;
+    height: 700px;
+    background-color: #ff814e;
+}
 
 
