@@ -85,8 +85,7 @@ module Controller {
                 });
         }
 
-        static
-            controllerId:string = "UserHeaderCtrl";
+        static controllerId:string = "UserHeaderCtrl";
 
     }
 }
