@@ -267,6 +267,7 @@ body.no-scroll {
 .user-header-bar .btn-group {
     padding: 10px 50px;
     float: right;
+    min-height: 50px;
 }
 
 .user-header-bar .btn-group a {
@@ -315,8 +316,7 @@ ul.slides {
     width: 100%;
     position: absolute;
     opacity: 0;
-    transition-duration: 0.3s;
-    transition-property: opacity;
+    transition-duration: 1s;
     z-index: -1;
 }
 
@@ -337,7 +337,7 @@ ul.slides {
     margin-top: -150px;
     opacity: 0;
 
-    transition-duration: 0.3s;
+    transition-duration: 0.8s;
     transition-property: opacity;
 }
 
@@ -382,4 +382,14 @@ ul.slides {
     color: white;
     width: 100%;
     float: left;
+}
+.pointer {
+    cursor: pointer;
+}
+
+a.close-modal {
+    float: right;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
 }
