@@ -13,10 +13,12 @@
 }
 
 .item-active {
-    background-color: #6abfff;
+    background-color: #72d4ff;
     border-top: solid;
     border-bottom: solid;
     border-color: #878883;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
 }
 
 .settings {
@@ -67,3 +69,13 @@
 html, body{
     height:100%;
 }
+
+.sample-show-hide {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+    opacity:0;
+}
+

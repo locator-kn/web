@@ -29,7 +29,7 @@
             </label>
         </div>
     </div>
-    <div class="settings" ng-show="tsc.activeItem != ''">
+    <div class="settings sample-show-hide" ng-show="tsc.activeItem != ''" style="clear:both;">
         <div ng-class="{'search-offset': tsc.isActive('search'), 'date-offset': tsc.isActive('date'), 'filter-offset': tsc.isActive('filter'), 'moods-offset': tsc.isActive('moods')}">
             <div ng-switch="tsc.activeItem">
                 <div ng-switch-when="search">
