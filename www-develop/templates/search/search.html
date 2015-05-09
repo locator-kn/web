@@ -2,7 +2,44 @@
 
 
 <!--</div>-->
-<div class="side-navbar-test" style="width:100px;height:300px; background-color: deepskyblue">
-
+<div class="container-sidebar" ng-controller="TripSearchCtrl as tsc">
+    <div class="search-menu">
+        <div ng-class="{'item-active': tsc.isActive('search')}" ng-click="tsc.activeItem = 'search'">
+            Search
+            <Label class="item-description" ng-show="tsc.isActive('search')">
+                Search
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('date')}">
+            <img src="/images/icons/kalender.png" ng-click="tsc.activeItem = 'date'">
+            <label class="item-description" ng-show="tsc.isActive('date')">
+                Dates
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('filter')}">
+            <img src="/images/icons/regler.png" ng-click="tsc.activeItem = 'filter'">
+            <label class="item-description" ng-show="tsc.isActive('filter')">
+                Filters
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('moods')}">
+            <img src="/images/icons/wegweiser.png" ng-click="tsc.activeItem = 'moods'">
+            <label class="item-description" ng-show="tsc.isActive('moods')">
+                Moods
+            </label>
+        </div>
+    </div>
+    <div class="settings" ng-show="tsc.activeItem != ''">
+        <div ng-class="{'search-offset': tsc.isActive('search'), 'date-offset': tsc.isActive('date'), 'filter-offset': tsc.isActive('filter'), 'moods-offset': tsc.isActive('moods')}">
+            <p>Content</p>
+            <p>Content</p>
+            <p>Content</p>
+            <p>Content</p>
+            <p>Content</p>
+            <p>Content</p>
+        </div>
+    </div>
 </div>
+<div class="container-fluid" ng-include="'templates/search/searchResult.html'"></div>
+
 
