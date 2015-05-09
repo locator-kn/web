@@ -22,14 +22,16 @@ module Controller {
             moods: undefined
         };
 
+        activeItem = '';
+
         constructor(private $scope, private TriplerService, private DataService, private $location) {
-            this.getCities();
+            /*this.getCities();
             this.getAccomodations();
             this.getMoods();
 
             // initial loading of todays and todays + 3 date
             this.params.checkin = DataService.getDates().checkinDate;
-            this.params.checkout = DataService.getDates().checkoutDate;
+            this.params.checkout = DataService.getDates().checkoutDate;*/
         }
 
         getCities() {
@@ -100,6 +102,10 @@ module Controller {
             querystring = querystring || null;
 
             return querystring;
+        }
+
+        isActive(item) {
+            return this.activeItem == item;
         }
 
         // moodctrl end //

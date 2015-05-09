@@ -1,0 +1,81 @@
+.search-menu {
+    height: 500px;
+    width: 300px;
+    position: absolute;
+}
+
+.search-menu div {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    z-index: 20;
+    position: relative;
+}
+
+.item-active {
+    background-color: #72d4ff;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: #878883;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.settings {
+    width: 220px;
+    height: 500px;
+    position: absolute;
+    margin-left: 80px;
+    background: #6abfff;
+}
+
+.container-sidebar {
+    position: relative;
+    height: 100%;
+    width: 500px;
+}
+
+.item-description {
+    display: inline;
+    text-align: center;
+    float: right;
+    width: 220px;
+}
+
+.search-offset {
+    position: relative;
+    padding-top: 71px;
+    z-index: 100;
+}
+
+.filter-offset {
+    position: relative;
+    padding-top: 213px;
+    z-index: 100;
+}
+
+.date-offset {
+    position: relative;
+    padding-top: 142px;
+    z-index: 100;
+}
+
+.moods-offset {
+    position: relative;
+    padding-top: 284px;
+    z-index: 100;
+}
+
+html, body{
+    height:100%;
+}
+
+.sample-show-hide {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+    opacity:0;
+}
+

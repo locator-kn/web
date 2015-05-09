@@ -2,7 +2,52 @@
 
 
 <!--</div>-->
-<div class="side-navbar-test" style="width:100px;height:300px; background-color: deepskyblue">
-
+<div class="container-sidebar" ng-controller="TripSearchCtrl as tsc">
+    <div class="search-menu">
+        <div ng-class="{'item-active': tsc.isActive('search')}" ng-click="tsc.activeItem = 'search'">
+            Search
+            <Label class="item-description" ng-show="tsc.isActive('search')">
+                Search
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('date')}">
+            <img src="/images/icons/kalender.png" ng-click="tsc.activeItem = 'date'">
+            <label class="item-description" ng-show="tsc.isActive('date')">
+                Dates
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('filter')}">
+            <img src="/images/icons/regler.png" ng-click="tsc.activeItem = 'filter'">
+            <label class="item-description" ng-show="tsc.isActive('filter')">
+                Filter
+            </label>
+        </div>
+        <div ng-class="{'item-active': tsc.isActive('moods')}">
+            <img src="/images/icons/wegweiser.png" ng-click="tsc.activeItem = 'moods'">
+            <label class="item-description" ng-show="tsc.isActive('moods')">
+                Moods
+            </label>
+        </div>
+    </div>
+    <div class="settings sample-show-hide" ng-show="tsc.activeItem != ''" style="clear:both;">
+        <div ng-class="{'search-offset': tsc.isActive('search'), 'date-offset': tsc.isActive('date'), 'filter-offset': tsc.isActive('filter'), 'moods-offset': tsc.isActive('moods')}">
+            <div ng-switch="tsc.activeItem">
+                <div ng-switch-when="search">
+                    <div ng-include="'/templates/search/city.html'"></div>
+                </div>
+                <div ng-switch-when="date">
+                    <div ng-include="'/templates/search/dates.html'"></div>
+                </div>
+                <div ng-switch-when="filter'">
+                    <div ng-include="'/templates/search/filter.html'"></div>
+                </div>
+                <div ng-switch-when="moods">
+                    <div ng-include="'/templates/search/moods.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="container-fluid" ng-include="'templates/search/searchResult.html'"></div>
+
 
