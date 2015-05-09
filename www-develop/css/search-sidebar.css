@@ -79,3 +79,7 @@ html, body{
     opacity:0;
 }
 
+.slider-label-box {
+    padding: 5px 15px 30px 15px;
+}
+
