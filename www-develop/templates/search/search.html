@@ -19,7 +19,7 @@
         <div ng-class="{'item-active': tsc.isActive('filter')}">
             <img src="/images/icons/regler.png" ng-click="tsc.activeItem = 'filter'">
             <label class="item-description" ng-show="tsc.isActive('filter')">
-                Filters
+                Filter
             </label>
         </div>
         <div ng-class="{'item-active': tsc.isActive('moods')}">
@@ -31,12 +31,20 @@
     </div>
     <div class="settings" ng-show="tsc.activeItem != ''">
         <div ng-class="{'search-offset': tsc.isActive('search'), 'date-offset': tsc.isActive('date'), 'filter-offset': tsc.isActive('filter'), 'moods-offset': tsc.isActive('moods')}">
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
-            <p>Content</p>
+            <div ng-switch="tsc.activeItem">
+                <div ng-switch-when="search">
+                    <div ng-include="'/templates/search/city.html'"></div>
+                </div>
+                <div ng-switch-when="date">
+                    <div ng-include="'/templates/search/dates.html'"></div>
+                </div>
+                <div ng-switch-when="filter'">
+                    <div ng-include="'/templates/search/filter.html'"></div>
+                </div>
+                <div ng-switch-when="moods">
+                    <div ng-include="'/templates/search/moods.html'"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
