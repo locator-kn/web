@@ -262,6 +262,7 @@ body.no-scroll {
 .user-header-bar {
     width: 100%;
     padding: 10px 0;
+    float: left;
 }
 
 .user-header-bar .btn-group {
