@@ -26,17 +26,15 @@ gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale', 'img']);
 gulp.task('ts', function () {
     var live = process.argv.indexOf('--live') !== -1;
     var baseIdx = process.argv.indexOf('--base');
-    var baseUrl = process.argv[baseIdx + 1];
+    var baseUrl = '';
+    if (baseIdx !== -1) {
+        baseUrl = process.argv[baseIdx + 1];
+    }
 
     var templateObject = {
         live: live || '',
         basePath: baseUrl || 'http://localhost:3001'
     };
-
-    // TODO: Temp. Fix (all requests in service should start with the actual route, not /)
-    if (templateObject.basePath === '/') {
-        templateObject.basePath = '';
-    }
 
     console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
