@@ -58,8 +58,6 @@ module Controller {
         }
 
         toggleAccomodationSelection(accomodation) {
-            console.info('yoo');
-
             if(!this.isAccomodationSelected(accomodation)){
                 this.query.accomodations.push(accomodation);
             } else {
@@ -68,8 +66,6 @@ module Controller {
         }
 
         isAccomodationSelected(accomodation){
-            console.info(this.query.accomodations.indexOf(accomodation) > -1);
-            console.info(this.query.accomodations);
             return this.query.accomodations.indexOf(accomodation) > -1;
         }
 
