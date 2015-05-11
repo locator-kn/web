@@ -1,16 +1,16 @@
 <div class="slider-label-box">
     <p>Anzahl Personen</p>
-    <input type="range">
+    <input type="range" ng-model="sc.query.persons">
 </div>
 <div class="slider-label-box">
     <p>Budget in €</p>
-    <input type="range">
+    <input type="range" ng-model="sc.query.budget">
 </div>
 
 <ul>
-    <div>übernachtung</div>
-    <div>couch</div>
-    <div>zimmer</div>
-    <div>ferienwohnung</div>
-    <div>nichts</div>
+    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('übernachtung')}" ng-click="sc.toggleAccomodationSelection('übernachtung')">übernachtung</div>
+    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('couch')}"ng-click="sc.toggleAccomodationSelection('couch')">couch</div>
+    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('zimmer')}" ng-click="sc.toggleAccomodationSelection('zimmer')">zimmer</div>
+    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('ferienwohnung')}" ng-click="sc.toggleAccomodationSelection('ferienwohnung')">ferienwohnung</div>
+    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('nichts')}" ng-click="sc.toggleAccomodationSelection('nichts')">nichts</div>
 </ul>

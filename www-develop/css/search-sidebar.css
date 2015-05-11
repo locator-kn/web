@@ -87,3 +87,7 @@ html, body{
     background-color: transparent;
 }
 
+.selected-acc {
+    font-weight: bold;
+}
+
