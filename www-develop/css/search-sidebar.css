@@ -1,5 +1,5 @@
 .search-menu {
-    height: 500px;
+    height: 100vh;
     width: 300px;
     position: absolute;
 }
@@ -23,16 +23,17 @@
 
 .settings {
     width: 220px;
-    height: 500px;
+    height: 100vh;
     position: absolute;
     margin-left: 80px;
     background: #6abfff;
 }
 
 .container-sidebar {
-    position: relative;
-    height: 100%;
+    position: absolute;
+    height: 100vh;
     width: 500px;
+    top: 0;
 }
 
 .item-description {
