@@ -24,9 +24,21 @@ gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale', 'img']);
 
 
 gulp.task('ts', function () {
-    var live = process.argv[2] === '--live' || process.argv[3] === '--live';
+    var live = process.argv.indexOf('--live') !== -1;
+    var baseIdx = process.argv.indexOf('--base');
+    var baseUrl = '';
+    if (baseIdx !== -1) {
+        baseUrl = process.argv[baseIdx + 1];
+    }
+
+    var templateObject = {
+        live: live || '',
+        basePath: baseUrl || 'http://localhost:3001'
+    };
+
+    console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
-        .pipe(template({live: live || ''}))
+        .pipe(template(templateObject))
         .pipe(sourcemaps.init())
         .pipe(ts(tsProjectEmily));
 
