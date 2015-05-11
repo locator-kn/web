@@ -23,6 +23,8 @@
 
 /// <reference path="./controller/createTripCtrl.ts" />
 
+/// <reference path="./controller/welcomeCtrl.ts" />
+
 
 /// <reference path="./service/userService.ts" />
 /// <reference path="./service/triplerService.ts" />
@@ -113,7 +115,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.UserHeaderCtrl.controllerId, Controller.UserHeaderCtrl)
-
+    .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
 
 
     .directive('megadate', function () {
@@ -125,6 +127,29 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
             },
             template: '<p>{{date}}</p>'
         };
+    })
+
+    .directive('select', function () {
+        return {
+            scope: {
+                values: '=',
+                'selectedModel': '='
+            },
+            controller: function ($scope) {
+                $scope.opened = false;
+                
+                $scope.select = function (mood) {
+                    $scope.selectedModel = mood;
+                    $scope.trigger();
+                }
+
+                $scope.trigger = function () {
+                    $scope.opened = !$scope.opened;
+                }
+
+            },
+            template: '<div ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a><ul class="sub"><li ng-click="select(mood)" ng-repeat="mood in values">{{mood.title}}</li></ul></div>'
+        }
     })
 
     .config(function ($translateProvider) {
