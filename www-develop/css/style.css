@@ -261,7 +261,6 @@ body.no-scroll {
 
 .user-header-bar {
     width: 100%;
-    padding: 10px 0;
     float: left;
 }
 
@@ -273,6 +272,7 @@ body.no-scroll {
 
 .user-header-bar .btn-group a {
     color: #fff;
+    line-height: 60px;
 }
 
 .user-header-bar .btn-group a:hover {
@@ -357,7 +357,7 @@ ul.slides {
     border-radius: 100px;
     width: auto;
 }
-#loginmodal input {
+.moodal input {
     border-radius: 3px;
     border: 1px solid white;
     background: none;
@@ -366,7 +366,7 @@ ul.slides {
     color: white;
 }
 
-#loginmodal a.login {
+.moodal a.submit {
     width: 100%;
     background: white;
     color: black;
@@ -375,11 +375,11 @@ ul.slides {
     padding: 8px 13px;
 }
 
-#loginmodal a.login:hover {
+.moodal a.submit:hover {
     text-decoration: none;
 }
 
-#loginmodal .btn-grp-white a {
+.moodal .btn-grp-white a {
     color: white;
     width: 100%;
     float: left;
