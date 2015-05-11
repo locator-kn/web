@@ -394,3 +394,8 @@ a.close-modal {
     color: white;
     text-decoration: none;
 }
+
+.welcome_search {
+    width: 400px;
+    margin: 0 auto;
+}

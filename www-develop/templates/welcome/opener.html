@@ -1,27 +1,29 @@
-<div class="opener">
+<div class="opener" ng-controller="WelcomeCtrl as wc">
+    <!--
     <div class="logo">
         <div class="home-logo">
             <img src="../../images/locator-logo-big.png" alt=""/>
         </div>
     </div>
-    <!--
-    <div class="home-searchbar" ng-controller="SearchMainCtrl as smc">
-        <div class="search">
-            <div class="search-arrow-left"><img src="./images/arrow-left.png"></div>
-            <div class="search-button-right padding-top" ui-sref="search({city: smc.query.city, dateFrom: smc.query.dateFrom, dateTo: smc.query.dateTo, range: smc.query.range})">suchen</div>
 
-            <div class="search-range-slider white padding-top">
-                <input ng-model="smc.query.range" type="range" min="1" max="10" step="1" /> {{smc.query.range}}
-            </div>
-            <div class="search-date-button padding-top">date</div>
-            <div class="search-location white padding-top">
-                <input type="text" class="input-city" ng-model="smc.query.city" placeholder="wohin solls gehn"/>
-            </div>
+
+    <div class="welcome_search nl-form">
+        <p class="item"><span>Ich will</span>
+
+        <div class="item nl-field nl-dd">
+            <a ng-click="wc.open($event)" ng-class="{'open': wc.isOpen }" class="nl-field-toggle">{{wc.mood}}
+                <ul>
+                    <li ng-click="wc.select($event)" ng-repeat="mood in wc.moods">{{mood.title}}</li>
+                </ul>
+            </a>
         </div>
-        <div class="create">
-            <div class="create-arrow-right"><img src="./images/arrow-right.png"></div>
-        </div>
+        <span>in Konstanz</span></p>
     </div>
     -->
+
+    <div class="welcome_select">
+        Ich will
+        <div select values="wc.moods" selected-model="wc.selectedMood"></div>
+    </div>
 
 </div>
