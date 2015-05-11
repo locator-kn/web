@@ -8,17 +8,15 @@
     padding-bottom: 20px;
     padding-left: 20px;
     padding-top: 20px;
-    z-index: 20;
     position: relative;
 }
 
 .item-active {
     background-color: #72d4ff;
-    border-top: solid;
-    border-bottom: solid;
-    border-color: #878883;
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
+    position: relative;
+    z-index: 200;
 }
 
 .settings {
@@ -82,5 +80,10 @@ html, body{
 
 .slider-label-box {
     padding: 5px 15px 30px 15px;
+}
+
+.input-transparent {
+    border: none;
+    background-color: transparent;
 }
 

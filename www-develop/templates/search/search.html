@@ -2,36 +2,36 @@
 
 
 <!--</div>-->
-<div class="container-sidebar" ng-controller="TripSearchCtrl as tsc">
+<div class="container-sidebar" ng-controller="SearchMainCtrl as smc">
     <div class="search-menu">
-        <div ng-class="{'item-active': tsc.isActive('search')}" ng-click="tsc.activeItem = 'search'">
+        <div ng-class="{'item-active': smc.isActive('search')}" ng-click="smc.activeItem = 'search'">
             Search
-            <Label class="item-description" ng-show="tsc.isActive('search')">
-                Search
+            <Label class="item-description" ng-show="smc.isActive('search')">
+                <input class="input-transparent" type="text">
             </label>
         </div>
-        <div ng-class="{'item-active': tsc.isActive('date')}">
-            <img src="/images/icons/kalender.png" ng-click="tsc.activeItem = 'date'">
-            <label class="item-description" ng-show="tsc.isActive('date')">
+        <div ng-class="{'item-active': smc.isActive('date')}">
+            <img src="/images/icons/kalender.png" ng-click="smc.activeItem = 'date'">
+            <label class="item-description" ng-show="smc.isActive('date')">
                 Dates
             </label>
         </div>
-        <div ng-class="{'item-active': tsc.isActive('filter')}">
-            <img src="/images/icons/regler.png" ng-click="tsc.activeItem = 'filter'">
-            <label class="item-description" ng-show="tsc.isActive('filter')">
+        <div ng-class="{'item-active': smc.isActive('filter')}">
+            <img src="/images/icons/regler.png" ng-click="smc.activeItem = 'filter'">
+            <label class="item-description" ng-show="smc.isActive('filter')">
                 Filter
             </label>
         </div>
-        <div ng-class="{'item-active': tsc.isActive('moods')}">
-            <img src="/images/icons/wegweiser.png" ng-click="tsc.activeItem = 'moods'">
-            <label class="item-description" ng-show="tsc.isActive('moods')">
+        <div ng-class="{'item-active': smc.isActive('moods')}">
+            <img src="/images/icons/wegweiser.png" ng-click="smc.activeItem = 'moods'">
+            <label class="item-description" ng-show="smc.isActive('moods')">
                 Moods
             </label>
         </div>
     </div>
-    <div class="settings sample-show-hide" ng-show="tsc.activeItem != ''" style="clear:both;">
-        <div ng-class="{'search-offset': tsc.isActive('search'), 'date-offset': tsc.isActive('date'), 'filter-offset': tsc.isActive('filter'), 'moods-offset': tsc.isActive('moods')}">
-            <div ng-switch="tsc.activeItem">
+    <div class="settings sample-show-hide" ng-show="smc.activeItem != ''" style="clear:both;">
+        <div ng-class="{'search-offset': smc.isActive('search'), 'date-offset': smc.isActive('date'), 'filter-offset': smc.isActive('filter'), 'moods-offset': smc.isActive('moods')}">
+            <div ng-switch="smc.activeItem">
                 <div ng-switch-when="search">
                     <div ng-include="'/templates/search/city.html'"></div>
                 </div>
