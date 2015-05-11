@@ -137,7 +137,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
             },
             controller: function ($scope) {
                 $scope.opened = false;
-                
+
                 $scope.select = function (mood) {
                     $scope.selectedModel = mood;
                     $scope.trigger();
@@ -148,7 +148,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
                 }
 
             },
-            template: '<div ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a><ul class="sub"><li ng-click="select(mood)" ng-repeat="mood in values">{{mood.title}}</li></ul></div>'
+            template: '<div class="relative" ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a><ul class="sub"><li ng-click="select(mood)" ng-repeat="mood in values">{{mood.title}}</li></ul></div>'
         }
     })
 
