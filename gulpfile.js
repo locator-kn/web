@@ -33,7 +33,7 @@ gulp.task('ts', function () {
 
     var templateObject = {
         live: live || '',
-        basePath: baseUrl || 'http://localhost:3001'
+        basePath: baseUrl || 'http://localhost:3001/api/v1'
     };
 
     console.log(templateObject);
