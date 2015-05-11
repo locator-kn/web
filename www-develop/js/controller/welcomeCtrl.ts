@@ -4,8 +4,10 @@ module Controller {
         mood:any;
         moods:any;
         open:any;
-        defaultMood:any;
         selectedMood:any;
+
+        cities:any;
+        selectedCity:any;
 
         constructor(private $scope, private $element, private DataService) {
 
@@ -14,6 +16,11 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
                 this.selectedMood = this.moods[0];
+            })
+
+            this.DataService.getCities().then(result => {
+                this.cities = result.data;
+                this.selectedCity = this.cities[0];
             })
 
         }
