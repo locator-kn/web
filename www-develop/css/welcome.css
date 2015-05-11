@@ -1,0 +1,61 @@
+.nl-form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nl-form input,
+.nl-form select,
+.nl-form button {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.nl-field {
+    display: inline-block;
+    position: relative;
+}
+
+.nl-field.nl-field-open {
+    z-index: 10000;
+}
+
+.nl-field-toggle,
+.nl-form input,
+.nl-form select {
+    line-height: inherit;
+    display: inline-block;
+    color: #b14943;
+    cursor: pointer;
+    border-bottom: 1px dashed #b14943;
+}
+
+.welcome_select div ul {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    background: #76C3BD;
+    transform: translateY(-40%) scale(0.9);
+    transition: visibility 0s 0.3s, opacity 0.3s, transform 0.3s;
+    text-decoration: none;
+}
+
+.welcome_select div {
+    position: relative;
+}
+
+.welcome_select .open ul {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
+}
