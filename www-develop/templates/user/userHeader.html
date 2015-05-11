@@ -1,6 +1,6 @@
 <div class="user-header-bar logged-out" ng-controller="UserHeaderCtrl as uhc">
     <div ng-if="!authenticated" class="btn-group">
-        <a class="padding register">Registieren</a>
+        <a class="padding register" ng-click="uhc.openRegisterDialog()">Registieren</a>
         <a class="padding login" ng-click="uhc.openLoginDialog()">Login</a>
     </div>
 
@@ -12,5 +12,6 @@
     </div>
 
     <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
+    <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
 
 </div>
