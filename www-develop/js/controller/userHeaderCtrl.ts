@@ -1,7 +1,7 @@
 module Controller {
     export class UserHeaderCtrl {
         user:any;
-
+        name:any;
         mail:any;
         password:any;
         facebook:any;
@@ -17,7 +17,7 @@ module Controller {
                 combo: 'esc',
                 description: 'Close the Modal',
                 callback: () => {
-                    this.closeLoginDialog();
+                    this.closeDialog();
                 }
             });
         }
@@ -37,24 +37,55 @@ module Controller {
                     this.$rootScope.authenticated = true;
 
                     //close the dialog after success
-                    this.closeLoginDialog();
+                    this.closeDialog();
 
                 });
         }
 
+        register() {
+            console.info('Register' + this.name);
+            this.UserService.register(this.name, this.mail, this.password)
+
+                .error((resp) => {
+                    console.info("Register Error");
+                })
+
+                .then(result => {
+                    console.info("Register Success");
+                    this.getMe();
+                    this.$rootScope.authenticated = true;
+
+                    //close the dialog after success
+                    this.closeDialog();
+
+                });
+
+
+        }
+
         openLoginDialog() {
             angular.element('.overlay').addClass('active');
-            angular.element(this.$element).find('.moodal').addClass('active');
+            angular.element(this.$element).find('#loginmodal').addClass('active');
 
             angular.element('.overlay').bind('click', () => {
-                this.closeLoginDialog();
+                this.closeDialog();
             });
 
         }
 
-        closeLoginDialog() {
+        openRegisterDialog() {
+            angular.element('.overlay').addClass('active');
+            angular.element(this.$element).find('#registermodal').addClass('active');
+
+            angular.element('.overlay').bind('click', () => {
+                this.closeDialog();
+            });
+
+        }
+
+        closeDialog() {
             angular.element('.overlay').removeClass('active');
-            angular.element(this.$element).find('.moodal').removeClass('active');
+            angular.element(this.$element).find('.moodal.active').removeClass('active');
         }
 
 
