@@ -55,6 +55,8 @@ module Controller {
                     this.getMe();
                     this.$rootScope.authenticated = true;
 
+                    this.login();
+
                     //close the dialog after success
                     this.closeDialog();
 
