@@ -61,11 +61,8 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
             })
 
             .state('search', {
-                url: "/search?city&dateFrom&dateTo&range",
-                templateUrl: "../templates/search/search.html",
-                controller: 'SearchCtrl',
-                controllerAs: 'sc'
-
+                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations",
+                templateUrl: "../templates/search/searchResult.html"
             })
 
             .state('tripresults', {
