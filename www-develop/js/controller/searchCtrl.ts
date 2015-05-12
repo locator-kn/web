@@ -35,6 +35,18 @@ module Controller {
                 this.updateUrl()
             });
 
+            this.$scope.$watch(angular.bind(this, (query) => {
+                return this.query.persons;
+            }), () => {
+                this.updateUrl()
+            });
+
+            this.$scope.$watch(angular.bind(this, (query) => {
+                return this.query.budget;
+            }), () => {
+                this.updateUrl()
+            });
+
             setTimeout(() => {
                 this.search();
             }, 1000)
@@ -43,6 +55,7 @@ module Controller {
 
         updateUrl() {
             this.$location.search(this.query);
+            this.search();
         }
 
         search() {
