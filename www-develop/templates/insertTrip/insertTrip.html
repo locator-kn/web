@@ -2,15 +2,27 @@
     <div class="insert-search-menu">
         <div ng-class="{'insert-item-active': ic.isActive('insert')}" ng-click="ic.activeItem = 'insert'">
             <label class="insert-item-description" ng-show="ic.isActive('insert')">
-                Insert trip
+                insert trip
             </label>
             <img class="insert-item-image" src="/images/icons/plus.png" ng-click="sc.activeItem = 'insert'">
         </div>
         <div ng-class="{'insert-item-active': ic.isActive('edit')}">
             <label class="insert-item-description" ng-show="ic.isActive('edit')">
-                Edit trip
+                edit trip
             </label>
             <img class="insert-item-image" src="/images/icons/stift.png" ng-click="ic.activeItem = 'edit'">
+        </div>
+        <div ng-class="{'insert-item-active': ic.isActive('profile')}">
+            <label class="insert-item-description" ng-show="ic.isActive('profile')">
+                my profile
+            </label>
+            <img class="insert-item-image" src="/images/icons/regler.png" ng-click="ic.activeItem = 'profile'">
+        </div>
+        <div ng-class="{'insert-item-active': ic.isActive('messages')}">
+            <label class="insert-item-description" ng-show="ic.isActive('messages')">
+                my messages
+            </label>
+            <img class="insert-item-image" src="/images/icons/mail.png" ng-click="ic.activeItem = 'messages'">
         </div>
     </div>
     <div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">
@@ -35,46 +47,4 @@
         </div>
     </div>
 </div>
-
-<!--<div class="create-trip">-->
-    <!--<div class="nav-bar-insert-trip">-->
-        <!--<div class="nav-bar-entries">-->
-            <!--<div class="insert-trip">-->
-                <!--<div class="insert-text">-->
-                    <!--trip erstellen-->
-                <!--</div>-->
-                <!--<div class="insert-icon">-->
-                    <!--<img src="./images/icons/plus.png">-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="edit-trip">-->
-                <!--<div class="edit-text"">-->
-                    <!--trips verwalten-->
-                <!--</div>-->
-                <!--<div class="edit-icon">-->
-                    <!--<img src="./images/icons/stift.png">-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="my-profile">-->
-                <!--<div class="profile-text">-->
-                    <!--mein profil-->
-                <!--</div>-->
-                <!--<div class="profile-icon">-->
-                    <!--<img src="./images/icons/regler.png">-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="my-messages">-->
-                <!--<div class="messages-text">-->
-                    <!--meine nachrichten-->
-                <!--</div>-->
-                <!--<div class="messages-icon">-->
-                    <!--<img src="./images/icons/mail.png">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="input-fields-container">-->
-
-    <!--</div>-->
-<!--</div>-->
 
