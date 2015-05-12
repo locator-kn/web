@@ -7,6 +7,7 @@ module Controller {
         constructor(private $scope, private $rootScope, private $location, private SearchService) {
             this.query = $location.search();
             this.query.accomodations = [];
+            this.query.persons = 1;
 
             this.$rootScope.$emit('loading');
 
