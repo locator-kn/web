@@ -1,85 +1,78 @@
-/*Nav bar*/
-.nav-bar-insert-trip {
-    float: right;
-    background-color: #ff632d;
+.insert-container-sidebar {
+    position: absolute;
+    right: 0px;
+    height: 100vh;
+    width: 700px;
+}
+
+.insert-search-menu {
+    height: 100vh;
     width: 300px;
-    height: 700px;
-    margin-right: 100px;
+    position: absolute;
+    right: 0px;
 }
 
-.nav-bar-entries {
-    margin-top: 100px;
-}
-
-/*Insert trip*/
-.nav-bar-entries .insert-trip {
-    padding: 20px;
-    background-color: #ff814e;
-    width: 130%;
-}
-
-.insert-trip .insert-text {
-    font-size: 18px;
-}
-
-.insert-trip .insert-icon {
-    float: right;
-    margin-right: 10px;
+.insert-search-menu div {
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-top: 20px;
     position: relative;
-    bottom: 24px;
 }
 
-/*Edit trip*/
-.nav-bar-entries .edit-trip {
-    padding: 10px;
-    width: 130%;
-}
-
-.edit-trip .edit-text {
-    visibility: hidden;
-}
-
-.edit-trip .edit-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*My profile*/
-.nav-bar-entries .my-profile {
-    padding: 10px;
-    width: 130%;
-}
-
-.my-profile .profile-text {
-    visibility: hidden;
-}
-
-.my-profile .profile-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*My messages*/
-.nav-bar-entries .my-messages {
-    padding: 10px;
-    width: 130%;
-}
-
-.my-messages .messages-text {
-    visibility: hidden;
-}
-
-.my-messages .messages-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*Input fields container*/
-.input-fields-container {
-    float: right;
-    width: 600px;
-    height: 700px;
+.insert-item-active {
     background-color: #ff814e;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    position: relative;
+    z-index: 200;
 }
 
+.insert-item-description {
+    display: inline;
+    text-align: center;
+    float: left;
+    width: 220px;
+}
 
+.insert-item-image {
+    float: right;
+}
+
+.insert-settings {
+    width: 220px;
+    height: 100vh;
+    position: absolute;
+    right: 0px;
+    margin-right: 80px;
+    background: #ff632d;
+}
+
+.sample-show-hide {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+    opacity:0;
+}
+
+.insert-offset {
+    position: relative;
+    padding-top: 71px;
+    z-index: 100;
+}
+
+.edit-offset {
+    position: relative;
+    padding-top: 142px;
+    z-index: 100;
+}
+
+.insert-inputs {
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    background-color: #ff814e;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
