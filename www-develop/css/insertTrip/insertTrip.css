@@ -1,19 +1,20 @@
 .insert-container-sidebar {
     position: absolute;
+    right: 0px;
     height: 100vh;
     width: 500px;
-    top: 0;
 }
 
 .insert-search-menu {
     height: 100vh;
     width: 300px;
     position: absolute;
+    right: 0px;
 }
 
 .insert-search-menu div {
-    padding-bottom: 20px;
-    padding-left: 20px;
+    padding-bottom: 40px;
+    padding-right: 20px;
     padding-top: 20px;
     position: relative;
 }
@@ -26,11 +27,23 @@
     z-index: 200;
 }
 
+.insert-item-description {
+    display: inline;
+    text-align: center;
+    float: left;
+    width: 220px;
+}
+
+.insert-item-image {
+    float: right;
+}
+
 .insert-settings {
     width: 220px;
     height: 100vh;
     position: absolute;
-    margin-left: 80px;
+    right: 0px;
+    margin-right: 80px;
     background: #ff632d;
 }
 

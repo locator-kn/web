@@ -1,16 +1,16 @@
 <div class="insert-container-sidebar" ng-controller="InsertTripCtrl as ic">
     <div class="insert-search-menu">
         <div ng-class="{'insert-item-active': ic.isActive('insert')}" ng-click="ic.activeItem = 'insert'">
-            <img src="/images/icons/plus.png" ng-click="sc.activeItem = 'insert'">
-            <label class="item-description" ng-show="ic.isActive('insert')">
+            <label class="insert-item-description" ng-show="ic.isActive('insert')">
                 Insert trip
             </label>
+            <img class="insert-item-image" src="/images/icons/plus.png" ng-click="sc.activeItem = 'insert'">
         </div>
         <div ng-class="{'insert-item-active': ic.isActive('edit')}">
-            <img src="/images/icons/stift.png" ng-click="ic.activeItem = 'edit'">
-            <label class="item-description" ng-show="ic.isActive('edit')">
+            <label class="insert-item-description" ng-show="ic.isActive('edit')">
                 Edit trip
             </label>
+            <img class="insert-item-image" src="/images/icons/stift.png" ng-click="ic.activeItem = 'edit'">
         </div>
     </div>
     <div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">
