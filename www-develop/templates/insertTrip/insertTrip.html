@@ -1,42 +1,68 @@
-<div class="create-trip">
-    <div class="nav-bar-insert-trip">
-        <div class="nav-bar-entries">
-            <div class="insert-trip">
-                <div class="insert-text">
-                    trip erstellen
-                </div>
-                <div class="insert-icon">
-                    <img src="./images/icons/plus.png">
-                </div>
-            </div>
-            <div class="edit-trip">
-                <div class="edit-text"">
-                    trips verwalten
-                </div>
-                <div class="edit-icon">
-                    <img src="./images/icons/stift.png">
-                </div>
-            </div>
-            <div class="my-profile">
-                <div class="profile-text">
-                    mein profil
-                </div>
-                <div class="profile-icon">
-                    <img src="./images/icons/regler.png">
-                </div>
-            </div>
-            <div class="my-messages">
-                <div class="messages-text">
-                    meine nachrichten
-                </div>
-                <div class="messages-icon">
-                    <img src="./images/icons/mail.png">
+<div class="insert-container-sidebar" ng-controller="InsertTripCtrl as ic">
+    <div class="insert-search-menu">
+        <div ng-class="{'insert-item-active': ic.isActive('insert')}" ng-click="ic.activeItem = 'insert'">
+            <img src="/images/icons/kalender.png" ng-click="sc.activeItem = 'insert'">
+            <label class="item-description" ng-show="ic.isActive('insert')">
+                Insert trip
+            </label>
+        </div>
+        <div ng-class="{'insert-item-active': ic.isActive('edit')}">
+            <img src="/images/icons/regler.png" ng-click="ic.activeItem = 'edit'">
+            <label class="item-description" ng-show="ic.isActive('edit')">
+                Filter
+            </label>
+        </div>
+    </div>
+    <div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">
+        <div ng-class="{'insert-offset': ic.isActive('insert')}">
+            <div ng-switch="tp.activeItem">
+                <div ng-switch-when="insert">
+                    <div ng-include="'/templates/search/city.html'"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="input-fields-container">
-
-    </div>
 </div>
+
+<!--<div class="create-trip">-->
+    <!--<div class="nav-bar-insert-trip">-->
+        <!--<div class="nav-bar-entries">-->
+            <!--<div class="insert-trip">-->
+                <!--<div class="insert-text">-->
+                    <!--trip erstellen-->
+                <!--</div>-->
+                <!--<div class="insert-icon">-->
+                    <!--<img src="./images/icons/plus.png">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="edit-trip">-->
+                <!--<div class="edit-text"">-->
+                    <!--trips verwalten-->
+                <!--</div>-->
+                <!--<div class="edit-icon">-->
+                    <!--<img src="./images/icons/stift.png">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="my-profile">-->
+                <!--<div class="profile-text">-->
+                    <!--mein profil-->
+                <!--</div>-->
+                <!--<div class="profile-icon">-->
+                    <!--<img src="./images/icons/regler.png">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="my-messages">-->
+                <!--<div class="messages-text">-->
+                    <!--meine nachrichten-->
+                <!--</div>-->
+                <!--<div class="messages-icon">-->
+                    <!--<img src="./images/icons/mail.png">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="input-fields-container">-->
+
+    <!--</div>-->
+<!--</div>-->
 

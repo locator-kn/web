@@ -1,3 +1,54 @@
+.insert-container-sidebar {
+    position: absolute;
+    height: 100vh;
+    width: 500px;
+    top: 0;
+}
+
+.insert-search-menu {
+    height: 100vh;
+    width: 300px;
+    position: absolute;
+}
+
+.insert-search-menu div {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.insert-item-active {
+    background-color: #72d4ff;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    position: relative;
+    z-index: 200;
+}
+
+.insert-settings {
+    width: 220px;
+    height: 100vh;
+    position: absolute;
+    margin-left: 80px;
+    background: #6abfff;
+}
+
+.sample-show-hide {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.sample-show-hide.ng-hide {
+    opacity:0;
+}
+
+.insert-offset {
+    position: relative;
+    padding-top: 71px;
+    z-index: 100;
+}
+
 /*Nav bar*/
 .nav-bar-insert-trip {
     float: right;
