@@ -19,7 +19,7 @@
 }
 
 .insert-item-active {
-    background-color: #72d4ff;
+    background-color: #ff814e;
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
     position: relative;
@@ -31,7 +31,7 @@
     height: 100vh;
     position: absolute;
     margin-left: 80px;
-    background: #6abfff;
+    background: #ff632d;
 }
 
 .sample-show-hide {
@@ -49,88 +49,8 @@
     z-index: 100;
 }
 
-/*Nav bar*/
-.nav-bar-insert-trip {
-    float: right;
-    background-color: #ff632d;
-    width: 300px;
-    height: 700px;
-    margin-right: 100px;
-}
-
-.nav-bar-entries {
-    margin-top: 100px;
-}
-
-/*Insert trip*/
-.nav-bar-entries .insert-trip {
-    padding: 20px;
-    background-color: #ff814e;
-    width: 130%;
-}
-
-.insert-trip .insert-text {
-    font-size: 18px;
-}
-
-.insert-trip .insert-icon {
-    float: right;
-    margin-right: 10px;
+.edit-offset {
     position: relative;
-    bottom: 24px;
+    padding-top: 142px;
+    z-index: 100;
 }
-
-/*Edit trip*/
-.nav-bar-entries .edit-trip {
-    padding: 10px;
-    width: 130%;
-}
-
-.edit-trip .edit-text {
-    visibility: hidden;
-}
-
-.edit-trip .edit-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*My profile*/
-.nav-bar-entries .my-profile {
-    padding: 10px;
-    width: 130%;
-}
-
-.my-profile .profile-text {
-    visibility: hidden;
-}
-
-.my-profile .profile-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*My messages*/
-.nav-bar-entries .my-messages {
-    padding: 10px;
-    width: 130%;
-}
-
-.my-messages .messages-text {
-    visibility: hidden;
-}
-
-.my-messages .messages-icon {
-    float: right;
-    margin-right: 20px;
-}
-
-/*Input fields container*/
-.input-fields-container {
-    float: right;
-    width: 600px;
-    height: 700px;
-    background-color: #ff814e;
-}
-
-

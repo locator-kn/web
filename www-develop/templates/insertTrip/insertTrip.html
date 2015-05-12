@@ -1,23 +1,26 @@
 <div class="insert-container-sidebar" ng-controller="InsertTripCtrl as ic">
     <div class="insert-search-menu">
         <div ng-class="{'insert-item-active': ic.isActive('insert')}" ng-click="ic.activeItem = 'insert'">
-            <img src="/images/icons/kalender.png" ng-click="sc.activeItem = 'insert'">
+            <img src="/images/icons/plus.png" ng-click="sc.activeItem = 'insert'">
             <label class="item-description" ng-show="ic.isActive('insert')">
                 Insert trip
             </label>
         </div>
         <div ng-class="{'insert-item-active': ic.isActive('edit')}">
-            <img src="/images/icons/regler.png" ng-click="ic.activeItem = 'edit'">
+            <img src="/images/icons/stift.png" ng-click="ic.activeItem = 'edit'">
             <label class="item-description" ng-show="ic.isActive('edit')">
-                Filter
+                Edit trip
             </label>
         </div>
     </div>
     <div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">
-        <div ng-class="{'insert-offset': ic.isActive('insert')}">
-            <div ng-switch="tp.activeItem">
+        <div ng-class="{'insert-offset': ic.isActive('insert'), 'edit-offset': ic.isActive('edit')}">
+            <div ng-switch="ic.activeItem">
                 <div ng-switch-when="insert">
                     <div ng-include="'/templates/search/city.html'"></div>
+                </div>
+                <div ng-switch-when="edit">
+                    <div ng-include="'/templates/search/dates.html'"></div>
                 </div>
             </div>
         </div>
