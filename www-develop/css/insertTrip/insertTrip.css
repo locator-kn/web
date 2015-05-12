@@ -2,7 +2,7 @@
     position: absolute;
     right: 0px;
     height: 100vh;
-    width: 500px;
+    width: 700px;
 }
 
 .insert-search-menu {
@@ -66,4 +66,13 @@
     position: relative;
     padding-top: 142px;
     z-index: 100;
+}
+
+.insert-inputs {
+    width: 400px;
+    height: 100vh;
+    position: absolute;
+    background-color: #ff814e;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
 }
