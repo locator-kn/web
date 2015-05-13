@@ -10,20 +10,12 @@
 
 /// <reference path="./controller/userHeaderCtrl.ts" />
 
-/// <reference path="./controller/modusChooserCtrl.ts" />
-
-
-/// <reference path="./controller/tripSearchCtrl.ts" />
 /// <reference path="./controller/tripResultsCtrl.ts" />
 
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
-
-/// <reference path="./controller/tripCtrl.ts" />
-
-/// <reference path="./controller/createTripCtrl.ts" />
 
 /// <reference path="./controller/welcomeCtrl.ts" />
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
@@ -101,13 +93,9 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
     .controller(Controller.TripResultsCtrl.controllerId, Controller.TripResultsCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
-    .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)
-    .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
-    .controller(Controller.CreateTripCtrl.controllerId, Controller.CreateTripCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
