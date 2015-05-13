@@ -26,6 +26,7 @@
 /// <reference path="./controller/createTripCtrl.ts" />
 
 /// <reference path="./controller/welcomeCtrl.ts" />
+/// <reference path="./controller/static/staticButtonCtrl.ts" />
 
 
 /// <reference path="./service/userService.ts" />
@@ -111,6 +112,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.UserHeaderCtrl.controllerId, Controller.UserHeaderCtrl)
     .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
+    .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
 
 
