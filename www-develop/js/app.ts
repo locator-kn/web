@@ -60,8 +60,9 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
             })
 
             .state('search', {
-                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations",
-                templateUrl: "../templates/search/searchResult.html"
+                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations&o",
+                templateUrl: "../templates/search/search.html",
+                reloadOnSearch: false
             })
 
             .state('tripresults', {
