@@ -1,4 +1,4 @@
 <div class="staticButtons" ng-controller="StaticButtonCtrl as sbc">
-    <div class="searchButton" ng-if="showSearchButton">SEARCH</div>
-    <div class="createButton" ng-if="showCreateButton">CREATE</div>
+    <div class="static-searchButton" ng-hide="hideSearchButton" ui-sref="search({o: true})">SEARCH</div>
+    <div class="static-createButton" ng-hide="hideCreateButton" ui-sref="insertTrip">CREATE</div>
 </div>

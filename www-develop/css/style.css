@@ -412,3 +412,19 @@ a.close-modal {
     width: 400px;
     margin: 0 auto;
 }
+
+
+.static-searchButton, .static-createButton {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    z-index: 10000;
+}
+.static-createButton {
+    background: rgba(255, 0, 0, 0.4);
+    right: 0;
+}
+.static-searchButton {
+    background: rgba(0, 255, 0, 0.4);
+    left: 0;
+}
