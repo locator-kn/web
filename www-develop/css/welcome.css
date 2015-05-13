@@ -9,6 +9,7 @@
     text-decoration: none;
     list-style-type: none;
     padding: 20px;
+    z-index: 100;
 }
 
 .welcome_select div {

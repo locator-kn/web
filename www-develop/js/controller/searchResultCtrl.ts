@@ -1,7 +1,9 @@
 module Controller {
     export class SearchResultCtrl {
         results:any;
-        constructor(private $scope, private $rootScope, private $location, private SearchService) {
+        constructor(private $scope, private $rootScope, private $location, private SearchService, private $state) {
+
+            $rootScope.$state = $state;
 
             $rootScope.$on('loading', () => {
                 console.log('loading');
