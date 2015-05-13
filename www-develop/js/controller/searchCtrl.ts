@@ -9,14 +9,11 @@ module Controller {
 
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
-<<<<<<< HEAD
             this.query.accomodations = [];
             $rootScope.hideSearchButton = true;
             $rootScope.hideCreateButton = false;
-=======
             this.query.accomodation = false;
             this.query.moods = [];
->>>>>>> acf979e47e42fad5a1b15c91c51fcf939a47f4ce
 
             this.$rootScope.$emit('loading');
 
