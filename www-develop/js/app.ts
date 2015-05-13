@@ -53,12 +53,21 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
         $stateProvider
             .state('app', {
                 url: "/app",
-                abstract: true
+                abstract: true,
+                templateUrl: 'templates/headerBar/headerBar.html',
+                controller: "HeaderCtrl",
+                controllerAs: "hc"
             })
 
-            .state('welcome', {
+            .state('app.welcome', {
                 url: "/welcome",
-                templateUrl: "../templates/welcome.html"
+                views: {
+                    'welcomeView': {
+                        templateUrl: "../templates/welcome.html",
+                        controller: "WelcomeCtrl",
+                        controllerAs: "wc"
+                    }
+                }
 
             })
 
@@ -103,7 +112,8 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
         $urlRouterProvider.otherwise('/welcome')
     })
 
-    .controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
+    .
+    controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
     .controller(Controller.TripResultsCtrl.controllerId, Controller.TripResultsCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)

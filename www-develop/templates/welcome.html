@@ -1,1 +1,16 @@
-<div class="opener row" ng-include="'templates/welcome/opener.html'" id="opener"></div>
+<div class="opener">
+
+    <div class="welcome_wrapper">
+        <div class="welcome_select"><span class="margin-right">
+            Ich will 3 Tage</span>
+
+            <div select values="wc.moods" selected-model="wc.selectedMood"></div>
+            <span class="margin-right">in</span>
+
+            <div select values="wc.cities" selected-model="wc.selectedCity"></div>
+
+            <span class="margin-right">vom 25.06.15 bis zum 01.07.15 mit 5 Personen.</span>
+        </div>
+    </div>
+
+</div>
