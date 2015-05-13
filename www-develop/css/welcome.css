@@ -10,6 +10,9 @@
     list-style-type: none;
     padding: 20px;
     z-index: 100;
+
+    max-height: 100vh;
+    overflow: scroll;
 }
 
 .welcome_select div {

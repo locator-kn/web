@@ -4,8 +4,8 @@
     <a class="fb-login" ng-href="{{uhc.facebook}}">Login with Facebook</a>
     <a class="gp-login" ng-href="{{uhc.google}}">Login with Google</a>
 </div>
-
-<input ng-model="uhc.mail" type="text" placeholder="E-Mail" name="inputMail">
-<input ng-model="uhc.password" type="password" placeholder="Passwort" name="inputPassword">
-<a ng-click="uhc.login()" class="pointer login submit button">Login</a>
-
+<form name="form">
+    <input ng-model="uhc.mail" type="email" placeholder="E-Mail" name="inputMail">
+    <input ng-model="uhc.password" type="password" placeholder="Passwort" name="inputPassword">
+    <input ng-click="uhc.login()" class="pointer login submit button" value="Login" type="submit">
+</form>
