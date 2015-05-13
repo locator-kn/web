@@ -12,7 +12,6 @@
 
 /// <reference path="./controller/modusChooserCtrl.ts" />
 
-
 /// <reference path="./controller/tripSearchCtrl.ts" />
 /// <reference path="./controller/tripResultsCtrl.ts" />
 
@@ -27,6 +26,8 @@
 
 /// <reference path="./controller/welcomeCtrl.ts" />
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
+
+/// <reference path="./controller/mainCtrl.ts" />
 
 
 /// <reference path="./service/userService.ts" />
@@ -114,6 +115,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
     .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
+    .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
 
 
     .directive('megadate', function () {
@@ -133,7 +135,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
                 values: '=',
                 'selectedModel': '='
             },
-            controller: function ($scope, hotkeys) {
+            controller: function ($scope, hotkeys, $timeout, $rootScope) {
                 $scope.opened = false;
 
                 $scope.select = function (mood) {
