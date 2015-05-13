@@ -11,8 +11,8 @@
     padding: 20px;
     z-index: 100;
 
-    max-height: 100vh;
-    overflow: scroll;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 .welcome_select div {
@@ -26,11 +26,6 @@
     transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
 }
 
-.welcome_wrapper {
-    width: 600px;
-    margin: 0 auto;
-}
-
 .welcome_select {
     font-size: 30px;
     color: white;
@@ -38,8 +33,7 @@
 
 .welcome_select a {
     color: white;
-    border-bottom: 2px dashed white;
-    text-decoration: none;
+    text-decoration: underline;
     cursor: pointer;
 }
 
@@ -51,3 +45,8 @@ span.margin-right {
     float: left;
     margin-right: 7px;
 }
+
+.welcome_container {
+    padding-top: 100px;
+}
+

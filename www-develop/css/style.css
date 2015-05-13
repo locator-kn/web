@@ -20,6 +20,7 @@
     left: 0;
     top: 0;
     overflow: hidden;
+    max-heigth: 100vh;
 }
 
 .relative {
@@ -270,7 +271,6 @@ body.no-scroll {
 }
 
 .header-bar .btn-group {
-    padding: 10px 50px;
     float: right;
     min-height: 50px;
 }
@@ -326,6 +326,10 @@ ul.slides {
     z-index: -1;
 }
 
+.blackopac {
+    background: rgba(0, 0, 0, 0.6);
+}
+
 .overlay.active {
     opacity: 1;
     display: block;
@@ -358,7 +362,7 @@ ul.slides {
 }
 
 .profile_thumbnail {
-    height: 50px;
+    height: 25px;
     border-radius: 100px;
     width: auto;
 }
@@ -368,6 +372,10 @@ ul.slides {
     background: none;
     padding: 8px 13px;
     margin: 3px 0;
+    color: white;
+}
+
+.moodal input::-webkit-input-placeholder {
     color: white;
 }
 
