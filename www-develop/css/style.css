@@ -264,23 +264,23 @@ body.no-scroll {
     color: #fff;
 }
 
-.user-header-bar {
+.header-bar {
     width: 100%;
     float: left;
 }
 
-.user-header-bar .btn-group {
+.header-bar .btn-group {
     padding: 10px 50px;
     float: right;
     min-height: 50px;
 }
 
-.user-header-bar .btn-group a {
+.header-bar .btn-group a {
     color: #fff;
     line-height: 60px;
 }
 
-.user-header-bar .btn-group a:hover {
+.header-bar .btn-group a:hover {
     text-decoration: none;
     cursor: pointer;
 }
