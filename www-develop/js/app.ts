@@ -51,24 +51,11 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('app', {
-                url: "/app",
-                abstract: true,
-                templateUrl: 'templates/headerBar/headerBar.html',
-                controller: "HeaderCtrl",
-                controllerAs: "hc"
-            })
 
-            .state('app.welcome', {
+
+            .state('welcome', {
                 url: "/welcome",
-                views: {
-                    'welcomeView': {
-                        templateUrl: "../templates/welcome.html",
-                        controller: "WelcomeCtrl",
-                        controllerAs: "wc"
-                    }
-                }
-
+                templateUrl: "../templates/welcome/welcome.html",
             })
 
             .state('search', {
@@ -109,11 +96,10 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
                 templateUrl: "../templates/userProfile/editProfile.html"
             });
 
-        $urlRouterProvider.otherwise('/welcome')
+        $urlRouterProvider.otherwise('welcome')
     })
 
-    .
-    controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
+    .controller(Controller.TripSearchCtrl.controllerId, Controller.TripSearchCtrl)
     .controller(Controller.TripResultsCtrl.controllerId, Controller.TripResultsCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.ModusChooserCtrl.controllerId, Controller.ModusChooserCtrl)

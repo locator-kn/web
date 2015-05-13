@@ -1,19 +1,22 @@
-<div class="row">
-    <div class="header-bar logged-out">
-        <div ng-if="!authenticated" class="btn-group">
-            <a class="padding register" ng-click="hc.openRegisterDialog()">Registieren</a>
-            <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>
+<div class="container">
+    <div class="row" ng-controller="UserHeaderCtrl as hc">
+        <div class="header-bar logged-out">
+            <div ng-if="!authenticated" class="btn-group">
+                <a class="padding register" ng-click="hc.openRegisterDialog()">Registieren</a>
+                <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>
+            </div>
+
+            <div ng-if="authenticated" class="btn-group">
+                <a><img class="profile_thumbnail" ng-src="{{hc.user.picture}}">
+                    <a class="username padding">{{hc.user.name}}</a>
+                </a>
+                <a class="logout" ng-click="hc.logout()">Logout</a>
+            </div>
+
+            <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
+            <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
+
         </div>
-
-        <div ng-if="authenticated" class="btn-group">
-            <a><img class="profile_thumbnail" ng-src="{{hc.user.picture}}">
-                <a class="username padding">{{hc.user.name}}</a>
-            </a>
-            <a class="logout" ng-click="hc.logout()">Logout</a>
-        </div>
-
-        <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
-        <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
-
     </div>
 </div>
+
