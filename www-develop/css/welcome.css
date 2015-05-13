@@ -9,15 +9,13 @@
     text-decoration: none;
     list-style-type: none;
     padding: 20px;
-    z-index: 100;
+    z-index: 1000;
+    display: block;
 
     max-height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-.welcome_select div {
-    position: relative;
-}
 
 .welcome_select .open ul {
     visibility: visible;
