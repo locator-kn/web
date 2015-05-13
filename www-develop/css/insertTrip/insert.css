@@ -2,14 +2,20 @@
     float: left;
 }
 
+
+/*left area*/
 .left-input {
     padding-left: 20px;
     width: 350px;
     float: left;
 }
 
+.left-input .persons {
+    float: left;
+}
+
 .left-input input {
-    width: 100%;
+    width: 80%;
     margin-top: 20px;
 }
 
@@ -17,6 +23,7 @@
     margin-top: 20px;
 }
 
+/*right area*/
 .right-input {
     padding-left: 20px;
     padding-right: 20px;
