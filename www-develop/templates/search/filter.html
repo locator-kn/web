@@ -1,4 +1,4 @@
-<div class="slider-label-box">
+<div class="filter-container">
     <p>Anzahl Personen</p>
     <div class="circle" ng-click="sc.query.persons=1" ng-class="{'circle-selected': sc.query.persons == 1}">1</div>
     <div class="circle" ng-click="sc.query.persons=2" ng-class="{'circle-selected': sc.query.persons == 2}">2</div>
@@ -6,15 +6,8 @@
     <div class="circle" ng-click="sc.query.persons=4" ng-class="{'circle-selected': sc.query.persons == 4}">4</div>
     <div class="circle" ng-click="sc.query.persons=5" ng-class="{'circle-selected': sc.query.persons == 5}">5</div>
 </div>
-<div class="slider-label-box">
-    <p>Budget in €</p>
-    <input type="range" ng-model="sc.query.budget">
-</div>
 
-<ul>
-    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('übernachtung')}" ng-click="sc.toggleAccomodationSelection('übernachtung')">übernachtung</div>
-    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('couch')}"ng-click="sc.toggleAccomodationSelection('couch')">couch</div>
-    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('zimmer')}" ng-click="sc.toggleAccomodationSelection('zimmer')">zimmer</div>
-    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('ferienwohnung')}" ng-click="sc.toggleAccomodationSelection('ferienwohnung')">ferienwohnung</div>
-    <div class="pointer" ng-class="{'selected-acc': sc.isAccomodationSelected('nichts')}" ng-click="sc.toggleAccomodationSelection('nichts')">nichts</div>
-</ul>
+<div class="filter-container">
+    <span>Übernachtung</span>
+    <div class="circle" ng-click="sc.toggleAccomodation()" ng-class="{'circle-selected': sc.query.accomodation == true}"></div>
+</div>
