@@ -4,13 +4,12 @@ module Controller {
         query:any;
         activeItem:string = '';
 
-        constructor(private $scope, private $rootScope, private $location, private SearchService) {
+        constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
             this.query.accomodations = [];
 
             this.$rootScope.$emit('loading');
 
-            console.log(this.query);
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.city;
             }), () => {
@@ -35,6 +34,18 @@ module Controller {
                 this.updateUrl()
             });
 
+            this.$scope.$watch(angular.bind(this, (query) => {
+                return this.query.persons;
+            }), () => {
+                this.updateUrl()
+            });
+
+            this.$scope.$watch(angular.bind(this, (query) => {
+                return this.query.budget;
+            }), () => {
+                this.updateUrl()
+            });
+
             setTimeout(() => {
                 this.search();
             }, 1000)
@@ -43,6 +54,7 @@ module Controller {
 
         updateUrl() {
             this.$location.search(this.query);
+            this.search();
         }
 
         search() {

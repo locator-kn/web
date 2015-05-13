@@ -16,6 +16,8 @@
 /// <reference path="./controller/tripSearchCtrl.ts" />
 /// <reference path="./controller/tripResultsCtrl.ts" />
 
+/// <reference path="./controller/insertTripCtrl.ts" />
+
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
@@ -61,11 +63,8 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
             })
 
             .state('search', {
-                url: "/search?city&dateFrom&dateTo&range",
-                templateUrl: "../templates/search/search.html",
-                controller: 'SearchCtrl',
-                controllerAs: 'sc'
-
+                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations",
+                templateUrl: "../templates/search/searchResult.html"
             })
 
             .state('tripresults', {
@@ -116,6 +115,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.UserHeaderCtrl.controllerId, Controller.UserHeaderCtrl)
     .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
+    .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
 
 
     .directive('megadate', function () {
