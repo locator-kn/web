@@ -53,9 +53,6 @@ module Controller {
                 .then(result => {
                     console.info("Register Success");
                     this.getMe();
-                    this.$rootScope.authenticated = true;
-
-                    this.login();
 
                     //close the dialog after success
                     this.closeDialog();
