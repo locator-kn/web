@@ -49,7 +49,7 @@
 
 <body ng-app="starter">
 
-<div class="absolute-slider" ng-controller="SlideCtrl">
+<div class="absolute-slider" ng-controller="SlideCtrl" data-ng-show="$state.includes('welcome')">
     <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in slides">
         <li>
             <div class="img-slide" style="background: url({{s}}); background-size: cover;"></div>

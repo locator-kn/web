@@ -11,7 +11,7 @@
 .fullsize {
     min-height: 100vh;
 }
-
+    overflow-y: auto;
 .absolute-slider {
     position: fixed;
     z-index: -1;
@@ -92,6 +92,10 @@
     width: 100vw;
 }
 
+.results {
+    margin-left: 80px;
+}
+
 #results .trip-img {
     height: 100%;
     width: 100%;
@@ -163,8 +167,8 @@ body.no-scroll {
 }
 
 .container-fluid .container {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* new home */
