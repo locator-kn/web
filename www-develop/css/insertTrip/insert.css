@@ -1,0 +1,72 @@
+.insert-new-trip {
+    float: left;
+}
+
+
+/*left area*/
+.left-input {
+    padding-left: 20px;
+    width: 350px;
+    float: left;
+}
+
+.left-input .persons {
+    float: left;
+}
+
+.left-input input {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.left-input p {
+    margin-top: 20px;
+}
+
+/*right area*/
+.right-input {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 350px;
+    float: right;
+}
+
+.right-input input {
+    width: 100%;
+    margin-top: 20px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.right-input textarea {
+    width: 100%;
+    margin-top: 10px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+/*Placeholder color for all browsers*/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: black;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: black;
+    opacity: 1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: black;
+}
+
+

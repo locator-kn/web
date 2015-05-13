@@ -26,22 +26,16 @@
         </div>
     </div>
     <div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">
-        <!--<div ng-class="{'insert-offset': ic.isActive('insert'), 'edit-offset': ic.isActive('edit')}">-->
-            <!--<div ng-switch="ic.activeItem">-->
-                <!--<div ng-switch-when="insert">-->
-                    <!--div ng-include="'/templates/search/city.html'"></div><-->
-                <!--</div>-->
-                <!--<div ng-switch-when="edit">-->
-                    <!--<div ng-include="'/templates/search/dates.html'"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+
     </div>
     <div class="insert-inputs sample-show-hide" ng-show="ic.activeItem != ''">
         <div ng-class="{'insert-offset': ic.isActive('insert')}">
             <div ng-switch="ic.activeItem">
                 <div ng-switch-when="insert">
-                    <div ng-include="'/templates/search/city.html'"></div>
+                    <div ng-include="'/templates/insertTrip/insert.html'"></div>
+                </div>
+                <div ng-switch-when="edit">
+                    <div ng-include="'/templates/insertTrip/edit.html'"></div>
                 </div>
             </div>
         </div>

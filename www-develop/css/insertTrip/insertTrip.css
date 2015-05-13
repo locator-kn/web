@@ -2,7 +2,7 @@
     position: absolute;
     right: 0px;
     height: 100vh;
-    width: 700px;
+    width: 1000px;
 }
 
 .insert-search-menu {
@@ -57,9 +57,9 @@
 }
 
 .insert-offset {
-    position: relative;
-    padding-top: 71px;
-    z-index: 100;
+    padding-top: 50px;
+    /*position: relative;
+    z-index: 100;*/
 }
 
 .edit-offset {
@@ -69,7 +69,7 @@
 }
 
 .insert-inputs {
-    width: 400px;
+    width: 700px;
     height: 100vh;
     position: absolute;
     background-color: #ff814e;
