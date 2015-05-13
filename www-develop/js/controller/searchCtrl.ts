@@ -8,6 +8,7 @@ module Controller {
             this.query = $location.search();
             this.query.accomodations = [];
             $rootScope.hideSearchButton = true;
+            $rootScope.hideCreateButton = false;
 
             this.$rootScope.$emit('loading');
 
