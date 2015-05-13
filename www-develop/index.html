@@ -59,9 +59,10 @@
 </div>
 
 <div class="overlay"></div>
-<div class="container-fluid fullsize">
+<div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
 
-    <div class="row" ng-include="'templates/headerBar/headerBar.html'"></div>
+<div class="container-fluid">
+
     <div ui-view></div>
 
 </div>
