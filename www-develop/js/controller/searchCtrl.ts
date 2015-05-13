@@ -6,7 +6,6 @@ module Controller {
 
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
-            this.query.accomodations = [];
 
             this.$rootScope.$emit('loading');
 
@@ -69,16 +68,12 @@ module Controller {
             return item == this.activeItem;
         }
 
-        toggleAccomodationSelection(accomodation) {
-            if(!this.isAccomodationSelected(accomodation)){
-                this.query.accomodations.push(accomodation);
-            } else {
-                this.query.accomodations.splice(this.query.accomodations.indexOf(accomodation), 1);
+        toggleAccomodation() {
+            if(this.query.accomodation === null) {
+                this.query.accomodation = false;
             }
-        }
-
-        isAccomodationSelected(accomodation){
-            return this.query.accomodations.indexOf(accomodation) > -1;
+            this.query.accomodation = !this.query.accomodation;
+            console.info(this.query.accomodations);
         }
 
         emitResult(result) {

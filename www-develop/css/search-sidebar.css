@@ -78,7 +78,7 @@ html, body{
     opacity:0;
 }
 
-.slider-label-box {
+.filter-container {
     padding: 5px 15px 30px 15px;
 }
 
@@ -99,6 +99,7 @@ html, body{
     line-height: 30px;
     text-align:center;
     display: inline-block;
+    vertical-align:middle;
 
 }
 
