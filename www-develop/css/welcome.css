@@ -16,7 +16,6 @@
     overflow-y: auto;
 }
 
-
 .welcome_select .open ul {
     visibility: visible;
     opacity: 1;
@@ -48,3 +47,18 @@ span.margin-right {
     padding-top: 100px;
 }
 
+a.welcome_button {
+    background: none;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px 20px;
+    font-size: 18px;
+    transition-duration: 0.3s;
+    font-weight: lighter;
+}
+
+a.welcome_button:hover {
+    color: white;
+    background: black;
+}
