@@ -3,11 +3,21 @@ module Controller {
 
         query:any;
         activeItem:string = '';
+        selectableMoods;
+        selectedMoods = [];
+        showSelectableMoods = false;
 
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
+            this.query.accomodation = false;
+            this.query.moods = [];
 
             this.$rootScope.$emit('loading');
+
+            this.DataService.getMoods()
+                .then(result => {
+                    this.selectableMoods = result.data;
+                });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.city;
@@ -69,11 +79,15 @@ module Controller {
         }
 
         toggleAccomodation() {
-            if(this.query.accomodation === null) {
-                this.query.accomodation = false;
-            }
             this.query.accomodation = !this.query.accomodation;
             console.info(this.query.accomodations);
+        }
+
+        selectMood(mood) {
+            this.selectedMoods.push(mood);
+            this.query.moods.push(mood.query_name);
+            this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
+            console.info(this.selectableMoods);
         }
 
         emitResult(result) {
