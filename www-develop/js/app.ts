@@ -135,7 +135,7 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
                 values: '=',
                 'selectedModel': '='
             },
-            controller: function ($scope) {
+            controller: function ($scope, hotkeys) {
                 $scope.opened = false;
 
                 $scope.select = function (mood) {
