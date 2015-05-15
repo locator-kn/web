@@ -1,4 +1,31 @@
-.insert-container-sidebar {
+
+.trip-image img {
+    height: 450px;
+    width: 100vw;
+}
+
+.input-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 740px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    position: relative;
+    bottom: 75px;
+    /*background: url(http://link-to-your/image.jpg) no-repeat;*/
+}
+
+
+
+
+
+/*.insert-container-sidebar {
     position: absolute;
     right: 0px;
     height: 100vh;
@@ -58,8 +85,6 @@
 
 .insert-offset {
     padding-top: 50px;
-    /*position: relative;
-    z-index: 100;*/
 }
 
 .edit-offset {
@@ -75,4 +100,4 @@
     background-color: #ff814e;
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
-}
+}*/
