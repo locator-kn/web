@@ -16,9 +16,6 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
-
-                // selectedMood needs to be an array,
-                // because the directives multiple value is set to true
                 this.selectedMood = this.moods[0];
             })
 
