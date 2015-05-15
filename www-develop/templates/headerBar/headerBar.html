@@ -8,9 +8,13 @@
 
             <div ng-if="authenticated" class="btn-group">
 
-                <div class="user" ui-sref-active="active">
-                    <a ui-sref="editProfile"  class="edit-user">{{hc.user.name}}</a>
-                    <a ui-sref="editProfile"><img class="profile_thumbnail" ng-src="{{hc.user.picture}}"></a>
+                <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
+                    <a class="edit-user">{{hc.user.name}}</a>
+                    <a><img class="profile_thumbnail" ng-src="{{hc.user.picture}}"></a>
+                    <ul class="user-dropdown" ng-show="showDropdown">
+                        <li ui-sref="editProfil">Edit Profile</li>
+                        <li ng-click="hc.logout()">Logout</li>
+                    </ul>
                 </div>
                 <a class="logout" ng-click="hc.logout()">Logout</a>
             </div>
