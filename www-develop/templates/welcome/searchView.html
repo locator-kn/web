@@ -10,7 +10,7 @@
 
             <div select values="wc.cities" selected-model="wc.selectedCity"></div>
 
-            <a class="welcome_button">Trip suchen</a>
+            <a class="welcome_button" ui-sref="search({city: wc.selectedCity.query_name, moods: wc.selectedMood.query_name})">Trip suchen</a>
         </div>
     </div>
 
