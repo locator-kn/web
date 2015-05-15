@@ -10,8 +10,8 @@ module Controller {
         selectedCity:any;
 
         constructor(private $scope, private $rootScope, private $element, private DataService) {
-            $rootScope.showSearch = true;
-            $rootScope.showCreateButton = true;
+            $rootScope.showSearchButton = false;
+            $rootScope.showCreateButton = false;
             this.mood = "Initial";
 
             this.DataService.getMoods().then(result => {

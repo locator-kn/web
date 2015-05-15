@@ -12,8 +12,8 @@ module Controller {
             this.query.accomodations = [];
             this.query.accomodation = false;
             this.query.moods = [];
-            $rootScope.showSearch = true;
-            $rootScope.showCreateButton = false;
+            $rootScope.showSearchButton = false;
+            $rootScope.showCreateButton = true;
 
             this.$rootScope.$emit('loading');
 
