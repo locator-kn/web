@@ -8,9 +8,13 @@
             <div select multiple=true values="wc.moods" selected-model="wc.selectedMood"></div>
             <span class="margin-right">in</span>
 
-            <div select values="wc.cities" selected-model="wc.selectedCity"></div>
+            <div class="welcome_select" select values="wc.cities" selected-model="wc.selectedCity"></div>
 
-            <a class="welcome_button" ui-sref="search({city: wc.selectedCity.query_name, moods: wc.selectedMood.query_name})">Trip suchen</a>
+            <div class="fullwidth welcome_button_wrapper">
+                <a class="welcome_button"
+                   ui-sref="search({city: wc.selectedCity.query_name, moods: wc.selectedMood.query_name})">Trip
+                    suchen</a>
+            </div>
         </div>
     </div>
 
