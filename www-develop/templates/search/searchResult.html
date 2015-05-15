@@ -1,4 +1,5 @@
-<div class="results-container" ng-controller="SearchResultCtrl as src">
+<div class="results-container" ng-class="{'loading' : src.animateLoading}" ng-controller="SearchResultCtrl as src">
+
     <div class="results" ng-repeat="result in src.results">
         <div class="result">
             <h3>{{result.title}}</h3><br/>

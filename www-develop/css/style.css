@@ -94,9 +94,7 @@
     width: 100vw;
 }
 
-.results {
-    margin-left: 80px;
-}
+
 
 #results .trip-img {
     height: 100%;
@@ -466,4 +464,31 @@ a.close-modal {
 .static-searchButton {
     background: rgba(0, 255, 0, 0.4);
     left: 0;
+}
+.results {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+    margin-left: 5%;
+    float: left;
+    width: 40%;
+}
+
+.results .result {
+    width: 100%;
+}
+
+.results-container.loading .results {
+    opacity: .2;
+    z-index: -1;
+}
+
+
+@keyframes slidein {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: .2;
+    }
 }
