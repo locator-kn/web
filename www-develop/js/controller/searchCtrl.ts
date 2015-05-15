@@ -81,6 +81,14 @@ module Controller {
             return item == this.activeItem;
         }
 
+        toggleActiveItem(item) {
+            if(item == this.activeItem) {
+                this.activeItem = '';
+            } else {
+                this.activeItem = item;
+            }
+        }
+
         toggleAccomodation() {
             this.query.accomodation = !this.query.accomodation;
             console.info(this.query.accomodations);
