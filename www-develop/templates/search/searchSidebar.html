@@ -3,7 +3,7 @@
         <div ng-class="{'item-active': sc.isActive('search')}" >
             <img src="search" ng-click="sc.toggleActiveItem('search')">
             <Label class="item-description" ng-show="sc.isActive('search')">
-                <input class="input-transparent" type="text" ng-model="sc.query.city">
+                <input class="input-transparent" type="text" ng-model="sc.query.city" ng-model-options="{debounce: 1000}">
             </label>
         </div>
         <div ng-class="{'item-active': sc.isActive('date')}">
