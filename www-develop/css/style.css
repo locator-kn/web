@@ -400,6 +400,9 @@ ul.slides {
     color: #fff;
     border-top: 1px solid rgba(255,255,255,.2);
 }
+.header-bar .user  ul.user-dropdown li.active {
+    background: rgba(0, 0, 0, 0.7);
+ }
 
 
 .moodal input {
