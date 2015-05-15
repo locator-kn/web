@@ -7,8 +7,8 @@ module Controller {
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
             this.query.accomodations = [];
-            $rootScope.hideSearchButton = true;
-            $rootScope.hideCreateButton = false;
+            $rootScope.showSearch = true;
+            $rootScope.showCreateButton = false;
 
             this.$rootScope.$emit('loading');
 
