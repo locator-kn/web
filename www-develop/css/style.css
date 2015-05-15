@@ -362,10 +362,25 @@ ul.slides {
 }
 
 .profile_thumbnail {
-    height: 25px;
-    border-radius: 100px;
+    height: 27px;
+    border-radius: 50%;
+    /* create border with background and 1px padding is way smoother than with 1px solid color */
+    padding: 1px;
+    background: #fff;
     width: auto;
 }
+.header-bar .user {
+    margin: 0 10px 0;
+    float: left;
+}
+.header-bar .user.active {
+    background: #000000;
+}
+.header-bar .user a {
+    margin: 0 2px 0;
+    padding: 0 5px;
+}
+
 .moodal input {
     border-radius: 3px;
     border: 1px solid white;
