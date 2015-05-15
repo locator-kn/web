@@ -16,7 +16,10 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
-                this.selectedMood = [this.moods[0]];
+
+                // selectedMood needs to be an array,
+                // because the directives multiple value is set to true
+                this.selectedMood = this.moods[0];
             })
 
             this.DataService.getCities().then(result => {
