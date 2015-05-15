@@ -29,8 +29,8 @@ angular.module('starter').directive('select', function () {
                 }
             }
         },
-        link: function($scope, element, attrs) {
-            $scope.$watch('selectedModel', function(newValue, oldValue) {
+        link: function($scope: any) {
+            $scope.$watch('selectedModel', function(newValue) {
                 if (newValue && $scope.multiple) {
 
                     if ($scope.selectedModel instanceof Array) {
