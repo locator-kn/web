@@ -62,3 +62,20 @@ a.welcome_button:hover {
     color: white;
     background: black;
 }
+
+.fullwidth {
+    width: 100%;
+    float: left;
+}
+
+.welcome_select {
+    float: left;
+}
+
+.welcome_button {
+    float: left;
+}
+
+.welcome_button_wrapper {
+    padding-top: 20px;
+}
