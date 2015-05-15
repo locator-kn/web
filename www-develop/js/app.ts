@@ -33,6 +33,7 @@
 /// <reference path="./mockedservice/dataService.ts" />
 
 
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -119,28 +120,6 @@ var app = angular.module('starter', ['cfp.hotkeys', 'ngDialog', 'angular-flexsli
         };
     })
 
-    .directive('select', function () {
-        return {
-            scope: {
-                values: '=',
-                'selectedModel': '='
-            },
-            controller: function ($scope, hotkeys, $timeout, $rootScope) {
-                $scope.opened = false;
-
-                $scope.select = function (mood) {
-                    $scope.selectedModel = mood;
-                    $scope.trigger();
-                }
-
-                $scope.trigger = function () {
-                    $scope.opened = !$scope.opened;
-                }
-
-            },
-            template: '<div class="relative" ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a><ul class="sub"><li ng-click="select(mood)" ng-repeat="mood in values">{{mood.title}}</li></ul></div>'
-        }
-    })
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
@@ -165,5 +144,6 @@ if (live) {
 
 
 
+/// <reference path="./directive/selectDirective.ts" />
 
 
