@@ -10,15 +10,32 @@
     width: 740px;
 }
 
+.content-header {
+    position: relative;
+    bottom: 75px;
+}
+
 .profile-image img {
     width: 150px;
     height: 150px;
     border-radius: 75px;
     -webkit-border-radius: 75px;
     -moz-border-radius: 75px;
-    position: relative;
-    bottom: 75px;
     /*background: url(http://link-to-your/image.jpg) no-repeat;*/
+}
+
+.feeling-text {
+    font-size: 16px;
+    float: right;
+    position: relative;
+    bottom: 65px;
+}
+
+.add-mood img {
+    float: right;
+    clear: right;
+    position: relative;
+    bottom: 65px;
 }
 
 
