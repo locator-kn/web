@@ -35,9 +35,9 @@
                 </div>
             </div>
             <div class="right-section">
-                <input type="text" placeholder="Benenne deinen Trip">
-                <textarea placeholder="Beschreibe deinen Trip"></textarea>
-                <input type="text" placeholder="Für was braucht dein Gast eventuell Geld?">
+                <input type="text" placeholder="Benenne deinen Trip" ng-model="ctrl.tripTitle">
+                <textarea class="trip-description" placeholder="Beschreibe deinen Trip" ng-model="ctrl.tripDescription"></textarea>
+                <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="ctrl.tripMoney"></textarea>
                 <div class="accomodation">
                     <span>Übernachtung</span>
                     <div class="circle" ng-click="ctrl.toggleAccomodation()" ng-class="{'circle-selected': ctrl.accomodation == true}"></div>
@@ -47,7 +47,7 @@
                     <img src="images/icons/mail.png">
                 </div>
                 <div class="save-trip">
-                    <button>SPEICHERN</button>
+                    <button ng-click="ctrl.saveTrip()">SPEICHERN</button>
                 </div>
             </div>
         </div>

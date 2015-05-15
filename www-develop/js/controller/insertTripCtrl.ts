@@ -5,6 +5,9 @@ module Controller {
         persons:number = 1;
         days:number = 1;
         accomodation:boolean = false;
+        tripTitle:string = '';
+        tripDescription:string = '';
+        tripMoney:string = '';
 
         constructor(private $scope) {
 
@@ -20,6 +23,10 @@ module Controller {
 
         imageChoice() {
             $('#image-upload').click();
+        }
+
+        saveTrip() {
+            //store trip in DB
         }
 
 

@@ -74,8 +74,13 @@
     margin-bottom: 80px;
 }
 
-.content-bottom .right-section textarea {
+.content-bottom .right-section .trip-description {
     height: 300px;
+    margin-bottom: 80px;
+}
+
+.content-bottom .right-section .trip-money{
+    height: 150px;
     margin-bottom: 80px;
 }
 
@@ -118,6 +123,22 @@
     padding:10px 32px;
     text-decoration:none;
 }
+
+.save-trip button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff1f48), color-stop(1, #ff3d3d));
+    background:-moz-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
+    background:-webkit-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
+    background:-o-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
+    background:-ms-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
+    background:linear-gradient(to bottom, #ff1f48 5%, #ff3d3d 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f48', endColorstr='#ff3d3d',GradientType=0);
+    background-color:#ff1f48;
+}
+.save-trip button:active {
+    position:relative;
+    top:1px;
+}
+
 
 #preview{
     cursor:pointer;
