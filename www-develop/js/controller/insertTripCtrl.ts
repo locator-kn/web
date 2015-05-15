@@ -18,6 +18,11 @@ module Controller {
             this.accomodation = !this.accomodation;
         }
 
+        imageChoice() {
+            $('#image-upload').click();
+        }
+
+
         static controllerId:string="InsertTripCtrl";
     }
 }

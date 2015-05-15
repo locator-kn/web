@@ -10,12 +10,15 @@
     width: 740px;
 }
 
-.content-header {
+.content-header .profile-image {
+    float: left;
+    width: 150px;
+    height: 150px;
     position: relative;
     bottom: 75px;
 }
 
-.profile-image img {
+.content-header .profile-image img {
     width: 150px;
     height: 150px;
     border-radius: 75px;
@@ -24,18 +27,21 @@
     /*background: url(http://link-to-your/image.jpg) no-repeat;*/
 }
 
-.feeling-text {
+.content-header .feeling-text {
     font-size: 16px;
     float: right;
     position: relative;
-    bottom: 65px;
+    top: 10px;
 }
 
-.add-mood img {
+.content-header .add-mood {
+    position: relative;
+    top: 10px;
+}
+
+.content-header .add-mood img {
     float: right;
     clear: right;
-    position: relative;
-    bottom: 65px;
 }
 
 /*BOTTOM*/
@@ -43,37 +49,37 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    bottom: 100px;
+    bottom: 30px;
 }
 
-.left-section {
+.content-bottom .left-section {
     float:left;
     width: 240px;
 }
 
-.left-section input {
+.content-bottom .left-section input {
     width: 160px;
 }
 
-.left-section p {
+.content-bottom .left-section p {
     margin-top: 20px;
 }
 
-.right-section {
+.content-bottom .right-section {
     overflow: hidden;
 }
 
-.right-section input {
+.content-bottom .right-section input {
     height: 40px;
     margin-bottom: 80px;
 }
 
-.right-section textarea {
+.content-bottom .right-section textarea {
     height: 300px;
     margin-bottom: 80px;
 }
 
-.right-section input, textarea {
+.content-bottom .right-section input, textarea {
     width: 500px;
 }
 
@@ -87,8 +93,6 @@
     margin-left: 20px;
     margin-top: 20px;
 }
-
-
 
 .save-trip button {
     margin-top: 20px;
@@ -113,6 +117,14 @@
     font-weight:bold;
     padding:10px 32px;
     text-decoration:none;
+}
+
+#preview{
+    cursor:pointer;
+}
+
+#preview:hover{
+    -moz-transform:rotate(-2deg);
 }
 
 

@@ -1,6 +1,7 @@
 <div class="insert-trip-container" ng-controller="InsertTripCtrl as ctrl">
     <div class="trip-image">
-        <img src="images/No_Image_Placeholder.jpg">
+        <input id="image-upload" type="file" style="display: none">
+        <img id="preview" src="images/No_Image_Placeholder.jpg" ng-click="ctrl.imageChoice()">
     </div>
     <div class="input-content">
         <div class="content-header">
