@@ -9,14 +9,11 @@
     text-decoration: none;
     list-style-type: none;
     padding: 20px;
-    z-index: 100;
+    z-index: 1000;
+    display: block;
 
     max-height: 400px;
-    overflow-y: scroll;
-}
-
-.welcome_select div {
-    position: relative;
+    overflow-y: auto;
 }
 
 .welcome_select .open ul {
@@ -50,3 +47,18 @@ span.margin-right {
     padding-top: 100px;
 }
 
+a.welcome_button {
+    background: none;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px 20px;
+    font-size: 18px;
+    transition-duration: 0.3s;
+    font-weight: lighter;
+}
+
+a.welcome_button:hover {
+    color: white;
+    background: black;
+}

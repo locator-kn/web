@@ -1,3 +1,13 @@
-<div ng-repeat="mood in selectableMoods">
-    {{mood}}
+<div class="mood-selection-container">
+    <div ng-repeat="selectedMood in sc.selectedMoods">
+        {{selectedMood.title}}
+    </div>
+    <img src="/images/icons/plus.png" ng-click="sc.showSelectableMoods=true">
+    <div ng-show="sc.showSelectableMoods==true">
+        <div ng-repeat="mood in sc.selectableMoods">
+            <div ng-click="sc.showSelectableMoods=false; sc.selectMood(mood)">
+                {{mood.title}}
+            </div>
+        </div>
+    </div>
 </div>

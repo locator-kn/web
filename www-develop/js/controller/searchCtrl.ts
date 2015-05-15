@@ -3,14 +3,24 @@ module Controller {
 
         query:any;
         activeItem:string = '';
+        selectableMoods;
+        selectedMoods = [];
+        showSelectableMoods = false;
 
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
             this.query.accomodations = [];
+            this.query.accomodation = false;
+            this.query.moods = [];
             $rootScope.showSearch = true;
             $rootScope.showCreateButton = false;
 
             this.$rootScope.$emit('loading');
+
+            this.DataService.getMoods()
+                .then(result => {
+                    this.selectableMoods = result.data;
+                });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.city;
@@ -71,16 +81,16 @@ module Controller {
             return item == this.activeItem;
         }
 
-        toggleAccomodationSelection(accomodation) {
-            if(!this.isAccomodationSelected(accomodation)){
-                this.query.accomodations.push(accomodation);
-            } else {
-                this.query.accomodations.splice(this.query.accomodations.indexOf(accomodation), 1);
-            }
+        toggleAccomodation() {
+            this.query.accomodation = !this.query.accomodation;
+            console.info(this.query.accomodations);
         }
 
-        isAccomodationSelected(accomodation){
-            return this.query.accomodations.indexOf(accomodation) > -1;
+        selectMood(mood) {
+            this.selectedMoods.push(mood);
+            this.query.moods.push(mood.query_name);
+            this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
+            console.info(this.selectableMoods);
         }
 
         emitResult(result) {

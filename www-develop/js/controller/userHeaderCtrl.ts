@@ -53,9 +53,6 @@ module Controller {
                 .then(result => {
                     console.info("Register Success");
                     this.getMe();
-                    this.$rootScope.authenticated = true;
-
-                    this.login();
 
                     //close the dialog after success
                     this.closeDialog();
@@ -66,7 +63,7 @@ module Controller {
         }
 
         openLoginDialog() {
-            angular.element('.overlay').addClass('active');
+            this.$rootScope.overlay = true;
             angular.element(this.$element).find('#loginmodal').addClass('active');
 
             angular.element('.overlay').bind('click', () => {
@@ -76,7 +73,7 @@ module Controller {
         }
 
         openRegisterDialog() {
-            angular.element('.overlay').addClass('active');
+            this.$rootScope.overlay = true;
             angular.element(this.$element).find('#registermodal').addClass('active');
 
             angular.element('.overlay').bind('click', () => {
@@ -86,7 +83,7 @@ module Controller {
         }
 
         closeDialog() {
-            angular.element('.overlay').removeClass('active');
+            this.$rootScope.overlay = false;
             angular.element(this.$element).find('.moodal.active').removeClass('active');
         }
 

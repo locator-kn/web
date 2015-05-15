@@ -16,7 +16,7 @@ module Controller {
             });*/
             //debugger
             //$('.cropper-example-1 > img').cropper({
-            //        aspectRatio: 16/16,
+            //        aspectRatio: 16/9,
             //        autoCropArea: 0.65,
             //        strict: false,
             //        guides: false,

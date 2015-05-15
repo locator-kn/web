@@ -48,7 +48,7 @@
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-app="starter">
+<body ng-app="starter" ng-controller="MainCtrl as mc">
 
 <div class="absolute-slider" ng-controller="SlideCtrl as sc">
     <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
@@ -58,16 +58,15 @@
     </flex-slider>
 </div>
 
-<div class="overlay"></div>
-<div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
+<div ng-class="{'active': overlay}" class="overlay"></div>
 
+<div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
 <div class="container-fluid">
-    
+
     <div ng-include="'templates/static/staticButtons.html'"></div>
     <div ui-view></div>
 
 </div>
-
 
 
 </body>
