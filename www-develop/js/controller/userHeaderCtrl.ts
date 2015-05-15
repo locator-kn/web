@@ -8,7 +8,7 @@ module Controller {
         google:any;
 
 
-        constructor(private hotkeys, private $scope, private $rootScope, private $location, private UserService, private $element, private basePath) {
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private basePath) {
             this.getMe();
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
@@ -98,6 +98,7 @@ module Controller {
                 .then(result => {
                     console.info("Logout Success");
                     this.$rootScope.authenticated = false;
+                    this.$state.go('welcome');
                 });
         }
 
