@@ -1,4 +1,4 @@
-
+/*HEADER*/
 .trip-image img {
     height: 450px;
     width: 100vw;
@@ -37,6 +37,28 @@
     position: relative;
     bottom: 65px;
 }
+
+/*BOTTOM*/
+.content-bottom {
+    position: relative;
+    bottom: 20px;
+}
+
+.left-section {
+    float:left;
+    width: 240px;
+}
+
+.right-section {
+    float:right;
+    width: 100%;
+}
+
+.left-section p {
+    margin-top: 20px;
+}
+
+
 
 
 

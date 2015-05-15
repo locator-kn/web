@@ -1,4 +1,4 @@
-<div class="insert-trip-container">
+<div class="insert-trip-container" ng-controller="InsertTripCtrl as ctrl">
     <div class="trip-image">
         <img src="images/No_Image_Placeholder.jpg">
     </div>
@@ -14,9 +14,30 @@
                 <img src="images/icons/plus.png">
             </div>
         </div>
+        <div class="content-bottom">
+            <div class="left-section">
+                <input type="date">
+                <div class="days-amount">
+                    <p>anzahl Tage</p>
+                    <div class="circle" ng-click="ctrl.days=1" ng-class="{'circle-selected': ctrl.days == 1}">1</div>
+                    <div class="circle" ng-click="ctrl.days=2" ng-class="{'circle-selected': ctrl.days == 2}">2</div>
+                    <div class="circle" ng-click="ctrl.days=3" ng-class="{'circle-selected': ctrl.days == 3}">3</div>
+                    <div class="circle" ng-click="ctrl.days=4" ng-class="{'circle-selected': ctrl.days == 4}">3+</div>
+                </div>
+                <div class="persons-amount">
+                    <p>anzahl Personen</p>
+                    <div class="circle" ng-click="ctrl.persons=1" ng-class="{'circle-selected': ctrl.persons == 1}">1</div>
+                    <div class="circle" ng-click="ctrl.persons=2" ng-class="{'circle-selected': ctrl.persons == 2}">2</div>
+                    <div class="circle" ng-click="ctrl.persons=3" ng-class="{'circle-selected': ctrl.persons == 3}">3</div>
+                    <div class="circle" ng-click="ctrl.persons=4" ng-class="{'circle-selected': ctrl.persons == 4}">4</div>
+                    <div class="circle" ng-click="ctrl.persons=5" ng-class="{'circle-selected': ctrl.persons == 5}">4+</div>
+                </div>
+            </div>
+            <div class="right-section">
 
+            </div>
+        </div>
     </div>
-
 </div>
 
 
