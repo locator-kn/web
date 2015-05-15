@@ -34,54 +34,22 @@
                 </div>
             </div>
             <div class="right-section">
-
+                <input type="text" placeholder="Benenne deinen Trip">
+                <textarea placeholder="Beschreibe deinen Trip"></textarea>
+                <input type="text" placeholder="Für was braucht dein Gast eventuell Geld?">
+                <div class="accomodation">
+                    <span>Übernachtung</span>
+                    <div class="circle" ng-click="ctrl.toggleAccomodation()" ng-class="{'circle-selected': ctrl.accomodation == true}"></div>
+                </div>
+                <div class="accomodation-services">
+                    <img src="images/icons/kalender.png">
+                    <img src="images/icons/mail.png">
+                </div>
+                <div class="save-trip">
+                    <button>SPEICHERN</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<!--<div class="insert-container-sidebar" ng-controller="InsertTripCtrl as ic">-->
-    <!--<div class="insert-search-menu">-->
-        <!--<div ng-class="{'insert-item-active': ic.isActive('insert')}" ng-click="ic.activeItem = 'insert'">-->
-            <!--<label class="insert-item-description" ng-show="ic.isActive('insert')">-->
-                <!--insert trip-->
-            <!--</label>-->
-            <!--<img class="insert-item-image" src="/images/icons/plus.png" ng-click="sc.activeItem = 'insert'">-->
-        <!--</div>-->
-        <!--<div ng-class="{'insert-item-active': ic.isActive('edit')}">-->
-            <!--<label class="insert-item-description" ng-show="ic.isActive('edit')">-->
-                <!--edit trip-->
-            <!--</label>-->
-            <!--<img class="insert-item-image" src="/images/icons/stift.png" ng-click="ic.activeItem = 'edit'">-->
-        <!--</div>-->
-        <!--<div ng-class="{'insert-item-active': ic.isActive('profile')}">-->
-            <!--<label class="insert-item-description" ng-show="ic.isActive('profile')">-->
-                <!--my profile-->
-            <!--</label>-->
-            <!--<img class="insert-item-image" src="/images/icons/regler.png" ng-click="ic.activeItem = 'profile'">-->
-        <!--</div>-->
-        <!--<div ng-class="{'insert-item-active': ic.isActive('messages')}">-->
-            <!--<label class="insert-item-description" ng-show="ic.isActive('messages')">-->
-                <!--my messages-->
-            <!--</label>-->
-            <!--<img class="insert-item-image" src="/images/icons/mail.png" ng-click="ic.activeItem = 'messages'">-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="insert-settings sample-show-hide" ng-show="ic.activeItem != ''" style="clear:both;">-->
-
-    <!--</div>-->
-    <!--<div class="insert-inputs sample-show-hide" ng-show="ic.activeItem != ''">-->
-        <!--<div ng-class="{'insert-offset': ic.isActive('insert')}">-->
-            <!--<div ng-switch="ic.activeItem">-->
-                <!--<div ng-switch-when="insert">-->
-                    <!--<div ng-include="'/templates/insertTrip/insert.html'"></div>-->
-                <!--</div>-->
-                <!--<div ng-switch-when="edit">-->
-                    <!--<div ng-include="'/templates/insertTrip/edit.html'"></div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
