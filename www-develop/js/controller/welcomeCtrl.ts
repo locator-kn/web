@@ -16,7 +16,7 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
-                this.selectedMood = this.moods[0];
+                this.selectedMood = [this.moods[0]];
             })
 
             this.DataService.getCities().then(result => {
