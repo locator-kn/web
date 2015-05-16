@@ -17,13 +17,13 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.moods = result.data;
                 this.selectedMood = this.moods[0];
-            })
+            });
 
             this.DataService.getCities().then(result => {
                 this.cities = result.data;
                 this.selectedCity = this.cities[0];
-            })
-
+            });
+            
         }
 
 
