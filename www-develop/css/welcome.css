@@ -44,7 +44,7 @@ span.margin-right {
 }
 
 .welcome_container {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 a.welcome_button {
@@ -85,3 +85,14 @@ a.welcome_button:hover {
     cursor: pointer;
     font-size: 10px;
 }
+
+.welcome_logo {
+    max-width: 100%;
+    width: 250px;
+}
+
+.row.select_wrapper {
+    padding-top: 50px;
+}
+
+
