@@ -21,9 +21,11 @@ module Controller {
 
             this.DataService.getCities().then(result => {
                 this.cities = result.data;
-                this.selectedCity = this.cities[0];
+                //init random city
+                this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
             });
-            
+
+
         }
 
 

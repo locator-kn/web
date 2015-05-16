@@ -79,3 +79,7 @@ a.welcome_button:hover {
 .welcome_button_wrapper {
     padding-top: 20px;
 }
+
+.welcome_select .remove_item {
+    margin-left: 10px;
+}

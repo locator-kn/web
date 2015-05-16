@@ -20,7 +20,6 @@ angular.module('starter').directive('select', function () {
 
                 //returns true, if the list contains more than one item
                 $scope.twoPlus = function () {
-                    console.info($scope.selectedModel.length > 1);
                     return $scope.selectedModel.length > 1;
                 };
 
@@ -28,17 +27,14 @@ angular.module('starter').directive('select', function () {
                 $scope.select = function (value) {
 
                     if ($scope.multiple) {
-
                         if ($.inArray(value, $scope.selectedModel) == -1) {
                             $scope.selectedModel.push(value);
                         }
 
                     } else {
-
                         $scope.selectedModel = value;
-
-
                     }
+
                     $scope.trigger();
                 };
 
