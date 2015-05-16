@@ -55,7 +55,7 @@ angular.module('starter').directive('select', function () {
 
             ,
             template: '<div ng-if="!multiple" class="relative" ng-class="{open: opened}"><a ng-click="trigger()">{{selectedModel.title}}</a><ul class="sub"><li ng-click="select(value)" ng-repeat="value in values">{{value.title}}</li></ul></div>' +
-            '<div ng-if="multiple" class="relative" ng-class="{open: opened}"><a ng-repeat="item in selectedModel" class="fullwidth" ng-click="trigger()">{{item.title}}<span ng-if="twoPlus()" class="remove_item" ng-click="remove(value)">X</span></a><ul class="sub"><li ng-click="select(mood)" ng-repeat="mood in values">{{mood.title}}</li></ul></div>'
+            '<div ng-if="multiple" class="relative" ng-class="{open: opened}"><span class="fullwidth" ng-repeat="value in selectedModel"><a ng-click="trigger()">{{value.title}}</a><span ng-if="twoPlus()" class="remove_item" ng-click="remove(value)">X</span></span><ul class="sub"><li ng-click="select(item)" ng-repeat="item in values">{{item.title}}</li></ul></div>'
         }
 
     }
