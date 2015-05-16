@@ -28,6 +28,10 @@ module Service {
             return this.$http.get(this.basePath + '/data/moods');
         }
 
+        getAvailableCities() {
+            return this.$http.get(this.basePath + '/data/cities/trips');
+        }
+
         static serviceId:string = "DataService";
     }
 }
