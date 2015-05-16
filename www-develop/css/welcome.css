@@ -82,4 +82,6 @@ a.welcome_button:hover {
 
 .welcome_select .remove_item {
     margin-left: 10px;
+    cursor: pointer;
+    font-size: 10px;
 }
