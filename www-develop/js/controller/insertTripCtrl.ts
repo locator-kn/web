@@ -8,6 +8,7 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripMoney:string = '';
+        accomodationServices:string[] = [];
 
         constructor(private $scope) {
 
@@ -23,6 +24,25 @@ module Controller {
 
         imageChoice() {
             $('#image-upload').click();
+        }
+
+        addAccomodationService(service:string) {
+            //var found = $.inArray(service, this.accomodationServices);
+            if (this.containsAccomodation(service)) {
+                var index = this.accomodationServices.indexOf(service);
+                this.accomodationServices.splice(index, 1);
+            } else {
+                this.accomodationServices.push(service);
+            }
+            console.log(this.accomodationServices);
+        }
+
+        containsAccomodation(service:string) {
+            var found = $.inArray(service, this.accomodationServices);
+            if (found > -1) {
+                return true;
+            }
+            return false;
         }
 
         saveTrip() {

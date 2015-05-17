@@ -94,9 +94,86 @@
     font-size: 16px;
 }
 
-.accomodation-services img{
-    margin-left: 20px;
+
+/*Accomodation services*/
+.accomodation-services div{
+    width:50px;
+    height:50px;
+    display: inline-block;
+    margin-left: 8px;
     margin-top: 20px;
+}
+
+.wifi {
+    background-image: url("/images/icons/icons_stimmung-13.png");
+}
+
+.wifi-grey {
+    background-image: url("/images/icons/icons_stimmung-13.png");
+    background-color: grey;
+}
+
+.tv {
+    background-image: url("/images/icons/icons_stimmung-14.png");
+}
+
+.tv-grey {
+    background-image: url("/images/icons/icons_stimmung-14.png");
+    background-color: grey;
+}
+
+.shower {
+    background-image: url("/images/icons/icons_stimmung-15.png");
+}
+
+.shower-grey {
+    background-image: url("/images/icons/icons_stimmung-15.png");
+    background-color: grey;
+}
+
+.meal {
+    background-image: url("/images/icons/icons_stimmung-20.png");
+}
+
+.meal-grey {
+    background-image: url("/images/icons/icons_stimmung-20.png");
+    background-color: grey;
+}
+
+.breakfast {
+    background-image: url("/images/icons/icons_stimmung-18.png");
+}
+
+.breakfast-grey {
+    background-image: url("/images/icons/icons_stimmung-18.png");
+    background-color: grey;
+}
+
+.smoker {
+    background-image: url("/images/icons/icons_stimmung-16.png");
+}
+
+.smoker-grey {
+    background-image: url("/images/icons/icons_stimmung-16.png");
+    background-color: grey;
+}
+
+.parking {
+    background-image: url("/images/icons/icons_stimmung-19.png");
+}
+
+.parking-grey {
+    background-image: url("/images/icons/icons_stimmung-19.png");
+    background-color: grey;
+}
+
+.handicapped {
+    background-image: url("/images/icons/icons_stimmung-17.png");
+}
+
+.handicapped-grey {
+    background-image: url("/images/icons/icons_stimmung-17.png");
+    background-color: grey;
 }
 
 .save-trip button {
