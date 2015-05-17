@@ -37,6 +37,7 @@
 .content-header .add-mood {
     position: relative;
     top: 10px;
+    cursor:pointer;
 }
 
 .content-header .add-mood img {
@@ -94,6 +95,10 @@
     font-size: 16px;
 }
 
+.accomodation div {
+    cursor:pointer;
+}
+
 
 /*Accomodation services*/
 .accomodation-services div{
@@ -102,6 +107,7 @@
     display: inline-block;
     margin-left: 8px;
     margin-top: 20px;
+    cursor:pointer;
 }
 
 .wifi {

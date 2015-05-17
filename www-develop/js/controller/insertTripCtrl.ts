@@ -20,6 +20,10 @@ module Controller {
 
         toggleAccomodation() {
             this.accomodation = !this.accomodation;
+
+            if (!this.accomodation) {
+                this.accomodationServices = [];
+            }
         }
 
         imageChoice() {
@@ -27,13 +31,15 @@ module Controller {
         }
 
         addAccomodationService(service:string) {
-            //var found = $.inArray(service, this.accomodationServices);
-            if (this.containsAccomodation(service)) {
-                var index = this.accomodationServices.indexOf(service);
-                this.accomodationServices.splice(index, 1);
-            } else {
-                this.accomodationServices.push(service);
+            if (this.accomodation) {
+                if (this.containsAccomodation(service)) {
+                    var index = this.accomodationServices.indexOf(service);
+                    this.accomodationServices.splice(index, 1);
+                } else {
+                    this.accomodationServices.push(service);
+                }
             }
+
             console.log(this.accomodationServices);
         }
 
