@@ -24,39 +24,46 @@ module Controller {
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.city;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.dateFrom;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.dateTo;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.range;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.persons;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.budget;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
+            this.search();
 
         }
 
