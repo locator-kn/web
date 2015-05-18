@@ -100,7 +100,7 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    max-height: 100vh;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -155,7 +155,16 @@ a.welcome_button:hover {
     float: left;
 }
 
+.container.welcome_container {
+    min-height: 500px;
+}
 
+.statistic_container {
+    background: rgb(34, 90, 91);
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
 
 
 

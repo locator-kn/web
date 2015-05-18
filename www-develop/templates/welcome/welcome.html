@@ -1,12 +1,53 @@
-<div class="container welcome_container">
-    <div class="row">
-        <div class="col-xs-12 center">
-            <img class="welcome_logo" src="images/logo/locator_schriftzug.png">
+<div class="container-fluid">
+    <div class="container welcome_container">
+        <div class="row">
+            <div class="col-xs-12 center">
+                <img class="welcome_logo" src="images/logo/locator_schriftzug.png">
+            </div>
+        </div>
+
+        <div class="row select_wrapper">
+            <div class="col-sm-6" ng-include="'templates/welcome/searchView.html'"></div>
+            <div class="col-sm-6" ng-include="'templates/welcome/createView.html'"></div>
         </div>
     </div>
+</div>
 
-    <div class="row select_wrapper">
-        <div class="col-sm-6" ng-include="'templates/welcome/searchView.html'"></div>
-        <div class="col-sm-6" ng-include="'templates/welcome/createView.html'"></div>
+<div class="container-fluid statistic_container">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Newest Trips</h2>
+
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore
+                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="col-sm-6">
+                <h2>Top User</h2>
+
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore
+                    et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                    rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                    ipsum
+                    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                    dolore
+                    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+
+        </div>
     </div>
 </div>
