@@ -43,8 +43,14 @@
                     <div class="circle" ng-click="ctrl.toggleAccomodation()" ng-class="{'circle-selected': ctrl.accomodation == true}"></div>
                 </div>
                 <div class="accomodation-services">
-                    <img src="images/icons/kalender.png">
-                    <img src="images/icons/mail.png">
+                    <div class="wifi" ng-click="ctrl.addAccomodationService('wifi')" ng-class="{'wifi-grey': ctrl.containsAccomodation('wifi') == false}"></div>
+                    <div class="tv" ng-click="ctrl.addAccomodationService('tv')" ng-class="{'tv-grey': ctrl.containsAccomodation('tv') == false}"></div>
+                    <div class="shower" ng-click="ctrl.addAccomodationService('shower')" ng-class="{'shower-grey': ctrl.containsAccomodation('shower') == false}"></div>
+                    <div class="meal" ng-click="ctrl.addAccomodationService('meal')" ng-class="{'meal-grey': ctrl.containsAccomodation('meal') == false}"></div>
+                    <div class="breakfast" ng-click="ctrl.addAccomodationService('breakfast')" ng-class="{'breakfast-grey': ctrl.containsAccomodation('breakfast') == false}"></div>
+                    <div class="smoker" ng-click="ctrl.addAccomodationService('smoker')" ng-class="{'smoker-grey': ctrl.containsAccomodation('smoker') == false}"></div>
+                    <div class="parking" ng-click="ctrl.addAccomodationService('parking')" ng-class="{'parking-grey': ctrl.containsAccomodation('parking') == false}"></div>
+                    <div class="handicapped" ng-click="ctrl.addAccomodationService('handicapped')" ng-class="{'handicapped-grey': ctrl.containsAccomodation('handicapped') == false}"></div>
                 </div>
                 <div class="save-trip">
                     <button ng-click="ctrl.saveTrip()">SPEICHERN</button>

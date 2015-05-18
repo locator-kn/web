@@ -1,16 +1,21 @@
 module Controller {
     export class SearchResultCtrl {
         results:any;
+        animateLoading = true;
         constructor(private $scope, private $rootScope, private $location, private SearchService, private $state) {
 
             $rootScope.$state = $state;
 
             $rootScope.$on('loading', () => {
-                console.log('loading');
+                // fade out current results
+                // show loading indicator
+                this.animateLoading = true;
             });
 
             $rootScope.$on('newSearchResults', (scope, result) => {
-                //console.log('newSearchResults', arguments);
+                // stop loading indicator
+                // face in new results
+                this.animateLoading = false;
                 this.results = result;
             });
         }

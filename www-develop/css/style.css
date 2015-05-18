@@ -94,9 +94,7 @@
     width: 100vw;
 }
 
-.results {
-    margin-left: 80px;
-}
+
 
 #results .trip-img {
     height: 100%;
@@ -362,10 +360,49 @@ ul.slides {
 }
 
 .profile_thumbnail {
-    height: 25px;
-    border-radius: 100px;
+    height: 27px;
+    border-radius: 50%;
+    /* create border with background and 1px padding is way smoother than with 1px solid color */
+    padding: 1px;
+    background: #fff;
     width: auto;
 }
+.header-bar .user {
+    margin: 0 10px 0;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.header-bar .user.active {
+    border-right: 1px solid rgba(255,255,255,.4);
+    border-left: 1px solid rgba(255,255,255,.4);
+    background: rgba(255,255,255,.1);
+}
+.header-bar .user a {
+    margin: 0 2px 0;
+    padding: 0 5px;
+}
+.header-bar .user .user-dropdown {
+    position: absolute;
+    left: 0;
+}
+.header-bar .user  ul.user-dropdown {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.header-bar .user  ul.user-dropdown li {
+    padding: 5px 10px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,.2);
+}
+.header-bar .user  ul.user-dropdown li.active {
+    background: rgba(0, 0, 0, 0.7);
+ }
+
+
 .moodal input {
     border-radius: 3px;
     border: 1px solid white;
@@ -427,4 +464,31 @@ a.close-modal {
 .static-searchButton {
     background: rgba(0, 255, 0, 0.4);
     left: 0;
+}
+.results {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+    margin-left: 5%;
+    float: left;
+    width: 40%;
+}
+
+.results .result {
+    width: 100%;
+}
+
+.results-container.loading .results {
+    opacity: .2;
+    z-index: -1;
+}
+
+
+@keyframes slidein {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: .2;
+    }
 }

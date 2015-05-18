@@ -6,9 +6,13 @@ module Controller {
         //myImage;
         //myCroppedImage;
 
-        constructor(private $scope, private EditProfileService, private FileUploader) {
-            this.getUserProfile();
+        constructor(private $scope, private $rootScope, /*private EditProfileService,*/ private FileUploader) {
+            //this.getUserProfile();
             $scope.uploader = new FileUploader();
+
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = true;
+
             //console.log($scope.uploader)
             //this.upload();
             /*angular.element(document.querySelector('#fileInput')).on('change', (evt) => {
@@ -31,11 +35,11 @@ module Controller {
             console.log("select file");
         }
 
-        getUserProfile() {
-            this.EditProfileService.getUserProfile().then(result => {
-                this.userProfile = result;
-            });
-        }
+        //getUserProfile() {
+        //    this.EditProfileService.getUserProfile().then(result => {
+        //        this.userProfile = result;
+        //    });
+        //}
 
         previewImage() {
 

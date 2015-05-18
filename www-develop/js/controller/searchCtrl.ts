@@ -10,7 +10,7 @@ module Controller {
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
             this.query.accomodations = [];
-            this.query.accomodation = false;
+            //this.query.accomodation = false;
             this.query.moods = [];
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
@@ -24,43 +24,46 @@ module Controller {
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.city;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.dateFrom;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.dateTo;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.range;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.persons;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
 
             this.$scope.$watch(angular.bind(this, (query) => {
                 return this.query.budget;
-            }), () => {
-                this.updateUrl()
+            }), (oldVal, newVal) => {
+                if (oldVal != newVal)
+                    this.updateUrl()
             });
-
-            setTimeout(() => {
-                this.search();
-            }, 1000)
+            this.search();
 
         }
 
@@ -71,7 +74,7 @@ module Controller {
 
         search() {
             this.$rootScope.$emit('loading');
-            this.SearchService.getAllTrips()
+            this.SearchService.getTripsByQuery(this.query)
                 .then(result => {
                     this.emitResult(result.data);
                 })
@@ -90,7 +93,7 @@ module Controller {
         }
 
         toggleAccomodation() {
-            this.query.accomodation = !this.query.accomodation;
+            //this.query.accomodation = !this.query.accomodation;
             console.info(this.query.accomodations);
         }
 

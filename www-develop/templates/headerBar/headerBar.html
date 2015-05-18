@@ -7,9 +7,15 @@
             </div>
 
             <div ng-if="authenticated" class="btn-group">
-                <a><img class="profile_thumbnail" ng-src="{{hc.user.picture}}">
-                    <a class="username padding">{{hc.user.name}}</a>
-                </a>
+
+                <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
+                    <a class="edit-user">{{hc.user.name}}</a>
+                    <a><img class="profile_thumbnail" ng-src="{{hc.user.picture}}"></a>
+                    <ul class="user-dropdown" ng-show="showDropdown">
+                        <li ui-sref="editProfile" ui-sref-active="active">Edit Profile</li>
+                        <li ng-click="hc.logout()">Logout</li>
+                    </ul>
+                </div>
                 <a class="logout" ng-click="hc.logout()">Logout</a>
             </div>
 

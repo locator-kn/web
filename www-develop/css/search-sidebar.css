@@ -23,6 +23,7 @@
     width: 220px;
     height: 100vh;
     position: absolute;
+    z-index: 191;
     margin-left: 80px;
     background: #6abfff;
 }
