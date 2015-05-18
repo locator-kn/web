@@ -24,17 +24,17 @@ module MockedService {
                             data: [
                                 {
                                     "_id": "551bd8d98fe8ee54fe79fbe0",
-                                    "name": "Konstanz",
+                                    "title": "Konstanz",
                                     "plz": 78764
                                 },
                                 {
                                     "_id": "551bd8d96ac6271311173b03",
-                                    "name": "Berlin",
+                                    "title": "Berlin",
                                     "plz": 13545
                                 },
                                 {
                                     "_id": "551bd8d9c528474af52dbd7e",
-                                    "name": "Hamburg",
+                                    "title": "Hamburg",
                                     "plz": 24567
                                 }
                             ]
