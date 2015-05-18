@@ -1,4 +1,11 @@
+interface JQuery {
+    cropper(): JQuery;
+    cropper(options: any): JQuery;
+}
+
+
 module Controller {
+
     export class InsertTripCtrl {
 
         activeItem:string = '';
@@ -14,12 +21,34 @@ module Controller {
             types: '(cities)'
         };
 
-        constructor(private $scope) {
+        imagePath: any;
+        selectedImage:string = '';
 
+        constructor(private $scope, private $rootScope) {
+            this.$scope.selectImage = this.selectImage;
         }
 
         isActive(item) {
             return item == this.activeItem;
+        }
+
+        addImage() {
+            this.$rootScope.overlay = true;
+            this.imageChoice();
+        }
+
+        selectImage(file) {
+            if (file.files && file.files[0]) {
+                var reader = new FileReader();
+                var image = new Image();
+
+                reader.readAsDataURL(file.files[0]);
+                reader.onload = (_file) => {
+                    this.imagePath = _file.target;
+                    this.$scope.$apply();
+                    this.addImage();
+                }
+            }
         }
 
         toggleAccomodation() {
@@ -30,8 +59,17 @@ module Controller {
             }
         }
 
-        imageChoice() {
+        showImageChooser() {
             $('#image-upload').click();
+        }
+
+        imageChoice() {
+            $('.trip-image > img').cropper({
+                aspectRatio: 1,
+                crop: (data) => {
+                    console.log(data)
+                }
+            });
         }
 
         addAccomodationService(service:string) {
