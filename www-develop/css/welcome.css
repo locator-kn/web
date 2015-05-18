@@ -100,4 +100,30 @@ a.welcome_button:hover {
     overflow: hidden;
 }
 
+.welcome_container .opener .welcome_wrapper {
+    float: left;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.welcome_container .opener a.welcome_button {
+    transition-delay: 0.5s;
+    transition-duration: 0.5s;
+    opacity: 0;
+}
+
+.welcome_container .opener.show a.welcome_button {
+    opacity: 1;
+}
+
+.welcome_container .opener.show .welcome_wrapper {
+    opacity: 1;
+}
+
+
+
+
+
 
