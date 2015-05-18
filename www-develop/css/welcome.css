@@ -36,9 +36,7 @@
 
 .welcome_select ul li {
     cursor: pointer;
-    float: left;
     font-size: 20px;
-    width: 100%;
 }
 
 span.margin-right {
