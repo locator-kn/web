@@ -30,7 +30,7 @@ module Controller {
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
             });
-            $rootScope.overlay = true;
+            $rootScope.overlay = false;
         }
 
         isActive(item) {
