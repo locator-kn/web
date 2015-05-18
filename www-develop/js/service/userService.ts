@@ -27,7 +27,6 @@ module Service {
             return this.$http.post(this.basePath + '/users',
                 {
                     "name": name,
-                    "picture": "https://achvr-assets.global.ssl.fastly.net/assets/profile_placeholder_square150-dd15a533084a90a7e8711e90228fcf60.png",
                     "mail": mail,
                     "password": password,
                     "type": "user"
