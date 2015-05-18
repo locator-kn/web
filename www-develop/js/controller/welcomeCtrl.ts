@@ -19,7 +19,7 @@ module Controller {
                 this.selectedMood = this.moods[0];
             });
 
-            this.DataService.getCities().then(result => {
+            this.DataService.getAvailableCities().then(result => {
                 this.cities = result.data;
                 //init random city
                 this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
