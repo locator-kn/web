@@ -1,4 +1,4 @@
-<div class="opener" ng-controller="WelcomeCtrl as wc" ng-class="{show: wc.dataAvailable}">
+<div class="opener search" ng-controller="WelcomeSearchCtrl as wc" ng-class="{show: wc.dataAvailable}">
 
     <div class="welcome_wrapper">
         <div class="welcome_select">
@@ -8,7 +8,7 @@
             <div list-selection multiple=true values="wc.moods" selected-model="wc.selectedMood"></div>
             <span class="margin-right">in</span>
 
-            <div class="welcome_select" list-selection values="wc.cities" selected-model="wc.selectedCity"></div>
+            <div list-selection values="wc.cities" selected-model="wc.selectedCity"></div>
 
             <div class="fullwidth welcome_button_wrapper">
                 <a class="welcome_button"

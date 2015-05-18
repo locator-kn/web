@@ -1,5 +1,5 @@
 module Controller {
-    export class WelcomeSearchCtrl {
+    export class WelcomeCreateCtrl {
 
         moods:any;
         open:any;
@@ -11,6 +11,7 @@ module Controller {
         dataAvailable:boolean = false;
 
         constructor(private $scope, private $rootScope, private $element, private DataService, private $q) {
+
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
 
@@ -38,7 +39,6 @@ module Controller {
 
         }
 
-
-        static controllerId:string = "WelcomeSearchCtrl";
+        static controllerId:string = "WelcomeCreateCtrl";
     }
 }

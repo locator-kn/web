@@ -1,15 +1,14 @@
-<div class="opener" ng-controller="WelcomeCtrl as wc">
+<div class="opener create" ng-controller="WelcomeCreateCtrl as wc" ng-class="{show: wc.dataAvailable}">
 
     <div class="welcome_wrapper">
-        <div class="welcome_select"><span class="margin-right">
-            Ich will 3 Tage</span>
+        <div class="welcome_select">
 
-            <div select values="wc.moods" selected-model="wc.selectedMood"></div>
+            <span class="margin-right">Ich biete 3 Tage</span>
+
+            <div list-selection multiple=true values="wc.moods" selected-model="wc.selectedMood"></div>
             <span class="margin-right">in</span>
 
-            <div select values="wc.cities" selected-model="wc.selectedCity"></div>
-
-            <span class="margin-right">vom 25.06.15 bis zum 01.07.15 mit 5 Personen.</span>
+            <div list-selection values="wc.cities" selected-model="wc.selectedCity"></div>
 
             <div class="fullwidth welcome_button_wrapper">
                 <a class="welcome_button" ui-sref="insertTrip">Trip anbieten</a>

@@ -17,7 +17,9 @@
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
-/// <reference path="./controller/welcomeCtrl.ts" />
+/// <reference path="./controller/welcomeSearchCtrl.ts" />
+/// <reference path="./controller/welcomeCreateCtrl.ts" />
+
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
@@ -103,7 +105,8 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.HeaderBarCtrl.controllerId, Controller.HeaderBarCtrl)
-    .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
+    .controller(Controller.WelcomeSearchCtrl.controllerId, Controller.WelcomeSearchCtrl)
+    .controller(Controller.WelcomeCreateCtrl.controllerId, Controller.WelcomeCreateCtrl)
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
