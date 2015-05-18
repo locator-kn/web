@@ -22,14 +22,17 @@ module Controller {
             types: '(cities)'
         };
 
+        showImageUploadModal:boolean = false;
         imagePath: any;
-        selectedImage:string = '';
+        selectedImage:any;
+        imageCropData:any;
 
-        constructor(private $scope, private $rootScope, private InsertTripService) {
+        constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
             });
+
             $rootScope.overlay = false;
         }
 
@@ -43,12 +46,15 @@ module Controller {
         }
 
         selectImage(file) {
+            this.$rootScope.overlay = true;
+            this.showImageUploadModal = true;
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 var image = new Image();
-
+                this.selectedImage = file.files[0];
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
+
                     this.imagePath = _file.target;
                     this.$scope.$apply();
                     this.addImage();
@@ -69,12 +75,40 @@ module Controller {
         }
 
         imageChoice() {
-            $('.trip-image > img').cropper({
+            $('.image-upload-modal > img').cropper({
                 aspectRatio: 1,
+                modal: false,
+                rotatable: false,
                 crop: (data) => {
                     console.log(data)
+                    this.imageCropData = data
                 }
             });
+        }
+
+        uploadImage() {
+            var file = this.selectedImage;
+            var formData = {
+                width: Math.round(this.imageCropData.width),
+                height: Math.round(this.imageCropData.height),
+                xCoord: Math.round(this.imageCropData.x),
+                yCoord: Math.round(this.imageCropData.y),
+                nameOfTrip: 'scheisshaufen'
+
+
+
+            };
+            this.Upload.upload({
+                url: this.basePath + '/trips/image',
+                fields: formData,
+                file: file
+            }).progress(function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+            }).success(function (data, status, headers, config) {
+                console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+            });
+            //this.InsertTripService.uploadImage(formData);
         }
 
         addAccomodationService(service:string) {

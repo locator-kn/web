@@ -1,9 +1,14 @@
 <div class="insert-trip-container" ng-controller="InsertTripCtrl as itc">
+    <div class="image-upload-modal" ng-show="itc.showImageUploadModal">
+        <img src="{{itc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
+        <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
+    </div>
     <div class="trip-image">
         <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
-        <img id="preview" src="{{itc.imagePath.result}}">
-        <div class="choose-image" ng-click="itc.showImageChooser()">Choose image</div>
+        <!--<img id="preview" src="{{itc.imagePath.result}}">-->
+
     </div>
+    <div class="choose-image" ng-click="itc.showImageChooser()">Choose image</div>
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
