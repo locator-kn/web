@@ -387,6 +387,7 @@ ul.slides {
 .header-bar .user .user-dropdown {
     position: absolute;
     left: 0;
+    width: 100%;
 }
 
 .header-bar .user ul.user-dropdown {
