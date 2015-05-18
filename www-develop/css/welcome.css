@@ -160,7 +160,12 @@ a.welcome_button:hover {
     background: rgb(34, 90, 91);
     color: white;
     padding-top: 30px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
+}
+
+.statistic_container .statistic-item {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .topuser h3 {
