@@ -15,6 +15,7 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripMoney:string = '';
+        selectedPlaceDetails: any;
         accomodationServices:string[] = [];
         googlePlacesOptions = {
             country: 'de',
@@ -24,8 +25,12 @@ module Controller {
         imagePath: any;
         selectedImage:string = '';
 
-        constructor(private $scope, private $rootScope) {
+        constructor(private $scope, private $rootScope, private InsertTripService) {
             this.$scope.selectImage = this.selectImage;
+            $scope.$on('mapentrySelected', (event, details)  => {
+                this.selectedPlaceDetails = details;
+            });
+            $rootScope.overlay = true;
         }
 
         isActive(item) {
@@ -93,8 +98,26 @@ module Controller {
             return false;
         }
 
+        getLocationDetails() {
+            return {
+                title: this.selectedPlaceDetails.name,
+                id: this.selectedPlaceDetails.id,
+                place_id: this.selectedPlaceDetails.place_id
+            }
+        }
+
         saveTrip() {
+            var city = this.getLocationDetails();
+            var t = {
+                title: '',
+                description: '',
+                city: city,
+                type: 'trip'
+            };
             //store trip in DB
+            this.InsertTripService.saveTrip(t).then(() => {
+                console.log('party')
+            })
         }
 
 
