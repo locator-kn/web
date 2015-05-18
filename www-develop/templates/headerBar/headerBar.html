@@ -1,6 +1,11 @@
 <div class="container">
     <div class="row" ng-controller="HeaderBarCtrl as hc">
         <div class="header-bar logged-out">
+
+
+            <img alt="logo" class="logo-small pointer" ui-sref="/welcome" src="images/logo/locator_small.png">
+
+
             <div ng-if="!authenticated" class="btn-group">
                 <a class="padding register" ng-click="hc.openRegisterDialog()">Registieren</a>
                 <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>

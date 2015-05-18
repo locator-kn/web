@@ -36,6 +36,7 @@
 
 .welcome_select ul li {
     cursor: pointer;
+    font-size: 20px;
 }
 
 span.margin-right {
@@ -54,13 +55,14 @@ a.welcome_button {
     border: 1px solid black;
     padding: 5px 20px;
     font-size: 18px;
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
+    transition-delay: 0s !important;
     font-weight: lighter;
 }
 
 a.welcome_button:hover {
     color: white;
-    background: black;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .fullwidth {
@@ -96,41 +98,38 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    max-height: 100vh;
+    height: 100vh;
     overflow: hidden;
+}
+
+.welcome_logo {
+    transition-duration: 0.3s;
+    opacity: 0;
+}
+
+.welcome_logo.visible {
+    opacity: 1;
 }
 
 .welcome_container .opener .welcome_wrapper {
     float: left;
     opacity: 0;
     transition-property: opacity;
+    transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
-    transition-delay: 0.2s;
-}
-
-.welcome_container .opener a.welcome_button {
-    transition-delay: 0.5s;
-    transition-duration: 0.5s;
-    opacity: 0;
-}
-
-.welcome_container .opener.show a.welcome_button {
-    opacity: 1;
+    transition-delay: 1s;
 }
 
 .welcome_container .opener.show .welcome_wrapper {
     opacity: 1;
 }
 
-.welcome_container .opener.create .welcome_wrapper {
-
-    transition-duration: 0.5s;
-    transition-delay: 0.5s;
+.welcome_container .opener a.welcome_button {
+    opacity: 0;
 }
 
-.welcome_container .opener.create a.welcome_button {
-    transition-delay: 0.5s;
-    transition-duration: 0.7s;
+.welcome_container .opener.show a.welcome_button {
+    opacity: 1;
 }
 
 .welcome_wrapper {
@@ -141,14 +140,54 @@ a.welcome_button:hover {
 }
 
 .welcome_select {
-    text-align: justify;
     float: left;
     position: relative;
     right: 50%;
+    width: 320px;
 }
 
+.welcome_select .selection {
+    float: left;
+}
 
+.container.welcome_container {
+    min-height: 500px;
+}
 
+.statistic_container {
+    background: rgb(34, 90, 91);
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.statistic_container .statistic-item {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.topuser h3 {
+    margin-top: 0;
+}
+
+.topuser .profile_thumbnail {
+    height: 65px;
+}
+
+.topuser .thumb {
+    float: left;
+}
+
+.user-entry {
+    float: left;
+    margin: 10px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.user-entry:not(:last-child) {
+    border-bottom: 1px solid rgb(33, 78, 79);
+}
 
 
 

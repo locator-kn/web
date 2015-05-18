@@ -3,15 +3,18 @@
     <div class="welcome_wrapper">
         <div class="welcome_select">
 
-            <span class="margin-right">Ich biete 3 Tage</span>
+            <span>Ich biete 3 Tage</span>
 
             <div list-selection multiple=true values="wc.moods" selected-model="wc.selectedMood"></div>
-            <span class="margin-right">in</span>
 
-            <div list-selection values="wc.cities" selected-model="wc.selectedCity"></div>
+            <span class="fullwidth"><span class="margin-right">in</span>
+
+            <div list-selection values="wc.cities" selected-model="wc.selectedCity"></div></span>
 
             <div class="fullwidth welcome_button_wrapper">
-                <a class="welcome_button" ui-sref="insertTrip">Trip anbieten</a>
+                <a class="welcome_button"
+                   ui-sref="search({city: wc.selectedCity.query_name, moods: wc.selectedMood.query_name})">Trip
+                    suchen</a>
             </div>
         </div>
     </div>

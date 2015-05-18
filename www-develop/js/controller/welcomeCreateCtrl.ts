@@ -34,6 +34,7 @@ module Controller {
                     this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
 
                     this.dataAvailable = true;
+                    angular.element('.welcome_container .welcome_logo').addClass('visible');
                 });
 
 
