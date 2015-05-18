@@ -1,7 +1,6 @@
 module Controller {
     export class WelcomeCtrl {
 
-        mood:any;
         moods:any;
         open:any;
         selectedMood:any;
@@ -9,21 +8,32 @@ module Controller {
         cities:any;
         selectedCity:any;
 
-        constructor(private $scope, private $rootScope, private $element, private DataService) {
+        dataAvailable:boolean = false;
+
+        constructor(private $scope, private $rootScope, private $element, private DataService, private $q) {
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
-            this.mood = "Initial";
 
-            this.DataService.getMoods().then(result => {
-                this.moods = result.data;
-                this.selectedMood = this.moods[0];
-            });
+            this.getData();
 
-            this.DataService.getAvailableCities().then(result => {
-                this.cities = result.data;
-                //init random city
-                this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
-            });
+        }
+
+        getData() {
+
+            var moods = this.DataService.getMoods();
+            var cities = this.DataService.getCities();
+
+            this.$q.all([moods, cities])
+                .then((responsesArray) => {
+
+                    this.moods = responsesArray[0].data;
+                    this.selectedMood = this.moods[Math.floor((Math.random() * this.moods.length))];
+
+                    this.cities = responsesArray[1].data;
+                    this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
+
+                    this.dataAvailable = true;
+                });
 
 
         }
