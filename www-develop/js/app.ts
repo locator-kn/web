@@ -27,6 +27,7 @@
 /// <reference path="./service/triplerService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
+/// <reference path="./service/insertTripService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
 /// <reference path="./mockedservice/triplerService.ts" />
@@ -133,6 +134,7 @@ if (live) {
         .service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
+        .service(Service.InsertTripService.serviceId, Service.InsertTripService)
 } else {
     app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
         .service(MockedService.DataService.serviceId, MockedService.DataService)
