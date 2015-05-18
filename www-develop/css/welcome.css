@@ -104,37 +104,34 @@ a.welcome_button:hover {
     overflow: hidden;
 }
 
+.welcome_logo {
+    transition-duration: 0.3s;
+    opacity: 0;
+}
+
+.welcome_logo.visible {
+    opacity: 1;
+}
+
 .welcome_container .opener .welcome_wrapper {
     float: left;
     opacity: 0;
     transition-property: opacity;
+    transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
-    transition-delay: 0.2s;
-}
-
-.welcome_container .opener a.welcome_button {
-    transition-delay: 0.5s;
-    transition-duration: 0.5s;
-    opacity: 0;
-}
-
-.welcome_container .opener.show a.welcome_button {
-    opacity: 1;
+    transition-delay: 1s;
 }
 
 .welcome_container .opener.show .welcome_wrapper {
     opacity: 1;
 }
 
-.welcome_container .opener.create .welcome_wrapper {
-
-    transition-duration: 0.5s;
-    transition-delay: 0.5s;
+.welcome_container .opener a.welcome_button {
+    opacity: 0;
 }
 
-.welcome_container .opener.create a.welcome_button {
-    transition-delay: 0.5s;
-    transition-duration: 0.7s;
+.welcome_container .opener.show a.welcome_button {
+    opacity: 1;
 }
 
 .welcome_wrapper {
@@ -162,10 +159,32 @@ a.welcome_button:hover {
 .statistic_container {
     background: rgb(34, 90, 91);
     color: white;
-    padding-top: 100px;
+    padding-top: 30px;
     padding-bottom: 100px;
 }
 
+.topuser h3 {
+    margin-top: 0;
+}
+
+.topuser .profile_thumbnail {
+    height: 65px;
+}
+
+.topuser .thumb {
+    float: left;
+}
+
+.user-entry {
+    float: left;
+    margin: 10px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.user-entry:not(:last-child) {
+    border-bottom: 1px solid rgb(33, 78, 79);
+}
 
 
 
