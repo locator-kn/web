@@ -41,7 +41,7 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngAnimate', 'ngAutocomplete'])
+var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngAnimate', 'ngMapAutocomplete'])
 
     .constant('basePath', '<%= basePath %>')
 
