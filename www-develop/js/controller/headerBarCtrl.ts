@@ -1,5 +1,5 @@
 module Controller {
-    export class UserHeaderCtrl {
+    export class HeaderBarCtrl {
         user:any;
         name:any;
         mail:any;
@@ -116,7 +116,7 @@ module Controller {
                 });
         }
 
-        static controllerId:string = "UserHeaderCtrl";
+        static controllerId:string = "HeaderBarCtrl";
 
     }
 }

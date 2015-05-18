@@ -8,7 +8,7 @@
 /// <reference path="./controller/searchCtrl.ts" />
 /// <reference path="./controller/searchResultCtrl.ts" />
 
-/// <reference path="./controller/userHeaderCtrl.ts" />
+/// <reference path="./controller/headerBarCtrl.ts" />
 
 /// <reference path="./controller/tripResultsCtrl.ts" />
 
@@ -102,7 +102,7 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
-    .controller(Controller.UserHeaderCtrl.controllerId, Controller.UserHeaderCtrl)
+    .controller(Controller.HeaderBarCtrl.controllerId, Controller.HeaderBarCtrl)
     .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
