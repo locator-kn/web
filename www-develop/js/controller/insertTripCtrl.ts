@@ -9,6 +9,10 @@ module Controller {
         tripDescription:string = '';
         tripMoney:string = '';
         accomodationServices:string[] = [];
+        googlePlacesOptions = {
+            country: 'de',
+            types: '(cities)'
+        };
 
         constructor(private $scope) {
 
