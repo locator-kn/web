@@ -95,4 +95,9 @@ a.welcome_button:hover {
     padding-top: 50px;
 }
 
+.welcome_container {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
 
