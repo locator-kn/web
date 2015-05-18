@@ -36,6 +36,9 @@
 
 .welcome_select ul li {
     cursor: pointer;
+    float: left;
+    font-size: 20px;
+    width: 100%;
 }
 
 span.margin-right {
@@ -54,13 +57,14 @@ a.welcome_button {
     border: 1px solid black;
     padding: 5px 20px;
     font-size: 18px;
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
+    transition-delay: 0s !important;
     font-weight: lighter;
 }
 
 a.welcome_button:hover {
     color: white;
-    background: black;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .fullwidth {
@@ -141,10 +145,14 @@ a.welcome_button:hover {
 }
 
 .welcome_select {
-    text-align: justify;
     float: left;
     position: relative;
     right: 50%;
+    width: 320px;
+}
+
+.welcome_select .selection {
+    float: left;
 }
 
 
