@@ -10,8 +10,6 @@
 
 /// <reference path="./controller/headerBarCtrl.ts" />
 
-/// <reference path="./controller/tripResultsCtrl.ts" />
-
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/editProfileCtrl.ts" />
@@ -98,7 +96,6 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .controller(Controller.TripResultsCtrl.controllerId, Controller.TripResultsCtrl)
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)

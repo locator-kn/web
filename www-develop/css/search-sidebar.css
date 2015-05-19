@@ -129,3 +129,12 @@ html, body {
 .search-menu .item-active {
     max-width: none;
 }
+
+.city-suggestion p {
+    margin-left: 37px;
+}
+
+.city-suggestion:hover {
+    font-weight: bold;
+    cursor: default;
+}
