@@ -45,7 +45,8 @@ span.margin-right {
 }
 
 .welcome_container {
-    padding-top: 50px;
+    padding-top: 110px;
+    margin-top: -60px;
 }
 
 a.welcome_button {
