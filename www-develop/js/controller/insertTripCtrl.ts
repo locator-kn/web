@@ -26,6 +26,7 @@ module Controller {
         imagePath: any;
         selectedImage:any;
         imageCropData:any;
+        cropperElem: any;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
@@ -75,7 +76,9 @@ module Controller {
         }
 
         imageChoice() {
-            $('.image-upload-modal > img').cropper({
+            debugger
+            this.cropperElem = $('#cropping-preview');
+            this.cropperElem.cropper({
                 aspectRatio: 1,
                 modal: false,
                 rotatable: false,
@@ -102,13 +105,24 @@ module Controller {
                 url: this.basePath + '/trips/image',
                 fields: formData,
                 file: file
-            }).progress(function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-            }).success(function (data, status, headers, config) {
-                console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-            });
+            })
+            //    .progress(function (evt) {
+            //    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+            //}).success(function (data, status, headers, config) {
+            //    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+            //});
+            this.clearFileSelection();
             //this.InsertTripService.uploadImage(formData);
+        }
+
+        clearFileSelection() {
+            this.showImageUploadModal = false;
+            this.$rootScope.overlay = false;
+            this.selectedImage = null;
+            this.imagePath = '';
+            this.cropperElem.attr('src', '');
+            $('.cropper-container').remove()
         }
 
         addAccomodationService(service:string) {
