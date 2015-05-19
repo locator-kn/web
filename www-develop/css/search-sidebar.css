@@ -113,3 +113,12 @@ html, body{
     padding: 0px 10px 0px 10px;
 }
 
+.city-suggestion p {
+    margin-left: 37px;
+}
+
+.city-suggestion:hover {
+    font-weight: bold;
+    cursor: default;
+}
+
