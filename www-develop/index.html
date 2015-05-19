@@ -64,13 +64,12 @@
 </div>
 
 <div ng-class="{'active': overlay}" class="overlay"></div>
+<div class="fixed">
+    <div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
+</div>
 
-<div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
-
-
-    <div ng-include="'templates/static/staticButtons.html'"></div>
-    <div ui-view></div>
-
+<div ng-include="'templates/static/staticButtons.html'"></div>
+<div ui-view></div>
 
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>

@@ -9,14 +9,14 @@
     padding-left: 20px;
     padding-top: 20px;
     position: relative;
+    z-index: 200;
 }
 
 .item-active {
-    background-color: #72d4ff;
+    background-color: rgb(85, 212, 205);
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
     position: relative;
-    z-index: 200;
 }
 
 .settings {
@@ -25,14 +25,14 @@
     position: absolute;
     z-index: 191;
     margin-left: 80px;
-    background: #6abfff;
+    background: rgb(33, 205, 196);
 }
 
 .container-sidebar {
     position: absolute;
     height: 100vh;
-    width: 500px;
-    top: 0;
+    width: 300px;
+    top: 60px;
 }
 
 .item-description {
