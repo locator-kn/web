@@ -27,6 +27,7 @@
 /// <reference path="./service/triplerService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
+/// <reference path="./service/insertTripService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
 /// <reference path="./mockedservice/triplerService.ts" />
@@ -43,7 +44,7 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete'])
+var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload'])
 
     .constant('basePath', '<%= basePath %>')
 
@@ -136,6 +137,8 @@ if (live) {
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
         .service(Service.HelperService.serviceId, Service.HelperService)
+        .service(Service.InsertTripService.serviceId, Service.InsertTripService)
+
 } else {
     app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
         .service(MockedService.DataService.serviceId, MockedService.DataService)

@@ -101,7 +101,7 @@
 
 
 /*Accomodation services*/
-.accomodation-services div{
+.accomodation-equipment div{
     width:50px;
     height:50px;
     display: inline-block;
@@ -115,8 +115,7 @@
 }
 
 .wifi-grey {
-    background-image: url("/images/icons/icons_stimmung-13.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-13.png");
 }
 
 .tv {
@@ -124,8 +123,7 @@
 }
 
 .tv-grey {
-    background-image: url("/images/icons/icons_stimmung-14.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-14.png");
 }
 
 .shower {
@@ -133,8 +131,7 @@
 }
 
 .shower-grey {
-    background-image: url("/images/icons/icons_stimmung-15.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-15.png");
 }
 
 .meal {
@@ -142,8 +139,7 @@
 }
 
 .meal-grey {
-    background-image: url("/images/icons/icons_stimmung-20.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-20.png");
 }
 
 .breakfast {
@@ -151,8 +147,7 @@
 }
 
 .breakfast-grey {
-    background-image: url("/images/icons/icons_stimmung-18.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-18.png");
 }
 
 .smoker {
@@ -160,8 +155,7 @@
 }
 
 .smoker-grey {
-    background-image: url("/images/icons/icons_stimmung-16.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-16.png");
 }
 
 .parking {
@@ -169,8 +163,7 @@
 }
 
 .parking-grey {
-    background-image: url("/images/icons/icons_stimmung-19.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-19.png");
 }
 
 .handicapped {
@@ -178,8 +171,7 @@
 }
 
 .handicapped-grey {
-    background-image: url("/images/icons/icons_stimmung-17.png");
-    background-color: grey;
+    background-image: url("/images/icons/icons_stimmung_ausgegraut-17.png");
 }
 
 .save-trip button {

@@ -1,8 +1,14 @@
-<div class="insert-trip-container" ng-controller="InsertTripCtrl as ctrl">
-    <div class="trip-image">
-        <input id="image-upload" type="file" style="display: none">
-        <img id="preview" src="images/No_Image_Placeholder.jpg" ng-click="ctrl.imageChoice()">
+<div class="insert-trip-container" ng-controller="InsertTripCtrl as itc">
+    <div class="image-upload-modal" ng-show="itc.showImageUploadModal">
+        <img src="{{itc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
+        <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
     </div>
+    <div class="trip-image">
+        <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
+        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
+
+    </div>
+    <div class="choose-image" ng-click="itc.showImageChooser()">Choose image</div>
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
@@ -20,42 +26,42 @@
                 <input type="date">
                 <div class="days-amount">
                     <p>anzahl Tage</p>
-                    <div class="circle" ng-click="ctrl.days=1" ng-class="{'circle-selected': ctrl.days == 1}">1</div>
-                    <div class="circle" ng-click="ctrl.days=2" ng-class="{'circle-selected': ctrl.days == 2}">2</div>
-                    <div class="circle" ng-click="ctrl.days=3" ng-class="{'circle-selected': ctrl.days == 3}">3</div>
-                    <div class="circle" ng-click="ctrl.days=4" ng-class="{'circle-selected': ctrl.days == 4}">3+</div>
+                    <div class="circle" ng-click="itc.days=1" ng-class="{'circle-selected': itc.days == 1}">1</div>
+                    <div class="circle" ng-click="itc.days=2" ng-class="{'circle-selected': itc.days == 2}">2</div>
+                    <div class="circle" ng-click="itc.days=3" ng-class="{'circle-selected': itc.days == 3}">3</div>
+                    <div class="circle" ng-click="itc.days=4" ng-class="{'circle-selected': itc.days == 4}">3+</div>
                 </div>
                 <div class="persons-amount">
                     <p>anzahl Personen</p>
-                    <div class="circle" ng-click="ctrl.persons=1" ng-class="{'circle-selected': ctrl.persons == 1}">1</div>
-                    <div class="circle" ng-click="ctrl.persons=2" ng-class="{'circle-selected': ctrl.persons == 2}">2</div>
-                    <div class="circle" ng-click="ctrl.persons=3" ng-class="{'circle-selected': ctrl.persons == 3}">3</div>
-                    <div class="circle" ng-click="ctrl.persons=4" ng-class="{'circle-selected': ctrl.persons == 4}">4</div>
-                    <div class="circle" ng-click="ctrl.persons=5" ng-class="{'circle-selected': ctrl.persons == 5}">4+</div>
+                    <div class="circle" ng-click="itc.persons=1" ng-class="{'circle-selected': itc.persons == 1}">1</div>
+                    <div class="circle" ng-click="itc.persons=2" ng-class="{'circle-selected': itc.persons == 2}">2</div>
+                    <div class="circle" ng-click="itc.persons=3" ng-class="{'circle-selected': itc.persons == 3}">3</div>
+                    <div class="circle" ng-click="itc.persons=4" ng-class="{'circle-selected': itc.persons == 4}">4</div>
+                    <div class="circle" ng-click="itc.persons=5" ng-class="{'circle-selected': itc.persons == 5}">4+</div>
                 </div>
             </div>
             <div class="right-section">
-                <input type="text" placeholder="Wo no?" ng-map-autocomplete options="ctrl.googlePlacesOptions" ng-model="ctrl.tripTitle">
+                <input type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity">
 
-                <input type="text" placeholder="Benenne deinen Trip" ng-model="ctrl.tripTitle">
-                <textarea class="trip-description" placeholder="Beschreibe deinen Trip" ng-model="ctrl.tripDescription"></textarea>
-                <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="ctrl.tripMoney"></textarea>
+                <input type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle">
+                <textarea class="trip-description" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription"></textarea>
+                <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney"></textarea>
                 <div class="accomodation">
                     <span>Übernachtung</span>
-                    <div class="circle" ng-click="ctrl.toggleAccomodation()" ng-class="{'circle-selected': ctrl.accomodation == true}"></div>
+                    <div class="circle" ng-click="itc.toggleAccomodation()" ng-class="{'circle-selected': itc.accomodation == true}"></div>
                 </div>
-                <div class="accomodation-services">
-                    <div class="wifi" ng-click="ctrl.addAccomodationService('wifi')" ng-class="{'wifi-grey': ctrl.containsAccomodation('wifi') == false}"></div>
-                    <div class="tv" ng-click="ctrl.addAccomodationService('tv')" ng-class="{'tv-grey': ctrl.containsAccomodation('tv') == false}"></div>
-                    <div class="shower" ng-click="ctrl.addAccomodationService('shower')" ng-class="{'shower-grey': ctrl.containsAccomodation('shower') == false}"></div>
-                    <div class="meal" ng-click="ctrl.addAccomodationService('meal')" ng-class="{'meal-grey': ctrl.containsAccomodation('meal') == false}"></div>
-                    <div class="breakfast" ng-click="ctrl.addAccomodationService('breakfast')" ng-class="{'breakfast-grey': ctrl.containsAccomodation('breakfast') == false}"></div>
-                    <div class="smoker" ng-click="ctrl.addAccomodationService('smoker')" ng-class="{'smoker-grey': ctrl.containsAccomodation('smoker') == false}"></div>
-                    <div class="parking" ng-click="ctrl.addAccomodationService('parking')" ng-class="{'parking-grey': ctrl.containsAccomodation('parking') == false}"></div>
-                    <div class="handicapped" ng-click="ctrl.addAccomodationService('handicapped')" ng-class="{'handicapped-grey': ctrl.containsAccomodation('handicapped') == false}"></div>
+                <div class="accomodation-equipment" ng-show="itc.accomodation == true">
+                    <div class="wifi" title="WLAN" ng-click="itc.addAccomodationEquipment('wifi')" ng-class="{'wifi-grey': itc.containsAccomodation('wifi') == false}"></div>
+                    <div class="tv" title="Fernsehen" ng-click="itc.addAccomodationEquipment('tv')" ng-class="{'tv-grey': itc.containsAccomodation('tv') == false}"></div>
+                    <div class="shower" title="Dusche/Bad" ng-click="itc.addAccomodationEquipment('shower')" ng-class="{'shower-grey': itc.containsAccomodation('shower') == false}"></div>
+                    <div class="meal" title="Mittagessen" ng-click="itc.addAccomodationEquipment('meal')" ng-class="{'meal-grey': itc.containsAccomodation('meal') == false}"></div>
+                    <div class="breakfast" title="Frühstück" ng-click="itc.addAccomodationEquipment('breakfast')" ng-class="{'breakfast-grey': itc.containsAccomodation('breakfast') == false}"></div>
+                    <div class="smoker" title="Raucherbereich" ng-click="itc.addAccomodationEquipment('smoker')" ng-class="{'smoker-grey': itc.containsAccomodation('smoker') == false}"></div>
+                    <div class="parking" title="Parkmöglichkeiten" ng-click="itc.addAccomodationEquipment('parking')" ng-class="{'parking-grey': itc.containsAccomodation('parking') == false}"></div>
+                    <div class="handicapped" title="Behindertengerecht" ng-click="itc.addAccomodationEquipment('handicapped')" ng-class="{'handicapped-grey': itc.containsAccomodation('handicapped') == false}"></div>
                 </div>
                 <div class="save-trip">
-                    <button ng-click="ctrl.saveTrip()">SPEICHERN</button>
+                    <button ng-click="itc.saveTrip()">SPEICHERN</button>
                 </div>
             </div>
         </div>
