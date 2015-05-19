@@ -32,6 +32,8 @@
 /// <reference path="./mockedservice/triplerService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
 
+/// <reference path="./service/helperService.ts" />
+
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -133,6 +135,7 @@ if (live) {
         .service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
+        .service(Service.HelperService.serviceId, Service.HelperService)
 } else {
     app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
         .service(MockedService.DataService.serviceId, MockedService.DataService)
