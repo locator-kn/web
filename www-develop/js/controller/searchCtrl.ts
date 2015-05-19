@@ -109,6 +109,7 @@ module Controller {
             this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
             this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
 
+            this.updateUrl();
         }
 
         emitResult(result) {
