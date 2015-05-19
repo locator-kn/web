@@ -18,7 +18,7 @@ module Controller {
         tripDescriptionMoney:string = '';
         selectedPlaceDetails:any;
         accomodationEquipment:string[] = [];
-        progressPercentage:any;
+        progressPercentage:number;
         googlePlacesOptions = {
             country: 'de',
             types: '(cities)'
@@ -100,14 +100,10 @@ module Controller {
                 yCoord: Math.round(this.imageCropData.y),
                 nameOfTrip: 'scheisshaufen'
             };
-            this.Upload.upload({
-                url: this.basePath + '/trips/image',
-                fields: formData,
-                file: file
-            })
+            this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
-                    var perc = 100.0 * evt.loaded / evt.total;
-                    this.progressPercentage = parseInt(perc);
+                    var perc:number = 100.0 * evt.loaded / evt.total;
+                    this.progressPercentage = Math.round(perc);
                     console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
