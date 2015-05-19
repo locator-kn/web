@@ -157,8 +157,8 @@ module Controller {
         saveTrip() {
             var city = this.getLocationDetails();
             var t = {
-                title: '',
-                description: '',
+                title: this.tripTitle,
+                description: this.tripDescription,
                 city: city,
                 type: 'trip'
             };
