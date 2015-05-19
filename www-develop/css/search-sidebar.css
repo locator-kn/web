@@ -121,3 +121,11 @@ html, body {
     height: 25px;
     margin-right: 5px;
 }
+
+.search-menu .item {
+    max-width: 50px;
+}
+
+.search-menu .item-active {
+    max-width: none;
+}
