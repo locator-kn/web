@@ -12,11 +12,12 @@ module Controller {
         persons:number = 1;
         days:number = 1;
         accomodation:boolean = false;
+        tripCity:string = '';
         tripTitle:string = '';
         tripDescription:string = '';
-        tripMoney:string = '';
+        tripDescriptionMoney:string = '';
         selectedPlaceDetails: any;
-        accomodationServices:string[] = [];
+        accomodationEquipment:string[] = [];
         progressPercentage:any;
         googlePlacesOptions = {
             country: 'de',
@@ -70,7 +71,7 @@ module Controller {
             this.accomodation = !this.accomodation;
 
             if (!this.accomodation) {
-                this.accomodationServices = [];
+                this.accomodationEquipment = [];
             }
         }
 
@@ -132,21 +133,21 @@ module Controller {
             this.headerImagePath = data.imageLocation.picture;
         }
 
-        addAccomodationService(service:string) {
+        addAccomodationEquipment(service:string) {
             if (this.accomodation) {
                 if (this.containsAccomodation(service)) {
-                    var index = this.accomodationServices.indexOf(service);
-                    this.accomodationServices.splice(index, 1);
+                    var index = this.accomodationEquipment.indexOf(service);
+                    this.accomodationEquipment.splice(index, 1);
                 } else {
-                    this.accomodationServices.push(service);
+                    this.accomodationEquipment.push(service);
                 }
             }
 
-            console.log(this.accomodationServices);
+            console.log(this.accomodationEquipment);
         }
 
         containsAccomodation(service:string) {
-            var found = $.inArray(service, this.accomodationServices);
+            var found = $.inArray(service, this.accomodationEquipment);
             if (found > -1) {
                 return true;
             }
@@ -164,11 +165,22 @@ module Controller {
         saveTrip() {
             var city = this.getLocationDetails();
             var t = {
-                title: '',
-                description: '',
                 city: city,
+                title: this.tripTitle,
+                description: this.tripDescription,
+                description_money: this.tripDescriptionMoney,
+                //start_date
+                //end_date
+                accomodation: this.accomodation,
+                accomodation_equipment: this.accomodationEquipment,
+                //moods
+                //locations
+                //pics
+                //active
+                //delete
                 type: 'trip'
             };
+
             //store trip in DB
             this.InsertTripService.saveTrip(t).then(() => {
                 console.log('party')
