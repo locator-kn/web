@@ -9,9 +9,11 @@ module Controller {
         tripCities = [];
 
         constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService) {
+
             this.query = $location.search();
-            this.query.accomodations = [];
-            //this.query.accomodation = false;
+            console.info(this.query.accomodation);
+            this.query.accomodation = false;
+
             this.query.moods = [];
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
@@ -29,47 +31,13 @@ module Controller {
                     this.tripCities = result.data;
                 });
 
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.city;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
+            //watch the query variable and fire updateUrl() on change
+            this.$scope.$watchCollection(angular.bind(this, (query) => {
+                return this.query;
+            }), () => {
+                this.updateUrl();
             });
 
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.dateFrom;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.dateTo;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.range;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.persons;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.budget;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
             this.search();
 
         }
@@ -92,7 +60,7 @@ module Controller {
         }
 
         toggleActiveItem(item) {
-            if(item == this.activeItem) {
+            if (item == this.activeItem) {
                 this.activeItem = '';
             } else {
                 this.activeItem = item;
@@ -100,14 +68,20 @@ module Controller {
         }
 
         toggleAccomodation() {
-            //this.query.accomodation = !this.query.accomodation;
-            console.info(this.query.accomodations);
+
+            if (typeof this.query.accomodation === "undefined") {
+                this.query.accomodation = true;
+            } else {
+                this.query.accomodation = !this.query.accomodation;
+            }
+
+            this.updateUrl();
         }
 
         selectMood(mood) {
             this.selectedMoods.push(mood);
             this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
-            this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
+            this.selectableMoods.splice(this.selectableMoods.indexOf(mood), 1);
 
             this.updateUrl();
         }
