@@ -1,6 +1,6 @@
 interface JQuery {
     cropper(): JQuery;
-    cropper(options: any): JQuery;
+    cropper(options:any): JQuery;
 }
 
 
@@ -16,7 +16,7 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
-        selectedPlaceDetails: any;
+        selectedPlaceDetails:any;
         accomodationEquipment:string[] = [];
         progressPercentage:any;
         googlePlacesOptions = {
@@ -25,12 +25,12 @@ module Controller {
         };
 
         showImageUploadModal:boolean = false;
-        imagePath: any;
+        imagePath:any;
         selectedImage:any;
         imageCropData:any;
-        cropperElem: any;
-        imageHasBeenUploaded: boolean;
-        headerImagePath: string;
+        cropperElem:any;
+        imageHasBeenUploaded:boolean;
+        headerImagePath:string;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
@@ -105,15 +105,15 @@ module Controller {
                 fields: formData,
                 file: file
             })
-            .progress(evt => {
+                .progress(evt => {
                     var perc = 100.0 * evt.loaded / evt.total;
                     this.progressPercentage = parseInt(perc);
-                    console.log('progress:', this.progressPercentage,'% ', evt.config.file.name);
-            }).success((data, status, headers, config) => {
+                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
+                }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
-            });
+                });
 
             //this.InsertTripService.uploadImage(formData);
         }
@@ -187,6 +187,6 @@ module Controller {
         }
 
 
-        static controllerId:string="InsertTripCtrl";
+        static controllerId:string = "InsertTripCtrl";
     }
 }
