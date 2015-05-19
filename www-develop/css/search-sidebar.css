@@ -12,7 +12,7 @@
 }
 
 .item-active {
-    background-color: #72d4ff;
+    background-color: rgb(85, 212, 205);
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
     position: relative;
@@ -25,7 +25,7 @@
     position: absolute;
     z-index: 191;
     margin-left: 80px;
-    background: #6abfff;
+    background: rgb(33, 205, 196);
 }
 
 .container-sidebar {

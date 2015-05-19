@@ -10,7 +10,7 @@ module Controller {
 
         dataAvailable:boolean = false;
 
-        constructor(private $scope, private $rootScope, private $element, private DataService, private $q) {
+        constructor(private $scope, private $rootScope, private $element, private DataService, private $q, private $state) {
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
 
@@ -33,9 +33,22 @@ module Controller {
                     this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
 
                     this.dataAvailable = true;
+
+                    console.info(this.selectedCity);
                 });
 
 
+        }
+
+        search() {
+            console.info('Suche');
+
+            var moodQuery = [];
+            this.selectedMood.forEach(function(entry) {
+                moodQuery.push(entry.query_name);
+            });
+
+            this.$state.go('search', {city: this.selectedCity.title, moods: moodQuery.join('.')});
         }
 
 
