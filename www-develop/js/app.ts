@@ -24,13 +24,11 @@
 
 
 /// <reference path="./service/userService.ts" />
-/// <reference path="./service/triplerService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/insertTripService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
-/// <reference path="./mockedservice/triplerService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
 
 /// <reference path="./service/helperService.ts" />
@@ -132,16 +130,14 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     });
 
 if (live) {
-    app.service(Service.TriplerService.serviceId, Service.TriplerService)
-        .service(Service.DataService.serviceId, Service.DataService)
+    app.service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
         .service(Service.HelperService.serviceId, Service.HelperService)
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
 
 } else {
-    app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
-        .service(MockedService.DataService.serviceId, MockedService.DataService)
+    app.service(MockedService.DataService.serviceId, MockedService.DataService)
         .service(MockedService.UserService.serviceId, MockedService.UserService)
         .service(MockedService.EditProfileService.serviceId, MockedService.EditProfileService)
         .service(Service.SearchService.serviceId, Service.SearchService)
