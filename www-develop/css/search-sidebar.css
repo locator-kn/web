@@ -14,8 +14,8 @@
 
 .item-active {
     background-color: rgb(85, 212, 205);
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
     position: relative;
 }
 
@@ -66,17 +66,17 @@
     z-index: 100;
 }
 
-html, body{
-    height:100%;
+html, body {
+    height: 100%;
 }
 
 .sample-show-hide {
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
 }
 
 .sample-show-hide.ng-hide {
-    opacity:0;
+    opacity: 0;
 }
 
 .filter-container {
@@ -98,9 +98,9 @@ html, body{
     width: 30px;
     height: 30px;
     line-height: 30px;
-    text-align:center;
+    text-align: center;
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 
 }
 
@@ -110,6 +110,14 @@ html, body{
 }
 
 .mood-selection-container {
-    padding: 0px 10px 0px 10px;
+    padding: 0 15px;
 }
 
+.mood-selection-container .selected-mood {
+    padding-bottom: 5px;
+}
+
+.mood-selection-container .icon {
+    height: 25px;
+    margin-right: 5px;
+}
