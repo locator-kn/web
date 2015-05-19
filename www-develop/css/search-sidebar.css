@@ -9,6 +9,7 @@
     padding-left: 20px;
     padding-top: 20px;
     position: relative;
+    z-index: 200;
 }
 
 .item-active {
@@ -16,7 +17,6 @@
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
     position: relative;
-    z-index: 200;
 }
 
 .settings {

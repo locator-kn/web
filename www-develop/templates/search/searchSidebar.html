@@ -1,24 +1,26 @@
 <div class="container-sidebar" ng-controller="SearchCtrl as sc">
     <div class="search-menu">
-        <div ng-class="{'item-active': sc.isActive('search')}" >
+
+        <div class="item" ng-class="{'item-active': sc.isActive('search')}" >
             <img src="/images/icons/wegweiser.png" ng-click="sc.toggleActiveItem('search')">
+
             <Label class="item-description" ng-show="sc.isActive('search')">
                 <input class="input-transparent" type="text" ng-model="sc.query.city" ng-model-options="{debounce: 1000}">
             </label>
         </div>
-        <div ng-class="{'item-active': sc.isActive('date')}">
+        <div class="item" ng-class="{'item-active': sc.isActive('date')}">
             <img src="/images/icons/kalender.png" ng-click="sc.toggleActiveItem('date')">
             <label class="item-description" ng-show="sc.isActive('date')">
                 Dates
             </label>
         </div>
-        <div ng-class="{'item-active': sc.isActive('filter')}">
+        <div class="item" ng-class="{'item-active': sc.isActive('filter')}">
             <img src="/images/icons/regler.png" ng-click="sc.toggleActiveItem('filter')">
             <label class="item-description" ng-show="sc.isActive('filter')">
                 Filter
             </label>
         </div>
-        <div ng-class="{'item-active': sc.isActive('moods')}">
+        <div class="item"ng-class="{'item-active': sc.isActive('moods')}">
             <img src="/images/icons/wegweiser.png" ng-click="sc.toggleActiveItem('moods')">
             <label class="item-description" ng-show="sc.isActive('moods')">
                 Moods
