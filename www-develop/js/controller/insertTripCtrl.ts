@@ -17,6 +17,7 @@ module Controller {
         tripMoney:string = '';
         selectedPlaceDetails: any;
         accomodationServices:string[] = [];
+        progressPercentage:any;
         googlePlacesOptions = {
             country: 'de',
             types: '(cities)'
@@ -27,6 +28,8 @@ module Controller {
         selectedImage:any;
         imageCropData:any;
         cropperElem: any;
+        imageHasBeenUploaded: boolean;
+        headerImagePath: string;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
@@ -79,7 +82,6 @@ module Controller {
             debugger
             this.cropperElem = $('#cropping-preview');
             this.cropperElem.cropper({
-                aspectRatio: 1,
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -97,22 +99,22 @@ module Controller {
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
                 nameOfTrip: 'scheisshaufen'
-
-
-
             };
             this.Upload.upload({
                 url: this.basePath + '/trips/image',
                 fields: formData,
                 file: file
             })
-            //    .progress(function (evt) {
-            //    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
-            //}).success(function (data, status, headers, config) {
-            //    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
-            //});
-            this.clearFileSelection();
+            .progress(evt => {
+                    var perc = 100.0 * evt.loaded / evt.total;
+                    this.progressPercentage = parseInt(perc);
+                    console.log('progress:', this.progressPercentage,'% ', evt.config.file.name);
+            }).success((data, status, headers, config) => {
+                    console.log('file', config.file.name, 'uploaded. Response:', data);
+                    this.clearFileSelection();
+                    this.showNewImage(data);
+            });
+
             //this.InsertTripService.uploadImage(formData);
         }
 
@@ -123,6 +125,11 @@ module Controller {
             this.imagePath = '';
             this.cropperElem.attr('src', '');
             $('.cropper-container').remove()
+        }
+
+        showNewImage(data) {
+            this.imageHasBeenUploaded = true;
+            this.headerImagePath = data.imageLocation.picture;
         }
 
         addAccomodationService(service:string) {
