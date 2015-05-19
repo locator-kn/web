@@ -8,7 +8,7 @@ module Controller {
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
             this.query.accomodations = [];
             //this.query.accomodation = false;
@@ -106,9 +106,9 @@ module Controller {
 
         selectMood(mood) {
             this.selectedMoods.push(mood);
-            this.query.moods.push(mood.query_name);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
             this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
-            console.info(this.selectableMoods);
+
         }
 
         emitResult(result) {
