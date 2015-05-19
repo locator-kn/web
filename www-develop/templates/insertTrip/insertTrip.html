@@ -4,11 +4,12 @@
         <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
     </div>
     <div class="trip-image">
+        <a class="choose-image welcome_button" ng-click="itc.showImageChooser()">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
         <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
 
     </div>
-    <div class="choose-image" ng-click="itc.showImageChooser()">Choose image</div>
+
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
