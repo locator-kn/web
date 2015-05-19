@@ -31,8 +31,8 @@
 .container-sidebar {
     position: absolute;
     height: 100vh;
-    width: 500px;
-    top: 0;
+    width: 300px;
+    top: 60px;
 }
 
 .item-description {
