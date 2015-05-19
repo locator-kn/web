@@ -6,6 +6,7 @@ module Controller {
         selectableMoods;
         selectedMoods = [];
         showSelectableMoods = false;
+        tripCities = [];
 
         constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
             this.query = $location.search();
@@ -20,6 +21,12 @@ module Controller {
             this.DataService.getMoods()
                 .then(result => {
                     this.selectableMoods = result.data;
+                });
+
+            this.DataService.getAvailableCities()
+                .then(result => {
+                    console.info(result.data);
+                    this.tripCities = result.data;
                 });
 
             this.$scope.$watch(angular.bind(this, (query) => {
