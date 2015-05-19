@@ -1,1 +1,3 @@
-<p>city</p>
+<div ng-repeat="city in sc.tripCities | filter:sc.query.city" ng-click="sc.query.city=city.title">
+    {{city.title}}
+</div>
