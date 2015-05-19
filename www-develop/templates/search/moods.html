@@ -1,5 +1,5 @@
 <div class="mood-selection-container">
-    <div ng-repeat="selectedMood in sc.selectedMoods">
+    <div class="selected-mood" ng-repeat="selectedMood in sc.selectedMoods">
         <img class="icon" ng-src="data:image/gif;base64,{{selectedMood.icon}}">
         <label>
             {{selectedMood.title}}
