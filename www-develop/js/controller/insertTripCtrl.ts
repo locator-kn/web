@@ -80,7 +80,6 @@ module Controller {
         }
 
         imageChoice() {
-            debugger
             this.cropperElem = $('#cropping-preview');
             this.cropperElem.cropper({
                 modal: false,
