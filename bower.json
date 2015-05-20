@@ -20,7 +20,8 @@
     "ng-map-autocomplete": "~1.0.3",
     "cropper": "~0.9.3",
     "ng-file-upload": "~4.2.1",
-    "angular-selection-list": "~0.3.1"
+    "angular-selection-list": "~0.3.1",
+    "angular-progress-arc": "~1.0.0"
   },
   "resolutions": {
     "angular": "~1.3"
