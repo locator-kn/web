@@ -7,11 +7,11 @@ module Service {
         saveTrip(newTrip) {
             return this.$http.post(this.basePath + '/trips', newTrip)
         }
-        uploadImage(imageData) {
-            return this.$http.post(this.basePath + '/trips/image', {
-                data: imageData,
-                transformRequest: angular.identity,
-                headers: { 'Content-Type': undefined }
+        uploadImage(formData, file) {
+            return this.Upload.upload({
+                url: this.basePath + '/trips/image',
+                fields: formData,
+                file: file
             });
         }
         static serviceId:string = "InsertTripService";

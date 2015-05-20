@@ -5,7 +5,7 @@
     </div>
     <div class="trip-image">
         <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
-        <!--<img id="preview" src="{{itc.imagePath.result}}">-->
+        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
 
     </div>
     <div class="choose-image" ng-click="itc.showImageChooser()">Choose image</div>

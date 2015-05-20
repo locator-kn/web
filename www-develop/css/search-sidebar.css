@@ -9,14 +9,14 @@
     padding-left: 20px;
     padding-top: 20px;
     position: relative;
+    z-index: 200;
 }
 
 .item-active {
-    background-color: #72d4ff;
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
+    background-color: rgb(85, 212, 205);
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
     position: relative;
-    z-index: 200;
 }
 
 .settings {
@@ -25,14 +25,14 @@
     position: absolute;
     z-index: 191;
     margin-left: 80px;
-    background: #6abfff;
+    background: rgb(33, 205, 196);
 }
 
 .container-sidebar {
     position: absolute;
     height: 100vh;
-    width: 500px;
-    top: 0;
+    width: 300px;
+    top: 60px;
 }
 
 .item-description {
@@ -66,17 +66,17 @@
     z-index: 100;
 }
 
-html, body{
-    height:100%;
+html, body {
+    height: 100%;
 }
 
 .sample-show-hide {
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
 }
 
 .sample-show-hide.ng-hide {
-    opacity:0;
+    opacity: 0;
 }
 
 .filter-container {
@@ -98,9 +98,9 @@ html, body{
     width: 30px;
     height: 30px;
     line-height: 30px;
-    text-align:center;
+    text-align: center;
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 
 }
 
@@ -110,6 +110,31 @@ html, body{
 }
 
 .mood-selection-container {
-    padding: 0px 10px 0px 10px;
+    padding: 0 15px;
 }
 
+.mood-selection-container .selected-mood {
+    padding-bottom: 5px;
+}
+
+.mood-selection-container .icon {
+    height: 25px;
+    margin-right: 5px;
+}
+
+.search-menu .item {
+    max-width: 50px;
+}
+
+.search-menu .item-active {
+    max-width: none;
+}
+
+.city-suggestion p {
+    margin-left: 37px;
+}
+
+.city-suggestion:hover {
+    font-weight: bold;
+    cursor: default;
+}

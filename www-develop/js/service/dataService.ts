@@ -29,7 +29,7 @@ module Service {
         }
 
         getAvailableCities() {
-            return this.$http.get(this.basePath + '/data/cities/trips');
+            return this.$http.get(this.basePath + '/data/cities');
         }
 
         static serviceId:string = "DataService";
