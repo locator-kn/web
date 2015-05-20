@@ -18,7 +18,7 @@ module Controller {
         tripDescriptionMoney:string = '';
         selectedPlaceDetails:any;
         accomodationEquipment:string[] = [];
-        progressPercentage:number;
+        progressPercentage:number = 0.1;
         googlePlacesOptions = {
             country: 'de',
             types: '(cities)'
@@ -28,9 +28,9 @@ module Controller {
         imagePath:any;
         selectedImage:any;
         imageCropData:any;
-        cropperElem:any;
         imageHasBeenUploaded:boolean;
         headerImagePath:string;
+        uploadIsDone:boolean = true;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
@@ -80,8 +80,8 @@ module Controller {
         }
 
         imageChoice() {
-            this.cropperElem = $('#cropping-preview');
-            this.cropperElem.cropper({
+            var cropperElem = $('#cropping-preview');
+            cropperElem.cropper({
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -92,6 +92,7 @@ module Controller {
         }
 
         uploadImage() {
+            this.uploadIsDone = false;
             var file = this.selectedImage;
             var formData = {
                 width: Math.round(this.imageCropData.width),
@@ -102,13 +103,14 @@ module Controller {
             };
             this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
-                    var perc:number = 100.0 * evt.loaded / evt.total;
-                    this.progressPercentage = Math.round(perc);
-                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
+                    var perc:number = evt.loaded / evt.total;
+                    this.progressPercentage = perc;
+                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
+                    this.uploadIsDone = true;
                 });
 
             //this.InsertTripService.uploadImage(formData);
@@ -119,7 +121,7 @@ module Controller {
             this.$rootScope.overlay = false;
             this.selectedImage = null;
             this.imagePath = '';
-            this.cropperElem.attr('src', '');
+            $('#cropping-preview').removeData('cropper');
             $('.cropper-container').remove()
         }
 
