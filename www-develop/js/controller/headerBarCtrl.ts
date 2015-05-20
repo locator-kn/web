@@ -4,14 +4,10 @@ module Controller {
         name:any;
         mail:any;
         password:any;
-        facebook:any;
-        google:any;
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private basePath) {
             this.getMe();
-            this.facebook = this.basePath + '/loginFacebook';
-            this.google = this.basePath + '/loginGoogle';
 
             this.hotkeys.add({
                 combo: 'esc',
@@ -84,6 +80,14 @@ module Controller {
                 this.closeDialog();
             });
 
+        }
+
+        loginFacebook() {
+            this.UserService.loginFacebook();
+        }
+
+        loginGoogle() {
+            this.UserService.loginGoogle();
         }
 
         closeDialog() {

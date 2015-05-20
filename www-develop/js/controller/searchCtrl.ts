@@ -8,13 +8,12 @@ module Controller {
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state) {
 
+            
             this.query = $location.search();
-            console.info(this.query.accomodation);
             this.query.accomodation = false;
 
-            this.query.moods = [];
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
 
@@ -84,6 +83,16 @@ module Controller {
             this.selectableMoods.splice(this.selectableMoods.indexOf(mood), 1);
 
             this.updateUrl();
+        }
+
+        removeSelectedMood(mood) {
+            this.selectableMoods.push(mood);
+            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
+            console.info(this.selectableMoods);
+
+            this.updateUrl();
+
         }
 
         emitResult(result) {

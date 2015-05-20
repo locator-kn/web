@@ -29,7 +29,7 @@
 }
 
 .container-sidebar {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 300px;
     top: 60px;
@@ -115,6 +115,10 @@ html, body {
 
 .mood-selection-container .selected-mood {
     padding-bottom: 5px;
+}
+
+.selected-mood div{
+    display: inline-block;
 }
 
 .mood-selection-container .icon {
