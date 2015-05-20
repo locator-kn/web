@@ -34,6 +34,8 @@
 /// <reference path="./service/helperService.ts" />
 
 
+/// <reference path="./controller/contextCtrl.ts" />
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -42,7 +44,7 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload'])
+var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload', 'angular-progress-arc'])
 
     .constant('basePath', '<%= basePath %>')
 
@@ -53,6 +55,11 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
             .state('welcome', {
                 url: "/welcome",
                 templateUrl: "../templates/welcome/welcome.html",
+            })
+
+            .state('context', {
+                url: "/context",
+                controller: "ContextCtrl"
             })
 
             .state('search', {
@@ -108,6 +115,7 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
+    .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
 
 
     .directive('megadate', function () {

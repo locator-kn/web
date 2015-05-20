@@ -8,13 +8,12 @@ module Controller {
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state) {
 
+            
             this.query = $location.search();
-            console.info(this.query.accomodation);
             this.query.accomodation = false;
 
-            this.query.moods = [];
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
 

@@ -388,6 +388,7 @@ ul.slides {
     position: absolute;
     left: 0;
     width: 100%;
+    z-index: 10000;
 }
 
 .header-bar .user ul.user-dropdown {
@@ -541,4 +542,11 @@ a.close-modal {
     margin: -10px 0 0 -100px;
     width: 200px;
     text-align: center;
+}
+.progressbar {
+    position: absolute;
+    z-index: 10000;
+    left: 50vw;
+    top: 40vh;
+    margin: -50px 0 0 -50px;
 }
