@@ -90,11 +90,21 @@ module Controller {
         }
 
 
+
         //checks if a mood is selected, crazy lodash stuff
         moodIsSelected(mood) {
-            return !!_.find(this.selectedMoods, function(chr) {
+            return !!_.find(this.selectedMoods, function (chr) {
                 return chr.query_name === mood.query_name;
             });
+        }
+
+        removeSelectedMood(mood) {
+            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
+            console.info(this.selectableMoods);
+
+            this.updateUrl();
+
         }
 
         emitResult(result) {

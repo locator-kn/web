@@ -1,9 +1,10 @@
 <div class="mood-selection-container">
     <div class="selected-mood" ng-repeat="selectedMood in sc.selectedMoods">
         <img class="icon" ng-src="data:image/gif;base64,{{selectedMood.icon}}">
-        <label>
+        <div>
             {{selectedMood.title}}
-        </label>
+        </div>
+        <div ng-click="sc.removeSelectedMood(selectedMood)">x</div>
     </div>
     <img src="/images/icons/plus.png" ng-click="sc.showSelectableMoods=true" ng-hide="sc.selectableMoods.length == 0">
     <div ng-show="sc.showSelectableMoods==true">

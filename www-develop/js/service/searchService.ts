@@ -1,24 +1,39 @@
 module Service {
     export class SearchService {
-        constructor(private $http) {
+
+        citiesWithTrips = [];
+
+        constructor(private $http, private basePath, private DataService) {
 
         }
-
 
         getAllTrips() {
             return this.$http.get('http://locator.in.htwg-konstanz.de:3001/api/v1/trips');
         }
 
         getTripsByQuery(searchQuery) {
-            var city = searchQuery.city;
+            var cityId = this.getCityId(searchQuery.city);
             //delete searchQuery.city;
-            var s = {
-
-            };
             return this.$http({
-                url: 'http://locator.in.htwg-konstanz.de/api/v1/trips/search/' + city,
+                url: 'http://locator.in.htwg-konstanz.de/api/v1/trips/search/' + cityId,
                 method: "GET"
             })
+        }
+
+        getCityId(city) {
+            var id;
+
+            this.DataService.getAvailableCities()
+                .then(result => {
+                    this.citiesWithTrips = result.data;
+                });
+
+            this.citiesWithTrips.forEach(function(entry) {
+                if(city == entry.title) {
+                    id = entry.id;
+                }
+            });
+            return id;
         }
 
 
