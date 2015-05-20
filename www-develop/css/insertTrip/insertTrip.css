@@ -223,108 +223,151 @@
     -moz-transform:rotate(-2deg);
 }
 
+/*DATEPICKER*/
+
+.ui-datepicker .ui-datepicker-header {
+    position:relative;
+    padding:.2em 0;
+    background-color: #fff;
+    border-style: none;
+
+}
+
+.ui-datepicker .ui-datepicker-title {
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    margin:0 2.3em;
+    line-height:1.8em;
+    text-align:center
+}
+
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{
+    position:absolute;
+    top:2px;
+    width:1.8em;
+    height:1.8em;
+}
+
+.ui-datepicker .ui-datepicker-next{
+    right:2px;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+    display:block;
+    position:absolute;
+    left:50%;
+    margin-left:-8px;
+    top:50%;
+    margin-top:-8px;
+}
+
+.ui-datepicker .ui-datepicker-prev span {
+    background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_left_16.png");
+}
+
+.ui-datepicker .ui-datepicker-next span {
+    background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_right_16.png");
+}
+
+/*Calendar head (mo, tu, ...)*/
+.ui-datepicker-calendar thead {
+    border-bottom: solid;
+    border-top: solid;
+    border-width: 1px;
+}
+
+.ui-datepicker table {
+    width:100%;
+    font-size:.9em;
+    border-collapse:collapse;
+    margin:0 0 .4em;
+}
+
+.ui-datepicker th {
+    padding:.7em .3em;
+    text-align:center;
+    font-weight:bold;
+    border:0;
+}
+
+.ui-datepicker td {
+    border:0;
+    padding:1px;
+}
+
+.ui-datepicker td span,.ui-datepicker td a {
+    display:block;
+    padding:.2em;
+    text-align:right;
+    text-decoration:none;
+}
+
+.ui-widget-content {
+    background:#fff;
+    color:#333;
+}
+
+.ui-state-default,.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border:1px solid #c5c5c5;
+    background:#fff;
+    font-weight:normal;
+    color:#454545;
+}
+
+
+.ui-state-active,.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border:1px solid #003eff;
+    background:#007fff;
+    font-weight:normal;
+    color:#fff
+}
+
+.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight {
+    border:1px solid #dad55e;
+    background:#fffa90;
+    color:#777620;
+}
+
+.ui-state-highlight a,.ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a  {
+    color:#777620;
+}
+
+.ui-state-disabled,.ui-widget-content .ui-state-disabled,.ui-widget-header .ui-state-disabled {
+    opacity:.35;
+    filter:Alpha(Opacity=35);
+    background-image:none;
+}
+
+.ui-state-disabled .ui-icon {
+    filter:Alpha(Opacity=35);
+}
+
+
+.ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    width:16px;
+    height:16px
+}
+
 .dp-highlight .ui-state-default {
     background: #484;
     color: #FFF;
 }
-.ui-datepicker.ui-datepicker-multi  {
-    width: 100% !important;
-}
-.ui-datepicker-multi .ui-datepicker-group {
-    float:none;
-}
 
 .datepicker {
-    height: 300x;
-    overflow-x: scroll;
-}
-.ui-widget { font-size: 100% }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.insert-container-sidebar {
-    position: absolute;
-    right: 0px;
-    height: 100vh;
-    width: 1000px;
+    /*overflow-x: scroll;*/
+    width: 162px;
 }
 
-.insert-search-menu {
-    height: 100vh;
-    width: 300px;
-    position: absolute;
-    right: 0px;
+.ui-widget {
+    font-size: 90%;
+    width: 160px;
+    border-style: solid;
+    border-width: 2px;
+    boder-color: #000;
 }
-
-.insert-search-menu div {
-    padding-bottom: 40px;
-    padding-right: 20px;
-    padding-top: 20px;
-    position: relative;
-}
-
-.insert-item-active {
-    background-color: #ff814e;
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-    position: relative;
-    z-index: 200;
-}
-
-.insert-item-description {
-    display: inline;
-    text-align: center;
-    float: left;
-    width: 220px;
-}
-
-.insert-item-image {
-    float: right;
-}
-
-.insert-settings {
-    width: 220px;
-    height: 100vh;
-    position: absolute;
-    right: 0px;
-    margin-right: 80px;
-    background: #ff632d;
-}
-
-.sample-show-hide {
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-}
-
-.sample-show-hide.ng-hide {
-    opacity:0;
-}
-
-.insert-offset {
-    padding-top: 50px;
-}
-
-.edit-offset {
-    position: relative;
-    padding-top: 142px;
-    z-index: 100;
-}
-
-.insert-inputs {
-    width: 700px;
-    height: 100vh;
-    position: absolute;
-    background-color: #ff814e;
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-}*/
