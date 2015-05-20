@@ -28,7 +28,6 @@ module Controller {
         imagePath:any;
         selectedImage:any;
         imageCropData:any;
-        cropperElem:any;
         imageHasBeenUploaded:boolean;
         headerImagePath:string;
 
@@ -80,8 +79,8 @@ module Controller {
         }
 
         imageChoice() {
-            this.cropperElem = $('#cropping-preview');
-            this.cropperElem.cropper({
+            var cropperElem = $('#cropping-preview');
+            cropperElem.cropper({
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -119,7 +118,7 @@ module Controller {
             this.$rootScope.overlay = false;
             this.selectedImage = null;
             this.imagePath = '';
-            this.cropperElem.attr('src', '');
+            $('#cropping-preview').removeData('cropper');
             $('.cropper-container').remove()
         }
 
