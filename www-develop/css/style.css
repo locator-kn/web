@@ -334,7 +334,7 @@ ul.slides {
 
 .moodal {
     z-index: -1;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 300px;
