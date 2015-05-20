@@ -1,6 +1,5 @@
 module Service {
     export class HelperService {
-
         constructor(private $http, private basePath, private $location) {
 
         }
@@ -15,12 +14,19 @@ module Service {
         }
 
         saveContext() {
-            localStorage.setItem('location', this.$location.$$absUrl);
+            localStorage.setItem('locationContext', this.$location.$$absUrl);
         }
 
         getContext() {
-            console.info('Get Context: ' + localStorage.getItem('location'));
-            return localStorage.getItem('location');
+
+            var context = localStorage.getItem('locationContext');
+
+            if (context == null) {
+                return '/';
+            } else {
+                return context;
+            }
+
         }
 
         static serviceId:string = "HelperService";
