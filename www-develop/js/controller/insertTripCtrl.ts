@@ -178,8 +178,8 @@ module Controller {
                 description_money: this.tripDescriptionMoney,
                 //start_date
                 //end_date
-                accomodation: this.accomodation,
-                accomodation_equipment: this.accomodationEquipment,
+                accommodation: this.accomodation,
+                accommodation_equipment: this.accomodationEquipment,
                 //moods
                 //locations
                 //pics
@@ -191,6 +191,7 @@ module Controller {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
             };
+
 
             //store trip in DB
             this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
