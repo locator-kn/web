@@ -31,6 +31,8 @@ module Controller {
         imageHasBeenUploaded:boolean;
         headerImagePath:string;
         uploadIsDone:boolean = true;
+        documentId:string = '';
+        revision:string = '';
 
         constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
             this.$scope.selectImage = this.selectImage;
@@ -76,6 +78,9 @@ module Controller {
         }
 
         showImageChooser() {
+            if(!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
             $('#image-upload').click();
         }
 
@@ -110,6 +115,8 @@ module Controller {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
+                    this.documentId = data.id;
+                    this.revision = data.rev;
                     this.uploadIsDone = true;
                 });
 
@@ -160,6 +167,9 @@ module Controller {
         }
 
         saveTrip() {
+            if(!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
             var city = this.getLocationDetails();
             var t = {
                 city: city,
@@ -177,9 +187,13 @@ module Controller {
                 //delete
                 type: 'trip'
             };
+            var documentMetaData = {
+                _id: this.documentId || '',
+                _rev: this.revision || ''
+            };
 
             //store trip in DB
-            this.InsertTripService.saveTrip(t).then(() => {
+            this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
                 console.log('party')
             })
         }
