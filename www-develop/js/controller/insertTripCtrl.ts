@@ -104,7 +104,7 @@ module Controller {
             this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
-                    this.progressPercentage = Math.round(perc);
+                    this.progressPercentage = perc;
                     console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
