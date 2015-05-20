@@ -1,8 +1,8 @@
 <a class="close-modal pointer" ng-click="hc.closeDialog()">X</a>
 
 <div class="btn-grp-white">
-    <a class="fb-login" ng-href="{{hc.facebook}}">Login with Facebook</a>
-    <a class="gp-login" ng-href="{{hc.google}}">Login with Google</a>
+    <a class="fb-login" ng-click="hc.loginFacebook()">Login with Facebook</a>
+    <a class="gp-login" ng-click="hc.loginFacebook()">Login with Google</a>
 </div>
 <form name="form">
     <input required ng-model="hc.name" type="text" placeholder="Name" name="name">
