@@ -40,6 +40,9 @@
         },
         "moment/moment.d.ts": {
             "commit": "ed38db403a56da84731a6f77b545762ee477a45b"
+        },
+        "jqueryui/jqueryui.d.ts": {
+            "commit": "3a7cc667defe44d0cc6f69168ac67d1fd0ea29b5"
         }
     }
 }
