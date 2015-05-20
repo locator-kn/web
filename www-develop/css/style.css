@@ -542,3 +542,10 @@ a.close-modal {
     width: 200px;
     text-align: center;
 }
+.progressbar {
+    position: absolute;
+    z-index: 10000;
+    left: 50vw;
+    top: 40vh;
+    margin: -50px 0 0 -50px;
+}
