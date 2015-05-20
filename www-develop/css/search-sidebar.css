@@ -117,6 +117,10 @@ html, body {
     padding-bottom: 5px;
 }
 
+.selected-mood div{
+    display: inline-block;
+}
+
 .mood-selection-container .icon {
     height: 25px;
     margin-right: 5px;

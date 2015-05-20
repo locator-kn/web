@@ -86,6 +86,16 @@ module Controller {
             this.updateUrl();
         }
 
+        removeSelectedMood(mood) {
+            this.selectableMoods.push(mood);
+            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
+            console.info(this.selectableMoods);
+
+            this.updateUrl();
+
+        }
+
         emitResult(result) {
             this.$rootScope.$emit('newSearchResults', result);
         }
