@@ -26,15 +26,13 @@ module Service {
         }
 
         loginFacebook() {
-            console.info('Login with Facebook');
             this.HelperService.saveContext();
-            //window.location = this.facebook;
+            window.location = this.facebook;
         }
 
         loginGoogle() {
-            console.info('Login with Google');
             this.HelperService.saveContext();
-            //window.location = this.google;
+            window.location = this.google;
         }
 
         logout() {
