@@ -3,7 +3,7 @@ module Service {
 
         citiesWithTrips = [];
 
-        constructor(private $http, private basePath) {
+        constructor(private $http, private basePath, private DataService) {
 
         }
 
@@ -23,22 +23,17 @@ module Service {
         getCityId(city) {
             var id;
 
-            this.getCitiesWithTrips()
+            this.DataService.getAvailableCities()
                 .then(result => {
                     this.citiesWithTrips = result.data;
                 });
 
             this.citiesWithTrips.forEach(function(entry) {
                 if(city == entry.title) {
-                    console.info(entry.id);
                     id = entry.id;
                 }
             });
             return id;
-        }
-
-        getCitiesWithTrips() {
-            return this.$http.get(this.basePath + '/data/cities');
         }
 
 
