@@ -142,3 +142,7 @@ html, body {
     font-weight: bold;
     cursor: default;
 }
+
+.remove-mood {
+    float: right;
+}
