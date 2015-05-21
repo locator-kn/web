@@ -548,3 +548,8 @@ a.close-modal {
     top: 40vh;
     margin: -50px 0 0 -50px;
 }
+
+.cyan {
+    background: #32c3b7;
+    color: white;
+}
