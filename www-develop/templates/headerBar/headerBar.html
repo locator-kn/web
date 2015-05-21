@@ -16,7 +16,9 @@
                 <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
                     <a class="edit-user">{{hc.user.name}}</a>
                     <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
+
                     <ul class="user-dropdown" ng-show="showDropdown">
+                        <div class="arrow"></div>
                         <li ui-sref="editProfile" ui-sref-active="active">Edit Profile</li>
                         <li ng-click="hc.logout()">Logout</li>
                     </ul>
