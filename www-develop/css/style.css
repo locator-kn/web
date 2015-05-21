@@ -511,6 +511,8 @@ a.close-modal {
     height: 30px;
     margin-top: 13px;
     width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 @keyframes slidein {
