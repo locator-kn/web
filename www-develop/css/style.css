@@ -7,6 +7,10 @@ html {
     overflow-y: scroll;
 }
 
+body {
+    background: #f5f5f5;
+}
+
 .opener h2 {
     font-family: 'Signika', Helvetica neue, Arial;
     font-weight: 100;
@@ -271,7 +275,7 @@ body.no-scroll {
 }
 
 .header-bar .btn-group {
-    float: right;
+    float: left;
     min-height: 50px;
 }
 
@@ -572,4 +576,29 @@ a.close-modal {
 .cyan {
     background: #32c3b7;
     color: white;
+}
+
+.header-bar .menu {
+    margin-right: 10px;
+}
+
+.header-bar .menu ul {
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.header-bar .menu ul li {
+    float: left;
+    line-height: 60px;
+    padding: 0 5px;
+}
+
+.header-bar .menu ul li img {
+    height: 35px;
+}
+
+.header-bar .header-right {
+    float: right
 }
