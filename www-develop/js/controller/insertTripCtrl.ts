@@ -24,11 +24,15 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
-        dateFormat:string = 'dd.mm.yy';
+        dateFormat:string = 'yy-mm-dd';
 
         datePicker:any;
-        startDate:string = 'test';
-        endDate:any;
+        startDate:string = '';
+        endDate:string = '';
+        startDateISO:string = '';
+        endDateISO:string = '';
+        startDateReal:any = '';
+        endDateReal:any = '';
         selectedPlaceDetails: any;
 
         accomodationEquipment:string[] = [];
@@ -60,23 +64,55 @@ module Controller {
                 dateFormat: this.dateFormat,
                 minDate: 0,
                 beforeShowDay: (date) => {
-                    var date1 = $.datepicker.parseDate('dd.mm.yy', $("#input1").val());
-                    var date2 = $.datepicker.parseDate('dd.mm.yy', $("#input2").val());
+                    var date1 = $.datepicker.parseDate(this.dateFormat, this.startDate);
+                    var date2 = $.datepicker.parseDate(this.dateFormat, this.endDate);
+
+                    if (date1 != null && date2 != null) {
+                        if (date1 > date2) {
+                            var temp = date1;
+                            date1 = date2;
+                            date2 = temp;
+                        }
+                    }
+
                     return [true, date1 && ((date.getTime() == date1.getTime()) || (date2 && date >= date1 && date <= date2)) ? "dp-highlight" : ""];
                 },
                 onSelect: (dateText, inst) => {
-                    var date1 = $.datepicker.parseDate('dd.mm.yy', $("#input1").val());
-                    var date2 = $.datepicker.parseDate('dd.mm.yy', $("#input2").val());
+                    var date1 = $.datepicker.parseDate(this.dateFormat, this.startDate);
+                    var date2 = $.datepicker.parseDate(this.dateFormat, this.endDate);
 
                     if (!date1 || date2) {
-                        $("#input1").val(dateText);
-                        $("#input2").val("");
+                        this.startDate = dateText;
+                        this.endDate = "";
                         this.datePicker.datepicker();
                     } else {
-                        $("#input2").val(dateText);
-                        this.$scope.endDate = dateText;
+                        this.endDate = dateText;
                         this.datePicker.datepicker();
                     }
+
+                    //Compare start- and end-date
+                    var tempDate1 = new Date(this.startDate);
+                    //console.log(tempDate1.toISOString());
+                    var tempDate2 = new Date(this.endDate);
+                    if (tempDate1 > tempDate2) {
+                        //swap elements
+                        this.startDate = [this.endDate, this.endDate = this.startDate][0];
+                    }
+
+                    if (this.startDate != null && this.startDate != '') {
+                        this.startDateISO = tempDate1.toISOString();
+                    }
+
+                    if (this.endDate != null && this.endDate != '') {
+                        this.endDateISO = tempDate2.toISOString();
+                    }
+
+
+
+                    //this.endDate = tempDate2.toISOString();
+
+                    console.log(this.startDate);
+                    console.log(this.endDate);
                 }
             });
         }
@@ -198,14 +234,17 @@ module Controller {
         }
 
         saveTrip() {
+            this.startDateReal = new Date(this.startDateISO);
+            console.log(this.startDateISO);
+            console.log(this.startDateReal);
             var city = this.getLocationDetails();
             var t = {
                 city: city,
                 title: this.tripTitle,
                 description: this.tripDescription,
                 description_money: this.tripDescriptionMoney,
-                //start_date
-                //end_date
+                //start_date: this.startDate,
+                //end_date: this.endDate,
                 accomodation: this.accomodation,
                 accomodation_equipment: this.accomodationEquipment,
                 //moods
