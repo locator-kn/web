@@ -227,7 +227,6 @@
 
 .ui-datepicker .ui-datepicker-header {
     position:relative;
-    padding:.2em 0;
     background-color: #fff;
     border-style: none;
 
@@ -244,7 +243,6 @@
 
 .ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{
     position:absolute;
-    top:2px;
     width:1.8em;
     height:1.8em;
 }
@@ -277,6 +275,10 @@
     border-width: 1px;
 }
 
+.ui-datepicker-calendar thead tr th{
+    text-transform: lowercase;
+}
+
 .ui-datepicker table {
     width:100%;
     font-size:.9em;
@@ -293,13 +295,13 @@
 
 .ui-datepicker td {
     border:0;
-    padding:1px;
+    padding:1px 0px 1px 0px;
 }
 
 .ui-datepicker td span,.ui-datepicker td a {
     display:block;
     padding:.2em;
-    text-align:right;
+    text-align:center;
     text-decoration:none;
 }
 
@@ -309,25 +311,24 @@
 }
 
 .ui-state-default,.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border:1px solid #c5c5c5;
+    border: none;
     background:#fff;
     font-weight:normal;
     color:#454545;
 }
 
-
 .ui-state-active,.ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-    border:1px solid #003eff;
+    /*border:1px solid #003eff;
     background:#007fff;
     font-weight:normal;
-    color:#fff
+    color:#fff*/
 }
 
 .ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight {
-    border:1px solid #dad55e;
+    /*border:1px solid #dad55e;
     background:#fffa90;
-    color:#777620;
+    color:#777620;*/
 }
 
 .ui-state-highlight a,.ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a  {
@@ -355,9 +356,19 @@
 }
 
 .dp-highlight .ui-state-default {
-    background: #484;
-    color: #FFF;
+    background: #ff4f12;
+    color: #000;
 }
+
+.dp-highlight .ui-state-default .test {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+/*.ui-datepicker-calendar > tbody > tr > .dp-highlight > .ui-state-default ~ .ui-state-default{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}*/
 
 .datepicker {
     /*overflow-x: scroll;*/
@@ -371,3 +382,4 @@
     border-width: 2px;
     boder-color: #000;
 }
+

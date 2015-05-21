@@ -63,7 +63,7 @@ module Controller {
                 onSelect: function(dateText, inst) {
                     var date1 = $.datepicker.parseDate('dd/mm/yy', $("#input1").val());
                     var date2 = $.datepicker.parseDate('dd/mm/yy', $("#input2").val());
-                    //$('.dp-highlight').first().addClass('startDate');
+
                     if (!date1 || date2) {
                         $("#input1").val(dateText);
                         $("#input2").val("");
@@ -75,6 +75,7 @@ module Controller {
                 }
             });
 
+            //$('.dp-highlight').first().addClass('first-element');
         }
 
         isActive(item) {
