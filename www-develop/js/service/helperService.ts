@@ -1,7 +1,6 @@
 module Service {
     export class HelperService {
-        constructor(private $http, private basePath, private $location) {
-
+        constructor(private $http, private basePath, private $location, private DataService, private lodash) {
         }
 
         getMoodQuery(moods) {
@@ -12,6 +11,25 @@ module Service {
 
             return moodQuery.join('.');
         }
+
+        getMoods(moodqueryString, callback) {
+            this.DataService.getMoods()
+                .then(result => {
+                    var allMoods = result.data;
+                    var result:any = [];
+                    var moods = moodqueryString.split('.');
+                    moods.forEach((entry) => {
+                        result.push(this.getObjectByQueryName(allMoods, entry));
+                    });
+                    callback(result);
+
+                });
+        }
+
+        getObjectByQueryName(array, queryName) {
+            return this.lodash.findWhere(array, {'query_name': queryName});
+        }
+
 
         saveContext() {
             localStorage.setItem('locationContext', this.$location.$$absUrl);

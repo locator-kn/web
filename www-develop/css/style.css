@@ -474,16 +474,14 @@ a.close-modal {
     left: 0;
 }
 
-.results {
+.result {
     opacity: 1;
     transition: opacity 0.2s ease-out;
-    margin-left: 5%;
-    float: left;
-    width: 40%;
 }
 
-.results .result {
-    width: 100%;
+.results-container.container {
+    z-index: -1;
+    position: relative;
 }
 
 .results-container.loading .results {

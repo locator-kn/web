@@ -3,14 +3,14 @@ module Controller {
 
         query:any;
         activeItem:string = '';
-        selectableMoods;
         selectedMoods = [];
+        selectableMoods = [];
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private lodash) {
 
-            
+
             this.query = $location.search();
             this.query.accomodation = false;
 
@@ -22,6 +22,11 @@ module Controller {
             this.DataService.getMoods()
                 .then(result => {
                     this.selectableMoods = result.data;
+
+                    HelperService.getMoods($state.params.moods, moods => {
+                        this.selectedMoods = moods;
+                    });
+
                 });
 
             this.DataService.getAvailableCities()
@@ -80,13 +85,20 @@ module Controller {
         selectMood(mood) {
             this.selectedMoods.push(mood);
             this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
-            this.selectableMoods.splice(this.selectableMoods.indexOf(mood), 1);
 
             this.updateUrl();
         }
 
+
+
+        //checks if a mood is selected, crazy lodash stuff
+        moodIsSelected(mood) {
+            return !!this.lodash.find(this.selectedMoods, function (chr) {
+                return chr.query_name === mood.query_name;
+            });
+        }
+
         removeSelectedMood(mood) {
-            this.selectableMoods.push(mood);
             this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
             this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
             console.info(this.selectableMoods);
