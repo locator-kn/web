@@ -21,7 +21,8 @@
     "cropper": "~0.9.3",
     "ng-file-upload": "~4.2.1",
     "angular-selection-list": "~0.3.1",
-    "angular-progress-arc": "~1.0.0"
+    "angular-progress-arc": "~1.0.0",
+    "ng-lodash": "~0.2.3"
   },
   "resolutions": {
     "angular": "~1.3"

@@ -8,7 +8,7 @@ module Controller {
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private lodash) {
 
 
             this.query = $location.search();
@@ -93,7 +93,7 @@ module Controller {
 
         //checks if a mood is selected, crazy lodash stuff
         moodIsSelected(mood) {
-            return !!_.find(this.selectedMoods, function (chr) {
+            return !!this.lodash.find(this.selectedMoods, function (chr) {
                 return chr.query_name === mood.query_name;
             });
         }

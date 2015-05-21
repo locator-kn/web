@@ -1,6 +1,6 @@
 module Service {
     export class HelperService {
-        constructor(private $http, private basePath, private $location, private DataService) {
+        constructor(private $http, private basePath, private $location, private DataService, private lodash) {
         }
 
         getMoodQuery(moods) {
@@ -27,7 +27,7 @@ module Service {
         }
 
         getObjectByQueryName(array, queryName) {
-            return _.findWhere(array, {'query_name': queryName});
+            return this.lodash.findWhere(array, {'query_name': queryName});
         }
 
 
