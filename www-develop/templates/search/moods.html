@@ -6,7 +6,7 @@
         </div>
         <div ng-click="sc.removeSelectedMood(selectedMood)">x</div>
     </div>
-    <img src="/images/icons/plus.png" ng-click="sc.showSelectableMoods=true" ng-hide="sc.selectableMoods.length == 0">
+    <img src="/images/icons/plus.png" ng-click="sc.showSelectableMoods=true" ng-hide="sc.selectableMoods.length == sc.selectedMoods.length">
     <div ng-show="sc.showSelectableMoods==true">
         <div ng-repeat="mood in sc.selectableMoods" ng-if="!sc.moodIsSelected(mood)">
             <div ng-click="sc.showSelectableMoods=false; sc.selectMood(mood)">
