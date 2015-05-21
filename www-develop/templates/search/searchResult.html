@@ -1,4 +1,4 @@
-<div class="results-container container" ng-class="{'loading' : src.animateLoading}" ng-controller="SearchResultCtrl as src">
+<div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}" ng-controller="SearchResultCtrl as src">
     <div class="row">
         <div class="result col-sm-4" ng-repeat="result in src.results">
 
@@ -12,6 +12,7 @@
             category: {{result.category}}<br/>
             locations: {{result.locations}}<br/>
             pics: {{result.pics}}
+            <a href="http://google.de">google</a>
         </div>
 
     </div>
