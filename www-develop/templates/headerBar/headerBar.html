@@ -10,24 +10,34 @@
                 <a class="padding register" ng-click="hc.openRegisterDialog()">Registieren</a>
                 <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>
             </div>
+            <div class="header-right">
+                <div ng-if="authenticated" class="btn-group">
 
-            <div ng-if="authenticated" class="btn-group">
+                    <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
+                        <a class="edit-user">{{hc.user.name}}</a>
+                        <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
 
-                <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
-                    <a class="edit-user">{{hc.user.name}}</a>
-                    <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
+                        <ul class="user-dropdown" ng-show="showDropdown">
+                            <div class="arrow"></div>
+                            <li ui-sref="editProfile" ui-sref-active="active">Edit Profile</li>
+                            <li ng-click="hc.logout()">Logout</li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <ul class="user-dropdown" ng-show="showDropdown">
-                        <div class="arrow"></div>
-                        <li ui-sref="editProfile" ui-sref-active="active">Edit Profile</li>
-                        <li ng-click="hc.logout()">Logout</li>
+                <div class="menu btn-group">
+                    <ul>
+                        <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/createTrip.png"></li>
+                        <li><img ng-src="images/icons/header/stift.png"></li>
+                        <li><img ng-src="images/icons/header/chat.png"></li>
                     </ul>
                 </div>
+
+
+                <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
+                <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
+
             </div>
-
-            <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
-            <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
-
         </div>
     </div>
 </div>
