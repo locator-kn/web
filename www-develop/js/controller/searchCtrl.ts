@@ -25,6 +25,7 @@ module Controller {
 
                     HelperService.getMoods($state.params.moods, moods => {
                         this.selectedMoods = moods;
+                        this.updateUrl();
                     });
 
                 });
