@@ -72,6 +72,10 @@ module Controller {
             }
         }
 
+        focusResult() {
+            this.activeItem = '';
+        }
+
         toggleAccomodation() {
 
             if (typeof this.query.accomodation === "undefined") {
