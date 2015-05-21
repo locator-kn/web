@@ -24,8 +24,10 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
+        dateFormat:string = 'dd.mm.yy';
 
-        startDate:any;
+        datePicker:any;
+        startDate:string = 'test';
         endDate:any;
         selectedPlaceDetails: any;
 
@@ -52,30 +54,31 @@ module Controller {
 
             $rootScope.overlay = false;
 
-            $(".datepicker").datepicker({
-                dateFormat: "dd/mm/yy",
+            this.datePicker = $(".datepicker");
+
+            this.datePicker.datepicker({
+                dateFormat: this.dateFormat,
                 minDate: 0,
-                beforeShowDay: function(date) {
-                    var date1 = $.datepicker.parseDate('dd/mm/yy', $("#input1").val());
-                    var date2 = $.datepicker.parseDate('dd/mm/yy', $("#input2").val());
+                beforeShowDay: (date) => {
+                    var date1 = $.datepicker.parseDate('dd.mm.yy', $("#input1").val());
+                    var date2 = $.datepicker.parseDate('dd.mm.yy', $("#input2").val());
                     return [true, date1 && ((date.getTime() == date1.getTime()) || (date2 && date >= date1 && date <= date2)) ? "dp-highlight" : ""];
                 },
-                onSelect: function(dateText, inst) {
-                    var date1 = $.datepicker.parseDate('dd/mm/yy', $("#input1").val());
-                    var date2 = $.datepicker.parseDate('dd/mm/yy', $("#input2").val());
+                onSelect: (dateText, inst) => {
+                    var date1 = $.datepicker.parseDate('dd.mm.yy', $("#input1").val());
+                    var date2 = $.datepicker.parseDate('dd.mm.yy', $("#input2").val());
 
                     if (!date1 || date2) {
                         $("#input1").val(dateText);
                         $("#input2").val("");
-                        $(this).datepicker();
+                        this.datePicker.datepicker();
                     } else {
                         $("#input2").val(dateText);
-                        $(this).datepicker();
+                        this.$scope.endDate = dateText;
+                        this.datePicker.datepicker();
                     }
                 }
             });
-
-            //$('.dp-highlight').first().addClass('first-element');
         }
 
         isActive(item) {
