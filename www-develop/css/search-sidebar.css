@@ -106,7 +106,7 @@ html, body {
 
 .circle-selected {
     background-color: black;
-    color: #6abfff;
+    color: rgb(33, 205, 196);
 }
 
 .mood-selection-container {
