@@ -63,6 +63,7 @@ module Controller {
         }
 
         openLoginDialog() {
+            this.resetInput();
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#loginmodal').addClass('active');
 
@@ -73,13 +74,20 @@ module Controller {
         }
 
         openRegisterDialog() {
+            this.resetInput();
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#registermodal').addClass('active');
 
             angular.element('.overlay').bind('click', () => {
                 this.closeDialog();
             });
+        }
 
+        resetInput() {
+            this.user = '';
+            this.name = '';
+            this.password = '';
+            this.mail = '';
         }
 
         loginFacebook() {
