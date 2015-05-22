@@ -1,0 +1,16 @@
+.messenger-container .conversations .item {
+    padding: 10px;
+}
+
+.messenger-container .conversations .item:nth-child(odd) {
+    background: rgb(232, 232, 232);
+}
+
+.messenger-container .conversations .item:nth-child(even) {
+    background: whitesmoke;
+}
+
+.messenger-container .conversations {
+    max-height: calc(100vh - 60px);
+    overflow-y: scroll;
+}
