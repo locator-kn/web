@@ -66,7 +66,7 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
             })
 
             .state('search', {
-                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations&o",
+                url: "/search?city&start_date&end_date&range&persons&moods&accomodations&o",
                 templateUrl: "../templates/search/search.html",
                 reloadOnSearch: false
             })
