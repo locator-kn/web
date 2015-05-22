@@ -36,6 +36,9 @@
 
 /// <reference path="./controller/contextCtrl.ts" />
 
+/// <reference path="./service/messengerService.ts" />
+/// <reference path="./controller/messengerCtrl.ts" />
+
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -116,6 +119,7 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
+    .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
 
 
     .directive('megadate', function () {
@@ -143,6 +147,7 @@ if (live) {
         .service(Service.SearchService.serviceId, Service.SearchService)
         .service(Service.HelperService.serviceId, Service.HelperService)
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
+        .service(Service.MessengerService.serviceId, Service.MessengerService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)
