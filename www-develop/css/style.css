@@ -502,7 +502,6 @@ a.close-modal {
 }
 
 .results-container.container {
-    z-index: -1;
     position: relative;
 }
 
