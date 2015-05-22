@@ -3,7 +3,7 @@ module Service {
 
         citiesWithTrips = [];
 
-        constructor(private $http, private basePath, private DataService) {
+        constructor(private $http, private $location, private basePath, private DataService) {
 
         }
 
@@ -12,12 +12,24 @@ module Service {
         }
 
         getTripsByQuery(searchQuery) {
-            var cityId = this.getCityId(searchQuery.city);
+
             //delete searchQuery.city;
+            var query = 'http://locator.in.htwg-konstanz.de/api/v1/trips';
+            query += this.getQueryParamString(searchQuery);
+            console.info(query);
             return this.$http({
-                url: 'http://locator.in.htwg-konstanz.de/api/v1/trips/search/' + cityId,
+                url: query,
                 method: "GET"
             })
+        }
+
+        getQueryParamString(searchQuery) {
+            var cityId = this.getCityId(searchQuery.city);
+            var queryString = this.$location.url();
+            queryString = queryString.replace('?city='+searchQuery.city, '/'+ cityId);
+            queryString = queryString.replace('&moods=','.');
+            queryString = queryString.replace('&', '?');
+            return queryString;
         }
 
         getCityId(city) {
