@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="lib/components/flexslider/flexslider.css">
     <link rel="stylesheet" href="lib/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/components/angular-material/angular-material.min.css">
+
     <link rel="stylesheet" href="lib/components/angular-emoji-filter/dist/emoji.min.css">
     <link rel="stylesheet" href="lib/components/ngDialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="lib/components/ngDialog/css/ngDialog-theme-default.min.css">
@@ -27,6 +29,7 @@
     <script src="lib/components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/components/angular-translate/angular-translate.js"></script>
     <script src="lib/components/angular-base64/angular-base64.js"></script>
+    <script src="lib/components/angular-material/angular-material.min.js"></script>
     <script
         src="lib/components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="lib/components/moment/moment.js"></script>
@@ -56,8 +59,15 @@
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-app="starter" ng-controller="MainCtrl as mc">
+<body ng-class="{'slider': slider}" ng-app="starter" ng-controller="MainCtrl as mc">
 
+<div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
+    <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
+        <li>
+            <div class="img-slide" style="background: url({{s}}); background-size: cover;"></div>
+        </li>
+    </flex-slider>
+</div>
 
 <div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay">
 

@@ -22,13 +22,13 @@ body {
 
 .absolute-slider {
     position: fixed;
-    z-index: -1;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
     overflow: hidden;
     max-heigth: 100vh;
+    z-index: -1;
 }
 
 .relative {
@@ -150,6 +150,9 @@ body {
 
 body.no-scroll {
     overflow: hidden;
+}
+body.slider {
+    background: none;
 }
 
 #specificTrip {
@@ -424,6 +427,7 @@ ul.slides {
     transform: rotate(45deg);
     top: -4px;
     left: 50%;
+    margin-left: -5px;
 }
 
 .header-bar .user ul.user-dropdown li.active {
@@ -600,4 +604,18 @@ a.close-modal {
 
 .header-bar .header-right {
     float: right
+}
+
+.statistic_container {
+    position: relative;
+    z-index: 1;
+}
+
+.modal-container {
+    position: relative;
+}
+
+.header-bar-wrapper {
+    position: relative;
+    z-index: 1000;
 }

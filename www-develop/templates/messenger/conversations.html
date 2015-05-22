@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<md-list>
+    <md-subheader class="md-no-sticky">3 line item</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="item in todos">
 
-</body>
-</html>
+        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"/>
+
+        <div class="md-list-item-text">
+            <h3>{{ item.who }}</h3>
+            <h4>{{ item.what }}</h4>
+
+            <p>{{ item.notes }}</p>
+        </div>
+    </md-list-item>
+</md-list>

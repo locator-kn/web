@@ -47,7 +47,6 @@ span.margin-right {
 
 .welcome_container {
     padding-top: 110px;
-    margin-top: -60px;
 }
 
 a.welcome_button {
@@ -100,7 +99,7 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    height: 100vh;
+    height: calc(100vh - 60px);
     overflow: hidden;
 }
 
