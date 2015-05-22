@@ -423,6 +423,7 @@ ul.slides {
     transform: rotate(45deg);
     top: -4px;
     left: 50%;
+    margin-left: -5px;
 }
 
 .header-bar .user ul.user-dropdown li.active {
@@ -599,4 +600,9 @@ a.close-modal {
 
 .header-bar .header-right {
     float: right
+}
+
+.container-fluid {
+    z-index: 1;
+    position: relative;
 }
