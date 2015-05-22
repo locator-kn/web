@@ -76,6 +76,11 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
                 templateUrl: "../templates/tripresults.html"
             })
 
+            .state('messenger', {
+                url: "/messenger",
+                templateUrl: "../templates/messenger/messenger.html"
+            })
+
             .state('app.login', {
                 url: "/login",
                 views: {
