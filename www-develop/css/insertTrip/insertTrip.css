@@ -232,6 +232,10 @@
 
 }
 
+.ui-datepicker-month {
+    text-transform: lowercase;
+}
+
 .ui-datepicker .ui-datepicker-title {
     border-left-style: solid;
     border-right-style: solid;

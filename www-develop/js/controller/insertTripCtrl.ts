@@ -27,10 +27,8 @@ module Controller {
         dateFormat:string = 'yy-mm-dd';
 
         datePicker:any;
-        startDate:string = '';
-        endDate:string = '';
-        startDateISO:string = '';
-        endDateISO:string = '';
+        startDatePicker:string = '';
+        endDatePicker:string = '';
         startDateReal:any = '';
         endDateReal:any = '';
         selectedPlaceDetails: any;
@@ -57,62 +55,53 @@ module Controller {
             });
 
             $rootScope.overlay = false;
+            this.setupDatepicker();
+        }
 
+
+        setupDatepicker() {
             this.datePicker = $(".datepicker");
 
             this.datePicker.datepicker({
                 dateFormat: this.dateFormat,
                 minDate: 0,
                 beforeShowDay: (date) => {
-                    var date1 = $.datepicker.parseDate(this.dateFormat, this.startDate);
-                    var date2 = $.datepicker.parseDate(this.dateFormat, this.endDate);
+                    var startDate = $.datepicker.parseDate(this.dateFormat, this.startDatePicker);
+                    var endDate = $.datepicker.parseDate(this.dateFormat, this.endDatePicker);
 
-                    if (date1 != null && date2 != null) {
-                        if (date1 > date2) {
-                            var temp = date1;
-                            date1 = date2;
-                            date2 = temp;
+                    if (startDate != null && endDate != null) {
+                        if (startDate > endDate) {
+                            startDate = [endDate, endDate = startDate][0];
                         }
                     }
 
-                    return [true, date1 && ((date.getTime() == date1.getTime()) || (date2 && date >= date1 && date <= date2)) ? "dp-highlight" : ""];
+                    return [true, startDate && ((date.getTime() == startDate.getTime()) || (endDate && date >= startDate && date <= endDate)) ? "dp-highlight" : ""];
                 },
                 onSelect: (dateText, inst) => {
-                    var date1 = $.datepicker.parseDate(this.dateFormat, this.startDate);
-                    var date2 = $.datepicker.parseDate(this.dateFormat, this.endDate);
+                    var startDate = $.datepicker.parseDate(this.dateFormat, this.startDatePicker);
+                    var endDate = $.datepicker.parseDate(this.dateFormat, this.endDatePicker);
 
-                    if (!date1 || date2) {
-                        this.startDate = dateText;
-                        this.endDate = "";
-                        this.datePicker.datepicker();
+                    if (!startDate || endDate) {
+                        this.startDatePicker = dateText;
+                        this.endDatePicker = "";
                     } else {
-                        this.endDate = dateText;
-                        this.datePicker.datepicker();
+                        this.endDatePicker = dateText;
                     }
 
-                    //Compare start- and end-date
-                    var tempDate1 = new Date(this.startDate);
-                    //console.log(tempDate1.toISOString());
-                    var tempDate2 = new Date(this.endDate);
-                    if (tempDate1 > tempDate2) {
-                        //swap elements
-                        this.startDate = [this.endDate, this.endDate = this.startDate][0];
+                    var tempStartDate = new Date(this.startDatePicker);
+                    var tempEndDate = new Date(this.endDatePicker);
+                    if (tempStartDate > tempEndDate) {
+                        this.startDatePicker = [this.endDatePicker, this.endDatePicker = this.startDatePicker][0];
+                        tempStartDate = [tempEndDate, tempEndDate = tempStartDate][0];
                     }
 
-                    if (this.startDate != null && this.startDate != '') {
-                        this.startDateISO = tempDate1.toISOString();
+                    if (this.startDatePicker != null && this.startDatePicker != '') {
+                        this.startDateReal = new Date(tempStartDate.toISOString()).toISOString();
                     }
 
-                    if (this.endDate != null && this.endDate != '') {
-                        this.endDateISO = tempDate2.toISOString();
+                    if (this.endDatePicker != null && this.endDatePicker != '') {
+                        this.endDateReal = new Date(tempEndDate.toISOString()).toISOString();
                     }
-
-
-
-                    //this.endDate = tempDate2.toISOString();
-
-                    console.log(this.startDate);
-                    console.log(this.endDate);
                 }
             });
         }
@@ -234,17 +223,14 @@ module Controller {
         }
 
         saveTrip() {
-            this.startDateReal = new Date(this.startDateISO);
-            console.log(this.startDateISO);
-            console.log(this.startDateReal);
             var city = this.getLocationDetails();
             var t = {
                 city: city,
                 title: this.tripTitle,
                 description: this.tripDescription,
                 description_money: this.tripDescriptionMoney,
-                //start_date: this.startDate,
-                //end_date: this.endDate,
+                start_date: this.startDateReal,
+                end_date: this.endDateReal,
                 accomodation: this.accomodation,
                 accomodation_equipment: this.accomodationEquipment,
                 //moods
