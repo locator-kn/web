@@ -59,7 +59,9 @@
 <body ng-app="starter" ng-controller="MainCtrl as mc">
 
 
-<div ng-class="{'active': overlay}" class="overlay"></div>
+<div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay">
+
+</div>
 <div class="fixed">
     <div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
 </div>

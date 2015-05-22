@@ -20,6 +20,10 @@ module Controller {
             $rootScope.$on('openLoginDialog', () => {
                 this.openLoginDialog();
             });
+
+            $rootScope.$on('closeDialog', () => {
+                this.closeDialog();
+            });
         }
 
         login() {

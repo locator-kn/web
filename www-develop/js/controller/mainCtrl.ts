@@ -7,6 +7,10 @@ module Controller {
             this.$rootScope.overlay = false;
         }
 
+        closeOverlay() {
+            this.$rootScope.$emit('closeDialog');
+        }
+
         static controllerId:string = "MainCtrl";
     }
 }
