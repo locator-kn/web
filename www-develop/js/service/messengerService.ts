@@ -15,12 +15,50 @@ module Service {
                                 data: [
                                     {
                                         "_id": "1",
-                                        "user_1": 'dewdewdewdwed',
-                                        "user_2": 'dewewfewf',
-                                        "user_1_read": true,
-                                        "user_2_read": true,
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "2",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "3",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
+                                        "lastMessage": 'Ich bin Steffanie'
+                                    },
+                                    {
+                                        "_id": "4",
+                                        "from": 'Steffen Gorenflo',
                                         "lastMessage": 'Ich bin Steffanie'
                                     }
+
                                 ]
                             });
                     }, 500);
@@ -37,19 +75,19 @@ module Service {
                                     {
                                         "_id": "1",
                                         "sender": 'userid',
-                                        "timestamp" : 'erster Timestamp',
+                                        "timestamp": 'erster Timestamp',
                                         "message": 'Ich bin Steffanie'
                                     },
                                     {
                                         "_id": "2",
                                         "sender": 'userid',
-                                        "timestamp" : 'zweiter Timestamp',
+                                        "timestamp": 'zweiter Timestamp',
                                         "message": 'Ich bin Steffanie'
                                     },
                                     {
                                         "_id": "3",
                                         "sender": 'userid',
-                                        "timestamp" : 'später',
+                                        "timestamp": 'später',
                                         "message": 'Ich bin Steffanie'
                                     }
                                 ]
