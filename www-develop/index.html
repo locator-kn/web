@@ -61,6 +61,13 @@
 
 <body ng-class="{'slider': slider}" ng-app="starter" ng-controller="MainCtrl as mc">
 
+<div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
+    <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
+        <li>
+            <div class="img-slide" style="background: url({{s}}); background-size: cover;"></div>
+        </li>
+    </flex-slider>
+</div>
 
 <div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay">
 
