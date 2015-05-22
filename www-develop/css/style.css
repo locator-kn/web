@@ -28,6 +28,7 @@ body {
     top: 0;
     overflow: hidden;
     max-heigth: 100vh;
+    z-index: -1;
 }
 
 .relative {
@@ -149,6 +150,9 @@ body {
 
 body.no-scroll {
     overflow: hidden;
+}
+body.slider {
+    background: none;
 }
 
 #specificTrip {
@@ -602,7 +606,16 @@ a.close-modal {
     float: right
 }
 
-.container-fluid {
-    z-index: 1;
+.statistic_container {
     position: relative;
+    z-index: 1;
+}
+
+.modal-container {
+    position: relative;
+}
+
+.header-bar-wrapper {
+    position: relative;
+    z-index: 1000;
 }
