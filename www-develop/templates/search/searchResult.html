@@ -1,16 +1,19 @@
-<div class="results-container" ng-class="{'loading' : src.animateLoading}" ng-controller="SearchResultCtrl as src">
+<div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}" ng-controller="SearchResultCtrl as src">
+    <div class="row">
+        <div class="result col-sm-4" ng-repeat="result in src.results">
 
-    <div class="results" ng-repeat="result in src.results">
-        <div class="result">
             <h3>{{result.title}}</h3><br/>
+
             <p>{{result.description}}</p><br/>
-            city: {{result.city}}<br/>
+            city: {{result.city.title}}<br/>
             start_date: {{result.start_date}}<br/>
             end_date: {{result.end_date}}<br/>
             budget: {{result.budget}}<br/>
             category: {{result.category}}<br/>
             locations: {{result.locations}}<br/>
             pics: {{result.pics}}
+            <a href="http://google.de">google</a>
         </div>
+
     </div>
 </div>

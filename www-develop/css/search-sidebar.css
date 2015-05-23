@@ -29,10 +29,11 @@
 }
 
 .container-sidebar {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 300px;
     top: 60px;
+    z-index: 10;
 }
 
 .item-description {
@@ -106,7 +107,7 @@ html, body {
 
 .circle-selected {
     background-color: black;
-    color: #6abfff;
+    color: rgb(33, 205, 196);
 }
 
 .mood-selection-container {
@@ -115,6 +116,10 @@ html, body {
 
 .mood-selection-container .selected-mood {
     padding-bottom: 5px;
+}
+
+.selected-mood div{
+    display: inline-block;
 }
 
 .mood-selection-container .icon {
@@ -137,4 +142,8 @@ html, body {
 .city-suggestion:hover {
     font-weight: bold;
     cursor: default;
+}
+
+.remove-mood {
+    float: right;
 }

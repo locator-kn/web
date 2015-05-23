@@ -26,15 +26,20 @@
 
 
 /// <reference path="./service/userService.ts" />
-/// <reference path="./service/triplerService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/insertTripService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
-/// <reference path="./mockedservice/triplerService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
 
+/// <reference path="./service/helperService.ts" />
+
+
+/// <reference path="./controller/contextCtrl.ts" />
+
+/// <reference path="./service/messengerService.ts" />
+/// <reference path="./controller/messengerCtrl.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -44,7 +49,7 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload'])
+var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload', 'angular-progress-arc', 'ngLodash'])
 
     .constant('basePath', '<%= basePath %>')
 
@@ -57,8 +62,13 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
                 templateUrl: "../templates/welcome/welcome.html",
             })
 
+            .state('context', {
+                url: "/context",
+                controller: "ContextCtrl"
+            })
+
             .state('search', {
-                url: "/search?city&dateFrom&dateTo&range&persons&moods&accomodations&o",
+                url: "/search?city&start_date&end_date&range&persons&moods&accomodations&o",
                 templateUrl: "../templates/search/search.html",
                 reloadOnSearch: false
             })
@@ -66,6 +76,11 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
             .state('tripresults', {
                 url: "/trips?city&budget&checkin&checkout&travellersCount&moods&accomodations",
                 templateUrl: "../templates/tripresults.html"
+            })
+
+            .state('messenger', {
+                url: "/messenger",
+                templateUrl: "../templates/messenger/messenger.html"
             })
 
             .state('app.login', {
@@ -110,6 +125,8 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
+    .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
+    .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
 
 
     .directive('megadate', function () {
@@ -132,14 +149,15 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     });
 
 if (live) {
-    app.service(Service.TriplerService.serviceId, Service.TriplerService)
-        .service(Service.DataService.serviceId, Service.DataService)
+    app.service(Service.DataService.serviceId, Service.DataService)
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
+        .service(Service.HelperService.serviceId, Service.HelperService)
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
+        .service(Service.MessengerService.serviceId, Service.MessengerService)
+
 } else {
-    app.service(MockedService.TriplerService.serviceId, MockedService.TriplerService)
-        .service(MockedService.DataService.serviceId, MockedService.DataService)
+    app.service(MockedService.DataService.serviceId, MockedService.DataService)
         .service(MockedService.UserService.serviceId, MockedService.UserService)
         .service(MockedService.EditProfileService.serviceId, MockedService.EditProfileService)
         .service(Service.SearchService.serviceId, Service.SearchService)

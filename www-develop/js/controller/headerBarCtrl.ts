@@ -4,14 +4,10 @@ module Controller {
         name:any;
         mail:any;
         password:any;
-        facebook:any;
-        google:any;
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private basePath) {
             this.getMe();
-            this.facebook = this.basePath + '/loginFacebook';
-            this.google = this.basePath + '/loginGoogle';
 
             this.hotkeys.add({
                 combo: 'esc',
@@ -19,6 +15,14 @@ module Controller {
                 callback: () => {
                     this.closeDialog();
                 }
+            });
+
+            $rootScope.$on('openLoginDialog', () => {
+                this.openLoginDialog();
+            });
+
+            $rootScope.$on('closeDialog', () => {
+                this.closeDialog();
             });
         }
 
@@ -63,6 +67,7 @@ module Controller {
         }
 
         openLoginDialog() {
+            this.resetInput();
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#loginmodal').addClass('active');
 
@@ -73,6 +78,7 @@ module Controller {
         }
 
         openRegisterDialog() {
+            this.resetInput();
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#registermodal').addClass('active');
 
@@ -80,6 +86,21 @@ module Controller {
                 this.closeDialog();
             });
 
+        }
+
+        resetInput() {
+            this.user = '';
+            this.name = '';
+            this.password = '';
+            this.mail = '';
+        }
+
+        loginFacebook() {
+            this.UserService.loginFacebook();
+        }
+
+        loginGoogle() {
+            this.UserService.loginGoogle();
         }
 
         closeDialog() {

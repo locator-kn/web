@@ -3,16 +3,17 @@ module Controller {
 
         query:any;
         activeItem:string = '';
-        selectableMoods;
         selectedMoods = [];
+        selectableMoods = [];
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private $scope, private $rootScope, private $location, private SearchService, private DataService) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private lodash) {
+
+
             this.query = $location.search();
-            this.query.accomodations = [];
-            //this.query.accomodation = false;
-            this.query.moods = [];
+            this.query.accomodation = false;
+
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
 
@@ -21,6 +22,12 @@ module Controller {
             this.DataService.getMoods()
                 .then(result => {
                     this.selectableMoods = result.data;
+
+                    HelperService.getMoods($state.params.moods, moods => {
+                        this.selectedMoods = moods;
+                        this.updateUrl();
+                    });
+
                 });
 
             this.DataService.getAvailableCities()
@@ -29,47 +36,13 @@ module Controller {
                     this.tripCities = result.data;
                 });
 
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.city;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
+            //watch the query variable and fire updateUrl() on change
+            this.$scope.$watchCollection(angular.bind(this, (query) => {
+                return this.query;
+            }), () => {
+                this.updateUrl();
             });
 
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.dateFrom;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.dateTo;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.range;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.persons;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
-
-            this.$scope.$watch(angular.bind(this, (query) => {
-                return this.query.budget;
-            }), (oldVal, newVal) => {
-                if (oldVal != newVal)
-                    this.updateUrl()
-            });
             this.search();
 
         }
@@ -92,23 +65,51 @@ module Controller {
         }
 
         toggleActiveItem(item) {
-            if(item == this.activeItem) {
+            if (item == this.activeItem) {
                 this.activeItem = '';
             } else {
                 this.activeItem = item;
             }
         }
 
+        focusResult() {
+            this.activeItem = '';
+        }
+
         toggleAccomodation() {
-            //this.query.accomodation = !this.query.accomodation;
-            console.info(this.query.accomodations);
+
+            if (typeof this.query.accomodation === "undefined") {
+                this.query.accomodation = true;
+            } else {
+                this.query.accomodation = !this.query.accomodation;
+            }
+
+            this.updateUrl();
         }
 
         selectMood(mood) {
             this.selectedMoods.push(mood);
-            this.query.moods.push(mood.query_name);
-            this.selectableMoods.splice(this.selectableMoods.indexOf(mood),1);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
+
+            this.updateUrl();
+        }
+
+
+
+        //checks if a mood is selected, crazy lodash stuff
+        moodIsSelected(mood) {
+            return !!this.lodash.find(this.selectedMoods, function (chr) {
+                return chr.query_name === mood.query_name;
+            });
+        }
+
+        removeSelectedMood(mood) {
+            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
+            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
             console.info(this.selectableMoods);
+
+            this.updateUrl();
+
         }
 
         emitResult(result) {

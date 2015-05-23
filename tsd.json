@@ -43,6 +43,9 @@
         },
         "jqueryui/jqueryui.d.ts": {
             "commit": "3a7cc667defe44d0cc6f69168ac67d1fd0ea29b5"
+        },
+        "lodash/lodash.d.ts": {
+            "commit": "d67c5e3e1a1291ab58dcaace6ce76f69e860d33c"
         }
     }
 }

@@ -47,7 +47,6 @@ span.margin-right {
 
 .welcome_container {
     padding-top: 110px;
-    margin-top: -60px;
 }
 
 a.welcome_button {
@@ -100,7 +99,7 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    height: 100vh;
+    height: calc(100vh - 60px);
     overflow: hidden;
 }
 
@@ -157,8 +156,6 @@ a.welcome_button:hover {
 }
 
 .statistic_container {
-    background: rgb(34, 90, 91);
-    color: white;
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -185,11 +182,15 @@ a.welcome_button:hover {
     margin: 10px 0;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: rgb(32, 163, 152);
+    padding: 15px;
+    border-radius: 10px;
+
 }
 
-.user-entry:not(:last-child) {
+/*.user-entry:not(:last-child) {
     border-bottom: 1px solid rgb(33, 78, 79);
-}
+}*/
 
 
 

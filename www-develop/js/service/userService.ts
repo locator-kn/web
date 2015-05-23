@@ -1,6 +1,12 @@
 module Service {
     export class UserService {
-        constructor(private $http, private basePath) {
+
+        facebook;
+        google;
+
+        constructor(private $http, private basePath, private $location, private HelperService) {
+            this.facebook = this.basePath + '/loginFacebook';
+            this.google = this.basePath + '/loginGoogle';
         }
 
         getUser(_Id) {
@@ -17,6 +23,16 @@ module Service {
                     "mail": mail,
                     "password": password
                 })
+        }
+
+        loginFacebook() {
+            this.HelperService.saveContext();
+            window.location = this.facebook;
+        }
+
+        loginGoogle() {
+            this.HelperService.saveContext();
+            window.location = this.google;
         }
 
         logout() {

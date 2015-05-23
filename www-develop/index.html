@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="lib/components/flexslider/flexslider.css">
     <link rel="stylesheet" href="lib/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/components/angular-material/angular-material.min.css">
+
     <link rel="stylesheet" href="lib/components/angular-emoji-filter/dist/emoji.min.css">
     <link rel="stylesheet" href="lib/components/ngDialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="lib/components/ngDialog/css/ngDialog-theme-default.min.css">
@@ -16,7 +18,9 @@
     <link rel="stylesheet" href="css/insertTrip/insert.css">
     <link rel="stylesheet" href="css/search-sidebar.css">
     <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/messenger.css">
     <link rel="stylesheet" href="lib/components/cropper/dist/cropper.css">
+
     <!--<link rel="stylesheet" href="lib/components/cropper/dist/cropper.css">-->
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -29,6 +33,7 @@
     <script src="lib/components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/components/angular-translate/angular-translate.js"></script>
     <script src="lib/components/angular-base64/angular-base64.js"></script>
+    <script src="lib/components/angular-material/angular-material.min.js"></script>
     <script
         src="lib/components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="lib/components/moment/moment.js"></script>
@@ -46,6 +51,9 @@
     <script src="lib/components/angular-selection-list/js/directive.js"></script>
     <script src="lib/components/cropper/dist/cropper.js"></script>
     <script src="lib/components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="lib/components/angular-progress-arc/angular-progress-arc.min.js"></script>
+    <!--<script src="lib/components/lodash/lodash.min.js"></script>-->
+    <script src="lib/components/ng-lodash/build/ng-lodash.min.js"></script>
 
     <!--<script src="lib/components/ngImgCrop/compile/minified/ng-img-crop.js"></script>-->
     <!--<script src="lib/components/cropper/dist/cropper.js"></script>-->
@@ -55,9 +63,9 @@
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-app="starter" ng-controller="MainCtrl as mc">
+<body ng-class="{'slider': slider}" ng-app="starter" ng-controller="MainCtrl as mc">
 
-<div class="absolute-slider" ng-controller="SlideCtrl as sc">
+<div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
     <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
         <li>
             <div class="img-slide" style="background: url({{s}}); background-size: cover;"></div>
@@ -65,7 +73,9 @@
     </flex-slider>
 </div>
 
-<div ng-class="{'active': overlay}" class="overlay"></div>
+<div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay">
+
+</div>
 <div class="fixed">
     <div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
 </div>

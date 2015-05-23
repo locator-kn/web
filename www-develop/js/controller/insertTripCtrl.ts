@@ -44,11 +44,13 @@ module Controller {
         imagePath:any;
         selectedImage:any;
         imageCropData:any;
-        cropperElem:any;
         imageHasBeenUploaded:boolean;
         headerImagePath:string;
+        uploadIsDone:boolean = true;
+        documentId:string = '';
+        revision:string = '';
 
-        constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
+        constructor(private $scope, private $rootScope, private InsertTripService, private lodash) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
@@ -141,12 +143,15 @@ module Controller {
         }
 
         showImageChooser() {
+            if(!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
             $('#image-upload').click();
         }
 
         imageChoice() {
-            this.cropperElem = $('#cropping-preview');
-            this.cropperElem.cropper({
+            var cropperElem = $('#cropping-preview');
+            cropperElem.cropper({
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -157,6 +162,7 @@ module Controller {
         }
 
         uploadImage() {
+            this.uploadIsDone = false;
             var file = this.selectedImage;
             var formData = {
                 width: Math.round(this.imageCropData.width),
@@ -167,13 +173,16 @@ module Controller {
             };
             this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
-                    var perc:number = 100.0 * evt.loaded / evt.total;
-                    this.progressPercentage = Math.round(perc);
-                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
+                    var perc:number = evt.loaded / evt.total;
+                    this.progressPercentage = perc;
+                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
+                    this.documentId = data.id;
+                    this.revision = data.rev;
+                    this.uploadIsDone = true;
                 });
 
             //this.InsertTripService.uploadImage(formData);
@@ -184,7 +193,7 @@ module Controller {
             this.$rootScope.overlay = false;
             this.selectedImage = null;
             this.imagePath = '';
-            this.cropperElem.attr('src', '');
+            $('#cropping-preview').removeData('cropper');
             $('.cropper-container').remove()
         }
 
@@ -207,11 +216,7 @@ module Controller {
         }
 
         containsAccomodation(service:string) {
-            var found = $.inArray(service, this.accomodationEquipment);
-            if (found > -1) {
-                return true;
-            }
-            return false;
+            return !!this.lodash.findWhere(this.accomodationEquipment, service);
         }
 
         getLocationDetails() {
@@ -223,6 +228,9 @@ module Controller {
         }
 
         saveTrip() {
+            if(!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
             var city = this.getLocationDetails();
             var t = {
                 city: city,
@@ -240,9 +248,14 @@ module Controller {
                 //delete
                 type: 'trip'
             };
+            var documentMetaData = {
+                _id: this.documentId || '',
+                _rev: this.revision || ''
+            };
+
 
             //store trip in DB
-            this.InsertTripService.saveTrip(t).then(() => {
+            this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
                 console.log('party')
             })
         }
