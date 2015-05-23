@@ -1,6 +1,8 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angular-translate/angular-translate.d.ts" />
 /// <reference path="../../typings/moment/moment.d.ts" />
+/// <reference path="../../typings/jqueryui/jqueryui.d.ts" />
+
 
 /// <reference path="./controller/slideCtrl.ts" />
 

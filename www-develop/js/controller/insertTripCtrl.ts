@@ -3,6 +3,14 @@ interface JQuery {
     cropper(options:any): JQuery;
 }
 
+interface Datepicker {
+    _defaults:any;
+}
+
+interface JQueryUI {
+    datepicker: any;
+}
+
 
 module Controller {
 
@@ -16,9 +24,17 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
-        selectedPlaceDetails:any;
+        dateFormat:string = 'yy-mm-dd';
+
+        datePicker:any;
+        startDatePicker:string = '';
+        endDatePicker:string = '';
+        startDateReal:any = '';
+        endDateReal:any = '';
+        selectedPlaceDetails: any;
+
         accomodationEquipment:string[] = [];
-        progressPercentage:number = 0.1;
+        progressPercentage:number;
         googlePlacesOptions = {
             country: 'de',
             types: '(cities)'
@@ -41,6 +57,55 @@ module Controller {
             });
 
             $rootScope.overlay = false;
+            this.setupDatepicker();
+        }
+
+
+        setupDatepicker() {
+            this.datePicker = $(".datepicker");
+
+            this.datePicker.datepicker({
+                dateFormat: this.dateFormat,
+                minDate: 0,
+                beforeShowDay: (date) => {
+                    var startDate = $.datepicker.parseDate(this.dateFormat, this.startDatePicker);
+                    var endDate = $.datepicker.parseDate(this.dateFormat, this.endDatePicker);
+
+                    if (startDate != null && endDate != null) {
+                        if (startDate > endDate) {
+                            startDate = [endDate, endDate = startDate][0];
+                        }
+                    }
+
+                    return [true, startDate && ((date.getTime() == startDate.getTime()) || (endDate && date >= startDate && date <= endDate)) ? "dp-highlight" : ""];
+                },
+                onSelect: (dateText, inst) => {
+                    var startDate = $.datepicker.parseDate(this.dateFormat, this.startDatePicker);
+                    var endDate = $.datepicker.parseDate(this.dateFormat, this.endDatePicker);
+
+                    if (!startDate || endDate) {
+                        this.startDatePicker = dateText;
+                        this.endDatePicker = "";
+                    } else {
+                        this.endDatePicker = dateText;
+                    }
+
+                    var tempStartDate = new Date(this.startDatePicker);
+                    var tempEndDate = new Date(this.endDatePicker);
+                    if (tempStartDate > tempEndDate) {
+                        this.startDatePicker = [this.endDatePicker, this.endDatePicker = this.startDatePicker][0];
+                        tempStartDate = [tempEndDate, tempEndDate = tempStartDate][0];
+                    }
+
+                    if (this.startDatePicker != null && this.startDatePicker != '') {
+                        this.startDateReal = new Date(tempStartDate.toISOString()).toISOString();
+                    }
+
+                    if (this.endDatePicker != null && this.endDatePicker != '') {
+                        this.endDateReal = new Date(tempEndDate.toISOString()).toISOString();
+                    }
+                }
+            });
         }
 
         isActive(item) {
@@ -172,10 +237,10 @@ module Controller {
                 title: this.tripTitle,
                 description: this.tripDescription,
                 description_money: this.tripDescriptionMoney,
-                //start_date
-                //end_date
-                accommodation: this.accomodation,
-                accommodation_equipment: this.accomodationEquipment,
+                start_date: this.startDateReal,
+                end_date: this.endDateReal,
+                accomodation: this.accomodation,
+                accomodation_equipment: this.accomodationEquipment,
                 //moods
                 //locations
                 //pics

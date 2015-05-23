@@ -23,7 +23,8 @@
     "angular-selection-list": "~0.3.2",
     "angular-progress-arc": "~1.0.0",
     "ng-lodash": "~0.2.3",
-    "angular-material": "~0.9.4"
+    "angular-material": "~0.9.4",
+    "jquery-ui": "~1.11.4"
   },
   "resolutions": {
     "angular": "~1.3"
