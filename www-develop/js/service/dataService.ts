@@ -37,7 +37,7 @@ module Service {
             return this.$q((resolve, reject) => {
 
                 if (!this[cacheObjName].hasOwnProperty('status')) {
-                    console.log('do the request');
+                    console.log('do the request', cacheObjName);
                     this.$http.get(requestUri).then(response => {
                         // set/update cache
                         this[cacheObjName] = response;
@@ -51,7 +51,7 @@ module Service {
                         }
                     }).catch(reject);
                 } else {
-                    console.log('serving from cache');
+                    console.log('serving', cacheObjName, 'from cache');
                     resolve(this[cacheObjName]);
                 }
             });
