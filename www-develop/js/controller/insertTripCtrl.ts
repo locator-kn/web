@@ -34,7 +34,7 @@ module Controller {
         documentId:string = '';
         revision:string = '';
 
-        constructor(private $scope, private $rootScope, private InsertTripService, private Upload, private basePath) {
+        constructor(private $scope, private $rootScope, private InsertTripService, private lodash) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
