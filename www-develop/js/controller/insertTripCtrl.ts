@@ -19,7 +19,7 @@ module Controller {
         activeItem:string = '';
         persons:number = 1;
         days:number = 1;
-        accomodation:boolean = false;
+        accommodation:boolean = false;
         tripCity:string = '';
         tripTitle:string = '';
         tripDescription:string = '';
@@ -33,7 +33,7 @@ module Controller {
         endDateReal:any = '';
         selectedPlaceDetails: any;
 
-        accomodationEquipment:string[] = [];
+        accommodationEquipment:string[] = [];
         progressPercentage:number;
         googlePlacesOptions = {
             country: 'de',
@@ -135,10 +135,10 @@ module Controller {
         }
 
         toggleAccomodation() {
-            this.accomodation = !this.accomodation;
+            this.accommodation = !this.accommodation;
 
-            if (!this.accomodation) {
-                this.accomodationEquipment = [];
+            if (!this.accommodation) {
+                this.accommodationEquipment = [];
             }
         }
 
@@ -203,20 +203,20 @@ module Controller {
         }
 
         addAccomodationEquipment(service:string) {
-            if (this.accomodation) {
-                if (this.containsAccomodation(service)) {
-                    var index = this.accomodationEquipment.indexOf(service);
-                    this.accomodationEquipment.splice(index, 1);
+            if (this.accommodation) {
+                if (this.containsAccommodation(service)) {
+                    var index = this.accommodationEquipment.indexOf(service);
+                    this.accommodationEquipment.splice(index, 1);
                 } else {
-                    this.accomodationEquipment.push(service);
+                    this.accommodationEquipment.push(service);
                 }
             }
 
-            console.log(this.accomodationEquipment);
+            console.log(this.accommodationEquipment);
         }
 
-        containsAccomodation(service:string) {
-            return !!this.lodash.findWhere(this.accomodationEquipment, service);
+        containsAccommodation(service:string) {
+            return !!this.lodash.findWhere(this.accommodationEquipment, service);
         }
 
         getLocationDetails() {
@@ -239,8 +239,8 @@ module Controller {
                 description_money: this.tripDescriptionMoney,
                 start_date: this.startDateReal,
                 end_date: this.endDateReal,
-                accomodation: this.accomodation,
-                accomodation_equipment: this.accomodationEquipment,
+                accommodation: this.accommodation,
+                accommodation_equipment: this.accommodationEquipment,
                 //moods
                 //locations
                 //pics

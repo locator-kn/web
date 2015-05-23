@@ -12,7 +12,7 @@ module Controller {
 
 
             this.query = $location.search();
-            this.query.accomodation = false;
+            this.query.accommodation = false;
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = true;
@@ -82,10 +82,10 @@ module Controller {
 
         toggleAccomodation() {
 
-            if (typeof this.query.accomodation === "undefined") {
-                this.query.accomodation = true;
+            if (typeof this.query.accommodation === "undefined") {
+                this.query.accommodation = true;
             } else {
-                this.query.accomodation = !this.query.accomodation;
+                this.query.accommodation = !this.query.accommodation;
             }
 
             this.updateUrl();

@@ -56,17 +56,17 @@
                 <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney"></textarea>
                 <div class="accomodation">
                     <span>Übernachtung</span>
-                    <div class="circle" ng-click="itc.toggleAccomodation()" ng-class="{'circle-selected': itc.accomodation == true}"></div>
+                    <div class="circle" ng-click="itc.toggleAccomodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
                 </div>
-                <div class="accomodation-equipment" ng-show="itc.accomodation == true">
-                    <div class="wifi" title="WLAN" ng-click="itc.addAccomodationEquipment('wifi')" ng-class="{'wifi-grey': itc.containsAccomodation('wifi') == false}"></div>
-                    <div class="tv" title="Fernsehen" ng-click="itc.addAccomodationEquipment('tv')" ng-class="{'tv-grey': itc.containsAccomodation('tv') == false}"></div>
-                    <div class="shower" title="Dusche/Bad" ng-click="itc.addAccomodationEquipment('shower')" ng-class="{'shower-grey': itc.containsAccomodation('shower') == false}"></div>
-                    <div class="meal" title="Mittagessen" ng-click="itc.addAccomodationEquipment('meal')" ng-class="{'meal-grey': itc.containsAccomodation('meal') == false}"></div>
-                    <div class="breakfast" title="Frühstück" ng-click="itc.addAccomodationEquipment('breakfast')" ng-class="{'breakfast-grey': itc.containsAccomodation('breakfast') == false}"></div>
-                    <div class="smoker" title="Raucherbereich" ng-click="itc.addAccomodationEquipment('smoker')" ng-class="{'smoker-grey': itc.containsAccomodation('smoker') == false}"></div>
-                    <div class="parking" title="Parkmöglichkeiten" ng-click="itc.addAccomodationEquipment('parking')" ng-class="{'parking-grey': itc.containsAccomodation('parking') == false}"></div>
-                    <div class="handicapped" title="Behindertengerecht" ng-click="itc.addAccomodationEquipment('handicapped')" ng-class="{'handicapped-grey': itc.containsAccomodation('handicapped') == false}"></div>
+                <div class="accommodation-equipment" ng-show="itc.accommodation == true">
+                    <div class="wifi" title="WLAN" ng-click="itc.addAccomodationEquipment('wifi')" ng-class="{'wifi-grey': itc.containsAccommodation('wifi') == false}"></div>
+                    <div class="tv" title="Fernsehen" ng-click="itc.addAccommodationEquipment('tv')" ng-class="{'tv-grey': itc.containsAccommodation('tv') == false}"></div>
+                    <div class="shower" title="Dusche/Bad" ng-click="itc.addAccommodationEquipment('shower')" ng-class="{'shower-grey': itc.containsAccommodation('shower') == false}"></div>
+                    <div class="meal" title="Mittagessen" ng-click="itc.addAccommodationEquipment('meal')" ng-class="{'meal-grey': itc.containsAccommodation('meal') == false}"></div>
+                    <div class="breakfast" title="Frühstück" ng-click="itc.addAccommodationEquipment('breakfast')" ng-class="{'breakfast-grey': itc.containsAccommodation('breakfast') == false}"></div>
+                    <div class="smoker" title="Raucherbereich" ng-click="itc.addAccommodationEquipment('smoker')" ng-class="{'smoker-grey': itc.containsAccommodation('smoker') == false}"></div>
+                    <div class="parking" title="Parkmöglichkeiten" ng-click="itc.addAccommodationEquipment('parking')" ng-class="{'parking-grey': itc.containsAccommodation('parking') == false}"></div>
+                    <div class="handicapped" title="Behindertengerecht" ng-click="itc.addAccommodationEquipment('handicapped')" ng-class="{'handicapped-grey': itc.containsAccommodation('handicapped') == false}"></div>
                 </div>
                 <div class="save-trip">
                     <button ng-click="itc.saveTrip()">SPEICHERN</button>
