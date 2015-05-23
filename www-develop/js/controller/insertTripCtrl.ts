@@ -151,11 +151,7 @@ module Controller {
         }
 
         containsAccomodation(service:string) {
-            var found = $.inArray(service, this.accomodationEquipment);
-            if (found > -1) {
-                return true;
-            }
-            return false;
+            return !!this.lodash.findWhere(this.accomodationEquipment, service);
         }
 
         getLocationDetails() {
