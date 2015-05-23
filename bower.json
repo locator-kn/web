@@ -21,7 +21,7 @@
     "cropper": "~0.9.3",
     "angular-selection-list": "~0.2.3",
     "ng-file-upload": "~4.2.1",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
     "ng-file-upload": "~4.2.1",
     "angular-selection-list": "~0.3.1"
   },
