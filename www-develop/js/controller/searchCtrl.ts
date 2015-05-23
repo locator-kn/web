@@ -53,7 +53,11 @@ module Controller {
         }
 
         search() {
+
             this.$rootScope.$emit('loading');
+            if(!this.query.city || !this.tripCities.length) {
+                return;
+            }
             this.SearchService.getTripsByQuery(this.query)
                 .then(result => {
                     this.emitResult(result.data);
