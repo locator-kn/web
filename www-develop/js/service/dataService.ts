@@ -30,21 +30,28 @@ module Service {
         }
 
         getAvailableCities() {
-            return this.getCachePromise(this.basePath + '/data/cities', 'citiesCache');
+            return this.getCachePromise(this.basePath + '/data/cities', 'citiesCache', 10);
         }
 
-        getCachePromise(requestUri: string, cacheObjName) {
+        getCachePromise(requestUri:string, cacheObjName, ttl?:number) {
             return this.$q((resolve, reject) => {
 
                 if (!this[cacheObjName].hasOwnProperty('status')) {
-                    console.log('do the request')
+                    console.log('do the request');
                     this.$http.get(requestUri).then(response => {
                         // set/update cache
                         this[cacheObjName] = response;
                         resolve(response);
+                        if (ttl) {
+                            // ttl given in milliseconds
+                            var _ttl = ttl * 1000;
+                            setTimeout(() => {
+                                this[cacheObjName] = {};
+                            }, _ttl);
+                        }
                     }).catch(reject);
                 } else {
-                    console.log('serve cities from cache');
+                    console.log('serving from cache');
                     resolve(this[cacheObjName]);
                 }
             });
