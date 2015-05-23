@@ -22,7 +22,8 @@
     "ng-file-upload": "~4.2.1",
     "angular-selection-list": "~0.3.2",
     "angular-progress-arc": "~1.0.0",
-    "ng-lodash": "~0.2.3"
+    "ng-lodash": "~0.2.3",
+    "angular-material": "~0.9.4"
   },
   "resolutions": {
     "angular": "~1.3"

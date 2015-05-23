@@ -5,8 +5,12 @@ module Controller {
 
         context:string;
 
-        constructor(private $scope, private basePath, private HelperService) {
-            window.location.href = this.HelperService.getContext();
+        constructor(private $scope, private basePath, private HelperService, private $location, private $window, private $state) {
+            //debugger;
+            var state = this.HelperService.getContext();
+            this.$state.go(state.name, state.params);
+
+
         }
 
         static controllerId:string = "ContextCtrl";

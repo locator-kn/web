@@ -1,14 +1,11 @@
-<md-list>
-    <md-subheader class="md-no-sticky">3 line item</md-subheader>
-    <md-list-item class="md-3-line" ng-repeat="item in todos">
+<md-list class="conversations">
+    <md-list-item ng-click="mc.select(conversation)" class="item md-3-line" ng-repeat="conversation in mc.conversations">
 
-        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}"/>
+        <img ng-src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c13.0.50.50/p50x50/1911899_10203306650967496_1865112293_n.jpg?oh=3df4adfc196883e56e2bc8f8b1d90850&oe=55CCFCDA&__gda__=1439126799_ee018b7d40f7c5a0143cdeeaaa09ce76" class="md-avatar"/>
 
         <div class="md-list-item-text">
-            <h3>{{ item.who }}</h3>
-            <h4>{{ item.what }}</h4>
-
-            <p>{{ item.notes }}</p>
+            <h3>{{ conversation.from }}</h3>
+            <p>{{ conversation.lastMessage }}</p>
         </div>
     </md-list-item>
 </md-list>

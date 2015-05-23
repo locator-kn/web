@@ -7,11 +7,14 @@ module Controller {
             this.$rootScope.overlay = false;
 
 
-            if ($location.$$path == "/welcome") {
-                $rootScope.slider = true;
-            } else {
-                $rootScope.slider = false;
-            }
+            this.$rootScope.$on("$locationChangeStart", function () {
+
+                if ($location.$$path == "/welcome") {
+                    $rootScope.slider = true;
+                } else {
+                    $rootScope.slider = false;
+                }
+            });
         }
 
         closeOverlay() {

@@ -1,6 +1,6 @@
 module Service {
     export class HelperService {
-        constructor(private $http, private basePath, private $location, private DataService, private lodash) {
+        constructor(private $http, private basePath, private $state, private DataService, private lodash) {
         }
 
         getMoodQuery(moods) {
@@ -32,18 +32,21 @@ module Service {
 
 
         saveContext() {
-            localStorage.setItem('locationContext', this.$location.$$absUrl);
+            localStorage.setItem('state', this.$state.current.name);
+            debugger
+            localStorage.setItem('stateParams', JSON.stringify(this.$state.params));
         }
 
         getContext() {
+            var state = {
+                name: undefined,
+                params: undefined
+            };
 
-            var context = localStorage.getItem('locationContext');
+            state.name = localStorage.getItem('state');
+            state.params = JSON.parse(localStorage.getItem('stateParams'));
 
-            if (context == null) {
-                return '/';
-            } else {
-                return context;
-            }
+            return state;
 
         }
 
