@@ -3,7 +3,7 @@
         <img src="{{itc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
         <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
     </div>
-    <div class="trip-image">
+    <div class="trip-image" ng-click="itc.showImageChooser()">
         <progress-arc
             ng-hide="itc.uploadIsDone"
             class="progressbar"
@@ -11,7 +11,7 @@
             complete="itc.progressPercentage"
             counter-clockwise="true">
         </progress-arc>
-        <a class="choose-image welcome_button" ng-click="itc.showImageChooser()">Choose image</a>
+        <a class="choose-image welcome_button">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
         <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
 
