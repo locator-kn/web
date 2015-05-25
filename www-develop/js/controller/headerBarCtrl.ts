@@ -1,13 +1,21 @@
 module Controller {
+    declare var io;
     export class HeaderBarCtrl {
         user:any;
         name:any;
         mail:any;
         password:any;
+        socket:any;
+        showBadge: boolean;
+        unreadMessages: number = 0;
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private basePath) {
-            this.getMe();
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private socketFactory) {
+            this.getMe().then(() => {
+                this.registerWebsockets();
+            });
+
+
 
             this.hotkeys.add({
                 combo: 'esc',
@@ -24,6 +32,30 @@ module Controller {
             $rootScope.$on('closeDialog', () => {
                 this.closeDialog();
             });
+        }
+
+        readMessages() {
+            this.showBadge = false;
+            this.unreadMessages = 0;
+        }
+
+        registerWebsockets() {
+            if(!this.$rootScope.authenticated){
+                return;
+            }
+            this.$http.get('http://localhost:3001/api/v1/connect/me').then(response => {
+                var myIoSocket = io.connect(':3001' + response.data.namespace);
+                this.socket = this.socketFactory({ioSocket: myIoSocket});
+
+                this.socket.on('new_message', (newMessage) => {
+                    this.showBadge = true;
+                    this.unreadMessages += 1;
+                    console.log(newMessage);
+                });
+
+                console.log(arguments)
+            });
+
         }
 
         login() {
@@ -124,7 +156,7 @@ module Controller {
         }
 
         getMe() {
-            this.UserService.getMe()
+            return this.UserService.getMe()
 
                 .error((resp) => {
                     this.$rootScope.authenticated = false;

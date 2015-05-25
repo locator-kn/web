@@ -62,7 +62,8 @@ gulp.task('serve', function () {
                 enable: false,
                 filter: function (filePath, cb) {
                     cb(!(/lib/.test(filePath)));
-                }
+                },
+                port: 3003
             },
             directoryListing: false,
             open: true

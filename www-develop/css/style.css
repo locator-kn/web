@@ -619,3 +619,14 @@ a.close-modal {
     position: relative;
     z-index: 1000;
 }
+
+
+.message-badge {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background: darkred;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    text-align: center;
+}
