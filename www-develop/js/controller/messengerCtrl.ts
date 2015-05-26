@@ -5,6 +5,7 @@ module Controller {
         conversations;
         selectedConversation;
         messages;
+        textbox;
 
         constructor(private MessengerService, private UserService, private $rootScope) {
             this.getConversations();
@@ -34,6 +35,16 @@ module Controller {
         select(conversation) {
             this.selectedConversation = conversation;
         }
+
+        sendMessage(message) {
+            this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.$rootScope.userID, this.selectedConversation.from)
+                .then(result => {
+                    console.info("Msg Success");
+                }).then(error => {
+                    console.info("Error");
+                });
+        }
+
 
         static controllerId:string = "MessengerCtrl";
     }
