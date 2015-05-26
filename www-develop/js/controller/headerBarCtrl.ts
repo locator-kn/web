@@ -133,7 +133,8 @@ module Controller {
                 .then(result => {
                     this.user = result.data;
                     this.$rootScope.authenticated = true;
-                    console.info(this.user);
+                    this.$rootScope.userID = result.data._id;
+                    console.info(result.data._id);
                 });
         }
 
