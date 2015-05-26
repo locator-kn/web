@@ -2,7 +2,7 @@ module Service {
     export class MessengerService {
 
 
-        constructor(private $http, private $q) {
+        constructor(private $http, private $q, private basePath) {
 
         }
 
@@ -113,6 +113,16 @@ module Service {
                     }, 500);
                 }
             );
+        }
+
+        sendMessage(msg, conversationID, toID, fromID) {
+            return this.$http.post(this.basePath + '/messages/' + conversationID,
+                {
+                    "from" : fromID,
+                    "to" : toID,
+                    "message": msg
+                }
+            )
         }
 
         static
