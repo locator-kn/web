@@ -32,7 +32,7 @@
 }
 
 .messenger-container .content {
-    max-height: calc(90vh - 60px);
+    max-height: 50vh;
     overflow-y: scroll;
     float: left;
 }
@@ -47,12 +47,13 @@
 
 .messenger-container .content .message p {
     background: #f6bfba;
-    max-width: 50%;
+    max-width: 65%;
     padding: 15px;
 }
 
 .messenger-container .content .message.out p {
     background: #b8e4e0;
+    float: right;
 }
 
 
