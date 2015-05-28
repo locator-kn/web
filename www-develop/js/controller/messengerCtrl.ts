@@ -23,7 +23,6 @@ module Controller {
                                 element.opponent = result.data;
                             });
                     });
-                    console.info(this.conversations);
                 });
         }
 
@@ -31,10 +30,7 @@ module Controller {
         getConversation(conversation) {
             this.MessengerService.getConversation(conversation._id)
                 .then(result => {
-
                     this.messages = result.data;
-                    console.info(this.messages);
-
                 });
         }
 
@@ -42,7 +38,6 @@ module Controller {
         select(conversation) {
             this.selectedConversation = conversation;
             this.getConversation(this.selectedConversation);
-            console.info('select conversation with ' + this.selectedConversation.opponent.name);
         }
 
         sendMessage() {
@@ -51,7 +46,6 @@ module Controller {
                 .error(result => {
                     console.info("Error");
                 })
-
                 .then(result => {
                     console.info("Msg Success");
                 });
