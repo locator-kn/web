@@ -12,7 +12,7 @@
             ng-src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c13.0.50.50/p50x50/1911899_10203306650967496_1865112293_n.jpg?oh=3df4adfc196883e56e2bc8f8b1d90850&oe=55CCFCDA&__gda__=1439126799_ee018b7d40f7c5a0143cdeeaaa09ce76"
             class="md-avatar"/>
 
-        <h2>{{mc.selectedConversation.from}}</h2>
+        <h2>{{mc.selectedConversation.opponent.name}}</h2>
     </div>
 
     <div class="content">
@@ -21,9 +21,9 @@
         </div>
     </div>
 </div>
-<form>
-    <textarea ng-model="mc.textbox">
-</textarea>
-    <button ng-click="mc.sendMessage()" type="button" id="berechnen">Submit</button>
+
+<form class="chat-input" ng-if="mc.selectedConversation != null">
+    <textarea id="chat_box" ng-model="mc.textbox"></textarea>
+    <button ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>
 </form>
 
