@@ -1,20 +1,20 @@
 module Controller {
-    declare var io;
+    declare
+    var io;
     export class HeaderBarCtrl {
         user:any;
         name:any;
         mail:any;
         password:any;
         socket:any;
-        showBadge: boolean;
-        unreadMessages: number = 0;
+        showBadge:boolean;
+        unreadMessages:number = 0;
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private socketFactory) {
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private SocketService) {
             this.getMe().then(() => {
                 this.registerWebsockets();
             });
-
 
 
             this.hotkeys.add({
@@ -40,23 +40,21 @@ module Controller {
         }
 
         registerWebsockets() {
-            if(!this.$rootScope.authenticated){
+            if (!this.$rootScope.authenticated) {
                 return;
             }
-            this.$http.get('http://localhost:3001/api/v1/connect/me').then(response => {
-                var myIoSocket = io.connect(':3001' + response.data.namespace);
-                this.socket = this.socketFactory({ioSocket: myIoSocket});
 
-                this.socket.on('new_message', (newMessage) => {
+            this.SocketService.socketInit().then(() => {
+                this.SocketService.socket.on('new_message', (newMessage) => {
                     this.showBadge = true;
                     this.unreadMessages += 1;
+                    console.info('new message');
                     console.log(newMessage);
                 });
-
-                console.log(arguments)
             });
 
         }
+
 
         login() {
             console.info('Login ' + this.mail);

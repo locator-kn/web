@@ -6,10 +6,12 @@ module Controller {
         selectedConversation;
         messages;
         textbox;
+        socket;
 
-        constructor(private MessengerService, private UserService, private $rootScope) {
+        constructor(private MessengerService, private UserService, private $rootScope, private SocketService) {
             this.getConversations();
         }
+
 
         // conversationlist
         getConversations() {

@@ -37,7 +37,7 @@
 
 
 /// <reference path="./controller/contextCtrl.ts" />
-
+/// <reference path="./service/socketService.ts" />
 /// <reference path="./service/messengerService.ts" />
 /// <reference path="./controller/messengerCtrl.ts" />
 
@@ -172,6 +172,7 @@ if (live) {
         .service(Service.HelperService.serviceId, Service.HelperService)
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
+        .service(Service.SocketService.serviceId, Service.SocketService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)
