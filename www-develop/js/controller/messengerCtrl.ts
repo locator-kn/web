@@ -9,7 +9,6 @@ module Controller {
 
         constructor(private MessengerService, private UserService, private $rootScope) {
             this.getConversations();
-            this.getConversation();
         }
 
         // conversationlist
@@ -17,12 +16,20 @@ module Controller {
             this.MessengerService.getConversations()
                 .then(result => {
                     this.conversations = result.data;
+                    this.conversations.forEach((element) => {
+
+                        this.UserService.getUser(element.opponent)
+                            .then(result => {
+                                element.opponent = result.data;
+                            });
+                    });
+                    console.info(this.conversations);
                 });
         }
 
         // one single conversation
-        getConversation() {
-            this.MessengerService.getConversation()
+        getConversation(conversation) {
+            this.MessengerService.getConversation(conversation._id)
                 .then(result => {
 
                     this.messages = result.data;
@@ -34,10 +41,13 @@ module Controller {
         // select a conversation to show message content
         select(conversation) {
             this.selectedConversation = conversation;
+            this.getConversation(this.selectedConversation);
+            console.info('select conversation with ' + this.selectedConversation.opponent.name);
         }
 
-        sendMessage(message) {
-            this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.$rootScope.userID, this.selectedConversation.from)
+        sendMessage() {
+            console.info('SelectedID: ' + this.selectedConversation._id);
+            this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
                 .then(result => {
                     console.info("Msg Success");
                 }).then(error => {
