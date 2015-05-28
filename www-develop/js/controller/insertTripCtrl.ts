@@ -3,14 +3,18 @@ interface JQuery {
     cropper(options:any): JQuery;
 }
 
+interface FormData {
+    width:number;
+    height:number;
+    xCoord:number;
+    yCoord:number;
+    nameOfTrip:string;
+    id?:string;
+    rev?:string;
+}
 interface Datepicker {
     _defaults:any;
 }
-
-interface JQueryUI {
-    datepicker: any;
-}
-
 
 module Controller {
 
@@ -49,6 +53,7 @@ module Controller {
         uploadIsDone:boolean = true;
         documentId:string = '';
         revision:string = '';
+        documentWasCreated:boolean = false;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private lodash) {
             this.$scope.selectImage = this.selectImage;
@@ -164,13 +169,18 @@ module Controller {
         uploadImage() {
             this.uploadIsDone = false;
             var file = this.selectedImage;
-            var formData = {
-                width: Math.round(this.imageCropData.width),
-                height: Math.round(this.imageCropData.height),
-                xCoord: Math.round(this.imageCropData.x),
-                yCoord: Math.round(this.imageCropData.y),
-                nameOfTrip: 'scheisshaufen'
-            };
+            var formData:FormData;
+            formData.width = Math.round(this.imageCropData.width);
+            formData.height = Math.round(this.imageCropData.height);
+            formData.xCoord = Math.round(this.imageCropData.x);
+            formData.yCoord = Math.round(this.imageCropData.y);
+            formData.nameOfTrip = 'asd';
+
+            if(this.documentWasCreated) {
+                formData.id = this.documentId;
+                formData.rev = this.revision;
+            }
+
             this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
@@ -257,7 +267,11 @@ module Controller {
             //store trip in DB
             this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
                 console.log('party')
-            })
+            }).then(result => {
+                this.revision = result.rev;
+                this.documentId = result.id;
+                this.documentWasCreated = true;
+            });
         }
 
 
