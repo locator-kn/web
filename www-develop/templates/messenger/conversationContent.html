@@ -16,14 +16,14 @@
     </div>
 
     <div class="content">
-        <div ng-class="{'out' : message.sender == $root.userID}" class="message" ng-repeat="message in mc.messages">
-            <p>{{message.content}}</p>
+        <div ng-class="{'out' : message.from == $root.userID}" class="message" ng-repeat="message in mc.messages">
+            <p>{{message.message}}</p>
         </div>
     </div>
 </div>
 <form>
-    <textarea>
+    <textarea ng-model="mc.textbox">
 </textarea>
-    <button type="button" id="berechnen">Submit</button>
+    <button ng-click="mc.sendMessage()" type="button" id="berechnen">Submit</button>
 </form>
 
