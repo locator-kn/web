@@ -54,6 +54,7 @@
 .messenger-container .content .message.out p {
     background: #b8e4e0;
     float: right;
+    min-width: 50%;
 }
 
 
