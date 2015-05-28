@@ -41,7 +41,6 @@ module Controller {
         }
 
         sendMessage() {
-            console.info('SelectedID: ' + this.selectedConversation._id);
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
                 .error(result => {
                     console.info("Error");
