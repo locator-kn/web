@@ -44,13 +44,11 @@ module Controller {
                 return;
             }
 
-            this.SocketService.socketInit().then(() => {
-                this.SocketService.socket.on('new_message', (newMessage) => {
-                    this.showBadge = true;
-                    this.unreadMessages += 1;
-                    console.info('new message');
-                    console.log(newMessage);
-                });
+            this.SocketService.onEvent('new_message', (newMessage) => {
+                this.showBadge = true;
+                this.unreadMessages += 1;
+                console.info('new message');
+                console.log(newMessage);
             });
 
         }
@@ -165,6 +163,7 @@ module Controller {
                     this.$rootScope.authenticated = true;
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
+                    this.$rootScope.$emit('login_success');
                 });
         }
 

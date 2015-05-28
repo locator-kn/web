@@ -10,7 +10,10 @@ module Controller {
 
         constructor(private MessengerService, private UserService, private $rootScope, private SocketService) {
             this.getConversations();
-            this.registerSocketEvent();
+
+            $rootScope.$on('login_success', () => {
+                this.registerSocketEvent();
+            });
         }
 
         registerSocketEvent() {
@@ -18,10 +21,12 @@ module Controller {
                 return;
             }
 
-            this.SocketService.socket.on('new_message', (newMessage) => {
-                console.info('new message');
+            this.SocketService.onEvent('new_message', (newMessage) => {
+                debugger
                 console.log(newMessage);
             });
+
+
 
 
         }
