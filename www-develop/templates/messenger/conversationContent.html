@@ -23,7 +23,7 @@
 </div>
 
 <form class="chat-input" ng-if="mc.selectedConversation != null">
-    <textarea id="chat_box" ng-model="mc.textbox"></textarea>
+    <textarea id="chat_box" ng-model="mc.textbox" ng-keyup="mc.sendMessage($event)"></textarea>
     <button ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>
 </form>
 
