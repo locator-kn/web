@@ -100,8 +100,8 @@ var app = angular.module('starter', deps)
                 templateUrl: "../templates/messenger/messenger.html"
             })
 
-            .state('messenger', {
-                url: "/messenger/{opponentId}",
+            .state('messenger.opponent', {
+                url: "/{opponentId}",
                 templateUrl: "../templates/messenger/messenger.html"
             })
 

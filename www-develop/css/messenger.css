@@ -10,6 +10,10 @@
     background: whitesmoke;
 }
 
+.messenger-container .conversations .item.active {
+    background-color: #0066cc;
+}
+
 .messenger-container .conversations {
     max-height: calc(100vh - 60px);
     overflow-y: scroll;
