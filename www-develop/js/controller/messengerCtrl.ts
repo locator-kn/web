@@ -50,12 +50,17 @@ module Controller {
             this.getConversation(this.selectedConversation);
         }
 
-        sendMessage() {
+
+        sendMessage(event) {
+            if(event && event.keyCode !== 13) {
+                return;
+            }
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
                 .error(result => {
                     console.info("Error");
                 })
                 .then(result => {
+                    this.textbox = '';
                     console.info("Msg Success");
                 });
         }
