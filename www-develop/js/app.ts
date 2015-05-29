@@ -157,6 +157,23 @@ var app = angular.module('starter', deps)
         };
     })
 
+    .directive('chatScroller', function () {
+        return {
+            scope: {
+                chatScroller: "="
+            },
+            link: function (scope, element) {
+                scope.$watchCollection(angular.bind(scope, (query) => {
+                    return scope.chatScroller;
+                }), newValue => {
+                    if (newValue) {
+                        $(element).scrollTop($(element)[0].scrollHeight);
+                    }
+                });
+            }
+        }
+    })
+
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
