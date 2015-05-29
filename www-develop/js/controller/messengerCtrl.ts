@@ -18,6 +18,7 @@ module Controller {
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
+                this.messages.push(newMessage)
                 console.log(newMessage);
             });
 
@@ -31,11 +32,11 @@ module Controller {
             this.MessengerService.getConversations()
                 .then(result => {
                     this.conversations = result.data;
-                    this.conversations.forEach((element) => {
+                    this.conversations.forEach(element => {
 
-                        this.UserService.getUser(element.opponent)
+                        this.UserService.getUser(element['opponent'])
                             .then(result => {
-                                element.opponent = result.data;
+                                element['opponent'] = result.data;
                             });
                     });
                 });
