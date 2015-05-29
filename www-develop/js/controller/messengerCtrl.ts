@@ -17,12 +17,7 @@ module Controller {
         }
 
         registerSocketEvent() {
-            if (!this.$rootScope.authenticated) {
-                return;
-            }
-
             this.SocketService.onEvent('new_message', (newMessage) => {
-                debugger
                 console.log(newMessage);
             });
 
