@@ -3,7 +3,7 @@ module Controller {
 
         overlay:boolean;
         conversations = [];
-        selectedConversation;
+        selectedConversation = null;
         messages = [];
         textbox = '';
 
@@ -50,19 +50,22 @@ module Controller {
             this.getConversation(this.selectedConversation);
         }
 
-
-        sendMessage(event) {
-            if(event && event.keyCode !== 13) {
-                return;
-            }
+        _sendMessage = () => {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
                 .error(result => {
                     console.info("Error");
                 })
                 .then(result => {
+                    this.messages.push({message: this.textbox, from: this.$rootScope.userID});
                     this.textbox = '';
                     console.info("Msg Success");
                 });
+        };
+        sendMessage(event) {
+            if(event && event.keyCode !== 13) {
+                return;
+            }
+            this._sendMessage();
         }
 
         static controllerId:string = "MessengerCtrl";
