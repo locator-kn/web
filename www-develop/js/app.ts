@@ -100,6 +100,11 @@ var app = angular.module('starter', deps)
                 templateUrl: "../templates/messenger/messenger.html"
             })
 
+            .state('messenger', {
+                url: "/messenger/{opponentId}",
+                templateUrl: "../templates/messenger/messenger.html"
+            })
+
             .state('app.login', {
                 url: "/login",
                 views: {

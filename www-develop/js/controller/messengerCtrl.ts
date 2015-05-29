@@ -61,8 +61,9 @@ module Controller {
                     console.info("Msg Success");
                 });
         };
+
         sendMessage(event) {
-            if(event && event.keyCode !== 13) {
+            if (event && event.keyCode !== 13) {
                 return;
             }
             this._sendMessage();
