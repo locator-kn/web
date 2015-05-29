@@ -162,7 +162,7 @@ var app = angular.module('starter', deps)
             scope: {
                 chatScroller: "="
             },
-            link: function (scope, element) {
+            link: (scope: any, element) => {
                 scope.$watchCollection(angular.bind(scope, (query) => {
                     return scope.chatScroller;
                 }), newValue => {
