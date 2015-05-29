@@ -2,11 +2,10 @@ module Controller {
     export class MessengerCtrl {
 
         overlay:boolean;
-        conversations;
+        conversations = [];
         selectedConversation;
-        messages;
-        textbox;
-        socket;
+        messages = [];
+        textbox = '';
 
         constructor(private MessengerService, private UserService, private $rootScope, private SocketService) {
             this.getConversations();
@@ -18,13 +17,8 @@ module Controller {
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
-                this.messages.push(newMessage)
-                console.log(newMessage);
+                this.messages.push(newMessage);
             });
-
-
-
-
         }
 
         // conversationlist
@@ -65,7 +59,6 @@ module Controller {
                     console.info("Msg Success");
                 });
         }
-
 
         static controllerId:string = "MessengerCtrl";
     }
