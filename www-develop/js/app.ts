@@ -69,6 +69,7 @@ var deps = [
 var app = angular.module('starter', deps)
 
     .constant('basePath', '<%= basePath %>')
+    .constant('basePathRealtime', '<%= basePathRealtime %>')
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
