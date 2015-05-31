@@ -8,6 +8,7 @@ var merge = require('merge2');
 var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 var template = require('gulp-template');
+var url = require('url');
 
 
 var tsProjectEmily = ts.createProject({
@@ -35,6 +36,11 @@ gulp.task('ts', function () {
         live: live || '',
         basePath: baseUrl || 'http://localhost:3001/api/v1'
     };
+
+    var realtimeUrl = url.parse(templateObject.basePath);
+    var port = parseInt(realtimeUrl.port, 10) + 1;
+
+    templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
 
     console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
