@@ -2,22 +2,22 @@ module Service {
     export class MessengerService {
 
 
-        constructor(private $http, private $q, private basePath) {
+        constructor(private $http, private $q, private basePathRealtime) {
 
         }
 
 
         getConversations() {
-            return this.$http.get('http://localhost:3002/api/v1' + '/my/conversations');
+            return this.$http.get(this.basePathRealtime + '/my/conversations');
         }
 
         getConversation(id) {
-            return this.$http.get('http://localhost:3002/api/v1' + '/messages/' + id);
+            return this.$http.get(this.basePathRealtime + '/messages/' + id);
         }
 
         sendMessage(msg, conversationID, toID, fromID) {
 
-            return this.$http.post('http://localhost:3002/api/v1' + '/messages/' + conversationID,
+            return this.$http.post(this.basePathRealtime + '/messages/' + conversationID,
                 {
                     "from" : fromID,
                     "to" : toID,
