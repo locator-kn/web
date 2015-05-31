@@ -1,9 +1,14 @@
+interface SelectedConversation {
+    _id:string;
+    opponent:any;
+}
+
 module Controller {
     export class MessengerCtrl {
 
         overlay:boolean;
         conversations = [];
-        selectedConversation = null;
+        selectedConversation:SelectedConversation = null;
         messages = [];
         textbox = '';
 
@@ -45,7 +50,7 @@ module Controller {
         }
 
         // select a conversation to show message content
-        select(conversation) {
+        select(conversation:SelectedConversation) {
             this.selectedConversation = conversation;
             this.getConversation(this.selectedConversation);
         }
