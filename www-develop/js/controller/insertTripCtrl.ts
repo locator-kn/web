@@ -176,13 +176,13 @@ module Controller {
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
                 nameOfTrip: 'asd',
-                id: '',
-                rev: ''
+                _id: '',
+                _rev: ''
             };
 
             if (this.documentWasCreated) {
-                formData.id = this.documentId;
-                formData.rev = this.revision;
+                formData._id = this.documentId;
+                formData._rev = this.revision;
             }
 
             this.InsertTripService.uploadImage(formData, file)
