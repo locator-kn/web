@@ -12,6 +12,9 @@ module Service {
 
                 return this.$http.put(this.basePath + '/trips/' + documentMetaData._id, newTrip);
             }
+            // To be sure keys don't exist
+            delete documentMetaData._id;
+            delete documentMetaData._rev;
             return this.$http.post(this.basePath + '/trips', newTrip);
         }
         uploadImage(formData, file) {
