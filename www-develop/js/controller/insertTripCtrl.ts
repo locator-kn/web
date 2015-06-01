@@ -167,10 +167,10 @@ module Controller {
             });
         }
 
-        uploadImage = () => {
+        uploadImage() {
             this.uploadIsDone = false;
             var file = this.selectedImage;
-            var formData:FormData;
+            var formData:FormData = {};
             formData.width = Math.round(this.imageCropData.width);
             formData.height = Math.round(this.imageCropData.height);
             formData.xCoord = Math.round(this.imageCropData.x);
