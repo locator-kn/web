@@ -134,7 +134,7 @@ module Controller {
             }
         }
 
-        toggleAccomodation() {
+        toggleAccommodation() {
             this.accommodation = !this.accommodation;
 
             if (!this.accommodation) {
@@ -202,7 +202,7 @@ module Controller {
             this.headerImagePath = data.imageLocation.picture;
         }
 
-        addAccomodationEquipment(service:string) {
+        addAccommodationEquipment(service:string) {
             if (this.accommodation) {
                 if (this.containsAccommodation(service)) {
                     var index = this.accommodationEquipment.indexOf(service);
