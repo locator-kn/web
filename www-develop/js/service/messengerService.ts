@@ -19,9 +19,18 @@ module Service {
 
             return this.$http.post(this.basePathRealtime + '/messages/' + conversationID,
                 {
-                    "from" : fromID,
-                    "to" : toID,
+                    "from": fromID,
+                    "to": toID,
                     "message": msg
+                }
+            )
+        }
+
+        startConversation(msg, userId) {
+            return this.$http.post(this.basePathRealtime + '/conversations',
+                {
+                    "message": msg,
+                    "user_id": userId
                 }
             )
         }
