@@ -11,7 +11,7 @@
 }
 
 .messenger-container .conversations .item.active {
-    background-color: #0066cc;
+    background-color: rgb(97, 217, 210);
 }
 
 .messenger-container .conversations {
@@ -79,5 +79,6 @@ textarea#chat_box {
     float: left;
     width: 100%;
 }
+
 
 
