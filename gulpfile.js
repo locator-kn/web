@@ -39,7 +39,7 @@ gulp.task('ts', function () {
 
     var realtimeUrl = url.parse(templateObject.basePath);
     var port = parseInt(realtimeUrl.port, 10) + 1;
-    if(!baseIdx) {
+    if(baseIdx === -1) {
 
         templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
     } else {

@@ -14,6 +14,7 @@
 
 /// <reference path="./controller/insertTripCtrl.ts" />
 
+/// <reference path="./controller/profileCtrl.ts" />
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
@@ -115,13 +116,9 @@ var app = angular.module('starter', deps)
                 }
             })
 
-            .state('app.profile', {
-                url: "/profile",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/profile.html"
-                    }
-                }
+            .state('profile', {
+                url: "/user/{profileId}",
+                templateUrl: "../templates/userProfile/profile.html",
             })
 
             .state('insertTrip', {
@@ -137,7 +134,8 @@ var app = angular.module('starter', deps)
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
+    .
+    controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
@@ -150,6 +148,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
+    .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
 
 
     .directive('megadate', function () {
@@ -168,7 +167,7 @@ var app = angular.module('starter', deps)
             scope: {
                 chatScroller: "="
             },
-            link: (scope: any, element) => {
+            link: (scope:any, element) => {
                 scope.$watchCollection(angular.bind(scope, (query) => {
                     return scope.chatScroller;
                 }), newValue => {

@@ -11,7 +11,7 @@
 }
 
 .messenger-container .conversations .item.active {
-    background-color: #0066cc;
+    background-color: rgb(97, 217, 210);
 }
 
 .messenger-container .conversations {
@@ -39,6 +39,8 @@
     max-height: 50vh;
     overflow-y: scroll;
     float: left;
+    width: 100%;
+    padding: 15px;
 }
 
 .messenger-container .content .message {
@@ -79,5 +81,6 @@ textarea#chat_box {
     float: left;
     width: 100%;
 }
+
 
 

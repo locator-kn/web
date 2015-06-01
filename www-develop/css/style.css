@@ -151,6 +151,7 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
+
 body.slider {
     background: none;
 }
@@ -620,7 +621,6 @@ a.close-modal {
     z-index: 1000;
 }
 
-
 .message-badge {
     width: 25px;
     height: 25px;
@@ -629,4 +629,16 @@ a.close-modal {
     border-radius: 50%;
     border: 1px solid #fff;
     text-align: center;
+}
+
+.text-responsive {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+#conversationModal textarea {
+    min-height: 200px;
 }
