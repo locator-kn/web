@@ -167,7 +167,7 @@ module Controller {
             });
         }
 
-        uploadImage() {
+        uploadImage = () => {
             this.uploadIsDone = false;
             var file = this.selectedImage;
             var formData:FormData;
