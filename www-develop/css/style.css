@@ -642,3 +642,7 @@ textarea {
 #conversationModal textarea {
     min-height: 200px;
 }
+
+.moodal h3 {
+    color: white;
+}
