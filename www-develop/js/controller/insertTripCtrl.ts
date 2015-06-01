@@ -175,7 +175,7 @@ module Controller {
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
-                nameOfTrip: 'asd',
+                nameOfTrip: this.tripTitle || 'supertrip',
                 _id: '',
                 _rev: ''
             };
