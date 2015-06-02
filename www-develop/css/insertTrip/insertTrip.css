@@ -27,7 +27,16 @@
     /*background: url(http://link-to-your/image.jpg) no-repeat;*/
 }
 
-.content-header .feeling-text {
+.content-header .moods {
+     float: right;
+ }
+
+.content-header .moods .add-mood {
+    float: right;
+    cursor: pointer;
+}
+
+/*.content-header .feeling-text {
     font-size: 16px;
     float: right;
     position: relative;
@@ -43,7 +52,7 @@
 .content-header .add-mood img {
     float: right;
     clear: right;
-}
+}*/
 
 /*BOTTOM*/
 .content-bottom {
@@ -389,5 +398,14 @@
 
 #ui-datepicker-div {
     visibility: hidden;
+}
+
+.datepicker .round-left a{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.datepicker .round-right a{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
