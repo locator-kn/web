@@ -31,7 +31,7 @@
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
                         <li class="messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
                             <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
-                                <li class="message pointer" ng-repeat="con in hc.conversations">
+                                <li class="message pointer" ng-repeat="con in hc.conversations" ui-sref="messenger.opponent({opponentId: con._id})">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
                                     <p class="from">{{con.opponent.name}}</p>
                                 </li>
