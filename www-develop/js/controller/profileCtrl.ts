@@ -4,7 +4,7 @@ module Controller {
         user;
         textMessage;
 
-        constructor(private UserService, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
 
         }
@@ -38,9 +38,18 @@ module Controller {
             this.MessengerService.startConversation(this.textMessage, this.user._id)
                 .error(result => {
                     console.info("Oops");
+                    console.info(result);
+
+                    if (result.statusCode === 409) {
+                        this.closeDialog();
+                        this.$state.go("messenger.opponent", {opponentId: result.data.id});
+
+                    }
                 })
                 .then(result => {
                     console.info("Started Conversation");
+                    this.closeDialog();
+                    this.$state.go("messenger.opponent", {opponentId: result.data.id});
                 });
 
         }

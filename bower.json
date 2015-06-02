@@ -26,7 +26,8 @@
     "angular-material": "~0.9.4",
     "jquery-ui": "~1.11.4",
     "angular-socket-io": "~0.7.0",
-    "angular-cache": "~4.2.0"
+    "angular-cache": "~4.2.0",
+    "angular-daterange-picker": "~0.1.1"
   },
   "resolutions": {
     "angular": "~1.3"
