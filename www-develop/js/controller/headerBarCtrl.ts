@@ -15,6 +15,7 @@ module Controller {
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
+            this.getMe();
 
 
             this.hotkeys.add({
