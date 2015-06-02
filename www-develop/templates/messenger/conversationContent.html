@@ -9,7 +9,7 @@
 <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
     <div class="header" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
         <img
-            ng-src="mc.selectedConversation.opponent.picture.picture"
+            ng-src="{{mc.selectedConversation.opponent.picture.picture}}"
             class="md-avatar"/>
 
         <h2>{{mc.selectedConversation.opponent.name}}</h2>
