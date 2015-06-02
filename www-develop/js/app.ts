@@ -66,13 +66,18 @@ var deps = [
     'ngFileUpload',
     'angular-progress-arc',
     'ngLodash',
-    'btford.socket-io'
+    'btford.socket-io',
+    'angular-cache'
 ];
 
 var app = angular.module('starter', deps)
 
     .constant('basePath', '<%= basePath %>')
     .constant('basePathRealtime', '<%= basePathRealtime %>')
+
+    .config(function (CacheFactoryProvider) {
+        angular.extend(CacheFactoryProvider.defaults, { maxAge: 15 * 60 * 1000 });
+    })
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider

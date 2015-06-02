@@ -3,11 +3,20 @@ module Service {
 
         checkinDate;
         checkoutDate;
-        private citiesCache:Object = {};
 
-        constructor(private $http, private basePath, private $q) {
+        dataCitiesCache;
+        dataAccommodationsCache;
+        dataMoodsCache;
+
+        constructor(private $http, private basePath, private CacheFactory) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
+
+
+            this.dataCitiesCache = CacheFactory.createCache('dataCities');
+            this.dataAccommodationsCache = CacheFactory.createCache('dataAccommodations');
+            this.dataMoodsCache = CacheFactory.createCache('dataMoods');
+
         }
 
         getDates() {
@@ -18,43 +27,19 @@ module Service {
         }
 
         getCities() {
-            return this.$http.get(this.basePath + '/data/cities');
+            return this.$http.get(this.basePath + '/data/cities', {cache: this.dataCitiesCache});
         }
 
         getAccomodations() {
-            return this.$http.get(this.basePath + '/data/accommodations');
+            return this.$http.get(this.basePath + '/data/accommodations', {cache: this.dataAccommodationsCache});
         }
 
         getMoods() {
-            return this.$http.get(this.basePath + '/data/moods');
+            return this.$http.get(this.basePath + '/data/moods', {cache: this.dataMoodsCache});
         }
 
         getAvailableCities() {
-            return this.getCachePromise(this.basePath + '/data/cities', 'citiesCache', 10);
-        }
-
-        getCachePromise(requestUri:string, cacheObjName, ttl?:number) {
-            return this.$q((resolve, reject) => {
-
-                if (!this[cacheObjName].hasOwnProperty('status')) {
-                    console.log('do the request', cacheObjName);
-                    this.$http.get(requestUri).then(response => {
-                        // set/update cache
-                        this[cacheObjName] = response;
-                        resolve(response);
-                        if (ttl) {
-                            // ttl given in milliseconds
-                            var _ttl = ttl * 1000;
-                            setTimeout(() => {
-                                this[cacheObjName] = {};
-                            }, _ttl);
-                        }
-                    }).catch(reject);
-                } else {
-                    console.log('serving', cacheObjName, 'from cache');
-                    resolve(this[cacheObjName]);
-                }
-            });
+            return this.$http.get(this.basePath + '/data/cities');
         }
 
         static serviceId:string = "DataService";
