@@ -31,15 +31,15 @@
                 Conversation</a>
 
             <form novalidate class="user-form">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name"
+                <input ng-disabled="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name"
                        placeholder="Vorname">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name"
+                <input ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name"
                        placeholder="Nachname">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name"
+                <input ng-disabled="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name"
                        placeholder="Dein Alter">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input" type="text" name="name"
+                <input ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input" type="text" name="name"
                        placeholder="Dein Wohnort">
-                <textarea ng-readonly="!pc.edit" class="input" type="text" ng-model="pc.user.description"
+                <textarea ng-disabled="!pc.edit" class="input" type="text" ng-model="pc.user.description"
                           placeholder="Über dich"></textarea>
 
                 <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
