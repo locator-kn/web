@@ -31,16 +31,19 @@
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
                         <li class="messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
                             <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
-                                <li class="message pointer" ui-sref="messenger">
-                                    <img src="" alt="" class="profile"/>
-                                    <p class="from">Michael Knoch</p>
-                                    <span class="message-teaser">The event-oriented approach underlying Node.js enables significant concurrency using a deceptively simple programming model, which has been an important factor in Node's growing popularity for building large scale web services. But what happens when these programs go sideways? Even in the best cases, </span>
+                                <li class="message pointer" ng-repeat="con in hc.conversations">
+                                    <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
+                                    <p class="from">{{con.opponent.name}}</p>
                                 </li>
-                                <li class="message pointer" ui-sref="messenger">
-                                    <img src="" alt="" class="profile"/>
-                                    <p class="from">Michael Knoch</p>
-                                    <span class="messageTeaser">Hallo Michael, ich wollte ...</span>
-                                </li>
+                                <!--<li class="message pointer" ui-sref="messenger">-->
+                                    <!--<p class="from">Michael Knoch</p>-->
+                                    <!--<span class="message-teaser">The event-oriented approach underlying Node.js enables significant concurrency using a deceptively simple programming model, which has been an important factor in Node's growing popularity for building large scale web services. But what happens when these programs go sideways? Even in the best cases, </span>-->
+                                <!--</li>-->
+                                <!--<li class="message pointer" ui-sref="messenger">-->
+                                    <!--<img src="" alt="" class="profile"/>-->
+                                    <!--<p class="from">Michael Knoch</p>-->
+                                    <!--<span class="messageTeaser">Hallo Michael, ich wollte ...</span>-->
+                                <!--</li>-->
                             </ul>
                         </li>
                     </ul>
