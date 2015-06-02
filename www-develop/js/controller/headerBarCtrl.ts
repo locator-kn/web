@@ -9,9 +9,12 @@ module Controller {
         socket:any;
         showBadge:boolean;
         unreadMessages:number = 0;
+        showMessengerPopover:boolean = false;
+        conversations:any = [];
+        conversationTeaser:any = [];
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private SocketService) {
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService) {
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
@@ -35,9 +38,24 @@ module Controller {
             });
         }
 
-        readMessages() {
+        openPopover() {
             this.showBadge = false;
             this.unreadMessages = 0;
+            if(!this.showMessengerPopover) {
+                this.MessengerService.getConversations()
+                .then(conversations => {
+                        this.conversations = conversations.data;
+                        this.conversations.forEach(element => {
+                            this.UserService.getUser(element['opponent'])
+                                .then(result => {
+                                    element['opponent'] = result.data;
+                                });
+                        });
+                        console.log(this.conversations)
+                    });
+
+            }
+            this.showMessengerPopover = !this.showMessengerPopover
         }
 
         registerWebsockets() {
