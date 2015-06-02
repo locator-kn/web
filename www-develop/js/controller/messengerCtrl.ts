@@ -18,6 +18,9 @@ module Controller {
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
+            if(this.$rootScope.authenticated) {
+                this.registerSocketEvent();
+            }
         }
 
         registerSocketEvent() {
