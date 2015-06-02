@@ -17,8 +17,7 @@ module Controller {
         constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime ) {
             this.getConversations();
 
-            $rootScope.$on('$stateChangeSuccess',
-                (event, toState, toParams, fromState, fromParams) => {
+            $rootScope.$on('$stateChangeSuccess', () => {
                     var con = this.getConversationById(this.$state.params.opponentId);
                     this.select(con);
                 });
