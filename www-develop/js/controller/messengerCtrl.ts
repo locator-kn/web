@@ -11,8 +11,9 @@ module Controller {
         selectedConversation:SelectedConversation = null;
         messages = [];
         textbox = '';
+        messagesIdCache;
 
-        constructor(private MessengerService, private UserService, private $rootScope, private SocketService) {
+        constructor(private MessengerService, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime ) {
             this.getConversations();
 
             $rootScope.$on('login_success', () => {
@@ -21,11 +22,14 @@ module Controller {
             if(this.$rootScope.authenticated) {
                 this.registerSocketEvent();
             }
+
+            this.messagesIdCache = this.CacheFactory.get('messagesId');
         }
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
                 this.messages.push(newMessage);
+                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + this.selectedConversation._id);
             });
         }
 
