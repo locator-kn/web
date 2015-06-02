@@ -102,7 +102,7 @@ html, body {
     text-align: center;
     display: inline-block;
     vertical-align: middle;
-
+    cursor: pointer;
 }
 
 .circle-selected {
