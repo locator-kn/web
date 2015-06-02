@@ -6,12 +6,14 @@ module Service {
         usersIdCache;
         usersMeCache;
 
-        constructor(private $http, private basePath, private $location, private HelperService, private CacheFactory) {
+
+        constructor(private $http, private $rootScope, private basePath, private $location, private HelperService, private CacheFactory) {
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
 
             this.usersIdCache = CacheFactory.createCache('usersId');
             this.usersMeCache = CacheFactory.createCache('usersMe');
+
         }
 
         getUser(_Id) {
