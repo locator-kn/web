@@ -9,6 +9,7 @@ module Controller {
         socket:any;
         showBadge:boolean;
         unreadMessages:number = 0;
+        showMessengerPopover:boolean = false;
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private SocketService) {
@@ -35,9 +36,10 @@ module Controller {
             });
         }
 
-        readMessages() {
+        openPopover() {
             this.showBadge = false;
             this.unreadMessages = 0;
+            this.showMessengerPopover = !this.showMessengerPopover
         }
 
         registerWebsockets() {

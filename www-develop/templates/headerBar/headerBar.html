@@ -29,7 +29,7 @@
                     <ul>
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/location.png"></li>
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
-                        <li class="messenger" ng-click="hc.readMessages(); hc.showMessengerPopover = !hc.showMessengerPopover"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
+                        <li class="messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
                             <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
                                 <li class="message pointer" ui-sref="messenger">
                                     <img src="" alt="" class="profile"/>
