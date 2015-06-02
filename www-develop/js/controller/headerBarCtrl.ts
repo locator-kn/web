@@ -12,7 +12,7 @@ module Controller {
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private SocketService) {
-            this.getMe().then(() => {
+            this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
 
@@ -40,9 +40,6 @@ module Controller {
         }
 
         registerWebsockets() {
-            if (!this.$rootScope.authenticated) {
-                return;
-            }
 
             this.SocketService.onEvent('new_message', (newMessage) => {
                 this.showBadge = true;
