@@ -746,3 +746,12 @@ img.center {
     min-height: 200px;
 }
 
+.trip-image a.choose-image.welcome_button {
+    color:#000;
+    border-color:#000;
+
+}
+.trip-image a.choose-image.welcome_button:hover {
+    color:#fff;
+    border-color:#000;
+}
