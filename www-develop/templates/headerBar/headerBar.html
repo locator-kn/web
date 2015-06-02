@@ -29,7 +29,20 @@
                     <ul>
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/location.png"></li>
                         <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
-                        <li ui-sref="insertTrip" class="pointer"><img ng-src="images/icons/header/chat.png"></li>
+                        <li class="messenger" ng-click="hc.readMessages(); hc.showMessengerPopover = !hc.showMessengerPopover"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
+                            <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
+                                <li class="message pointer" ui-sref="messenger">
+                                    <img src="" alt="" class="profile"/>
+                                    <p class="from">Michael Knoch</p>
+                                    <span class="message-teaser">The event-oriented approach underlying Node.js enables significant concurrency using a deceptively simple programming model, which has been an important factor in Node's growing popularity for building large scale web services. But what happens when these programs go sideways? Even in the best cases, </span>
+                                </li>
+                                <li class="message pointer" ui-sref="messenger">
+                                    <img src="" alt="" class="profile"/>
+                                    <p class="from">Michael Knoch</p>
+                                    <span class="messageTeaser">Hallo Michael, ich wollte ...</span>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 

@@ -3,14 +3,18 @@ interface JQuery {
     cropper(options:any): JQuery;
 }
 
+interface FormData {
+    width?:number;
+    height?:number;
+    xCoord?:number;
+    yCoord?:number;
+    nameOfTrip?:string;
+    id?:string;
+    rev?:string;
+}
 interface Datepicker {
     _defaults:any;
 }
-
-interface JQueryUI {
-    datepicker: any;
-}
-
 
 module Controller {
 
@@ -28,7 +32,7 @@ module Controller {
 
         startDateReal:any = '';
         endDateReal:any = '';
-        selectedPlaceDetails: any;
+        selectedPlaceDetails:any;
 
         accommodationEquipment:string[] = [];
         progressPercentage:number;
@@ -46,6 +50,7 @@ module Controller {
         uploadIsDone:boolean = true;
         documentId:string = '';
         revision:string = '';
+        documentWasCreated:boolean = false;
 
         constructor(private $scope, private $rootScope, private InsertTripService, private lodash) {
             this.$scope.selectImage = this.selectImage;
@@ -91,7 +96,7 @@ module Controller {
         }
 
         showImageChooser() {
-            if(!this.$rootScope.authenticated) {
+            if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
             $('#image-upload').click();
@@ -100,6 +105,7 @@ module Controller {
         imageChoice() {
             var cropperElem = $('#cropping-preview');
             cropperElem.cropper({
+                aspectRatio: 1024 / 300,
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -117,8 +123,16 @@ module Controller {
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
-                nameOfTrip: 'scheisshaufen'
+                nameOfTrip: this.tripTitle || 'supertrip',
+                _id: '',
+                _rev: ''
             };
+
+            if (this.documentWasCreated) {
+                formData._id = this.documentId;
+                formData._rev = this.revision;
+            }
+
             this.InsertTripService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
@@ -176,7 +190,7 @@ module Controller {
         }
 
         saveTrip() {
-            if(!this.$rootScope.authenticated) {
+            if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
             var city = this.getLocationDetails();
@@ -205,7 +219,11 @@ module Controller {
             //store trip in DB
             this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
                 console.log('party')
-            })
+            }).then(result => {
+                this.revision = result.rev;
+                this.documentId = result.id;
+                this.documentWasCreated = true;
+            });
         }
 
 

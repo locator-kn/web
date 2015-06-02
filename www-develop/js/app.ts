@@ -14,6 +14,7 @@
 
 /// <reference path="./controller/insertTripCtrl.ts" />
 
+/// <reference path="./controller/profileCtrl.ts" />
 /// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
@@ -37,7 +38,7 @@
 
 
 /// <reference path="./controller/contextCtrl.ts" />
-
+/// <reference path="./service/socketService.ts" />
 /// <reference path="./service/messengerService.ts" />
 /// <reference path="./controller/messengerCtrl.ts" />
 
@@ -51,7 +52,27 @@ var live = '<%= live %>';
 
 var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload', 'angular-progress-arc', 'ngLodash', 'locator.datepicker'])
 
+var deps = [
+    'locator.selection',
+    'cfp.hotkeys',
+    'ngDialog',
+    'angular-flexslider',
+    'smoothScroll',
+    'ui.router',
+    'pascalprecht.translate',
+    'emoji', 'base64',
+    'angularFileUpload',
+    'ngMapAutocomplete',
+    'ngFileUpload',
+    'angular-progress-arc',
+    'ngLodash',
+    'btford.socket-io'
+];
+
+var app = angular.module('starter', deps)
+
     .constant('basePath', '<%= basePath %>')
+    .constant('basePathRealtime', '<%= basePathRealtime %>')
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -83,6 +104,11 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
                 templateUrl: "../templates/messenger/messenger.html"
             })
 
+            .state('messenger.opponent', {
+                url: "/{opponentId}",
+                templateUrl: "../templates/messenger/messenger.html"
+            })
+
             .state('app.login', {
                 url: "/login",
                 views: {
@@ -92,13 +118,9 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
                 }
             })
 
-            .state('app.profile', {
-                url: "/profile",
-                views: {
-                    'menuContent': {
-                        templateUrl: "../templates/profile.html"
-                    }
-                }
+            .state('profile', {
+                url: "/user/{profileId}",
+                templateUrl: "../templates/userProfile/profile.html",
             })
 
             .state('insertTrip', {
@@ -114,7 +136,8 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
+    .
+    controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
@@ -127,6 +150,7 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
+    .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
 
 
     .directive('megadate', function () {
@@ -138,6 +162,23 @@ var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDial
             },
             template: '<p>{{date}}</p>'
         };
+    })
+
+    .directive('chatScroller', function () {
+        return {
+            scope: {
+                chatScroller: "="
+            },
+            link: (scope:any, element) => {
+                scope.$watchCollection(angular.bind(scope, (query) => {
+                    return scope.chatScroller;
+                }), newValue => {
+                    if (newValue) {
+                        $(element).scrollTop($(element)[0].scrollHeight);
+                    }
+                });
+            }
+        }
     })
 
 
@@ -155,6 +196,7 @@ if (live) {
         .service(Service.HelperService.serviceId, Service.HelperService)
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
+        .service(Service.SocketService.serviceId, Service.SocketService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)

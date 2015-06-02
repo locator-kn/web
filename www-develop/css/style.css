@@ -151,6 +151,7 @@ body {
 body.no-scroll {
     overflow: hidden;
 }
+
 body.slider {
     background: none;
 }
@@ -435,6 +436,48 @@ ul.slides {
     color: white;
 }
 
+.header-bar .messenger {
+    position: relative;
+}
+.header-bar .messenger ul.messenger-popover {
+    position: absolute;
+    z-index: 100;
+    top: 60px;
+    right: 0px;
+    background: rgba(246, 191, 186, .6);
+    width: 300px;
+}
+
+
+.header-bar .messenger ul.messenger-popover li {
+    float:left;
+    width: 100%;
+    margin: 5px 0 0px;
+    padding: 15px 25px;
+    line-height: normal;
+    border-bottom: 1px solid rgba(246, 191, 186, .6);
+}
+.header-bar .messenger ul.messenger-popover li img.profile {
+    float:left;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+}
+
+.header-bar .messenger ul.messenger-popover li .from {
+    font-size: 16px;
+}
+.header-bar .messenger ul.messenger-popover li .message-teaser {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+    float: left;
+}
+
+
 .moodal input {
     border-radius: 3px;
     border: 1px solid white;
@@ -618,4 +661,30 @@ a.close-modal {
 .header-bar-wrapper {
     position: relative;
     z-index: 1000;
+}
+
+.message-badge {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background: darkred;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+.text-responsive {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+#conversationModal textarea {
+    min-height: 200px;
+}
+
+.moodal h3 {
+    color: white;
 }

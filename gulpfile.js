@@ -8,6 +8,7 @@ var merge = require('merge2');
 var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 var template = require('gulp-template');
+var url = require('url');
 
 
 var tsProjectEmily = ts.createProject({
@@ -36,6 +37,16 @@ gulp.task('ts', function () {
         basePath: baseUrl || 'http://localhost:3001/api/v1'
     };
 
+    var realtimeUrl = url.parse(templateObject.basePath);
+    var port = parseInt(realtimeUrl.port, 10) + 1;
+    if(baseIdx === -1) {
+
+        templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
+    } else {
+        templateObject.basePathRealtime = templateObject.basePath + '/r';
+    }
+
+
     console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
         .pipe(template(templateObject))
@@ -62,7 +73,8 @@ gulp.task('serve', function () {
                 enable: false,
                 filter: function (filePath, cb) {
                     cb(!(/lib/.test(filePath)));
-                }
+                },
+                port: 3003
             },
             directoryListing: false,
             open: true

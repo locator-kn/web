@@ -44,8 +44,7 @@ module Service {
                 {
                     "name": name,
                     "mail": mail,
-                    "password": password,
-                    "type": "user"
+                    "password": password
                 }
             )
         }

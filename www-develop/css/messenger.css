@@ -10,6 +10,10 @@
     background: whitesmoke;
 }
 
+.messenger-container .conversations .item.active {
+    background-color: rgb(97, 217, 210);
+}
+
 .messenger-container .conversations {
     max-height: calc(100vh - 60px);
     overflow-y: scroll;
@@ -35,6 +39,8 @@
     max-height: 50vh;
     overflow-y: scroll;
     float: left;
+    width: 100%;
+    padding: 15px;
 }
 
 .messenger-container .content .message {
@@ -54,6 +60,26 @@
 .messenger-container .content .message.out p {
     background: #b8e4e0;
     float: right;
+    min-width: 50%;
+}
+
+button#chat_submit {
+    width: 60px;
+    height: 40px;
+    border: none;
+}
+
+textarea#chat_box {
+    height: 40px;
+    width: calc(100% - 64px);
+    background: white;
+    border: none;
+}
+
+.chat-input {
+    padding-top: 15px;
+    float: left;
+    width: 100%;
 }
 
 

@@ -1,13 +1,21 @@
 module Controller {
+    declare
+    var io;
     export class HeaderBarCtrl {
         user:any;
         name:any;
         mail:any;
         password:any;
+        socket:any;
+        showBadge:boolean;
+        unreadMessages:number = 0;
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private basePath) {
-            this.getMe();
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private $http, private SocketService) {
+            this.getMe().then(() => {
+                this.registerWebsockets();
+            });
+
 
             this.hotkeys.add({
                 combo: 'esc',
@@ -25,6 +33,26 @@ module Controller {
                 this.closeDialog();
             });
         }
+
+        readMessages() {
+            this.showBadge = false;
+            this.unreadMessages = 0;
+        }
+
+        registerWebsockets() {
+            if (!this.$rootScope.authenticated) {
+                return;
+            }
+
+            this.SocketService.onEvent('new_message', (newMessage) => {
+                this.showBadge = true;
+                this.unreadMessages += 1;
+                console.info('new message');
+                console.log(newMessage);
+            });
+
+        }
+
 
         login() {
             console.info('Login ' + this.mail);
@@ -124,7 +152,7 @@ module Controller {
         }
 
         getMe() {
-            this.UserService.getMe()
+            return this.UserService.getMe()
 
                 .error((resp) => {
                     this.$rootScope.authenticated = false;
@@ -135,6 +163,7 @@ module Controller {
                     this.$rootScope.authenticated = true;
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
+                    this.$rootScope.$emit('login_success');
                 });
         }
 
