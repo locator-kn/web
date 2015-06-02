@@ -1,18 +1,46 @@
 <div class="container profile" ng-controller="ProfileCtrl as pc">
+
+    <div class="image-upload-modal" ng-show="pc.showImageUploadModal">
+        <img src="{{pc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
+
+        <div class="controls">
+            <div class="btn" ng-click="pc.uploadImage()">Upload</div>
+        </div>
+    </div>
+
+    <input id="image-upload" type="file" onchange="angular.element(this).scope().pc.selectImage(this)"
+           style="display: none">
+    <progress-arc
+        ng-hide="pc.uploadIsDone"
+        class="progressbar"
+        size="100"
+        complete="itc.progressPercentage"
+        counter-clockwise="true">
+    </progress-arc>
+
+
     <div class="moodal" id="conversationModal" ng-include="'templates/modal/startConversation.html'"></div>
     <div class="row">
         <div class="col-xs-12">
-            <img class="center profile-image img-responsive border-radius" ng-src="{{pc.user.picture.picture}}" class="img-responsive">
-            </div>
+
+            <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
+                 ng-src="http://locator.in.htwg-konstanz.de{{pc.profileImagePath}}" class="img-responsive">
+        </div>
         <div class="col-xs-12">
-            <a ng-if="!pc.me" class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start Conversation</a>
+            <a ng-if="!pc.me" class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start
+                Conversation</a>
 
             <form novalidate class="user-form">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name" placeholder="Vorname">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name" placeholder="Nachname">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name" placeholder="Dein Alter">
-                <input ng-readonly="!pc.edit" ng-model="pc.user.residence" class="input" type="text" name="name" placeholder="Dein Wohnort">
-                <textarea ng-readonly="!pc.edit" class="input" type="text" placeholder="Über dich"></textarea>
+                <input ng-readonly="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name"
+                       placeholder="Vorname">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name"
+                       placeholder="Nachname">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name"
+                       placeholder="Dein Alter">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.residence" class="input" type="text" name="name"
+                       placeholder="Dein Wohnort">
+                <textarea ng-readonly="!pc.edit" class="input" type="text" ng-model="pc.user.description"
+                          placeholder="Über dich"></textarea>
 
                 <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
                 <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
