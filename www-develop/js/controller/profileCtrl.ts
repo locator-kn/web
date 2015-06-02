@@ -6,7 +6,6 @@ module Controller {
 
         constructor(private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
-
         }
 
         getUser(_id) {
@@ -14,6 +13,16 @@ module Controller {
                 .then(result => {
                     this.user = result.data;
                     console.info(this.user);
+                });
+        }
+
+        updateProfile() {
+            this.UserService.updateProfile(this.user)
+                .error(result => {
+                    console.info('error during update');
+                })
+                .then(result => {
+                    console.info('updated profile');
                 });
         }
 

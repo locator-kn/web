@@ -10,12 +10,14 @@
             <h2>{{pc.user.name}}</h2>
             <a class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start Conversation</a>
 
-            <input class="input" type="text" name="name" placeholder="Dein Name">
-            <input class="input" type="text" name="name" placeholder="Dein Alter">
-            <input class="input" type="text" name="name" placeholder="Dein Wohnort">
-            <textarea class="input" type="text" placeholder="Über dich"></textarea>
-
-            <a class="save pointer" ng-click="pc.saveProfile()" class="button">Save</a>
+            <form novalidate class="user-form">
+                <input ng-model="pc.user.surname" class="input" type="text" name="name" placeholder="Vorname">
+                <input ng-model="pc.user.name" class="input" type="text" name="name" placeholder="Nachname">
+                <input ng-model="pc.user.age" class="input" type="date" name="name" placeholder="Dein Alter">
+                <input ng-model="pc.user.residence" class="input" type="text" name="name" placeholder="Dein Wohnort">
+                <textarea class="input" type="text" placeholder="Über dich"></textarea>
+                <a class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
+            </form>
 
         </div>
     </div>

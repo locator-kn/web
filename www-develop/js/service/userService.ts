@@ -30,6 +30,17 @@ module Service {
                 })
         }
 
+        updateProfile(newUserData) {
+            return this.$http.put(this.basePath + '/users/my/profile',
+                {
+                    "name": newUserData.name,
+                    "surname": newUserData.surname,
+                    "description": newUserData.description,
+                    "residence": newUserData.residence,
+                    "age": newUserData.age
+                })
+        }
+
         loginFacebook() {
             this.HelperService.saveContext();
             window.location = this.facebook;

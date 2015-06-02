@@ -123,7 +123,7 @@ var app = angular.module('starter', deps)
                 }
             })
 
-            .state('profile', {
+            .state('user', {
                 url: "/user/{profileId}",
                 templateUrl: "../templates/userProfile/profile.html",
             })

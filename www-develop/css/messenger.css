@@ -1,5 +1,7 @@
 .messenger-container .conversations .item {
     padding: 10px;
+    float: left;
+    width: 100%;
 }
 
 .messenger-container .conversations .item:nth-child(odd) {
@@ -67,6 +69,7 @@ button#chat_submit {
     width: 60px;
     height: 40px;
     border: none;
+    float: right;
 }
 
 textarea#chat_box {
@@ -74,6 +77,7 @@ textarea#chat_box {
     width: calc(100% - 64px);
     background: white;
     border: none;
+    float: left;
 }
 
 .chat-input {
