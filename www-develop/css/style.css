@@ -439,6 +439,7 @@ ul.slides {
 .header-bar .messenger {
     position: relative;
 }
+
 .header-bar .messenger ul.messenger-popover {
     position: absolute;
     z-index: 100;
@@ -448,17 +449,17 @@ ul.slides {
     width: 300px;
 }
 
-
 .header-bar .messenger ul.messenger-popover li {
-    float:left;
+    float: left;
     width: 100%;
     margin: 5px 0 0px;
     padding: 15px 25px;
     line-height: normal;
     border-bottom: 1px solid rgba(246, 191, 186, .6);
 }
+
 .header-bar .messenger ul.messenger-popover li img.profile {
-    float:left;
+    float: left;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -468,6 +469,7 @@ ul.slides {
 .header-bar .messenger ul.messenger-popover li .from {
     font-size: 16px;
 }
+
 .header-bar .messenger ul.messenger-popover li .message-teaser {
     font-size: 12px;
     white-space: nowrap;
@@ -476,7 +478,6 @@ ul.slides {
     width: 180px;
     float: left;
 }
-
 
 .moodal input {
     border-radius: 3px;
@@ -687,4 +688,61 @@ textarea {
 
 .moodal h3 {
     color: white;
+}
+
+.border-radius {
+    border-radius: 50%;
+}
+
+.profile-image {
+    width: 150px;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile {
+    font-size: 20px;
+}
+
+.profile .input {
+    width: 100%;
+    background: none;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 3px;
+    margin: 5px 0;
+    padding: 5px 10px;
+}
+
+.profile.container {
+    max-width: 300px;
+    padding: 50px 15px;
+}
+
+.profile .startconversation {
+    background: rgb(51, 196, 183);
+    color: white;
+    width: 100%;
+    text-align: center;
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.profile .save {
+    width: 100%;
+    text-align: center;
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    float: left;
+    background: rgb(255, 70, 55);
+}
+
+.profile textarea {
+    min-height: 400px;
 }
