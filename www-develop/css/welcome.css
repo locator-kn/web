@@ -25,7 +25,7 @@
 }
 
 .welcome_select {
-    font-size: 30px;
+    font-size: 40px;
     color: white;
 }
 
@@ -51,14 +51,13 @@ span.margin-right {
 
 a.welcome_button {
     background: none;
-    color: black;
+    color: white;
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 5px 20px;
-    font-size: 18px;
+    font-size: 25px;
     transition-duration: 0.2s;
     transition-delay: 0s !important;
-    font-weight: lighter;
 }
 
 a.welcome_button:hover {
@@ -95,12 +94,13 @@ a.welcome_button:hover {
 }
 
 .row.select_wrapper {
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .welcome_container {
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     overflow: hidden;
+    padding-bottom: 50px;
 }
 
 .welcome_logo {
@@ -151,10 +151,6 @@ a.welcome_button:hover {
     float: left;
 }
 
-.container.welcome_container {
-    min-height: 500px;
-}
-
 .statistic_container {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -192,5 +188,31 @@ a.welcome_button:hover {
     border-bottom: 1px solid rgb(33, 78, 79);
 }*/
 
+.list-selection {
+    float: left;
+}
 
+.text-wrapper {
+    float: left;
+}
 
+span.green {
+    float: left;
+    background-color: rgb(65, 191, 180);
+    padding: 0 3px;
+    margin: 5px 0;
+}
+
+span.red {
+    float: left;
+    background: rgb(241, 100, 73);
+    padding: 0 3px;
+    margin: 5px 0;
+}
+
+h2#sub-headline {
+    color: white;
+    text-transform: lowercase;
+    font-size: 24px;
+    margin-top: 5px;
+}
