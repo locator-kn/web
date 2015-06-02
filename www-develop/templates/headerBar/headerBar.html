@@ -19,7 +19,7 @@
 
                         <ul class="user-dropdown" ng-show="showDropdown">
                             <div class="arrow"></div>
-                            <li ui-sref="editProfile" ui-sref-active="active">Edit Profile</li>
+                            <li ui-sref="user({profileId: userID})" ui-sref-active="active">Profile</li>
                             <li ng-click="hc.logout()">Logout</li>
                         </ul>
                     </div>
