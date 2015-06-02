@@ -20,7 +20,7 @@
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
-                <img src="images/Megan.jpg">
+                <img ng-src="http://locator.in.htwg-konstanz.de{{itc.me.picture.picture}}">
             </div>
             <div class="moods">
                 <div class="feeling-text">
@@ -37,7 +37,7 @@
         </div>
         <div class="content-bottom">
             <div class="left-section">
-                <div datepicker start-date-real="itc.startDateReal" end-date-real="itc.endDateReal"></div>
+                <datepicker start-date-real="itc.startDateReal" end-date-real="itc.endDateReal"></datepicker>
                 <div class="days-amount">
                     <p>anzahl Tage</p>
                     <div class="circle" ng-click="itc.days=1" ng-class="{'circle-selected': itc.days == 1}">1</div>
