@@ -164,6 +164,17 @@ var app = angular.module('starter', deps)
         };
     })
 
+    .directive('resultdate', function () {
+        return {
+            scope: {date: '='},
+            controller: function ($scope) {
+                var date = new Date($scope.date);
+                $scope.date = moment(date).format('L');
+            },
+            template: '{{date}}'
+        };
+    })
+
     .directive('chatScroller', function () {
         return {
             scope: {
