@@ -3,16 +3,26 @@ module Controller {
 
         user;
         textMessage;
+        me:boolean;
+        edit:boolean = false;
 
         constructor(private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
+
+            this.$rootScope.$on('login_success', () => {
+                this.me = this.$rootScope.userID === $stateParams.profileId;
+            });
+
+        }
+
+        editTrigger() {
+            this.edit = !this.edit;
         }
 
         getUser(_id) {
             this.UserService.getUser(_id)
                 .then(result => {
                     this.user = result.data;
-                    console.info(this.user);
                 });
         }
 
@@ -23,6 +33,7 @@ module Controller {
                 })
                 .then(result => {
                     console.info('updated profile');
+                    this.editTrigger();
                 });
         }
 
