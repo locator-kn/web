@@ -50,8 +50,6 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
-var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload', 'angular-progress-arc', 'ngLodash', 'locator.datepicker'])
-
 var deps = [
     'locator.selection',
     'cfp.hotkeys',
@@ -67,7 +65,8 @@ var deps = [
     'angular-progress-arc',
     'ngLodash',
     'btford.socket-io',
-    'angular-cache'
+    'angular-cache',
+    'locator.datepicker'
 ];
 
 var app = angular.module('starter', deps)
