@@ -22,16 +22,22 @@
             <div class="profile-image">
                 <img src="images/Megan.jpg">
             </div>
-            <div class="feeling-text">
-                <p>Wie fühlt sich dein Trip an?</p>
+            <div class="moods">
+                <div class="feeling-text">
+                    <p>Wie fühlt sich dein Trip an?</p>
+                </div>
+                <div class="add-mood">
+                    <img src="images/icons/plus.png">
+                </div>
+                <div class="show-moods">
+
+                </div>
             </div>
-            <div class="add-mood">
-                <img src="images/icons/plus.png">
-            </div>
+
         </div>
         <div class="content-bottom">
             <div class="left-section">
-                <div class="datepicker"></div>
+                <div datepicker start-date-real="itc.startDateReal" end-date-real="itc.endDateReal"></div>
                 <div class="days-amount">
                     <p>anzahl Tage</p>
                     <div class="circle" ng-click="itc.days=1" ng-class="{'circle-selected': itc.days == 1}">1</div>

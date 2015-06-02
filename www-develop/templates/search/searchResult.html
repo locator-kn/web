@@ -2,20 +2,17 @@
      ng-controller="SearchResultCtrl as src">
     <div class="row">
         <div class="result col-sm-4" ng-repeat="result in src.results">
-
-            <h3>{{result.title}}</h3><br/>
-
-            <img class="img-responsive" ng-src="{{result.images.picture}}" alt=""/>
-
-            <p>{{result.description}}</p><br/>
-            city: {{result.city.title}}<br/>
-            start_date: {{result.start_date}}<br/>
-            end_date: {{result.end_date}}<br/>
-            budget: {{result.budget}}<br/>
-            category: {{result.category}}<br/>
-            locations: {{result.locations}}<br/>
-            pics: {{result.images}}
+            <div class="result-left">
+                <img class="img-responsive" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
+                <p>
+                    <resultdate date="result.start_date"></resultdate> -
+                    <resultdate date="result.end_date"></resultdate>
+                    {{result.city.title}}
+                </p>
+                <p> {{result.persons}} Personen</p>
+            </div>
+            <div class="result-right">
+            </div>
         </div>
-
     </div>
 </div>

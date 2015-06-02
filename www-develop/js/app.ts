@@ -50,6 +50,8 @@
 //set to true if backend is running on localhost:3001
 var live = '<%= live %>';
 
+var app = angular.module('starter', ['locator.selection', 'cfp.hotkeys', 'ngDialog', 'angular-flexslider', 'smoothScroll', 'ui.router', 'pascalprecht.translate', 'emoji', 'base64', 'angularFileUpload', 'ngMapAutocomplete', 'ngFileUpload', 'angular-progress-arc', 'ngLodash', 'locator.datepicker'])
+
 var deps = [
     'locator.selection',
     'cfp.hotkeys',
@@ -159,6 +161,17 @@ var app = angular.module('starter', deps)
                 $scope.date = moment(date).startOf('minute').fromNow();
             },
             template: '<p>{{date}}</p>'
+        };
+    })
+
+    .directive('resultdate', function () {
+        return {
+            scope: {date: '='},
+            controller: function ($scope) {
+                var date = new Date($scope.date);
+                $scope.date = moment(date).format('L');
+            },
+            template: '{{date}}'
         };
     })
 

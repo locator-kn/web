@@ -147,3 +147,19 @@ html, body {
 .remove-mood {
     float: right;
 }
+
+.result-img {
+    width: 300px;
+    height: 200px;
+}
+
+.result-right {
+    display: inline;
+    float: right;
+}
+
+.result-left {
+    display: inline;
+    float: left;
+}
+

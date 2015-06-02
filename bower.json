@@ -25,6 +25,7 @@
     "ng-lodash": "~0.2.3",
     "angular-material": "~0.9.4",
     "jquery-ui": "~1.11.4",
+    "angular-daterange-picker": "~0.1.1",
     "angular-socket-io": "~0.7.0"
   },
   "resolutions": {
