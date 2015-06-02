@@ -704,7 +704,7 @@ img.center {
 }
 
 .profile {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .profile .input {
@@ -743,5 +743,6 @@ img.center {
 }
 
 .profile textarea {
-    min-height: 400px;
+    min-height: 200px;
 }
+
