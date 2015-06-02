@@ -42,6 +42,7 @@ module Controller {
                 .then(result => {
                     this.user = result.data;
                     this.profileImagePath = result.data.picture.picture;
+                    this.user.age = new Date(result.data.age);
                 });
         }
 
