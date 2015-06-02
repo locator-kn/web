@@ -4,11 +4,11 @@ interface JQuery {
 }
 
 interface FormData {
-    width:number;
-    height:number;
-    xCoord:number;
-    yCoord:number;
-    nameOfTrip:string;
+    width?:number;
+    height?:number;
+    xCoord?:number;
+    yCoord?:number;
+    nameOfTrip?:string;
     id?:string;
     rev?:string;
 }
@@ -35,7 +35,7 @@ module Controller {
         endDatePicker:string = '';
         startDateReal:any = '';
         endDateReal:any = '';
-        selectedPlaceDetails: any;
+        selectedPlaceDetails:any;
 
         accommodationEquipment:string[] = [];
         progressPercentage:number;
@@ -148,7 +148,7 @@ module Controller {
         }
 
         showImageChooser() {
-            if(!this.$rootScope.authenticated) {
+            if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
             $('#image-upload').click();
@@ -157,6 +157,7 @@ module Controller {
         imageChoice() {
             var cropperElem = $('#cropping-preview');
             cropperElem.cropper({
+                aspectRatio: 1024 / 300,
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -169,16 +170,19 @@ module Controller {
         uploadImage() {
             this.uploadIsDone = false;
             var file = this.selectedImage;
-            var formData:FormData;
-            formData.width = Math.round(this.imageCropData.width);
-            formData.height = Math.round(this.imageCropData.height);
-            formData.xCoord = Math.round(this.imageCropData.x);
-            formData.yCoord = Math.round(this.imageCropData.y);
-            formData.nameOfTrip = 'asd';
+            var formData = {
+                width: Math.round(this.imageCropData.width),
+                height: Math.round(this.imageCropData.height),
+                xCoord: Math.round(this.imageCropData.x),
+                yCoord: Math.round(this.imageCropData.y),
+                nameOfTrip: this.tripTitle || 'supertrip',
+                _id: '',
+                _rev: ''
+            };
 
-            if(this.documentWasCreated) {
-                formData.id = this.documentId;
-                formData.rev = this.revision;
+            if (this.documentWasCreated) {
+                formData._id = this.documentId;
+                formData._rev = this.revision;
             }
 
             this.InsertTripService.uploadImage(formData, file)
@@ -238,7 +242,7 @@ module Controller {
         }
 
         saveTrip() {
-            if(!this.$rootScope.authenticated) {
+            if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
             var city = this.getLocationDetails();
