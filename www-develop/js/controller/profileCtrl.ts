@@ -21,13 +21,20 @@ module Controller {
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
-                this.me = this.$rootScope.userID === $stateParams.profileId;
+                this.me = this.isItMe();
             });
 
+            if(this.$rootScope.authenticated) {
+                this.me = this.isItMe();
+            }
         }
 
         editTrigger() {
             this.edit = !this.edit;
+        }
+
+        isItMe() {
+            return this.$rootScope.userID === this.$stateParams.profileId;
         }
 
         getUser(_id) {
@@ -166,7 +173,7 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.headerImagePath = data.imageLocation.picture;
+            this.profileImagePath = data.imageLocation.picture;
         }
 
 

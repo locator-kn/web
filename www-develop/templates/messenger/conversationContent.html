@@ -7,9 +7,9 @@
 
 
 <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
-    <div class="header">
+    <div class="header" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
         <img
-            ng-src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/c13.0.50.50/p50x50/1911899_10203306650967496_1865112293_n.jpg?oh=3df4adfc196883e56e2bc8f8b1d90850&oe=55CCFCDA&__gda__=1439126799_ee018b7d40f7c5a0143cdeeaaa09ce76"
+            ng-src="mc.selectedConversation.opponent.picture.picture"
             class="md-avatar"/>
 
         <h2>{{mc.selectedConversation.opponent.name}}</h2>
