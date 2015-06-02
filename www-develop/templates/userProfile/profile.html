@@ -2,21 +2,22 @@
     <div class="moodal" id="conversationModal" ng-include="'templates/modal/startConversation.html'"></div>
     <div class="row">
         <div class="col-xs-12">
-            <!--<img ng-src="{{pc.user.picture.picture}}" class="img-responsive">-->
-            <img class="center profile-image img-responsive border-radius"
-                 src="https://scontent.xx.fbcdn.net/hphotos-xtp1/v/t1.0-9/11073098_1062821023732969_4312182719159157276_n.jpg?oh=826287ddb146c9e959016693fb5d9f84&oe=55FA5520">
-        </div>
+            <img class="center profile-image img-responsive border-radius" ng-src="{{pc.user.picture.picture}}" class="img-responsive">
+            </div>
         <div class="col-xs-12">
-            <h2>{{pc.user.name}}</h2>
-            <a class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start Conversation</a>
+            <a ng-if="!pc.me" class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start Conversation</a>
 
             <form novalidate class="user-form">
-                <input ng-model="pc.user.surname" class="input" type="text" name="name" placeholder="Vorname">
-                <input ng-model="pc.user.name" class="input" type="text" name="name" placeholder="Nachname">
-                <input ng-model="pc.user.age" class="input" type="date" name="name" placeholder="Dein Alter">
-                <input ng-model="pc.user.residence" class="input" type="text" name="name" placeholder="Dein Wohnort">
-                <textarea class="input" type="text" placeholder="Über dich"></textarea>
-                <a class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
+                <input ng-readonly="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name" placeholder="Vorname">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name" placeholder="Nachname">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name" placeholder="Dein Alter">
+                <input ng-readonly="!pc.edit" ng-model="pc.user.residence" class="input" type="text" name="name" placeholder="Dein Wohnort">
+                <textarea ng-readonly="!pc.edit" class="input" type="text" placeholder="Über dich"></textarea>
+
+                <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
+                <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
+
+                <div style="height: 0; overflow: hidden;">{{pc.me}}</div>
             </form>
 
         </div>
