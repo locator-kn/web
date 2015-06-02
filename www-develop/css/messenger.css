@@ -1,5 +1,7 @@
 .messenger-container .conversations .item {
     padding: 10px;
+    float: left;
+    width: 100%;
 }
 
 .messenger-container .conversations .item:nth-child(odd) {
