@@ -34,6 +34,9 @@ module Controller {
         endDateReal:any = '';
         selectedPlaceDetails:any;
 
+        selectedMoods:any = [];
+        selectableMoods:any = [];
+
         accommodationEquipment:string[] = [];
         progressPercentage:number;
         googlePlacesOptions = {
@@ -52,8 +55,9 @@ module Controller {
         revision:string = '';
         documentWasCreated:boolean = false;
         me:any;
+        query:any = {};
 
-        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService) {
+        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
@@ -63,8 +67,16 @@ module Controller {
                 this.me = user.data;
             })
 
+            this.DataService.getMoods().then(result => {
+                this.selectableMoods = result.data;
+                HelperService.getMoods($state.params.moods, moods => {
+                    this.selectedMoods = moods;
+                });
+            });
+
             $rootScope.overlay = false;
         }
+
 
         isActive(item) {
             return item == this.activeItem;
