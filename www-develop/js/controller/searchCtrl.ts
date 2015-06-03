@@ -32,7 +32,6 @@ module Controller {
 
             this.DataService.getAvailableCities()
                 .then(result => {
-                    console.info(result.data);
                     this.tripCities = result.data;
                 });
 

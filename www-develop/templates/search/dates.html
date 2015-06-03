@@ -1,2 +1,10 @@
-<input type="date" ng-model="sc.query.start_date">
-<input type="date" ng-model="sc.query.end_date">
+<div class="date-container">
+    <datepicker start-date-real="sc.query.start_date" end-date-real="sc.query.end_date"></datepicker>
+    <div class="date-range-container">
+        <p>Anzahl Tage</p>
+        <div class="circle" ng-click="sc.query.days=1" ng-class="{'circle-selected': sc.query.days == 1}">1</div>
+        <div class="circle" ng-click="sc.query.days=2" ng-class="{'circle-selected': sc.query.days == 2}">2</div>
+        <div class="circle" ng-click="sc.query.days=3" ng-class="{'circle-selected': sc.query.days == 3}">3</div>
+        <div class="circle" ng-click="sc.query.days=4" ng-class="{'circle-selected': sc.query.days == 4}">3+</div>
+    </div>
+</div>
