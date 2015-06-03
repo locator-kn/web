@@ -15,8 +15,7 @@ module Controller {
         textbox = '';
         messagesIdCache;
         showEmojis:boolean;
-
-
+        
         emojis = [":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
         constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
@@ -82,6 +81,9 @@ module Controller {
 
         // select a conversation to show message content
         select(conversation:SelectedConversation) {
+            if (!conversation) {
+                return;
+            }
             this.selectedConversation = conversation;
             this.getConversation(this.selectedConversation);
         }

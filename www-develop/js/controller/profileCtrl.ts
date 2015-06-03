@@ -180,7 +180,7 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.profileImagePath = data.imageLocation.picture;
+            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();  
         }
 
 

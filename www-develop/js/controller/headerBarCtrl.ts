@@ -101,6 +101,7 @@ module Controller {
 
                 })
                 .catch((resp) => {
+                    // TODO display something to the user if registration failed
                     console.info("Register Error");
                 });
 
