@@ -78,13 +78,14 @@ module Controller {
 
         _sendMessage = () => {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
-                .error(result => {
-                    console.info("Error");
-                })
+
                 .then(result => {
                     this.messages.push({message: this.textbox, from: this.$rootScope.userID});
                     this.textbox = '';
                     console.info("Msg Success");
+                })
+                .catch(result => {
+                    console.info("Error");
                 });
         };
 

@@ -52,12 +52,13 @@ module Controller {
 
         updateProfile() {
             this.UserService.updateProfile(this.user)
-                .error(result => {
-                    console.info('error during update');
-                })
+
                 .then(result => {
                     console.info('updated profile');
                     this.editTrigger();
+                })
+                .catch(result => {
+                    console.info('error during update');
                 });
         }
 
@@ -80,6 +81,12 @@ module Controller {
 
         submitConversation() {
             this.MessengerService.startConversation(this.textMessage, this.user._id)
+
+                .then(result => {
+                    console.info("Started Conversation");
+                    this.closeDialog();
+                    this.$state.go("messenger.opponent", {opponentId: result.data.id});
+                })
                 .error(result => {
                     console.info("Oops");
                     console.info(result);
@@ -89,11 +96,6 @@ module Controller {
                         this.$state.go("messenger.opponent", {opponentId: result.data.id});
 
                     }
-                })
-                .then(result => {
-                    console.info("Started Conversation");
-                    this.closeDialog();
-                    this.$state.go("messenger.opponent", {opponentId: result.data.id});
                 });
 
         }

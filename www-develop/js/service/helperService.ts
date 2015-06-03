@@ -33,7 +33,6 @@ module Service {
 
         saveContext() {
             localStorage.setItem('state', this.$state.current.name);
-            debugger
             localStorage.setItem('stateParams', JSON.stringify(this.$state.params));
         }
 
