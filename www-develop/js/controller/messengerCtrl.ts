@@ -3,6 +3,7 @@ interface SelectedConversation {
     opponent:any;
 }
 
+
 module Controller {
     export class MessengerCtrl {
 
@@ -13,6 +14,9 @@ module Controller {
         messages = [];
         textbox = '';
         messagesIdCache;
+        showEmojis:boolean;
+
+        emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
         constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
             this.getConversations();
@@ -30,6 +34,11 @@ module Controller {
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
+        }
+
+        selectEmoji(item) {
+            this.textbox = this.textbox + ' ' + item;
+            this.showEmojis = false;
         }
 
         registerSocketEvent() {

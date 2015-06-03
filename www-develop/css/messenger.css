@@ -66,16 +66,20 @@
     min-width: 50%;
 }
 
-button#chat_submit {
+.messenger-button {
     width: 60px;
     height: 40px;
     border: none;
+    float: left;
+}
+
+button#chat_submit {
     float: right;
 }
 
 textarea#chat_box {
     height: 40px;
-    width: calc(100% - 64px);
+    width: calc(100% - 120px);
     background: white;
     border: none;
     float: left;
@@ -106,3 +110,9 @@ span.bubble {
     transform: rotate(35deg);
 }
 
+.emoji-overlay {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    left: 60px;
+}
