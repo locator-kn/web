@@ -1,7 +1,7 @@
 module Controller {
     export class SearchCtrl {
 
-        query:any;
+        query:any = {};
         activeItem:string = '';
         selectedMoods = [];
         selectableMoods = [];
@@ -89,31 +89,6 @@ module Controller {
             }
 
             this.updateUrl();
-        }
-
-        selectMood(mood) {
-            this.selectedMoods.push(mood);
-            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
-
-            this.updateUrl();
-        }
-
-
-
-        //checks if a mood is selected, crazy lodash stuff
-        moodIsSelected(mood) {
-            return !!this.lodash.find(this.selectedMoods, function (chr) {
-                return chr.query_name === mood.query_name;
-            });
-        }
-
-        removeSelectedMood(mood) {
-            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
-            this.query.moods = (this.HelperService.getMoodQuery(this.selectedMoods));
-            console.info(this.selectableMoods);
-
-            this.updateUrl();
-
         }
 
         emitResult(result) {
