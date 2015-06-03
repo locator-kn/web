@@ -17,7 +17,11 @@
 
     <div class="content" chat-scroller="mc.messages">
         <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messages">
-            <p ng-bind-html="message.message | emoji"></p>
+            <p><span ng-bind-html="message.message | emoji" class="message-content"></span>
+                <!--<megadate date="message.timestamp"></megadate> -->
+                <span class="bubble"></span>
+            </p>
+
         </div>
     </div>
 </div>

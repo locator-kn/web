@@ -38,11 +38,10 @@
 }
 
 .messenger-container .content {
-    max-height: 50vh;
     overflow-y: scroll;
     float: left;
     width: 100%;
-    padding: 15px;
+    height: calc(100vh - 200px);
 }
 
 .messenger-container .content .message {
@@ -51,11 +50,13 @@
 
 .messenger-container .content .message {
     float: left;
+    margin-bottom: 30px;
 }
 
 .messenger-container .content .message p {
     background: #f6bfba;
     max-width: 65%;
+    position: relative;
     padding: 15px;
 }
 
@@ -86,5 +87,26 @@ textarea#chat_box {
     width: 100%;
 }
 
+span.bubble {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(246, 191, 186);
+    float: left;
+    position: absolute;
+    bottom: -15px;
+    left: -16px;
+    transform: rotate(40deg);
+}
 
+.out span.bubble {
+    background-color: rgb(246, 191, 186);
+    right: -16px;
+    background: #b8e4e0;
+    left: inherit;
+    top: 33px;
+}
+
+.out .message {
+    margin-right: 10px;
+}
 
