@@ -127,7 +127,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
-            $('#image-upload').click();
+            $('#image-upload-profile').click();
         }
 
         imageChoice() {
@@ -176,6 +176,7 @@ module Controller {
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
             $('.cropper-container').remove()
+            $('#image-upload-profile').val('')
         }
 
         showNewImage(data) {
