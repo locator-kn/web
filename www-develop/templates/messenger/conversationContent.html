@@ -26,8 +26,14 @@
     </div>
 </div>
 
-<form class="chat-input" ng-if="mc.selectedConversation != null">
+<form class="relative chat-input" ng-if="mc.selectedConversation != null">
+    <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji">EMOJI</button>
+    <div class="emoji-overlay" ng-if="mc.showEmojis">
+
+        <span ng-click="mc.selectEmoji(item)" ng-bind-html="item | emoji" ng-repeat="item in mc.emojis"></span>
+
+    </div>
     <textarea id="chat_box" ng-model="mc.textbox" ng-keyup="mc.sendMessage($event)"></textarea>
-    <button ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>
+    <button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>
 </form>
 
