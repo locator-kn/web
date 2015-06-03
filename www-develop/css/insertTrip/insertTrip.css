@@ -236,7 +236,7 @@
 
 .ui-datepicker .ui-datepicker-header {
     position:relative;
-    background-color: #fff;
+    background-color: transparent;
     border-style: none;
 
 }
@@ -275,10 +275,12 @@
 
 .ui-datepicker .ui-datepicker-prev span {
     background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_left_16.png");
+    cursor:pointer;
 }
 
 .ui-datepicker .ui-datepicker-next span {
     background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_right_16.png");
+    cursor:pointer;
 }
 
 /*Calendar head (mo, tu, ...)*/
@@ -319,13 +321,13 @@
 }
 
 .ui-widget-content {
-    background:#fff;
+    background: transparent;
     color:#333;
 }
 
 .ui-state-default,.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     border: none;
-    background:#fff;
+    background:transparent;
     font-weight:normal;
     color:#454545;
 }

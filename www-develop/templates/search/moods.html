@@ -1,17 +1,1 @@
-<div class="mood-selection-container">
-    <div class="selected-mood" ng-repeat="selectedMood in sc.selectedMoods">
-        <img class="icon" ng-src="data:image/gif;base64,{{selectedMood.icon}}">
-        <div>
-            {{selectedMood.title}}
-        </div>
-        <div class="remove-mood" ng-click="sc.removeSelectedMood(selectedMood)">x</div>
-    </div>
-    <img src="/images/icons/plus.png" ng-click="sc.showSelectableMoods=true" ng-hide="sc.selectableMoods.length == sc.selectedMoods.length">
-    <div ng-show="sc.showSelectableMoods==true">
-        <div ng-repeat="mood in sc.selectableMoods" ng-if="!sc.moodIsSelected(mood)">
-            <div ng-click="sc.showSelectableMoods=false; sc.selectMood(mood)">
-                {{mood.title}}
-            </div>
-        </div>
-    </div>
-</div>
+<moodselection selected-moods="sc.selectedMoods" selectable-moods="sc.selectableMoods" query="sc.query"></moodselection>

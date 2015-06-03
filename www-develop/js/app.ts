@@ -51,6 +51,7 @@
 var live = '<%= live %>';
 
 var deps = [
+    'locator.moodselection',
     'locator.selection',
     'cfp.hotkeys',
     'ngDialog',
