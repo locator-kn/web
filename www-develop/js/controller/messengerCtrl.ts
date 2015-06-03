@@ -15,8 +15,8 @@ module Controller {
         textbox = '';
         messagesIdCache;
         showEmojis:boolean;
-        
-        emojis = [":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
+
+        emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
         constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
             this.getConversations();
