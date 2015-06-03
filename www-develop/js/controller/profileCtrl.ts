@@ -41,7 +41,11 @@ module Controller {
             this.UserService.getUser(_id)
                 .then(result => {
                     this.user = result.data;
-                    this.profileImagePath = result.data.picture.picture;
+                    if (!result.data.picture) {
+                        this.profileImagePath = "/images/profile.jpg"
+                    } else {
+                        this.profileImagePath = result.data.picture.picture;
+                    }
                     this.user.age = new Date(result.data.age);
                 });
         }
