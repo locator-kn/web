@@ -88,25 +88,21 @@ textarea#chat_box {
 }
 
 span.bubble {
-    height: 30px;
+    height: 20px;
     width: 30px;
     background-color: rgb(246, 191, 186);
     float: left;
     position: absolute;
-    bottom: -15px;
+    bottom: -4px;
     left: -16px;
-    transform: rotate(40deg);
+    transform: rotate(52deg);
 }
 
 .out span.bubble {
-    background-color: rgb(246, 191, 186);
-    right: -16px;
+    right: -13px;
     background: #b8e4e0;
     left: inherit;
-    top: 33px;
-}
-
-.out .message {
-    margin-right: 10px;
+    top: 38px;
+    transform: rotate(35deg);
 }
 
