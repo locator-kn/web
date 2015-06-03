@@ -1,0 +1,157 @@
+/*DATEPICKER*/
+
+.ui-datepicker .ui-datepicker-header {
+    position:relative;
+    background-color: transparent;
+    border-style: none;
+
+}
+
+.ui-datepicker-month {
+    text-transform: lowercase;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    margin:0 2.3em;
+    line-height:1.8em;
+    text-align:center
+}
+
+.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{
+    position:absolute;
+    width:1.8em;
+    height:1.8em;
+}
+
+.ui-datepicker .ui-datepicker-next{
+    right:2px;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+    display:block;
+    position:absolute;
+    left:50%;
+    margin-left:-8px;
+    top:50%;
+    margin-top:-8px;
+}
+
+.ui-datepicker .ui-datepicker-prev span {
+    background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_left_16.png");
+    cursor:pointer;
+}
+
+.ui-datepicker .ui-datepicker-next span {
+    background-image: url("http://blog.picol.org/wp-content/themes/icon_blog/images/css_images/arrow_right_16.png");
+    cursor:pointer;
+}
+
+/*Calendar head (mo, tu, ...)*/
+.ui-datepicker-calendar thead {
+    border-bottom: solid;
+    border-top: solid;
+    border-width: 1px;
+}
+
+.ui-datepicker-calendar thead tr th{
+    text-transform: lowercase;
+}
+
+.ui-datepicker table {
+    width:100%;
+    font-size:.9em;
+    border-collapse:collapse;
+    margin:0 0 .4em;
+}
+
+.ui-datepicker th {
+    padding:.7em .3em;
+    text-align:center;
+    font-weight:bold;
+    border:0;
+}
+
+.ui-datepicker td {
+    border:0;
+    padding:1px 0px 1px 0px;
+}
+
+.ui-datepicker td span,.ui-datepicker td a {
+    display:block;
+    padding:.2em;
+    text-align:center;
+    text-decoration:none;
+}
+
+.ui-widget-content {
+    background: transparent;
+    color:#333;
+}
+
+.ui-state-default,.ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: none;
+    background:transparent;
+    font-weight:normal;
+    color:#454545;
+}
+
+.ui-state-highlight a,.ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a  {
+    color:#777620;
+}
+
+.ui-state-disabled,.ui-widget-content .ui-state-disabled,.ui-widget-header .ui-state-disabled {
+    opacity:.35;
+    filter:Alpha(Opacity=35);
+    background-image:none;
+}
+
+.ui-state-disabled .ui-icon {
+    filter:Alpha(Opacity=35);
+}
+
+.ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    width:16px;
+    height:16px
+}
+
+.dp-highlight .ui-state-default {
+    background: #ff4f12;
+    color: #000;
+}
+
+.dp-highlight .ui-state-default .test {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.datepicker {
+    width: 162px;
+}
+
+.ui-widget {
+    font-size: 90%;
+    width: 160px;
+    border-style: solid;
+    border-width: 2px;
+    boder-color: #000;
+}
+
+#ui-datepicker-div {
+    visibility: hidden;
+}
+
+.datepicker .round-left a{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.datepicker .round-right a{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
