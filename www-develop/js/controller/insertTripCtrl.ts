@@ -53,7 +53,7 @@ module Controller {
         documentWasCreated:boolean = false;
         me:any;
 
-        constructor(private $scope, private $rootScope, private InsertTripService, private lodash, private UserService) {
+        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
@@ -228,6 +228,10 @@ module Controller {
                 this.revision = result.rev;
                 this.documentId = result.id;
                 this.documentWasCreated = true;
+            }).then(() => {
+                this.$state.go('search', {
+                    city: t.city.title
+                });
             });
         }
 
