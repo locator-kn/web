@@ -7,7 +7,7 @@ module Service {
         usersMeCache;
 
 
-        constructor(private Upload, private $http, private $rootScope, private basePath, private $location, private HelperService, private CacheFactory) {
+        constructor(private Upload, private $http, private $q, private basePath, private HelperService, private CacheFactory) {
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
 
@@ -17,11 +17,48 @@ module Service {
         }
 
         getUser(_Id) {
-            return this.$http.get(this.basePath + '/users/' + _Id, {cache: this.usersIdCache});
+            return this.$q((resolve, reject) => {
+
+                this.$http.get(this.basePath + '/users/' + _Id, {cache: this.usersIdCache})
+                    .then(data => {
+                        return this.decorateUserImage(data);
+                    })
+                    .then(data => {
+                        resolve(data)
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+
         }
 
+        decorateUserImage = (data) => {
+            return this.$q((resolve, reject) => {
+                if (!data.data.picture) {
+                    data.data.picture = {
+                        picture: '/images/profile.jpg',
+                        thumbnail: '/images/profile.jpg'
+                    }
+                }
+                resolve(data);
+            });
+        };
+
         getMe() {
-            return this.$http.get(this.basePath + '/users/me', {cache: this.usersMeCache});
+            return this.$q((resolve, reject) => {
+
+                this.$http.get(this.basePath + '/users/me', {cache: this.usersIdCache})
+                    .then(data => {
+                        return this.decorateUserImage(data);
+                    })
+                    .then(data => {
+                        resolve(data)
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
         }
 
         login(mail, password) {
