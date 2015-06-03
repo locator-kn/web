@@ -55,7 +55,7 @@ module Controller {
         search() {
 
             this.$rootScope.$emit('loading');
-            if(!this.query.city || !this.tripCities.length) {
+            if(!this.query.city/* || !this.tripCities.length*/) {
                 return;
             }
             this.SearchService.getTripsByQuery(this.query)
