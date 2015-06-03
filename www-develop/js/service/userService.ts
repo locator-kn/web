@@ -91,6 +91,9 @@ module Service {
         }
 
         logout() {
+            this.usersIdCache.remove();
+            this.usersMeCache.remove();
+
             return this.$http.get(this.basePath + '/logout');
         }
 
