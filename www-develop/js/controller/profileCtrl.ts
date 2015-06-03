@@ -175,13 +175,13 @@ module Controller {
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
-            $('.cropper-container').remove()
-            $('#image-upload-profile').val('')
+            $('.cropper-container').remove();
+            $('#image-upload-profile').val('');
         }
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();  
+            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();
         }
 
 
