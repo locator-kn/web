@@ -51,12 +51,17 @@ module Controller {
         documentId:string = '';
         revision:string = '';
         documentWasCreated:boolean = false;
+        me:any;
 
-        constructor(private $scope, private $rootScope, private InsertTripService, private lodash) {
+        constructor(private $scope, private $rootScope, private InsertTripService, private lodash, private UserService) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
             });
+
+            this.UserService.getMe().then(user => {
+                this.me = user.data;
+            })
 
             $rootScope.overlay = false;
         }

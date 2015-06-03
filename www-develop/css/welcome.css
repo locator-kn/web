@@ -25,7 +25,7 @@
 }
 
 .welcome_select {
-    font-size: 40px;
+    font-size: 35px;
     color: white;
 }
 
@@ -199,14 +199,14 @@ a.welcome_button:hover {
 span.green {
     float: left;
     background-color: rgb(65, 191, 180);
-    padding: 0 3px;
+    padding: 3px 5px;
     margin: 5px 0;
 }
 
 span.red {
     float: left;
     background: rgb(241, 100, 73);
-    padding: 0 3px;
+    padding: 3px 5px;
     margin: 5px 0;
 }
 

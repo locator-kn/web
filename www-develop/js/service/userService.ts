@@ -6,12 +6,14 @@ module Service {
         usersIdCache;
         usersMeCache;
 
-        constructor(private $http, private basePath, private $location, private HelperService, private CacheFactory) {
+
+        constructor(private Upload, private $http, private $rootScope, private basePath, private $location, private HelperService, private CacheFactory) {
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
 
             this.usersIdCache = CacheFactory.createCache('usersId');
             this.usersMeCache = CacheFactory.createCache('usersMe');
+
         }
 
         getUser(_Id) {
@@ -63,6 +65,19 @@ module Service {
                     "password": password
                 }
             )
+        }
+
+        uploadImage(formData, file) {
+            // To be sure keys don't exist
+            delete formData._id;
+            delete formData._rev;
+            return this.Upload.upload({
+                url: this.basePath + '/users/my/picture',
+                fields: formData,
+                file: file
+            });
+
+
         }
 
         static serviceId:string = "UserService";

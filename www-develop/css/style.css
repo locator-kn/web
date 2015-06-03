@@ -695,6 +695,7 @@ textarea {
 
 .profile-image {
     width: 150px;
+    margin-bottom: 15px;
 }
 
 img.center {
@@ -734,15 +735,23 @@ img.center {
 .profile .save {
     width: 100%;
     text-align: center;
-    float: left;
     padding: 10px;
     text-decoration: none;
     color: white;
-    float: left;
     background: rgb(255, 70, 55);
+    float: left;
 }
 
 .profile textarea {
     min-height: 200px;
 }
 
+.trip-image a.choose-image.welcome_button {
+    color:#000;
+    border-color:#000;
+
+}
+.trip-image a.choose-image.welcome_button:hover {
+    color:#fff;
+    border-color:#000;
+}

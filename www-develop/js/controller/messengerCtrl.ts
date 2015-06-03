@@ -8,12 +8,19 @@ module Controller {
 
         overlay:boolean;
         conversations = [];
+        conversationsHash = {};
         selectedConversation:SelectedConversation = null;
         messages = [];
         textbox = '';
+        messagesIdCache;
 
-        constructor(private MessengerService, private UserService, private $rootScope, private SocketService) {
+        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime ) {
             this.getConversations();
+
+            $rootScope.$on('$stateChangeSuccess', () => {
+                    var con = this.getConversationById(this.$state.params.opponentId);
+                    this.select(con);
+                });
 
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
@@ -21,11 +28,14 @@ module Controller {
             if(this.$rootScope.authenticated) {
                 this.registerSocketEvent();
             }
+
+            this.messagesIdCache = this.CacheFactory.get('messagesId');
         }
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
                 this.messages.push(newMessage);
+                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + this.selectedConversation._id);
             });
         }
 
@@ -35,13 +45,21 @@ module Controller {
                 .then(result => {
                     this.conversations = result.data;
                     this.conversations.forEach(element => {
-
+                        this.conversationsHash[element._id] = element;
                         this.UserService.getUser(element['opponent'])
                             .then(result => {
                                 element['opponent'] = result.data;
                             });
                     });
+                    if(this.$state.params.opponentId) {
+                        var con = this.getConversationById(this.$state.params.opponentId);
+                        this.select(con);
+                    }
                 });
+        }
+
+        getConversationById(id:string) {
+            return this.conversationsHash[id];
         }
 
         // one single conversation
