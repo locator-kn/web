@@ -14,18 +14,18 @@ module Controller {
         textbox = '';
         messagesIdCache;
 
-        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime ) {
+        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
             this.getConversations();
 
             $rootScope.$on('$stateChangeSuccess', () => {
-                    var con = this.getConversationById(this.$state.params.opponentId);
-                    this.select(con);
-                });
+                var con = this.getConversationById(this.$state.params.opponentId);
+                this.select(con);
+            });
 
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
-            if(this.$rootScope.authenticated) {
+            if (this.$rootScope.authenticated) {
                 this.registerSocketEvent();
             }
 
@@ -51,7 +51,7 @@ module Controller {
                                 element['opponent'] = result.data;
                             });
                     });
-                    if(this.$state.params.opponentId) {
+                    if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
                         this.select(con);
                     }
@@ -72,6 +72,9 @@ module Controller {
 
         // select a conversation to show message content
         select(conversation:SelectedConversation) {
+            if (!conversation) {
+                return;
+            }
             this.selectedConversation = conversation;
             this.getConversation(this.selectedConversation);
         }
