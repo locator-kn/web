@@ -170,7 +170,8 @@ var app = angular.module('starter', deps)
                 var date = new Date($scope.date);
                 $scope.date = moment(date).startOf('minute').fromNow();
             },
-            template: '<p>{{date}}</p>'
+            template: '<span class="megadate">{{date}}</span>',
+            replace: true
         };
     })
 
