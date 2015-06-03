@@ -161,7 +161,8 @@ module Controller {
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
-            $('.cropper-container').remove()
+            $('.cropper-container').remove();
+            $('#image-upload').val('')
         }
 
         showNewImage(data) {
