@@ -163,3 +163,11 @@ html, body {
     float: left;
 }
 
+.date-container {
+    padding-left: 30px;
+}
+
+.date-range-container {
+    padding-top: 10px;
+}
+

@@ -75,10 +75,6 @@ module Controller {
 
             this.UserService.login(this.mail, this.password)
 
-                .error((resp) => {
-                    console.info("Login Error");
-                })
-
                 .then(result => {
                     console.info("Login Success");
                     this.getMe();
@@ -87,17 +83,15 @@ module Controller {
                     //close the dialog after success
                     this.closeDialog();
 
+                })
+                .catch((resp) => {
+                    console.info("Login Error");
                 });
         }
 
         register() {
             console.info('Register' + this.name);
             this.UserService.register(this.name, this.mail, this.password)
-
-                .error((resp) => {
-                    console.info("Register Error");
-                })
-
                 .then(result => {
                     console.info("Register Success");
                     this.getMe();
@@ -105,6 +99,10 @@ module Controller {
                     //close the dialog after success
                     this.closeDialog();
 
+                })
+                .catch((resp) => {
+                    // TODO display something to the user if registration failed
+                    console.info("Register Error");
                 });
 
 
@@ -156,23 +154,20 @@ module Controller {
         logout() {
             console.info('Logout');
             this.UserService.logout()
-                .error((resp) => {
-                    console.info("Logout Error");
-                })
-
                 .then(result => {
                     console.info("Logout Success");
                     this.$rootScope.authenticated = false;
                     this.$state.go('welcome');
+                })
+                .catch((resp) => {
+                    console.info("Logout Error");
                 });
         }
 
         getMe() {
-            return this.UserService.getMe()
+            this.UserService.getMe()
 
-                .error((resp) => {
-                    this.$rootScope.authenticated = false;
-                })
+
 
                 .then(result => {
                     this.user = result.data;
@@ -180,6 +175,10 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
+                })
+
+                .catch((resp) => {
+                    this.$rootScope.authenticated = false;
                 });
         }
 

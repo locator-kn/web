@@ -38,11 +38,10 @@
 }
 
 .messenger-container .content {
-    max-height: 50vh;
     overflow-y: scroll;
     float: left;
     width: 100%;
-    padding: 15px;
+    height: calc(100vh - 200px);
 }
 
 .messenger-container .content .message {
@@ -51,11 +50,13 @@
 
 .messenger-container .content .message {
     float: left;
+    margin-bottom: 30px;
 }
 
 .messenger-container .content .message p {
     background: #f6bfba;
     max-width: 65%;
+    position: relative;
     padding: 15px;
 }
 
@@ -65,16 +66,20 @@
     min-width: 50%;
 }
 
-button#chat_submit {
+.messenger-button {
     width: 60px;
     height: 40px;
     border: none;
+    float: left;
+}
+
+button#chat_submit {
     float: right;
 }
 
 textarea#chat_box {
     height: 40px;
-    width: calc(100% - 64px);
+    width: calc(100% - 120px);
     background: white;
     border: none;
     float: left;
@@ -86,5 +91,28 @@ textarea#chat_box {
     width: 100%;
 }
 
+span.bubble {
+    height: 20px;
+    width: 30px;
+    background-color: rgb(246, 191, 186);
+    float: left;
+    position: absolute;
+    bottom: -4px;
+    left: -16px;
+    transform: rotate(52deg);
+}
 
+.out span.bubble {
+    right: -13px;
+    background: #b8e4e0;
+    left: inherit;
+    top: 38px;
+    transform: rotate(35deg);
+}
 
+.emoji-overlay {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    left: 60px;
+}

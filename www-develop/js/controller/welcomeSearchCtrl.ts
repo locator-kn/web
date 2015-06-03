@@ -43,7 +43,7 @@ module Controller {
         search() {
             this.$state.go('search', {
                 city: this.selectedCity.title,
-                moods: this.HelperService.getMoodQuery(this.selectedMood)
+                moods: this.selectedMood.query_name
             });
         }
 

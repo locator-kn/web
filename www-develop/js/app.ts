@@ -67,7 +67,8 @@ var deps = [
     'ngLodash',
     'btford.socket-io',
     'angular-cache',
-    'locator.datepicker'
+    'locator.datepicker',
+    'emoji'
 ];
 
 var app = angular.module('starter', deps)
@@ -76,7 +77,11 @@ var app = angular.module('starter', deps)
     .constant('basePathRealtime', '<%= basePathRealtime %>')
 
     .config(function (CacheFactoryProvider) {
-        angular.extend(CacheFactoryProvider.defaults, { maxAge: 15 * 60 * 1000 });
+        angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
+    })
+
+    .config(function ($sceProvider) {
+        $sceProvider.enabled(false);
     })
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -165,7 +170,8 @@ var app = angular.module('starter', deps)
                 var date = new Date($scope.date);
                 $scope.date = moment(date).startOf('minute').fromNow();
             },
-            template: '<p>{{date}}</p>'
+            template: '<span class="megadate">{{date}}</span>',
+            replace: true
         };
     })
 
