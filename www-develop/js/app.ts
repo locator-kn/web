@@ -66,7 +66,8 @@ var deps = [
     'ngLodash',
     'btford.socket-io',
     'angular-cache',
-    'locator.datepicker'
+    'locator.datepicker',
+    'emoji'
 ];
 
 var app = angular.module('starter', deps)
