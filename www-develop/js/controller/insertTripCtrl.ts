@@ -200,6 +200,9 @@ module Controller {
         }
 
         getLocationDetails() {
+            if(!this.selectedPlaceDetails) {
+                return;
+            }
             return {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
