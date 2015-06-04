@@ -16,7 +16,6 @@
         <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
 
     </div>
-
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
@@ -25,15 +24,16 @@
             <div class="moods">
                 <div class="feeling-text">
                     <p>Wie fühlt sich dein Trip an?</p>
+                    <moodselection selected-moods="itc.selectedMoods" selectable-moods="itc.selectableMoods" query="itc.query"></moodselection>
                 </div>
-                <div class="add-mood">
-                    <img src="images/icons/plus.png">
-                </div>
-                <div class="show-moods">
 
-                </div>
+                <!--<div class="add-mood">-->
+                    <!--<img src="images/icons/plus.png">-->
+                <!--</div>-->
+                <!--<div class="show-moods">-->
+
+                <!--</div>-->
             </div>
-
         </div>
         <div class="content-bottom">
             <div class="left-section">
