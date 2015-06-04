@@ -209,11 +209,14 @@ module Controller {
                 end_date: this.endDateReal,
                 accommodation: this.accommodation,
                 accommodation_equipment: this.accommodationEquipment,
+                persons: this.persons,
+                days: this.days,
                 //moods
                 //locations
                 //pics
                 //active
                 //delete
+
                 type: 'trip'
             };
             var documentMetaData = {
