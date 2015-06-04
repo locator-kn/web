@@ -122,7 +122,7 @@ module Controller {
         imageChoice() {
             var cropperElem = $('#cropping-preview');
             cropperElem.cropper({
-                aspectRatio: 1024 / 300,
+                aspectRatio: 1024 / 600,
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
