@@ -5,7 +5,7 @@
 
             <span class="red">Ich biete 3 Tage</span>
 
-            <span class="red"><div list-selection multiple=true values="wc.moods"
+            <span class="red"><div list-selection values="wc.moods"
                                    selected-model="wc.selectedMood"></div></span>
 
             <span class="fullwidth"><span class="red"> <span class="margin-right">in</span>
@@ -15,8 +15,8 @@
 
             <div class="fullwidth welcome_button_wrapper">
                 <a class="welcome_button"
-                   ui-sref="search({city: wc.selectedCity.query_name, moods: wc.selectedMood.query_name})">Trip
-                    suchen</a>
+                   ng-click="wc.create()">Trip
+                    einstellen</a>
             </div>
         </div>
     </div>
