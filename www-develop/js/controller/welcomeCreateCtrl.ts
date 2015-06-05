@@ -10,7 +10,7 @@ module Controller {
 
         dataAvailable:boolean = false;
 
-        constructor(private $scope, private $rootScope, private $element, private DataService, private $q) {
+        constructor(private $state, private $scope, private $rootScope, private $element, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
@@ -37,6 +37,16 @@ module Controller {
                     angular.element('.welcome_container .welcome_logo').addClass('visible');
                 });
 
+
+        }
+
+
+        create() {
+            this.$state.go('insertTrip', {
+                city: this.selectedCity.title,
+                moods: this.selectedMood.query_name
+            });
+            console.info(this.selectedCity);
 
         }
 
