@@ -134,7 +134,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('insertTrip', {
-                url: "/insertTrip",
+                url: "/insertTrip/?city&moods",
                 templateUrl: "../templates/insertTrip/insertTrip.html"
             })
 
