@@ -69,9 +69,11 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-                HelperService.getMoods($state.params.moods, moods => {
-                    this.selectedMoods = moods;
-                });
+                if($state.params.moods) {
+                    HelperService.getMoods($state.params.moods, moods => {
+                        this.selectedMoods = moods;
+                    });
+                }
             });
 
             $rootScope.overlay = false;
