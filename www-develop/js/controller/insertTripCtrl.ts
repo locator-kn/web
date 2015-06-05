@@ -65,13 +65,11 @@ module Controller {
 
             this.UserService.getMe().then(user => {
                 this.me = user.data;
-            })
+            });
 
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-                HelperService.getMoods($state.params.moods, moods => {
-                    this.selectedMoods = moods;
-                });
+                this.selectedMoods = $state.params.moods;
             });
 
             $rootScope.overlay = false;
@@ -200,7 +198,7 @@ module Controller {
         }
 
         getLocationDetails() {
-            if(!this.selectedPlaceDetails) {
+            if (!this.selectedPlaceDetails) {
                 return;
             }
             return {
