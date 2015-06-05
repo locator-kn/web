@@ -33,7 +33,7 @@
         <span ng-click="mc.selectEmoji(item)" ng-bind-html="item | emoji" ng-repeat="item in mc.emojis"></span>
 
     </div>
-    <textarea id="chat_box" ng-model="mc.textbox" ng-keyup="mc.sendMessage($event)"></textarea>
+    <div contenteditable="true" id="chat_box" ng-bind-html="mc.textbox | emoji" ng-keyup="mc.sendMessage($event)"></div>
     <button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>
 </form>
 

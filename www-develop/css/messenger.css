@@ -77,7 +77,7 @@ button#chat_submit {
     float: right;
 }
 
-textarea#chat_box {
+#chat_box {
     height: 40px;
     width: calc(100% - 120px);
     background: white;
