@@ -224,7 +224,7 @@ module Controller {
                 accommodation_equipment: this.accommodationEquipment,
                 persons: this.persons,
                 days: this.days,
-                //moods
+                moods: this.selectedMoods,
                 //locations
                 //pics
                 //active
