@@ -34,6 +34,9 @@ module Controller {
         endDateReal:any = '';
         selectedPlaceDetails:any;
 
+        selectedMoods:any = [];
+        selectableMoods:any = [];
+
         accommodationEquipment:string[] = [];
         progressPercentage:number;
         googlePlacesOptions = {
@@ -52,8 +55,9 @@ module Controller {
         revision:string = '';
         documentWasCreated:boolean = false;
         me:any;
+        query:any = {};
 
-        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService) {
+        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
             $scope.$on('mapentrySelected', (event, details)  => {
                 this.selectedPlaceDetails = details;
@@ -61,10 +65,16 @@ module Controller {
 
             this.UserService.getMe().then(user => {
                 this.me = user.data;
-            })
+            });
+
+            this.DataService.getMoods().then(result => {
+                this.selectableMoods = result.data;
+                //this.selectedMoods = $state.params.moods;
+            });
 
             $rootScope.overlay = false;
         }
+
 
         isActive(item) {
             return item == this.activeItem;
@@ -110,7 +120,7 @@ module Controller {
         imageChoice() {
             var cropperElem = $('#cropping-preview');
             cropperElem.cropper({
-                aspectRatio: 1024 / 300,
+                aspectRatio: 1024 / 600,
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
@@ -161,7 +171,8 @@ module Controller {
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
-            $('.cropper-container').remove()
+            $('.cropper-container').remove();
+            $('#image-upload').val('')
         }
 
         showNewImage(data) {
@@ -187,6 +198,9 @@ module Controller {
         }
 
         getLocationDetails() {
+            if (!this.selectedPlaceDetails) {
+                return;
+            }
             return {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
@@ -208,11 +222,14 @@ module Controller {
                 end_date: this.endDateReal,
                 accommodation: this.accommodation,
                 accommodation_equipment: this.accommodationEquipment,
-                //moods
+                persons: this.persons,
+                days: this.days,
+                moods: this.selectedMoods,
                 //locations
                 //pics
                 //active
                 //delete
+
                 type: 'trip'
             };
             var documentMetaData = {

@@ -9,8 +9,6 @@ module Controller {
         tripCities = [];
 
         constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private lodash) {
-
-
             this.query = $location.search();
             this.query.accommodation = false;
 

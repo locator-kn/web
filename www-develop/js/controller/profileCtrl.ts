@@ -41,19 +41,24 @@ module Controller {
             this.UserService.getUser(_id)
                 .then(result => {
                     this.user = result.data;
-                    this.profileImagePath = result.data.picture.picture;
+                    if (!result.data.picture) {
+                        this.profileImagePath = "/images/profile.jpg"
+                    } else {
+                        this.profileImagePath = result.data.picture.picture;
+                    }
                     this.user.age = new Date(result.data.age);
                 });
         }
 
         updateProfile() {
             this.UserService.updateProfile(this.user)
-                .error(result => {
-                    console.info('error during update');
-                })
+
                 .then(result => {
                     console.info('updated profile');
                     this.editTrigger();
+                })
+                .catch(result => {
+                    console.info('error during update');
                 });
         }
 
@@ -76,6 +81,12 @@ module Controller {
 
         submitConversation() {
             this.MessengerService.startConversation(this.textMessage, this.user._id)
+
+                .then(result => {
+                    console.info("Started Conversation");
+                    this.closeDialog();
+                    this.$state.go("messenger.opponent", {opponentId: result.data.id});
+                })
                 .error(result => {
                     console.info("Oops");
                     console.info(result);
@@ -85,11 +96,6 @@ module Controller {
                         this.$state.go("messenger.opponent", {opponentId: result.data.id});
 
                     }
-                })
-                .then(result => {
-                    console.info("Started Conversation");
-                    this.closeDialog();
-                    this.$state.go("messenger.opponent", {opponentId: result.data.id});
                 });
 
         }
@@ -121,7 +127,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
-            $('#image-upload').click();
+            $('#image-upload-profile').click();
         }
 
         imageChoice() {
@@ -169,12 +175,13 @@ module Controller {
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
-            $('.cropper-container').remove()
+            $('.cropper-container').remove();
+            $('#image-upload-profile').val('');
         }
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.profileImagePath = data.imageLocation.picture;
+            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();
         }
 
 

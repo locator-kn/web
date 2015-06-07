@@ -13,6 +13,10 @@ module Service {
         }
 
         getMoods(moodqueryString, callback) {
+            if(!moodqueryString) {
+                // resolve with empty array if moodqueryString is not defined
+                return callback([])
+            }
             this.DataService.getMoods()
                 .then(result => {
                     var allMoods = result.data;
@@ -33,7 +37,6 @@ module Service {
 
         saveContext() {
             localStorage.setItem('state', this.$state.current.name);
-            debugger
             localStorage.setItem('stateParams', JSON.stringify(this.$state.params));
         }
 

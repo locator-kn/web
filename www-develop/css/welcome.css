@@ -3,17 +3,20 @@
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    background: #76C3BD;
     transform: translateY(-40%) scale(0.9);
     transition: visibility 0s 0.3s, opacity 0.3s, transform 0.3s;
     text-decoration: none;
     list-style-type: none;
-    padding: 20px;
+    padding: 8px;
     z-index: 1000;
     display: block;
-
+    background: #41BFB4;
     max-height: 400px;
     overflow-y: auto;
+}
+
+.createview .welcome_select ul {
+    background: rgb(241, 100, 73);
 }
 
 .welcome_select .open ul {
@@ -199,14 +202,14 @@ a.welcome_button:hover {
 span.green {
     float: left;
     background-color: rgb(65, 191, 180);
-    padding: 3px 5px;
+    padding: 3px 10px;
     margin: 5px 0;
 }
 
 span.red {
     float: left;
     background: rgb(241, 100, 73);
-    padding: 3px 5px;
+    padding: 3px 10px;
     margin: 5px 0;
 }
 

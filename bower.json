@@ -20,15 +20,16 @@
     "ng-map-autocomplete": "~1.0.3",
     "cropper": "~0.9.3",
     "ng-file-upload": "~4.2.1",
-    "angular-selection-list": "~0.3.2",
+    "angular-selection-list": "~0.3.4",
     "angular-progress-arc": "~1.0.0",
     "ng-lodash": "~0.2.3",
     "angular-material": "~0.9.4",
     "jquery-ui": "~1.11.4",
     "angular-socket-io": "~0.7.0",
     "angular-cache": "~4.2.0",
-    "angular-daterange-picker": "~0.1.1",
+    "angular-daterange-picker": "~0.2.0",
     "angular-mood-selection": "~1.0.3"
+
   },
   "resolutions": {
     "angular": "~1.3"

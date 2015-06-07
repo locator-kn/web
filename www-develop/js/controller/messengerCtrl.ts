@@ -3,6 +3,7 @@ interface SelectedConversation {
     opponent:any;
 }
 
+
 module Controller {
     export class MessengerCtrl {
 
@@ -13,23 +14,31 @@ module Controller {
         messages = [];
         textbox = '';
         messagesIdCache;
+        showEmojis:boolean;
 
-        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime ) {
+        emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
+
+        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
             this.getConversations();
 
             $rootScope.$on('$stateChangeSuccess', () => {
-                    var con = this.getConversationById(this.$state.params.opponentId);
-                    this.select(con);
-                });
+                var con = this.getConversationById(this.$state.params.opponentId);
+                this.select(con);
+            });
 
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
-            if(this.$rootScope.authenticated) {
+            if (this.$rootScope.authenticated) {
                 this.registerSocketEvent();
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
+        }
+
+        selectEmoji(item) {
+            this.textbox = this.textbox + ' ' + item;
+            this.showEmojis = false;
         }
 
         registerSocketEvent() {
@@ -51,7 +60,7 @@ module Controller {
                                 element['opponent'] = result.data;
                             });
                     });
-                    if(this.$state.params.opponentId) {
+                    if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
                         this.select(con);
                     }
@@ -72,19 +81,23 @@ module Controller {
 
         // select a conversation to show message content
         select(conversation:SelectedConversation) {
+            if (!conversation) {
+                return;
+            }
             this.selectedConversation = conversation;
             this.getConversation(this.selectedConversation);
         }
 
         _sendMessage = () => {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
-                .error(result => {
-                    console.info("Error");
-                })
+
                 .then(result => {
                     this.messages.push({message: this.textbox, from: this.$rootScope.userID});
                     this.textbox = '';
                     console.info("Msg Success");
+                })
+                .catch(result => {
+                    console.info("Error");
                 });
         };
 
