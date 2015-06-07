@@ -1,0 +1,35 @@
+<div class="insert-trip-container" ng-controller="TripCtrl as tc">
+    <div class="trip-image">
+        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{tc.images.picture}}">
+    </div>
+
+    <div class="input-content">
+        <div class="content-header">
+            <div class="profile-image">
+                <img ng-src="http://locator.in.htwg-konstanz.de{{itc.me.picture.picture}}">
+            </div>
+        </div>
+        <div class="content-bottom">
+            <div class="left-section">
+                <p>Allgemeine Info</p>
+                <p>{{tc.trip.city.title}}</p>
+                <p>
+                    <resultdate date="tc.trip.start_date"></resultdate>
+                    <resultdate date="tc.trip.end_date"></resultdate>
+                </p>
+                <p ng-show="tc.trip.accommodation">Übernachtung</p>
+                <p> {{tc.trip.persons}} Personen</p>
+            </div>
+            <div class="right-section">
+                <h1>{{tc.trip.title}}</h1>
+                <h2>Beschreibung</h2>
+                <p>{{tc.trip.description}}</p>
+                <h2>Budget</h2>
+                <p>{{tc.trip.description}}</p>
+                <h2>Unterkunft</h2>
+                <h2>Erfolge</h2>
+            </div>
+        </div>
+    </div>
+</div>
+

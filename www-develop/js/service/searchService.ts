@@ -62,6 +62,10 @@ module Service {
             return promise;
         }
 
+        getTripById(tripId) {
+            return this.$http.get('http://locator.in.htwg-konstanz.de:3001/api/v1/trips/'+tripId);
+        }
+
 
         static serviceId:string = "SearchService";
     }
