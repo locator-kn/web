@@ -1,6 +1,6 @@
 <div class="insert-trip-container" ng-controller="TripCtrl as tc">
     <div class="trip-image">
-        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{tc.images.picture}}">
+        <img class="trip-image" ng-src="http://locator.in.htwg-konstanz.de{{tc.trip.images.picture}}">
     </div>
 
     <div class="input-content">
@@ -11,23 +11,27 @@
         </div>
         <div class="content-bottom">
             <div class="left-section">
-                <p>Allgemeine Info</p>
-                <p>{{tc.trip.city.title}}</p>
-                <p>
-                    <resultdate date="tc.trip.start_date"></resultdate>
-                    <resultdate date="tc.trip.end_date"></resultdate>
-                </p>
-                <p ng-show="tc.trip.accommodation">Übernachtung</p>
-                <p> {{tc.trip.persons}} Personen</p>
+                <div class="general-trip-info">
+                    <p>Allgemeine Info</p>
+                    <p>{{tc.trip.city.title}}</p>
+                    <p>
+                        <resultdate date="tc.trip.start_date"></resultdate>
+                        <resultdate date="tc.trip.end_date"></resultdate>
+                    </p>
+                    <p ng-show="tc.trip.accommodation">Übernachtung</p>
+                    <p> {{tc.trip.persons}} Personen</p>
+                </div>
             </div>
             <div class="right-section">
-                <h1>{{tc.trip.title}}</h1>
-                <h2>Beschreibung</h2>
-                <p>{{tc.trip.description}}</p>
-                <h2>Budget</h2>
-                <p>{{tc.trip.description}}</p>
-                <h2>Unterkunft</h2>
-                <h2>Erfolge</h2>
+                <div class="trip-info">
+                    <h1>{{tc.trip.title}}</h1><br>
+                    <h5>Beschreibung</h5>
+                    <p>{{tc.trip.description}}</p>
+                    <h5>Budget</h5>
+                    <p>{{tc.trip.description}}</p>
+                    <h5>Unterkunft</h5>
+                    <h5>Erfolge</h5>
+                </div>
             </div>
         </div>
     </div>
