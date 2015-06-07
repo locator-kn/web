@@ -28,7 +28,7 @@
     "angular-socket-io": "~0.7.0",
     "angular-cache": "~4.2.0",
     "angular-daterange-picker": "~0.1.1",
-    "angular-mood-selection": "~1.0.2"
+    "angular-mood-selection": "~1.0.3"
   },
   "resolutions": {
     "angular": "~1.3"

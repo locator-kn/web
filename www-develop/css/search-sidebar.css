@@ -110,23 +110,6 @@ html, body {
     color: rgb(33, 205, 196);
 }
 
-.mood-selection-container {
-    padding: 0 15px;
-}
-
-.mood-selection-container .selected-mood {
-    padding-bottom: 5px;
-}
-
-.selected-mood div{
-    display: inline-block;
-}
-
-.mood-selection-container .icon {
-    height: 25px;
-    margin-right: 5px;
-}
-
 .search-menu .item {
     max-width: 50px;
 }
@@ -142,10 +125,6 @@ html, body {
 .city-suggestion:hover {
     font-weight: bold;
     cursor: default;
-}
-
-.remove-mood {
-    float: right;
 }
 
 .result-img {
