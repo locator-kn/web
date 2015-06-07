@@ -1,9 +1,9 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
     <div class="row">
-        <div class="result col-sm-4" ng-repeat="result in src.results">
+        <div class="result col-sm-4" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
             <div class="result-left">
-                <img class="img-responsive" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
+                <img class="img-responsive" ng-src="http://locator.in.htwg-konstanz.de{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
                 <p>
                     <resultdate date="result.start_date"></resultdate> -
                     <resultdate date="result.end_date"></resultdate>
