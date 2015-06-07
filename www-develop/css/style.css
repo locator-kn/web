@@ -550,6 +550,8 @@ a.close-modal {
 
 .results-container.container {
     position: relative;
+    padding-left: 35px;
+    height: calc(100vh - 60px);
 }
 
 .results-container.loading .results {
