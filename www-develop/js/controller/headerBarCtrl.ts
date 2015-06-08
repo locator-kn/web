@@ -167,8 +167,6 @@ module Controller {
         getMe() {
             this.UserService.getMe()
 
-
-
                 .then(result => {
                     this.user = result.data;
                     this.$rootScope.authenticated = true;
