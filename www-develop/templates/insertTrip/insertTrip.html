@@ -47,21 +47,12 @@
                         <div class="circle" ng-click="itc.persons=4" ng-class="{'circle-selected': itc.persons == 4}">4</div>
                         <div class="circle" ng-click="itc.persons=5" ng-class="{'circle-selected': itc.persons == 5}">4+</div>
                     </div>
-            <div class="right-section">
-                <input type="text" placeholder="Wo no?" ng-map-autocomplete details="itc.selectedPlaceDetails" options="itc.googlePlacesOptions" ng-model="itc.tripCity">
-
-                <input type="text" ng-required="true"  placeholder="Benenne deinen Trip" ng-model="itc.tripTitle">
-                <textarea class="trip-description" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription"></textarea>
-                <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney"></textarea>
-                <div class="accommodation">
-                    <span>Übernachtung</span>
-                    <div class="circle" ng-click="itc.toggleAccommodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
                 </div>
                 <div class="right-section">
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" >
                     <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" >
                     <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" ></textarea>
-                    <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney"></textarea>
+                    <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
                     <div class="accommodation">
                         <span>Übernachtung</span>
                         <div class="circle" ng-click="itc.toggleAccommodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
@@ -80,6 +71,7 @@
                         <!--<button ng-click="itc.saveTrip()">SPEICHERN</button>-->
                         <input type="submit" ng-click="itc.saveTrip()" value="SPEICHERN" />
                     </div>
+                </div>
                 </div>
             </div>
         </div>
