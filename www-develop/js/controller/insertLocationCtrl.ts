@@ -36,6 +36,7 @@ module Controller {
         constructor(private $scope, private $rootScope, private InsertLocationService) {
             this.map = {
                 center: {
+                    // kn fh
                     latitude: 47.668403,
                     longitude: 9.170499
                 },
