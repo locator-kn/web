@@ -46,7 +46,6 @@ module Controller {
                 city: this.selectedCity.title,
                 moods: this.selectedMood.query_name
             });
-            console.info(this.selectedCity);
 
         }
 

@@ -27,9 +27,16 @@ gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale', 'img']);
 gulp.task('ts', function () {
     var live = process.argv.indexOf('--live') !== -1;
     var baseIdx = process.argv.indexOf('--base');
+    var production = process.argv.indexOf('--production');
     var baseUrl = '';
     if (baseIdx !== -1) {
         baseUrl = process.argv[baseIdx + 1];
+    }
+
+    if(production !== -1) {
+        live = true;
+        baseIdx = 1;
+        baseUrl = '/api/v1';
     }
 
     var templateObject = {

@@ -41,6 +41,7 @@
 /// <reference path="./service/socketService.ts" />
 /// <reference path="./service/messengerService.ts" />
 /// <reference path="./controller/messengerCtrl.ts" />
+/// <reference path="./controller/tripCtrl.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -88,7 +89,6 @@ var app = angular.module('starter', deps)
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
 
-
             .state('welcome', {
                 url: "/welcome",
                 templateUrl: "../templates/welcome/welcome.html",
@@ -103,6 +103,11 @@ var app = angular.module('starter', deps)
                 url: "/search?city&start_date&end_date&range&persons&moods&accomodations&o",
                 templateUrl: "../templates/search/search.html",
                 reloadOnSearch: false
+            })
+
+            .state('trip', {
+                url: "/trip/{tripId}",
+                templateUrl: "../templates/search/trip.html",
             })
 
             .state('tripresults', {
@@ -147,8 +152,7 @@ var app = angular.module('starter', deps)
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .
-    controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
+    .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
@@ -162,6 +166,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
+    .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
 
 
     .directive('megadate', function () {
