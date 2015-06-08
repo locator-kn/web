@@ -31,6 +31,10 @@ body {
     z-index: -1;
 }
 
+.absolute-slider li {
+    list-style: none;
+}
+
 .relative {
     position: relative;
 }
@@ -747,11 +751,12 @@ img.center {
 }
 
 .trip-image a.choose-image.welcome_button {
-    color:#000;
-    border-color:#000;
+    color: #000;
+    border-color: #000;
 
 }
+
 .trip-image a.choose-image.welcome_button:hover {
-    color:#fff;
-    border-color:#000;
+    color: #fff;
+    border-color: #000;
 }
