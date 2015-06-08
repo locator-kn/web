@@ -14,10 +14,7 @@
                 <div class="general-trip-info">
                     <p>Allgemeine Info</p>
                     <p>{{tc.trip.city.title}}</p>
-                    <p>
-                        <resultdate date="tc.trip.start_date"></resultdate>
-                        <resultdate date="tc.trip.end_date"></resultdate>
-                    </p>
+                    <p> {{tc.trip.start_date}} - {{tc.trip.end_date}}</p>
                     <p>Übernachtung</p>
                     <p> {{tc.trip.persons}} Personen</p>
                 </div>
@@ -30,7 +27,6 @@
                     <h5>Budget</h5>
                     <p>{{tc.trip.description}}</p>
                     <h5>Unterkunft</h5>
-                    <h5>Erfolge</h5>
                 </div>
             </div>
         </div>
