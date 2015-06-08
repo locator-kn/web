@@ -29,7 +29,7 @@
     "angular-cache": "~4.2.0",
     "angular-daterange-picker": "~0.2.0",
     "angular-mood-selection": "~1.0.3",
-    "angular-fix-on-scroll": "~0.1.1"
+    "angular-fix-on-scroll": "~0.2.0"
   },
   "resolutions": {
     "angular": "~1.3"
