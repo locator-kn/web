@@ -599,11 +599,10 @@ a.close-modal {
     bottom: 0;
     z-index: 1000;
 }
-
 .trip-image {
     width: 100%;
     height: 450px;
-    background: rgba(255, 255, 255, .4);
+    background-image: url("/images/locator_tileable_pattern_20px.png");
     position: relative;
 }
 
@@ -761,4 +760,8 @@ img.center {
 .trip-image a.choose-image.welcome_button:hover {
     color: #fff;
     border-color: #000;
+}
+
+.placeholder-tiles {
+    background-image: url("/images/locator_tileable_pattern_20px.png");
 }

@@ -100,7 +100,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('search', {
-                url: "/search?city&start_date&end_date&range&persons&moods&accomodations&o",
+                url: "/search?city&start_date&end_date&days&persons&moods&accomodations",
                 templateUrl: "../templates/search/search.html",
                 reloadOnSearch: false
             })
@@ -108,11 +108,6 @@ var app = angular.module('starter', deps)
             .state('trip', {
                 url: "/trip/{tripId}",
                 templateUrl: "../templates/search/trip.html",
-            })
-
-            .state('tripresults', {
-                url: "/trips?city&budget&checkin&checkout&travellersCount&moods&accomodations",
-                templateUrl: "../templates/tripresults.html"
             })
 
             .state('messenger', {
