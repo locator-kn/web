@@ -144,6 +144,10 @@ var app = angular.module('starter', deps)
                 url: "/insertTrip/?city&moods",
                 templateUrl: "../templates/insertTrip/insertTrip.html"
             })
+            .state('insertLocation', {
+                url: "/insert-location",
+                templateUrl: "../templates/insertLocation/insertLocation.html"
+            })
 
             .state('editProfile', {
                 url: "/editProfile",
