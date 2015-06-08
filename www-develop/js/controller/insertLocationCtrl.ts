@@ -29,7 +29,7 @@ module Controller {
             description: '',
             budget: '',
             category: '',
-            selectedMoods: []
+            selectedMoods: [],
             city: {}
         };
 
