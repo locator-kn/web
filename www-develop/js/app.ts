@@ -87,7 +87,6 @@ var app = angular.module('starter', deps)
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
 
-
             .state('welcome', {
                 url: "/welcome",
                 templateUrl: "../templates/welcome/welcome.html",
@@ -146,8 +145,7 @@ var app = angular.module('starter', deps)
         $urlRouterProvider.otherwise('welcome')
     })
 
-    .
-    controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
+    .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
     .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
