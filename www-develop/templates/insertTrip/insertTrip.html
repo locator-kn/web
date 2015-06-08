@@ -14,9 +14,8 @@
         <a class="choose-image welcome_button">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
         <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
-
     </div>
-    <form >
+    <form novalidate>
         <div class="input-content">
             <div class="content-header">
                 <div class="profile-image">
@@ -49,9 +48,9 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" >
-                    <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" >
-                    <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" ></textarea>
+                    <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" required>
+                    <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
+                    <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" required></textarea>
                     <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
                     <div class="accommodation">
                         <span>Übernachtung</span>
@@ -69,9 +68,8 @@
                     </div>
                     <div class="save-trip">
                         <!--<button ng-click="itc.saveTrip()">SPEICHERN</button>-->
-                        <input type="submit" ng-click="itc.saveTrip()" value="SPEICHERN" />
+                        <input type="submit" value="SPEICHERN" />
                     </div>
-                </div>
                 </div>
             </div>
         </div>
