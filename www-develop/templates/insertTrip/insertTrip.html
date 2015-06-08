@@ -3,7 +3,7 @@
         <img src="{{itc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
         <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
     </div>
-    <div class="trip-image" ng-click="itc.showImageChooser()">
+    <div id="trip-image" class="trip-image" ng-click="itc.showImageChooser()">
         <progress-arc
             ng-hide="itc.uploadIsDone"
             class="progressbar"
