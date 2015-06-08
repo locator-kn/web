@@ -15,6 +15,11 @@ module Service {
                 file: file
             });
         }
+
+        saveLocation(location) {
+            return this.$http.post(this.basePath + '/users/my/locations', location)
+        }
+
         static serviceId:string = "InsertLocationService";
     }
 }
