@@ -160,6 +160,8 @@ module Controller {
                     this.documentId = data.id;
                     this.revision = data.rev;
                     this.uploadIsDone = true;
+                    var tripImage = document.getElementById("trip-image");
+                    tripImage.style.height = "auto";
                 });
 
             //this.InsertTripService.uploadImage(formData);
