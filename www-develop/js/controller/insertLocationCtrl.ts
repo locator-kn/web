@@ -18,6 +18,14 @@ module Controller {
         map:any = {};
         clickedMarker:any = {};
 
+        locationFormDetails:any = {
+            title: '',
+            description: '',
+            budget: '',
+            category: '',
+            selectedMoods: []
+        };
+
         constructor(private $scope, private $rootScope, private InsertLocationService) {
             this.map = {
                 center: {
