@@ -72,7 +72,8 @@ var deps = [
     'angular-cache',
     'locator.datepicker',
     'locator.scrollfix',
-    'emoji'
+    'emoji',
+    'uiGmapgoogle-maps'
 ];
 
 var app = angular.module('starter', deps)
@@ -83,6 +84,11 @@ var app = angular.module('starter', deps)
     .config(function (CacheFactoryProvider) {
         angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
     })
+    /*.config(function (GoogleMapApiProvider) {
+        GoogleMapApiProvider.configure({
+            china: false
+        });
+    })*/
 
     .config(function ($sceProvider) {
         $sceProvider.enabled(false);

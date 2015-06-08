@@ -15,8 +15,52 @@ module Controller {
 
         locationTitle:string = '';
 
-        constructor(private $scope, private $rootScope, private InsertLocationService) {
+        map:any = {};
+        clickedMarker:any = {};
 
+        constructor(private $scope, private $rootScope, private InsertLocationService) {
+            this.map = {
+                center: {
+                    latitude: 47.668403,
+                    longitude: 9.170499
+                },
+                zoom: 12,
+                clickedMarker: {
+                    id: 0,
+                    options: {
+                        labelClass: 'marker-labels',
+                        labelAnchor: '50 0'
+                    },
+                    latitude: null,
+                    longitude: null
+                },
+                events: this.getEvents()
+            };
+        }
+
+        getEvents() {
+            return {
+                click: (mapModel, eventName, originalEventArgs) => {
+                    this.clickMapEvent(mapModel, eventName, originalEventArgs);
+                }
+            }
+        }
+
+        clickMapEvent(mapModel, eventName, originalEventArgs) {
+            var e = originalEventArgs[0];
+            var lat = e.latLng.lat(),
+                lon = e.latLng.lng();
+            this.map.clickedMarker = {
+                id: 0,
+                options: {
+                    labelClass: "marker-labels",
+                    labelAnchor:"50 0"
+                },
+                latitude: lat,
+                longitude: lon
+            };
+            console.log(this.map.clickedMarker);
+            this.$scope.$apply();
         }
 
         selectImage(file) {

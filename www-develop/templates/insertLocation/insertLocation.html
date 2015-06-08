@@ -37,8 +37,15 @@
             <div class="content-bottom">
                 <div class="left-section" set-class-when-at-top="fix-to-top">
                     left
+
                 </div>
                 <div class="right-section">
+                    <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
+                        <ui-gmap-marker coords="ilc.map.clickedMarker"  idKey="ilc.map.clickedMarker.id" options="ilc.map.clickedMarker.options">
+
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
+
                     right
                 </div>
             </div>
