@@ -10,7 +10,7 @@ module Service {
             delete formData._id;
             delete formData._rev;
             return this.Upload.upload({
-                url: this.basePath + '/trips/image',
+                url: this.basePath + '/users/my/locations/picture',
                 fields: formData,
                 file: file
             });
