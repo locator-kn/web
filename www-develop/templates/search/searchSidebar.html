@@ -1,5 +1,5 @@
 <div class="container-sidebar">
-    <div class="search-menu">
+    <div class="search-menu" ng-class="{'search-menu-inactive': sc.isActive('')}">
 
         <div class="item" ng-class="{'item-active': sc.isActive('search')}" >
             <img src="/images/icons/wegweiser.png" ng-click="sc.toggleActiveItem('search')">
