@@ -24,7 +24,10 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
     transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
-    min-width: 200px;
+}
+
+.welcome_select ul {
+    min-width: 220px;
 }
 
 .welcome_select {
