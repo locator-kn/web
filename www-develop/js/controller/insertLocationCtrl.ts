@@ -29,7 +29,7 @@ module Controller {
             description: '',
             budget: '',
             category: '',
-            selectedMoods: [],
+            moods: [],
             city: {}
         };
 
@@ -138,7 +138,6 @@ module Controller {
                 formData._id = this.documentId;
                 formData._rev = this.revision;
             }
-
             this.InsertLocationService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
