@@ -69,6 +69,7 @@ var deps = [
     'btford.socket-io',
     'angular-cache',
     'locator.datepicker',
+    'locator.scrollfix',
     'emoji'
 ];
 
