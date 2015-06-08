@@ -10,7 +10,7 @@ module Controller {
         documentWasCreated:boolean = false;
         documentId:string = '';
         revision:string = '';
-        imageHasBeenUploaded:string = '';
+        imageHasBeenUploaded:boolean = false;
         headerImagePath:string = '';
 
         locationTitle:string = '';
