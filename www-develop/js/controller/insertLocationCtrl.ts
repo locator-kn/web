@@ -4,6 +4,6 @@ module Controller {
         constructor() {
 
         }
-        static controllerId:string = "InsertLocation";
+        static controllerId:string = "InsertLocationCtrl";
     }
 }
