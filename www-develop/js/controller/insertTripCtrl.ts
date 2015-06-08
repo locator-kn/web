@@ -59,9 +59,6 @@ module Controller {
 
         constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
-            $scope.$on('mapentrySelected', (event, details)  => {
-                this.selectedPlaceDetails = details;
-            });
 
             this.UserService.getMe().then(user => {
                 this.me = user.data;

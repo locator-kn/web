@@ -47,6 +47,15 @@
                         <div class="circle" ng-click="itc.persons=4" ng-class="{'circle-selected': itc.persons == 4}">4</div>
                         <div class="circle" ng-click="itc.persons=5" ng-class="{'circle-selected': itc.persons == 5}">4+</div>
                     </div>
+            <div class="right-section">
+                <input type="text" placeholder="Wo no?" ng-map-autocomplete details="itc.selectedPlaceDetails" options="itc.googlePlacesOptions" ng-model="itc.tripCity">
+
+                <input type="text" ng-required="true"  placeholder="Benenne deinen Trip" ng-model="itc.tripTitle">
+                <textarea class="trip-description" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription"></textarea>
+                <textarea class="trip-money" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney"></textarea>
+                <div class="accommodation">
+                    <span>Übernachtung</span>
+                    <div class="circle" ng-click="itc.toggleAccommodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
                 </div>
                 <div class="right-section">
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" >
