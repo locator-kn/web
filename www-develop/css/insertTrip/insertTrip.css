@@ -94,7 +94,7 @@
     margin-bottom: 80px;
 }
 
-.content-bottom .right-section input, textarea {
+.content-bottom .right-section .text-fields {
     width: 500px;
 }
 
@@ -183,7 +183,7 @@
     background-image: url("/images/icons/icons_stimmung_ausgegraut-17.png");
 }
 
-.save-trip button {
+.save-trip input {
     margin-top: 20px;
     width: 200px;
     height: 40px;
@@ -208,7 +208,7 @@
     text-decoration:none;
 }
 
-.save-trip button:hover {
+.save-trip input:hover {
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff1f48), color-stop(1, #ff3d3d));
     background:-moz-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
     background:-webkit-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
@@ -218,7 +218,7 @@
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f48', endColorstr='#ff3d3d',GradientType=0);
     background-color:#ff1f48;
 }
-.save-trip button:active {
+.save-trip input:active {
     position:relative;
     top:1px;
 }
