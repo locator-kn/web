@@ -129,7 +129,7 @@ module Controller {
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
-                nameOfTrip: this.locationTitle || 'supertrip',
+                locationTitle: this.locationTitle.toLowerCase() || 'supertrip',
                 _id: '',
                 _rev: ''
             };
