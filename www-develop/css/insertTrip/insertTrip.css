@@ -76,6 +76,7 @@
 
 .content-bottom .right-section {
     overflow: hidden;
+    margin-left: 240px;
 }
 
 .content-bottom .right-section input {
