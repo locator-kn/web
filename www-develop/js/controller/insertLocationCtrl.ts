@@ -15,8 +15,14 @@ module Controller {
 
         locationTitle:string = '';
 
+        googlePlacesOptions = {
+            country: 'de',
+            types: '(cities)'
+        };
+
         map:any = {};
         clickedMarker:any = {};
+        selectedPlaceDetails:any = {};
 
         locationFormDetails:any = {
             title: '',
@@ -24,6 +30,7 @@ module Controller {
             budget: '',
             category: '',
             selectedMoods: []
+            city: {}
         };
 
         constructor(private $scope, private $rootScope, private InsertLocationService) {
@@ -62,7 +69,7 @@ module Controller {
                 id: 0,
                 options: {
                     labelClass: "marker-labels",
-                    labelAnchor:"50 0"
+                    labelAnchor: "50 0"
                 },
                 latitude: lat,
                 longitude: lon
@@ -163,6 +170,22 @@ module Controller {
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
             this.headerImagePath = data.imageLocation.picture;
+        }
+
+        save() {
+            this.locationFormDetails.city = {
+
+                title: this.selectedPlaceDetails.name,
+                id: this.selectedPlaceDetails.id,
+                place_id: this.selectedPlaceDetails.place_id
+            }
+            this.InsertLocationService.saveLocation(this.locationFormDetails).
+                then(() => {
+                    debugger
+                })
+                .catch(() => {
+                    debugger
+                })
         }
 
         static controllerId:string = "InsertLocationCtrl";
