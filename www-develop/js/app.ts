@@ -41,6 +41,7 @@
 /// <reference path="./service/socketService.ts" />
 /// <reference path="./service/messengerService.ts" />
 /// <reference path="./controller/messengerCtrl.ts" />
+/// <reference path="./controller/tripCtrl.ts" />
 
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -103,6 +104,11 @@ var app = angular.module('starter', deps)
                 reloadOnSearch: false
             })
 
+            .state('trip', {
+                url: "/trip/{tripId}",
+                templateUrl: "../templates/search/trip.html",
+            })
+
             .state('tripresults', {
                 url: "/trips?city&budget&checkin&checkout&travellersCount&moods&accomodations",
                 templateUrl: "../templates/tripresults.html"
@@ -159,6 +165,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
+    .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
 
 
     .directive('megadate', function () {

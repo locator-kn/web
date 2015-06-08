@@ -29,22 +29,6 @@ module Service {
             });
         }
 
-
-        /**
-         *  TODO: remove if not used anymore. Calling this.$http with key 'params' will do the work for you
-         * @param searchQuery
-         * @returns {*}
-         */
-        getQueryParamString(searchQuery) {
-            var cityId = this.getCityId(searchQuery.city);
-
-            var queryString = this.$location.url();
-            queryString = queryString.replace('?city='+searchQuery.city, '/'+ cityId);
-            queryString = queryString.replace('&moods=','.');
-            queryString = queryString.replace('&', '?');
-            return queryString;
-        }
-
         getCityId(city) {
             var promise = this.$q((resolve, reject) => {
                 this.DataService.getAvailableCities()
@@ -60,6 +44,10 @@ module Service {
             });
 
             return promise;
+        }
+
+        getTripById(tripId) {
+            return this.$http.get('http://locator.in.htwg-konstanz.de:3001/api/v1/trips/'+tripId);
         }
 
 
