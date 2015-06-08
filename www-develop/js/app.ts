@@ -22,6 +22,7 @@
 /// <reference path="./controller/welcomeCreateCtrl.ts" />
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
+/// <reference path="./controller/insertLocationCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
 
@@ -167,6 +168,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
+    .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
 
 
     .directive('megadate', function () {
