@@ -73,6 +73,15 @@ module Controller {
             });
 
             $rootScope.overlay = false;
+
+
+            // handle url params
+            HelperService.getMoods(this.$state.params.moods, (result) => {
+                this.selectedMoods = result;
+            });
+
+            this.tripCity = this.$state.params.city;
+
         }
 
 
