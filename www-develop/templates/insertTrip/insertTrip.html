@@ -52,7 +52,7 @@
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" required>
                     <div class="available-locations" ng-show="itc.availableLocations.length">
                         <div class="available-location" ng-repeat="loc in itc.availableLocations">
-                            <img ng-src="https://maps.googleapis.com/maps/api/staticmap?size=100x100&scale=15&center=47.668403,9.170499" alt="" class="location-img"/>
+                            <img ng-src="{{loc.images.picture}}" alt="" class="location-img"/>
                             <div class="add-location">
                                 <a href="">+</a>
                             </div>
@@ -62,6 +62,10 @@
                                 <p>{{loc.description}}</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="no-locations-available" ng-show="!itc.availableLocations.length">
+                        <p>Füg' du erstmal Locations hinzu! Vorher machst du hier gar nichts!</p>
+                        <a ui-sref="insertLocation">Location hinzufügen</a>
                     </div>
                     <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" required></textarea>
                     <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
