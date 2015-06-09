@@ -50,7 +50,7 @@
                 <div class="right-section">
                     <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" required>
-                    <div class="available-locations">
+                    <div class="available-locations" ng-show="itc.availableLocations.length">
                         <div class="available-location" ng-repeat="loc in itc.availableLocations">
                             <img ng-src="https://maps.googleapis.com/maps/api/staticmap?size=100x100&scale=15&center=47.668403,9.170499" alt="" class="location-img"/>
                             <div class="add-location">
