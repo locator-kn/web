@@ -16,7 +16,10 @@ module Service {
             });
         }
 
-        saveLocation(location) {
+        saveLocation(location, id?:string) {
+            if(id) {
+                return this.$http.put(this.basePath + '/users/my/locations/' + id, location);
+            }
             return this.$http.post(this.basePath + '/users/my/locations', location)
         }
 
