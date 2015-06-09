@@ -52,7 +52,7 @@
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" required>
                     <div class="available-locations" ng-show="itc.availableLocations.length">
                         <div class="available-location" ng-repeat="loc in itc.availableLocations">
-                            <div class="img-container"><img ng-src="{{loc.images.picture}}" alt="" class="location-img"/></div>
+                            <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
                             <div class="add-location">
                                 <a href="">+</a>
                             </div>
