@@ -175,7 +175,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
-    .controller(Controller.LocationService.controllerId, Controller.LocationService)
+    .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
 
 
     .directive('megadate', function () {
@@ -234,7 +234,7 @@ if (live) {
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
         .service(Service.SocketService.serviceId, Service.SocketService)
-        .service(Service.InsertLocationService.serviceId, Service.InsertLocationService)
+        .service(Service.LocationService.serviceId, Service.LocationService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)
