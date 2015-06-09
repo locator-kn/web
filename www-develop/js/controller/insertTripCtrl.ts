@@ -71,6 +71,8 @@ module Controller {
             });
 
             $rootScope.overlay = false;
+            $rootScope.showSearchButton = true;
+
 
 
             // handle url params

@@ -538,12 +538,12 @@ a.close-modal {
 }
 
 .static-createButton {
-    background: rgba(255, 0, 0, 0.4);
+    background: rgb(255, 70, 55);
     right: 0;
 }
 
 .static-searchButton {
-    background: rgba(0, 255, 0, 0.4);
+    background: rgb(85, 212, 205);
     left: 0;
 }
 

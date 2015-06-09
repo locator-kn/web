@@ -22,6 +22,7 @@
 /// <reference path="./controller/welcomeCreateCtrl.ts" />
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
+/// <reference path="./controller/insertLocationCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
 
@@ -30,6 +31,7 @@
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/insertTripService.ts" />
+/// <reference path="./service/InsertLocationService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
@@ -139,6 +141,10 @@ var app = angular.module('starter', deps)
                 url: "/insertTrip/?city&moods",
                 templateUrl: "../templates/insertTrip/insertTrip.html"
             })
+            .state('insertLocation', {
+                url: "/insert-location",
+                templateUrl: "../templates/insertLocation/insertLocation.html"
+            })
 
             .state('editProfile', {
                 url: "/editProfile",
@@ -163,6 +169,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
+    .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
 
 
     .directive('megadate', function () {
@@ -221,6 +228,7 @@ if (live) {
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
         .service(Service.SocketService.serviceId, Service.SocketService)
+        .service(Service.InsertLocationService.serviceId, Service.InsertLocationService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)
