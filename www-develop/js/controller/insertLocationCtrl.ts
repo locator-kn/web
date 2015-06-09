@@ -179,7 +179,7 @@ module Controller {
                 place_id: this.selectedPlaceDetails.place_id
             };
 
-            this.locationFormDetails.geoTag = {
+            this.locationFormDetails.geotag = {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
