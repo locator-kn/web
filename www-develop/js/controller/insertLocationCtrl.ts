@@ -174,12 +174,17 @@ module Controller {
 
         save() {
             this.locationFormDetails.city = {
-
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
                 place_id: this.selectedPlaceDetails.place_id
             };
-            this.LocationService.saveLocation(this.locationFormDetails).
+
+            this.locationFormDetails.geoTag = {
+                long: this.map.clickedMarker.longitude,
+                lat: this.map.clickedMarker.latitude
+            };
+
+            this.LocationService.saveLocation(this.locationFormDetails, this.documentId).
                 then(() => {
                     debugger
                 })
