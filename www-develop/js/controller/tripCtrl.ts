@@ -5,7 +5,10 @@ module Controller {
 
         trip:any = {};
         start_date;
-        constructor(private $scope, private $stateParams, private SearchService) {
+        constructor(private $rootScope, private $stateParams, private SearchService) {
+            this.$rootScope.showSearchButton = true;
+            this.$rootScope.showCreateButton = true;
+
             this.SearchService.getTripById(this.$stateParams.tripId)
                 .then(result => {
                     this.trip = result.data[0];
