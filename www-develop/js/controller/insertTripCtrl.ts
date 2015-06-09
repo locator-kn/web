@@ -192,21 +192,6 @@ module Controller {
             this.headerImagePath = data.imageLocation.picture;
         }
 
-        /*addAccommodationEquipment(service:string) {
-            if (this.accommodation) {
-                if (this.containsAccommodation(service)) {
-                    var index = this.accommodationEquipment.indexOf(service);
-                    this.accommodationEquipment.splice(index, 1);
-                } else {
-                    this.accommodationEquipment.push(service);
-                }
-            }
-        }
-
-        containsAccommodation(service:string) {
-            return !!this.lodash.findWhere(this.accommodationEquipment, service);
-        }*/
-
         getLocationDetails() {
             if (!this.selectedPlaceDetails) {
                 return;
@@ -231,7 +216,7 @@ module Controller {
                 start_date: this.startDateReal,
                 end_date: this.endDateReal,
                 accommodation: this.accommodation,
-                //accommodation_equipment: this.accommodationEquipment,
+                accommodation_equipment: this.accommodationEquipment,
                 persons: this.persons,
                 days: this.days,
                 moods: this.selectedMoods,
