@@ -180,10 +180,16 @@
     float: left;
     margin: 15px 0 0 15px;
 }
-.available-location .location-img {
+.available-location .img-container {
     width: 100px;
     overflow: hidden;
+    position: relative;
     float: left;
+}
+.available-location .location-img {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .available-location .add-location {
     float: right;
