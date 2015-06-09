@@ -70,6 +70,7 @@ var deps = [
     'angular-cache',
     'locator.datepicker',
     'locator.scrollfix',
+    'locator.accommodation-equipment-chooser',
     'emoji'
 ];
 
