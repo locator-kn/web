@@ -20,6 +20,10 @@ module Service {
             return this.$http.post(this.basePath + '/users/my/locations', location)
         }
 
+        getMyLocations() {
+            return this.$http.get(this.basePath + '/users/my/locations');
+        }
+
         static serviceId:string = "LocationService";
     }
 }
