@@ -33,7 +33,7 @@ module Controller {
             city: {}
         };
 
-        constructor(private $scope, private $rootScope, private InsertLocationService) {
+        constructor(private $scope, private $rootScope, private LocationService) {
             this.map = {
                 center: {
                     // kn fh
@@ -138,7 +138,7 @@ module Controller {
                 formData._id = this.documentId;
                 formData._rev = this.revision;
             }
-            this.InsertLocationService.uploadImage(formData, file)
+            this.LocationService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = perc;
@@ -179,7 +179,7 @@ module Controller {
                 id: this.selectedPlaceDetails.id,
                 place_id: this.selectedPlaceDetails.place_id
             }
-            this.InsertLocationService.saveLocation(this.locationFormDetails).
+            this.LocationService.saveLocation(this.locationFormDetails).
                 then(() => {
                     debugger
                 })

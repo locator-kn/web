@@ -31,7 +31,7 @@
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/insertTripService.ts" />
-/// <reference path="./service/InsertLocationService.ts" />
+/// <reference path="./service/LocationService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
@@ -175,7 +175,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
-    .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
+    .controller(Controller.LocationService.controllerId, Controller.LocationService)
 
 
     .directive('megadate', function () {

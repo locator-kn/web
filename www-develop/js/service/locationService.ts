@@ -1,5 +1,5 @@
 module Service {
-    export class InsertLocationService {
+    export class LocationService {
 
         constructor(private $http, private basePath, private Upload) {
         }
@@ -20,6 +20,6 @@ module Service {
             return this.$http.post(this.basePath + '/users/my/locations', location)
         }
 
-        static serviceId:string = "InsertLocationService";
+        static serviceId:string = "LocationService";
     }
 }
