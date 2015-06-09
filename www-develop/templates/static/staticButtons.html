@@ -1,4 +1,4 @@
 <div class="staticButtons" ng-controller="StaticButtonCtrl as sbc">
-    <div class="static-searchButton" ng-show="showSearchButton" ui-sref="search({o: true})">SEARCH</div>
+    <div class="static-searchButton" ng-show="showSearchButton" ng-click="sbc.searchWithContext()">SEARCH</div>
     <div class="static-createButton" ng-show="showCreateButton" ui-sref="insertTrip">CREATE</div>
 </div>

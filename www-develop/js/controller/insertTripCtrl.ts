@@ -37,7 +37,8 @@ module Controller {
         selectedMoods:any = [];
         selectableMoods:any = [];
 
-        accommodationEquipment:string[] = [];
+        accommodationEquipment:any = [];
+        accommodationEquipmentSelectable = false;
         progressPercentage:number;
         googlePlacesOptions = {
             country: 'de',
@@ -70,6 +71,8 @@ module Controller {
             });
 
             $rootScope.overlay = false;
+            $rootScope.showSearchButton = true;
+
 
 
             // handle url params
@@ -78,7 +81,6 @@ module Controller {
             });
 
             this.tripCity = this.$state.params.city;
-
         }
 
 
@@ -110,9 +112,11 @@ module Controller {
 
         toggleAccommodation() {
             this.accommodation = !this.accommodation;
-
-            if (!this.accommodation) {
+            if (this.accommodation) {
+                this.accommodationEquipmentSelectable = true;
+            } else {
                 this.accommodationEquipment = [];
+                this.accommodationEquipmentSelectable = false;
             }
         }
 
@@ -186,23 +190,6 @@ module Controller {
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
             this.headerImagePath = data.imageLocation.picture;
-        }
-
-        addAccommodationEquipment(service:string) {
-            if (this.accommodation) {
-                if (this.containsAccommodation(service)) {
-                    var index = this.accommodationEquipment.indexOf(service);
-                    this.accommodationEquipment.splice(index, 1);
-                } else {
-                    this.accommodationEquipment.push(service);
-                }
-            }
-
-            console.log(this.accommodationEquipment);
-        }
-
-        containsAccommodation(service:string) {
-            return !!this.lodash.findWhere(this.accommodationEquipment, service);
         }
 
         getLocationDetails() {

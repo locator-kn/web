@@ -53,6 +53,15 @@ module Service {
 
         }
 
+        saveSearchContext() {
+            localStorage.setItem('searchContext', JSON.stringify(this.$state.params));
+        }
+
+        getSearchContext() {
+            return JSON.parse(localStorage.getItem('searchContext'));
+        }
+
+
         static serviceId:string = "HelperService";
     }
 }
