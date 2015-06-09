@@ -37,7 +37,8 @@ module Controller {
         selectedMoods:any = [];
         selectableMoods:any = [];
 
-        accommodationEquipment:string[] = [];
+        accommodationEquipment:any = [];
+        accommodationEquipmentSelectable = false;
         progressPercentage:number;
         googlePlacesOptions = {
             country: 'de',
@@ -78,7 +79,6 @@ module Controller {
             });
 
             this.tripCity = this.$state.params.city;
-
         }
 
 
@@ -110,9 +110,11 @@ module Controller {
 
         toggleAccommodation() {
             this.accommodation = !this.accommodation;
-
-            if (!this.accommodation) {
+            if (this.accommodation) {
+                this.accommodationEquipmentSelectable = true;
+            } else {
                 this.accommodationEquipment = [];
+                this.accommodationEquipmentSelectable = false;
             }
         }
 
@@ -188,7 +190,7 @@ module Controller {
             this.headerImagePath = data.imageLocation.picture;
         }
 
-        addAccommodationEquipment(service:string) {
+        /*addAccommodationEquipment(service:string) {
             if (this.accommodation) {
                 if (this.containsAccommodation(service)) {
                     var index = this.accommodationEquipment.indexOf(service);
@@ -197,13 +199,11 @@ module Controller {
                     this.accommodationEquipment.push(service);
                 }
             }
-
-            console.log(this.accommodationEquipment);
         }
 
         containsAccommodation(service:string) {
             return !!this.lodash.findWhere(this.accommodationEquipment, service);
-        }
+        }*/
 
         getLocationDetails() {
             if (!this.selectedPlaceDetails) {
@@ -229,7 +229,7 @@ module Controller {
                 start_date: this.startDateReal,
                 end_date: this.endDateReal,
                 accommodation: this.accommodation,
-                accommodation_equipment: this.accommodationEquipment,
+                //accommodation_equipment: this.accommodationEquipment,
                 persons: this.persons,
                 days: this.days,
                 moods: this.selectedMoods,
