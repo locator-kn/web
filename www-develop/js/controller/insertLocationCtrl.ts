@@ -178,7 +178,7 @@ module Controller {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
                 place_id: this.selectedPlaceDetails.place_id
-            }
+            };
             this.LocationService.saveLocation(this.locationFormDetails).
                 then(() => {
                     debugger
