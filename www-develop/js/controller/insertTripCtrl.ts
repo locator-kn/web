@@ -57,8 +57,9 @@ module Controller {
         documentWasCreated:boolean = false;
         me:any;
         query:any = {};
+        availableLocations:any = [];
 
-        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -68,6 +69,10 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
                 //this.selectedMoods = $state.params.moods;
+            });
+
+            this.LocationService.getMyLocations().then(response => {
+                this.availableLocations = response.data;
             });
 
             $rootScope.overlay = false;
