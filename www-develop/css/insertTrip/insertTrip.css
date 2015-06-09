@@ -182,14 +182,17 @@
 }
 .available-location .img-container {
     width: 100px;
+    height: 100px;
     overflow: hidden;
     position: relative;
     float: left;
 }
 .available-location .location-img {
     position: absolute;
-    left: 0;
+    left: -35px;
     top: 0;
+    height: 100px;
+
 }
 .available-location .add-location {
     float: right;
