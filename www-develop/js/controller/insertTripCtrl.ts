@@ -59,6 +59,7 @@ module Controller {
         query:any = {};
         availableLocations:any = [];
         availableLocationsHash:any = {};
+        selectedLocations:any = {};
 
         constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
@@ -105,6 +106,16 @@ module Controller {
 
         getStaticMap(options) {
             return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&scale=15&center=' + options.geotag.long + ',' + options.geotag.lat;
+        }
+
+        addLocationToTrip(locationId) {
+            this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
+            delete this.availableLocationsHash[locationId];
+        }
+
+        removeLocationFromTrip(locationId) {
+            this.availableLocationsHash[locationId] = this.selectedLocations[locationId];
+            delete this.selectedLocations[locationId];
         }
 
 
