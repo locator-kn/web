@@ -39,6 +39,7 @@ module Controller {
         selectEmoji(item) {
             this.textbox = this.textbox + ' ' + item + ' ';
             this.showEmojis = false;
+            angular.element('#chat_box').focus();
         }
 
         registerSocketEvent() {

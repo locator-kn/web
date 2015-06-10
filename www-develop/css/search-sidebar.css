@@ -153,3 +153,11 @@ html, body {
 .search-menu-inactive {
     width: 80px;
 }
+
+.orange {
+    color: #ff632d;
+}
+
+.day-amount-label {
+    display: inline;
+}
