@@ -114,7 +114,6 @@ a.welcome_button:hover {
     opacity: 0;
 }
 
-
 .logocontainer.visible {
     opacity: 1;
 }
@@ -222,4 +221,12 @@ h2#sub-headline {
     text-transform: lowercase;
     font-size: 24px;
     margin-top: 5px;
+}
+
+.welcome_wrapper .list-selection a {
+    text-overflow: ellipsis;
+    max-width: 265px;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
 }
