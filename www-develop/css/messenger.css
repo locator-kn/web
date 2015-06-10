@@ -72,9 +72,7 @@
     height: 70px;
     border: none;
     float: left;
-
     background: white;
-
 }
 
 button#chat_submit {
@@ -120,8 +118,13 @@ span.bubble {
     position: absolute;
     background-color: white;
     padding: 15px;
-
     padding: 9px;
     right: 60px;
 
+}
+
+.conversations {
+    padding-top: 15px;
+    float: left;
+    width: 100%;
 }
