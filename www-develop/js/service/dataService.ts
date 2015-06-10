@@ -7,6 +7,7 @@ module Service {
         dataCitiesCache;
         dataAccommodationsCache;
         dataMoodsCache;
+        dayCache;
 
         constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
@@ -16,6 +17,7 @@ module Service {
             this.dataCitiesCache = CacheFactory.createCache('dataCities');
             this.dataAccommodationsCache = CacheFactory.createCache('dataAccommodations');
             this.dataMoodsCache = CacheFactory.createCache('dataMoods');
+            this.dayCache = CacheFactory.createCache('dataDay');
 
         }
 
@@ -44,16 +46,18 @@ module Service {
 
         getAvailableAmountOfDays() {
             return this.$q(function (resolve) {
-                resolve(
-                    {
-                        data: [
-                            {"id": "1", "title": "1 Tag"},
-                            {"id": "2", "title": "2 Tage"},
-                            {"id": "3", "title": "3 Tage"},
-                            {"id": "4", "title": "3+ Tage"},
-                        ]
-                    });
-            });
+                setTimeout(function () {
+                    resolve(
+                        {
+                            data: [
+                                {"id": "1", "title": "1 Tag"},
+                                {"id": "2", "title": "2 Tage"},
+                                {"id": "3", "title": "3 Tage"},
+                                {"id": "4", "title": "3+ Tage"},
+                            ]
+                        });
+                }, 0);
+            }, {cache: this.dayCache});
         }
 
         static serviceId:string = "DataService";
