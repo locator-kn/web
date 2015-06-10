@@ -24,7 +24,9 @@
                 <div class="moods">
                     <div class="feeling-text">
                         <p>Wie fühlt sich dein Trip an?</p>
-                        <!--<moodselection selected-moods="itc.selectedMoods" selectable-moods="itc.selectableMoods" query="itc.query" ></moodselection>-->
+                    </div>
+                    <div class="chosen-moods" ng-repeat="mood in itc.selectableMoods">
+                        <img ng-src="data:image/gif;base64,{{mood.icon}}">
                     </div>
                     <div class="add-mood">
                         <ul class="mood-menu">
