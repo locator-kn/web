@@ -259,8 +259,6 @@ module Controller {
                 //pics
                 //active
                 //delete
-
-                type: 'trip'
             };
             var documentMetaData = {
                 _id: this.documentId || '',
