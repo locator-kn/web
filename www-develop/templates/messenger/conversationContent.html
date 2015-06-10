@@ -15,7 +15,7 @@
         <h2>{{mc.selectedConversation.opponent.name}}</h2>
     </div>
 
-    <div class="content">
+    <div class="content" scroll-glue>
         <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messages">
             <p><span ng-bind-html="message.message | emoji" class="message-content"></span>
                 <!--<megadate date="message.timestamp"></megadate> -->
