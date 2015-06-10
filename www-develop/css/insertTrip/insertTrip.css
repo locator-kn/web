@@ -172,7 +172,7 @@
     max-height: 0;
     transition: max-height .35s ease-out;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .locations.active {
     max-height: 350px;
