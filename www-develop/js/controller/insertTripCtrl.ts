@@ -94,8 +94,6 @@ module Controller {
             $rootScope.overlay = false;
             $rootScope.showSearchButton = true;
 
-
-
             // handle url params
             HelperService.getMoods(this.$state.params.moods, (result) => {
                 this.selectedMoods = result;
