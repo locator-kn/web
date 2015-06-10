@@ -222,7 +222,7 @@
 }
 
 .mood-menu {
-    height: 25px;
+    height: 35px;
     width: 25px;
 }
 
@@ -234,10 +234,11 @@
     position: relative;
     list-style: none;
     float: left;
+    height: 35px;
 }
 
 .mood-menu li a {
-    color: #f3f3f3;
+    color: #000;
 }
 
 .mood-menu li:first-child a {
@@ -247,11 +248,13 @@
     border-right: none;
 }
 
-.mood-menu li:hover > a { color: #8fde62; }
+.mood-menu li:hover > a {
+    color: #fff;
+}
 
 .mood-menu ul {
     position: absolute;
-    top: 25px;
+    top: 35px;
     right: 0px;
     opacity: 0;
     background: #ff632d;
@@ -266,12 +269,7 @@
     height: 0;
     overflow: hidden;
     padding: 0;
-    -webkit-transition: height .25s ease .1s;
-    -moz-transition: height .25s ease .1s;
-    -o-transition: height .25s ease .1s;
-    -ms-transition: height .25s ease .1s;
-    transition: height .25s ease .1s;
-    width: 250px;
+    width: 170px;
 }
 
 .mood-menu li:hover > ul li {
@@ -292,8 +290,31 @@
     float: right;
     height: 25px;
     width: 25px;
+    position: relative;
+    bottom: 4px;
 }
 
 .selectable-moods {
     margin-top: 10px;
+}
+
+.selected-moods {
+
+}
+
+.selected-moods .mood-image {
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    float: left;
+}
+
+.selected-moods .cross-image {
+    height: 12px;
+    width: 12px;
+    float: left;
+    position: relative;
+    right: 8px;
+    bottom: 4px;
+    cursor: pointer;
 }

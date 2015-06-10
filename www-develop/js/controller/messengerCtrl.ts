@@ -108,6 +108,7 @@ module Controller {
                 return;
             }
             this._sendMessage();
+            event.preventDefault();
         }
 
         static controllerId:string = "MessengerCtrl";

@@ -24,7 +24,10 @@
                 <div class="moods">
                     <div class="feeling-text">
                         <p>Wie fühlt sich dein Trip an?</p>
-                        <!--<moodselection selected-moods="itc.selectedMoods" selectable-moods="itc.selectableMoods" query="itc.query" ></moodselection>-->
+                    </div>
+                    <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
+                        <img class="mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
+                        <img class="cross-image" src="../../images/icons/cross_button_moods.png" ng-click="itc.removeSelectedMood(mood)">
                     </div>
                     <div class="add-mood">
                         <ul class="mood-menu">
@@ -34,7 +37,7 @@
                                 </a>
                                 <ul>
                                     <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods">
-                                        <a href="#" class="documents">{{mood.title}}</a>
+                                        <a ng-click="itc.selectMood(mood)">{{mood.title}}</a>
                                         <img ng-src="data:image/gif;base64,{{mood.icon}}">
                                     </li>
                                 </ul>
