@@ -58,7 +58,7 @@
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
 
                     <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
-                    <a name="availableLocations">asd</a>
+                    <a name="availableLocations"></a>
                     <div class="locations" ng-class="{active: itc.showAvailableLocations }" ng-show="itc.availableLocations.length">
                         <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
                             <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
