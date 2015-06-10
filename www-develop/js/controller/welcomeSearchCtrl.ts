@@ -8,14 +8,8 @@ module Controller {
         cities:any;
         selectedCity:any;
 
-        days = [
-            {"id": "1", "title": "1 Tag"},
-            {"id": "2", "title": "2 Tage"},
-            {"id": "3", "title": "3 Tage"},
-            {"id": "4", "title": "3+ Tage"},
-        ];
-        
-        selectedDay:any = this.days[2];
+        days:any;
+        selectedDay:any;
 
         dataAvailable:boolean = false;
 
@@ -25,25 +19,29 @@ module Controller {
 
             this.getData();
 
-
         }
 
         getData() {
 
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getCities();
+            var days = this.DataService.getAvailableAmountOfDays();
 
-            this.$q.all([moods, cities])
+            this.$q.all([moods, cities, days])
                 .then((responsesArray) => {
 
                     this.moods = responsesArray[0].data;
                     this.selectedMood = this.moods[Math.floor((Math.random() * this.moods.length))];
+
                     this.cities = responsesArray[1].data;
                     this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
+
+                    this.days = responsesArray[2].data;
+                    this.selectedDay = this.days[Math.floor((Math.random() * this.cities.length))];
+                    
                     this.dataAvailable = true;
 
                 });
-
 
         }
 
