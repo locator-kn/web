@@ -42,7 +42,7 @@
     overflow-x: hidden;
     float: left;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 230px);
 }
 
 .messenger-container .content .message {
@@ -51,7 +51,8 @@
 
 .messenger-container .content .message {
     float: left;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .messenger-container .content .message p {
@@ -69,12 +70,10 @@
 
 .messenger-button {
     width: 60px;
-    height: 40px;
+    height: 70px;
     border: none;
     float: left;
-
     background: white;
-
 }
 
 button#chat_submit {
@@ -82,18 +81,19 @@ button#chat_submit {
 }
 
 #chat_box {
-    height: 40px;
     width: calc(100% - 60px);
     background: white;
     border: none;
     float: left;
     padding: 11px;
+    height: 70px;
 }
 
 .chat-input {
     padding-top: 15px;
     float: left;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 span.bubble {
@@ -119,8 +119,16 @@ span.bubble {
     position: absolute;
     background-color: white;
     padding: 15px;
-
     padding: 9px;
     right: 60px;
+}
 
+.conversations {
+    padding-top: 15px;
+    float: left;
+    width: 100%;
+}
+
+.emoji-icon {
+    height: 20px;
 }
