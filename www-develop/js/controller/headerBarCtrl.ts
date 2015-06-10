@@ -12,6 +12,7 @@ module Controller {
         showMessengerPopover:boolean = false;
         conversations:any = [];
         conversationTeaser:any = [];
+        forgotPassword:boolean = false;
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService) {
@@ -41,9 +42,9 @@ module Controller {
         openPopover() {
             this.showBadge = false;
             this.unreadMessages = 0;
-            if(!this.showMessengerPopover) {
+            if (!this.showMessengerPopover) {
                 this.MessengerService.getConversations()
-                .then(conversations => {
+                    .then(conversations => {
                         this.conversations = conversations.data;
                         this.conversations.forEach(element => {
                             this.UserService.getUser(element['opponent'])
@@ -109,6 +110,7 @@ module Controller {
         }
 
         openLoginDialog() {
+            this.forgotPassword = false;
             this.resetInput();
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#loginmodal').addClass('active');
@@ -178,6 +180,16 @@ module Controller {
                 .catch((resp) => {
                     this.$rootScope.authenticated = false;
                 });
+        }
+
+        sendNewPassword(mail) {
+            this.UserService.sendNewPassword(mail)
+                .then(result => {
+                    console.info("Success");
+                })
+                .catch((resp) => {
+                    console.info("Error");
+                })
         }
 
         static controllerId:string = "HeaderBarCtrl";
