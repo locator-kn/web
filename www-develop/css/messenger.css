@@ -115,7 +115,7 @@ span.bubble {
     right: -13px;
     background: #b8e4e0;
     left: inherit;
-    top: 38px;
+    bottom: -5px;
     transform: rotate(35deg);
 }
 
