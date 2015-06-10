@@ -767,3 +767,29 @@ img.center {
 .placeholder-tiles {
     background-image: url("/images/locator_tileable_pattern_20px.png");
 }
+
+.passwordforget {
+    padding-top: 15px;
+    float: left;
+}
+
+.login-wrapper {
+    float: left;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+}
+
+.login-wrapper.show {
+    opacity: 1;
+}
+
+a.forgotpw {
+    text-align: center;
+    float: left;
+    width: 100%;
+}
+
+.normallogin {
+
+}
