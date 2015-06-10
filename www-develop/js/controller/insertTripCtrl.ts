@@ -240,6 +240,16 @@ module Controller {
             }
         }
 
+        getSelectedLocations() {
+            var sl = []
+            for (var key in this.selectedLocations) {
+                if (this.selectedLocations.hasOwnProperty(key)) {
+                    sl.push(key);
+                }
+            }
+            return sl;
+        }
+
         saveTrip() {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
@@ -257,7 +267,7 @@ module Controller {
                 persons: this.persons,
                 days: this.days,
                 moods: this.selectedMoods,
-                //locations
+                locations: this.getSelectedLocations()
                 //pics
                 //active
                 //delete
@@ -269,9 +279,8 @@ module Controller {
 
 
             //store trip in DB
-            this.InsertTripService.saveTrip(t, documentMetaData).then(() => {
-                console.log('party')
-            }).then(result => {
+            this.InsertTripService.saveTrip(t, documentMetaData)
+                .then(result => {
                 this.revision = result.rev;
                 this.documentId = result.id;
                 this.documentWasCreated = true;
