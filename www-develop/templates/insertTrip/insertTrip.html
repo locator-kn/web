@@ -36,8 +36,8 @@
                                     <img src="../../images/icons/plus.png">
                                 </a>
                                 <ul>
-                                    <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods">
-                                        <a ng-click="itc.selectMood(mood)">{{mood.title}}</a>
+                                    <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods" ng-click="itc.selectMood(mood)">
+                                        <a>{{mood.title}}</a>
                                         <img ng-src="data:image/gif;base64,{{mood.icon}}">
                                     </li>
                                 </ul>
