@@ -1,19 +1,7 @@
 <div class="insert-trip-container" ng-controller="InsertTripCtrl as itc">
-    <div class="image-upload-modal" ng-show="itc.showImageUploadModal">
-        <img src="{{itc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
-        <div class="controls"><div class="btn" ng-click="itc.uploadImage()">Upload</div></div>
-    </div>
-    <div id="trip-image" class="trip-image" ng-click="itc.showImageChooser()">
-        <progress-arc
-            ng-hide="itc.uploadIsDone"
-            class="progressbar"
-            size="100"
-            complete="itc.progressPercentage"
-            counter-clockwise="true">
-        </progress-arc>
-        <a class="choose-image welcome_button">Choose image</a>
-        <input id="image-upload" type="file" onchange="angular.element(this).scope().itc.selectImage(this)" style="display: none">
-        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{itc.headerImagePath}}">
+
+    <div id="trip-image" class="trip-image">
+        <a ng-click="itc.scrollTo('availableLocations')" class="choose-image welcome_button">Locations hinzufügen!</a>
     </div>
     <form novalidate>
         <div class="input-content">
@@ -68,12 +56,14 @@
                 <div class="right-section">
                     <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
-                    <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected locations</p>
-                    <div class="locations" ng-class="{active: itc.showSelectedLocations }">
-                        <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
+
+                    <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
+                    <a name="availableLocations"></a>
+                    <div class="locations" ng-class="{active: itc.showAvailableLocations }" ng-show="itc.availableLocations.length">
+                        <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
                             <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
                             <div class="add-location">
-                                <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
+                                <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
                             </div>
                             <div class="moods">moods</div>
                             <div class="details">
@@ -82,12 +72,12 @@
                             </div>
                         </div>
                     </div>
-                    <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
-                    <div class="locations" ng-class="{active: itc.showAvailableLocations }" ng-show="itc.availableLocations.length">
-                        <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
+                    <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected locations</p>
+                    <div class="locations" ng-class="{active: itc.showSelectedLocations }">
+                        <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
                             <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
                             <div class="add-location">
-                                <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
+                                <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
                             </div>
                             <div class="moods">moods</div>
                             <div class="details">
