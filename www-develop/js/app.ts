@@ -15,7 +15,6 @@
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/profileCtrl.ts" />
-/// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
@@ -152,18 +151,12 @@ var app = angular.module('starter', deps)
             .state('insertLocation', {
                 url: "/insert-location",
                 templateUrl: "../templates/insertLocation/insertLocation.html"
-            })
-
-            .state('editProfile', {
-                url: "/editProfile",
-                templateUrl: "../templates/userProfile/editProfile.html"
             });
 
         $urlRouterProvider.otherwise('welcome')
     })
 
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
-    .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
