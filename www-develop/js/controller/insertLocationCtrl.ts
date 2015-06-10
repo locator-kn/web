@@ -52,6 +52,11 @@ module Controller {
                 },
                 events: this.getEvents()
             };
+
+            $scope.$on('mapentrySelected', (event, details) => {
+                this.map.center.latitude = details.geometry.location.A;
+                this.map.center.longitude = details.geometry.location.F;
+            });
         }
 
         getEvents() {
