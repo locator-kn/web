@@ -8,14 +8,14 @@ module Service {
         }
 
         getAllTrips() {
-            return this.$http.get('http://locator.in.htwg-konstanz.de:3001/api/v1/trips');
+            return this.$http.get(this.basePath + '/api/v1/trips');
         }
 
         getTripsByQuery(searchQuery) {
             // create a copy by value
             var sq = this.lodash.cloneDeep(searchQuery);
 
-            var query = 'http://locator.in.htwg-konstanz.de/api/v1/trips/search';
+            var query = this.basePath + '/api/v1/trips/search';
             return this.getCityId(sq.city).then(cityid => {
                 // delete city from query since it is part of the path
                 delete sq.city;
@@ -47,7 +47,7 @@ module Service {
         }
 
         getTripById(tripId) {
-            return this.$http.get('http://locator.in.htwg-konstanz.de:3001/api/v1/trips/'+tripId);
+            return this.$http.get(this.basePath + '/api/v1/trips/'+tripId);
         }
 
 
