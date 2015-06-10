@@ -120,11 +120,14 @@ span.bubble {
     padding: 15px;
     padding: 9px;
     right: 60px;
-
 }
 
 .conversations {
     padding-top: 15px;
     float: left;
     width: 100%;
+}
+
+.emoji-icon {
+    height: 20px;
 }
