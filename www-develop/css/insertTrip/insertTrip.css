@@ -214,3 +214,72 @@
     font-size: 20px;
     margin: 0 0 10px;
 }
+
+.mood-menu,
+.mood-menu ul,
+.mood-menu li {
+    padding: 0;
+}
+
+.mood-menu {
+    height: 25px;
+    width: 25px;
+}
+
+.mood-menu:hover {
+    background: #ff632d
+}
+
+.mood-menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+}
+
+.mood-menu li a {
+    color: #f3f3f3;
+}
+
+.mood-menu li:first-child a { border-left: none; }
+.mood-menu li:last-child a{ border-right: none; }
+
+.mood-menu li:hover > a { color: #8fde62; }
+
+.mood-menu ul {
+    position: absolute;
+    top: 25px;
+    right: 0px;
+
+    opacity: 0;
+    background: #ff632d;
+    z-index: 10;
+}
+
+.mood-menu li:hover > ul { opacity: 1; }
+
+.mood-menu ul li {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+
+    -webkit-transition: height .25s ease .1s;
+    -moz-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+}
+
+.mood-menu li:hover > ul li {
+    height: 36px;
+    overflow: visible;
+    padding: 0;
+}
+
+
+.mood-menu ul li a {
+  width: 150px;
+  padding: 4px 0 4px 4px;
+  margin: 0;
+  border: none;
+}
+
