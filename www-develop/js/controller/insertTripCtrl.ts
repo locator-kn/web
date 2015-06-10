@@ -82,7 +82,7 @@ module Controller {
                             geotag: loc.geotag
                         });
                         loc.images.thumbnail = this.getStaticMap({
-                            size: '120×70',
+                            size: '120x70',
                             geotag: loc.geotag
                         });
                     }
