@@ -61,6 +61,9 @@ module Controller {
         availableLocationsHash:any = {};
         selectedLocations:any = {};
 
+        showAvailableLocations:boolean = false;
+        showSelectedLocations:boolean = false;
+
         constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
@@ -70,7 +73,7 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-                //this.selectedMoods = $state.params.moods;
+                console.log('Test' + this.selectableMoods);
             });
 
             this.LocationService.getMyLocations().then(response => {
@@ -108,6 +111,7 @@ module Controller {
 
         addLocationToTrip(locationId) {
             this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
+            this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
         }
 
@@ -257,8 +261,6 @@ module Controller {
                 //pics
                 //active
                 //delete
-
-                type: 'trip'
             };
             var documentMetaData = {
                 _id: this.documentId || '',
