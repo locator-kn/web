@@ -64,7 +64,7 @@ module Controller {
         showAvailableLocations:boolean = false;
         showSelectedLocations:boolean = false;
 
-        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -120,6 +120,9 @@ module Controller {
             delete this.selectedLocations[locationId];
         }
 
+        scrollTo(hash) {
+            this.$anchorScroll(hash);
+        }
 
         isActive(item) {
             return item == this.activeItem;
