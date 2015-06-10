@@ -16,6 +16,10 @@ module Service {
 
         }
 
+        sendNewPassword(mail) {
+            return this.$http.get(this.basePath + '/forgot/' + mail);
+        }
+
         getUser(_Id) {
             return this.$q((resolve, reject) => {
 
