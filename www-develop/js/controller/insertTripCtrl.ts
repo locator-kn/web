@@ -82,7 +82,7 @@ module Controller {
                             geotag: loc.geotag
                         });
                         loc.images.thumbnail = this.getStaticMap({
-                            size: '120x70',
+                            size: '180x100',
                             geotag: loc.geotag
                         });
                     }
@@ -105,7 +105,7 @@ module Controller {
         }
 
         getStaticMap(options) {
-            return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&center=' + options.geotag.lat + ',' + options.geotag.long;
+            return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&markers=' + options.geotag.lat + ',' + options.geotag.long;
         }
 
         addLocationToTrip(locationId) {
