@@ -32,9 +32,10 @@
                                 <a href="#">
                                     <img src="../../images/icons/plus.png">
                                 </a>
-                                <ul >
-                                    <li ng-repeat="mood in itc.selectableMoods">
+                                <ul>
+                                    <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods">
                                         <a href="#" class="documents">{{mood.title}}</a>
+                                        <img ng-src="data:image/gif;base64,{{mood.icon}}">
                                     </li>
                                 </ul>
                             </li>

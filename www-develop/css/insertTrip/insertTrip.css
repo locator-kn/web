@@ -284,8 +284,16 @@
 .mood-menu ul li a {
   width: 100px;
   padding: 4px 0 4px 4px;
-  margin: 0;
+  margin-top: 0px;
   border: none;
 }
 
+.mood-menu ul li img {
+    float: right;
+    height: 25px;
+    width: 25px;
+}
 
+.selectable-moods {
+    margin-top: 10px;
+}
