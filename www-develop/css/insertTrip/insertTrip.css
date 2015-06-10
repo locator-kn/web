@@ -266,11 +266,6 @@
     height: 0;
     overflow: hidden;
     padding: 0;
-    -webkit-transition: height .25s ease .1s;
-    -moz-transition: height .25s ease .1s;
-    -o-transition: height .25s ease .1s;
-    -ms-transition: height .25s ease .1s;
-    transition: height .25s ease .1s;
     width: 250px;
 }
 
