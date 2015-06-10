@@ -49,7 +49,7 @@
                 </div>
                 <div class="right-section">
                     <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
-                    <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" required>
+                    <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
                     <p>selected locations</p>
                     <div class="locations">
                         <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <p>available locations</p>
-                    <div class="locations" ng-show="itc.availableLocations.length">
+                    <div class="locations" ng-class="itc.showAvailableLocations" ng-show="itc.availableLocations.length">
                         <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
                             <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
                             <div class="add-location">
