@@ -110,7 +110,6 @@ module Controller {
             this.UserService.register(this.name, this.mail, this.password)
                 .then(result => {
                     console.info("Register Success");
-                    this.errormsg = "Erfolgreich registr";
                     this.getMe();
 
                     //close the dialog after success
