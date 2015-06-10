@@ -169,13 +169,13 @@
     border: 1px solid #e4e4e4;
     border-bottom: none;
     background: #ededed;
-    max-height: 350px;
-    height: 0;
+    max-height: 0;
+    transition: max-height .35s ease-out;
     overflow-x: hidden;
     overflow-y: scroll;
 }
 .locations.active {
-    height: auto;
+    max-height: 350px;
 }
 
 .locations .location {

@@ -61,6 +61,9 @@ module Controller {
         availableLocationsHash:any = {};
         selectedLocations:any = {};
 
+        showAvailableLocations:boolean = false;
+        showSelectedLocations:boolean = false;
+
         constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
@@ -110,6 +113,7 @@ module Controller {
 
         addLocationToTrip(locationId) {
             this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
+            this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
         }
 
