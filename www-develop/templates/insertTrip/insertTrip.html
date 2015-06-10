@@ -25,8 +25,9 @@
                     <div class="feeling-text">
                         <p>Wie fühlt sich dein Trip an?</p>
                     </div>
-                    <div class="chosen-moods" ng-repeat="mood in itc.selectableMoods">
-                        <img ng-src="data:image/gif;base64,{{mood.icon}}">
+                    <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
+                        <img class="mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
+                        <img class="cross-image" src="../../images/icons/cross_button_moods.png" ng-click="itc.removeSelectedMood(mood)">
                     </div>
                     <div class="add-mood">
                         <ul class="mood-menu">
@@ -35,8 +36,8 @@
                                     <img src="../../images/icons/plus.png">
                                 </a>
                                 <ul>
-                                    <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods">
-                                        <a href="#" class="documents">{{mood.title}}</a>
+                                    <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods" ng-click="itc.selectMood(mood)">
+                                        <a>{{mood.title}}</a>
                                         <img ng-src="data:image/gif;base64,{{mood.icon}}">
                                     </li>
                                 </ul>

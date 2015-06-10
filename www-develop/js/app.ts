@@ -15,7 +15,6 @@
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/profileCtrl.ts" />
-/// <reference path="./controller/editProfileCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
@@ -102,7 +101,7 @@ var app = angular.module('starter', deps)
 
             .state('welcome', {
                 url: "/welcome",
-                templateUrl: "../templates/welcome/welcome.html",
+                templateUrl: "../templates/welcome/welcome.html"
             })
 
             .state('context', {
@@ -118,7 +117,7 @@ var app = angular.module('starter', deps)
 
             .state('trip', {
                 url: "/trip/{tripId}",
-                templateUrl: "../templates/search/trip.html",
+                templateUrl: "../templates/search/trip.html"
             })
 
             .state('messenger', {
@@ -142,28 +141,23 @@ var app = angular.module('starter', deps)
 
             .state('user', {
                 url: "/user/{profileId}",
-                templateUrl: "../templates/userProfile/profile.html",
+                templateUrl: "../templates/userProfile/profile.html"
             })
 
             .state('insertTrip', {
-                url: "/insertTrip/?city&moods&days",
+                url: "/insert-trip/?city&moods&days",
                 templateUrl: "../templates/insertTrip/insertTrip.html"
             })
+
             .state('insertLocation', {
                 url: "/insert-location",
                 templateUrl: "../templates/insertLocation/insertLocation.html"
-            })
-
-            .state('editProfile', {
-                url: "/editProfile",
-                templateUrl: "../templates/userProfile/editProfile.html"
             });
 
-        $urlRouterProvider.otherwise('welcome')
+        $urlRouterProvider.otherwise('welcome');
     })
 
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
-    .controller(Controller.EditProfileCtrl.controllerId, Controller.EditProfileCtrl)
     .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
@@ -236,13 +230,13 @@ if (live) {
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
         .service(Service.SocketService.serviceId, Service.SocketService)
-        .service(Service.LocationService.serviceId, Service.LocationService)
+        .service(Service.LocationService.serviceId, Service.LocationService);
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)
         .service(MockedService.UserService.serviceId, MockedService.UserService)
         .service(MockedService.EditProfileService.serviceId, MockedService.EditProfileService)
-        .service(Service.SearchService.serviceId, Service.SearchService)
+        .service(Service.SearchService.serviceId, Service.SearchService);
 }
 
 

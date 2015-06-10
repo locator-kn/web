@@ -238,7 +238,7 @@
 }
 
 .mood-menu li a {
-    color: #f3f3f3;
+    color: #000;
 }
 
 .mood-menu li:first-child a {
@@ -248,7 +248,9 @@
     border-right: none;
 }
 
-.mood-menu li:hover > a { color: #8fde62; }
+.mood-menu li:hover > a {
+    color: #fff;
+}
 
 .mood-menu ul {
     position: absolute;
@@ -288,15 +290,27 @@
     float: right;
     height: 25px;
     width: 25px;
+    position: relative;
+    bottom: 4px;
 }
 
 .selectable-moods {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-.chosen-moods img{
+.selected-moods .mood-image {
     height: 25px;
     width: 25px;
-    float: left;
     margin-left: 5px;
+    float: left;
+}
+
+.selected-moods .cross-image {
+    height: 12px;
+    width: 12px;
+    float: left;
+    position: relative;
+    right: 8px;
+    bottom: 4px;
+    cursor: pointer;
 }
