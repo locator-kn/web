@@ -38,7 +38,7 @@ module Controller {
 
                     this.days = responsesArray[2].data;
                     this.selectedDay = this.days[Math.floor((Math.random() * this.cities.length))];
-                    
+
                     this.dataAvailable = true;
 
                 });
