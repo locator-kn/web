@@ -31,8 +31,8 @@
 }
 
 .welcome_select {
-    font-size: 35px;
     color: white;
+    font-size: 30px;
 }
 
 .welcome_select a {
@@ -109,12 +109,13 @@ a.welcome_button:hover {
     padding-bottom: 50px;
 }
 
-.welcome_logo {
+.logocontainer {
     transition-duration: 0.3s;
     opacity: 0;
 }
 
-.welcome_logo.visible {
+
+.logocontainer.visible {
     opacity: 1;
 }
 

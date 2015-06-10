@@ -8,7 +8,7 @@ module Service {
         dataAccommodationsCache;
         dataMoodsCache;
 
-        constructor(private $http, private basePath, private CacheFactory) {
+        constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
@@ -40,6 +40,20 @@ module Service {
 
         getAvailableCities() {
             return this.$http.get(this.basePath + '/data/cities');
+        }
+
+        getAvailableAmountOfDays() {
+            return this.$q(function (resolve) {
+                resolve(
+                    {
+                        data: [
+                            {"id": "1", "title": "1 Tag"},
+                            {"id": "2", "title": "2 Tage"},
+                            {"id": "3", "title": "3 Tage"},
+                            {"id": "4", "title": "3+ Tage"},
+                        ]
+                    });
+            });
         }
 
         static serviceId:string = "DataService";

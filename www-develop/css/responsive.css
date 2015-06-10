@@ -1,6 +1,11 @@
+/* XS */
+@media (max-width: 1200px) {
+
+}
+
 /* LG */
 @media (min-width: 992px) {
-   
+
 }
 
 /* SM */
@@ -12,3 +17,5 @@
 @media (max-width: 767px) {
 
 }
+
+
