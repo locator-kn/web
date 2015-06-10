@@ -28,14 +28,14 @@
                     </div>
                     <div class="add-mood">
                         <ul class="mood-menu">
-                            <li>
+                            <li class="menu-item">
                                 <a href="#">
                                     <img src="../../images/icons/plus.png">
                                 </a>
-                                <ul>
-                                    <li><a href="#" class="documents">Buddytrip</a></li>
-                                    <li><a href="#" class="messages">Singles unter sich</a></li>
-                                    <li><a href="#" class="signout">HalliGalliDrecksaufest</a></li>
+                                <ul >
+                                    <li ng-repeat="mood in itc.selectableMoods">
+                                        <a href="#" class="documents">{{mood.title}}</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

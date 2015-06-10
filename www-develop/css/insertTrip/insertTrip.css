@@ -240,8 +240,12 @@
     color: #f3f3f3;
 }
 
-.mood-menu li:first-child a { border-left: none; }
-.mood-menu li:last-child a{ border-right: none; }
+.mood-menu li:first-child a {
+    border-left: none;
+}
+.mood-menu li:last-child a{
+    border-right: none;
+}
 
 .mood-menu li:hover > a { color: #8fde62; }
 
@@ -249,24 +253,25 @@
     position: absolute;
     top: 25px;
     right: 0px;
-
     opacity: 0;
     background: #ff632d;
     z-index: 10;
 }
 
-.mood-menu li:hover > ul { opacity: 1; }
+.mood-menu li:hover > ul {
+    opacity: 1;
+}
 
 .mood-menu ul li {
     height: 0;
     overflow: hidden;
     padding: 0;
-
     -webkit-transition: height .25s ease .1s;
     -moz-transition: height .25s ease .1s;
     -o-transition: height .25s ease .1s;
     -ms-transition: height .25s ease .1s;
     transition: height .25s ease .1s;
+    width: 250px;
 }
 
 .mood-menu li:hover > ul li {
@@ -277,9 +282,10 @@
 
 
 .mood-menu ul li a {
-  width: 150px;
+  width: 100px;
   padding: 4px 0 4px 4px;
   margin: 0;
   border: none;
 }
+
 

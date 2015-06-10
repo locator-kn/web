@@ -70,7 +70,7 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-                //this.selectedMoods = $state.params.moods;
+                console.log('Test' + this.selectableMoods);
             });
 
             this.LocationService.getMyLocations().then(response => {
