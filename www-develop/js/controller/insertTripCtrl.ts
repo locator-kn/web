@@ -78,11 +78,11 @@ module Controller {
                     if(!loc.images) {
                         loc.images = {};
                         loc.images.picture = this.getStaticMap({
-                            size: '100x100',
+                            size: '1151x675',
                             geotag: loc.geotag
                         });
                         loc.images.thumbnail = this.getStaticMap({
-                            size: '50x50',
+                            size: '120×70',
                             geotag: loc.geotag
                         });
                     }
