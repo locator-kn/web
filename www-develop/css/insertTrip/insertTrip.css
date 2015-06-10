@@ -248,7 +248,9 @@
     border-right: none;
 }
 
-.mood-menu li:hover > a { color: #8fde62; }
+.mood-menu li:hover > a {
+    color: #fff;
+}
 
 .mood-menu ul {
     position: absolute;

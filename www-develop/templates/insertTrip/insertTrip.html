@@ -27,7 +27,7 @@
                     </div>
                     <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
                         <img class="mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
-                        <img class="cross-image" src="../../images/icons/cross_button_moods.png">
+                        <img class="cross-image" src="../../images/icons/cross_button_moods.png" ng-click="itc.removeSelectedMood(mood)">
                     </div>
                     <div class="add-mood">
                         <ul class="mood-menu">
