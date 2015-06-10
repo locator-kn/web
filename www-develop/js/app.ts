@@ -75,7 +75,8 @@ var deps = [
     'locator.accommodation-equipment-chooser',
     'emoji',
     'uiGmapgoogle-maps',
-    'luegg.directives'
+    'luegg.directives',
+    'monospaced.elastic'
 ];
 
 var app = angular.module('starter', deps)
