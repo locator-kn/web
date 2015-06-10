@@ -599,6 +599,7 @@ a.close-modal {
     bottom: 0;
     z-index: 1000;
 }
+
 .trip-image {
     width: 100%;
     height: 450px;
@@ -790,6 +791,28 @@ a.forgotpw {
     width: 100%;
 }
 
-.normallogin {
+.error-msg {
+    color: white;
+    background: rgb(255, 70, 55);
+    padding: 11px 12px;
+    margin-top: -3px;
+    border-radius: 3px;
+    float: left;
+    width: 100%;
+    margin: 3px 0;
+}
+
+.moodal .btn-grp-white {
+    float: left;
+    padding-top: 40px;
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(51, 196, 183) inset;
+
+    background-color: none !important;
+    background-image: none !important;
 
 }
+
