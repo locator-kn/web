@@ -60,6 +60,7 @@
     max-width: 65%;
     position: relative;
     padding: 15px;
+    word-wrap: break-word;
 }
 
 .messenger-container .content .message.out p {
