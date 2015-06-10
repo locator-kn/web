@@ -14,6 +14,9 @@ module Controller {
         conversationTeaser:any = [];
         forgotPassword:boolean = false;
 
+        // no error if empty string
+        errormsg:string = '';
+
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService) {
             this.$rootScope.$on('login_success', () => {
@@ -71,13 +74,19 @@ module Controller {
         }
 
 
-        login() {
+        login(form) {
+            if (form.$invalid) {
+                return;
+            }
+
             console.info('Login ' + this.mail);
 
             this.UserService.login(this.mail, this.password)
 
                 .then(result => {
                     console.info("Login Success");
+                    this.errormsg = '';
+
                     this.getMe();
                     this.$rootScope.authenticated = true;
 
@@ -87,14 +96,19 @@ module Controller {
                 })
                 .catch((resp) => {
                     console.info("Login Error");
+                    this.errormsg = "Oops, da lief etwas falsch";
                 });
         }
 
-        register() {
-            console.info('Register' + this.name);
+        register(form) {
+            if (form.$invalid) {
+                return;
+            }
+
             this.UserService.register(this.name, this.mail, this.password)
                 .then(result => {
                     console.info("Register Success");
+                    this.errormsg = "Erfolgreich registr";
                     this.getMe();
 
                     //close the dialog after success
@@ -102,8 +116,9 @@ module Controller {
 
                 })
                 .catch((resp) => {
-                    // TODO display something to the user if registration failed
                     console.info("Register Error");
+                    console.info(resp);
+                    this.errormsg = "Oops, da lief etwas falsch";
                 });
 
 
@@ -133,6 +148,7 @@ module Controller {
         }
 
         resetInput() {
+            this.errormsg = '';
             this.user = '';
             this.name = '';
             this.password = '';
@@ -189,6 +205,7 @@ module Controller {
                 })
                 .catch((resp) => {
                     console.info("Error");
+                    this.errormsg = "Oops, da lief etwas falsch";
                 })
         }
 

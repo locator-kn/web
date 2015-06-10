@@ -1,14 +1,18 @@
 <a class="close-modal pointer" ng-click="hc.closeDialog()">X</a>
 
+
 <div ng-class="{hidden: hc.forgotPassword}" class="normallogin">
     <div class="btn-grp-white">
         <a class="fb-login pointer" ng-click="hc.loginFacebook()">Login with Facebook</a>
         <a class="gp-login pointer" ng-click="hc.loginGoogle()">Login with Google</a>
     </div>
+
     <form name="form">
         <input ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
         <input ng-model="hc.password" type="password" placeholder="Passwort" name="inputPassword">
+        <div ng-if="hc.errormsg != ''" class="error-msg">{{hc.errormsg}}</div>
         <input ng-click="hc.login()" class="pointer login submit button" value="Login" type="submit">
+
     </form>
 
     <a ng-click="hc.forgotPassword = !forgotPassword" class="pointer forgotpw">Passwort vergessen</a>

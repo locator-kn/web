@@ -4,10 +4,11 @@
     <a class="fb-login pointer" ng-click="hc.loginFacebook()">Login with Facebook</a>
     <a class="gp-login pointer" ng-click="hc.loginGoogle()">Login with Google</a>
 </div>
-<form name="form">
+<form autocomplete="off" name="form">
     <input required ng-model="hc.name" type="text" placeholder="Name" name="name">
     <input required ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
     <input required ng-model="hc.password" type="password" placeholder="Passwort" name="inputPassword">
-    <input ng-click="hc.register()" class="pointer register submit button" value="Registrieren" type="submit">
+    <div ng-if="hc.errormsg != ''" class="error-msg">{{hc.errormsg}}</div>
+    <input ng-click="hc.register(form)" class="pointer register submit button" value="Registrieren" type="submit">
 </form>
 
