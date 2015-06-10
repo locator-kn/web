@@ -72,6 +72,9 @@
     height: 40px;
     border: none;
     float: left;
+
+    background: white;
+
 }
 
 button#chat_submit {
@@ -80,10 +83,11 @@ button#chat_submit {
 
 #chat_box {
     height: 40px;
-    width: calc(100% - 120px);
+    width: calc(100% - 60px);
     background: white;
     border: none;
     float: left;
+    padding: 11px;
 }
 
 .chat-input {
@@ -115,5 +119,8 @@ span.bubble {
     position: absolute;
     background-color: white;
     padding: 15px;
-    left: 60px;
+
+    padding: 9px;
+    right: 60px;
+
 }
