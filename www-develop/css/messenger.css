@@ -51,7 +51,8 @@
 
 .messenger-container .content .message {
     float: left;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .messenger-container .content .message p {
