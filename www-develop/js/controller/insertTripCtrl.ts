@@ -105,7 +105,7 @@ module Controller {
         }
 
         getStaticMap(options) {
-            return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&scale=15&center=' + options.geotag.long + ',' + options.geotag.lat;
+            return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&center=' + options.geotag.lat + ',' + options.geotag.long;
         }
 
         addLocationToTrip(locationId) {
