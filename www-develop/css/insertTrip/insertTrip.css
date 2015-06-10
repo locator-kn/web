@@ -162,7 +162,7 @@
     background-color: #FA787E;
 }
 
-.available-locations {
+.locations {
     width: 100%;
     float: left;
     margin: 0 0 80px;
@@ -170,39 +170,39 @@
     border-bottom: none;
     background: #ededed;
 }
-.available-locations .available-location {
+.locations .location {
     width: 100%;
     float: left;
     padding: 0;
     border-bottom: 1px solid #dcdcdc;
 }
-.available-location .details {
+.location .details {
     float: left;
     margin: 15px 0 0 15px;
 }
-.available-location .img-container {
+.location .img-container {
     width: 100px;
     height: 100px;
     overflow: hidden;
     position: relative;
     float: left;
 }
-.available-location .location-img {
+.location .location-img {
     position: absolute;
     left: -35px;
     top: 0;
     height: 100px;
 
 }
-.available-location .add-location {
+.location .add-location {
     float: right;
     width: 20px;
     text-align: center;
 }
-.available-location .moods {
+.location .moods {
     float: right;
 }
-.available-location h3 {
+.location h3 {
     font-size: 20px;
     margin: 0 0 10px;
 }
