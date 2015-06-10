@@ -147,6 +147,15 @@ module Controller {
             }
         }
 
+        selectMood(mood) {
+            this.selectedMoods.push(mood);
+            console.log(mood);
+        }
+
+        removeSelectedMood(mood) {
+            this.selectedMoods.splice(this.selectedMoods.indexOf(mood), 1);
+        }
+
         toggleAccommodation() {
             this.accommodation = !this.accommodation;
             if (this.accommodation) {
