@@ -154,7 +154,7 @@ var app = angular.module('starter', deps)
                 templateUrl: "../templates/insertLocation/insertLocation.html"
             });
 
-        $urlRouterProvider.otherwise('welcome')
+        $urlRouterProvider.otherwise('welcome');
     })
 
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
