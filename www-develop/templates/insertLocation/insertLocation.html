@@ -17,7 +17,7 @@
         <a class="choose-image welcome_button">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().ilc.selectImage(this)"
                style="display: none">
-        <img id="preview" ng-src="http://locator.in.htwg-konstanz.de{{ilc.headerImagePath}}">
+        <img id="preview" ng-src="{{ilc.headerImagePath}}">
 
     </div>
     <form>
