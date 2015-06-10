@@ -39,6 +39,7 @@
 
 .messenger-container .content {
     overflow-y: scroll;
+    overflow-x: hidden;
     float: left;
     width: 100%;
     height: calc(100vh - 200px);
