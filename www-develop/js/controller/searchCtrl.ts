@@ -8,7 +8,7 @@ module Controller {
         showSelectableMoods = false;
         tripCities = [];
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private lodash) {
+        constructor(private HelperService, private $scope, private $rootScope, private $location, private SearchService, private DataService, private $state, private UserService) {
             this.query = $location.search();
             this.query.accommodation = false;
 
@@ -59,6 +59,7 @@ module Controller {
             this.SearchService.getTripsByQuery(this.query)
                 .then(result => {
                     this.emitResult(result.data);
+                    console.info(result.data);
                 })
         }
 
@@ -92,6 +93,7 @@ module Controller {
         emitResult(result) {
             this.$rootScope.$emit('newSearchResults', result);
         }
+
 
         static controllerId:string = "SearchCtrl";
     }

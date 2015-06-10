@@ -27,7 +27,18 @@
                         <!--<moodselection selected-moods="itc.selectedMoods" selectable-moods="itc.selectableMoods" query="itc.query" ></moodselection>-->
                     </div>
                     <div class="add-mood">
-                        <img src="../../images/icons/plus.png">
+                        <ul class="mood-menu">
+                            <li class="menu-item">
+                                <a href="#">
+                                    <img src="../../images/icons/plus.png">
+                                </a>
+                                <ul >
+                                    <li ng-repeat="mood in itc.selectableMoods">
+                                        <a href="#" class="documents">{{mood.title}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
