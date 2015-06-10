@@ -31,7 +31,7 @@
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/insertTripService.ts" />
-/// <reference path="./service/InsertLocationService.ts" />
+/// <reference path="./service/LocationService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
 /// <reference path="./mockedservice/dataService.ts" />
@@ -73,7 +73,8 @@ var deps = [
     'locator.datepicker',
     'locator.scrollfix',
     'locator.accommodation-equipment-chooser',
-    'emoji'
+    'emoji',
+    'uiGmapgoogle-maps'
 ];
 
 var app = angular.module('starter', deps)
@@ -84,6 +85,11 @@ var app = angular.module('starter', deps)
     .config(function (CacheFactoryProvider) {
         angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
     })
+    /*.config(function (GoogleMapApiProvider) {
+        GoogleMapApiProvider.configure({
+            china: false
+        });
+    })*/
 
     .config(function ($sceProvider) {
         $sceProvider.enabled(false);
@@ -138,7 +144,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('insertTrip', {
-                url: "/insertTrip/?city&moods",
+                url: "/insertTrip/?city&moods&days",
                 templateUrl: "../templates/insertTrip/insertTrip.html"
             })
             .state('insertLocation', {
@@ -228,7 +234,7 @@ if (live) {
         .service(Service.InsertTripService.serviceId, Service.InsertTripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
         .service(Service.SocketService.serviceId, Service.SocketService)
-        .service(Service.InsertLocationService.serviceId, Service.InsertLocationService)
+        .service(Service.LocationService.serviceId, Service.LocationService)
 
 } else {
     app.service(MockedService.DataService.serviceId, MockedService.DataService)

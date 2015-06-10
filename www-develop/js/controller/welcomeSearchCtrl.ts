@@ -8,6 +8,9 @@ module Controller {
         cities:any;
         selectedCity:any;
 
+        days:any;
+        selectedDay:any;
+
         dataAvailable:boolean = false;
 
         constructor(private HelperService, private $scope, private $rootScope, private $element, private DataService, private $q, private $state) {
@@ -22,8 +25,9 @@ module Controller {
 
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getCities();
+            var days = this.DataService.getAvailableAmountOfDays();
 
-            this.$q.all([moods, cities])
+            this.$q.all([moods, cities, days])
                 .then((responsesArray) => {
 
                     this.moods = responsesArray[0].data;
@@ -32,18 +36,20 @@ module Controller {
                     this.cities = responsesArray[1].data;
                     this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
 
+                    this.days = responsesArray[2].data;
+                    this.selectedDay = this.days[Math.floor((Math.random() * this.cities.length))];
+
                     this.dataAvailable = true;
 
-                    console.info(this.selectedCity);
                 });
-
 
         }
 
         search() {
             this.$state.go('search', {
                 city: this.selectedCity.title,
-                moods: this.selectedMood.query_name
+                moods: this.selectedMood.query_name,
+                days: this.selectedDay.id
             });
         }
 

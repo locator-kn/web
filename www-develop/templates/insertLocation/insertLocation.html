@@ -23,9 +23,9 @@
     <form>
         <div class="input-content">
             <div class="content-header">
-                <div class="profile-image">
+                <!--<div class="profile-image">
                     <img ng-src="http://locator.in.htwg-konstanz.de{{ilc.me.picture.picture}}">
-                </div>
+                </div>-->
                 <div class="moods">
                     <div class="feeling-text">
                         <p>Wie fühlt sich dein Trip an?</p>
@@ -35,12 +35,39 @@
                 </div>
             </div>
             <div class="content-bottom">
-                <div class="left-section" set-class-when-at-top="fix-to-top">
-                    left
-                </div>
-                <div class="right-section">
-                    right
-                </div>
+                <form id="insertLocationForm">
+                    <div class="left-section" set-class-when-at-top="fix-to-top">
+                        <input class="text-fields" type="text" placeholder="Kategorie (Bar, ...)"
+                               ng-model="ilc.locationFormDetails.category" ng-model-options="{ updateOn: 'blur'}"
+                               required>
+
+                    </div>
+                    <div class="right-section">
+
+                        <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
+                               ng-model="ilc.locationFormDetails.title" ng-model-options="{ updateOn: 'blur'}" required>
+                        <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
+                                  ng-model="ilc.locationFormDetails.description" ng-model-options="{ updateOn: 'blur'}"
+                                  required></textarea>
+                        <textarea class="trip-money text-fields" type="text"
+                                  placeholder="Für was braucht dein Gast eventuell Geld?"
+                                  ng-model="ilc.locationFormDetails.budget"
+                                  ng-model-options="{ updateOn: 'blur'}"></textarea>
+                        <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity" details="ilc.selectedPlaceDetails" ng-model-options="{ updateOn: 'blur'}" required>
+
+                        <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
+                            <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
+                                            options="ilc.map.clickedMarker.options">
+                            </ui-gmap-marker>
+                        </ui-gmap-google-map>
+
+                        <div class="save-trip" ng->
+                            <!--<button>SPEICHERN</button>
+-->
+                            <input type="submit"  ng-click="ilc.save()" value="SPEICHERN" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </form>

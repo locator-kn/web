@@ -15,8 +15,73 @@ module Controller {
 
         locationTitle:string = '';
 
-        constructor(private $scope, private $rootScope, private InsertLocationService) {
+        googlePlacesOptions = {
+            country: 'de',
+            types: '(cities)'
+        };
 
+        map:any = {};
+        clickedMarker:any = {};
+        selectedPlaceDetails:any = {};
+
+        locationFormDetails:any = {
+            title: '',
+            description: '',
+            budget: '',
+            category: '',
+            moods: [],
+            city: {}
+        };
+
+        constructor(private $scope, private $rootScope, private LocationService) {
+            this.map = {
+                center: {
+                    // kn fh
+                    latitude: 47.668403,
+                    longitude: 9.170499
+                },
+                zoom: 12,
+                clickedMarker: {
+                    id: 0,
+                    options: {
+                        labelClass: 'marker-labels',
+                        labelAnchor: '50 0'
+                    },
+                    latitude: null,
+                    longitude: null
+                },
+                events: this.getEvents()
+            };
+
+            $scope.$on('mapentrySelected', (event, details) => {
+                this.map.center.latitude = details.geometry.location.A;
+                this.map.center.longitude = details.geometry.location.F;
+            });
+        }
+
+        getEvents() {
+            return {
+                click: (mapModel, eventName, originalEventArgs) => {
+                    this.clickMapEvent(mapModel, eventName, originalEventArgs);
+                }
+            }
+        }
+
+        clickMapEvent(mapModel, eventName, originalEventArgs) {
+            var e = originalEventArgs[0];
+            var lat = e.latLng.lat(),
+                lon = e.latLng.lng();
+            this.map.clickedMarker = {
+                id: 0,
+                options: {
+                    labelClass: "marker-labels",
+                    labelAnchor: "50 0"
+                },
+                latitude: lat,
+                longitude: lon
+            };
+            console.log(this.map.clickedMarker);
+            this.$scope.$apply();
         }
 
         selectImage(file) {
@@ -69,7 +134,7 @@ module Controller {
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
                 yCoord: Math.round(this.imageCropData.y),
-                nameOfTrip: this.locationTitle || 'supertrip',
+                locationTitle: this.locationTitle.toLowerCase() || 'supertrip',
                 _id: '',
                 _rev: ''
             };
@@ -78,8 +143,7 @@ module Controller {
                 formData._id = this.documentId;
                 formData._rev = this.revision;
             }
-
-            this.InsertLocationService.uploadImage(formData, file)
+            this.LocationService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = perc;
@@ -111,6 +175,27 @@ module Controller {
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
             this.headerImagePath = data.imageLocation.picture;
+        }
+
+        save() {
+            this.locationFormDetails.city = {
+                title: this.selectedPlaceDetails.name,
+                id: this.selectedPlaceDetails.id,
+                place_id: this.selectedPlaceDetails.place_id
+            };
+
+            this.locationFormDetails.geotag = {
+                long: this.map.clickedMarker.longitude,
+                lat: this.map.clickedMarker.latitude
+            };
+
+            this.LocationService.saveLocation(this.locationFormDetails, this.documentId).
+                then(() => {
+                    debugger
+                })
+                .catch(() => {
+                    debugger
+                })
         }
 
         static controllerId:string = "InsertLocationCtrl";

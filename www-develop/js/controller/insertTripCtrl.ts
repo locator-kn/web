@@ -57,8 +57,11 @@ module Controller {
         documentWasCreated:boolean = false;
         me:any;
         query:any = {};
+        availableLocations:any = [];
+        availableLocationsHash:any = {};
+        selectedLocations:any = {};
 
-        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private lodash, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $rootScope, private $state, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -68,6 +71,24 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
                 //this.selectedMoods = $state.params.moods;
+            });
+
+            this.LocationService.getMyLocations().then(response => {
+                response.data.forEach(loc => {
+                    if(!loc.images) {
+                        loc.images = {};
+                        loc.images.picture = this.getStaticMap({
+                            size: '1151x675',
+                            geotag: loc.geotag
+                        });
+                        loc.images.thumbnail = this.getStaticMap({
+                            size: '180x100',
+                            geotag: loc.geotag
+                        });
+                    }
+                    this.availableLocationsHash[loc._id] = loc;
+                });
+                this.availableLocations = response.data;
             });
 
             $rootScope.overlay = false;
@@ -81,6 +102,20 @@ module Controller {
             });
 
             this.tripCity = this.$state.params.city;
+        }
+
+        getStaticMap(options) {
+            return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&markers=' + options.geotag.lat + ',' + options.geotag.long;
+        }
+
+        addLocationToTrip(locationId) {
+            this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
+            delete this.availableLocationsHash[locationId];
+        }
+
+        removeLocationFromTrip(locationId) {
+            this.availableLocationsHash[locationId] = this.selectedLocations[locationId];
+            delete this.selectedLocations[locationId];
         }
 
 

@@ -754,12 +754,14 @@ img.center {
 .trip-image a.choose-image.welcome_button {
     color: #000;
     border-color: #000;
+    background: #fff;
 
 }
 
 .trip-image a.choose-image.welcome_button:hover {
     color: #fff;
     border-color: #000;
+    background: #000;
 }
 
 .placeholder-tiles {

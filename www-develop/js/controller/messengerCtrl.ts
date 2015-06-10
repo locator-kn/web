@@ -102,7 +102,6 @@ module Controller {
         };
 
         sendMessage(event) {
-            console.info(this.textbox);
 
             if (event && event.keyCode !== 13) {
                 return;

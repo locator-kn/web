@@ -161,3 +161,48 @@
 .text-fields.ng-invalid.ng-touched {
     background-color: #FA787E;
 }
+
+.locations {
+    width: 100%;
+    float: left;
+    margin: 0 0 80px;
+    border: 1px solid #e4e4e4;
+    border-bottom: none;
+    background: #ededed;
+}
+.locations .location {
+    width: 100%;
+    float: left;
+    padding: 0;
+    border-bottom: 1px solid #dcdcdc;
+}
+.location .details {
+    float: left;
+    margin: 15px 0 0 15px;
+}
+.location .img-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+.location .location-img {
+    position: absolute;
+    left: -35px;
+    top: 0;
+    height: 100px;
+
+}
+.location .add-location {
+    float: right;
+    width: 20px;
+    text-align: center;
+}
+.location .moods {
+    float: right;
+}
+.location h3 {
+    font-size: 20px;
+    margin: 0 0 10px;
+}
