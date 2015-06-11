@@ -822,13 +822,14 @@ input:-webkit-autofill {
 }
 
 .profile-button {
-    color: white !important;
     text-decoration: none !important;
     padding: 5px;
     text-align: center;
+    color: rgb(84, 84, 84);
 }
 
 .profile-button.active {
     background: rgb(255, 70, 55);
+    color: white;
 }
 

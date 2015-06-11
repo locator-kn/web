@@ -28,15 +28,18 @@
         </div>
 
         <div class="col-xs-12">
-            <a ng-class="{active: pc.tab == 'info'}" ng-click="pc.tab = 'info'"
+            <a ng-class="{active: pc.tab == 'info'}" ng-click="pc.switchTab('info')"
                class="col-xs-6 pointer button profile-button">Infos</a>
-            <a ng-class="{active: pc.tab == 'account'}" ng-click="pc.tab = 'account'"
+            <a ng-class="{active: pc.tab == 'account'}" ng-click="pc.switchTab('account')"
                class="col-xs-6 pointer button profile-button">Account</a>
-        </div>
 
+            <div ng-if="pc.errormsg != ''" class="error-msg">{{pc.errormsg}}</div>
+
+        </div>
 
         <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/infos.html'"></div>
         <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>
+
 
     </div>
 </div>
