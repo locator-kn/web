@@ -724,7 +724,7 @@ img.center {
 }
 
 .profile.container {
-    max-width: 300px;
+    max-width: 450px;
     padding: 50px 15px;
 }
 
@@ -814,5 +814,21 @@ input:-webkit-autofill {
     background-color: none !important;
     background-image: none !important;
 
+}
+
+.profile-label {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.profile-button {
+    color: white !important;
+    text-decoration: none !important;
+    padding: 5px;
+    text-align: center;
+}
+
+.profile-button.active {
+    background: rgb(255, 70, 55);
 }
 

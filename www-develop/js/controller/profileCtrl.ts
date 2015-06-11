@@ -16,6 +16,9 @@ module Controller {
         profileImagePath:string;
         uploadIsDone:boolean = true;
         progressPercentage:number;
+        tab:string = "info";
+        password:string;
+        passwordRepeat:string;
 
         constructor(private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
