@@ -15,7 +15,7 @@ module Service {
             // create a copy by value
             var sq = this.lodash.cloneDeep(searchQuery);
 
-            var query = this.basePath + '/api/v1/trips/search';
+            var query = this.basePath + '/trips/search';
             return this.getCityId(sq.city).then(cityid => {
                 // delete city from query since it is part of the path
                 delete sq.city;
