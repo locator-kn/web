@@ -214,6 +214,11 @@ module Controller {
                 })
         }
 
+        triggerforgotPassword() {
+            this.errormsg = '';
+            this.forgotPassword = true;
+        }
+
         static controllerId:string = "HeaderBarCtrl";
 
     }
