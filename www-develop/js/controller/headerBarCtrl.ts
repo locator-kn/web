@@ -79,6 +79,8 @@ module Controller {
                 return;
             }
 
+
+
             console.info('Login ' + this.mail);
 
             this.UserService.login(this.mail, this.password)
@@ -108,7 +110,6 @@ module Controller {
             this.UserService.register(this.name, this.mail, this.password)
                 .then(result => {
                     console.info("Register Success");
-                    this.errormsg = "Erfolgreich registr";
                     this.getMe();
 
                     //close the dialog after success
@@ -198,14 +199,18 @@ module Controller {
                 });
         }
 
-        sendNewPassword(mail) {
+        sendNewPassword(mail, form) {
+            if (form.$invalid) {
+                return;
+            };
+
             this.UserService.sendNewPassword(mail)
                 .then(result => {
                     console.info("Success");
                 })
                 .catch((resp) => {
                     console.info("Error");
-                    this.errormsg = "Oops, da lief etwas falsch";
+                    this.errormsg = "Mail nicht gefunden";
                 })
         }
 

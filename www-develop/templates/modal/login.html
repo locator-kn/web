@@ -7,19 +7,20 @@
         <a class="gp-login pointer" ng-click="hc.loginGoogle()">Login with Google</a>
     </div>
 
-    <form name="form">
-        <input ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
-        <input ng-model="hc.password" type="password" placeholder="Passwort" name="inputPassword">
+    <form name="loginform">
+        <input required ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
+        <input required ng-model="hc.password" type="password" placeholder="Passwort" name="inputPassword">
         <div ng-if="hc.errormsg != ''" class="error-msg">{{hc.errormsg}}</div>
-        <input ng-click="hc.login()" class="pointer login submit button" value="Login" type="submit">
+        <input ng-click="hc.login(loginform)" class="pointer login submit button" value="Login" type="submit">
 
     </form>
 
     <a ng-click="hc.forgotPassword = !forgotPassword" class="pointer forgotpw">Passwort vergessen</a>
 </div>
 
-<form class="passwordforget login-wrapper" ng-class="{show: hc.forgotPassword}" name="form">
-    <input ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
-    <input ng-click="hc.sendNewPassword(hc.mail)" class="pointer login submit button" value="Send mir ein Passwort"
+<form class="passwordforget login-wrapper" ng-class="{show: hc.forgotPassword}" name="forgetform">
+    <div ng-if="hc.errormsg != ''" class="error-msg">{{hc.errormsg}}</div>
+    <input required ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
+    <input ng-click="hc.sendNewPassword(hc.mail, forgetform)" class="pointer login submit button" value="Send mir ein Passwort"
            type="submit">
 </form>
