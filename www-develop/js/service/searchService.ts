@@ -47,7 +47,7 @@ module Service {
         }
 
         getTripById(tripId) {
-            return this.$http.get(this.basePath + '/api/v1/trips/'+tripId);
+            return this.$http.get(this.basePath + '/trips/'+tripId);
         }
 
 
