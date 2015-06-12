@@ -61,7 +61,7 @@ module Controller {
         availableLocationsHash:any = {};
         selectedLocations:any = {};
 
-        showAvailableLocations:boolean = false;
+        showAvailableLocations:boolean = true;
         showSelectedLocations:boolean = false;
 
         constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
