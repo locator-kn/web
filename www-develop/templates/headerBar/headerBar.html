@@ -28,8 +28,8 @@
                 <div class="menu btn-group">
                     <ul>
                         <li ui-sref="insertLocation tt tt-s" aria-label="Erstelle eine neue Location" class="pointer"><img ng-src="images/icons/header/location.png"></li>
-                        <li ui-sref="insertTriptt tt-s" aria-label="Füge einen neuen Trip hinzu" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
-                        <li class="messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
+                        <li ui-sref="insertTrip tt tt-s" aria-label="Füge einen neuen Trip hinzu" class="pointer"><img ng-src="images/icons/header/stift.png"></li>
+                        <li class="messenger tt tt-s" aria-label="Messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
                             <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
                                 <li class="message pointer" ng-repeat="con in hc.conversations" ui-sref="messenger.opponent({opponentId: con._id})">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
