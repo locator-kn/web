@@ -1,0 +1,16 @@
+<div class="col-xs-12">
+
+    <form novalidate class="user-form">
+       <label class="profile-label">Neues Passwort</label> <input ng-disabled="!pc.edit" ng-model="pc.password" class="input" type="password" name="Password"
+               placeholder="">
+        <label class="profile-label">Wiederholen</label><input ng-disabled="!pc.edit" ng-model="pc.passwordRepeat" class="input" type="password" name="Password wiederholen"
+               placeholder="">
+
+        <a ng-if="pc.edit" class="save pointer" ng-click="pc.setNewPassword()" class="button">Save</a>
+        <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
+
+        <div style="height: 0; overflow: hidden;">{{pc.me}}</div>
+    </form>
+
+</div>
+

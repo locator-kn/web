@@ -26,28 +26,20 @@
             <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
         </div>
+
         <div class="col-xs-12">
-            <a ng-if="!pc.me" class="startconversation pointer" ng-click="pc.startConversation()" class="button">Start
-                Conversation</a>
+            <a ng-class="{active: pc.tab == 'info'}" ng-click="pc.switchTab('info')"
+               class="col-xs-6 pointer button profile-button">Infos</a>
+            <a ng-class="{active: pc.tab == 'account'}" ng-click="pc.switchTab('account')"
+               class="col-xs-6 pointer button profile-button">Account</a>
 
-            <form novalidate class="user-form">
-                <input ng-disabled="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name"
-                       placeholder="Vorname">
-                <input ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="name"
-                       placeholder="Nachname">
-                <input ng-disabled="!pc.edit" ng-model="pc.user.age" class="input" type="date" name="name"
-                       placeholder="Dein Alter">
-                <input ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input" type="text" name="name"
-                       placeholder="Dein Wohnort">
-                <textarea ng-disabled="!pc.edit" class="input" type="text" ng-model="pc.user.description"
-                          placeholder="Über dich"></textarea>
-
-                <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
-                <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
-
-                <div style="height: 0; overflow: hidden;">{{pc.me}}</div>
-            </form>
+            <div ng-if="pc.errormsg != ''" class="error-msg">{{pc.errormsg}}</div>
 
         </div>
+
+        <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/infos.html'"></div>
+        <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>
+
+
     </div>
 </div>

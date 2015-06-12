@@ -16,6 +16,10 @@ module Controller {
         profileImagePath:string;
         uploadIsDone:boolean = true;
         progressPercentage:number;
+        tab:string = "info";
+        password:string;
+        passwordRepeat:string;
+        errormsg = '';
 
         constructor(private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
@@ -24,7 +28,7 @@ module Controller {
                 this.me = this.isItMe();
             });
 
-            if(this.$rootScope.authenticated) {
+            if (this.$rootScope.authenticated) {
                 this.me = this.isItMe();
             }
         }
@@ -184,6 +188,36 @@ module Controller {
             this.profileImagePath = data.imageLocation.picture + '?' + Date.now();
         }
 
+        setNewPassword() {
+
+            if (this.password != this.passwordRepeat) {
+                this.errormsg = 'Passwörter stimmen nicht überein.';
+                return;
+            }
+
+            this.UserService.setNewPassword(this.password)
+                .then(result => {
+                    console.info('updated password');
+                    this.errormsg = '';
+                    this.editTrigger();
+                })
+                .catch(result => {
+                    this.errormsg = 'Fehler';
+                    console.info('error');
+                });
+        }
+
+        switchTab(name) {
+            this.errormsg = '';
+            this.edit = false;
+
+            if (name === 'account') {
+                this.tab = 'account';
+
+            } else if (name === 'info') {
+                this.tab = 'info';
+            }
+        }
 
         static controllerId:string = "ProfileCtrl";
     }

@@ -102,6 +102,9 @@ module Service {
         }
 
         register(name, mail, password) {
+            this.usersIdCache.remove();
+            this.usersMeCache.remove();
+
             return this.$http.post(this.basePath + '/users',
                 {
                     "name": name,
@@ -120,8 +123,14 @@ module Service {
                 fields: formData,
                 file: file
             });
+        }
 
+        setNewPassword(newPassword) {
+            return this.$http.put(this.basePath + '/users/my/password',
+                {
+                    "password": newPassword
 
+                });
         }
 
         static serviceId:string = "UserService";
