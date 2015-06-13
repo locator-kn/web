@@ -294,7 +294,7 @@
     bottom: 4px;
 }
 
-.selectable-moods {
+.selectable-moods:first-child {
     margin-top: 15px;
 }
 
