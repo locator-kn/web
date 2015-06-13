@@ -23,7 +23,6 @@
     border-radius: 75px;
     -webkit-border-radius: 75px;
     -moz-border-radius: 75px;
-    /*background: url(http://link-to-your/image.jpg) no-repeat;*/
 }
 
 .content-header .moods {
@@ -34,24 +33,6 @@
     float: right;
     cursor: pointer;
 }
-
-/*.content-header .feeling-text {
-    font-size: 16px;
-    float: right;
-    position: relative;
-    top: 10px;
-}
-
-.content-header .add-mood {
-    position: relative;
-    top: 10px;
-    cursor:pointer;
-}
-
-.content-header .add-mood img {
-    float: right;
-    clear: right;
-}*/
 
 /*BOTTOM*/
 .content-bottom {
