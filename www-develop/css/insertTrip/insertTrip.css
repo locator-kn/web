@@ -223,7 +223,7 @@
 
 .mood-menu {
     height: 35px;
-    width: 25px;
+    width: 35px;
 }
 
 .mood-menu:hover {
@@ -278,20 +278,26 @@
     padding: 0;
 }
 
-
-.mood-menu ul li a {
-  width: 100px;
-  padding: 4px 0 4px 4px;
-  margin-top: 0px;
-  border: none;
+.menu-item .plus-image {
+    padding: 5px;
 }
 
-.mood-menu ul li img {
+
+.mood-menu ul li a {
+    width: 100px;
+    padding: 4px 0 4px 4px;
+    margin-top: 0px;
+    border: none;
+    text-decoration: none;
+}
+
+.mood-menu .select-mood-image {
     float: right;
     height: 25px;
     width: 25px;
     position: relative;
     bottom: 4px;
+    right: 5px;
 }
 
 .selectable-moods:first-child {
@@ -301,7 +307,8 @@
 .selected-moods .mood-image {
     height: 25px;
     width: 25px;
-    margin-left: 5px;
+    margin-left: 4px;
+    margin-top: 5px;
     float: left;
 }
 
@@ -311,6 +318,6 @@
     float: left;
     position: relative;
     right: 8px;
-    bottom: 4px;
+    top:2px;
     cursor: pointer;
 }
