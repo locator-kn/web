@@ -116,7 +116,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('trip', {
-                url: "/trip/{tripId}",
+                url: "/trip/:tripId",
                 templateUrl: "../templates/search/trip.html"
             })
 
@@ -126,7 +126,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('messenger.opponent', {
-                url: "/{opponentId}",
+                url: "/:opponentId",
                 templateUrl: "../templates/messenger/messenger.html"
             })
 
@@ -140,7 +140,7 @@ var app = angular.module('starter', deps)
             })
 
             .state('user', {
-                url: "/user/{profileId}",
+                url: "/user/:profileId",
                 templateUrl: "../templates/userProfile/profile.html"
             })
 
