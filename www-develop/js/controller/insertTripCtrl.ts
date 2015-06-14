@@ -63,6 +63,7 @@ module Controller {
 
         showAvailableLocations:boolean = true;
         showSelectedLocations:boolean = false;
+        backgroundImage:string = '';
 
         constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
@@ -113,6 +114,7 @@ module Controller {
             this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
             this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
+            this.backgroundImage = this.selectedLocations[locationId].images.picture;
         }
 
         removeLocationFromTrip(locationId) {
