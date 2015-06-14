@@ -10,8 +10,9 @@
     <form name="loginform">
         <input required ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
         <input required ng-model="hc.password" type="password" placeholder="Passwort" name="inputPassword">
-        <div ng-if="hc.errormsg" class="error-msg">{{hc.errormsg}}</div>
-        <div ng-if="hc.successmsg" class="success-msg">{{hc.successmsg}}</div>
+
+        <div ng-if="hc.errormsg" class="msg error-msg">{{hc.errormsg}}</div>
+        <div ng-if="hc.successmsg" class="msg success-msg">{{hc.successmsg}}</div>
         <input ng-click="hc.login(loginform)" class="pointer login submit button" value="Login" type="submit">
 
     </form>
@@ -21,8 +22,10 @@
 
 <form class="passwordforget login-wrapper" ng-class="{show: hc.forgotPassword}" name="forgetform">
     <input required ng-model="hc.mail" type="email" placeholder="E-Mail" name="inputMail">
-    <div ng-if="hc.errormsg" class="error-msg">{{hc.errormsg}}</div>
-    <div ng-if="hc.successmsg" class="success-msg">{{hc.successmsg}}</div>
-    <input ng-click="hc.sendNewPassword(hc.mail, forgetform)" class="pointer login submit button" value="Send mir ein Passwort"
+
+    <div ng-class="{open: hc.errormsg}" class="msg error-msg">{{hc.errormsg}}</div>
+    <div ng-class="{open: hc.successmsg}" class="msg success-msg">{{hc.successmsg}}</div>
+    <input ng-click="hc.sendNewPassword(hc.mail, forgetform)" class="pointer login submit button"
+           value="Send mir ein Passwort"
            type="submit">
 </form>
