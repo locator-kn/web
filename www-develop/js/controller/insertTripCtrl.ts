@@ -66,6 +66,8 @@ module Controller {
         showAddLocationsBtn:boolean = true;
         backgroundImage:string = '';
 
+        selectedLocationsCount:number = 0;
+
         constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
@@ -122,12 +124,18 @@ module Controller {
             this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
             this.selectRandomImage();
+            this.selectedLocationsCount += 1;
         }
 
         removeLocationFromTrip(locationId) {
             this.availableLocationsHash[locationId] = this.selectedLocations[locationId];
             delete this.selectedLocations[locationId];
             this.selectRandomImage();
+            this.selectedLocationsCount -= 1;
+        }
+
+        get locationHasBeenSelected() {
+            return !!this.selectedLocationsCount;
         }
 
         scrollTo(hash) {
