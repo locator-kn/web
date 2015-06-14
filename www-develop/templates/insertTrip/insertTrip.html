@@ -1,8 +1,8 @@
 <div class="insert-trip-container" ng-controller="InsertTripCtrl as itc">
 
-    <div id="trip-image" class="trip-image">
+    <div id="trip-image" class="trip-image header-image-container">
         <a ng-click="itc.scrollTo('availableLocations')" class="choose-image welcome_button">Locations hinzufügen!</a>
-        <img id="preview" ng-src="{{itc.backgroundImage}}">
+        <div class="header-image" ng-style="{'background-image': 'url({{itc.backgroundImage}})'}"></div>
     </div>
     <form novalidate>
         <div class="input-content">
