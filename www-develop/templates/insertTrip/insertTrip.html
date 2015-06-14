@@ -37,6 +37,8 @@
             </div>
             <div class="content-bottom">
                 <div class="left-section" set-class-when-at-top="fix-to-top">
+                    <input type="hidden" ng-model="itc.startDateReal" required />
+                    <input type="hidden" ng-model="itc.endDateReal" required />
                     <datepicker start-date-real="itc.startDateReal" end-date-real="itc.endDateReal"></datepicker>
                     <div class="days-amount">
                         <p>anzahl Tage</p>
@@ -107,7 +109,7 @@
                         <acc-equ-chooser accommodation-equipment-selectable="itc.accommodationEquipmentSelectable" accommodation-equipment="itc.accommodationEquipment"></acc-equ-chooser >
                     </div>
                     <div class="save-trip">
-                        <input type="submit" ng-click="itc.saveTrip()" value="SPEICHERN" />
+                        <input type="submit" ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected" ng-click="itc.saveTrip()" value="SPEICHERN" />
                     </div>
                 </div>
             </div>
