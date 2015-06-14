@@ -63,9 +63,10 @@ module Controller {
 
         showAvailableLocations:boolean = true;
         showSelectedLocations:boolean = false;
+        showAddLocationsBtn:boolean = true;
         backgroundImage:string = '';
 
-        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -104,6 +105,9 @@ module Controller {
             });
 
             this.tripCity = this.$state.params.city;
+
+
+
         }
 
         getStaticMap(options) {
@@ -124,6 +128,7 @@ module Controller {
         }
 
         scrollTo(hash) {
+            this.$location.hash(hash);
             this.$anchorScroll(hash);
         }
 
@@ -264,6 +269,7 @@ module Controller {
                 }
             }
             this.backgroundImage = sl[Math.floor(Math.random() * (sl.length - 1))] || '';
+            this.showAddLocationsBtn = !this.backgroundImage;
         }
 
         getSelectedLocations() {

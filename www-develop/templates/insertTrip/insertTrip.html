@@ -1,7 +1,7 @@
 <div class="insert-trip-container" ng-controller="InsertTripCtrl as itc">
 
     <div id="trip-image" class="trip-image header-image-container">
-        <a ng-click="itc.scrollTo('availableLocations')" class="choose-image welcome_button">Locations hinzufügen!</a>
+        <a ng-if="itc.showAddLocationsBtn" ng-click="itc.scrollTo('availableLocations')" class="choose-image welcome_button">Locations hinzufügen!</a>
         <div class="header-image" ng-style="{'background-image': 'url(' + itc.backgroundImage + ')' }"></div>
     </div>
     <form novalidate>
@@ -58,8 +58,8 @@
                     <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
                     <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
 
-                    <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
                     <a name="availableLocations"></a>
+                    <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
                     <div class="locations" ng-class="{active: itc.showAvailableLocations }" ng-show="itc.availableLocations.length">
                         <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
                             <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt="" class="location-img"/></div>
