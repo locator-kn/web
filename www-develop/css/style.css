@@ -802,6 +802,17 @@ a.forgotpw {
     margin: 3px 0;
 }
 
+.success-msg {
+    color: white;
+    background: rgb(51, 196, 183);
+    padding: 11px 12px;
+    margin-top: -3px;
+    border-radius: 3px;
+    float: left;
+    width: 100%;
+    margin: 3px 0;
+}
+
 .moodal .btn-grp-white {
     float: left;
     padding-top: 40px;
