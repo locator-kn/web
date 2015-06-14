@@ -327,9 +327,8 @@ module Controller {
                 this.revision = result.rev;
                 this.documentId = result.id;
                 this.documentWasCreated = true;
-            }).then(() => {
-                this.$state.go('search', {
-                    city: t.city.title
+                this.$state.go('trip', {
+                    tripId: this.documentId
                 });
             });
         }
