@@ -792,25 +792,27 @@ a.forgotpw {
 }
 
 .error-msg {
-    color: white;
     background: rgb(255, 70, 55);
-    padding: 11px 12px;
-    margin-top: -3px;
+}
+
+.msg {
+    color: white;
     border-radius: 3px;
     float: left;
     width: 100%;
-    margin: 3px 0;
+    max-height: 0;
+    transition: 0.35s linear all;
+    overflow: hidden;
 }
 
 .success-msg {
-    color: white;
     background: rgb(51, 196, 183);
+}
+
+.passwordforget .open {
     padding: 11px 12px;
-    margin-top: -3px;
-    border-radius: 3px;
-    float: left;
-    width: 100%;
     margin: 3px 0;
+    max-height: 60px;
 }
 
 .moodal .btn-grp-white {
@@ -845,14 +847,14 @@ input:-webkit-autofill {
 }
 
 .header-image-container {
-    height:450px;
-}
-@media screen and (min-height: 850px) {
-    .header-image-container {
-        height:700px;
-    }
+    height: 450px;
 }
 
+@media screen and (min-height: 850px) {
+    .header-image-container {
+        height: 700px;
+    }
+}
 
 .header-image {
     background-repeat: no-repeat;
@@ -860,4 +862,9 @@ input:-webkit-autofill {
     background-position: 50% 50%;
     background-color: rgba(0, 0, 0, 0.2);
     height: 100%;
+}
+
+.ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important; /* yes, important */
 }

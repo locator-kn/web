@@ -200,6 +200,7 @@ module Controller {
         }
 
         sendNewPassword(mail, form) {
+            this.errormsg = '';
             if (form.$invalid) {
                 return;
             }
