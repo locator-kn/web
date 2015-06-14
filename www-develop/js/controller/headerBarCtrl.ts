@@ -92,7 +92,8 @@ module Controller {
 
                     this.getMe();
                     this.$rootScope.authenticated = true;
-                    
+                    this.closeDialog();
+
                 }).catch(resp => {
                     if (resp.status === 401) {
                         this.errormsg = "Falsche Mail oder falsches Passwort angegeben.";
@@ -213,8 +214,8 @@ module Controller {
 
                         this.successmsg = '';
                         this.forgotPassword = false;
-                        this.openLoginDialog();
-                    }, 1000)
+                        // this.openLoginDialog();
+                    }, 2000)
 
                 }).catch(() => {
                     console.info("Error");
