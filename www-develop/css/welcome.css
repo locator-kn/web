@@ -230,3 +230,18 @@ h2#sub-headline {
     overflow: hidden;
     float: left;
 }
+
+.welcome-half {
+    position: absolute;
+    height: 100vh;
+    width: 50%;
+    top: 0;
+}
+
+.welcome-left {
+    left: 0
+}
+
+.welcome-right {
+    right: 0;
+}
