@@ -4,7 +4,7 @@
         <a ng-if="itc.showAddLocationsBtn" ng-click="itc.scrollTo('availableLocations')" class="choose-image welcome_button">Locations hinzufügen!</a>
         <div class="header-image" ng-style="{'background-image': 'url(' + itc.backgroundImage + ')' }"></div>
     </div>
-    <form novalidate>
+    <form novalidate name="itc.form">
         <div class="input-content">
             <div class="content-header">
                 <div class="profile-image">
@@ -55,8 +55,14 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <input class="text-fields" type="text" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
-                    <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
+                    <div class="validation-error" ng-show="(itc.form.tripTitle.$dirty) && itc.form.tripTitle.$error.required">
+                        Bitte gebe einen Titel für deinen Trip ein.
+                    </div>
+                    <input class="text-fields" type="text" name="tripTitle" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
+                    <div class="validation-error" ng-show="(itc.form.tripCity.$dirty) && itc.form.tripCity.$error.required">
+                        Wo findet dein Trip statt?
+                    </div>
+                    <input class="text-fields" name="tripCity" type="text" placeholder="Wo no?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
 
                     <a name="availableLocations"></a>
                     <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
