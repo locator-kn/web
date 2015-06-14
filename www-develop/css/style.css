@@ -448,7 +448,7 @@ ul.slides {
     z-index: 100;
     top: 60px;
     right: 0px;
-    background: rgba(246, 191, 186, .6);
+    background: rgba(65, 191, 180, 1);
     width: 300px;
 }
 
@@ -458,19 +458,24 @@ ul.slides {
     margin: 5px 0 0px;
     padding: 15px 25px;
     line-height: normal;
-    border-bottom: 1px solid rgba(246, 191, 186, .6);
+}
+
+.header-bar .messenger ul.messenger-popover li:not(:last-child) {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .header-bar .messenger ul.messenger-popover li img.profile {
     float: left;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
     margin: 0 10px 0 0;
 }
 
 .header-bar .messenger ul.messenger-popover li .from {
     font-size: 16px;
+    line-height: 33px;
+    color: white;
+    margin-bottom: 0;
 }
 
 .header-bar .messenger ul.messenger-popover li .message-teaser {
@@ -845,14 +850,14 @@ input:-webkit-autofill {
 }
 
 .header-image-container {
-    height:450px;
-}
-@media screen and (min-height: 850px) {
-    .header-image-container {
-        height:700px;
-    }
+    height: 450px;
 }
 
+@media screen and (min-height: 850px) {
+    .header-image-container {
+        height: 700px;
+    }
+}
 
 .header-image {
     background-repeat: no-repeat;
