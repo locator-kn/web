@@ -263,7 +263,7 @@ module Controller {
                     sl.push(this.selectedLocations[key].images.picture);
                 }
             }
-            this.backgroundImage = sl[Math.floor(Math.random() * (sl.length - 1))];
+            this.backgroundImage = sl[Math.floor(Math.random() * (sl.length - 1))] || '';
         }
 
         getSelectedLocations() {
