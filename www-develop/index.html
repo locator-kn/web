@@ -89,11 +89,16 @@
 <body ng-class="{'slider': slider}" ng-app="starter" ng-controller="MainCtrl as mc">
 
 <div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
-    <flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
+    <!--<flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
         <li>
             <div class="img-slide" style="background: url({{s}}); background-size: cover;"></div>
         </li>
-    </flex-slider>
+    </flex-slider>-->
+
+    <div class="welcome-left welcome-half" style="background: url({{sc.randomLeft}}); background-size: cover;"></div>
+    <div class="welcome-right welcome-half" style="background: url({{sc.randomRight}}); background-size: cover;"></div>
+
+
 </div>
 
 <div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay">
