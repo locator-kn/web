@@ -816,7 +816,7 @@ a.forgotpw {
     background: rgb(51, 196, 183);
 }
 
-.passwordforget .open {
+.msg.open {
     padding: 11px 12px;
     margin: 3px 0;
     max-height: 60px;
