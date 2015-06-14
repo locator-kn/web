@@ -1,6 +1,5 @@
 module Controller {
-    declare
-    var io;
+    declare var io;
     export class HeaderBarCtrl {
         user:any;
         name:any;
@@ -17,8 +16,11 @@ module Controller {
         // no error if empty string
         errormsg:string = '';
 
+        // success message
+        successmsg:string = '';
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService) {
+
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout) {
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
@@ -80,7 +82,6 @@ module Controller {
             }
 
 
-
             console.info('Login ' + this.mail);
 
             this.UserService.login(this.mail, this.password)
@@ -91,12 +92,12 @@ module Controller {
 
                     this.getMe();
                     this.$rootScope.authenticated = true;
-
-                    //close the dialog after success
-                    this.closeDialog();
-
-                })
-                .catch((resp) => {
+                    
+                }).catch(resp => {
+                    if (resp.status === 401) {
+                        this.errormsg = "Falsche Mail oder falsches Passwort angegeben.";
+                        return;
+                    }
                     console.info("Login Error");
                     this.errormsg = "Oops, da lief etwas falsch";
                 });
@@ -150,6 +151,7 @@ module Controller {
 
         resetInput() {
             this.errormsg = '';
+            this.successmsg = '';
             this.user = '';
             this.name = '';
             this.password = '';
@@ -173,12 +175,11 @@ module Controller {
         logout() {
             console.info('Logout');
             this.UserService.logout()
-                .then(result => {
+                .then(() => {
                     console.info("Logout Success");
                     this.$rootScope.authenticated = false;
                     this.$state.go('welcome');
-                })
-                .catch((resp) => {
+                }).catch(() => {
                     console.info("Logout Error");
                 });
         }
@@ -192,9 +193,7 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
-                })
-
-                .catch((resp) => {
+                }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
         }
@@ -202,13 +201,22 @@ module Controller {
         sendNewPassword(mail, form) {
             if (form.$invalid) {
                 return;
-            };
+            }
 
             this.UserService.sendNewPassword(mail)
-                .then(result => {
+                .then(() => {
                     console.info("Success");
-                })
-                .catch((resp) => {
+                    this.successmsg = 'Email wurde an dich verschickt';
+
+
+                    this.$timeout(() => {
+
+                        this.successmsg = '';
+                        this.forgotPassword = false;
+                        this.openLoginDialog();
+                    }, 1000)
+
+                }).catch(() => {
                     console.info("Error");
                     this.errormsg = "Mail nicht gefunden";
                 })
@@ -220,6 +228,5 @@ module Controller {
         }
 
         static controllerId:string = "HeaderBarCtrl";
-
     }
 }
