@@ -114,12 +114,13 @@ module Controller {
             this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
             this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
-            this.backgroundImage = this.selectedLocations[locationId].images.picture;
+            this.selectRandomImage();
         }
 
         removeLocationFromTrip(locationId) {
             this.availableLocationsHash[locationId] = this.selectedLocations[locationId];
             delete this.selectedLocations[locationId];
+            this.selectRandomImage();
         }
 
         scrollTo(hash) {
@@ -253,6 +254,16 @@ module Controller {
                 id: this.selectedPlaceDetails.id,
                 place_id: this.selectedPlaceDetails.place_id
             }
+        }
+
+        selectRandomImage() {
+            var sl = [];
+            for (var key in this.selectedLocations) {
+                if (this.selectedLocations.hasOwnProperty(key)) {
+                    sl.push(this.selectedLocations[key].images.picture);
+                }
+            }
+            this.backgroundImage = sl[Math.floor(Math.random() * (sl.length - 1))];
         }
 
         getSelectedLocations() {
