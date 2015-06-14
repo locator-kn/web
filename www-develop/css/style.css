@@ -834,8 +834,14 @@ input:-webkit-autofill {
 }
 
 .header-image-container {
-    height:702px;
+    height:450px;
 }
+@media screen and (min-height: 850px) {
+    .header-image-container {
+        height:700px;
+    }
+}
+
 
 .header-image {
     background-repeat: no-repeat;
