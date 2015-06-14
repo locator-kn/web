@@ -833,3 +833,14 @@ input:-webkit-autofill {
     color: white;
 }
 
+.header-image-container {
+    height:702px;
+}
+
+.header-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+}
