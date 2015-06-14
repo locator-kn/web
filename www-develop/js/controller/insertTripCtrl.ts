@@ -324,8 +324,8 @@ module Controller {
             //store trip in DB
             this.InsertTripService.saveTrip(t, documentMetaData)
                 .then(result => {
-                this.revision = result.rev;
-                this.documentId = result.id;
+                this.revision = result.data.rev;
+                this.documentId = result.data.id;
                 this.documentWasCreated = true;
                 this.$state.go('trip', {
                     tripId: this.documentId
