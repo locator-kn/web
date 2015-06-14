@@ -22,12 +22,12 @@
                         <ul class="mood-menu">
                             <li class="menu-item">
                                 <a href="#">
-                                    <img src="../../images/icons/plus.png">
+                                    <img class="plus-image" src="../../images/icons/plus.png">
                                 </a>
                                 <ul>
                                     <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods" ng-click="itc.selectMood(mood)">
                                         <a>{{mood.title}}</a>
-                                        <img ng-src="data:image/gif;base64,{{mood.icon}}">
+                                        <img class="select-mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
                                     </li>
                                 </ul>
                             </li>
