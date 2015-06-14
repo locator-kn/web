@@ -78,8 +78,11 @@ module Controller {
                 console.log('Test' + this.selectableMoods);
             });
 
+
             this.LocationService.getMyLocations().then(response => {
-                response.data.forEach(loc => {
+
+                response.data.forEach((loc:any) => {
+
                     if(!loc.images) {
                         loc.images = {};
                         loc.images.picture = this.getStaticMap({
