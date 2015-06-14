@@ -874,3 +874,7 @@ input:-webkit-autofill {
     /* ensure visibility during the transition */
     display: block !important; /* yes, important */
 }
+
+.passwordforget:not(.show) {
+    display: none;
+}
