@@ -468,6 +468,7 @@ ul.slides {
     float: left;
     border-radius: 50%;
     width: 30px;
+    height: auto;
     margin: 0 10px 0 0;
 }
 
