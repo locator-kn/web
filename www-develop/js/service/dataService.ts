@@ -83,7 +83,7 @@ module Service {
             description: ''
         }];
 
-        constructor(private $http, private basePath, private CacheFactory, private $q) {
+        constructor(private $http, private basePath, private CacheFactory, private $q, private moment) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
