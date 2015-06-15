@@ -214,6 +214,29 @@ var app = angular.module('starter', deps)
         }
     })
 
+    .directive('activePopover', function ($rootScope) {
+        return {
+            scope: {
+                clickValue: '=',
+                compareTo: '=',
+                opened: '=?'
+            },
+            link: (scope:any, element) => {
+                element.bind('click', () => {
+                    if (scope.compareTo === scope.clickValue){
+                        console.log('closing all popovers, clicked on:', scope.clickValue);
+                        scope.compareTo = '';
+                    } else {
+                        console.log('open popover', scope.clickValue);
+                        scope.compareTo = scope.clickValue;
+                    }
+                    $rootScope.$emit('newPopoverSelected', scope.clickValue);
+                    $rootScope.$apply();
+                });
+            }
+        }
+    })
+
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
