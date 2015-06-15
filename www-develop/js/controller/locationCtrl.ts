@@ -13,6 +13,7 @@ module Controller {
             this.LocationService.getMyLocations()
                 .then(result => {
                     this.locations = result.data;
+                    console.info(this.locations);
                 });
         }
 
