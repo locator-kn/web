@@ -1,5 +1,5 @@
 module Controller {
-    export class ProfileCtrl {
+    export class UserCtrl {
 
         // general user variables
         user;
@@ -17,6 +17,9 @@ module Controller {
         uploadIsDone:boolean = true;
         progressPercentage:number;
 
+        trips;
+        locations;
+
         tab:string = "info";
         possibleTabs = ['info', 'account', 'locations', 'trips'];
 
@@ -24,7 +27,7 @@ module Controller {
         passwordRepeat:string;
         errormsg = '';
 
-        constructor(private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
@@ -40,6 +43,20 @@ module Controller {
             }
             this.tab = $state.params.tab;
 
+        }
+
+        getTrips() {
+            this.TripService.getTripsByUser(this.user._id)
+                .then(result => {
+                    this.trips = result.data;
+                })
+        }
+
+        getLocations() {
+            this.LocationService.getLocationsByUser(this.user._id)
+                .then(result => {
+                    this.locations = result.data;
+                })
         }
 
         editTrigger() {
@@ -59,7 +76,10 @@ module Controller {
                     } else {
                         this.profileImagePath = result.data.picture.picture;
                     }
-                    console.info(this.user);
+
+                    this.getTrips();
+                    this.getLocations();
+
                     this.user.birthdate = new Date(result.data.birthdate);
                 });
         }
@@ -228,6 +248,6 @@ module Controller {
         }
 
         static
-            controllerId:string = "ProfileCtrl";
+            controllerId:string = "UserCtrl";
     }
 }
