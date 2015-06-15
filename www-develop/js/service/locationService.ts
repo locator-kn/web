@@ -27,6 +27,11 @@ module Service {
             return this.$http.get(this.basePath + '/users/my/locations');
         }
 
+        getLocationsByUser(userID) {
+            // TODO: just to get some results
+            return this.getMyLocations();
+        }
+
         static serviceId:string = "LocationService";
     }
 }
