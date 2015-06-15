@@ -80,7 +80,7 @@
 }
 
 .accommodation span {
-    color: #ff632d;
+    color: rgb(241, 100, 73);
     margin-right: 10px;
     font-size: 16px;
 }
@@ -139,11 +139,6 @@
 
 #preview:hover{
     -moz-transform:rotate(-2deg);
-}
-
-/*Validation*/
-.text-fields.ng-invalid.ng-touched {
-    background-color: #FA787E;
 }
 
 .locations {
@@ -211,7 +206,7 @@
 }
 
 .mood-menu:hover {
-    background: #ff632d
+    background: rgb(241, 100, 73);
 }
 
 .mood-menu li {
@@ -241,7 +236,7 @@
     top: 35px;
     right: 0px;
     opacity: 0;
-    background: #ff632d;
+    background: rgb(241, 100, 73);
     z-index: 10;
 }
 
