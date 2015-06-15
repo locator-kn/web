@@ -41,7 +41,7 @@ module Service {
             description: ""
         }, {
             query_name: "gruener_gehts_nicht",
-            title: "gruener gehts nicht",
+            title: "grüner gehts nicht",
             icon: "gruener_gehts_nicht.png",
             icon_grey: "gruener_gehts_nicht_grey.png",
             description: ""
@@ -71,7 +71,7 @@ module Service {
             description: ""
         }, {
             query_name: 'leckermaeulchen',
-            title: 'leckermaeulchen',
+            title: 'leckermäulchen',
             icon: 'leckermaeulchen.png',
             icon_grey: 'leckermaeulchen_grey.png',
             description: ''
