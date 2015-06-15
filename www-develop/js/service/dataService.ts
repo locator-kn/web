@@ -73,8 +73,8 @@ module Service {
             icon_grey: "family_fun_grey.png",
             description: ""
         }, {
-            query_name: "kultur_und_siteseeing",
-            title: "kultur und sighteseeing",
+            query_name: "kultur_und_sigthseeing",
+            title: "kultur und sightseeing",
             icon: "kultur_und_sighteseeing.png",
             icon_grey: "kultur_und_sighteseeing_grey.png",
             description: ""
