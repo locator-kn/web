@@ -14,7 +14,7 @@
 
 /// <reference path="./controller/insertTripCtrl.ts" />
 
-/// <reference path="./controller/profileCtrl.ts" />
+/// <reference path="./controller/userCtrl.ts" />
 /// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
@@ -170,7 +170,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
-    .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
+    .controller(Controller.UserCtrl.controllerId, Controller.UserCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
