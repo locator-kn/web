@@ -50,7 +50,8 @@ module Controller {
                     } else {
                         this.profileImagePath = result.data.picture.picture;
                     }
-                    this.user.age = new Date(result.data.age);
+                    console.info(this.user);
+                    this.user.birthdate = new Date(result.data.birthdate);
                 });
         }
 
@@ -62,6 +63,7 @@ module Controller {
                     this.editTrigger();
                 })
                 .catch(result => {
+                    console.info(this.user);
                     console.info('error during update');
                 });
         }
