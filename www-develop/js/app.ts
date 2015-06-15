@@ -102,7 +102,7 @@ var app = angular.module('starter', deps)
 
             .state('welcome', {
                 url: "/welcome",
-                templateUrl: "../templates/welcome/welcome.html"
+                templateUrl: "templates/welcome/welcome.html"
             })
 
             .state('context', {
