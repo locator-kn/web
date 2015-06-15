@@ -76,9 +76,6 @@ module Controller {
             });
 
             this.selectableMoods = this.DataService.getMoods();
-            /*this.DataService.getMoods().then(result => {
-                this.selectableMoods = result.data;
-            });*/
 
             this.LocationService.getMyLocations().then(response => {
 
@@ -166,8 +163,13 @@ module Controller {
         }
 
         selectMood(mood) {
-            this.selectedMoods.push(mood);
-            this.selectableMoods.splice(this.selectableMoods.indexOf(mood), 1);
+            if (this.selectedMoods.length != 3) {
+                this.selectedMoods.push(mood);
+                this.selectableMoods.splice(this.selectableMoods.indexOf(mood), 1);
+            } else {
+                //Failure treatment
+                console.log("You can only choose 3 trips you bastard");
+            }
         }
 
         removeSelectedMood(mood) {
