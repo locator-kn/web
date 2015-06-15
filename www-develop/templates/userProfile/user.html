@@ -29,18 +29,25 @@
 
         <div class="col-xs-12">
             <a ng-class="{active: pc.tab == 'info'}" ng-click="pc.switchTab('info')"
-               class="col-xs-6 pointer button profile-button">Infos</a>
+               class="col-xs-3 pointer button profile-button">Infos</a>
             <a ng-class="{active: pc.tab == 'account'}" ng-click="pc.switchTab('account')"
-               class="col-xs-6 pointer button profile-button">Account</a>
+               class="col-xs-3 pointer button profile-button">Account</a>
+
+            <a ng-class="{active: pc.tab == 'locations'}" ng-click="pc.switchTab('locations')"
+               class="col-xs-3 pointer button profile-button">Locations</a>
+
+            <a ng-class="{active: pc.tab == 'trips'}" ng-click="pc.switchTab('trips')"
+               class="col-xs-3 pointer button profile-button">Trips</a>
 
             <div ng-if="pc.errormsg != ''" class="error-msg">{{pc.errormsg}}</div>
 
         </div>
 
-      <!--  <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/infos.html'"></div>
-        <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>-->
+        <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/info.html'"></div>
+        <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>
 
-        <div ui-view></div>
+        <div ng-if="pc.tab == 'locations'" ng-include="'templates/userProfile/locations.html'"></div>
+        <div ng-if="pc.tab == 'trips'" ng-include="'templates/userProfile/trips.html'"></div>
 
 
     </div>
