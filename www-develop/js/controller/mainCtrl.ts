@@ -2,7 +2,7 @@ module Controller {
     export class MainCtrl {
 
         overlay:boolean;
-        openElement:string = 'user';
+        openElement:string = '';
 
         constructor(private $rootScope, private $location) {
             this.$rootScope.overlay = false;
@@ -10,7 +10,6 @@ module Controller {
 
 
             $rootScope.$on('newPopoverSelected', (e, clickValue)=> {
-                debugger
                 this.openElement = this.$rootScope.openElement = clickValue;
             });
 
