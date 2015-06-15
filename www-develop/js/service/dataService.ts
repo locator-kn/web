@@ -111,7 +111,12 @@ module Service {
         }
 
         getMoods() {
-            return this.availableMoods;
+            return this.$q((resolve) => {
+                resolve({
+                    data: this.availableMoods
+                });
+
+            });
         }
 
         getAvailableCities() {
@@ -119,18 +124,15 @@ module Service {
         }
 
         getAvailableAmountOfDays() {
-            return this.$q(function (resolve) {
-                setTimeout(function () {
-                    resolve(
-                        {
-                            data: [
-                                {"id": "1", "title": "1 Tag"},
-                                {"id": "2", "title": "2 Tage"},
-                                {"id": "3", "title": "3 Tage"},
-                                {"id": "4", "title": "3+ Tage"},
-                            ]
-                        });
-                }, 0);
+            return this.$q((resolve) => {
+                resolve({
+                    data: [
+                        {"id": "1", "title": "1 Tag"},
+                        {"id": "2", "title": "2 Tage"},
+                        {"id": "3", "title": "3 Tage"},
+                        {"id": "4", "title": "3+ Tage"},
+                    ]
+                });
             }, {cache: this.dayCache});
         }
 
