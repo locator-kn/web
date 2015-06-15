@@ -16,7 +16,7 @@
                     </div>
                     <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
                         <div class="mood-images tt tt-small" aria-label="{{mood.title}}">
-                            <img class="mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
+                            <img class="mood-image" ng-src="../../images/icons/{{mood.icon}}">
                         </div>
                         <img class="cross-image" src="../../images/icons/cross_button_moods.png" ng-click="itc.removeSelectedMood(mood)">
                     </div>
@@ -29,7 +29,7 @@
                                 <ul>
                                     <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods" ng-click="itc.selectMood(mood)">
                                         <a>{{mood.title}}</a>
-                                        <img class="select-mood-image" ng-src="data:image/gif;base64,{{mood.icon}}">
+                                        <img class="select-mood-image" ng-src="../../images/icons/{{mood.icon}}">
                                     </li>
                                 </ul>
                             </li>

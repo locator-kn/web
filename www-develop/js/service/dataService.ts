@@ -22,10 +22,10 @@ module Service {
             icon_grey: "girls_on_tour_grey.png",
             description: ""
         }, {
-            query_name: "hallihalli_drecksau",
+            query_name: "halligalli_drecksau",
             title: "halligalli drecksau",
-            icon: "hallihalli_drecksau.png",
-            icon_grey: "hallihalli_drecksau_ausgegraut.png",
+            icon: "halligalli_drecksau.png",
+            icon_grey: "halligalli_drecksau_grey.png",
             description: ""
         }, {
             query_name: "muskelkater",

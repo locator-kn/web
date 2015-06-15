@@ -248,7 +248,7 @@
     height: 0;
     overflow: hidden;
     padding: 0;
-    width: 170px;
+    width: 190px;
 }
 
 .mood-menu li:hover > ul li {
@@ -265,7 +265,7 @@
 .mood-menu ul li a {
     width: 100px;
     padding: 4px 0 4px 4px;
-        margin-top: 0px;
+    margin-top: 0px;
     border: none;
     text-decoration: none;
 }

@@ -75,9 +75,10 @@ module Controller {
                 this.me = user.data;
             });
 
-            this.DataService.getMoods().then(result => {
+            this.selectableMoods = this.DataService.getMoods();
+            /*this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-            });
+            });*/
 
             this.LocationService.getMyLocations().then(response => {
 
@@ -108,9 +109,6 @@ module Controller {
             });
 
             this.tripCity = this.$state.params.city;
-
-
-
         }
 
         getStaticMap(options) {
