@@ -41,7 +41,7 @@ module Service {
             description: ''
         }, {
             query_name: 'gruener_gehts_nicht',
-            title: 'grüner gehts nicht',
+            title: 'grÃ¼ner gehts nicht',
             icon: 'gruener_gehts_nicht.png',
             icon_grey: 'gruener_gehts_nicht_grey.png',
             description: ''
@@ -71,7 +71,7 @@ module Service {
             description: ''
         }, {
             query_name: 'leckermaeulchen',
-            title: 'leckermäulchen',
+            title: 'leckermÃ¤ulchen',
             icon: 'leckermaeulchen.png',
             icon_grey: 'leckermaeulchen_grey.png',
             description: ''
@@ -83,7 +83,7 @@ module Service {
             description: ''
         }];
 
-        constructor(private $http, private basePath, private CacheFactory, private $q, private moment) {
+        constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
