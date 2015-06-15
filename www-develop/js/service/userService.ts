@@ -80,7 +80,7 @@ module Service {
                     "surname": newUserData.surname,
                     "description": newUserData.description,
                     "residence": newUserData.residence,
-                    "age": newUserData.age
+                    "birthdate": newUserData.birthdate
                 })
         }
 
