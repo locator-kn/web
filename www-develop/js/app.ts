@@ -30,7 +30,7 @@
 /// <reference path="./service/userService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
-/// <reference path="./service/insertTripService.ts" />
+/// <reference path="./service/tripService.ts" />
 /// <reference path="./service/LocationService.ts" />
 
 /// <reference path="./mockedservice/userService.ts" />
@@ -234,7 +234,7 @@ if (live) {
         .service(Service.UserService.serviceId, Service.UserService)
         .service(Service.SearchService.serviceId, Service.SearchService)
         .service(Service.HelperService.serviceId, Service.HelperService)
-        .service(Service.InsertTripService.serviceId, Service.InsertTripService)
+        .service(Service.TripService.serviceId, Service.TripService)
         .service(Service.MessengerService.serviceId, Service.MessengerService)
         .service(Service.SocketService.serviceId, Service.SocketService)
         .service(Service.LocationService.serviceId, Service.LocationService);

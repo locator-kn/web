@@ -68,7 +68,7 @@ module Controller {
 
         selectedLocationsCount:number = 0;
 
-        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private $location, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -227,7 +227,7 @@ module Controller {
                 formData._rev = this.revision;
             }
 
-            this.InsertTripService.uploadImage(formData, file)
+            this.TripService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = perc;
@@ -322,7 +322,7 @@ module Controller {
 
 
             //store trip in DB
-            this.InsertTripService.saveTrip(t, documentMetaData)
+            this.TripService.saveTrip(t, documentMetaData)
                 .then(result => {
                 this.revision = result.data.rev;
                 this.documentId = result.data.id;

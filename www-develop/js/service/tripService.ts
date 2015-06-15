@@ -1,5 +1,5 @@
 module Service {
-    export class InsertTripService {
+    export class TripService {
 
         constructor(private $http, private basePath, private Upload) {
         }
@@ -28,6 +28,6 @@ module Service {
                 file: file
             });
         }
-        static serviceId:string = "InsertTripService";
+        static serviceId:string = "TripService";
     }
 }
