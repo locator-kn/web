@@ -10,14 +10,13 @@
                     <a class="padding register tt tt-small" aria-label="Registriere dich jetzt und werde ein Teil einer aussergewöhnlichen Community" ng-click="hc.openRegisterDialog()">Registieren</a>
                     <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>
                 </div>
-
                 <div ng-if="authenticated" class="btn-group">
 
-                    <div ng-click="showDropdown = !showDropdown" class="user" ui-sref-active="active">
+                    <div active-popover click-value="hc.openUser" compare-to="mc.openElement" class="user" ui-sref-active="active">
                         <a class="edit-user">{{hc.user.name}}</a>
                         <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
 
-                        <ul class="user-dropdown" ng-show="showDropdown">
+                        <ul class="user-dropdown" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
                             <li ui-sref="user({profileId: userID})" ui-sref-active="active">Profile</li>
                             <li ng-click="hc.logout()">Logout</li>
@@ -29,8 +28,8 @@
                     <ul>
                         <li ui-sref="insertLocation" class="pointer tt tt-small" aria-label="Erstelle eine neue Location"><img ng-src="images/icons/header/location.png"></li>
                         <li ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu"><img ng-src="images/icons/header/stift.png"></li>
-                        <li class="messenger tt tt-small" aria-label="Messenger" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
-                            <ul ng-if="hc.showMessengerPopover" class="messenger-popover">
+                        <li class="messenger tt tt-small" aria-label="Messenger" active-popover click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()"><div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div><img ng-src="images/icons/header/chat.png">
+                            <ul ng-if="mc.openElement === hc.openMessages" class="messenger-popover">
                                 <li class="message pointer" ng-repeat="con in hc.conversations" ui-sref="messenger.opponent({opponentId: con._id})">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
                                     <p class="from">{{con.opponent.name}}</p>
