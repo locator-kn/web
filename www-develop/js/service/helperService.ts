@@ -17,14 +17,15 @@ module Service {
                 // resolve with empty array if moodqueryString is not defined
                 return callback([])
             }
-
-            var allMoods = this.DataService.getMoods();
-            var result:any = [];
-            var moods = moodqueryString.split('.');
-            moods.forEach((entry) => {
-                result.push(this.getObjectByQueryName(allMoods, entry));
+            this.DataService.getMoods().then(result => {
+                var allMoods = result.data;
+                var res:any = [];
+                var moods = moodqueryString.split('.');
+                moods.forEach((entry) => {
+                    res.push(this.getObjectByQueryName(allMoods, entry));
+                });
+                callback(res);
             });
-            callback(result);
         }
 
         getObjectByQueryName(array, queryName) {
