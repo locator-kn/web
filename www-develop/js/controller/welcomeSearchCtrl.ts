@@ -10,6 +10,9 @@ module Controller {
 
         days:any;
         selectedDay:any;
+        showCities:string = 'showCitiesSearch';
+        showMoods:string = 'showMoodsSearch';
+        showDays:string = 'showDaysSearch';
 
         dataAvailable:boolean = false;
 
