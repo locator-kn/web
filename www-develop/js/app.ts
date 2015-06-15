@@ -22,6 +22,7 @@
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
 /// <reference path="./controller/insertLocationCtrl.ts" />
+/// <reference path="./controller/locationCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
 
@@ -87,10 +88,10 @@ var app = angular.module('starter', deps)
         angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
     })
     /*.config(function (GoogleMapApiProvider) {
-        GoogleMapApiProvider.configure({
-            china: false
-        });
-    })*/
+     GoogleMapApiProvider.configure({
+     china: false
+     });
+     })*/
 
     .config(function ($sceProvider) {
         $sceProvider.enabled(false);
@@ -151,7 +152,12 @@ var app = angular.module('starter', deps)
 
             .state('insertLocation', {
                 url: "/insert-location",
-                templateUrl: "../templates/insertLocation/insertLocation.html"
+                templateUrl: "../templates/location/insertLocation.html"
+            })
+
+            .state('mylocations', {
+                url: "/mylocations",
+                templateUrl: "../templates/location/myLocations.html"
             });
 
         $urlRouterProvider.otherwise('welcome');
@@ -172,6 +178,7 @@ var app = angular.module('starter', deps)
     .controller(Controller.ProfileCtrl.controllerId, Controller.ProfileCtrl)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
+    .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
 
 
     .directive('megadate', function () {
