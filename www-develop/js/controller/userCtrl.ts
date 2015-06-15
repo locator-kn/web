@@ -77,6 +77,8 @@ module Controller {
                         this.profileImagePath = result.data.picture.picture;
                     }
 
+                    console.info(this.user);
+
                     this.getTrips();
                     this.getLocations();
 
@@ -242,8 +244,11 @@ module Controller {
             this.errormsg = '';
             this.edit = false;
 
+            console.info(this.user);
+            debugger;
+
             if (this.possibleTabs.indexOf(name) != -1) {
-                this.tab = name;
+                this.$state.go('user', {profileId: this.user._id, tab: name})
             }
         }
 
