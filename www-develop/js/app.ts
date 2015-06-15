@@ -158,6 +158,11 @@ var app = angular.module('starter', deps)
             .state('mylocations', {
                 url: "/mylocations",
                 templateUrl: "../templates/location/myLocations.html"
+            })
+
+            .state('mytrips', {
+                url: "/mytrips",
+                templateUrl: "../templates/insertTrip/mytrips.html"
             });
 
         $urlRouterProvider.otherwise('welcome');
