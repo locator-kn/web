@@ -1,7 +1,7 @@
-<div class="container mytrips-container" ng-controller="TripCtrl as tc">
+<div class="mytrips-container">
     <div class="row">
 
-        <div class="col-sm-6 col-xs-12" ng-repeat="trip in tc.trips">
+        <div class="col-sm-6 col-xs-12" ng-repeat="trip in pc.trips">
             <img ng-src="{{trip.image.picture}}" class="img-responsive">
             <h2>{{trip.title}}</h2>
         </div>
