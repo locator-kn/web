@@ -5,3 +5,33 @@
 .general-trip-info p {
     color: #ff632d;
 }
+
+.trip-mood-icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+
+.message-button {
+    margin-top: -25px;
+    width: 180px;
+    height: 50px;
+    background: rgb(255, 70, 55);
+    clear: both;
+    float: right;
+    z-index: 10;
+    position: relative;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.trip-mood-container {
+    padding-top: 80px;
+}
+
+.btn-mood-container {
+    display: inline-block;
+    float: right;
+}
