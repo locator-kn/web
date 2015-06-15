@@ -16,7 +16,10 @@ module Controller {
         profileImagePath:string;
         uploadIsDone:boolean = true;
         progressPercentage:number;
+
         tab:string = "info";
+        possibleTabs = ['info', 'account', 'locations', 'trips'];
+
         password:string;
         passwordRepeat:string;
         errormsg = '';
@@ -31,6 +34,12 @@ module Controller {
             if (this.$rootScope.authenticated) {
                 this.me = this.isItMe();
             }
+
+            if (this.possibleTabs.indexOf($state.params.tab) == -1) {
+                $state.params.tab = 'info'
+            }
+            this.tab = $state.params.tab;
+
         }
 
         editTrigger() {
@@ -213,14 +222,12 @@ module Controller {
             this.errormsg = '';
             this.edit = false;
 
-            if (name === 'account') {
-                this.tab = 'account';
-
-            } else if (name === 'info') {
-                this.tab = 'info';
+            if (this.possibleTabs.indexOf(name) != -1) {
+                this.tab = name;
             }
         }
 
-        static controllerId:string = "ProfileCtrl";
+        static
+            controllerId:string = "ProfileCtrl";
     }
 }
