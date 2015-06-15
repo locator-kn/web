@@ -17,7 +17,9 @@ module Controller {
 
             this.$rootScope.$emit('loading');
 
-            this.selectableMoods = this.DataService.getMoods();
+            this.DataService.getMoods().then(result => {
+                this.selectableMoods = result.data;
+            });
 
             HelperService.getMoods($state.params.moods, moods => {
                 this.selectedMoods = moods;
