@@ -321,3 +321,11 @@
     background-color: rgb(241, 100, 73);
     border: none;
 }
+
+.days-amount .text {
+    font-weight: bold;
+}
+
+.persons-amount .text {
+    font-weight: bold;
+}
