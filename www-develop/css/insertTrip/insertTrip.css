@@ -288,12 +288,15 @@
     margin-top: 15px;
 }
 
-.selected-moods .mood-image {
-    height: 25px;
-    width: 25px;
+.selected-moods .mood-images {
     margin-left: 4px;
     margin-top: 5px;
     float: left;
+}
+
+.mood-images .mood-image {
+    height: 25px;
+    width: 25px;
 }
 
 .selected-moods .cross-image {
