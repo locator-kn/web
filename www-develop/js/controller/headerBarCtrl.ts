@@ -13,6 +13,9 @@ module Controller {
         conversationTeaser:any = [];
         forgotPassword:boolean = false;
 
+        openUser:string = 'user';
+        openMessages:string = 'messages';
+
         // no error if empty string
         errormsg:string = '';
 
