@@ -158,6 +158,25 @@ html, body {
     color: #ff632d;
 }
 
+.day-amount {
+    display: inline-block;
+}
 .day-amount-label {
     display: inline;
 }
+
+.moods-container {
+    display: inline-block;
+    padding-left: 100px;
+}
+
+.moods-container div {
+    display: inline-block;
+}
+
+.result-mood-icon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
