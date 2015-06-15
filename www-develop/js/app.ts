@@ -128,7 +128,7 @@ var app = angular.module('starter', deps)
 
             .state('messenger.opponent', {
                 url: "/:opponentId",
-                templateUrl: "../templates/messenger/messenger.html"
+                templateUrl: "templates/messenger/messenger.html"
             })
 
             .state('app.login', {
