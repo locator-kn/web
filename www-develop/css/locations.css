@@ -5,4 +5,13 @@
 
 .mylocations-container .location {
     padding-bottom: 30px;
+    float: left;
+    min-height: 200px;
+}
+
+.mylocations-container .location .content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
 }
