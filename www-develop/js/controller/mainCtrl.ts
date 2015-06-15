@@ -10,6 +10,8 @@ module Controller {
 
 
             $rootScope.$on('newPopoverSelected', (e, clickValue)=> {
+                if(this.$rootScope === clickValue)
+                    clickValue = '';
                 this.openElement = this.$rootScope.openElement = clickValue;
             });
 
