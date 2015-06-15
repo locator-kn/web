@@ -112,18 +112,18 @@ var app = angular.module('starter', deps)
 
             .state('search', {
                 url: "/search?city&start_date&end_date&days&persons&moods&accomodations",
-                templateUrl: "../templates/search/search.html",
+                templateUrl: "templates/search/search.html",
                 reloadOnSearch: false
             })
 
             .state('trip', {
                 url: "/trip/:tripId",
-                templateUrl: "../templates/search/trip.html"
+                templateUrl: "templates/search/trip.html"
             })
 
             .state('messenger', {
                 url: "/messenger",
-                templateUrl: "../templates/messenger/messenger.html"
+                templateUrl: "templates/messenger/messenger.html"
             })
 
             .state('messenger.opponent', {
@@ -135,34 +135,34 @@ var app = angular.module('starter', deps)
                 url: "/login",
                 views: {
                     'menuContent': {
-                        templateUrl: "../templates/login.html"
+                        templateUrl: "templates/login.html"
                     }
                 }
             })
 
             .state('user', {
                 url: "/user/:profileId",
-                templateUrl: "../templates/userProfile/profile.html"
+                templateUrl: "templates/userProfile/profile.html"
             })
 
             .state('insertTrip', {
                 url: "/insert-trip/?city&moods&days",
-                templateUrl: "../templates/insertTrip/insertTrip.html"
+                templateUrl: "templates/insertTrip/insertTrip.html"
             })
 
             .state('insertLocation', {
                 url: "/insert-location",
-                templateUrl: "../templates/location/insertLocation.html"
+                templateUrl: "templates/location/insertLocation.html"
             })
 
             .state('mylocations', {
                 url: "/mylocations",
-                templateUrl: "../templates/location/myLocations.html"
+                templateUrl: "templates/location/myLocations.html"
             })
 
             .state('mytrips', {
                 url: "/mytrips",
-                templateUrl: "../templates/insertTrip/mytrips.html"
+                templateUrl: "templates/insertTrip/mytrips.html"
             });
 
         $urlRouterProvider.otherwise('welcome');
