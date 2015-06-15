@@ -75,7 +75,9 @@ module Controller {
                 this.me = user.data;
             });
 
-            this.selectableMoods = this.DataService.getMoods();
+            this.DataService.getMoods().then(moods => {
+                this.selectableMoods = moods.data;
+            });
 
             this.LocationService.getMyLocations().then(response => {
 
