@@ -17,16 +17,12 @@ module Controller {
 
             this.$rootScope.$emit('loading');
 
-            this.DataService.getMoods()
-                .then(result => {
-                    this.selectableMoods = result.data;
+            this.selectableMoods = this.DataService.getMoods();
 
-                    HelperService.getMoods($state.params.moods, moods => {
-                        this.selectedMoods = moods;
-                        this.updateUrl();
-                    });
-
-                });
+            HelperService.getMoods($state.params.moods, moods => {
+                this.selectedMoods = moods;
+                this.updateUrl();
+            });
 
             this.DataService.getAvailableCities()
                 .then(result => {
