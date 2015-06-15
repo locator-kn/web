@@ -7,8 +7,6 @@ module Controller {
         trips:any;
 
         constructor(private $rootScope, private $stateParams, private SearchService, private TripService) {
-            this.getMyTrips();
-
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -23,7 +21,6 @@ module Controller {
         getMyTrips() {
             this.TripService.getMyTrips().then(result => {
                 this.trips = result.data;
-                console.info(this.trips);
             })
         }
 
