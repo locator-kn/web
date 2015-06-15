@@ -1,0 +1,10 @@
+<div class="container mytrips-container" ng-controller="TripCtrl as tc">
+    <div class="row">
+
+        <div class="col-sm-6 col-xs-12" ng-repeat="trip in tc.trips">
+            <img ng-src="{{trip.image.picture}}" class="img-responsive">
+            <h2>{{trip.title}}</h2>
+        </div>
+
+    </div>
+</div>

@@ -404,6 +404,7 @@ ul.slides {
     left: 0;
     width: 100%;
     z-index: 10000;
+    min-width: 120px;
 }
 
 .header-bar .user ul.user-dropdown {

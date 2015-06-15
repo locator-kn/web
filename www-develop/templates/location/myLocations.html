@@ -1,0 +1,16 @@
+<div class="container mylocations-container" ng-controller="LocationCtrl as lc">
+    <div class="row">
+        <div ng-repeat="location in lc.locations" class="col-xs-12 col-sm-6 location relative">
+            <img class="img-responsive" ng-src="http://locator.in.htwg-konstanz.de{{location.images.picture}}">
+
+            <div class="content">
+                <h2>{{location.title}}</h2>
+
+                <h3>{{location.city.title}}</h3>
+
+                <p>{{location.description}}</p>
+            </div>
+
+        </div>
+    </div>
+</div>

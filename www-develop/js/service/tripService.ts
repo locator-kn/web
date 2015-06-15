@@ -1,11 +1,11 @@
 module Service {
-    export class InsertTripService {
+    export class TripService {
 
         constructor(private $http, private basePath, private Upload) {
         }
 
         saveTrip(newTrip, documentMetaData) {
-            if(documentMetaData._id && documentMetaData._rev ) {
+            if (documentMetaData._id && documentMetaData._rev) {
                 // extend new trip with meta data id and rev
                 newTrip._id = documentMetaData._id;
                 newTrip._rev = documentMetaData._rev;
@@ -17,6 +17,7 @@ module Service {
             delete documentMetaData._rev;
             return this.$http.post(this.basePath + '/trips', newTrip);
         }
+
         uploadImage(formData, file) {
 
             // To be sure keys don't exist
@@ -28,6 +29,11 @@ module Service {
                 file: file
             });
         }
-        static serviceId:string = "InsertTripService";
+
+        getMyTrips() {
+            return this.$http.get(this.basePath + '/users/my/trips');
+        }
+
+        static serviceId:string = "TripService";
     }
 }

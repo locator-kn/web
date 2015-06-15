@@ -27,7 +27,7 @@
     "jquery-ui": "~1.11.4",
     "angular-socket-io": "~0.7.0",
     "angular-cache": "~4.2.0",
-    "angular-daterange-picker": "~0.2.2",
+    "angular-daterange-picker": "~0.2.3",
     "angular-mood-selection": "~1.0.3",
     "angular-fix-on-scroll": "~0.2.0",
     "angular-accommodation-equipment-chooser": "~0.1.0",
