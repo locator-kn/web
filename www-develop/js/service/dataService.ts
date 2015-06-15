@@ -12,8 +12,8 @@ module Service {
         availableMoods = [{
             query_name: 'buddytrip',
             title: 'buddytrip',
-            icon: 'buddytripy.png',
-            icon_grey: 'buddytripy.png',
+            icon: 'buddytrip.png',
+            icon_grey: 'buddytrip.png',
             description: ''
         }, {
             query_name: 'girls_on_tour',
@@ -41,7 +41,7 @@ module Service {
             description: ''
         }, {
             query_name: 'gruener_gehts_nicht',
-            title: 'grÃ¼ner gehts nicht',
+            title: 'gruener gehts nicht',
             icon: 'gruener_gehts_nicht.png',
             icon_grey: 'gruener_gehts_nicht_grey.png',
             description: ''
@@ -71,7 +71,7 @@ module Service {
             description: ''
         }, {
             query_name: 'leckermaeulchen',
-            title: 'leckermÃ¤ulchen',
+            title: 'leckermaeulchen',
             icon: 'leckermaeulchen.png',
             icon_grey: 'leckermaeulchen_grey.png',
             description: ''
