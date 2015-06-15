@@ -141,8 +141,8 @@ var app = angular.module('starter', deps)
             })
 
             .state('user', {
-                url: "/user/:profileId",
-                templateUrl: "../templates/userProfile/profile.html"
+                url: "/user/:profileId/:tab",
+                templateUrl: "../templates/userProfile/user.html"
             })
 
             .state('insertTrip', {
@@ -153,16 +153,6 @@ var app = angular.module('starter', deps)
             .state('insertLocation', {
                 url: "/insert-location",
                 templateUrl: "../templates/location/insertLocation.html"
-            })
-
-            .state('mylocations', {
-                url: "/mylocations",
-                templateUrl: "../templates/location/myLocations.html"
-            })
-
-            .state('mytrips', {
-                url: "/mytrips",
-                templateUrl: "../templates/insertTrip/mytrips.html"
             });
 
         $urlRouterProvider.otherwise('welcome');

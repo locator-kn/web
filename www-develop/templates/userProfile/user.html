@@ -37,8 +37,10 @@
 
         </div>
 
-        <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/infos.html'"></div>
-        <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>
+      <!--  <div ng-if="pc.tab == 'info'" ng-include="'templates/userProfile/infos.html'"></div>
+        <div ng-if="pc.tab == 'account'" ng-include="'templates/userProfile/account.html'"></div>-->
+
+        <div ui-view></div>
 
 
     </div>
