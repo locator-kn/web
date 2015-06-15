@@ -77,9 +77,7 @@ module Controller {
 
             this.DataService.getMoods().then(result => {
                 this.selectableMoods = result.data;
-                console.log('Test' + this.selectableMoods);
             });
-
 
             this.LocationService.getMyLocations().then(response => {
 

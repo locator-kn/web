@@ -12,9 +12,9 @@ module Service {
         availableMoods = [{
             query_name: "buddytrip",
             title: "buddytrip",
-            icon: "buddytripy.png",
-            icon_grey: "buddytrip.png",
-            description: ""
+            icon: "buddytrip.png",
+            icon_grey: "buddytrip_grey.png",
+            description: ''
         }, {
             query_name: "girls_on_tour",
             title: "girls on tour",
@@ -41,7 +41,7 @@ module Service {
             description: ""
         }, {
             query_name: "gruener_gehts_nicht",
-            title: "grüner gehts nicht",
+            title: "gruener gehts nicht",
             icon: "gruener_gehts_nicht.png",
             icon_grey: "gruener_gehts_nicht_grey.png",
             description: ""
@@ -70,11 +70,11 @@ module Service {
             icon_grey: "kultur_und_sighteseeing_grey.png",
             description: ""
         }, {
-            query_name: "leckermaeulchen",
-            title: "leckermäulchen",
-            icon: "leckermaeulchen.png",
-            icon_grey: "leckermaeulchen_grey.png",
-            description: ""
+            query_name: 'leckermaeulchen',
+            title: 'leckermaeulchen',
+            icon: 'leckermaeulchen.png',
+            icon_grey: 'leckermaeulchen_grey.png',
+            description: ''
         }, {
             query_name: "entspannung_pur",
             title: "entspannnung pur",
@@ -83,7 +83,7 @@ module Service {
             description: ""
         }];
 
-        constructor(private $http, private basePath, private CacheFactory, private $q, private moment) {
+        constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
