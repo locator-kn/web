@@ -13,6 +13,10 @@ module Controller {
 
         dataAvailable:boolean = false;
 
+        showCities:string = 'showCitiesCreate';
+        showMoods:string = 'showMoodsCreate';
+        showDays:string = 'showDaysCreate';
+
         constructor(private $state, private $scope, private $rootScope, private $element, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
