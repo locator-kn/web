@@ -118,7 +118,11 @@ module Controller {
                     this.closeDialog();
 
                 })
-                .catch((resp) => {
+                .catch(resp => {
+                    if(resp.statusCode === 409) {
+                        this.errormsg ='Diese Mail gibts schon'
+                        return;
+                    }
                     console.info("Register Error");
                     console.info(resp);
                     this.errormsg = "Oops, da lief etwas falsch";
