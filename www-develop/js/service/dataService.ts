@@ -49,7 +49,7 @@ module Service {
             query_name: 'haste_nicht_gesehen',
             title: 'haste nicht gesehen',
             icon: 'haste_nicht_gesehen.png',
-            icon: 'haste_nicht_gesehen_grey.png',
+            icon_grey: 'haste_nicht_gesehen_grey.png',
             description: ''
         }, {
             query_name: 'singles_unter_sich',
