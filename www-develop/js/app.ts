@@ -180,11 +180,19 @@ var app = angular.module('starter', deps)
     .directive('megadate', function () {
         return {
             scope: {date: '='},
-            controller: function ($scope) {
-                var date = new Date($scope.date);
-                $scope.date = moment(date).startOf('minute').fromNow();
+            link: function ($scope: any) {
+                $scope.$watch('date', (newVal, oldVal, scope) => {
+                    if (newVal !== oldVal) {
+
+                        var ageDifMs = Date.now() - new Date(newVal).getTime() + 86400000;
+                        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                        $scope.date2 = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+                    }
+                })
+
             },
-            template: '<span class="megadate">{{date}}</span>',
+            template: '<span class="megadate">{{date2}}</span>',
             replace: true
         };
     })

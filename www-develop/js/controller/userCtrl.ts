@@ -3,6 +3,8 @@ module Controller {
 
         // general user variables
         user;
+        birthdate = '';
+
         textMessage;
         me:boolean;
         edit:boolean = false;
@@ -81,6 +83,8 @@ module Controller {
                     this.getLocations();
 
                     this.user.birthdate = new Date(result.data.birthdate);
+                    this.birthdate = result.data.birthdate;
+                    console.info(this.birthdate);
                 });
         }
 
