@@ -22,8 +22,8 @@
                         <ul class="user-dropdown" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
                             <li ui-sref="user({profileId: userID, tab: 'info'})" ui-sref-active="active">Profile</li>
-                            <li ui-sref="mylocations" ui-sref-active="active">Meine Locations</li>
-                            <li ui-sref="mytrips" ui-sref-active="active">Meine Trips</li>
+                            <li ui-sref="user({profileId: userID, tab: 'locations'})" ui-sref-active="active">Meine Locations</li>
+                            <li ui-sref="user({profileId: userID, tab: 'trips'})" ui-sref-active="active">Meine Trips</li>
                             <li ng-click="hc.logout()">Logout</li>
                         </ul>
                     </div>

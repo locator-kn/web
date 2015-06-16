@@ -22,7 +22,7 @@ module Controller {
         trips;
         locations;
 
-        tab:string = "info";
+        tab:string;
         possibleTabs = ['info', 'account', 'locations', 'trips'];
 
         password:string;
@@ -32,7 +32,7 @@ module Controller {
         constructor(private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
 
-            console.log( $state.params);
+            console.log($state.params);
 
             this.$rootScope.$on('login_success', () => {
                 this.me = this.isItMe();
@@ -42,11 +42,7 @@ module Controller {
                 this.me = this.isItMe();
             }
 
-            if (this.possibleTabs.indexOf($state.params.tab) == -1) {
-                $state.params.tab = 'info'
-            }
             this.tab = $state.params.tab;
-
         }
 
         getTrips() {

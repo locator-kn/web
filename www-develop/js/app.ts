@@ -143,7 +143,6 @@ var app = angular.module('starter', deps)
             .state('user', {
                 url: "/user/:profileId?tab",
                 templateUrl: "../templates/userProfile/user.html",
-                reloadOnSearch: false
             })
 
             .state('insertTrip', {
