@@ -905,3 +905,7 @@ input:-webkit-autofill {
     text-align: right;
     padding-top: 20px;
 }
+
+.cropper-container .cropper-face {
+    border-radius: 50%;
+}
