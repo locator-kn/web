@@ -32,8 +32,6 @@ module Controller {
         constructor(private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
 
-            console.log($state.params);
-
             this.$rootScope.$on('login_success', () => {
                 this.me = this.isItMe();
             });
@@ -81,8 +79,11 @@ module Controller {
                     this.getLocations();
 
                     this.user.birthdate = new Date(result.data.birthdate);
-                    this.birthdate = result.data.birthdate;
-                    console.info(this.birthdate);
+
+                    var ageDifMs = Date.now() - new Date(result.data.birthdate).getTime() + 86400000;
+                    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                    this.birthdate = Math.abs(ageDate.getUTCFullYear() - 1970);
+
                 });
         }
 

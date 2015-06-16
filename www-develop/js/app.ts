@@ -142,7 +142,7 @@ var app = angular.module('starter', deps)
 
             .state('user', {
                 url: "/user/:profileId?tab",
-                templateUrl: "../templates/userProfile/user.html",
+                templateUrl: "../templates/userProfile/user.html"
             })
 
             .state('insertTrip', {
@@ -179,7 +179,7 @@ var app = angular.module('starter', deps)
     .directive('megadate', function () {
         return {
             scope: {date: '='},
-            link: function ($scope: any) {
+            controller: function ($scope: any) {
                 $scope.$watch('date', (newVal, oldVal, scope) => {
                     if (newVal !== oldVal) {
 
