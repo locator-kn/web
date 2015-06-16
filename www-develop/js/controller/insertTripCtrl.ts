@@ -32,6 +32,7 @@ module Controller {
 
         startDateReal:any = '';
         endDateReal:any = '';
+        dateSetByHand:any = false;
         selectedPlaceDetails:any;
 
         selectedMoods:any = [];
@@ -65,6 +66,7 @@ module Controller {
         showSelectedLocations:boolean = false;
         showAddLocationsBtn:boolean = true;
         backgroundImage:string = '';
+        errormsg:string = '';
 
         selectedLocationsCount:number = 0;
 
@@ -106,6 +108,13 @@ module Controller {
             HelperService.getMoods(this.$state.params.moods, (result) => {
                 this.selectedMoods = result;
             });
+
+            this.$scope.$watch(() => this.startDateReal,
+                (newValue: any, oldValue: any) => {
+                    if (oldValue != this.endDateReal) {
+                        this.endDateReal = '';
+                    }
+                });
 
             this.tripCity = this.$state.params.city;
         }
@@ -297,6 +306,11 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
+            if (!this.validationCheck()) {
+                return;
+            }
+
             var city = this.getLocationDetails();
             var t = {
                 city: city,
@@ -331,8 +345,48 @@ module Controller {
                     tripId: this.documentId
                 });
             });
+
+            this.errormsg = 'Trip erfolgreich eingestellt!';
         }
 
+        validationCheck() {
+            if (this.selectedMoods.length < 1) {
+                this.errormsg = 'Bitte teile uns mit, wie sich Dein Trip anfühlt!';
+                return false;
+            }
+
+            if (!this.validDateCheck()) {
+                return false;
+            }
+
+            return true;
+        }
+
+        validDateCheck() {
+
+            //No date was set
+            if (this.startDateReal == '') {
+                this.errormsg = 'Bitte teile uns mit, in welchem Zeitraum Dein Trip stattfindet!';
+                return false;
+            }
+
+            //Only start date was set
+            if (this.endDateReal == '' || this.endDateReal < this.startDateReal) {
+                this.endDateReal = this.startDateReal;
+            }
+
+            //Time intervall smaller than days amount
+            var startDate = new Date(this.startDateReal);
+            var endDate = new Date(this.endDateReal);
+            var difference = (endDate.getDate() - startDate.getDate()) + 1;
+
+            if (difference < this.days) {
+                this.errormsg = 'Die Anzahl an Tagen ist größer als der Zeitraum, in dem der Trip stattfindet!';
+                return false;
+            }
+
+            return true;
+        }
 
         static controllerId:string = "InsertTripCtrl";
     }
