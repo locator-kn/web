@@ -77,8 +77,6 @@ module Controller {
                         this.profileImagePath = result.data.picture.picture;
                     }
 
-                    console.info(this.user);
-
                     this.getTrips();
                     this.getLocations();
 
