@@ -90,6 +90,9 @@ module Controller {
         }
 
         _sendMessage = () => {
+
+            this.textbox = this.textbox.replace(/<\/?[^>]+(>|$)/g, "");
+
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
