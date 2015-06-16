@@ -184,5 +184,17 @@ html, body {
     font-size: 12px;
 }
 
+.result-content-wrapper {
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+    border-left: 2px solid grey;
+    height: 130px;
+}
+
+.result-content {
+    padding: 0px 10px 0px 10px;
+}
+
+
 
 
