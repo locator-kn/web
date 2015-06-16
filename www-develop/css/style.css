@@ -419,13 +419,13 @@ ul.slides {
     list-style: none;
     border-top: 1px solid rgba(255, 255, 255, .2);
 
-    background: #32c3b7;
+    background-color: #33c4b7;
     color: white;
 }
 
 .header-bar .user .arrow {
     position: absolute;
-    background: #32c3b7;
+    background-color: #33c4b7;
     height: 10px;
     width: 10px;
     webkit-transform: rotate(45deg);
@@ -437,7 +437,7 @@ ul.slides {
 }
 
 .header-bar .user ul.user-dropdown li.active {
-    background: #32c3b7;
+    background-color: #33c4b7;
     color: white;
 }
 
@@ -450,7 +450,7 @@ ul.slides {
     z-index: 100;
     top: 60px;
     right: 0px;
-    background: rgba(65, 191, 180, 1);
+    background-color: #33c4b7;
     width: 300px;
 }
 
@@ -546,12 +546,12 @@ a.close-modal {
 }
 
 .static-createButton {
-    background: rgb(255, 70, 55);
+    background-color: #ff4637;
     right: 0;
 }
 
 .static-searchButton {
-    background: rgb(85, 212, 205);
+    background-color: #33c4b7;
     left: 0;
 }
 
@@ -634,7 +634,7 @@ a.close-modal {
 }
 
 .cyan {
-    background: #32c3b7;
+    background-color: #33c4b7;
     color: white;
 }
 
@@ -738,7 +738,7 @@ img.center {
 }
 
 .profile .startconversation {
-    background: rgb(51, 196, 183);
+    background-color: #33c4b7;
     color: white;
     width: 100%;
     text-align: center;
@@ -753,7 +753,7 @@ img.center {
     padding: 10px;
     text-decoration: none;
     color: white;
-    background: rgb(255, 70, 55);
+    background-color: #ff4637;
     float: left;
 }
 
@@ -801,7 +801,7 @@ a.forgotpw {
 }
 
 .error-msg {
-    background: rgb(255, 70, 55);
+    background-color: #ff4637;
 }
 
 .msg {
@@ -816,7 +816,7 @@ a.forgotpw {
 }
 
 .success-msg {
-    background: rgb(51, 196, 183);
+    background-color: #33c4b7;
 }
 
 .msg.open {
@@ -832,7 +832,7 @@ a.forgotpw {
 
 input:-webkit-autofill {
     -webkit-text-fill-color: white !important;
-    -webkit-box-shadow: 0 0 0px 1000px rgb(51, 196, 183) inset;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(0, 21, 0) inset;
 
     background-color: none !important;
     background-image: none !important;
