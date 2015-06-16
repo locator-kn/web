@@ -2,7 +2,8 @@ module Controller {
     export class SearchResultCtrl {
         results:any;
         animateLoading = true;
-        constructor(private $scope, private $rootScope, private $location, private SearchService, private $state) {
+        availableMoods:any = [];
+        constructor(private $scope, private $rootScope, private SearchService, private $state, private DataService) {
 
             $rootScope.$state = $state;
 
@@ -17,6 +18,10 @@ module Controller {
                 // face in new results
                 this.animateLoading = false;
                 this.results = result;
+            });
+
+            this.DataService.getMoods().then(result => {
+                this.availableMoods = result.data;
             });
         }
 
