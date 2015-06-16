@@ -46,7 +46,14 @@ module Controller {
                 this.me = this.isItMe();
             }
 
+
+            if ($state.params.tab === undefined) {
+                this.switchTab('info');
+            }
+
             this.tab = $state.params.tab;
+
+
         }
 
         getTrips() {
