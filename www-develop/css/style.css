@@ -708,7 +708,8 @@ textarea {
 
 .profile-image {
     width: 150px;
-    margin-bottom: 15px;
+    height: 150px;
+    margin-bottom: 30px;
 }
 
 img.center {
