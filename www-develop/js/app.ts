@@ -102,7 +102,7 @@ var app = angular.module('starter', deps)
 
             .state('welcome', {
                 url: "/welcome",
-                templateUrl: "../templates/welcome/welcome.html"
+                templateUrl: "templates/welcome/welcome.html"
             })
 
             .state('context', {
@@ -112,30 +112,30 @@ var app = angular.module('starter', deps)
 
             .state('search', {
                 url: "/search?city&start_date&end_date&days&persons&moods&accomodations",
-                templateUrl: "../templates/search/search.html",
+                templateUrl: "templates/search/search.html",
                 reloadOnSearch: false
             })
 
             .state('trip', {
                 url: "/trip/:tripId",
-                templateUrl: "../templates/search/trip.html"
+                templateUrl: "templates/search/trip.html"
             })
 
             .state('messenger', {
                 url: "/messenger",
-                templateUrl: "../templates/messenger/messenger.html"
+                templateUrl: "templates/messenger/messenger.html"
             })
 
             .state('messenger.opponent', {
                 url: "/:opponentId",
-                templateUrl: "../templates/messenger/messenger.html"
+                templateUrl: "templates/messenger/messenger.html"
             })
 
             .state('app.login', {
                 url: "/login",
                 views: {
                     'menuContent': {
-                        templateUrl: "../templates/login.html"
+                        templateUrl: "templates/login.html"
                     }
                 }
             })
@@ -143,16 +143,17 @@ var app = angular.module('starter', deps)
             .state('user', {
                 url: "/user/:profileId/:tab",
                 templateUrl: "../templates/userProfile/user.html"
+
             })
 
             .state('insertTrip', {
                 url: "/insert-trip/?city&moods&days",
-                templateUrl: "../templates/insertTrip/insertTrip.html"
+                templateUrl: "templates/insertTrip/insertTrip.html"
             })
 
             .state('insertLocation', {
                 url: "/insert-location",
-                templateUrl: "../templates/location/insertLocation.html"
+                templateUrl: "../templates/location/insertLocation.html",
             });
 
         $urlRouterProvider.otherwise('welcome');
@@ -225,7 +226,7 @@ var app = angular.module('starter', deps)
             },
             link: (scope:any, element) => {
                 element.bind('click', () => {
-                    if (scope.compareTo === scope.clickValue){
+                    if (scope.compareTo === scope.clickValue) {
                         console.log('closing all popovers, clicked on:', scope.clickValue);
                         scope.compareTo = '';
                     } else {
