@@ -176,10 +176,20 @@ var app = angular.module('starter', deps)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
 
 
+    .directive('backImg', function () {
+        return function (scope, element, attrs) {
+            var url = attrs.backImg;
+            element.css({
+                'background-image': 'url(' + url + ')',
+                'background-size': 'cover'
+            });
+        };
+    })
+
     .directive('megadate', function () {
         return {
             scope: {date: '='},
-            controller: function ($scope: any) {
+            controller: function ($scope:any) {
                 $scope.$watch('date', (newVal, oldVal, scope) => {
                     if (newVal !== oldVal) {
 
