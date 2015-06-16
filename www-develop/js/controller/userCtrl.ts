@@ -8,6 +8,7 @@ module Controller {
         textMessage;
         me:boolean;
         edit:boolean = false;
+        conversationId;
 
         //image variables
         showImageUploadModal:boolean = false;
@@ -30,7 +31,8 @@ module Controller {
         passwordRepeat:string;
         errormsg = '';
 
-        constructor(private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+
 
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
@@ -91,6 +93,11 @@ module Controller {
 
                     this.getTrips();
                     this.getLocations();
+
+                    this.MessengerService.getConversations()
+                        .then(result => {
+                            this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
+                        });
 
                     this.user.birthdate = new Date(result.data.birthdate);
 
@@ -260,9 +267,16 @@ module Controller {
             this.edit = false;
 
             if (this.possibleTabs.indexOf(name) != -1) {
-                this.$location.search({tab: name})
+
+                if (name == 'conversation' && this.conversationId) {
+                    this.$state.go('messenger.opponent', {opponentId: this.conversationId});
+                    return;
+                }
+
+                this.$location.search({tab: name});
                 this.tab = name;
             }
+
         }
 
         static
