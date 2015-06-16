@@ -13,7 +13,7 @@
 }
 
 .messenger-container .conversations .item.active {
-    background: #f6bfba;
+    background-color: #ff4637;
 }
 
 .messenger-container .conversations {
@@ -56,7 +56,8 @@
 }
 
 .messenger-container .content .message p {
-    background: #f6bfba;
+    background-color: #ff4637;
+    color: white;
     max-width: 65%;
     position: relative;
     padding: 15px;
@@ -64,7 +65,7 @@
 }
 
 .messenger-container .content .message.out p {
-    background: #b8e4e0;
+    background-color: #33c4b7;
     float: right;
     min-width: 50%;
 }
@@ -96,14 +97,14 @@ button#chat_submit {
     width: 100%;
     padding-bottom: 20px;
     padding: 2px;
-    background-color: rgb(184, 228, 224);
+    background-color: #33c4b7;
     margin-top: 20px;
 }
 
 span.bubble {
     height: 20px;
     width: 30px;
-    background-color: rgb(246, 191, 186);
+    background-color: #ff4637;
     float: left;
     position: absolute;
     bottom: -4px;
@@ -113,7 +114,7 @@ span.bubble {
 
 .out span.bubble {
     right: -13px;
-    background: #b8e4e0;
+    background-color: #33C4B7;
     left: inherit;
     bottom: -5px;
     transform: rotate(35deg);

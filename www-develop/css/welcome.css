@@ -10,13 +10,13 @@
     padding: 8px;
     z-index: 1000;
     display: block;
-    background: #41BFB4;
+    background-color: #33c4b7;
     max-height: 400px;
     overflow-y: auto;
 }
 
 .createview .welcome_select ul {
-    background: rgb(241, 100, 73);
+    background: #ff4637;
 }
 
 .welcome_select .open ul {
@@ -68,7 +68,14 @@ a.welcome_button {
 
 a.welcome_button:hover {
     color: white;
-    background: rgba(0, 0, 0, 0.7);
+}
+
+.searchview a.welcome_button:hover {
+    background-color: #33c4b7;
+}
+
+.createview a.welcome_button:hover {
+    background-color: #ff4637;
 }
 
 .fullwidth {
@@ -184,7 +191,7 @@ a.welcome_button:hover {
     margin: 10px 0;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgb(32, 163, 152);
+    background-color: #33c4b7;
     padding: 15px;
     border-radius: 10px;
 
@@ -204,14 +211,14 @@ a.welcome_button:hover {
 
 span.green {
     float: left;
-    background-color: rgb(65, 191, 180);
+    background-color: #33c4b7;
     padding: 3px 10px;
     margin: 5px 0;
 }
 
 span.red {
     float: left;
-    background: rgb(241, 100, 73);
+    background-color: #ff4637;
     padding: 3px 10px;
     margin: 5px 0;
 }

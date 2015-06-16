@@ -6,12 +6,16 @@
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
-                <img ng-src="{{itc.me.picture.picture}}">
+                <img ng-src="{{tc.user.picture.picture}}">
             </div>
             <div class="btn-mood-container">
                 <div class="message-button pointer">ANSCHREIBEN</div>
                 <div class="trip-mood-container">
-                    <img ng-repeat="mood in tc.trip.moods" class="trip-mood-icon" ng-src="./images/icons/{{mood}}.png">
+                    <span ng-repeat="mood in tc.trip.moods" >
+                        <span ng-repeat="availableMood in tc.availableMoods |filter:mood">
+                            <img class="trip-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">
+                        </span>
+                    </span>
                 </div>
             </div>
         </div>

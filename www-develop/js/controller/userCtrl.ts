@@ -3,11 +3,12 @@ module Controller {
 
         // general user variables
         user;
-        birthdate = '';
+        birthdate;
 
         textMessage;
         me:boolean;
         edit:boolean = false;
+        conversationId;
 
         //image variables
         showImageUploadModal:boolean = false;
@@ -18,18 +19,25 @@ module Controller {
         profileImagePath:string;
         uploadIsDone:boolean = true;
         progressPercentage:number;
+        availableMoods;
 
         trips;
         locations;
 
-        tab:string = "info";
-        possibleTabs = ['info', 'account', 'locations', 'trips'];
+        tab:string;
+        possibleTabs = ['info', 'account', 'locations', 'trips', 'conversation'];
 
         password:string;
         passwordRepeat:string;
         errormsg = '';
 
-        constructor(private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+
+
+            this.DataService.getMoods().then(result => {
+                this.availableMoods = result.data;
+            });
+
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
@@ -40,10 +48,13 @@ module Controller {
                 this.me = this.isItMe();
             }
 
-            if (this.possibleTabs.indexOf($state.params.tab) == -1) {
-                $state.params.tab = 'info'
+
+            if ($state.params.tab === undefined) {
+                this.switchTab('info');
             }
+
             this.tab = $state.params.tab;
+
 
         }
 
@@ -51,6 +62,7 @@ module Controller {
             this.TripService.getTripsByUser(this.user._id)
                 .then(result => {
                     this.trips = result.data;
+
                 })
         }
 
@@ -82,9 +94,17 @@ module Controller {
                     this.getTrips();
                     this.getLocations();
 
+                    this.MessengerService.getConversations()
+                        .then(result => {
+                            this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
+                        });
+
                     this.user.birthdate = new Date(result.data.birthdate);
-                    this.birthdate = result.data.birthdate;
-                    console.info(this.birthdate);
+
+                    var ageDifMs = Date.now() - new Date(result.data.birthdate).getTime() + 86400000;
+                    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                    this.birthdate = Math.abs(ageDate.getUTCFullYear() - 1970);
+
                 });
         }
 
@@ -247,8 +267,16 @@ module Controller {
             this.edit = false;
 
             if (this.possibleTabs.indexOf(name) != -1) {
-                this.$state.go('user', {profileId: this.user._id, tab: name})
+
+                if (name == 'conversation' && this.conversationId) {
+                    this.$state.go('messenger.opponent', {opponentId: this.conversationId});
+                    return;
+                }
+
+                this.$location.search({tab: name});
+                this.tab = name;
             }
+
         }
 
         static

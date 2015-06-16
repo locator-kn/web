@@ -5,8 +5,10 @@ module Controller {
         trip:any = {};
         start_date;
         trips:any;
+        availableMoods:any = [];
+        user:any;
 
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService) {
+        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -15,7 +17,19 @@ module Controller {
                     this.trip = result.data[0];
                     this.trip.start_date = moment(new Date(this.trip.start_date)).format('L');
                     this.trip.end_date = moment(new Date(this.trip.end_date)).format('L');
+
+                    this.UserService.getUser(this.trip.userid)
+                        .then(result => {
+                            this.user = result.data;
+                        });
                 });
+
+            this.DataService.getMoods().then(result => {
+                this.availableMoods = result.data;
+            });
+
+
+
         }
 
         getMyTrips() {
@@ -23,7 +37,6 @@ module Controller {
                 this.trips = result.data;
             })
         }
-
 
         static controllerId:string = "TripCtrl";
     }
