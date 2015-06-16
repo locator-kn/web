@@ -152,7 +152,7 @@ var app = angular.module('starter', deps)
 
             .state('insertLocation', {
                 url: "/insert-location",
-                templateUrl: "../templates/location/insertLocation.html",
+                templateUrl: "templates/location/insertLocation.html",
             });
 
         $urlRouterProvider.otherwise('welcome');
