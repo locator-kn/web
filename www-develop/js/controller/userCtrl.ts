@@ -18,18 +18,24 @@ module Controller {
         profileImagePath:string;
         uploadIsDone:boolean = true;
         progressPercentage:number;
+        availableMoods;
 
         trips;
         locations;
 
         tab:string;
-        possibleTabs = ['info', 'account', 'locations', 'trips'];
+        possibleTabs = ['info', 'account', 'locations', 'trips', 'conversation'];
 
         password:string;
         passwordRepeat:string;
         errormsg = '';
 
-        constructor(private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+
+            this.DataService.getMoods().then(result => {
+                this.availableMoods = result.data;
+            });
+
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
@@ -47,6 +53,7 @@ module Controller {
             this.TripService.getTripsByUser(this.user._id)
                 .then(result => {
                     this.trips = result.data;
+
                 })
         }
 

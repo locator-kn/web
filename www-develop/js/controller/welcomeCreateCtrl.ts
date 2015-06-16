@@ -56,7 +56,7 @@ module Controller {
             this.$state.go('insertTrip', {
                 city: this.selectedCity.title,
                 moods: this.selectedMood.query_name,
-                days: this.selectedDay
+                days: this.selectedDay.id
             });
 
         }
