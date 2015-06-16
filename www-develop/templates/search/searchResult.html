@@ -1,7 +1,7 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
-    <div class="row">
-        <div class="result col-sm-4" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
+    <div class="row row-centered">
+        <div class="result col-sm-4 col-centered" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
             <img class="img-responsive result-image" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
             <div class="result-content-wrapper">
                 <div class="result-content">
