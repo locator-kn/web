@@ -21,11 +21,11 @@
 
     <div class="moodal" id="conversationModal" ng-include="'templates/modal/startConversation.html'"></div>
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 userheader">
 
             <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
-            <h2>{{pc.user.name}} <megadate date="pc.birthdate" class="age"></megadate></h2>
+            <h2 class="center">{{pc.user.name}} <megadate date="pc.birthdate" class="age"></megadate></h2>
         </div>
 
         <div class="col-xs-12">

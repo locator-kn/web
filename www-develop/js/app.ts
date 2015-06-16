@@ -192,7 +192,7 @@ var app = angular.module('starter', deps)
                 })
 
             },
-            template: '<span class="megadate">{{date2}}</span>',
+            template: '<span class="megadate">({{date2}})</span>',
             replace: true
         };
     })

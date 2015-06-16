@@ -881,3 +881,7 @@ input:-webkit-autofill {
 .passwordforget:not(.show) {
     display: none;
 }
+
+.profile .userheader h2 {
+    padding-bottom: 30px;
+}
