@@ -3,7 +3,7 @@ module Controller {
 
         // general user variables
         user;
-        birthdate = '';
+        birthdate;
 
         textMessage;
         me:boolean;
@@ -29,8 +29,10 @@ module Controller {
         passwordRepeat:string;
         errormsg = '';
 
-        constructor(private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
             this.getUser($stateParams.profileId);
+
+            console.log( $state.params);
 
             this.$rootScope.$on('login_success', () => {
                 this.me = this.isItMe();
@@ -247,7 +249,8 @@ module Controller {
             this.edit = false;
 
             if (this.possibleTabs.indexOf(name) != -1) {
-                this.$state.go('user', {profileId: this.user._id, tab: name})
+                this.$location.search({tab: name})
+                this.tab = name;
             }
         }
 
