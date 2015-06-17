@@ -24,7 +24,10 @@
                 <div class="general-trip-info">
                     <p>{{tc.trip.city.title}}</p>
                     <p> {{tc.trip.start_date}} - {{tc.trip.end_date}}</p>
-                    <p>Übernachtung</p>
+                    <p>
+                        <span ng-show="tc.trip.accommodation == false">Keine</span>
+                        Übernachtung
+                    </p>
                     <p> {{tc.trip.persons}} Personen</p>
                 </div>
             </div>
