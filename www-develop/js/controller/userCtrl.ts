@@ -283,7 +283,7 @@ module Controller {
 
             if (this.possibleTabs.indexOf(name) != -1) {
 
-                if (name == 'conversation' && this.$rootScope.authenticated) {
+                if (name == 'conversation' && !this.$rootScope.authenticated) {
                     return this.$rootScope.$emit('openLoginDialog');
                 }
 
