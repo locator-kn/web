@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div ng-hide="showSteffen" class="container-fluid">
     <div class="container welcome_container">
         <div class="row">
             <div class="col-xs-12 center logocontainer">
@@ -12,6 +12,12 @@
             <div class="col-sm-6 createview" ng-include="'templates/welcome/createView.html'"></div>
         </div>
     </div>
+</div>
+
+
+<div ng-hide="!showSteffen" class="container absolute steffencontainer">
+    <img src="images/steffen01.jpg" class="img-responsive">
+    <h3>oops, a server error occured, Steffen has been notified</h3>
 </div>
 
 <!-- <div class="container-fluid statistic_container cyan">

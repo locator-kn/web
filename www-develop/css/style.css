@@ -909,3 +909,16 @@ input:-webkit-autofill {
 .cropper-container .cropper-face {
     border-radius: 50%;
 }
+
+.steffencontainer {
+    background-color: rgba(228, 101, 101, 0.83);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 30px;
+    max-width: 600px;
+}
+
+.steffencontainer h3 {
+    text-align: center;
+    text-transform: uppercase;
+}
