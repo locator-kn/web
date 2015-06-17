@@ -363,7 +363,6 @@ module Controller {
                     }, waitTime);
 
                 });
-            });
         }
 
         validationCheck() {
