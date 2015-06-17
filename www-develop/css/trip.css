@@ -1,9 +1,9 @@
 .trip-info h5 {
-    color: #ff632d;
+    color: #ff4637;
 }
 
 .general-trip-info p {
-    color: #ff632d;
+    color: #ff4637;
 }
 
 .trip-mood-icon {
@@ -16,7 +16,7 @@
     margin-top: -25px;
     width: 180px;
     height: 50px;
-    background: rgb(255, 70, 55);
+    background: #ff4637;
     z-index: 10;
     position: relative;
     color: white;
