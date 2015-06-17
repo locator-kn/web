@@ -2,7 +2,7 @@
      ng-controller="SearchResultCtrl as src">
     <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2'>
         <div ng-show="src.results.length == 0">
-            <h1>Sorry keine Results</h1>
+            <h1>Keine Results</h1>
         </div>
         <div class="row">
             <div class="result col-sm-4 pointer" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
