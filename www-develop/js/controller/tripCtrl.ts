@@ -7,8 +7,9 @@ module Controller {
         trips:any;
         availableMoods:any = [];
         user:any;
+        locations:any = [];
 
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService) {
+        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -22,13 +23,17 @@ module Controller {
                         .then(result => {
                             this.user = result.data;
                         });
+                    this.trip.locations.forEach(entry => {
+                        this.LocationService.getLocationById(entry)
+                            .then(result => {
+                                this.locations.push(result.data);
+                            });
+                    });
                 });
 
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
             });
-
-
 
         }
 
@@ -37,6 +42,7 @@ module Controller {
                 this.trips = result.data;
             })
         }
+
 
         static controllerId:string = "TripCtrl";
     }

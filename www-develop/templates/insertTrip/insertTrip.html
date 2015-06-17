@@ -67,7 +67,6 @@
                         Wo findet dein Trip statt?
                     </div>
                     <input class="text-fields" name="tripCity" type="text" placeholder="wo findet dein trip statt?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
-
                     <a name="availableLocations"></a>
                     <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
                     <div class="locations" ng-class="{active: itc.showAvailableLocations }" ng-show="itc.availableLocations.length">
@@ -110,8 +109,11 @@
                     <div class="accommodation-equipment" ng-show="itc.accommodation == true">
                         <acc-equ-chooser accommodation-equipment-selectable="itc.accommodationEquipmentSelectable" accommodation-equipment="itc.accommodationEquipment"></acc-equ-chooser >
                     </div>
-                    <div class="save-trip">
-                        <input type="submit" ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected" ng-click="itc.saveTrip()" value="SPEICHERN" />
+                    <div>
+                        <div class="save-trip submit-btn submit-progress" ng-class="{running: itc.running}">
+                            <input type="submit" ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected" ng-click="itc.saveTrip()" value="SPEICHERN" />
+
+                        </div>
                         <div ng-class="{open: itc.errormsg}" class="msg error-msg">{{itc.errormsg}}</div>
                     </div>
                 </div>
