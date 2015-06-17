@@ -62,6 +62,7 @@
     position: relative;
     padding: 15px;
     word-wrap: break-word;
+    border-radius: 5px;
 }
 
 .messenger-container .content .message.out p {

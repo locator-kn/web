@@ -423,7 +423,7 @@ ul.slides {
     color: white;
 }
 
-.header-bar .user .arrow {
+.header-bar .arrow {
     position: absolute;
     background-color: #33c4b7;
     height: 10px;
@@ -434,6 +434,11 @@ ul.slides {
     top: -4px;
     left: 50%;
     margin-left: -5px;
+}
+
+.header-bar .messenger-popover .arrow {
+    right: 17px;
+    left: inherit;
 }
 
 .header-bar .user ul.user-dropdown li.active {
@@ -908,4 +913,17 @@ input:-webkit-autofill {
 
 .cropper-container .cropper-face {
     border-radius: 50%;
+}
+
+.steffencontainer {
+    background-color: rgba(228, 101, 101, 0.83);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 30px;
+    max-width: 600px;
+}
+
+.steffencontainer h3 {
+    text-align: center;
+    text-transform: uppercase;
 }

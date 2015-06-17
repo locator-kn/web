@@ -53,7 +53,7 @@
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
                                   ng-model="ilc.locationFormDetails.budget"
                                   ng-model-options="{ updateOn: 'blur'}"></textarea>
-                        <input class="text-fields" type="text" placeholder="Wo no?" ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity" details="ilc.selectedPlaceDetails" ng-model-options="{ updateOn: 'blur'}" required>
+                        <input class="text-fields" type="text" placeholder="In welcher Stadt ist diese Location?" ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity" details="ilc.selectedPlaceDetails" ng-model-options="{ updateOn: 'blur'}" required>
 
                         <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
                             <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"

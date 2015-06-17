@@ -44,6 +44,8 @@ module Controller {
 
                     this.dataAvailable = true;
 
+                }).catch(() => {
+                    this.$rootScope.showSteffen = true;
                 });
 
         }

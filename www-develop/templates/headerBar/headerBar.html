@@ -40,7 +40,8 @@
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()">
                             <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
                             <img ng-src="images/icons/header/chat.png">
-                            <ul ng-if="mc.openElement === hc.openMessages" class="messenger-popover">
+                            <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover">
+                                <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
