@@ -76,7 +76,8 @@ var deps = [
     'emoji',
     'uiGmapgoogle-maps',
     'luegg.directives',
-    'monospaced.elastic'
+    'monospaced.elastic',
+    'infinite-scroll'
 ];
 
 var app = angular.module('starter', deps)
