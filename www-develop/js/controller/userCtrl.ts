@@ -91,7 +91,7 @@ module Controller {
                     } else {
                         this.profileImagePath = result.data.picture.picture;
                     }
-
+                    
                     this.getTrips();
                     this.getLocations();
 
@@ -112,8 +112,6 @@ module Controller {
                     if (isNaN(this.birthdate)) {
                         this.birthAvailable = false;
                     }
-
-                    isNaN
 
                 });
         }
