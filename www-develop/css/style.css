@@ -732,10 +732,14 @@ img.center {
 .profile .input {
     width: 100%;
     background: none;
-    border: 1px solid rgb(204, 204, 204);
+    border: 1px solid rgba(204, 204, 204, 0);
     border-radius: 3px;
     margin: 5px 0;
     padding: 5px 10px;
+}
+
+.profile .editable .input {
+    border: 1px solid rgba(204, 204, 204, 1);
 }
 
 .profile.container {
@@ -761,10 +765,6 @@ img.center {
     color: white;
     background-color: #ff4637;
     float: left;
-}
-
-.profile textarea {
-    min-height: 200px;
 }
 
 .trip-image a.choose-image.welcome_button {
@@ -855,6 +855,12 @@ input:-webkit-autofill {
     padding: 5px;
     text-align: center;
     color: rgb(31, 35, 35);
+    border-radius: 3px;
+}
+
+.user-form label {
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .profile-button.active {
@@ -927,4 +933,17 @@ input:-webkit-autofill {
 .steffencontainer h3 {
     text-align: center;
     text-transform: uppercase;
+}
+
+.usermenu .error-msg {
+    background-color: #ff4637;
+    float: left;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    margin: 20px 0;
+}
+
+.profile .account input {
+    border: 1px solid rgba(204, 204, 204, 1);
 }

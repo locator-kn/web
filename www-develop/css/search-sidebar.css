@@ -13,7 +13,7 @@
 }
 
 .item-active {
-    background-color: #33c4b7;
+    background-color: rgb(85, 212, 205);;
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
     position: relative;
@@ -193,6 +193,29 @@ html, body {
 
 .result-content {
     padding: 0px 10px 0px 10px;
+}
+
+.search-icon{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.insert-icon {
+    width: 24px;
+    height: 31px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-search-icon {
+    width: 25px;
+    height: 25px;
 }
 
 

@@ -113,8 +113,6 @@ module Controller {
                         this.birthAvailable = false;
                     }
 
-                    isNaN
-
                 });
         }
 
