@@ -732,15 +732,13 @@ img.center {
 .profile .input {
     width: 100%;
     background: none;
-    border: 1px solid rgba(204, 204, 204, 0);
+    border: 1px solid rgba(204, 204, 204, 1);
     border-radius: 3px;
     margin: 5px 0;
     padding: 5px 10px;
+    transition-duration: 0.4s;
 }
 
-.profile .editable .input {
-    border: 1px solid rgba(204, 204, 204, 1);
-}
 
 .profile.container {
     max-width: 550px;
@@ -758,13 +756,15 @@ img.center {
 }
 
 .profile .save {
-    width: 100%;
     text-align: center;
     padding: 10px;
     text-decoration: none;
     color: white;
     background-color: #ff4637;
-    float: left;
+}
+
+span.editbutton {
+    font-size: 10px;
 }
 
 .trip-image a.choose-image.welcome_button {
@@ -946,4 +946,15 @@ input:-webkit-autofill {
 
 .profile .account input {
     border: 1px solid rgba(204, 204, 204, 1);
+}
+
+
+.profile .editable .input {
+    border: 1px solid #33C4B7;
+    background-color: rgba(51, 196, 183, 0.08);
+}
+
+.profile .editable .input.ng-dirty {
+    border: 1px solid #ff4637;
+    background-color: rgba(255, 70, 55, 0.19);
 }

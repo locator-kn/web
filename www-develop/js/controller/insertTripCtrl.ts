@@ -109,11 +109,16 @@ module Controller {
             // handle url params
             HelperService.getMoods(this.$state.params.moods, (result) => {
                 this.selectedMoods = result;
+                if (this.selectedMoods.length > 0) {
+                    this.selectableMoods.splice(this.selectableMoods.indexOf(this.selectedMoods[0]), 1);
+                }
             });
 
 
             this.days = this.$state.params.days;
-
+            if (this.days == undefined) {
+                this.days = 1;
+            }
 
             this.$scope.$watch(() => this.startDateReal,
                 (newValue:any, oldValue:any) => {
