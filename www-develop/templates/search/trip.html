@@ -6,7 +6,7 @@
     <div class="input-content">
         <div class="content-header">
             <div class="profile-image">
-                <img ng-src="{{tc.user.picture.picture}}">
+                <img class="pointer" ng-src="{{tc.user.picture.picture}}" ui-sref="user({profileId: tc.trip.userid})">
             </div>
             <div class="btn-mood-container">
                 <div class="message-button pointer">ANSCHREIBEN</div>

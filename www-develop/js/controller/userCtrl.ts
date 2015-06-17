@@ -20,6 +20,7 @@ module Controller {
         uploadIsDone:boolean = true;
         progressPercentage:number;
         availableMoods;
+        birthAvailable:boolean = true;
 
         trips;
         locations;
@@ -94,16 +95,25 @@ module Controller {
                     this.getTrips();
                     this.getLocations();
 
-                    this.MessengerService.getConversations()
-                        .then(result => {
-                            this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
-                        });
+                    if (!this.me) {
+
+                        this.MessengerService.getConversations()
+                            .then(result => {
+                                this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
+                            });
+                    }
 
                     this.user.birthdate = new Date(result.data.birthdate);
 
                     var ageDifMs = Date.now() - new Date(result.data.birthdate).getTime() + 86400000;
                     var ageDate = new Date(ageDifMs); // miliseconds from epoch
                     this.birthdate = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+                    if (isNaN(this.birthdate)) {
+                        this.birthAvailable = false;
+                    }
+
+                    isNaN
 
                 });
         }
