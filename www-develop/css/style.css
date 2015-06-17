@@ -9,6 +9,7 @@ html {
 
 body {
     background: #f5f5f5;
+    text-transform: lowercase;
 }
 
 .opener h2 {
