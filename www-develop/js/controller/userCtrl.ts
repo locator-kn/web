@@ -91,7 +91,7 @@ module Controller {
                     } else {
                         this.profileImagePath = result.data.picture.picture;
                     }
-                    
+
                     this.getTrips();
                     this.getLocations();
 
