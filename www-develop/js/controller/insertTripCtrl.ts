@@ -121,6 +121,7 @@ module Controller {
                 });
 
             this.tripCity = this.$state.params.city;
+
         }
 
         getStaticMap(options) {
@@ -349,8 +350,6 @@ module Controller {
                     tripId: this.documentId
                 });
             });
-
-            this.errormsg = 'Trip erfolgreich eingestellt!';
         }
 
         validationCheck() {
