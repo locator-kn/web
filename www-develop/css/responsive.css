@@ -1,4 +1,3 @@
-
 @media (max-width: 1200px) {
 
 }
@@ -15,7 +14,21 @@
 
 /* XS */
 @media (max-width: 767px) {
+    .absolute-slider .welcome-left {
+        width: 100%;
+    }
 
+    .absolute-slider .welcome-right {
+        display: none;
+    }
+
+    .welcome_container {
+        padding-top: 15px;
+    }
+
+    .row.select_wrapper {
+        padding-top: 15px;
+    }
 }
 
 
