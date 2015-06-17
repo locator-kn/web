@@ -42,8 +42,12 @@ module Controller {
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
-                    this.results.push(result.data);
+                    result.data.forEach(entry => {
+                            this.results.push(entry);
+                        }
+                    );
                 });
+            console.info(this.results);
         }
 
         emitResult(result) {

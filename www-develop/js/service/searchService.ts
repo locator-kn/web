@@ -3,6 +3,7 @@ module Service {
 
         citiesWithTrips = [];
         searchQuery:any;
+        pageSize:number = 10;
 
         constructor(private $http, private $location, private basePath, private DataService, private lodash, private $q) {
 
@@ -15,28 +16,22 @@ module Service {
         getTripsByQuery(searchQuery) {
             // create a copy by value
             var sq = this.lodash.cloneDeep(searchQuery);
-            this.searchQuery  = sq;
-            sq.page_size = 6;
+            // clone query
+            this.searchQuery = this.lodash.cloneDeep(searchQuery);
+            sq.page_size = this.pageSize;
             sq.page = 1;
-            var query = this.basePath + '/trips/search';
-            return this.getCityId(sq.city).then(cityid => {
-                // delete city from query since it is part of the path
-                delete sq.city;
-
-                // returning a promise inside a promise will make the outside promise resolving if inside is resolved.
-                return this.$http({
-                    url: query + '/' + cityid,
-                    params: sq,
-                    method: 'GET'
-                });
-            });
+            return this.getTrips(sq);
         }
 
         getMoreTrips(pageCount) {
             // create a copy by value
             var sq = this.lodash.cloneDeep(this.searchQuery);
-            sq.page_size = 6;
+            sq.page_size = this.pageSize;
             sq.page = pageCount;
+            return this.getTrips(sq);
+        }
+
+        getTrips(sq) {
             var query = this.basePath + '/trips/search';
             return this.getCityId(sq.city).then(cityid => {
                 // delete city from query since it is part of the path
