@@ -52,6 +52,10 @@ module Service {
         getMe() {
             return this.$q((resolve, reject) => {
 
+                if (!this.usersIdCache) {
+                    this.usersMeCache = this.CacheFactory.createCache('usersMe');
+                }
+
                 this.$http.get(this.basePath + '/users/me', {cache: this.usersIdCache})
                     .then(data => {
                         return this.decorateUserImage(data);
@@ -66,6 +70,7 @@ module Service {
         }
 
         login(mail, password) {
+
             return this.$http.post(this.basePath + '/login',
                 {
                     "mail": mail,
@@ -95,8 +100,8 @@ module Service {
         }
 
         logout() {
-            this.usersIdCache.remove();
-            this.usersMeCache.remove();
+
+            this.CacheFactory.clearAll();
 
             return this.$http.get(this.basePath + '/logout');
         }
