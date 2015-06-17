@@ -63,20 +63,20 @@
 .content-bottom .right-section .text-fields {
     height: 40px;
     margin-bottom: 80px;
+    width: 500px;
+    padding: 0px 0px 0px 15px;
 }
 
 .content-bottom .right-section .trip-description {
     height: 300px;
     margin-bottom: 80px;
+    padding-top: 10px;
 }
 
 .content-bottom .right-section .trip-money{
     height: 150px;
     margin-bottom: 80px;
-}
-
-.content-bottom .right-section .text-fields {
-    width: 500px;
+    padding-top: 10px;
 }
 
 .accommodation span {
@@ -264,7 +264,7 @@
 
 .mood-menu ul li a {
     width: 100px;
-    padding: 4px 0 4px 4px;
+    padding: 4px 0 4px 15px;
     margin-top: 0px;
     border: none;
     text-decoration: none;
@@ -328,4 +328,23 @@
 
 .persons-amount .text {
     font-weight: bold;
+}
+
+/* do not group these rules */
+.content-bottom .right-section .text-fields::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.60)
+}
+
+.content-bottom .right-section .text-fields:-moz-placeholder {
+    /* FF 4-18 */
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.content-bottom .right-section .text-fields::-moz-placeholder {
+    /* FF 19+ */
+    color: rgba(0, 0, 0, 0.60);
+}
+.content-bottom .right-section .text-fields:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(0, 0, 0, 0.60);
 }

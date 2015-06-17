@@ -1,32 +1,34 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
-    <div class="row row-centered">
-        <div class="result col-sm-4 col-centered" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
-            <img class="img-responsive result-image" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
-            <div class="result-content-wrapper">
-                <div class="result-content">
-                    <h3>{{result.title}}</h3>
-                    <p class="result-user-info">
-                        Von <span class="orange">{{result.username}}</span>
-                    </p>
-                    <p>
-                        Von <resultdate class="orange" date="result.start_date"></resultdate> bis <resultdate class="orange" date="result.end_date"></resultdate><br>
-                    <div class="day-amount" ng-show="result.days == 1">
-                        <div class="day-amount-label">Dauer:</div>
-                        <span class="orange">{{result.days}} Tag</span>
-                    </div>
-                    <div class="day-amount" ng-show="result.days != 1">
-                        <div class="day-amount-label">Dauer:</div>
-                        <span class="orange">{{result.days}} Tage</span>
-                    </div>
-                    <div class="moods-container">
-                        <div ng-repeat="mood in result.moods">
-                            <div ng-repeat="availableMood in src.availableMoods |filter:mood">
-                                <img class="result-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">
+    <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2'>
+        <div class="row">
+            <div class="result col-sm-4" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
+                <img class="img-responsive result-image" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
+                <div class="result-content-wrapper">
+                    <div class="result-content">
+                        <h3>{{result.title}}</h3>
+                        <p class="result-user-info">
+                            Von <span class="orange">{{result.username}}</span>
+                        </p>
+                        <p>
+                            Von <resultdate class="orange" date="result.start_date"></resultdate> bis <resultdate class="orange" date="result.end_date"></resultdate><br>
+                        <div class="day-amount" ng-show="result.days == 1">
+                            <div class="day-amount-label">Dauer:</div>
+                            <span class="orange">{{result.days}} Tag</span>
+                        </div>
+                        <div class="day-amount" ng-show="result.days != 1">
+                            <div class="day-amount-label">Dauer:</div>
+                            <span class="orange">{{result.days}} Tage</span>
+                        </div>
+                        <div class="moods-container">
+                            <div ng-repeat="mood in result.moods">
+                                <div ng-repeat="availableMood in src.availableMoods |filter:mood">
+                                    <img class="result-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">
+                                </div>
                             </div>
                         </div>
+                        </p>
                     </div>
-                    </p>
                 </div>
             </div>
         </div>

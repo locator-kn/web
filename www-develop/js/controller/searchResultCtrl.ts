@@ -3,6 +3,7 @@ module Controller {
         results:any;
         animateLoading = true;
         availableMoods:any = [];
+        pageCount:number = 1;
         constructor(private $scope, private $rootScope, private SearchService, private $state, private DataService) {
 
             $rootScope.$state = $state;
@@ -32,6 +33,17 @@ module Controller {
                 .then(result => {
                     this.emitResult(result.data);
                 })
+        }
+
+        loadMorePages() {
+            if(this.results == undefined){
+                return;
+            }
+            this.pageCount += 1;
+            this.SearchService.getMoreTrips(this.pageCount)
+                .then(result => {
+                    this.results.push(result.data);
+                });
         }
 
         emitResult(result) {
