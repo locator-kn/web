@@ -116,7 +116,9 @@ module Controller {
 
 
             this.days = this.$state.params.days;
-
+            if (this.days == undefined) {
+                this.days = 1;
+            }
 
             this.$scope.$watch(() => this.startDateReal,
                 (newValue:any, oldValue:any) => {
