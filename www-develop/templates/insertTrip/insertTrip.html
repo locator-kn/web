@@ -59,10 +59,10 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="validation-error" ng-show="(itc.form.tripTitle.$dirty) && itc.form.tripTitle.$error.required">
+                    <div class="validation-error"  ng-show="(itc.form.tripTitle.$dirty) && itc.form.tripTitle.$error.required">
                         Bitte gebe einen Titel für deinen Trip ein.
                     </div>
-                    <input class="text-fields" type="text" name="tripTitle" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
+                    <input class="text-fields" focus type="text" name="tripTitle" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
                     <div class="validation-error" ng-show="(itc.form.tripCity.$dirty) && itc.form.tripCity.$error.required">
                         Wo findet dein Trip statt?
                     </div>
