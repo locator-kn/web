@@ -22,6 +22,9 @@ module Controller {
         availableMoods;
         birthAvailable:boolean = true;
 
+        infoForm;
+        accountForm;
+
         trips;
         locations;
 
@@ -122,6 +125,8 @@ module Controller {
                 .then(result => {
                     console.info('updated profile');
                     this.editTrigger();
+
+                    this.infoForm.$setPristine();
                 })
                 .catch(result => {
                     console.info(this.user);
@@ -268,6 +273,7 @@ module Controller {
                     console.info('updated password');
                     this.errormsg = '';
                     this.editTrigger();
+                    this.accountForm.$setPristine();
                 })
                 .catch(result => {
                     this.errormsg = 'Fehler';

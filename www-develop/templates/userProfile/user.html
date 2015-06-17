@@ -24,7 +24,16 @@
             <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
 
-            <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span></h2>
+            <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span>
+
+                <span class="editbutton">
+                <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
+                <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
+            </span>
+
+            </h2>
+
+
         </div>
 
         <div class="col-xs-12 usermenu">
