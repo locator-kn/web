@@ -59,11 +59,11 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="validation-error"  ng-show="(itc.form.tripTitle.$dirty) && itc.form.tripTitle.$error.required">
-                        Bitte gebe einen Titel für deinen Trip ein.
+                    <div class="validation-error"  ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
+                       Bitte gebe einen Titel für deinen Trip ein.
                     </div>
                     <input class="text-fields" type="text" name="tripTitle" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
-                    <div class="validation-error" ng-show="(itc.form.tripCity.$dirty) && itc.form.tripCity.$error.required">
+                    <div class="validation-error" ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
                         Wo findet dein Trip statt?
                     </div>
                     <input class="text-fields" name="tripCity" type="text" placeholder="Wo findet dein Trip statt?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
@@ -104,7 +104,7 @@
                     <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" required></textarea>
                     <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
                     <div class="accommodation">
-                        <span>Übernachtung</span>
+                        <span>unterkunft</span>
                         <div class="circle" ng-click="itc.toggleAccommodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
                     </div>
                     <div class="accommodation-equipment" ng-show="itc.accommodation == true">
