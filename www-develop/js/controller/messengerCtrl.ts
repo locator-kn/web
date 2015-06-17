@@ -18,7 +18,9 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        constructor(private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
+        constructor(private $filter, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
+
+
             this.getConversations();
 
             $rootScope.$on('$stateChangeSuccess', () => {
@@ -34,6 +36,10 @@ module Controller {
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
+        }
+
+        toTrusted(html_code) {
+            return this.$sce.trustAsHtml(this.$filter('emoji')(html_code));
         }
 
         selectEmoji(item) {

@@ -93,9 +93,9 @@ var app = angular.module('starter', deps)
      });
      })*/
 
-    .config(function ($sceProvider) {
-        $sceProvider.enabled(false);
-    })
+    /* .config(function ($sceProvider) {
+     $sceProvider.enabled(false);
+     })*/
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
