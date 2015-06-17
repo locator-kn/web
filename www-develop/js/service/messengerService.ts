@@ -37,7 +37,6 @@ module Service {
             )
         }
 
-        static
-            serviceId:string = "MessengerService";
+        static serviceId:string = "MessengerService";
     }
 }
