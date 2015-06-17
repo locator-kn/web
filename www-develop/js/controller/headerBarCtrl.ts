@@ -186,6 +186,7 @@ module Controller {
                 .then(() => {
                     console.info("Logout Success");
                     this.$rootScope.authenticated = false;
+                    this.$rootScope.userID = '';
                     this.$state.go('welcome');
                 }).catch(() => {
                     console.info("Logout Error");

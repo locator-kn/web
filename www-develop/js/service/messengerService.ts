@@ -10,7 +10,7 @@ module Service {
 
 
         getConversations() {
-            return this.$http.get(this.basePathRealtime + '/my/conversations', {cache: this.myConversationsCache});
+            return this.$http.get(this.basePathRealtime + '/my/conversations');
         }
 
         getConversation(id) {
