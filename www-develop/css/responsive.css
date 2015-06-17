@@ -1,4 +1,12 @@
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
+
+    .welcome_container {
+        padding-top: 50px;
+    }
+
+    .row.select_wrapper {
+        padding-top: 50px;
+    }
 
 }
 
