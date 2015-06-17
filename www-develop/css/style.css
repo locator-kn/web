@@ -9,6 +9,7 @@ html {
 
 body {
     background: #f5f5f5;
+    text-transform: lowercase;
 }
 
 .opener h2 {
@@ -551,12 +552,12 @@ a.close-modal {
 }
 
 .static-createButton {
-    background-color: #ff4637;
+    background-color: #e95f44;
     right: 0;
 }
 
 .static-searchButton {
-    background-color: #33c4b7;
+    background-color: #4ab8ab;
     left: 0;
 }
 

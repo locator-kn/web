@@ -109,6 +109,10 @@ module Controller {
                 this.selectedMoods = result;
             });
 
+
+            this.days = this.$state.params.days;
+
+
             this.$scope.$watch(() => this.startDateReal,
                 (newValue: any, oldValue: any) => {
                     if (oldValue != this.endDateReal) {

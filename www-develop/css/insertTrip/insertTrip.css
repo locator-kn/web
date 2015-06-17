@@ -26,12 +26,17 @@
 }
 
 .content-header .moods {
-     float: right;
+    float: right;
+    width: 165px;
  }
 
 .content-header .moods .add-mood {
     float: right;
     cursor: pointer;
+}
+
+.feeling-text p {
+    text-align: right;
 }
 
 /*BOTTOM*/
@@ -99,45 +104,30 @@
     margin-top: 20px;
     width: 200px;
     height: 40px;
-    -moz-box-shadow:inset 0px 1px 0px 0px #ff0303;
-    -webkit-box-shadow:inset 0px 1px 0px 0px #ff0303;
-    box-shadow:inset 0px 1px 0px 0px #ff0303;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff3d3d), color-stop(1, #ff1f48));
-    background:-moz-linear-gradient(top, #ff3d3d 5%, #ff1f48 100%);
-    background:-webkit-linear-gradient(top, #ff3d3d 5%, #ff1f48 100%);
-    background:-o-linear-gradient(top, #ff3d3d 5%, #ff1f48 100%);
-    background:-ms-linear-gradient(top, #ff3d3d 5%, #ff1f48 100%);
-    background:linear-gradient(to bottom, #ff3d3d 5%, #ff1f48 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3d3d', endColorstr='#ff1f48',GradientType=0);
-    background-color:#ff3d3d;
-    border:1px solid #ff1717;
+    background-color:#ff4637;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-size:16px;
     font-weight:bold;
-    padding:10px 32px;
     text-decoration:none;
+    border-radius: 50%;
+    border: none;
+    border-radius: 2px;
 }
 
 .save-trip input:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff1f48), color-stop(1, #ff3d3d));
-    background:-moz-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
-    background:-webkit-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
-    background:-o-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
-    background:-ms-linear-gradient(top, #ff1f48 5%, #ff3d3d 100%);
-    background:linear-gradient(to bottom, #ff1f48 5%, #ff3d3d 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1f48', endColorstr='#ff3d3d',GradientType=0);
-    background-color:#ff1f48;
+    background-color: #ff4637;
 }
+
 .save-trip input:active {
     position:relative;
     top:1px;
 }
+
 .save-trip input:disabled {
     background: grey;
 }
-
 
 #preview{
     cursor:pointer;
