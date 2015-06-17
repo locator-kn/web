@@ -283,6 +283,10 @@ module Controller {
 
             if (this.possibleTabs.indexOf(name) != -1) {
 
+                if (name == 'conversation' && this.$rootScope.authenticated) {
+                    return this.$rootScope.$emit('openLoginDialog');
+                }
+
                 if (name == 'conversation' && this.conversationId) {
                     this.$state.go('messenger.opponent', {opponentId: this.conversationId});
                     return;
