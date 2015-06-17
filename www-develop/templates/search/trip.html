@@ -42,6 +42,10 @@
                     <div class="accommodation-equipment">
                         <acc-equ-chooser accommodation-equipment-selectable="false" accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser >
                     </div>
+                    <h5>Locations</h5>
+                    <div ng-repeat="location in tc.locations">
+                        {{location.title}}
+                    </div>
                 </div>
             </div>
         </div>

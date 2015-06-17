@@ -68,9 +68,11 @@ module Controller {
         backgroundImage:string = '';
         errormsg:string = '';
 
+        running:boolean = false;
+
         selectedLocationsCount:number = 0;
 
-        constructor(private $scope, private $rootScope, private $state, private $anchorScroll, private $location, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -85,7 +87,7 @@ module Controller {
 
                 response.data.forEach((loc:any) => {
 
-                    if(!loc.images) {
+                    if (!loc.images) {
                         loc.images = {};
                         loc.images.picture = this.getStaticMap({
                             size: '1151x675',
@@ -117,7 +119,7 @@ module Controller {
 
 
             this.$scope.$watch(() => this.startDateReal,
-                (newValue: any, oldValue: any) => {
+                (newValue:any, oldValue:any) => {
                     if (oldValue != this.endDateReal) {
                         this.endDateReal = '';
                     }
@@ -318,6 +320,8 @@ module Controller {
             if (!this.validationCheck()) {
                 return;
             }
+            this.running = true;
+            var start = Date.now();
 
             var city = this.getLocationDetails();
             var t = {
@@ -346,13 +350,22 @@ module Controller {
             //store trip in DB
             this.TripService.saveTrip(t, documentMetaData)
                 .then(result => {
-                this.revision = result.data.rev;
-                this.documentId = result.data.id;
-                this.documentWasCreated = true;
-                this.$state.go('trip', {
-                    tripId: this.documentId
+                    this.revision = result.data.rev;
+                    this.documentId = result.data.id;
+                    this.documentWasCreated = true;
+                    var now = Date.now();
+                    var waitTime = 1000;
+                    var diff = now - start;
+                    if (diff > 1000) {
+                        waitTime = diff;
+                    }
+                    this.$timeout(() => {
+                        this.$state.go('trip', {
+                            tripId: this.documentId
+                        });
+                    }, waitTime);
+
                 });
-            });
         }
 
         validationCheck() {
@@ -361,11 +374,7 @@ module Controller {
                 return false;
             }
 
-            if (!this.validDateCheck()) {
-                return false;
-            }
-
-            return true;
+            return this.validDateCheck();
         }
 
         validDateCheck() {

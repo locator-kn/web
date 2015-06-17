@@ -51,3 +51,25 @@
     right: 50%;
     margin-top: 5px;
 }
+
+.submit-btn.submit-progress {
+    position: relative;
+    float: left;
+}
+.submit-btn.submit-progress::after {
+    content: '';
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: width 1s, background-color 1s;
+    background-color: rgba(51,196,183, 0.5) !important;
+    border-radius: 2px;
+}
+.running.submit-progress::after {
+    content: '';
+    width: 100%;
+    background-color: rgba(51,196,183, 1)!important;
+}
