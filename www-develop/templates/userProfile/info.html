@@ -1,16 +1,17 @@
 <div class="col-xs-12">
 
-    <form novalidate class="user-form">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.name" class="input" type="text" name="name"
+    <form ng-class="{editable: pc.edit}" novalidate class="user-form">
+        <input ng-disabled="!pc.edit" ng-model="pc.user.name" class="input col-sm-6" type="text" name="name"
                placeholder="Vorname">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input" type="text" name="surname"
+        <input ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input col-sm-6" type="text" name="surname"
                placeholder="Nachname">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.birthdate" class="input" type="date" name="birthdate"
+        <input ng-disabled="!pc.edit" ng-model="pc.user.birthdate" class="input col-xs-12" type="date" name="birthdate"
                placeholder="Dein Alter">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input" type="text" name="name"
+        <input ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input col-xs-12" type="text" name="name"
                placeholder="Dein Wohnort">
-                <textarea ng-disabled="!pc.edit" class="input" type="text" ng-model="pc.user.description"
-                          placeholder="Über dich"></textarea>
+        <label>Beschreibung:</label>
+        <textarea ng-disabled="!pc.edit" class="input col-xs-12" type="text" ng-model="pc.user.description"
+                          placeholder=""></textarea>
 
         <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
         <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
