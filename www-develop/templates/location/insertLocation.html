@@ -37,15 +37,18 @@
             <div class="content-bottom">
                 <form id="insertLocationForm">
                     <div class="left-section" set-class-when-at-top="fix-to-top">
-                        <input class="text-fields" type="text" placeholder="Kategorie (Bar, ...)"
-                               ng-model="ilc.locationFormDetails.category" ng-model-options="{ updateOn: 'blur'}"
-                               required>
 
                     </div>
                     <div class="right-section">
 
                         <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
                                ng-model="ilc.locationFormDetails.title" ng-model-options="{ updateOn: 'blur'}" required>
+
+                        <input class="text-fields" type="text" placeholder="Kategorie (Bar, ...)"
+                               ng-model="ilc.locationFormDetails.category" ng-model-options="{ updateOn: 'blur'}"
+                               required>
+
+
                         <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
                                   ng-model="ilc.locationFormDetails.description" ng-model-options="{ updateOn: 'blur'}"
                                   required></textarea>
