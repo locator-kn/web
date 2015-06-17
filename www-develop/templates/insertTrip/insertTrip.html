@@ -12,7 +12,7 @@
                 </div>
                 <div class="moods">
                     <div class="feeling-text">
-                        <p>Wie fühlt sich dein Trip an?</p>
+                        <p>wie fühlt sich dein Trip an?</p>
                     </div>
                     <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
                         <div class="mood-images tt tt-small" aria-label="{{mood.title}}">
@@ -62,11 +62,11 @@
                     <div class="validation-error"  ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
                        Bitte gebe einen Titel für deinen Trip ein.
                     </div>
-                    <input class="text-fields" type="text" name="tripTitle" placeholder="Benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
+                    <input class="text-fields" type="text" name="tripTitle" placeholder="benenne deinen Trip" ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
                     <div class="validation-error" ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
                         Wo findet dein Trip statt?
                     </div>
-                    <input class="text-fields" name="tripCity" type="text" placeholder="Wo findet dein Trip statt?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
+                    <input class="text-fields" name="tripCity" type="text" placeholder="wo findet dein Trip statt?" ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity" ng-model-options="{ updateOn: 'blur'}" details="itc.selectedPlaceDetails" required>
 
                     <a name="availableLocations"></a>
                     <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available locations</p>
@@ -98,11 +98,11 @@
                         </div>
                     </div>
                     <div class="no-locations-available" ng-show="!itc.availableLocations.length">
-                        <p>Füg' du erstmal Locations hinzu! Vorher machst du hier gar nichts!</p>
-                        <a ui-sref="insertLocation">Location hinzufügen</a>
+                        <p>füg' du erstmal Locations hinzu! Vorher machst du hier gar nichts!</p>
+                        <a ui-sref="insertLocation">location hinzufügen</a>
                     </div>
-                    <textarea class="trip-description text-fields" placeholder="Beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" required></textarea>
-                    <textarea class="trip-money text-fields" type="text" placeholder="Für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
+                    <textarea class="trip-description text-fields" placeholder="beschreibe deinen Trip" ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}" required></textarea>
+                    <textarea class="trip-money text-fields" type="text" placeholder="für was braucht dein Gast eventuell Geld?" ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
                     <div class="accommodation">
                         <span>unterkunft</span>
                         <div class="circle" ng-click="itc.toggleAccommodation()" ng-class="{'circle-selected': itc.accommodation == true}"></div>
