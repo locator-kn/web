@@ -26,12 +26,17 @@
 }
 
 .content-header .moods {
-     float: right;
+    float: right;
+    width: 165px;
  }
 
 .content-header .moods .add-mood {
     float: right;
     cursor: pointer;
+}
+
+.feeling-text p {
+    text-align: right;
 }
 
 /*BOTTOM*/
