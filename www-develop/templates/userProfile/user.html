@@ -24,7 +24,7 @@
             <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
 
-            <h2 class="center">{{pc.user.name}} ({{pc.birthdate}})</h2>
+            <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span></h2>
         </div>
 
         <div class="col-xs-12 usermenu">
