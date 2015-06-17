@@ -258,6 +258,12 @@ var app = angular.module('starter', deps)
         }
     })
 
+    .directive('focus', function () {
+        return function (scope, elem, attr) {
+           angular.element(elem).focus();
+        };
+    })
+
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({

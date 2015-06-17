@@ -616,7 +616,7 @@ a.close-modal {
 .trip-image {
     width: 100%;
     height: 450px;
-    background-image: url("/images/locator_tileable_pattern_20px.png");
+    background-image: url("../images/locator_tileable_pattern_20px.png");
     position: relative;
 }
 
@@ -780,7 +780,7 @@ img.center {
 }
 
 .placeholder-tiles {
-    background-image: url("/images/locator_tileable_pattern_20px.png");
+    background-image: url("../images/locator_tileable_pattern_20px.png");
 }
 
 .passwordforget {
