@@ -109,8 +109,11 @@
                     <div class="accommodation-equipment" ng-show="itc.accommodation == true">
                         <acc-equ-chooser accommodation-equipment-selectable="itc.accommodationEquipmentSelectable" accommodation-equipment="itc.accommodationEquipment"></acc-equ-chooser >
                     </div>
-                    <div class="save-trip">
-                        <input type="submit" ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected" ng-click="itc.saveTrip()" value="SPEICHERN" />
+                    <div>
+                        <div class="save-trip submit-btn submit-progress" ng-class="{running: itc.running}">
+                            <input type="submit" ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected" ng-click="itc.saveTrip()" value="SPEICHERN" />
+
+                        </div>
                         <div ng-class="{open: itc.errormsg}" class="msg error-msg">{{itc.errormsg}}</div>
                     </div>
                 </div>
