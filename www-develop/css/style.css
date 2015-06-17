@@ -958,3 +958,6 @@ input:-webkit-autofill {
     border: 1px solid #ff4637;
     background-color: rgba(255, 70, 55, 0.19);
 }
+.container.content-width {
+    max-width: 770px;
+}

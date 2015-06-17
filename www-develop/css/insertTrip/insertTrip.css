@@ -35,26 +35,26 @@
     margin-top: 20px;
 }
 
-.content-bottom .right-section .text-fields {
+.content-bottom .text-fields {
     height: 40px;
     margin-bottom: 40px;
     width: 100%;
     padding: 0px 0px 0px 15px;
 }
 
-.content-bottom .right-section .text-fields:focus {
+.content-bottom .text-fields:focus {
     border-style: solid;
     border-width: 2px;
     border-color: rgba(0, 0, 0, 0.4);
 }
 
-.content-bottom .right-section .trip-description {
+.content-bottom .trip-description {
     height: 300px;
     margin-bottom: 40px;
     padding-top: 10px;
 }
 
-.content-bottom .right-section .trip-money {
+.content-bottom .trip-money {
     height: 150px;
     margin-bottom: 40px;
     padding-top: 10px;
