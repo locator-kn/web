@@ -193,6 +193,11 @@ module Controller {
         }
 
         showImageChooser() {
+
+            if (!this.me) {
+                return;
+            }
+
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
