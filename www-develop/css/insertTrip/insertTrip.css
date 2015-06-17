@@ -94,9 +94,10 @@
 .accommodation div {
     cursor:pointer;
 }
-
-.save-trip input {
+.save-trip {
     margin-top: 20px;
+}
+.save-trip input {
     width: 200px;
     height: 40px;
     background-color:#ff4637;
