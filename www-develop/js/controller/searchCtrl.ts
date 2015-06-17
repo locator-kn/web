@@ -57,7 +57,6 @@ module Controller {
             this.SearchService.getTripsByQuery(this.query)
                 .then(result => {
                     this.emitResult(result.data);
-                    console.info(result.data);
                 })
         }
 
