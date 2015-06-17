@@ -371,11 +371,7 @@ module Controller {
                 return false;
             }
 
-            if (!this.validDateCheck()) {
-                return false;
-            }
-
-            return true;
+            return this.validDateCheck();
         }
 
         validDateCheck() {
