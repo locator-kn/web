@@ -48,6 +48,11 @@ module Controller {
         }
 
         openPopover() {
+
+            if (!this.$rootScope.authenticated) {
+                return;
+            }
+
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
