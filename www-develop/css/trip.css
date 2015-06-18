@@ -34,3 +34,13 @@
 .btn-mood-container {
     float: right;
 }
+
+.trip-container .profile-image {
+    float: left;
+    margin-bottom: 0;
+    margin-top: -75px;
+}
+
+.trip-container .message-button {
+    margin-top: -25px;
+}
