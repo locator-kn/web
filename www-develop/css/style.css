@@ -966,6 +966,14 @@ input:-webkit-autofill {
     border: 1px solid #33C4B7;
     background-color: rgba(51, 196, 183, 0.08);
 }
+
+.account .editable .input {
+    border: 1px solid #33C4B7;
+    background-color: rgba(51, 196, 183, 0.08);
+}
+
+
+
 /*
 .profile .editable .input.ng-dirty {
     border: 1px solid #ff4637;
