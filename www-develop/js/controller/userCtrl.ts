@@ -34,6 +34,7 @@ module Controller {
         password:string;
         passwordRepeat:string;
         errormsg = '';
+        successmsg = '';
 
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
@@ -263,8 +264,15 @@ module Controller {
 
         setNewPassword() {
 
+            if (!this.password) {
+                this.password = '';
+                this.passwordRepeat = '';
+            }
             if (this.password != this.passwordRepeat) {
                 this.errormsg = 'Passwörter stimmen nicht überein.';
+                return;
+            } else if (this.password.length < 5) {
+                this.errormsg = 'Passwort muss länger als 4 Zeichen sein.';
                 return;
             }
 
@@ -273,6 +281,7 @@ module Controller {
                     console.info('updated password');
                     this.errormsg = '';
                     this.editTrigger();
+                    this.successmsg = 'Passwort erfolgreich geändert.';
                     //this.accountForm.$setPristine();
                 })
                 .catch(result => {
