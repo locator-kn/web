@@ -139,3 +139,7 @@ span.bubble {
 .emoji-icon {
     height: 20px;
 }
+
+.logged-out .messenger-popover {
+    display: none;
+}
