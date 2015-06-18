@@ -36,7 +36,7 @@
                         </li>
                         <li ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
                             <img ng-src="images/icons/header/stift.png"></li>
-                        <li class="messenger tt tt-small" aria-label="Messenger" active-popover
+                        <li ng-class="{'not-authenticated': !authenticated}" class="messenger tt tt-small" aria-label="Messenger" active-popover
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()">
                             <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
                             <img ng-src="images/icons/header/chat.png">

@@ -983,3 +983,7 @@ input:-webkit-autofill {
 .container.content-width {
     max-width: 770px;
 }
+
+.not-authenticated {
+    opacity: 0.5;
+}
