@@ -739,7 +739,6 @@ img.center {
     transition-duration: 0.3s;
 }
 
-
 .profile.container {
     max-width: 550px;
     padding: 50px 15px;
@@ -757,10 +756,17 @@ img.center {
 
 .profile .save {
     text-align: center;
-    padding: 10px;
+    padding: 2px;
     text-decoration: none;
     color: white;
     background-color: #ff4637;
+    display: inline-block;
+    width: 29px;
+    border-radius: 50%;
+}
+
+.profile .save.submit {
+    background-color: #33c4b7;
 }
 
 span.editbutton {
@@ -948,7 +954,6 @@ input:-webkit-autofill {
     border: 1px solid rgba(204, 204, 204, 1);
 }
 
-
 .profile .editable .input {
     border: 1px solid #33C4B7;
     background-color: rgba(51, 196, 183, 0.08);
@@ -958,6 +963,7 @@ input:-webkit-autofill {
     border: 1px solid #ff4637;
     background-color: rgba(255, 70, 55, 0.19);
 }
+
 .container.content-width {
     max-width: 770px;
 }
