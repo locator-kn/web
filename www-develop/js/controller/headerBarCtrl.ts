@@ -1,5 +1,6 @@
 module Controller {
-    declare var io;
+    declare
+    var io;
     export class HeaderBarCtrl {
         user:any;
         name:any;
@@ -49,6 +50,10 @@ module Controller {
 
         openPopover() {
 
+            if (!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
+
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
@@ -61,7 +66,6 @@ module Controller {
                                     element['opponent'] = result.data;
                                 });
                         });
-                        console.log(this.conversations)
                     });
 
             }
@@ -123,8 +127,8 @@ module Controller {
 
                 })
                 .catch(resp => {
-                    if(resp.statusCode === 409) {
-                        this.errormsg ='Diese Mail gibts schon'
+                    if (resp.statusCode === 409) {
+                        this.errormsg = 'Diese Mail gibts schon'
                         return;
                     }
                     console.info("Register Error");
