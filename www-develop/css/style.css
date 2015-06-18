@@ -948,6 +948,12 @@ input:-webkit-autofill {
     padding: 15px;
     color: white;
     margin: 20px 0;
+    margin-bottom: 0;
+    border-radius: 3px;
+}
+
+.usermenu .success-msg {
+    background-color: #33c4b7;
 }
 
 .profile .account input {
