@@ -273,7 +273,7 @@ module Controller {
                     console.info('updated password');
                     this.errormsg = '';
                     this.editTrigger();
-                    this.accountForm.$setPristine();
+                    //this.accountForm.$setPristine();
                 })
                 .catch(result => {
                     this.errormsg = 'Fehler';
