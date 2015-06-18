@@ -292,6 +292,7 @@ module Controller {
 
         switchTab(name) {
             this.errormsg = '';
+            this.successmsg = '';
             this.edit = false;
 
             if (this.possibleTabs.indexOf(name) != -1) {
