@@ -27,8 +27,9 @@
             <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span>
 
                 <span class="editbutton">
-                <a ng-if="pc.edit" class="save pointer" ng-click="pc.updateProfile()" class="button">Save</a>
-                <a ng-show="pc.me && !pc.edit" class="save pointer" ng-click="pc.editTrigger()" class="button">Edit</a>
+                    <a ng-if="pc.edit && pc.tab === 'account'" aria-label="speichern" class="save pointer submit" ng-click="pc.setNewPassword()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
+                    <a ng-if="pc.edit && pc.tab === 'info'" aria-label="speichern" class="save pointer submit" ng-click="pc.updateProfile()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
+                <a ng-show="pc.me && !pc.edit" aria-label="bearbeiten" class="save pointer" ng-click="pc.editTrigger()" class="button"><img src="images/icons/icons_stuff/pencil.png" class="icon img-responsive"></a>
             </span>
 
             </h2>
@@ -52,6 +53,7 @@
                class="col-xs-3 pointer button profile-button">anschreiben</a>
 
             <div ng-if="pc.errormsg != ''" class="error-msg">{{pc.errormsg}}</div>
+            <div ng-if="pc.successmsg != ''" class="error-msg success-msg">{{pc.successmsg}}</div>
 
         </div>
 
