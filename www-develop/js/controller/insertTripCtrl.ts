@@ -132,6 +132,9 @@ module Controller {
                 this.tripDescription = allValues.tripDescription;
                 this.tripDescriptionMoney = allValues.tripDescriptionMoney;
                 this.accommodation = allValues.accommodation;
+                if (this.accommodation) {
+                    this.accommodationEquipmentSelectable = true;
+                }
                 this.accommodationEquipment = allValues.accommodationEquipment;
                 this.availableLocations = allValues.availableLocations;
                 this.availableLocationsHash = allValues.availableLocationsHash;
