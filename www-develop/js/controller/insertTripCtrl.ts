@@ -72,7 +72,7 @@ module Controller {
 
         selectedLocationsCount:number = 0;
 
-        constructor(private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
             this.UserService.getMe().then(user => {
@@ -129,6 +129,13 @@ module Controller {
 
             this.tripCity = this.$state.params.city;
 
+            $rootScope.$on('newInsertTrip', () => {
+                this.days = this.InsertTripService.getDays();
+            });
+
+            $rootScope.$on("$routeChangeStart", () => {
+
+            });
         }
 
         getStaticMap(options) {
