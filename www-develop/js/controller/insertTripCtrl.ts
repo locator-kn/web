@@ -127,7 +127,7 @@ module Controller {
                 this.selectableMoods = allValues.selectableMoods;
                 this.selectedMoods = allValues.selectedMoods;
                 this.persons = allValues.persons;
-                this.tripTitle =  allValues.tripTitle;
+                this.tripTitle = allValues.tripTitle;
                 this.tripCity = allValues.tripCity;
                 this.tripDescription = allValues.tripDescription;
                 this.tripDescriptionMoney = allValues.tripDescriptionMoney;
@@ -396,8 +396,7 @@ module Controller {
                 //active
                 //delete
             };
-            console.log(t);
-            return
+
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
