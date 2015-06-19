@@ -33,7 +33,9 @@ module Controller {
             city: {}
         };
 
-        constructor(private $scope, private $rootScope, private LocationService) {
+        me:any = {};
+
+        constructor(private $scope, private $rootScope, private LocationService, private UserService) {
             this.map = {
                 center: {
                     // kn fh
@@ -52,6 +54,10 @@ module Controller {
                 },
                 events: this.getEvents()
             };
+
+            this.UserService.getMe().then(user => {
+                this.me = user.data;
+            });
 
             $scope.$on('mapentrySelected', (event, details) => {
                 this.map.center.latitude = details.geometry.location.A;
