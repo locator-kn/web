@@ -900,7 +900,7 @@ input:-webkit-autofill {
 }
 
 @media screen and (min-height: 850px) {
-    .header-image-containe, .header-image-container .flexslider {
+    .header-image-container, .header-image-container .flexslider {
         height: 700px;
     }
 }
