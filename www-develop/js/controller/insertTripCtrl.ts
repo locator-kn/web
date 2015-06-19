@@ -126,6 +126,16 @@ module Controller {
                 this.endDateReal = allValues.endDateReal;
                 this.selectableMoods = allValues.selectableMoods;
                 this.selectedMoods = allValues.selectedMoods;
+                this.persons = allValues.persons;
+                this.tripTitle =  allValues.tripTitle;
+                this.tripCity = allValues.tripCity;
+                this.tripDescription = allValues.tripDescription;
+                this.tripDescriptionMoney = allValues.tripDescriptionMoney;
+                this.accommodation = allValues.accommodation;
+                this.accommodationEquipment = allValues.accommodationEquipment;
+                this.availableLocations = allValues.availableLocations;
+                this.availableLocationsHash = allValues.availableLocationsHash;
+                this.selectedLocations = allValues.selectedLocations;
                 this.InsertTripService.setStateStored(false);
             }
 
@@ -147,6 +157,17 @@ module Controller {
                 endDateReal: this.endDateReal,
                 selectableMoods: this.selectableMoods,
                 selectedMoods: this.selectedMoods,
+                persons: this.persons,
+                tripTitle: this.tripTitle,
+                tripCity: this.tripCity,
+                tripDescription: this.tripDescription,
+                tripDescriptionMoney: this.tripDescriptionMoney,
+                accommodation: this.accommodation,
+                accommodationEquipment: this.accommodationEquipment,
+                availableLocations: this.availableLocations,
+                availableLocationsHash: this.availableLocationsHash,
+                selectedLocations: this.selectedLocations
+
             };
             this.InsertTripService.storeAllValues(allValues);
             this.InsertTripService.setStateStored(true);
