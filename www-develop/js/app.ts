@@ -244,7 +244,9 @@ var app = angular.module('starter', deps)
                 opened: '=?'
             },
             link: (scope:any, element) => {
-                element.bind('click', () => {
+                element.bind('click', (event) => {
+                    // stop event from bubbling up to the body
+                    event.stopPropagation();
                     if (scope.compareTo === scope.clickValue) {
                         console.log('closing all popovers, clicked on:', scope.clickValue);
                         scope.compareTo = '';

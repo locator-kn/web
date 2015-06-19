@@ -4,10 +4,16 @@ module Controller {
         overlay:boolean;
         openElement:string = '';
 
-        constructor(private $rootScope, private $location) {
+        constructor(private $scope, private $rootScope, private $location, private $window) {
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
+            $window.onclick = (e) => {
+                if(this.openElement) {
+                    this.openElement = '';
+                    this.$scope.$apply();
+                }
+            };
 
             $rootScope.$on('newPopoverSelected', (e, clickValue)=> {
                 if(this.$rootScope.openElement === clickValue)
