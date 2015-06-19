@@ -1,19 +1,26 @@
 module Service {
     export class InsertTripService {
-        days:any = 1;
+        stateStored:any = false;
+        allValues:any = {};
 
         constructor(private $rootScope) {
         }
 
-        setDays(days) {
-            this.days = days;
-            this.$rootScope.$emit('newInsertTrip');
+        setStateStored(state) {
+            this.stateStored = state;
         }
 
-        getDays() {
-            return this.days;
+        getStateStored() {
+            return this.stateStored;
         }
 
+        storeAllValues(allValues) {
+            this.allValues = allValues;
+        }
+
+        getAllValues() {
+            return this.allValues;
+        }
 
         static serviceId:string = "InsertTripService";
     }

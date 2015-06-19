@@ -114,11 +114,21 @@ module Controller {
                 }
             });
 
-
-            this.days = this.$state.params.days;
-            if (this.days == undefined) {
-                this.days = 1;
+            if (!this.InsertTripService.getStateStored()) {
+                this.days = this.$state.params.days;
+                if (this.days == undefined) {
+                    this.days = 1;
+                }
+            } else {
+                var allValues = this.InsertTripService.getAllValues();
+                this.days = allValues.days;
+                this.startDateReal = allValues.startDateReal;
+                this.endDateReal = allValues.endDateReal;
+                this.selectableMoods = allValues.selectableMoods;
+                this.selectedMoods = allValues.selectedMoods;
+                this.InsertTripService.setStateStored(false);
             }
+
 
             this.$scope.$watch(() => this.startDateReal,
                 (newValue:any, oldValue:any) => {
@@ -128,14 +138,18 @@ module Controller {
                 });
 
             this.tripCity = this.$state.params.city;
+        }
 
-            $rootScope.$on('newInsertTrip', () => {
-                this.days = this.InsertTripService.getDays();
-            });
-
-            $rootScope.$on("$routeChangeStart", () => {
-
-            });
+        storeValues() {
+            var allValues = {
+                days: this.days,
+                startDateReal: this.startDateReal,
+                endDateReal: this.endDateReal,
+                selectableMoods: this.selectableMoods,
+                selectedMoods: this.selectedMoods,
+            };
+            this.InsertTripService.storeAllValues(allValues);
+            this.InsertTripService.setStateStored(true);
         }
 
         getStaticMap(options) {
