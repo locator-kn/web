@@ -926,7 +926,7 @@ input:-webkit-autofill {
     padding-top: 20px;
 }
 
-.cropper-container .cropper-face {
+.profile .cropper-container .cropper-face {
     border-radius: 50%;
 }
 
