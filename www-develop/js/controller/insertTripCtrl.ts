@@ -367,9 +367,7 @@ module Controller {
             var sl = {};
             for (var key in this.selectedLocations) {
                 if (this.selectedLocations.hasOwnProperty(key)) {
-                    sl[key] = {
-                        images: this.selectedLocations[key].images
-                    };
+                    sl[key] = this.selectedLocations[key].images;
                 }
             }
 
