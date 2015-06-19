@@ -364,12 +364,15 @@ module Controller {
         }
 
         getSelectedLocations() {
-            var sl = [];
+            var sl = {};
             for (var key in this.selectedLocations) {
                 if (this.selectedLocations.hasOwnProperty(key)) {
-                    sl.push(key);
+                    sl[key] = {
+                        images: this.selectedLocations[key].images
+                    };
                 }
             }
+
             return sl;
         }
 
