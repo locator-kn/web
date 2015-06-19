@@ -356,7 +356,7 @@ module Controller {
                     if(selectedObjImages.picture) {
                         sl.push(selectedObjImages.picture);
                     }
-                    sl.push(this.selectedLocations[key].images.googlemap);
+                    sl.push(this.selectedLocations[key].images.googlemap + '&size=1151x675&scale=2');
                 }
             }
             this.slides = sl;
