@@ -605,13 +605,29 @@ a.close-modal {
     z-index: 999;
 }
 
+.image-upload-modal .cropper-bg {
+    background-image: none !important;
+}
+
 .image-upload-modal .controls {
     width: 100%;
     float: left;
-    background: rgba(255, 255, 255, .4);
     position: absolute;
     bottom: 0;
     z-index: 1000;
+}
+
+.image-upload-modal .controls .btns {
+    display: block;
+    margin: 10px auto;
+    width: 300px;
+    text-align: center;
+
+}
+
+.image-upload-modal .controls .btn {
+    background: #ff4637;
+    color: #fff;
 }
 
 .trip-image {
@@ -986,4 +1002,23 @@ input:-webkit-autofill {
 
 .not-authenticated {
     opacity: 0.5;
+}
+
+.locator-btn {
+    padding: 11px 22px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+}
+
+.save-btn {
+    background-color: #ff4637;
+}
+
+.cancel-btn {
+    background-color: #343434;
 }
