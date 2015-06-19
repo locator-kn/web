@@ -146,7 +146,7 @@
                             </div>
                             <div class="no-locations-available" ng-show="!itc.availableLocations.length">
                                 <p>füg' du erstmal locations hinzu! vorher machst du hier gar nichts!</p>
-                                <a ui-sref="insertLocation">location hinzufügen</a>
+                                <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
                             </div>
                         <textarea class="trip-description text-fields" placeholder="beschreibe deinen trip"
                                   ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}"

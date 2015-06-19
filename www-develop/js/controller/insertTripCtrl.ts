@@ -114,11 +114,34 @@ module Controller {
                 }
             });
 
-
-            this.days = this.$state.params.days;
-            if (this.days == undefined) {
-                this.days = 1;
+            if (!this.InsertTripService.getStateStored()) {
+                this.days = this.$state.params.days;
+                if (this.days == undefined) {
+                    this.days = 1;
+                }
+            } else {
+                var allValues = this.InsertTripService.getAllValues();
+                this.days = allValues.days;
+                this.startDateReal = allValues.startDateReal;
+                this.endDateReal = allValues.endDateReal;
+                this.selectableMoods = allValues.selectableMoods;
+                this.selectedMoods = allValues.selectedMoods;
+                this.persons = allValues.persons;
+                this.tripTitle =  allValues.tripTitle;
+                this.tripCity = allValues.tripCity;
+                this.tripDescription = allValues.tripDescription;
+                this.tripDescriptionMoney = allValues.tripDescriptionMoney;
+                this.accommodation = allValues.accommodation;
+                if (this.accommodation) {
+                    this.accommodationEquipmentSelectable = true;
+                }
+                this.accommodationEquipment = allValues.accommodationEquipment;
+                this.availableLocations = allValues.availableLocations;
+                this.availableLocationsHash = allValues.availableLocationsHash;
+                this.selectedLocations = allValues.selectedLocations;
+                this.InsertTripService.setStateStored(false);
             }
+
 
             this.$scope.$watch(() => this.startDateReal,
                 (newValue:any, oldValue:any) => {
@@ -128,14 +151,29 @@ module Controller {
                 });
 
             this.tripCity = this.$state.params.city;
+        }
 
-            $rootScope.$on('newInsertTrip', () => {
-                this.days = this.InsertTripService.getDays();
-            });
+        storeValues() {
+            var allValues = {
+                days: this.days,
+                startDateReal: this.startDateReal,
+                endDateReal: this.endDateReal,
+                selectableMoods: this.selectableMoods,
+                selectedMoods: this.selectedMoods,
+                persons: this.persons,
+                tripTitle: this.tripTitle,
+                tripCity: this.tripCity,
+                tripDescription: this.tripDescription,
+                tripDescriptionMoney: this.tripDescriptionMoney,
+                accommodation: this.accommodation,
+                accommodationEquipment: this.accommodationEquipment,
+                availableLocations: this.availableLocations,
+                availableLocationsHash: this.availableLocationsHash,
+                selectedLocations: this.selectedLocations
 
-            $rootScope.$on("$routeChangeStart", () => {
-
-            });
+            };
+            this.InsertTripService.storeAllValues(allValues);
+            this.InsertTripService.setStateStored(true);
         }
 
         getStaticMap(options) {
