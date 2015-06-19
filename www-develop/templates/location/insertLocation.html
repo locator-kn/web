@@ -3,7 +3,10 @@
         <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
         <div class="controls">
-            <div class="btn" ng-click="ilc.uploadImage()">Upload</div>
+            <div class="btns">
+                <div class="locator-btn save-btn" ng-click="ilc.uploadImage()">hochladen</div>
+                <div class="locator-btn cancel-btn" ng-click="ilc.uploadImage()">abbrechen</div>
+            </div>
         </div>
     </div>
     <div id="trip-image" class="trip-image" ng-click="ilc.showImageChooser()">
