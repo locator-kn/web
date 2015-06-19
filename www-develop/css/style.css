@@ -891,13 +891,16 @@ input:-webkit-autofill {
     background: rgb(31, 35, 35);
     color: white;
 }
+.header-image-container .flexslider {
+    float: none;
+}
 
-.header-image-container {
+.header-image-container, .header-image-container .flexslider {
     height: 450px;
 }
 
 @media screen and (min-height: 850px) {
-    .header-image-container {
+    .header-image-containe, .header-image-container .flexslider {
         height: 700px;
     }
 }
