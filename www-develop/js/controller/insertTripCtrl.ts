@@ -176,6 +176,14 @@ module Controller {
             this.InsertTripService.setStateStored(true);
         }
 
+        getSelectedMoodQuerynames() {
+            var selectedQuerynames = [];
+            this.selectedMoods.forEach((elem) => {
+                selectedQuerynames.push(elem.query_name);
+            });
+            return selectedQuerynames;
+        }
+
         getStaticMap(options) {
             return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&scale=2&markers=' + options.geotag.lat + ',' + options.geotag.long;
         }
@@ -382,12 +390,14 @@ module Controller {
                 accommodation_equipment: this.accommodationEquipment,
                 persons: this.persons,
                 days: this.days,
-                moods: this.selectedMoods,
+                moods: this.getSelectedMoodQuerynames(),
                 locations: this.getSelectedLocations()
                 //pics
                 //active
                 //delete
             };
+            console.log(t);
+            return
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
