@@ -29,7 +29,6 @@ module Controller {
             description: '',
             budget: '',
             category: '',
-            moods: [],
             city: {}
         };
 
