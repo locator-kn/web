@@ -6,7 +6,7 @@
         </div>
         <div class="row">
             <div class="result col-sm-4 pointer" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
-                <img class="img-responsive result-image" ng-src="{{result.images.picture}}" onerror="this.src = '/images/No_Image_Placeholder.jpg';"/>
+                <img-triplist locations="result.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
                 <div class="result-content-wrapper">
                     <div class="result-content">
                         <h3>{{result.title}}</h3>

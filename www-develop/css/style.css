@@ -920,6 +920,11 @@ input:-webkit-autofill {
     float: none;
 }
 
+img-triplist .flexslider {
+    height: 150px;
+    margin: 0;
+}
+
 .header-image-container, .header-image-container .flexslider {
     height: 450px;
 }
