@@ -125,7 +125,6 @@ module Controller {
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
-                    console.log(data)
                     this.imageCropData = data
                 }
             });
