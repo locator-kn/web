@@ -925,6 +925,11 @@ img-triplist .flexslider {
     margin: 0;
 }
 
+img-triplist .flex-direction-nav a::before {
+    font-size: 34px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .header-image-container, .header-image-container .flexslider {
     height: 450px;
 }
