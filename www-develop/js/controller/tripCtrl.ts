@@ -23,12 +23,16 @@ module Controller {
                         .then(result => {
                             this.user = result.data;
                         });
-                    this.trip.locations.forEach(entry => {
-                        this.LocationService.getLocationById(entry)
-                            .then(result => {
-                                this.locations.push(result.data);
-                            });
-                    });
+
+                    var locationsHash = this.trip.locations;
+                    for (var key in locationsHash) {
+                        if (locationsHash.hasOwnProperty(key)) {
+                            this.LocationService.getLocationById(key)
+                                .then(result => {
+                                    this.locations.push(result.data);
+                                });
+                        }
+                    }
                 });
 
             this.DataService.getMoods().then(result => {
