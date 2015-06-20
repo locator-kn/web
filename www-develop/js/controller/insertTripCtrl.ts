@@ -19,7 +19,6 @@ interface Datepicker {
 module Controller {
 
     export class InsertTripCtrl {
-
         activeItem:string = '';
         persons:number = 1;
         days:number = 1;
@@ -138,9 +137,9 @@ module Controller {
                     this.accommodationEquipmentSelectable = true;
                 }
                 this.accommodationEquipment = allValues.accommodationEquipment;
-                this.availableLocations = allValues.availableLocations;
-                this.availableLocationsHash = allValues.availableLocationsHash;
-                this.selectedLocations = allValues.selectedLocations;
+                //this.availableLocations = allValues.availableLocations;
+                //this.availableLocationsHash = allValues.availableLocationsHash;
+                //this.selectedLocations = allValues.selectedLocations;
                 this.datePickerOnLinked = allValues.datePickerOnLinked;
                 this.InsertTripService.setStateStored(false);
             }
@@ -160,9 +159,9 @@ module Controller {
                 tripDescriptionMoney: this.tripDescriptionMoney,
                 accommodation: this.accommodation,
                 accommodationEquipment: this.accommodationEquipment,
-                availableLocations: this.availableLocations,
-                availableLocationsHash: this.availableLocationsHash,
-                selectedLocations: this.selectedLocations,
+                //availableLocations: this.availableLocations,
+                //availableLocationsHash: this.availableLocationsHash,
+                //selectedLocations: this.selectedLocations,
                 datePickerOnLinked: true
             };
 
