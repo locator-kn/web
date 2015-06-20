@@ -3,15 +3,6 @@
     width: 100%;
 }
 
-.content-header .moods {
-    float: right;
-}
-
-.content-header .moods .add-mood {
-    float: right;
-    cursor: pointer;
-}
-
 .feeling-text p {
     text-align: right;
 }
@@ -320,10 +311,4 @@
 
 .container.trip-insert {
     max-width: 770px;
-}
-
-.content-header {
-    float: left;
-    width: 100%;
-    margin-bottom: 30px;
 }

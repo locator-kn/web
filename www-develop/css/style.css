@@ -744,6 +744,22 @@ textarea {
     z-index: 10;
 }
 
+.content-header {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+    min-height: 75px;
+}
+
+.content-header .moods {
+    float: right;
+}
+
+.content-header .moods .add-mood {
+    float: right;
+    cursor: pointer;
+}
+
 img.center {
     display: block;
     margin-left: auto;
