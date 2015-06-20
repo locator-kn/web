@@ -5,9 +5,9 @@
             <h1>Keine Results</h1>
         </div>
         <div class="row">
-            <div class="result col-sm-4 pointer" ng-repeat="result in src.results" ui-sref="trip({tripId:result._id})">
+            <div class="result col-sm-4 pointer" ng-repeat="result in src.results">
                 <img-triplist locations="result.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
-                <div class="result-content-wrapper">
+                <div class="result-content-wrapper" ui-sref="trip({tripId:result._id})">
                     <div class="result-content">
                         <h3>{{result.title}}</h3>
                         <p class="result-user-info">
