@@ -143,6 +143,7 @@ module Controller {
                 this.datePickerOnLinked = allValues.datePickerOnLinked;
                 this.InsertTripService.setStateStored(false);
             }
+            console.log(this.selectableMoods);
         }
 
         storeValues() {
@@ -394,8 +395,6 @@ module Controller {
                 //active
                 //delete
             };
-
-            this.InsertTripService.setStateStored(false);
 
             var documentMetaData = {
                 _id: this.documentId || '',
