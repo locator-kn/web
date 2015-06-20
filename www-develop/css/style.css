@@ -734,6 +734,15 @@ textarea {
     height: 150px;
     margin-bottom: 30px;
 }
+.content-header .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 0;
+    margin-top: -75px;
+    position: absolute;
+    z-index: 10;
+}
 
 img.center {
     display: block;
