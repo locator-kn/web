@@ -396,10 +396,11 @@ module Controller {
                 //delete
             };
 
-            /*this.selectedMoods.forEach((elem) => {
+            this.selectedMoods.forEach((elem) => {
+                debugger
                 this.selectedMoods.splice(this.selectedMoods.indexOf(elem), 1);
                 this.selectableMoods.push(elem);
-            });*/
+            });
 
             var documentMetaData = {
                 _id: this.documentId || '',
