@@ -9,6 +9,8 @@ module Controller {
         user:any;
         locations:any = [];
 
+        slides:string[] = [];
+
         constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
@@ -33,6 +35,8 @@ module Controller {
                                 });
                         }
                     }
+                    this.slides = this.TripService.getHeaderImagesByTrip(this.trip);
+
                 });
 
             this.DataService.getMoods().then(result => {
