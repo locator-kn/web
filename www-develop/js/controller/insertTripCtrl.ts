@@ -65,6 +65,7 @@ module Controller {
 
         showSelectedLocations:boolean = false;
         showAddLocationsBtn:boolean = true;
+        showAvailableLocations:boolean = true;
         backgroundImage:string = '';
         errormsg:string = '';
 
