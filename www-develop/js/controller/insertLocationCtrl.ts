@@ -149,6 +149,10 @@ module Controller {
                 formData._rev = this.revision;
             }
             this.LocationService.uploadImage(formData, file)
+                .error(() =>{
+                    // TODO: handle error (eg. file to large)
+                    debugger;
+                })
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = perc;
