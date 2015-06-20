@@ -38,6 +38,22 @@ module Service {
             return this.$http.get(this.basePath + '/users/' + userid + '/trips');
         }
 
+        getHeaderImagesByTrip(trip:any, mapSize:string = '1151x675', scale:number = 2):string[] {
+            var array:string[] = [];
+            var locationsHash = trip.locations;
+
+            for (var key in locationsHash) {
+                if (locationsHash.hasOwnProperty(key)) {
+                    var selectedObjImages = locationsHash[key];
+                    if(selectedObjImages.picture) {
+                        array.push(selectedObjImages.picture);
+                    }
+                    array.push(locationsHash[key].googlemap + '&size=' + mapSize + '&scale=' + scale);
+                }
+            }
+            return array;
+        }
+
         static serviceId:string = "TripService";
     }
 }
