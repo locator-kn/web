@@ -28,7 +28,6 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
-        dateFormat:string = 'yy-mm-dd';
         datePickerOnLinked:boolean = false;
 
         startDateReal:any = '';
