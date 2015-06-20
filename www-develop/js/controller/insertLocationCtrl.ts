@@ -96,6 +96,11 @@ module Controller {
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
+                // TODO handle images larger than 6mb
+                if (this.selectedImage.size >= 2291456) {
+                    debugger
+                    return
+                }
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
 
