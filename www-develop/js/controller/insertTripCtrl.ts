@@ -28,7 +28,7 @@ module Controller {
         tripTitle:string = '';
         tripDescription:string = '';
         tripDescriptionMoney:string = '';
-        dateFormat:string = 'yy-mm-dd';
+        datePickerOnLinked:boolean = false;
 
         startDateReal:any = '';
         endDateReal:any = '';
@@ -121,13 +121,6 @@ module Controller {
                 this.days = 1;
             }
 
-            this.$scope.$watch(() => this.startDateReal,
-                (newValue:any, oldValue:any) => {
-                    if (oldValue != this.endDateReal) {
-                        this.endDateReal = '';
-                    }
-                });
-
             this.tripCity = this.$state.params.city;
 
             if (this.InsertTripService.getStateStored()) {
@@ -150,7 +143,8 @@ module Controller {
                 this.availableLocations = allValues.availableLocations;
                 this.availableLocationsHash = allValues.availableLocationsHash;
                 this.selectedLocations = allValues.selectedLocations;
-
+                this.datePickerOnLinked = allValues.datePickerOnLinked;
+                //this.datePickerOnLinked = false;
                 this.InsertTripService.setStateStored(false);
             }
         }
@@ -171,9 +165,10 @@ module Controller {
                 accommodationEquipment: this.accommodationEquipment,
                 availableLocations: this.availableLocations,
                 availableLocationsHash: this.availableLocationsHash,
-                selectedLocations: this.selectedLocations
-
+                selectedLocations: this.selectedLocations,
+                datePickerOnLinked: true
             };
+
             this.InsertTripService.storeAllValues(allValues);
             this.InsertTripService.setStateStored(true);
         }
