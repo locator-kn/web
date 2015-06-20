@@ -401,13 +401,6 @@ module Controller {
                 _rev: this.revision || ''
             };
 
-            this.DataService.getMoods().then(moods => {
-                this.selectableMoods = moods.data;
-            });
-
-            console.log(this.selectableMoods);
-
-
             //store trip in DB
             this.TripService.saveTrip(t, documentMetaData)
                 .then(result => {
