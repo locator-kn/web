@@ -32,7 +32,6 @@ module Controller {
 
         startDateReal:any = '';
         endDateReal:any = '';
-        dateSetByHand:any = false;
         selectedPlaceDetails:any;
 
         selectedMoods:any = [];
@@ -64,7 +63,6 @@ module Controller {
 
         slides:any = [];
 
-        showAvailableLocations:boolean = true;
         showSelectedLocations:boolean = false;
         showAddLocationsBtn:boolean = true;
         backgroundImage:string = '';
@@ -144,7 +142,6 @@ module Controller {
                 this.availableLocationsHash = allValues.availableLocationsHash;
                 this.selectedLocations = allValues.selectedLocations;
                 this.datePickerOnLinked = allValues.datePickerOnLinked;
-                //this.datePickerOnLinked = false;
                 this.InsertTripService.setStateStored(false);
             }
         }
