@@ -391,7 +391,6 @@ module Controller {
                 days: this.days,
                 moods: this.getSelectedMoodQuerynames(),
                 locations: this.getSelectedLocations()
-                //pics
                 //active
                 //delete
             };
