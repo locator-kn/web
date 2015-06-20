@@ -9,6 +9,8 @@ module Controller {
         user:any;
         locations:any = [];
 
+        slides:string[] = [];
+
         constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
@@ -23,12 +25,18 @@ module Controller {
                         .then(result => {
                             this.user = result.data;
                         });
-                    this.trip.locations.forEach(entry => {
-                        this.LocationService.getLocationById(entry)
-                            .then(result => {
-                                this.locations.push(result.data);
-                            });
-                    });
+
+                    var locationsHash = this.trip.locations;
+                    for (var key in locationsHash) {
+                        if (locationsHash.hasOwnProperty(key)) {
+                            this.LocationService.getLocationById(key)
+                                .then(result => {
+                                    this.locations.push(result.data);
+                                });
+                        }
+                    }
+                    this.slides = this.TripService.getHeaderImagesByTrip(this.trip);
+
                 });
 
             this.DataService.getMoods().then(result => {
