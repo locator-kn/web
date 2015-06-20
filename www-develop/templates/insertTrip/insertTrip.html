@@ -4,7 +4,12 @@
         <a ng-if="itc.showAddLocationsBtn" ng-click="itc.scrollTo('availableLocations')"
            class="choose-image welcome_button">locations hinzufügen!</a>
 
-        <div class="header-image" ng-style="{'background-image': 'url(' + itc.backgroundImage + ')' }"></div>
+        <flex-slider ng-if="!itc.showAddLocationsBtn" class="static" direction-nav="false" slide="s in itc.slides">
+            <li>
+                <div class="header-image" style="background: url({{s}});"></div>
+            </li>
+        </flex-slider>
+        <!--<div class="header-image" ng-style="{'background-image': 'url(' + itc.backgroundImage + ')' }"></div>-->
     </div>
     <div class="container trip-insert">
         <div class="row">

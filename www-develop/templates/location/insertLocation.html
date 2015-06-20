@@ -3,7 +3,10 @@
         <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
         <div class="controls">
-            <div class="btn" ng-click="ilc.uploadImage()">Upload</div>
+            <div class="btns">
+                <div class="locator-btn save-btn" ng-click="ilc.uploadImage()">hochladen</div>
+                <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection()">abbrechen</div>
+            </div>
         </div>
     </div>
     <div id="trip-image" class="trip-image" ng-click="ilc.showImageChooser()">
@@ -17,7 +20,9 @@
         <a class="choose-image welcome_button">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().ilc.selectImage(this)"
                style="display: none">
-        <img id="preview" ng-src="{{ilc.headerImagePath}}">
+        <div class="header-image">
+            <div class="header-image" ng-style="{'background-image': 'url(' + ilc.headerImagePath + ')' }"></div>
+        </div>
 
     </div>
     <div class="container content-width">
@@ -50,6 +55,7 @@
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
                                   ng-model="ilc.locationFormDetails.budget"
                                   ng-model-options="{ updateOn: 'blur'}"></textarea>
+                            <p>Wähle eine Stadt und markiere die Location auf der Karte:</p>
                             <input class="text-fields" type="text"
                                    placeholder="In welcher Stadt ist diese Location?"
                                    ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"

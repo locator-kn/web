@@ -62,6 +62,8 @@ module Controller {
         availableLocationsHash:any = {};
         selectedLocations:any = {};
 
+        slides:any = [];
+
         showAvailableLocations:boolean = true;
         showSelectedLocations:boolean = false;
         showAddLocationsBtn:boolean = true;
@@ -87,7 +89,7 @@ module Controller {
 
                 response.data.forEach((loc:any) => {
 
-                    if (!loc.images) {
+                    /*if (!loc.images) {
                         loc.images = {};
                         loc.images.picture = this.getStaticMap({
                             size: '1151x675',
@@ -97,7 +99,7 @@ module Controller {
                             size: '180x100',
                             geotag: loc.geotag
                         });
-                    }
+                    }*/
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;
@@ -136,7 +138,7 @@ module Controller {
                 this.selectableMoods = allValues.selectableMoods;
                 this.selectedMoods = allValues.selectedMoods;
                 this.persons = allValues.persons;
-                this.tripTitle =  allValues.tripTitle;
+                this.tripTitle = allValues.tripTitle;
                 this.tripCity = allValues.tripCity;
                 this.tripDescription = allValues.tripDescription;
                 this.tripDescriptionMoney = allValues.tripDescriptionMoney;
@@ -176,6 +178,14 @@ module Controller {
             this.InsertTripService.setStateStored(true);
         }
 
+        getSelectedMoodQuerynames() {
+            var selectedQuerynames = [];
+            this.selectedMoods.forEach((elem) => {
+                selectedQuerynames.push(elem.query_name);
+            });
+            return selectedQuerynames;
+        }
+
         getStaticMap(options) {
             return 'https://maps.googleapis.com/maps/api/staticmap?size=' + options.size + '&zoom=15&scale=2&markers=' + options.geotag.lat + ',' + options.geotag.long;
         }
@@ -184,14 +194,14 @@ module Controller {
             this.selectedLocations[locationId] = this.availableLocationsHash[locationId];
             this.showSelectedLocations = true;
             delete this.availableLocationsHash[locationId];
-            this.selectRandomImage();
+            this.buildSlidesArray();
             this.selectedLocationsCount += 1;
         }
 
         removeLocationFromTrip(locationId) {
             this.availableLocationsHash[locationId] = this.selectedLocations[locationId];
             delete this.selectedLocations[locationId];
-            this.selectRandomImage();
+            this.buildSlidesArray();
             this.selectedLocationsCount -= 1;
         }
 
@@ -338,24 +348,29 @@ module Controller {
             }
         }
 
-        selectRandomImage() {
+        buildSlidesArray() {
             var sl = [];
             for (var key in this.selectedLocations) {
                 if (this.selectedLocations.hasOwnProperty(key)) {
-                    sl.push(this.selectedLocations[key].images.picture);
+                    var selectedObjImages = this.selectedLocations[key].images;
+                    if(selectedObjImages.picture) {
+                        sl.push(selectedObjImages.picture);
+                    }
+                    sl.push(this.selectedLocations[key].images.googlemap + '&size=1151x675&scale=2');
                 }
             }
-            this.backgroundImage = sl[Math.floor(Math.random() * (sl.length - 1))] || '';
-            this.showAddLocationsBtn = !this.backgroundImage;
+            this.slides = sl;
+            this.showAddLocationsBtn = !sl.length;
         }
 
         getSelectedLocations() {
-            var sl = [];
+            var sl = {};
             for (var key in this.selectedLocations) {
                 if (this.selectedLocations.hasOwnProperty(key)) {
-                    sl.push(key);
+                    sl[key] = this.selectedLocations[key].images;
                 }
             }
+
             return sl;
         }
 
@@ -382,12 +397,13 @@ module Controller {
                 accommodation_equipment: this.accommodationEquipment,
                 persons: this.persons,
                 days: this.days,
-                moods: this.selectedMoods,
+                moods: this.getSelectedMoodQuerynames(),
                 locations: this.getSelectedLocations()
                 //pics
                 //active
                 //delete
             };
+
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
