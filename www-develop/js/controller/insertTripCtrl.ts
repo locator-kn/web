@@ -114,12 +114,21 @@ module Controller {
                 }
             });
 
-            if (!this.InsertTripService.getStateStored()) {
-                this.days = this.$state.params.days;
-                if (this.days == undefined) {
-                    this.days = 1;
-                }
-            } else {
+            this.days = this.$state.params.days;
+            if (this.days == undefined) {
+                this.days = 1;
+            }
+
+            this.$scope.$watch(() => this.startDateReal,
+                (newValue:any, oldValue:any) => {
+                    if (oldValue != this.endDateReal) {
+                        this.endDateReal = '';
+                    }
+                });
+
+            this.tripCity = this.$state.params.city;
+
+            if (this.InsertTripService.getStateStored()) {
                 var allValues = this.InsertTripService.getAllValues();
                 this.days = allValues.days;
                 this.startDateReal = allValues.startDateReal;
@@ -139,18 +148,9 @@ module Controller {
                 this.availableLocations = allValues.availableLocations;
                 this.availableLocationsHash = allValues.availableLocationsHash;
                 this.selectedLocations = allValues.selectedLocations;
+
                 this.InsertTripService.setStateStored(false);
             }
-
-
-            this.$scope.$watch(() => this.startDateReal,
-                (newValue:any, oldValue:any) => {
-                    if (oldValue != this.endDateReal) {
-                        this.endDateReal = '';
-                    }
-                });
-
-            this.tripCity = this.$state.params.city;
         }
 
         storeValues() {
