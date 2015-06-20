@@ -144,7 +144,6 @@ module Controller {
                 this.datePickerOnLinked = allValues.datePickerOnLinked;
                 this.InsertTripService.setStateStored(false);
             }
-            console.log(this.selectableMoods);
         }
 
         storeValues() {
@@ -401,6 +400,12 @@ module Controller {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
             };
+
+            this.DataService.getMoods().then(moods => {
+                this.selectableMoods = moods.data;
+            });
+
+            console.log(this.selectableMoods);
 
 
             //store trip in DB
