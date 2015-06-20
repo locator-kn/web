@@ -122,13 +122,6 @@ module Controller {
                 this.days = 1;
             }
 
-            /*this.$scope.$watch(() => this.startDateReal,
-                (newValue:any, oldValue:any) => {
-                    if (oldValue != this.endDateReal) {
-                        this.endDateReal = '';
-                    }
-                });*/
-
             this.tripCity = this.$state.params.city;
 
             if (this.InsertTripService.getStateStored()) {
