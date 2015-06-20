@@ -396,13 +396,10 @@ module Controller {
                 //delete
             };
 
-            this.InsertTripService.setStateStored(false);
-
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
             };
-
 
             //store trip in DB
             this.TripService.saveTrip(t, documentMetaData)
