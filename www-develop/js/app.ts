@@ -219,6 +219,38 @@ var app = angular.module('starter', deps)
         };
     })
 
+    .directive('imgTriplist', () => {
+        var tmpl = [
+            '<flex-slider class="static" control-nav="false" direction-nav="false" slide="s in slides"><li>',
+            '<div class="header-image" style="background-image: url({{s}});"></div>',
+            '</li></flex-slider>'
+        ];
+
+        return {
+            scope: {
+                locations: '=',
+                mapwidth: '@',
+                mapheight: '@',
+                scale: '@'
+            },
+            link: (scope:any, element) =>{
+                var slides:string[] = [];
+                var l = scope.locations;
+                for (var key in l) {
+                    if (l.hasOwnProperty(key)) {
+                        var selectedObjImages = l[key];
+                        if(selectedObjImages.picture) {
+                            slides.push(selectedObjImages.picture);
+                        }
+                        slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
+                    }
+                }
+                scope.slides = slides;
+            },
+            template: tmpl.join('')
+        }
+    })
+
     .directive('chatScroller', function () {
         return {
             scope: {
