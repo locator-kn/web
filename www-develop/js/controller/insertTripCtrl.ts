@@ -395,6 +395,8 @@ module Controller {
                 //delete
             };
 
+            this.InsertTripService.setStateStored(false);
+
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
