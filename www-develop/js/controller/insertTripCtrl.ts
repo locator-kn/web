@@ -396,12 +396,6 @@ module Controller {
                 //delete
             };
 
-            this.selectedMoods.forEach((elem) => {
-                debugger
-                this.selectableMoods.push(elem);
-                this.selectedMoods.splice(this.selectedMoods.indexOf(elem), 1);
-            });
-
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
