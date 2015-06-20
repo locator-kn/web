@@ -99,7 +99,7 @@
                             </div>
                             <input class="text-fields" type="text" name="tripTitle"
                                    placeholder="benenne deinen trip"
-                                   ng-model="itc.tripTitle" ng-model-options="{ updateOn: 'blur'}" required>
+                                   ng-model="itc.tripTitle" required>
 
                             <div class="validation-error"
                                  ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
@@ -154,11 +154,11 @@
                                 <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
                             </div>
                         <textarea class="trip-description text-fields" placeholder="beschreibe deinen trip"
-                                  ng-model="itc.tripDescription" ng-model-options="{ updateOn: 'blur'}"
+                                  ng-model="itc.tripDescription"
                                   required></textarea>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="für was braucht dein gast eventuell geld?"
-                                  ng-model="itc.tripDescriptionMoney" ng-model-options="{ updateOn: 'blur'}"></textarea>
+                                  ng-model="itc.tripDescriptionMoney"></textarea>
 
                             <div class="accommodation">
                                 <span>unterkunft</span>

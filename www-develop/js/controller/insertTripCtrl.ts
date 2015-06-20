@@ -398,8 +398,8 @@ module Controller {
 
             this.selectedMoods.forEach((elem) => {
                 debugger
-                this.selectedMoods.splice(this.selectedMoods.indexOf(elem), 1);
                 this.selectableMoods.push(elem);
+                this.selectedMoods.splice(this.selectedMoods.indexOf(elem), 1);
             });
 
             var documentMetaData = {
