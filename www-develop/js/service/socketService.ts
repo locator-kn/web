@@ -27,6 +27,12 @@ module Service {
             });
         }
 
+        emit(event, data) {
+            this.getSocket().then(socket => {
+                socket.emit(event, data);
+            });
+        }
+
         onEvent(event, fn) {
             this.getSocket().then(socket => {
                 socket.on(event, fn);
