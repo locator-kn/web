@@ -21,9 +21,10 @@
                 <div class="btn-mood-container">
                     <div class="message-button pointer">ANSCHREIBEN</div>
                     <div class="trip-mood-container">
-
-                        <span class="tt tt-small" aria-label="{{mood.title}}" ng-repeat="mood in tc.trip.moods">
-                            <img class="trip-mood-icon" ng-src="./images/icons/{{mood.icon}}">
+                        <span ng-repeat="mood in tc.trip.moods">
+                            <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
+                                <img class="trip-mood-icon" ng-src="images/icons/{{availableMood.icon}}">
+                            </span>
                         </span>
                     </div>
                 </div>
