@@ -53,7 +53,7 @@ module Controller {
                 if(this.$state.params.opponentId === newMessage.conversation_id )
                     if(this.selectedConversation._id === newMessage.conversation_id){
                         this.messages.push(newMessage);
-                        console.log('send ack for received message', newMessage);
+
                         this.emitAck(newMessage.from, newMessage.conversation_id);
                     } else {
                         this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
@@ -108,7 +108,8 @@ module Controller {
         }
 
         emitAck(from, conversation_id) {
-            this.SocketService.emit('message_ack', {opponent: from, conversation_id: conversation_id});
+            console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
         }
 
         _sendMessage = () => {
