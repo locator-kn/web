@@ -1065,3 +1065,18 @@ img-triplist .flex-direction-nav a::before {
 .cancel-btn {
     background-color: #343434;
 }
+
+.empty-locations {
+    background-color: #33c4b7;
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+.empty-locations a {
+    color: white;
+}
+
+.empty-locations img {
+    margin-right: 5px;
+}
