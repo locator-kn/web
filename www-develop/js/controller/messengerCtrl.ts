@@ -52,15 +52,17 @@ module Controller {
             this.SocketService.onEvent('new_message', (newMessage) => {
                 console.log('receive new message', newMessage);
                 //setTimeout(() => {
-                if(this.selectedConversation._id === newMessage.conversation_id){
-                    this.messages.push(newMessage);
-                    console.log('send ack for received message', newMessage);
-                    this.emitAck(newMessage.from, newMessage.conversation_id);
-                } else {
-                    this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-                }
-                //}, 10000);
-                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                if(this.$state.params.opponentId === newMessage.conversation_id )
+                    if(this.selectedConversation._id === newMessage.conversation_id){
+                        debugger
+                        this.messages.push(newMessage);
+                        console.log('send ack for received message', newMessage);
+                        this.emitAck(newMessage.from, newMessage.conversation_id);
+                    } else {
+                        this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                    }
+                    //}, 10000);
+                    this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
             });
         }
 
