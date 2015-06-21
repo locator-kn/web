@@ -11,19 +11,19 @@ module Service {
 
         getSocket() {
             return this.$q((resolve, reject) => {
-               if(this.socket) {
-                   resolve(this.socket);
-               } else {
-                   this.$http.get(this.basePathRealtime + '/connect/me')
-                       .error(err => {
-                           reject(err);
-                       })
-                       .then(response => {
-                           var myIoSocket = io.connect(response.data.namespace);
-                           this.socket = this.socketFactory({ioSocket: myIoSocket});
-                           resolve(this.socket)
-                       });
-               }
+                if(this.socket) {
+                    resolve(this.socket);
+                } else {
+                    this.$http.get(this.basePathRealtime + '/connect/me')
+                        .error(err => {
+                            reject(err);
+                        })
+                        .then(response => {
+                            var myIoSocket = io.connect(':3002'+response.data.namespace);
+                            this.socket = this.socketFactory({ioSocket: myIoSocket});
+                            resolve(this.socket)
+                        });
+                }
             });
         }
 
@@ -45,7 +45,7 @@ module Service {
             }
 
             return this.$http.get(this.basePathRealtime + '/connect/me').then(response => {
-                var myIoSocket = io(response.data.namespace);
+                var myIoSocket = io(':3002'+response.data.namespace);
                 this.socket = this.socketFactory({ioSocket: myIoSocket});
             });
 

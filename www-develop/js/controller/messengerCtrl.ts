@@ -50,17 +50,12 @@ module Controller {
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
-                console.log('receive new message', newMessage);
+                this.messages.push(newMessage);
                 //setTimeout(() => {
-                if(this.selectedConversation._id === newMessage.conversation_id){
-                    this.messages.push(newMessage);
-                    console.log('send ack for received message', newMessage);
-                    this.emitAck(newMessage.from, newMessage.conversation_id);
-                } else {
-                    this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-                }
+                if(this.selectedConversation._id === newMessage.conversation_id)
+                    this.SocketService.emit('message_ack', {opponent: newMessage.from, conversation_id: newMessage.conversation_id});
                 //}, 10000);
-                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + this.selectedConversation._id);
             });
         }
 
@@ -104,15 +99,13 @@ module Controller {
             this.getConversation(this.selectedConversation).then(result => {
                 // if the clicked conversation is unread, send ack to server
                 if(!this.selectedConversation[this.$rootScope.userID + '_read']) {
-                    this.emitAck(conversation.opponent._id, conversation._id);
-                    // update local datastructure
-                    this.selectedConversation[this.$rootScope.userID + '_read'] = true;
+                    this.emitAck(conversation.opponent._id, conversation._id)
                 }
             });
         }
 
         emitAck(from, conversation_id) {
-            this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            this.SocketService.emit('message_ack', {opponent: from, conversation_id: conversation_id});
         }
 
         _sendMessage = () => {
