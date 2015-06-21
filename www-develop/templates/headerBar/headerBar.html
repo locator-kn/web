@@ -42,9 +42,10 @@
                             <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover">
                                 <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
-                                    ui-sref="messenger.opponent({opponentId: con._id})">
+                                    ui-sref="messenger.opponent({opponentId: con._id})" ng-class="{unread: !con[userID + '_read']}">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
 
+                                    read: {{con[userID + '_read']}}
                                     <p class="from">{{con.opponent.name}}</p>
                                 </li>
                             </ul>
