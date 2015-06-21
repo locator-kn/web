@@ -21,8 +21,11 @@
                         <ul class="user-dropdown" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
                             <li ui-sref="user({profileId: userID, tab: 'info'})" ui-sref-active="active">Profile</li>
-                            <li ui-sref="user({profileId: userID, tab: 'locations'})" ui-sref-active="active">Meine Locations</li>
-                            <li ui-sref="user({profileId: userID, tab: 'trips'})" ui-sref-active="active">Meine Trips</li>
+                            <li ui-sref="user({profileId: userID, tab: 'locations'})" ui-sref-active="active">Meine
+                                Locations
+                            </li>
+                            <li ui-sref="user({profileId: userID, tab: 'trips'})" ui-sref-active="active">Meine Trips
+                            </li>
                             <li ng-click="hc.logout()">Logout</li>
                         </ul>
                     </div>
@@ -35,14 +38,16 @@
                         </li>
                         <li ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
                             <img ng-src="images/icons/header/stift.png"></li>
-                        <li ng-class="{'not-authenticated': !authenticated}" class="messenger tt tt-small" aria-label="Messenger" active-popover
+                        <li ng-class="{'not-authenticated': !authenticated}" class="messenger tt tt-small"
+                            aria-label="Messenger" active-popover
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()">
                             <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
                             <img ng-src="images/icons/header/chat.png">
                             <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover">
                                 <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
-                                    ui-sref="messenger.opponent({opponentId: con._id})" ng-class="{unread: !con[userID + '_read']}">
+                                    ui-sref="messenger.opponent({opponentId: con._id})"
+                                    ng-class="{unread: !con[userID + '_read']}">
                                     <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
 
                                     read: {{con[userID + '_read']}}
