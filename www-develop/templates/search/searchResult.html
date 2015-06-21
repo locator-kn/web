@@ -34,7 +34,11 @@
                             <div class="moods-container">
                                 <div ng-repeat="mood in result.moods">
                                     <div ng-repeat="availableMood in src.availableMoods |filter:mood">
-                                        <img aria-label="{{availableMood.title}}" class="tt tt-small result-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">
+                                        <span class="tt tt-small" aria-label="{{availableMood.title}}">
+                                        <img aria-label="{{availableMood.title}}"
+                                             class="result-mood-icon"
+                                             ng-src="./images/icons/{{availableMood.icon}}">
+                                        </span>
                                     </div>
                                 </div>
                             </div>
