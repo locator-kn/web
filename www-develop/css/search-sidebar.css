@@ -88,6 +88,7 @@ html, body {
 .input-transparent {
     border: none;
     background-color: transparent;
+    text-transform: lowercase;
 }
 
 .selected-acc {
