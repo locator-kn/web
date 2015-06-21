@@ -122,6 +122,16 @@ module Controller {
 
         updateProfile() {
 
+            // remove keys form user object when undefined or empty string
+            /*for (var property in this.user) {
+             if (this.user.hasOwnProperty(property)) {
+             if (this.user[property] === '' || !this.user[property]) {
+             delete this.user[property];
+             }
+             }
+             }*/
+
+
             if (this.user.birthdate > new Date()) {
                 this.errormsg = 'Datum muss in der Vergangenheit liegen';
                 return;
@@ -277,10 +287,16 @@ module Controller {
             if (this.password != this.passwordRepeat) {
                 this.errormsg = 'Passwörter stimmen nicht überein.';
                 return;
+            } else if (this.password.length == 0 || this.passwordRepeat.length == 0) {
+                this.editTrigger();
+                this.errormsg = '';
+                return;
+
             } else if (this.password.length < 5) {
                 this.errormsg = 'Passwort muss länger als 4 Zeichen sein.';
                 return;
             }
+
 
             this.UserService.setNewPassword(this.password)
                 .then(result => {
