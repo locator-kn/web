@@ -470,7 +470,7 @@ ul.slides {
 }
 
 .header-bar .messenger ul.messenger-popover li.unread {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .header-bar .messenger ul.messenger-popover li:not(:last-child) {
@@ -739,6 +739,7 @@ textarea {
     height: 150px;
     margin-bottom: 30px;
 }
+
 .content-header .profile-image {
     width: 150px;
     height: 150px;
@@ -921,6 +922,7 @@ input:-webkit-autofill {
     background: rgb(31, 35, 35);
     color: white;
 }
+
 .header-image-container .flexslider {
     float: none;
 }
@@ -1031,8 +1033,6 @@ img-triplist .flex-direction-nav a::before {
     background-color: rgba(51, 196, 183, 0.08);
 }
 
-
-
 /*
 .profile .editable .input.ng-dirty {
     border: 1px solid #ff4637;
@@ -1079,4 +1079,8 @@ img-triplist .flex-direction-nav a::before {
 
 .empty-locations img {
     margin-right: 5px;
+}
+
+a:focus {
+    outline: none;
 }

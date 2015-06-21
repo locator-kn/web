@@ -161,6 +161,7 @@ html, body {
 .day-amount {
     display: inline-block;
 }
+
 .day-amount-label {
     display: inline;
 }
@@ -195,7 +196,7 @@ html, body {
     padding: 0px 10px 0px 10px;
 }
 
-.search-icon{
+.search-icon {
     width: 25px;
     height: 25px;
     position: absolute;
@@ -218,6 +219,27 @@ html, body {
     height: 25px;
 }
 
+img-triplist {
+    float: left;
+    width: 100%;
+}
+
+.result-content-wrapper {
+    float: left;
+    height: auto !important;
+    width: 100%;
+    border: none;
+}
+
+.moods-container {
+    float: right;
+}
+
+.inner-result {
+    border: 2px solid rgb(193, 195, 195);
+    float: left;
+    width: 100%;
+}
 
 
 
