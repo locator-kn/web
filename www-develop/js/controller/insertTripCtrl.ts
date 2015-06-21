@@ -446,7 +446,7 @@ module Controller {
             //Time intervall smaller than days amount
             var startDate = new Date(this.startDateReal);
             var endDate = new Date(this.endDateReal);
-            var difference = (endDate.getDate() - startDate.getDate()) + 1;
+            var difference = (endDate - startDate) + 1;
 
             if (difference < this.days) {
                 this.errormsg = 'Die Anzahl an Tagen ist größer als der Zeitraum, in dem der Trip stattfindet!';
