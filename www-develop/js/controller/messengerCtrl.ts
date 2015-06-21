@@ -50,8 +50,17 @@ module Controller {
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
-                this.messages.push(newMessage);
-                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + this.selectedConversation._id);
+                console.log('receive new message', newMessage);
+                //setTimeout(() => {
+                if(this.selectedConversation._id === newMessage.conversation_id){
+                    this.messages.push(newMessage);
+                    console.log('send ack for received message', newMessage);
+                    this.emitAck(newMessage.from, newMessage.conversation_id);
+                } else {
+                    this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                }
+                //}, 10000);
+                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
             });
         }
 
@@ -80,7 +89,7 @@ module Controller {
 
         // one single conversation
         getConversation(conversation) {
-            this.MessengerService.getConversation(conversation._id)
+            return this.MessengerService.getConversation(conversation._id)
                 .then(result => {
                     this.messages = result.data;
                 });
@@ -92,7 +101,18 @@ module Controller {
                 return;
             }
             this.selectedConversation = conversation;
-            this.getConversation(this.selectedConversation);
+            this.getConversation(this.selectedConversation).then(result => {
+                // if the clicked conversation is unread, send ack to server
+                if(!this.selectedConversation[this.$rootScope.userID + '_read']) {
+                    this.emitAck(conversation.opponent._id, conversation._id);
+                    // update local datastructure
+                    this.selectedConversation[this.$rootScope.userID + '_read'] = true;
+                }
+            });
+        }
+
+        emitAck(from, conversation_id) {
+            this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
         }
 
         _sendMessage = () => {
