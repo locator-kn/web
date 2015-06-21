@@ -128,7 +128,7 @@ module Controller {
                 })
                 .catch(resp => {
                     if (resp.statusCode === 409) {
-                        this.errormsg = 'Diese Mail gibts schon'
+                        this.errormsg = 'Diese Mail gibts schon';
                         return;
                     }
                     console.info("Register Error");

@@ -50,18 +50,14 @@ module Controller {
 
         registerSocketEvent() {
             this.SocketService.onEvent('new_message', (newMessage) => {
-                console.log('receive new message', newMessage);
-                //setTimeout(() => {
                 if(this.$state.params.opponentId === newMessage.conversation_id )
                     if(this.selectedConversation._id === newMessage.conversation_id){
-                        debugger
                         this.messages.push(newMessage);
                         console.log('send ack for received message', newMessage);
                         this.emitAck(newMessage.from, newMessage.conversation_id);
                     } else {
                         this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                     }
-                    //}, 10000);
                     this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
             });
         }
@@ -106,15 +102,13 @@ module Controller {
             this.getConversation(this.selectedConversation).then(result => {
                 // if the clicked conversation is unread, send ack to server
                 if(!this.selectedConversation[this.$rootScope.userID + '_read']) {
-                    this.emitAck(conversation.opponent._id, conversation._id);
-                    // update local datastructure
-                    this.selectedConversation[this.$rootScope.userID + '_read'] = true;
+                    this.emitAck(conversation.opponent._id, conversation._id)
                 }
             });
         }
 
         emitAck(from, conversation_id) {
-            this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            this.SocketService.emit('message_ack', {opponent: from, conversation_id: conversation_id});
         }
 
         _sendMessage = () => {

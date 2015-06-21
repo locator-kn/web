@@ -1,7 +1,8 @@
 <div class="mylocations-container">
     <div class="row">
         <div ng-repeat="location in pc.locations" class="col-xs-12 col-sm-12 location relative">
-            <img class="img-responsive" ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
+            <img class="img-responsive"
+                 ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
 
             <div class="content">
                 <h2>{{location.title}}</h2>
@@ -12,5 +13,12 @@
             </div>
 
         </div>
+
+        <div ng-if="pc.locations.length === 0" class="col-xs-12 empty-locations">
+
+            <a ui-sref="insertLocation"><img ng-src="images/icons/header/location.png">
+                <span>Location hinzufügen</span></a>
+        </div>
+
     </div>
 </div>
