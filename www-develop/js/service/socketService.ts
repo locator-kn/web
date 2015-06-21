@@ -19,7 +19,7 @@ module Service {
                             reject(err);
                         })
                         .then(response => {
-                            var myIoSocket = io.connect(':3002'+response.data.namespace);
+                            var myIoSocket = io.connect(response.data.namespace);
                             this.socket = this.socketFactory({ioSocket: myIoSocket});
                             resolve(this.socket)
                         });
@@ -45,7 +45,7 @@ module Service {
             }
 
             return this.$http.get(this.basePathRealtime + '/connect/me').then(response => {
-                var myIoSocket = io(':3002'+response.data.namespace);
+                var myIoSocket = io(response.data.namespace);
                 this.socket = this.socketFactory({ioSocket: myIoSocket});
             });
 
