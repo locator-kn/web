@@ -121,6 +121,12 @@ module Controller {
         }
 
         updateProfile() {
+
+            if (this.user.birthdate > new Date()) {
+                this.errormsg = 'Datum muss in der Vergangenheit liegen';
+                return;
+            }
+
             this.UserService.updateProfile(this.user)
 
                 .then(result => {
