@@ -469,6 +469,10 @@ ul.slides {
     line-height: normal;
 }
 
+.header-bar .messenger ul.messenger-popover li.unread {
+    background-color: rgba(0,0,0,0.5);
+}
+
 .header-bar .messenger ul.messenger-popover li:not(:last-child) {
     border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 }
