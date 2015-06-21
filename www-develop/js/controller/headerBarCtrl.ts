@@ -23,6 +23,8 @@ module Controller {
         // success message
         successmsg:string = '';
 
+        conversationsHash:any = {};
+
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout) {
             this.$rootScope.$on('login_success', () => {
@@ -34,6 +36,7 @@ module Controller {
                 .then(conversations => {
                     this.conversations = conversations.data;
                     this.conversations.forEach(element => {
+                        this.conversationsHash[element._id] = element;
                         if (!element[this.$rootScope.userID + '_read']) {
                             this.showBadge = true;
                         }
@@ -70,16 +73,17 @@ module Controller {
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
-                this.MessengerService.getConversations()
+                /*this.MessengerService.getConversations()
                     .then(conversations => {
                         this.conversations = conversations.data;
                         this.conversations.forEach(element => {
+                            this.conversationsHash[element._id] = element;
                             this.UserService.getUser(element['opponent'])
                                 .then(result => {
                                     element['opponent'] = result.data;
                                 });
                         });
-                    });
+                    });*/
 
             }
             this.showMessengerPopover = !this.showMessengerPopover
@@ -92,6 +96,7 @@ module Controller {
                 this.unreadMessages += 1;
                 console.info('new message');
                 console.log(newMessage);
+                this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
             });
 
         }
