@@ -16,8 +16,7 @@ module Controller {
         locationTitle:string = '';
 
         googlePlacesOptions = {
-            country: 'de',
-            types: '(cities)'
+            country: 'de'
         };
 
         map:any = {};
