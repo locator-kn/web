@@ -39,6 +39,12 @@ module Service {
             })
         }
 
+        offEvent(event) {
+            this.getSocket().then(socket => {
+                socket.removeListener(event);
+            })
+        }
+
         socketInit() {
             if (!this.$rootScope.authenticated) {
                 return;
