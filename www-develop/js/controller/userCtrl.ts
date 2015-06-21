@@ -263,6 +263,7 @@ module Controller {
                     this.showNewImage(data);
                     this.uploadIsDone = true;
                     this.isUploading = false;
+                    this.progressPercentage = 0;
                 });
 
             //this.InsertTripService.uploadImage(formData);
