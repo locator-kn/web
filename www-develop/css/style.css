@@ -1,6 +1,7 @@
 * {
     font-family: 'Signika', Helvetica neue, Arial;
     outline: none;
+    word-wrap: break-word;
 }
 
 html {
