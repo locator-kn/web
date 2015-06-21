@@ -1085,3 +1085,16 @@ img-triplist .flex-direction-nav a::before {
 a:focus {
     outline: none;
 }
+.big-progress, .big-progress{
+    position: absolute;
+    z-index: 9999;
+    width: 0;
+    height:100%;
+    background-color: #003eff;
+    transition: all 1s;
+    content: ' ';
+
+}
+.is-uploading .big-progress {
+
+}
