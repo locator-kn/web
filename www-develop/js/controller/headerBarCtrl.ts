@@ -73,7 +73,7 @@ module Controller {
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
-                /*this.MessengerService.getConversations()
+                this.MessengerService.getConversations()
                     .then(conversations => {
                         this.conversations = conversations.data;
                         this.conversations.forEach(element => {
@@ -83,7 +83,7 @@ module Controller {
                                     element['opponent'] = result.data;
                                 });
                         });
-                    });*/
+                    });
 
             }
             this.showMessengerPopover = !this.showMessengerPopover
