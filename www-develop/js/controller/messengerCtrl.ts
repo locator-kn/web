@@ -111,7 +111,9 @@ module Controller {
 
         emitAck(from, conversation_id) {
             console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
-            this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            setTimeout(() => {
+                this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            }, 200);
             this.conversationsHash[conversation_id][this.$rootScope.userID + '_read'] = true;
         }
 
