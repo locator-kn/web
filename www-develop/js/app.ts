@@ -3,7 +3,6 @@
 /// <reference path="../../typings/moment/moment.d.ts" />
 /// <reference path="../../typings/jqueryui/jqueryui.d.ts" />
 
-
 /// <reference path="./controller/slideCtrl.ts" />
 
 /// <reference path="./controller/searchMainCtrl.ts" />
@@ -26,7 +25,6 @@
 
 /// <reference path="./controller/mainCtrl.ts" />
 
-
 /// <reference path="./service/userService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
@@ -34,11 +32,7 @@
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
 
-/// <reference path="./mockedservice/userService.ts" />
-/// <reference path="./mockedservice/dataService.ts" />
-
 /// <reference path="./service/helperService.ts" />
-
 
 /// <reference path="./controller/contextCtrl.ts" />
 /// <reference path="./service/socketService.ts" />
@@ -46,13 +40,6 @@
 /// <reference path="./controller/messengerCtrl.ts" />
 /// <reference path="./controller/tripCtrl.ts" />
 
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-
-//set to true if backend is running on localhost:3001
-var live = '<%= live %>';
 
 var deps = [
     'locator.moodselection',
@@ -81,7 +68,7 @@ var deps = [
     'infinite-scroll'
 ];
 
-var app = angular.module('starter', deps)
+var app = angular.module('locator', deps)
 
     .constant('basePath', '<%= basePath %>')
     .constant('basePathRealtime', '<%= basePathRealtime %>')
@@ -305,25 +292,14 @@ var app = angular.module('starter', deps)
             prefix: 'locale/locale-',
             suffix: '.json'
         }).preferredLanguage('de');
-    });
-
-if (live) {
-    app.service(Service.DataService.serviceId, Service.DataService)
-        .service(Service.UserService.serviceId, Service.UserService)
-        .service(Service.SearchService.serviceId, Service.SearchService)
-        .service(Service.HelperService.serviceId, Service.HelperService)
-        .service(Service.TripService.serviceId, Service.TripService)
-        .service(Service.MessengerService.serviceId, Service.MessengerService)
-        .service(Service.SocketService.serviceId, Service.SocketService)
-        .service(Service.LocationService.serviceId, Service.LocationService)
-        .service(Service.InsertTripService.serviceId, Service.InsertTripService);
-
-} else {
-    app.service(MockedService.DataService.serviceId, MockedService.DataService)
-        .service(MockedService.UserService.serviceId, MockedService.UserService)
-        .service(MockedService.EditProfileService.serviceId, MockedService.EditProfileService)
-        .service(Service.SearchService.serviceId, Service.SearchService);
-}
-
-
+    })
+    .service(Service.DataService.serviceId, Service.DataService)
+    .service(Service.UserService.serviceId, Service.UserService)
+    .service(Service.SearchService.serviceId, Service.SearchService)
+    .service(Service.HelperService.serviceId, Service.HelperService)
+    .service(Service.TripService.serviceId, Service.TripService)
+    .service(Service.MessengerService.serviceId, Service.MessengerService)
+    .service(Service.SocketService.serviceId, Service.SocketService)
+    .service(Service.LocationService.serviceId, Service.LocationService)
+    .service(Service.InsertTripService.serviceId, Service.InsertTripService);
 
