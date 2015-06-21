@@ -96,7 +96,7 @@ module Controller {
                 this.unreadMessages += 1;
                 console.info('new message');
                 console.log(newMessage);
-                this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                //this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
             });
 
         }
