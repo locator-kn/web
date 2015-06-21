@@ -4,7 +4,10 @@
         <img src="{{pc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
         <div class="controls">
-            <div class="btn" ng-click="pc.uploadImage()">Upload</div>
+            <div class="btns">
+                <div class="locator-btn save-btn" ng-click="pc.uploadImage()">hochladen</div>
+                <div class="locator-btn cancel-btn" ng-click="pc.clearFileSelection()">abbrechen</div>
+            </div>
         </div>
     </div>
 
@@ -14,7 +17,7 @@
         ng-hide="pc.uploadIsDone"
         class="progressbar"
         size="100"
-        complete="itc.progressPercentage"
+        complete="pc.progressPercentage"
         counter-clockwise="true">
     </progress-arc>
 
