@@ -30,6 +30,19 @@ module Controller {
             });
             this.getMe();
 
+            this.MessengerService.getConversations()
+                .then(conversations => {
+                    this.conversations = conversations.data;
+                    this.conversations.forEach(element => {
+                        if (!element[this.$rootScope.userID + '_read']) {
+                            this.showBadge = true;
+                        }
+                        this.UserService.getUser(element['opponent'])
+                            .then(result => {
+                                element['opponent'] = result.data;
+                            });
+                    });
+                });
 
             this.hotkeys.add({
                 combo: 'esc',
