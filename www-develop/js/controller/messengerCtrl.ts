@@ -49,7 +49,9 @@ module Controller {
         }
 
         registerSocketEvent() {
+            this.SocketService.offEvent('new_message');
             this.SocketService.onEvent('new_message', (newMessage) => {
+                console.log('neWmEssage');
                 if(this.$state.params.opponentId === newMessage.conversation_id )
                     if(this.selectedConversation._id === newMessage.conversation_id){
                         this.messages.push(newMessage);
