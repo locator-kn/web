@@ -552,8 +552,9 @@ a.close-modal {
 .static-searchButton, .static-createButton {
     width: 60px;
     height: 60px;
-    position: absolute;
+    position: fixed;
     z-index: 10000;
+    top: 150px;
 }
 
 .static-createButton {
