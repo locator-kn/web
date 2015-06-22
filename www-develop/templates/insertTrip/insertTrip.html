@@ -13,7 +13,7 @@
     </div>
     <div class="container trip-insert">
         <div class="row">
-            <form novalidate name="itc.form">
+            <form name="itc.form">
                 <div class="input-content">
                     <div class="content-header">
                         <div class="col-xs-6">
@@ -95,14 +95,13 @@
                             </div>
                         </div>
                         <div class="right-section col-sm-8">
-                            <div class="validation-error"
-                                 ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
-                                Bitte gebe einen Titel für deinen Trip ein.
-                            </div>
                             <input class="text-fields" type="text" name="tripTitle"
                                    placeholder="benenne deinen trip"
                                    ng-model="itc.tripTitle" required>
-
+                            <div class="validation-error"
+                                 ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
+                                <p class="error-message">Bitte gebe einen Titel für deinen Trip ein.</p>
+                            </div>
                             <div class="validation-error"
                                  ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
                                 Wo findet dein Trip statt?
@@ -112,47 +111,49 @@
                                    ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity"
                                    details="itc.selectedPlaceDetails"
                                    required>
-                            <a name="availableLocations"></a>
+                            <div class="location-section">
+                                <a class="available-locations" name="availableLocations"></a>
 
-                            <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available
-                                locations</p>
+                                <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available
+                                    locations</p>
 
-                            <div class="locations" ng-class="{active: itc.showAvailableLocations }"
-                                 ng-show="itc.availableLocations.length">
-                                <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
-                                    <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
-                                                                    class="location-img"/></div>
-                                    <div class="add-location">
-                                        <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
-                                    </div>
-                                    <div class="details">
-                                        <h3>{{loc.title}}</h3>
+                                <div class="locations" ng-class="{active: itc.showAvailableLocations }"
+                                     ng-show="itc.availableLocations.length">
+                                    <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                                                        class="location-img"/></div>
+                                        <div class="add-location">
+                                            <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
+                                        </div>
+                                        <div class="details">
+                                            <h3>{{loc.title}}</h3>
 
-                                        <p>{{loc.description}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected
-                                locations</p>
-
-                            <div class="locations" ng-class="{active: itc.showSelectedLocations }">
-                                <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
-                                    <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
-                                                                    class="location-img"/></div>
-                                    <div class="add-location">
-                                        <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
-                                    </div>
-                                    <div class="moods">moods</div>
-                                    <div class="details">
-                                        <h3>{{loc.title}}</h3>
-
-                                        <p>{{loc.description}}</p>
+                                            <p>{{loc.description}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="no-locations-available" ng-show="!itc.availableLocations.length">
-                                <p>füg' du erstmal locations hinzu! vorher machst du hier gar nichts!</p>
-                                <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
+                                <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected
+                                    locations</p>
+
+                                <div class="locations" ng-class="{active: itc.showSelectedLocations }">
+                                    <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                                                        class="location-img"/></div>
+                                        <div class="add-location">
+                                            <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
+                                        </div>
+                                        <div class="moods">moods</div>
+                                        <div class="details">
+                                            <h3>{{loc.title}}</h3>
+
+                                            <p>{{loc.description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="no-locations-available" ng-show="!itc.availableLocations.length">
+                                    <p>füg' du erstmal locations hinzu! vorher machst du hier gar nichts!</p>
+                                    <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
+                                </div>
                             </div>
                         <textarea class="trip-description text-fields" placeholder="beschreibe deinen trip"
                                   ng-model="itc.tripDescription"
