@@ -76,7 +76,7 @@ module Controller {
                 this.MessengerService.getConversations()
                     .then(conversations => {
                         this.conversations = conversations.data;
-                        this.conversations.forEach(element => {
+                        this.conversations.forEach((element:any) => {
                             this.conversationsHash[element._id] = element;
                             this.UserService.getUser(element['opponent'])
                                 .then(result => {
