@@ -1,17 +1,38 @@
 <div class="mylocations-container">
     <div class="row">
         <div ng-repeat="location in pc.locations" class="col-xs-12 col-sm-12 location relative">
-            <img class="img-responsive"
-                 ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
+            <div class="inner-result">
 
-            <div class="content">
-                <h2>{{location.title}}</h2>
+                <img class="img-responsive"
+                     ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
 
-                <h3>{{location.city.title}}</h3>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h3>{{location.city.title}}</h3>
+                        </div>
 
-                <p>{{location.description}}</p>
+                        <div class="col-sm-7">
+                            <h3>{{location.title}}</h3>
+
+                            <p clas="description">{{location.description}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 location-tags locationborder">
+                    <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
+                </div>
+
+                <div class="col-xs-12 location-settings locationborder">
+                    <span class="toggle-label">Location sichtbar</span>
+                    <div class="switch">
+                        <input id="{{location._id}}" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="{{location._id}}"></label>
+                    </div>
+                </div>
+
             </div>
-
         </div>
 
         <div class="col-xs-12 empty-locations">

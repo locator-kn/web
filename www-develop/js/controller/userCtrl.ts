@@ -77,6 +77,7 @@ module Controller {
         getLocations() {
             this.LocationService.getLocationsByUser(this.user._id)
                 .then(result => {
+                    console.info(result.data);
                     this.locations = result.data;
                 })
         }
