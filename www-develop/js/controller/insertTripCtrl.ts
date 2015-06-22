@@ -76,6 +76,9 @@ module Controller {
 
             this.$scope.selectImage = this.selectImage;
 
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = false;
+
             this.UserService.getMe().then(user => {
                 this.me = user.data;
             });
@@ -109,12 +112,12 @@ module Controller {
             $rootScope.showSearchButton = true;
 
             // handle url params
-            HelperService.getMoods(this.$state.params.moods, (result) => {
+            HelperService.getMoodsByQueryString(this.$state.params.moods).then(result => {
                 this.selectedMoods = result;
                 if (this.selectedMoods.length > 0) {
                     this.selectableMoods.splice(this.selectableMoods.indexOf(this.selectedMoods[0]), 1);
                 }
-            });
+            }).catch(console.error);
 
             this.days = this.$state.params.days;
             if (this.days == undefined) {
