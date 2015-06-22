@@ -18,6 +18,9 @@ module Controller {
         imageHasBeenUploaded:boolean;
         profileImagePath:string;
         uploadIsDone:boolean = true;
+        isUploading:boolean = false;
+        cropperCanvas:any;
+
         progressPercentage:number;
         availableMoods;
         birthAvailable:boolean = true;
@@ -239,6 +242,7 @@ module Controller {
 
         uploadImage() {
             this.uploadIsDone = false;
+            this.isUploading = true;
             var file = this.selectedImage;
             var formData = {
                 width: Math.round(this.imageCropData.width),
@@ -258,6 +262,8 @@ module Controller {
                     this.clearFileSelection();
                     this.showNewImage(data);
                     this.uploadIsDone = true;
+                    this.isUploading = false;
+                    this.progressPercentage = 0;
                 });
 
             //this.InsertTripService.uploadImage(formData);

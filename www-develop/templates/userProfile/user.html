@@ -1,6 +1,7 @@
 <div class="container profile" ng-controller="UserCtrl as pc">
 
-    <div class="image-upload-modal" ng-show="pc.showImageUploadModal">
+    <div class="image-upload-modal" ng-class="{'is-uploading' : pc.isUploading}" ng-show="pc.showImageUploadModal">
+        <div class="big-progress" ng-style="{'width': pc.progressPercentage * 100 + '%'}"></div>
         <img src="{{pc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
         <div class="controls">
