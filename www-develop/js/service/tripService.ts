@@ -4,6 +4,10 @@ module Service {
         constructor(private $http, private basePath, private Upload) {
         }
 
+        getTripById(_id) {
+            return this.$http.get(this.basePath + '/trips/' + _id);
+        }
+
         saveTrip(newTrip, documentMetaData) {
             if (documentMetaData._id && documentMetaData._rev) {
                 // extend new trip with meta data id and rev
@@ -45,7 +49,7 @@ module Service {
             for (var key in locationsHash) {
                 if (locationsHash.hasOwnProperty(key)) {
                     var selectedObjImages = locationsHash[key];
-                    if(selectedObjImages.picture) {
+                    if (selectedObjImages.picture) {
                         array.push(selectedObjImages.picture);
                     }
                     array.push(locationsHash[key].googlemap + '&size=' + mapSize + '&scale=' + scale);
@@ -54,6 +58,7 @@ module Service {
             return array;
         }
 
-        static serviceId:string = "TripService";
+        static
+            serviceId:string = "TripService";
     }
 }
