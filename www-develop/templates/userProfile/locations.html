@@ -30,7 +30,7 @@
                     <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
-                <div class="col-xs-12 location-settings locationborder">
+                <div ng-if="this.me" class="col-xs-12 location-settings locationborder">
                     <span class="toggle-label">Location sichtbar</span>
 
                     <div class="switch">
