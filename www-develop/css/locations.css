@@ -50,3 +50,15 @@
 .location-tags .tag:last-child {
     margin-right: 0;
 }
+
+.searchbar {
+    padding: 15px;
+    text-align: center;
+}
+
+.searchbar input {
+    width: 300px;
+    max-width: 100%;
+    padding: 4px;
+    font-size: 15px;
+}

@@ -39,6 +39,8 @@ module Controller {
         errormsg = '';
         successmsg = '';
 
+        locationSearch;
+
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
 
