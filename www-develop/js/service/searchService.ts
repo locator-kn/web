@@ -10,7 +10,7 @@ module Service {
         }
 
         getAllTrips() {
-            return this.$http.get(this.basePath + '/api/v1/trips');
+            return this.$http.get(this.basePath + '/trips');
         }
 
         getTripsByQuery(searchQuery) {
