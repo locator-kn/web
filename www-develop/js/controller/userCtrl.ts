@@ -134,6 +134,10 @@ module Controller {
              }
              }*/
 
+            if (!this.user.birthdate) {
+                this.user.birthdate = '';
+            }
+
 
             if (this.user.birthdate > new Date()) {
                 this.errormsg = 'Datum muss in der Vergangenheit liegen';
