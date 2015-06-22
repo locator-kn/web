@@ -33,6 +33,9 @@
                 <span ng-if="pc.tab === 'info' || pc.tab ==='account'" class="editbutton">
                     <a ng-if="pc.edit && pc.tab === 'account'" aria-label="speichern" type="submit" class="tt tt-small save pointer submit" ng-click="pc.setNewPassword()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
                     <a ng-if="pc.edit && pc.tab === 'info'" aria-label="speichern" type="submit" class="tt tt-small save pointer submit" ng-click="pc.updateProfile()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
+
+
+                    <a ng-if="pc.edit && (pc.tab === 'info' || pc.tab === 'account')" aria-label="abrechen" type="abrechen" class="tt tt-small save reset pointer submit" ng-click="pc.reset()" class="button"><img src="images/icons/icons_stuff/cross.png" class="icon img-responsive"></a>
                 <a ng-show="pc.me && !pc.edit" aria-label="bearbeiten" class="tt tt-small save pointer" ng-click="pc.editTrigger()" class="button"><img src="images/icons/icons_stuff/pencil.png" class="icon img-responsive"></a>
             </span>
 
