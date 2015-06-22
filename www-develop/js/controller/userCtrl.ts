@@ -134,6 +134,10 @@ module Controller {
              }
              }*/
 
+            if (!this.user.birthdate) {
+                this.user.birthdate = '';
+            }
+
 
             if (this.user.birthdate > new Date()) {
                 this.errormsg = 'Datum muss in der Vergangenheit liegen';
@@ -152,6 +156,11 @@ module Controller {
                     console.info(this.user);
                     console.info('error during update');
                 });
+        }
+
+        reset() {
+            this.edit = false;
+            this.getUser(this.$stateParams.profileId);
         }
 
 

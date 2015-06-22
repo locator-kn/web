@@ -553,7 +553,7 @@ a.close-modal {
     width: 60px;
     height: 60px;
     position: fixed;
-    z-index: 10000;
+    z-index: 500;
     top: 150px;
 }
 
@@ -789,6 +789,11 @@ img.center {
     line-height: 30px;
 }
 
+.profile ::-webkit-input-placeholder {
+    color: rgba(166, 166, 166, 1);
+    text-transform: lowercase;
+}
+
 .profile.container {
     max-width: 550px;
     padding: 50px 15px;
@@ -817,6 +822,10 @@ img.center {
 
 .profile .save.submit {
     background-color: #33c4b7;
+}
+
+.profile .save.reset.submit {
+    background-color: #ff4637;
 }
 
 span.editbutton {
@@ -1085,16 +1094,20 @@ img-triplist .flex-direction-nav a::before {
 a:focus {
     outline: none;
 }
-.big-progress, .big-progress{
+
+.big-progress, .big-progress {
     position: absolute;
     z-index: 9999;
     width: 0;
-    height:100%;
+    height: 100%;
     background-color: #003eff;
     transition: all 1s;
     content: ' ';
 
 }
-.is-uploading .big-progress {
 
+input {
+    text-transform: lowercase;
 }
+
+

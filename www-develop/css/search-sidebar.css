@@ -1,8 +1,8 @@
 .search-menu {
-    height: 100vh;
+    height: calc(100vh - 200px);
     position: absolute;
     width: 300px;
-    top: 90px;
+    top: 150px;
 }
 
 .search-menu div {
@@ -33,7 +33,7 @@
     position: fixed;
     height: 100vh;
     width: 100px;
-    top: 60px;
+    top: 0px;
     z-index: 10;
 }
 
@@ -46,25 +46,25 @@
 
 .search-offset {
     position: relative;
-    padding-top: 161px;
+    padding-top: 221px;
     z-index: 100;
 }
 
 .filter-offset {
     position: relative;
-    padding-top: 303px;
+    padding-top: 363px;
     z-index: 100;
 }
 
 .date-offset {
     position: relative;
-    padding-top: 232px;
+    padding-top: 292px;
     z-index: 100;
 }
 
 .moods-offset {
     position: relative;
-    padding-top: 374px;
+    padding-top: 434px;
     z-index: 100;
 }
 
@@ -88,6 +88,7 @@ html, body {
 .input-transparent {
     border: none;
     background-color: transparent;
+    text-transform: lowercase;
 }
 
 .selected-acc {
