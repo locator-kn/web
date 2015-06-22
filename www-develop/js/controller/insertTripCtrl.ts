@@ -115,7 +115,7 @@ module Controller {
                 if (this.selectedMoods.length > 0) {
                     this.selectableMoods.splice(this.selectableMoods.indexOf(this.selectedMoods[0]), 1);
                 }
-            }).catch(console.error);
+            }).catch(err => console.log(err));
 
             this.days = this.$state.params.days;
             if (this.days == undefined) {
