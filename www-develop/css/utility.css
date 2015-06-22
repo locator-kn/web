@@ -52,6 +52,10 @@
     margin-top: 5px;
 }
 
+.not-authenticated.tt::after {
+    content: attr(aria-not-authenticated);
+}
+
 .submit-btn.submit-progress {
     position: relative;
     float: left;
