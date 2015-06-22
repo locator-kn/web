@@ -87,6 +87,7 @@ module Controller {
                 this.selectableMoods = moods.data;
             });
 
+
             this.LocationService.getMyLocations().then(response => {
 
                 response.data.forEach((loc:any) => {
@@ -112,12 +113,14 @@ module Controller {
             $rootScope.showSearchButton = true;
 
             // handle url params
+
+
             HelperService.getMoodsByQueryString(this.$state.params.moods).then(result => {
                 this.selectedMoods = result;
                 if (this.selectedMoods.length > 0) {
                     this.selectableMoods.splice(this.selectableMoods.indexOf(this.selectedMoods[0]), 1);
                 }
-            }).catch(console.error);
+            });
 
             this.days = this.$state.params.days;
             if (this.days == undefined) {
@@ -125,6 +128,7 @@ module Controller {
             }
 
             this.tripCity = this.$state.params.city;
+
 
             if (this.InsertTripService.getStateStored()) {
                 var allValues = this.InsertTripService.getAllValues();
@@ -466,6 +470,7 @@ module Controller {
             if (this.$state.params.tripId) {
                 this.TripService.getTripById(this.$state.params.tripId)
                     .then(result => {
+
                         this.tripDescription = result.data.description;
                         this.tripTitle = result.data.title;
                         this.persons = result.data.persons;
@@ -473,11 +478,10 @@ module Controller {
                         this.startDateReal = result.data.start_date;
                         this.endDateReal = result.data.end_date;
 
+
                         var moodqueryString = result.data.moods.join('.');
 
-                        
                         this.selectedMoods = this.HelperService.getMoodsByQueryString(moodqueryString)
-                            .catch(console.error)
                             .then(result => {
                                 this.selectedMoods = result;
                             });
@@ -499,8 +503,6 @@ module Controller {
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
                         }
-
-
 
 
                     }).catch(err => {
