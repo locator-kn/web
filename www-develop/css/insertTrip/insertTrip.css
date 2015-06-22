@@ -20,9 +20,13 @@
 
 .content-bottom .text-fields {
     height: 40px;
-    margin-bottom: 40px;
     width: 100%;
     padding: 0px 0px 0px 15px;
+    margin-top: 40px;
+}
+
+.text-fields:nth-of-type(1) {
+    margin-top: 0px;
 }
 
 .content-bottom .text-fields:focus {
@@ -91,6 +95,10 @@
 
 #preview:hover {
     -moz-transform: rotate(-2deg);
+}
+
+.location-section {
+    margin-top: 40px;
 }
 
 .locations {
@@ -319,4 +327,9 @@
 
 .container.trip-insert {
     max-width: 770px;
+}
+
+.validation-error .error-message {
+    color: #ff4637;
+    font-size: 12px;
 }
