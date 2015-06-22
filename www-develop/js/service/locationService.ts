@@ -35,6 +35,10 @@ module Service {
             return this.$http.get(this.basePath + '/locations/' + locationId);
         }
 
+        togglePublicLocation(locationId) {
+            return this.$http.put(this.basePath + '/locations/' + locationId + '/togglePublic');
+        }
+
         static serviceId:string = "LocationService";
     }
 }

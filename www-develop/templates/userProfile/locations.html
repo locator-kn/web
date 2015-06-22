@@ -1,6 +1,12 @@
 <div class="mylocations-container">
     <div class="row">
-        <div ng-repeat="location in pc.locations" class="col-xs-12 col-sm-12 location relative">
+
+        <div class="searchbar col-xs-12">
+            <input ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
+        </div>
+
+        <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
+             class="col-xs-12 col-sm-12 location relative">
             <div class="inner-result">
 
                 <img class="img-responsive"
@@ -24,10 +30,13 @@
                     <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
-                <div class="col-xs-12 location-settings locationborder">
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder">
                     <span class="toggle-label">Location sichtbar</span>
+
                     <div class="switch">
-                        <input id="{{location._id}}" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <input ng-if="location.public" id="{{location._id}}" checked class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                        <input ng-if="!location.public" id="{{location._id}}" class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+
                         <label for="{{location._id}}"></label>
                     </div>
                 </div>
@@ -35,10 +44,10 @@
             </div>
         </div>
 
-        <div class="col-xs-12 empty-locations">
+        <div ui-sref="insertLocation" class="pointer col-xs-12 empty-locations">
 
-            <a ui-sref="insertLocation"><img ng-src="images/icons/header/location.png">
-                <span>Location hinzufügen</span></a>
+            <img ng-src="images/icons/header/location.png">
+            <span>Location hinzufügen</span>
         </div>
 
     </div>

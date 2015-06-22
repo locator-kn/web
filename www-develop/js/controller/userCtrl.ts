@@ -39,6 +39,8 @@ module Controller {
         errormsg = '';
         successmsg = '';
 
+        locationSearch;
+
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
 
@@ -75,11 +77,23 @@ module Controller {
         }
 
         getLocations() {
-            this.LocationService.getLocationsByUser(this.user._id)
-                .then(result => {
-                    console.info(result.data);
-                    this.locations = result.data;
-                })
+            if (this.me) {
+                this.LocationService.getMyLocations()
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            } else {
+
+                this.LocationService.getLocationsByUser(this.user._id)
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            }
+
         }
 
         editTrigger() {
@@ -348,6 +362,10 @@ module Controller {
                 this.tab = name;
             }
 
+        }
+
+        togglePublicLocation(id) {
+            this.LocationService.togglePublicLocation(id);
         }
 
         static
