@@ -555,7 +555,7 @@ a.close-modal {
     width: 60px;
     height: 60px;
     position: fixed;
-    z-index: 10000;
+    z-index: 500;
     top: 150px;
 }
 

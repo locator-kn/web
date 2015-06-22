@@ -145,7 +145,7 @@ module Controller {
 
                 })
                 .catch(resp => {
-                    if (resp.statusCode === 409) {
+                    if (resp.status === 409) {
                         this.errormsg = 'Diese Mail gibts schon';
                         return;
                     }
