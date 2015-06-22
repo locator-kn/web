@@ -39,28 +39,44 @@
                     <form novalidate id="insertLocationForm">
                         <div>
                             <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
-                                   ng-model="ilc.locationFormDetails.title"
+                                   ng-model="ilc.locationFormDetails.title" name="locationTitle"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.locationTitle.$touched) && itc.form.locationTitle.$error.required">
+                                <p class="error-message">bitte gib den namen der location ein</p>
+                            </div>
 
                             <input class="text-fields" type="text" placeholder="Tags"
                                    ng-model="ilc.locationFormDetails.tags"
-                                   ng-model-options="{ updateOn: 'blur'}"
+                                   name="locationTag"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.locationTag.$touched) && itc.form.locationTag.$error.required">
+                                <p class="error-message">bitte gib tags für deine location ein</p>
+                            </div>
 
                         <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
-                                  ng-model="ilc.locationFormDetails.description"
+                                  ng-model="ilc.locationFormDetails.description" name="locationDescription"
                                   required></textarea>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.locationDescription.$touched) && itc.form.locationDescription.$error.required">
+                                <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
+                            </div>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
                                   ng-model="ilc.locationFormDetails.budget"
-                                  ng-model-options="{ updateOn: 'blur'}"></textarea>
+                                  ></textarea>
 
                             <p>Wähle eine Stadt und markiere die Location auf der Karte:</p>
                             <input class="text-fields" type="text"
                                    placeholder="In welcher Stadt ist diese Location?"
                                    ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
-                                   details="ilc.selectedPlaceDetails"
+                                   details="ilc.selectedPlaceDetails" name="locationCity"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.locationCity.$touched) && itc.form.locationCity.$error.required">
+                                <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
+                            </div>
 
                             <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
                                 <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
