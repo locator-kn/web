@@ -196,7 +196,6 @@ module Controller {
 
             this.locationFormDetails.tags = this.locationFormDetails.tags.split(" ");
 
-            debugger;
             this.locationFormDetails.city = {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
