@@ -41,6 +41,17 @@
     padding-top: 10px;
 }
 
+.content-bottom .location-description {
+    height: 300px;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.content-bottom .location-city {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
 .content-bottom .trip-money {
     height: 150px;
     margin-bottom: 40px;
@@ -306,21 +317,21 @@
 }
 
 /* do not group these rules */
-.content-bottom .right-section .text-fields::-webkit-input-placeholder {
+.content-bottom .text-fields::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.60)
 }
 
-.content-bottom .right-section .text-fields:-moz-placeholder {
+.content-bottom .text-fields:-moz-placeholder {
     /* FF 4-18 */
     color: rgba(0, 0, 0, 0.60);
 }
 
-.content-bottom .right-section .text-fields::-moz-placeholder {
+.content-bottom .text-fields::-moz-placeholder {
     /* FF 19+ */
     color: rgba(0, 0, 0, 0.60);
 }
 
-.content-bottom .right-section .text-fields:-ms-input-placeholder {
+.content-bottom .text-fields:-ms-input-placeholder {
     /* IE 10+ */
     color: rgba(0, 0, 0, 0.60);
 }
