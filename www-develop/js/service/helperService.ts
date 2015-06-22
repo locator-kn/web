@@ -1,6 +1,7 @@
+
 module Service {
     export class HelperService {
-        constructor(private $http, private basePath, private $state, private DataService, private lodash) {
+        constructor(private $http, private basePath, private $state, private DataService, private lodash,private $q) {
         }
 
         getMoodQuery(moods) {
@@ -12,19 +13,22 @@ module Service {
             return moodQuery.join('.');
         }
 
-        getMoods(moodqueryString, callback) {
-            if(!moodqueryString) {
-                // resolve with empty array if moodqueryString is not defined
-                return callback([])
-            }
-            this.DataService.getMoods().then(result => {
-                var allMoods = result.data;
-                var res:any = [];
-                var moods = moodqueryString.split('.');
-                moods.forEach((entry) => {
-                    res.push(this.getObjectByQueryName(allMoods, entry));
+        getMoodsByQueryString(moodqueryString) {
+            return this.$q((resolve,reject) => {
+
+                if (!moodqueryString) {
+                    // resolve with empty array if moodqueryString is not defined
+                    return reject('no moods inserted')
+                }
+                this.DataService.getMoods().then(result => {
+                    var allMoods = result.data;
+                    var res:any = [];
+                    var moods = moodqueryString.split('.');
+                    moods.forEach((entry) => {
+                        res.push(this.getObjectByQueryName(allMoods, entry));
+                    });
+                    resolve(res);
                 });
-                callback(res);
             });
         }
 
