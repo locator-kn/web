@@ -78,6 +78,10 @@ module Controller {
                 return this.$rootScope.$emit('openLoginDialog');
             }
 
+            if (!this.conversations.length) {
+                return;
+            }
+
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
@@ -222,6 +226,7 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
+                    this.getConversations()
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
