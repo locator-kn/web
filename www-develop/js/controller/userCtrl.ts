@@ -65,6 +65,9 @@ module Controller {
 
             this.tab = $state.params.tab;
 
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = true;
+
 
         }
 
