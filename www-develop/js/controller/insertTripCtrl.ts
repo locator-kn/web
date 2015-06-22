@@ -490,11 +490,11 @@ module Controller {
                         this.selectableMoods = this.lodash.without(this.selectableMoods, this.selectedMoods);
 
 
-                        /*for (var key in result.data.locations) {
-                         if (result.data.locations.hasOwnProperty(key)) {
-                         this.addLocationToTrip(key);
-                         }
-                         }*/
+                        for (var key in result.data.locations) {
+                            if (result.data.locations.hasOwnProperty(key)) {
+                                this.addLocationToTrip(key);
+                            }
+                        }
 
 
                         this.tripDescriptionMoney = result.data.description_money;
@@ -503,7 +503,6 @@ module Controller {
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
                         }
-
 
 
                     }).catch(err => {
