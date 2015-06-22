@@ -55,7 +55,7 @@ module Controller {
             this.MessengerService.getConversations()
                 .then(conversations => {
                     this.conversations = conversations.data;
-                    if (!this.conversations) {
+                    if (!this.conversations.length) {
                         return;
                     }
                     this.conversations.forEach((element:any) => {
