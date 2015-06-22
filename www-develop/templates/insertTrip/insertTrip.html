@@ -120,7 +120,7 @@
                                 <div class="locations" ng-class="{active: itc.showAvailableLocations }"
                                      ng-show="itc.availableLocations.length">
                                     <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
-                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}" alt=""
                                                                         class="location-img"/></div>
                                         <div class="add-location">
                                             <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
@@ -137,7 +137,7 @@
 
                                 <div class="locations" ng-class="{active: itc.showSelectedLocations }">
                                     <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
-                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}" alt=""
                                                                         class="location-img"/></div>
                                         <div class="add-location">
                                             <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
