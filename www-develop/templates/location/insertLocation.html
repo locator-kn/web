@@ -36,11 +36,10 @@
 
                 </div>
                 <div class="content-bottom">
-                    <form id="insertLocationForm">
+                    <form novalidate id="insertLocationForm">
                         <div>
-
                             <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
-                                   ng-model="ilc.locationFormDetails.title" ng-model-options="{ updateOn: 'blur'}"
+                                   ng-model="ilc.locationFormDetails.title"
                                    required>
 
                             <input class="text-fields" type="text" placeholder="Tags"
@@ -49,7 +48,7 @@
                                    required>
 
                         <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
-                                  ng-model="ilc.locationFormDetails.description" ng-model-options="{ updateOn: 'blur'}"
+                                  ng-model="ilc.locationFormDetails.description"
                                   required></textarea>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
@@ -60,7 +59,7 @@
                             <input class="text-fields" type="text"
                                    placeholder="In welcher Stadt ist diese Location?"
                                    ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
-                                   details="ilc.selectedPlaceDetails" ng-model-options="{ updateOn: 'blur'}"
+                                   details="ilc.selectedPlaceDetails"
                                    required>
 
                             <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
@@ -70,8 +69,6 @@
                             </ui-gmap-google-map>
 
                             <div class="save-trip" ng->
-                                <!--<button>SPEICHERN</button>
-    -->
                                 <input type="submit" ng-click="ilc.save()" value="SPEICHERN"/>
                             </div>
                         </div>
