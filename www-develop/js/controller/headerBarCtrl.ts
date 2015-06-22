@@ -32,20 +32,7 @@ module Controller {
             });
             this.getMe();
 
-            this.MessengerService.getConversations()
-                .then(conversations => {
-                    this.conversations = conversations.data;
-                    this.conversations.forEach(element => {
-                        this.conversationsHash[element._id] = element;
-                        if (!element[this.$rootScope.userID + '_read']) {
-                            this.showBadge = true;
-                        }
-                        this.UserService.getUser(element['opponent'])
-                            .then(result => {
-                                element['opponent'] = result.data;
-                            });
-                    });
-                });
+            this.getConversations();
 
             this.hotkeys.add({
                 combo: 'esc',
@@ -64,6 +51,27 @@ module Controller {
             });
         }
 
+        getConversations() {
+            this.MessengerService.getConversations()
+                .then(conversations => {
+                    this.conversations = conversations.data;
+                    if (!this.conversations.length) {
+                        return;
+                    }
+                    this.conversations.forEach((element:any) => {
+                        this.conversationsHash[element._id] = element;
+                        if (!element[this.$rootScope.userID + '_read']) {
+                            console.log('there is an unread message from', element);
+                            this.showBadge = true;
+                        }
+                        this.UserService.getUser(element['opponent'])
+                            .then(result => {
+                                element['opponent'] = result.data;
+                            });
+                    });
+                });
+        }
+
         openPopover() {
 
             if (!this.$rootScope.authenticated) {
@@ -73,18 +81,7 @@ module Controller {
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
-                this.MessengerService.getConversations()
-                    .then(conversations => {
-                        this.conversations = conversations.data;
-                        this.conversations.forEach(element => {
-                            this.conversationsHash[element._id] = element;
-                            this.UserService.getUser(element['opponent'])
-                                .then(result => {
-                                    element['opponent'] = result.data;
-                                });
-                        });
-                    });
-
+                this.getConversations();
             }
             this.showMessengerPopover = !this.showMessengerPopover
         }

@@ -21,7 +21,7 @@ module Controller {
                 this.selectableMoods = result.data;
             });
 
-            HelperService.getMoods($state.params.moods).then(moods => {
+            HelperService.getMoodsByQueryString($state.params.moods).then(moods => {
                 this.selectedMoods = moods;
                 this.updateUrl();
             }).catch(console.error);
