@@ -87,22 +87,21 @@ module Controller {
                 this.selectableMoods = moods.data;
             });
 
-
             this.LocationService.getMyLocations().then(response => {
 
                 response.data.forEach((loc:any) => {
 
                     /*if (!loc.images) {
-                     loc.images = {};
-                     loc.images.picture = this.getStaticMap({
-                     size: '1151x675',
-                     geotag: loc.geotag
-                     });
-                     loc.images.thumbnail = this.getStaticMap({
-                     size: '180x100',
-                     geotag: loc.geotag
-                     });
-                     }*/
+                        loc.images = {};
+                        loc.images.picture = this.getStaticMap({
+                            size: '1151x675',
+                            geotag: loc.geotag
+                        });
+                        loc.images.thumbnail = this.getStaticMap({
+                            size: '180x100',
+                            geotag: loc.geotag
+                        });
+                    }*/
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;
@@ -120,7 +119,7 @@ module Controller {
                 if (this.selectedMoods.length > 0) {
                     this.selectableMoods.splice(this.selectableMoods.indexOf(this.selectedMoods[0]), 1);
                 }
-            });
+            }).catch(err => console.log(err));
 
             this.days = this.$state.params.days;
             if (this.days == undefined) {
@@ -128,7 +127,6 @@ module Controller {
             }
 
             this.tripCity = this.$state.params.city;
-
 
             if (this.InsertTripService.getStateStored()) {
                 var allValues = this.InsertTripService.getAllValues();
@@ -197,7 +195,6 @@ module Controller {
             delete this.availableLocationsHash[locationId];
             this.buildSlidesArray();
             this.selectedLocationsCount += 1;
-
         }
 
         removeLocationFromTrip(locationId) {

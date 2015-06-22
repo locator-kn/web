@@ -24,7 +24,7 @@ module Controller {
             HelperService.getMoodsByQueryString($state.params.moods).then(moods => {
                 this.selectedMoods = moods;
                 this.updateUrl();
-            });
+            }).catch(err=> console.error(err));
 
             this.DataService.getAvailableCities()
                 .then(result => {
@@ -51,7 +51,7 @@ module Controller {
         search() {
 
             this.$rootScope.$emit('loading');
-            if(!this.query.city/* || !this.tripCities.length*/) {
+            if (!this.query.city/* || !this.tripCities.length*/) {
                 return;
             }
             this.SearchService.getTripsByQuery(this.query)
