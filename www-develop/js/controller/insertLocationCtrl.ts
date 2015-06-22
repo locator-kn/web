@@ -208,8 +208,6 @@ module Controller {
                 lat: this.map.clickedMarker.latitude
             };
 
-            debugger;
-
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
                     debugger
