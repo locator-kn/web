@@ -20,9 +20,13 @@
 
 .content-bottom .text-fields {
     height: 40px;
-    margin-bottom: 40px;
     width: 100%;
     padding: 0px 0px 0px 15px;
+    margin-top: 40px;
+}
+
+.text-fields:nth-of-type(1) {
+    margin-top: 0px;
 }
 
 .content-bottom .text-fields:focus {
@@ -33,7 +37,7 @@
 
 .content-bottom .trip-description {
     height: 300px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     padding-top: 10px;
 }
 
@@ -91,6 +95,10 @@
 
 #preview:hover {
     -moz-transform: rotate(-2deg);
+}
+
+.location-section {
+    margin-top: 40px;
 }
 
 .locations {
@@ -160,8 +168,8 @@
 }
 
 .mood-menu {
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
 }
 
 .mood-menu:hover {
@@ -172,7 +180,7 @@
     position: relative;
     list-style: none;
     float: left;
-    height: 35px;
+    height: 45px;
 }
 
 .mood-menu li a {
@@ -193,7 +201,7 @@
 
 .mood-menu ul {
     position: absolute;
-    top: 35px;
+    top: 45px;
     right: 0px;
     opacity: 0;
     background: #ff4637;
@@ -208,7 +216,7 @@
     height: 0;
     overflow: hidden;
     padding: 0;
-    width: 190px;
+    width: 210px;
 }
 
 .mood-menu li:hover > ul li {
@@ -218,7 +226,7 @@
 }
 
 .menu-item .plus-image {
-    padding: 5px;
+    padding: 10px;
 }
 
 .mood-menu ul li a {
@@ -231,8 +239,8 @@
 
 .mood-menu .select-mood-image {
     float: right;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     position: relative;
     bottom: 4px;
     right: 5px;
@@ -243,14 +251,22 @@
 }
 
 .selected-moods .mood-images {
-    margin-left: 4px;
     margin-top: 5px;
-    float: left;
+}
+
+.mood-choice {
+    float: right;
+}
+
+.selected-moods {
+    float: right;
+    margin-right: 15px;
+    margin-top: 3px;
 }
 
 .mood-images .mood-image {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
 }
 
 .selected-moods .cross-image {
@@ -258,8 +274,8 @@
     width: 12px;
     float: left;
     position: relative;
-    right: 8px;
-    top: 2px;
+    bottom: 30px;
+    left: 20px;
     cursor: pointer;
 }
 
@@ -311,4 +327,9 @@
 
 .container.trip-insert {
     max-width: 770px;
+}
+
+.validation-error .error-message {
+    color: #ff4637;
+    font-size: 12px;
 }

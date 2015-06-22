@@ -124,7 +124,7 @@ module Service {
         getMoods() {
             return this.$q((resolve) => {
                 resolve({
-                    data: this.availableMoods
+                    data: angular.copy(this.availableMoods)
                 });
 
             });

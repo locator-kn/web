@@ -39,6 +39,8 @@ module Controller {
         errormsg = '';
         successmsg = '';
 
+        locationSearch;
+
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
 
@@ -63,6 +65,9 @@ module Controller {
 
             this.tab = $state.params.tab;
 
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = true;
+
 
         }
 
@@ -75,10 +80,23 @@ module Controller {
         }
 
         getLocations() {
-            this.LocationService.getLocationsByUser(this.user._id)
-                .then(result => {
-                    this.locations = result.data;
-                })
+            if (this.me) {
+                this.LocationService.getMyLocations()
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            } else {
+
+                this.LocationService.getLocationsByUser(this.user._id)
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            }
+
         }
 
         editTrigger() {
@@ -134,6 +152,10 @@ module Controller {
              }
              }*/
 
+            if (!this.user.birthdate) {
+                this.user.birthdate = '';
+            }
+
 
             if (this.user.birthdate > new Date()) {
                 this.errormsg = 'Datum muss in der Vergangenheit liegen';
@@ -152,6 +174,11 @@ module Controller {
                     console.info(this.user);
                     console.info('error during update');
                 });
+        }
+
+        reset() {
+            this.edit = false;
+            this.getUser(this.$stateParams.profileId);
         }
 
 
@@ -338,6 +365,10 @@ module Controller {
                 this.tab = name;
             }
 
+        }
+
+        togglePublicLocation(id) {
+            this.LocationService.togglePublicLocation(id);
         }
 
         static

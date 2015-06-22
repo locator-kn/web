@@ -4,14 +4,61 @@
 }
 
 .mylocations-container .location {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     float: left;
-    min-height: 200px;
 }
 
 .mylocations-container .location .content {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+
+.location-settings {
+    float: left;
+    width: 100%;
+    padding: 15px;
+}
+
+.location-settings input {
+    visibility: hidden;
+}
+
+.location-settings .toggle-label {
+    float: left;
+    margin-right: 10px;
+    line-height: 35px;
+}
+
+.locationborder {
+    border-top: 2px solid rgb(193, 195, 195);
+}
+
+.location-tags .tag {
+    background: rgb(49, 47, 48);
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 4px;
     color: white;
+    font-size: 15px;
+}
+
+.location-tags {
+    padding: 15px;
+}
+
+.location-tags .tag:last-child {
+    margin-right: 0;
+}
+
+.searchbar {
+    padding: 15px;
+    text-align: center;
+}
+
+.searchbar input {
+    width: 300px;
+    max-width: 100%;
+    padding: 4px;
+    font-size: 15px;
 }

@@ -13,38 +13,40 @@
     </div>
     <div class="container trip-insert">
         <div class="row">
-            <form novalidate name="itc.form">
+            <form name="itc.form">
                 <div class="input-content">
                     <div class="content-header">
                         <div class="col-xs-6">
                             <img class="profile-image" ng-src="{{itc.me.picture.picture}}">
                         </div>
-                        <div class="moods col-xs-3">
+                        <div class="moods col-xs-4">
                             <div class="feeling-text">
                                 <p>wie fühlt sich dein trip an?</p>
                             </div>
-                            <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
-                                <div class="mood-images tt tt-small" aria-label="{{mood.title}}">
-                                    <img class="mood-image" ng-src="images/icons/{{mood.icon}}">
+                            <div class="mood-choice">
+                                <div class="add-mood">
+                                    <ul class="mood-menu">
+                                        <li class="menu-item">
+                                            <a>
+                                                <img class="plus-image" src="images/icons/plus.png">
+                                            </a>
+                                            <ul>
+                                                <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods"
+                                                    ng-click="itc.selectMood(mood)">
+                                                    <a>{{mood.title}}</a>
+                                                    <img class="select-mood-image" ng-src="images/icons/{{mood.icon}}">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <img class="cross-image" src="images/icons/cross_button_moods.png"
-                                     ng-click="itc.removeSelectedMood(mood)">
-                            </div>
-                            <div class="add-mood">
-                                <ul class="mood-menu">
-                                    <li class="menu-item">
-                                        <a>
-                                            <img class="plus-image" src="images/icons/plus.png">
-                                        </a>
-                                        <ul>
-                                            <li class="selectable-moods" ng-repeat="mood in itc.selectableMoods"
-                                                ng-click="itc.selectMood(mood)">
-                                                <a>{{mood.title}}</a>
-                                                <img class="select-mood-image" ng-src="images/icons/{{mood.icon}}">
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <div class="selected-moods" ng-repeat="mood in itc.selectedMoods">
+                                    <div class="mood-images tt tt-small" aria-label="{{mood.title}}">
+                                        <img class="mood-image" ng-src="images/icons/{{mood.icon}}">
+                                    </div>
+                                    <img class="cross-image" src="images/icons/cross_button_moods.png"
+                                         ng-click="itc.removeSelectedMood(mood)">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,69 +95,73 @@
                             </div>
                         </div>
                         <div class="right-section col-sm-8">
-                            <div class="validation-error"
-                                 ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
-                                Bitte gebe einen Titel für deinen Trip ein.
-                            </div>
                             <input class="text-fields" type="text" name="tripTitle"
                                    placeholder="benenne deinen trip"
                                    ng-model="itc.tripTitle" required>
-
-                            <div class="validation-error"
-                                 ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
-                                Wo findet dein Trip statt?
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
+                                <p class="error-message">Bitte gebe einen Titel für deinen Trip ein</p>
                             </div>
                             <input class="text-fields" name="tripCity" type="text"
                                    placeholder="wo findet dein trip statt?"
                                    ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity"
                                    details="itc.selectedPlaceDetails"
                                    required>
-                            <a name="availableLocations"></a>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
+                                <p class="error-message">bitte gebe ein wo dein trip statt findet</p>
+                            </div>
+                            <div class="location-section">
+                                <a class="available-locations" name="availableLocations"></a>
 
-                            <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available
-                                locations</p>
+                                <p ng-click="itc.showAvailableLocations = !itc.showAvailableLocations">available
+                                    locations</p>
 
-                            <div class="locations" ng-class="{active: itc.showAvailableLocations }"
-                                 ng-show="itc.availableLocations.length">
-                                <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
-                                    <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
-                                                                    class="location-img"/></div>
-                                    <div class="add-location">
-                                        <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
-                                    </div>
-                                    <div class="moods">moods</div>
-                                    <div class="details">
-                                        <h3>{{loc.title}}</h3>
+                                <div class="locations" ng-class="{active: itc.showAvailableLocations }"
+                                     ng-show="itc.availableLocations.length">
+                                    <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                                                        class="location-img"/></div>
+                                        <div class="add-location">
+                                            <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
+                                        </div>
+                                        <div class="details">
+                                            <h3>{{loc.title}}</h3>
 
-                                        <p>{{loc.description}}</p>
+                                            <p>{{loc.description}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected
-                                locations</p>
+                                <p ng-click="itc.showSelectedLocations = !itc.showSelectedLocations">selected
+                                    locations</p>
 
-                            <div class="locations" ng-class="{active: itc.showSelectedLocations }">
-                                <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
-                                    <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
-                                                                    class="location-img"/></div>
-                                    <div class="add-location">
-                                        <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
-                                    </div>
-                                    <div class="moods">moods</div>
-                                    <div class="details">
-                                        <h3>{{loc.title}}</h3>
+                                <div class="locations" ng-class="{active: itc.showSelectedLocations }">
+                                    <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
+                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail}}" alt=""
+                                                                        class="location-img"/></div>
+                                        <div class="add-location">
+                                            <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
+                                        </div>
+                                        <div class="moods">moods</div>
+                                        <div class="details">
+                                            <h3>{{loc.title}}</h3>
 
-                                        <p>{{loc.description}}</p>
+                                            <p>{{loc.description}}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="no-locations-available" ng-show="!itc.availableLocations.length">
+                                    <p>füg' du erstmal locations hinzu! vorher machst du hier gar nichts!</p>
+                                    <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
+                                </div>
                             </div>
-                            <div class="no-locations-available" ng-show="!itc.availableLocations.length">
-                                <p>füg' du erstmal locations hinzu! vorher machst du hier gar nichts!</p>
-                                <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
-                            </div>
-                        <textarea class="trip-description text-fields" placeholder="beschreibe deinen trip"
+                        <textarea class="trip-description text-fields" name="tripDescription" placeholder="beschreibe deinen trip"
                                   ng-model="itc.tripDescription"
                                   required></textarea>
+                        <div class="validation-error"
+                             ng-show="(itc.form.tripDescription.$touched) && itc.form.tripDescription.$error.required">
+                            <p class="error-message">bitte beschreibe deinen trip</p>
+                        </div>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="für was braucht dein gast eventuell geld?"
                                   ng-model="itc.tripDescriptionMoney"></textarea>

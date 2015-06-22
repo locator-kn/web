@@ -20,6 +20,7 @@
         <a class="choose-image welcome_button">Choose image</a>
         <input id="image-upload" type="file" onchange="angular.element(this).scope().ilc.selectImage(this)"
                style="display: none">
+
         <div class="header-image">
             <div class="header-image" ng-style="{'background-image': 'url(' + ilc.headerImagePath + ')' }"></div>
         </div>
@@ -42,11 +43,10 @@
                                    ng-model="ilc.locationFormDetails.title" ng-model-options="{ updateOn: 'blur'}"
                                    required>
 
-                            <input class="text-fields" type="text" placeholder="Kategorie (Bar, ...)"
-                                   ng-model="ilc.locationFormDetails.category"
+                            <input class="text-fields" type="text" placeholder="Tags"
+                                   ng-model="ilc.locationFormDetails.tags"
                                    ng-model-options="{ updateOn: 'blur'}"
                                    required>
-
 
                         <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
                                   ng-model="ilc.locationFormDetails.description" ng-model-options="{ updateOn: 'blur'}"
@@ -55,6 +55,7 @@
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
                                   ng-model="ilc.locationFormDetails.budget"
                                   ng-model-options="{ updateOn: 'blur'}"></textarea>
+
                             <p>Wähle eine Stadt und markiere die Location auf der Karte:</p>
                             <input class="text-fields" type="text"
                                    placeholder="In welcher Stadt ist diese Location?"

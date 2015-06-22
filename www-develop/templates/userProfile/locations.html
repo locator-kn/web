@@ -1,23 +1,53 @@
 <div class="mylocations-container">
     <div class="row">
-        <div ng-repeat="location in pc.locations" class="col-xs-12 col-sm-12 location relative">
-            <img class="img-responsive"
-                 ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
 
-            <div class="content">
-                <h2>{{location.title}}</h2>
-
-                <h3>{{location.city.title}}</h3>
-
-                <p>{{location.description}}</p>
-            </div>
-
+        <div class="searchbar col-xs-12">
+            <input ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
         </div>
 
-        <div class="col-xs-12 empty-locations">
+        <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
+             class="col-xs-12 col-sm-12 location relative">
+            <div class="inner-result">
 
-            <a ui-sref="insertLocation"><img ng-src="images/icons/header/location.png">
-                <span>Location hinzufügen</span></a>
+                <img class="img-responsive"
+                     ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h3>{{location.city.title}}</h3>
+                        </div>
+
+                        <div class="col-sm-7">
+                            <h3>{{location.title}}</h3>
+
+                            <p clas="description">{{location.description}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="location.tags.length > 0" class="col-xs-12 location-tags locationborder">
+                    <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
+                </div>
+
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder">
+                    <span class="toggle-label">Location sichtbar</span>
+
+                    <div class="switch">
+                        <input ng-if="location.public" id="{{location._id}}" checked class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                        <input ng-if="!location.public" id="{{location._id}}" class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+
+                        <label for="{{location._id}}"></label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div ui-sref="insertLocation" class="pointer col-xs-12 empty-locations">
+
+            <img ng-src="images/icons/header/location.png">
+            <span>Location hinzufügen</span>
         </div>
 
     </div>
