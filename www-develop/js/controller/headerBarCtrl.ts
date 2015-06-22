@@ -78,6 +78,10 @@ module Controller {
                 return this.$rootScope.$emit('openLoginDialog');
             }
 
+            if (!this.conversations.length) {
+                return;
+            }
+
             this.showBadge = false;
             this.unreadMessages = 0;
             if (!this.showMessengerPopover) {
