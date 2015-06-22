@@ -18,7 +18,7 @@
                         <a class="edit-user">{{hc.user.name}}</a>
                         <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
 
-                        <ul class="user-dropdown" ng-show="mc.openElement === hc.openUser">
+                        <ul class="user-dropdown fx-fade-up" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
                             <li ui-sref="user({profileId: userID, tab: 'info'})" ui-sref-active="active">Profile</li>
                             <li ui-sref="user({profileId: userID, tab: 'locations'})" ui-sref-active="active">Meine
@@ -43,7 +43,7 @@
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()">
                             <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
                             <img ng-src="images/icons/header/chat.png">
-                            <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover">
+                            <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover fx-fade-up">
                                 <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})"
