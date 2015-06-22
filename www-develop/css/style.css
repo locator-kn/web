@@ -360,6 +360,7 @@ ul.slides {
     margin-left: -150px;
     margin-top: -150px;
     opacity: 0;
+    visibility: hidden;
 
     transition-duration: 0.8s;
     transition-property: opacity;
@@ -367,6 +368,7 @@ ul.slides {
 
 .moodal.active {
     z-index: 1000;
+    visibility: visible;
     opacity: 1;
 }
 
