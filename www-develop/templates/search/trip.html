@@ -15,8 +15,9 @@
         <div class="row">
             <div class="content-header">
                 <div class="col-xs-6">
-                    <img class="pointer profile-image" ng-src="{{tc.user.picture.picture}}"
-                         ui-sref="user({profileId: tc.trip.userid})">
+                    <div ui-sref="user({profileId: tc.trip.userid})">
+                        <img class="pointer profile-image" ng-src="{{tc.user.picture.picture}}">
+                    </div>
                 </div>
                 <div class="btn-mood-container">
                     <div class="message-button pointer">Teilnehmen</div>
