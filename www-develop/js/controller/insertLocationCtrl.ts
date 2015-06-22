@@ -34,6 +34,10 @@ module Controller {
         me:any = {};
 
         constructor(private $scope, private $rootScope, private LocationService, private UserService) {
+
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = true;
+
             this.map = {
                 center: {
                     // kn fh

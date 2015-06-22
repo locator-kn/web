@@ -75,6 +75,9 @@ module Controller {
         constructor(private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
             this.$scope.selectImage = this.selectImage;
 
+            $rootScope.showSearchButton = true;
+            $rootScope.showCreateButton = false;
+
             this.UserService.getMe().then(user => {
                 this.me = user.data;
             });
