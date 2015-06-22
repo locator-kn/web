@@ -195,6 +195,8 @@ module Controller {
         save() {
             var formValues = angular.copy(this.locationFormDetails);
 
+            formValues.tags = formValues.tags.split(" ");
+
             formValues.city = {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
