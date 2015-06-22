@@ -305,7 +305,7 @@ a.padding {
 }
 
 .result {
-    width: 40%;
+    width: 90%;
     float: left;
     margin: 20px 20px 0 0;
     height: 30%;
@@ -1054,7 +1054,7 @@ img-triplist .flex-direction-nav a::before {
     max-width: 770px;
 }
 
-.not-authenticated {
+.not-available {
     opacity: 0.5;
 }
 
