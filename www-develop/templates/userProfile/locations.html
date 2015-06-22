@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 location-tags locationborder">
+                <div ng-if="location.tags.length > 0" class="col-xs-12 location-tags locationborder">
                     <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
