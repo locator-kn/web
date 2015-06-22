@@ -193,23 +193,22 @@ module Controller {
         }
 
         save() {
+            var formValues = angular.copy(this.locationFormDetails);
 
-            this.locationFormDetails.tags = this.locationFormDetails.tags.split(" ");
-
-            this.locationFormDetails.city = {
+            formValues.city = {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
                 place_id: this.selectedPlaceDetails.place_id
             };
 
-            this.locationFormDetails.geotag = {
+            formValues.geotag = {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
 
             debugger;
 
-            this.LocationService.saveLocation(this.locationFormDetails, this.documentId).
+            this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
                     debugger
                 })
