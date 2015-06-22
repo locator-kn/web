@@ -98,19 +98,19 @@
                             <input class="text-fields" type="text" name="tripTitle"
                                    placeholder="benenne deinen trip"
                                    ng-model="itc.tripTitle" required>
-                            <div class="validation-error"
+                            <div style="margin-top: 5px" class="validation-error"
                                  ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
-                                <p class="error-message">Bitte gebe einen Titel für deinen Trip ein.</p>
-                            </div>
-                            <div class="validation-error"
-                                 ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
-                                Wo findet dein Trip statt?
+                                <p class="error-message">Bitte gebe einen Titel für deinen Trip ein</p>
                             </div>
                             <input class="text-fields" name="tripCity" type="text"
                                    placeholder="wo findet dein trip statt?"
                                    ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity"
                                    details="itc.selectedPlaceDetails"
                                    required>
+                            <div class="validation-error"
+                                 ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
+                                <p class="error-message">bitte gebe ein wo dein trip statt findet</p>
+                            </div>
                             <div class="location-section">
                                 <a class="available-locations" name="availableLocations"></a>
 
@@ -155,9 +155,13 @@
                                     <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
                                 </div>
                             </div>
-                        <textarea class="trip-description text-fields" placeholder="beschreibe deinen trip"
+                        <textarea class="trip-description text-fields" name="tripDescription" placeholder="beschreibe deinen trip"
                                   ng-model="itc.tripDescription"
                                   required></textarea>
+                        <div class="validation-error"
+                             ng-show="(itc.form.tripDescription.$touched) && itc.form.tripDescription.$error.required">
+                            <p class="error-message">bitte beschreibe deinen trip</p>
+                        </div>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="für was braucht dein gast eventuell geld?"
                                   ng-model="itc.tripDescriptionMoney"></textarea>
