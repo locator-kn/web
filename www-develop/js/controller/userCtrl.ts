@@ -158,6 +158,11 @@ module Controller {
                 });
         }
 
+        reset() {
+            this.edit = false;
+            this.getUser(this.$stateParams.profileId);
+        }
+
 
         startConversation() {
             this.textMessage = '';
