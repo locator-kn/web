@@ -36,7 +36,7 @@
 
                 </div>
                 <div class="content-bottom">
-                    <form novalidate id="insertLocationForm">
+                    <form novalidate name="ilc.form" id="insertLocationForm">
                         <div>
                             <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
                                    ng-model="ilc.locationFormDetails.title" name="locationTitle"
@@ -58,7 +58,7 @@
                         <textarea class="location-description text-fields" placeholder="Beschreibe deine Location"
                                   ng-model="ilc.locationFormDetails.description" name="locationDescription"
                                   required></textarea>
-                            <div style="margin-top: 5px" class="validation-error"
+                            <div class="validation-error"
                                  ng-show="(ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required">
                                 <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
                             </div>
@@ -78,11 +78,13 @@
                                 <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
                             </div>
 
-                            <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
-                                <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
-                                                options="ilc.map.clickedMarker.options">
-                                </ui-gmap-marker>
-                            </ui-gmap-google-map>
+                            <div class="google-maps-location">
+                                <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
+                                    <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
+                                                    options="ilc.map.clickedMarker.options">
+                                    </ui-gmap-marker>
+                                </ui-gmap-google-map>
+                            </div>
 
                             <div class="save-trip" ng->
                                 <input type="submit" ng-click="ilc.save()" value="SPEICHERN"/>

@@ -49,7 +49,6 @@
 
 .content-bottom .location-city {
     margin-top: 0px;
-    margin-bottom: 40px;
 }
 
 .content-bottom .trip-money {
@@ -343,4 +342,8 @@
 .validation-error .error-message {
     color: #ff4637;
     font-size: 12px;
+}
+
+.google-maps-location {
+    margin-top: 40px;
 }
