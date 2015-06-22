@@ -253,6 +253,7 @@
 .selected-moods {
     float: right;
     margin-right: 15px;
+    margin-top: 3px;
 }
 
 .mood-images .mood-image {
