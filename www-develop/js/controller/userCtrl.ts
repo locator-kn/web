@@ -77,11 +77,23 @@ module Controller {
         }
 
         getLocations() {
-            this.LocationService.getLocationsByUser(this.user._id)
-                .then(result => {
-                    console.info(result.data);
-                    this.locations = result.data;
-                })
+            if (this.me) {
+                this.LocationService.getMyLocations()
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            } else {
+
+                this.LocationService.getLocationsByUser(this.user._id)
+                    .then(result => {
+                        console.info(result.data);
+                        this.locations = result.data;
+                    });
+
+            }
+
         }
 
         editTrigger() {
@@ -350,6 +362,10 @@ module Controller {
                 this.tab = name;
             }
 
+        }
+
+        togglePublicLocation(id) {
+            this.LocationService.togglePublicLocation(id);
         }
 
         static
