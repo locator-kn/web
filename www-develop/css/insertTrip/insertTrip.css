@@ -160,8 +160,8 @@
 }
 
 .mood-menu {
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
 }
 
 .mood-menu:hover {
@@ -172,7 +172,7 @@
     position: relative;
     list-style: none;
     float: left;
-    height: 35px;
+    height: 45px;
 }
 
 .mood-menu li a {
@@ -193,7 +193,7 @@
 
 .mood-menu ul {
     position: absolute;
-    top: 35px;
+    top: 45px;
     right: 0px;
     opacity: 0;
     background: #ff4637;
@@ -208,7 +208,7 @@
     height: 0;
     overflow: hidden;
     padding: 0;
-    width: 190px;
+    width: 210px;
 }
 
 .mood-menu li:hover > ul li {
@@ -218,7 +218,7 @@
 }
 
 .menu-item .plus-image {
-    padding: 5px;
+    padding: 10px;
 }
 
 .mood-menu ul li a {
@@ -231,8 +231,8 @@
 
 .mood-menu .select-mood-image {
     float: right;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     position: relative;
     bottom: 4px;
     right: 5px;
@@ -243,14 +243,21 @@
 }
 
 .selected-moods .mood-images {
-    margin-left: 4px;
     margin-top: 5px;
-    float: left;
+}
+
+.mood-choice {
+    float: right;
+}
+
+.selected-moods {
+    float: right;
+    margin-right: 15px;
 }
 
 .mood-images .mood-image {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
 }
 
 .selected-moods .cross-image {
@@ -258,8 +265,8 @@
     width: 12px;
     float: left;
     position: relative;
-    right: 8px;
-    top: 2px;
+    bottom: 30px;
+    left: 20px;
     cursor: pointer;
 }
 
