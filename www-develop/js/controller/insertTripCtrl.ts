@@ -475,8 +475,10 @@ module Controller {
                         this.tripTitle = result.data.title;
                         this.persons = result.data.persons;
                         this.days = result.data.days;
+
                         this.startDateReal = result.data.start_date;
                         this.endDateReal = result.data.end_date;
+                        this.datePickerOnLinked = true;
 
 
                         var moodqueryString = result.data.moods.join('.');
