@@ -24,7 +24,7 @@ module Controller {
             HelperService.getMoodsByQueryString($state.params.moods).then(moods => {
                 this.selectedMoods = moods;
                 this.updateUrl();
-            }).catch(console.error);
+            });
 
             this.DataService.getAvailableCities()
                 .then(result => {

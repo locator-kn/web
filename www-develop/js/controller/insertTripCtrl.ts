@@ -505,6 +505,7 @@ module Controller {
                         }
 
 
+
                     }).catch(err => {
                         console.info('error gettin trip', err);
                     })
