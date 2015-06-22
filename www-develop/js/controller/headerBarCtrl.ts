@@ -222,6 +222,7 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
+                    this.getConversations()
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
