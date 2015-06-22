@@ -190,8 +190,9 @@ module Controller {
 
         save() {
 
-            this.locationFormDetails.tags = this.locationFormDetails.tags.split(' ');
+            this.locationFormDetails.tags = this.locationFormDetails.tags.split(" ");
 
+            debugger;
             this.locationFormDetails.city = {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
@@ -202,6 +203,8 @@ module Controller {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
+
+            debugger;
 
             this.LocationService.saveLocation(this.locationFormDetails, this.documentId).
                 then(() => {
