@@ -34,7 +34,9 @@
                     <span class="toggle-label">Location sichtbar</span>
 
                     <div class="switch">
-                        <input id="{{location._id}}" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <input ng-if="location.public" id="{{location._id}}" checked class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                        <input ng-if="!location.public" id="{{location._id}}" class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+
                         <label for="{{location._id}}"></label>
                     </div>
                 </div>
