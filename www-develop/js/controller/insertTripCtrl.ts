@@ -475,30 +475,30 @@ module Controller {
 
                         var moodqueryString = result.data.moods.join('.');
 
-                        this.selectedMoods = this.HelperService.getMoods(moodqueryString, (data, err) => {
-                            this.selectedMoods = data;
-                        });
+                        
+                        this.selectedMoods = this.HelperService.getMoodsByQueryString(moodqueryString)
+                            .catch(console.error)
+                            .then(result => {
+                                this.selectedMoods = result;
+                            });
 
 
                         this.selectableMoods = this.lodash.without(this.selectableMoods, this.selectedMoods);
 
 
                         /*for (var key in result.data.locations) {
-                            if (result.data.locations.hasOwnProperty(key)) {
-                                this.addLocationToTrip(key);
-                            }
-                        }*/
+                         if (result.data.locations.hasOwnProperty(key)) {
+                         this.addLocationToTrip(key);
+                         }
+                         }*/
 
 
                         this.tripDescriptionMoney = result.data.description_money;
 
 
-
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
                         }
-
-                        debugger;
 
 
 
