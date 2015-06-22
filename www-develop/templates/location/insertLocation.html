@@ -36,42 +36,57 @@
 
                 </div>
                 <div class="content-bottom">
-                    <form id="insertLocationForm">
+                    <form novalidate name="ilc.form" id="insertLocationForm">
                         <div>
-
                             <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
-                                   ng-model="ilc.locationFormDetails.title" ng-model-options="{ updateOn: 'blur'}"
+                                   ng-model="ilc.locationFormDetails.title" name="locationTitle"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required">
+                                <p class="error-message">bitte gib den namen der location ein</p>
+                            </div>
 
                             <input class="text-fields" type="text" placeholder="Tags"
                                    ng-model="ilc.locationFormDetails.tags"
-                                   ng-model-options="{ updateOn: 'blur'}"
+                                   name="locationTag"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required">
+                                <p class="error-message">bitte gib tags für deine location ein</p>
+                            </div>
 
-                        <textarea class="trip-description text-fields" placeholder="Beschreibe deine Location"
-                                  ng-model="ilc.locationFormDetails.description" ng-model-options="{ updateOn: 'blur'}"
+                        <textarea class="location-description text-fields" placeholder="Beschreibe deine Location"
+                                  ng-model="ilc.locationFormDetails.description" name="locationDescription"
                                   required></textarea>
+                            <div class="validation-error"
+                                 ng-show="(ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required">
+                                <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
+                            </div>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="Für was braucht dein Gast eventuell Geld?"
                                   ng-model="ilc.locationFormDetails.budget"
-                                  ng-model-options="{ updateOn: 'blur'}"></textarea>
+                                  ></textarea>
 
                             <p>Wähle eine Stadt und markiere die Location auf der Karte:</p>
-                            <input class="text-fields" type="text"
+                            <input class="location-city text-fields" type="text"
                                    placeholder="In welcher Stadt ist diese Location?"
                                    ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
-                                   details="ilc.selectedPlaceDetails" ng-model-options="{ updateOn: 'blur'}"
+                                   details="ilc.selectedPlaceDetails" name="locationCity"
                                    required>
+                            <div style="margin-top: 5px" class="validation-error"
+                                 ng-show="(ilc.form.locationCity.$touched) && ilc.form.locationCity.$error.required">
+                                <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
+                            </div>
 
-                            <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
-                                <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
-                                                options="ilc.map.clickedMarker.options">
-                                </ui-gmap-marker>
-                            </ui-gmap-google-map>
+                            <div class="google-maps-location">
+                                <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
+                                    <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
+                                                    options="ilc.map.clickedMarker.options">
+                                    </ui-gmap-marker>
+                                </ui-gmap-google-map>
+                            </div>
 
                             <div class="save-trip" ng->
-                                <!--<button>SPEICHERN</button>
-    -->
                                 <input type="submit" ng-click="ilc.save()" value="SPEICHERN"/>
                             </div>
                         </div>
