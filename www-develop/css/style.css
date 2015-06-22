@@ -824,6 +824,10 @@ img.center {
     background-color: #33c4b7;
 }
 
+.profile .save.reset.submit {
+    background-color: #ff4637;
+}
+
 span.editbutton {
     font-size: 10px;
 }
