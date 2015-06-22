@@ -24,12 +24,13 @@ module Controller {
         selectedPlaceDetails:any = {};
 
         locationFormDetails:any = {
+            tags: '',
             title: '',
             description: '',
             budget: '',
-            category: '',
             city: {}
         };
+
 
         me:any = {};
 
@@ -188,6 +189,9 @@ module Controller {
         }
 
         save() {
+
+            this.locationFormDetails.tags = this.locationFormDetails.tags.split(' ');
+
             this.locationFormDetails.city = {
                 title: this.selectedPlaceDetails.name,
                 id: this.selectedPlaceDetails.id,
