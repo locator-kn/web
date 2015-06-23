@@ -25,13 +25,8 @@ module Controller {
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
                             this.user = result.data;
+                            this.me = this.$rootScope.userID === (this.user._id || this.user.id);
 
-                            if (this.user._id = this.$rootScope.userID) {
-                                this.me = true;
-                            } else {
-                                false;
-                            }
-                            
                         });
 
                     var locationsHash = this.trip.locations;
