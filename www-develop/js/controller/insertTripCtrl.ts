@@ -495,9 +495,7 @@ module Controller {
                             }
                         }
 
-
                         this.tripDescriptionMoney = result.data.description_money;
-
 
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
