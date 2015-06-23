@@ -13,7 +13,7 @@
         <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
 
         <progress-arc
-            ng-hide="ilc.uploadIsDone"
+            ng-if="!ilc.uploadIsDone"
             class="progressbar"
             size="100"
             complete="ilc.progressPercentage"
