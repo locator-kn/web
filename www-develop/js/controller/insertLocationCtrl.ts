@@ -12,6 +12,7 @@ module Controller {
         revision:string = '';
         imageHasBeenUploaded:boolean = false;
         headerImagePath:string = '';
+        mapMarkerSet:boolean = false;
 
         locationTitle:string = '';
 
@@ -90,6 +91,7 @@ module Controller {
                 longitude: lon
             };
             console.log(this.map.clickedMarker);
+            this.mapMarkerSet = true;
             this.$scope.$apply();
         }
 
