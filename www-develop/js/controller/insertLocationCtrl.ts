@@ -103,7 +103,7 @@ module Controller {
                 var image = new Image();
                 this.selectedImage = file.files[0];
                 // TODO handle images larger than 6mb
-                if (this.selectedImage.size >= 2291456) {
+                if (this.selectedImage.size >= 6291456) {
                     debugger
                     return
                 }
