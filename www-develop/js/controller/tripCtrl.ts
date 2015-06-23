@@ -58,6 +58,8 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
+            this.$rootScope.$emit('new_conversation');
         }
 
 
