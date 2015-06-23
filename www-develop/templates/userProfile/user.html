@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-xs-12 userheader">
 
-            <img ng-click="pc.showImageChooser()" class="center profile-image img-responsive border-radius"
+            <img ng-click="pc.showImageChooser()" ng-class="{'pointer': pc.isItMe}" class="center profile-image img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
 
             <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span>
