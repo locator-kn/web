@@ -4,8 +4,7 @@
         Bilder dürfen maximal 6 Megabyte groß sein.</p>
     </div>
     <div class="btns controls">
-        <div class="locator-btn save-btn" ng-click="ilc.showImageChooser()">choose image</div>
-        <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection()">abbrechen</div>
+        <div class="locator-btn save-btn" ng-click="ilc.showImageChooser() || pc.showImageChooser()">choose image</div>
+        <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection() || pc.clearFileSelection()">abbrechen</div>
     </div>
-
 </div>
