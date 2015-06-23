@@ -1162,3 +1162,8 @@ input.cmn-toggle-round:checked + label:after {
 .float-left {
     float: left;
 }
+
+.icon-wrapper {
+    width: 100%;
+    height: 100%;
+}
