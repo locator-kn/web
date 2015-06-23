@@ -59,6 +59,12 @@ module Controller {
             })
         }
 
+        participate() {
+            if (!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
+        }
+
 
         static controllerId:string = "TripCtrl";
     }
