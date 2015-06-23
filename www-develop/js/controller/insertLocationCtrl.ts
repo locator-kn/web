@@ -125,6 +125,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+            this.clearFileSelection();
             $('#image-upload').click();
         }
 
@@ -186,6 +187,7 @@ module Controller {
         clearFileSelection() {
             this.showImageUploadModal = false;
             this.$rootScope.overlay = false;
+            this.showImageTooLargeModal = false;
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
