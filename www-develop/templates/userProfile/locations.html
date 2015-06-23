@@ -2,14 +2,14 @@
     <div class="row">
 
         <div class="searchbar col-xs-12">
-            <input ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
+            <input ng-model-options="{debounce:300}" ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
         </div>
     </div>
 
 
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
-             class="col-xs-12 col-sm-12 location relative">
+             class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
             <div class="inner-result">
 
                 <img class="img-responsive"
