@@ -31,9 +31,7 @@ module Controller {
                             } else {
                                 false;
                             }
-
-                            debugger;
-
+                            
                         });
 
                     var locationsHash = this.trip.locations;
