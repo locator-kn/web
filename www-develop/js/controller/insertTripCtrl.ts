@@ -36,6 +36,8 @@ module Controller {
         selectedMoods:any = [];
         selectableMoods:any = [];
 
+        editDataAvailable:boolean = false;
+
         accommodationEquipment:any = [];
         accommodationEquipmentSelectable = false;
         progressPercentage:number;
@@ -87,6 +89,7 @@ module Controller {
                 this.selectableMoods = moods.data;
             });
 
+
             this.LocationService.getMyLocations().then(response => {
 
                 response.data.forEach((loc:any) => {
@@ -105,7 +108,9 @@ module Controller {
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;
+
                 this.initEdit();
+
             });
 
             $rootScope.overlay = false;
@@ -311,8 +316,7 @@ module Controller {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
-                    this.documentId = data.id;
-                    this.revision = data.rev;
+                    this.documentId = data._id;
                     this.uploadIsDone = true;
                     var tripImage = document.getElementById("trip-image");
                     tripImage.style.height = "auto";
@@ -402,10 +406,14 @@ module Controller {
                 //delete
             };
 
+
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
+
             };
+
+            debugger;
 
             //store trip in DB
             this.TripService.saveTrip(t, documentMetaData)
@@ -465,17 +473,19 @@ module Controller {
 
         initEdit() {
             if (this.$state.params.tripId) {
+                this.documentId = this.$state.params.tripId;
+                this.datePickerOnLinked = true;
+
                 this.TripService.getTripById(this.$state.params.tripId)
                     .then(result => {
+
+                        this.startDateReal = result.data.start_date;
+                        this.endDateReal = result.data.end_date;
 
                         this.tripDescription = result.data.description;
                         this.tripTitle = result.data.title;
                         this.persons = result.data.persons;
                         this.days = result.data.days;
-
-                        this.startDateReal = result.data.start_date;
-                        this.endDateReal = result.data.end_date;
-                        this.datePickerOnLinked = true;
 
 
                         var moodqueryString = result.data.moods.join('.');
@@ -500,6 +510,8 @@ module Controller {
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
                         }
+
+                        this.editDataAvailable = true;
 
 
                     }).catch(err => {
