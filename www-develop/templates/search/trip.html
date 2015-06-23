@@ -8,9 +8,6 @@
         </flex-slider>
     </div>
 
-
-
-
     <div class="container trip-container header content-width">
         <div class="row">
             <div class="content-header">
@@ -20,7 +17,8 @@
                     </div>
                 </div>
                 <div class="btn-mood-container">
-                    <div class="message-button pointer">Teilnehmen</div>
+                    <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">Teilnehmen</div>
+                    <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">Bearbeiten</div>
                     <div class="trip-mood-container">
                         <span ng-repeat="mood in tc.trip.moods">
                             <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
@@ -58,20 +56,15 @@
                         <div ng-hide="tc.trip.accommodation == false">
                             <h5>Unterkunft</h5>
 
-                            <div class="accommodation-equipment">
+                            <div class="accommodation-equipment-wrapper">
                                 <acc-equ-chooser accommodation-equipment-selectable="false"
                                                  accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser>
                             </div>
                         </div>
-                        <h5>Locations</h5>
-
-                        <div ng-repeat="location in tc.locations">
-                            {{location.title}}
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+</div>
 

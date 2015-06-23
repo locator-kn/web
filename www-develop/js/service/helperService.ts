@@ -55,8 +55,8 @@ module Service {
 
         }
 
-        saveSearchContext() {
-            localStorage.setItem('searchContext', JSON.stringify(this.$state.params));
+        saveSearchContext(query) {
+            localStorage.setItem('searchContext', JSON.stringify(query));
         }
 
         getSearchContext() {

@@ -121,15 +121,6 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/messenger/messenger.html"
             })
 
-            .state('app.login', {
-                url: "/login",
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/login.html"
-                    }
-                }
-            })
-
             .state('user', {
                 url: "/user/:profileId?tab",
                 templateUrl: "templates/userProfile/user.html"
@@ -137,6 +128,11 @@ var app = angular.module('locator', deps)
 
             .state('insertTrip', {
                 url: "/insert-trip/?city&moods&days",
+                templateUrl: "templates/insertTrip/insertTrip.html"
+            })
+
+            .state('editTrip', {
+                url: "/edit-trip/:tripId",
                 templateUrl: "templates/insertTrip/insertTrip.html"
             })
 

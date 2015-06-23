@@ -52,6 +52,14 @@
     margin-top: 5px;
 }
 
+.tt-left:after {
+    right: 140%;
+}
+
+.tt-right:after {
+    right: 0%;
+}
+
 .not-authenticated.tt::after {
     content: attr(aria-not-authenticated);
 }

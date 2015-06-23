@@ -1,10 +1,74 @@
-<div class="mytrips-container">
+<div class="mytrips-container mylocations-container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 fx-fade-up fx-speed-3000 pointer" ng-repeat="trip in pc.trips">
-            <trip-min-view trip="trip"></trip-min-view>
+        <div class="searchbar col-xs-12">
+            <input ng-model-options="{debounce:300}" ng-model="pc.tripSearch" placeholder="Suche" type="text" name="search">
         </div>
     </div>
-    <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
-        <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
+
+    <div class="row fx-fade-up fx-speed-3000">
+        <div class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 tripsmall" ng-repeat="trip in pc.trips | filter:pc.tripSearch">
+
+            <div class="inner-result">
+                <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
+                <div class="col-xs-12"><h3>{{trip.title}}</h3>
+
+                    <p>
+                        Von
+                        <resultdate class="orange" date="trip.start_date"></resultdate>
+                        bis
+                        <resultdate class="orange" date="trip.end_date"></resultdate>
+                    </p>
+
+                </div>
+
+
+                <div class="content">
+
+                    <div class="col-sm-5">
+                        <h3>{{trip.city.title}}</h3>
+                    </div>
+
+                    <div class="col-sm-7">
+                        <p clas="description">{{trip.description}}</p>
+                    </div>
+
+                </div>
+
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder relative">
+                    <span class="toggle-label">Trip sichtbar</span>
+
+                    <div class="switch">
+                        <input ng-if="trip.public" id="{{trip._id}}" checked class="cmn-toggle cmn-toggle-round"
+                               ng-click="pc.togglePublicLocation(trip._id)" type="checkbox">
+                        <input ng-if="!trip.public" id="{{trip._id}}" class="cmn-toggle cmn-toggle-round"
+                               ng-click="pc.togglePublicLocation(trip._id)" type="checkbox">
+
+                        <label for="{{trip._id}}"></label>
+                    </div>
+
+                    <div class="action-buttons">
+                        <div ng-hide="!trip.showdelete" class="fx-fade-up fx-speed-300 delete-message">
+                            <a ng-click="pc.deleteTrip(trip)" class="red button locator-btn">Löschen</a>
+                            <a ng-click="trip.showdelete = !trip.showdelete" class="cyan button locator-btn">nicht löschen</a>
+                        </div>
+
+                    <span ui-sref="editTrip({tripId: trip._id})" class="action-button edit"><img
+                        src="images/icons/icons_stuff/pencil.png"></span>
+                    <span ng-click="pc.showDelete(trip)" class="action-button delete"><img
+                        src="images/icons/icons_stuff/cross.png"></span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
+            <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
+        </div>
     </div>
+
 </div>
+
+
