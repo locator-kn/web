@@ -181,7 +181,7 @@ module Controller {
 
         getSelectedMoodQuerynames() {
             var selectedQuerynames = [];
-            this.selectedMoods.forEach((elem) => {
+            this.selectedMoods.forEach((elem:any) => {
                 selectedQuerynames.push(elem.query_name);
             });
             return selectedQuerynames;
