@@ -231,8 +231,6 @@ module Controller {
         }
 
         selectImage(file) {
-            this.$rootScope.overlay = true;
-            this.showImageUploadModal = true;
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 var image = new Image();
@@ -244,6 +242,9 @@ module Controller {
                     this.$rootScope.$apply();
                     return
                 }
+
+                this.$rootScope.overlay = true;
+                this.showImageUploadModal = true;
 
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
