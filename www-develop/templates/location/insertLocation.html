@@ -12,8 +12,9 @@
     <div id="trip-image" class="trip-image">
         <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
 
-        <div ng-if="ilc.uploadIsDone">
+        <div ng-if="!ilc.uploadIsDone">
             <progress-arc
+                ng-hide="ilc.uploadIsDone"
             class="progressbar"
             size="100"
             complete="ilc.progressPercentage"
