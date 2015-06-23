@@ -1125,6 +1125,7 @@ input.cmn-toggle-round + label {
     background-color: #F5F5F5;
     border-radius: 60px;
 }
+
 input.cmn-toggle-round + label:before,
 input.cmn-toggle-round + label:after {
     display: block;
@@ -1134,12 +1135,14 @@ input.cmn-toggle-round + label:after {
     bottom: 1px;
     content: "";
 }
+
 input.cmn-toggle-round + label:before {
     right: 1px;
     background-color: #D5D5D5;
     border-radius: 60px;
     transition: background 0.4s;
 }
+
 input.cmn-toggle-round + label:after {
     width: 30px;
     background-color: whitesmoke;
@@ -1147,9 +1150,11 @@ input.cmn-toggle-round + label:after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: margin 0.4s;
 }
+
 input.cmn-toggle-round:checked + label:before {
     background-color: #33c4b7;
 }
+
 input.cmn-toggle-round:checked + label:after {
     margin-left: 60px;
 }
@@ -1161,4 +1166,36 @@ input.cmn-toggle-round:checked + label:after {
 
 .float-left {
     float: left;
+}
+
+.action-buttons .action-button img {
+    width: 35px;
+    float: left;
+}
+
+.mylocations-container .action-buttons {
+    float: right;
+}
+
+.action-buttons .delete-message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: white;
+    text-align: center;
+    padding: 9px;
+}
+
+.action-buttons .delete-message .button {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    color: white;
+}
+
+.action-buttons .delete-message .button.red {
+    text-align: center;
+    background-color: #ff4637;
 }
