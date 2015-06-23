@@ -305,9 +305,8 @@ a.padding {
 }
 
 .result {
-    width: 90%;
-    margin: 0 auto;
-    height: 30%;
+    float: left;
+    width: 100%;
 }
 
 ul.slides {
@@ -655,6 +654,10 @@ a.close-modal {
     width: 200px;
     text-align: center;
 }
+.progressbar .ng-hide {
+    overflow: hidden;
+    height: 0;
+}
 
 .progressbar {
     position: absolute;
@@ -703,10 +706,6 @@ a.close-modal {
     position: relative;
 }
 
-.header-bar-wrapper {
-    position: relative;
-    z-index: 1000;
-}
 
 .message-badge {
     width: 25px;
@@ -1218,4 +1217,15 @@ input.cmn-toggle-round:checked + label:after {
 .image-too-large .moodal-content {
     border: 1px solid #fff;
     border-radius: 2px;
+}
+
+.fixed.header-bar-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10000;
+}
+
+.uiview {
+    margin-top: 60px;
 }

@@ -9,17 +9,19 @@
             </div>
         </div>
     </div>
-    <div id="trip-image" class="trip-image" ng-click="ilc.showImageChooser()">
+    <div id="trip-image" class="trip-image">
         <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
 
-        <progress-arc
-            ng-hide="ilc.uploadIsDone"
+        <div ng-if="!ilc.uploadIsDone">
+            <progress-arc
+                ng-hide="ilc.uploadIsDone"
             class="progressbar"
             size="100"
             complete="ilc.progressPercentage"
             counter-clockwise="true">
         </progress-arc>
-        <a class="choose-image welcome_button">Choose image</a>
+        </div>
+        <a class="choose-image welcome_button" ng-click="ilc.showImageChooser()">Choose image</a>
         <input id="image-upload" type="file" accept="image/*" onchange="angular.element(this).scope().ilc.selectImage(this)"
                style="display: none">
 
