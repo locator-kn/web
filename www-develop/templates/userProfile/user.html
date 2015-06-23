@@ -15,14 +15,6 @@
     <input id="image-upload-profile" type="file" accept="image/*" onchange="angular.element(this).scope().pc.selectImage(this)"
            style="display: none">
     <div  class="image-too-large" ng-if="pc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
-    <progress-arc
-        ng-hide="pc.uploadIsDone"
-        ng-class="{'hidden-height': pc.uploadIsDone}"
-        class="progressbar"
-        size="100"
-        complete="pc.progressPercentage"
-        counter-clockwise="true">
-    </progress-arc>
 
     <div class="row">
         <div class="col-xs-12 userheader">
