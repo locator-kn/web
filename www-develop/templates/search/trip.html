@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="btn-mood-container">
-                    <div class="message-button pointer">Teilnehmen</div>
+                    <div class="message-button pointer" ng-click="tc.participate()">Teilnehmen</div>
                     <div class="trip-mood-container">
                         <span ng-repeat="mood in tc.trip.moods">
                             <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
@@ -55,7 +55,7 @@
                         <div ng-hide="tc.trip.accommodation == false">
                             <h5>Unterkunft</h5>
 
-                            <div class="accommodation-equipment">
+                            <div class="accommodation-equipment-wrapper">
                                 <acc-equ-chooser accommodation-equipment-selectable="false"
                                                  accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser>
                             </div>
