@@ -119,16 +119,7 @@ var app = angular.module('locator', deps)
                 url: "/:opponentId",
                 templateUrl: "templates/messenger/messenger.html"
             })
-
-            .state('app.login', {
-                url: "/login",
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/login.html"
-                    }
-                }
-            })
-
+            
             .state('user', {
                 url: "/user/:profileId?tab",
                 templateUrl: "templates/userProfile/user.html"
