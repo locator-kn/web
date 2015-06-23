@@ -119,14 +119,19 @@ var app = angular.module('locator', deps)
                 url: "/:opponentId",
                 templateUrl: "templates/messenger/messenger.html"
             })
-            
+
             .state('user', {
                 url: "/user/:profileId?tab",
                 templateUrl: "templates/userProfile/user.html"
             })
 
             .state('insertTrip', {
-                url: "/insert-trip/?city&moods&days&tripId",
+                url: "/insert-trip/?city&moods&days",
+                templateUrl: "templates/insertTrip/insertTrip.html"
+            })
+
+            .state('editTrip', {
+                url: "/edit-trip/:tripId",
                 templateUrl: "templates/insertTrip/insertTrip.html"
             })
 
