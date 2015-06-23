@@ -2,7 +2,7 @@
     <div class="image-upload-modal" ng-show="ilc.showImageUploadModal">
         <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
-        <div class="controls">
+        <div class="controls" ng-show="!ilc.isUploading">
             <div class="btns">
                 <div class="locator-btn save-btn" ng-click="ilc.uploadImage()">hochladen</div>
                 <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection()">abbrechen</div>
@@ -12,14 +12,7 @@
     <div id="trip-image" class="trip-image">
         <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
 
-            <progress-arc
-                ng-hide="ilc.uploadIsDone"
-                ng-class="{'hidden-height': ilc.uploadIsDone}"
-            class="progressbar"
-            size="100"
-            complete="ilc.progressPercentage"
-            counter-clockwise="true">
-        </progress-arc>
+
         <a class="choose-image welcome_button" ng-click="ilc.showImageChooser()">Choose image</a>
         <input id="image-upload" type="file" accept="image/*" onchange="angular.element(this).scope().ilc.selectImage(this)"
                style="display: none">
