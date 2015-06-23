@@ -54,6 +54,10 @@ module Service {
             return array;
         }
 
+        deleteTrip(_id) {
+            return this.$http.delete(this.basePath + '/trips/' + _id);
+        }
+
         static
             serviceId:string = "TripService";
     }
