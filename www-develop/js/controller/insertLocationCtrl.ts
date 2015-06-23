@@ -221,7 +221,7 @@ module Controller {
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
-                    debugger
+                    this.$state.go('user', {tab: 'locations'});
                 })
                 .catch(() => {
                     debugger
