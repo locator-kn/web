@@ -55,7 +55,9 @@
                             <div class="left-section" set-class-when-at-top="fix-to-top" breakpoint="768">
                                 <input type="hidden" ng-model="itc.startDateReal" required/>
                                 <input type="hidden" ng-model="itc.endDateReal"/>
-                                <datepicker start-date-real="itc.startDateReal"
+                                <datepicker ng-if="itc.editDataAvailable" start-date-real="itc.startDateReal"
+                                            end-date-real="itc.endDateReal" on-linked="itc.datePickerOnLinked"></datepicker>
+                                <datepicker ng-if="!itc.editDataAvailable" start-date-real="itc.startDateReal"
                                             end-date-real="itc.endDateReal" on-linked="itc.datePickerOnLinked"></datepicker>
                                 <div class="days-amount">
                                     <p class="text">anzahl tage</p>
