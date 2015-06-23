@@ -10,6 +10,8 @@
         </div>
     </div>
     <div id="trip-image" class="trip-image" ng-click="ilc.showImageChooser()">
+        <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
+
         <progress-arc
             ng-hide="ilc.uploadIsDone"
             class="progressbar"
