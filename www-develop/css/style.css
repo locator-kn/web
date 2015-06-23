@@ -1223,3 +1223,7 @@ input.cmn-toggle-round:checked + label:after {
     border: 1px solid #fff;
     border-radius: 2px;
 }
+.hidden-height progress-arc {
+    overflow: hidden;
+    height: 0;
+}
