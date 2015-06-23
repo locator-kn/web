@@ -20,7 +20,9 @@
                     </div>
                 </div>
                 <div class="btn-mood-container">
-                    <div class="message-button pointer">Teilnehmen</div>
+                    <div ng-if="!tc.me" class="message-button pointer">Teilnehmen</div>
+                    <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">Bearbeiten</div>
+
                     <div class="trip-mood-container">
                         <span ng-repeat="mood in tc.trip.moods">
                             <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
