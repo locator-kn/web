@@ -1,10 +1,10 @@
 <div class="container profile" ng-controller="UserCtrl as pc">
 
     <div class="image-upload-modal" ng-class="{'is-uploading' : pc.isUploading}" ng-show="pc.showImageUploadModal">
-        <div class="big-progress" ng-style="{'width': pc.progressPercentage * 100 + '%'}"></div>
+        <div class="big-progress" ng-style="{'height': pc.progressPercentage * 100 + '%'}"></div>
         <img src="{{pc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
 
-        <div class="controls">
+        <div class="controls" ng-show="!pc.isUploading">
             <div class="btns">
                 <div class="locator-btn save-btn" ng-click="pc.uploadImage()">hochladen</div>
                 <div class="locator-btn cancel-btn" ng-click="pc.clearFileSelection()">abbrechen</div>
@@ -15,14 +15,6 @@
     <input id="image-upload-profile" type="file" accept="image/*" onchange="angular.element(this).scope().pc.selectImage(this)"
            style="display: none">
     <div  class="image-too-large" ng-if="pc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
-    <progress-arc
-        ng-hide="pc.uploadIsDone"
-        ng-class="{'hidden-height': pc.uploadIsDone}"
-        class="progressbar"
-        size="100"
-        complete="pc.progressPercentage"
-        counter-clockwise="true">
-    </progress-arc>
 
     <div class="row">
         <div class="col-xs-12 userheader">

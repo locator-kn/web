@@ -1105,9 +1105,10 @@ a:focus {
 .big-progress, .big-progress {
     position: absolute;
     z-index: 9999;
-    width: 0;
-    height: 100%;
-    background-color: #003eff;
+    width: 100%;
+    height: 0;
+    bottom:0;
+    background-color: rgba(255,255,255,0.5);
     transition: all 1s;
     content: ' ';
 
