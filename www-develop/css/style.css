@@ -655,6 +655,10 @@ a.close-modal {
     width: 200px;
     text-align: center;
 }
+.progressbar .ng-hide {
+    overflow: hidden;
+    height: 0;
+}
 
 .progressbar {
     position: absolute;
