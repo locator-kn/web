@@ -196,6 +196,9 @@ module Controller {
             angular.element('.overlay').bind('click', () => {
                 this.closeDialog();
             });
+
+            this.$rootScope.$emit('new_conversation');
+
         }
 
         closeDialog() {
