@@ -54,11 +54,11 @@ module Controller {
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
-                this.me = this.isItMe();
+                this.me = this.isItMe;
             });
 
             if (this.$rootScope.authenticated) {
-                this.me = this.isItMe();
+                this.me = this.isItMe;
             }
 
 
@@ -108,7 +108,7 @@ module Controller {
             this.edit = !this.edit;
         }
 
-        isItMe() {
+        get isItMe() {
             return this.$rootScope.userID === this.$stateParams.profileId;
         }
 
