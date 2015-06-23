@@ -1221,6 +1221,7 @@ input.cmn-toggle-round:checked + label:after {
 .image-too-large .moodal-content {
     border: 1px solid #fff;
     border-radius: 2px;
+    margin-bottom: 22px;
 }
 
 .fixed.header-bar-wrapper {
