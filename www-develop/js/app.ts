@@ -139,6 +139,11 @@ var app = angular.module('locator', deps)
             .state('insertLocation', {
                 url: "/insert-location",
                 templateUrl: "templates/location/insertLocation.html",
+            })
+
+            .state('editLocation', {
+                url: "/edit-location/:locationId",
+                templateUrl: "templates/location/insertLocation.html",
             });
 
         $urlRouterProvider.otherwise('welcome');
