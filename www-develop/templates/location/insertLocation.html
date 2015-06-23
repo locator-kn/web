@@ -86,8 +86,10 @@
                                 </ui-gmap-google-map>
                             </div>
 
-                            <div class="save-trip" ng->
-                                <input type="submit" ng-click="ilc.save()" value="SPEICHERN"/>
+                            <div class="save-trip">
+                                <input type="submit"
+                                       ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
+                                       ng-click="ilc.save()" value="SPEICHERN"/>
                             </div>
                         </div>
                     </form>
