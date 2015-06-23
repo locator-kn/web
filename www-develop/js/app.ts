@@ -65,7 +65,8 @@ var deps = [
     'uiGmapgoogle-maps',
     'luegg.directives',
     'monospaced.elastic',
-    'infinite-scroll'
+    'infinite-scroll',
+    'ngFx', 'ngAnimate'
 ];
 
 var app = angular.module('locator', deps)

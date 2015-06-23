@@ -32,9 +32,11 @@
     "angular-accommodation-equipment-chooser": "~0.2.3",
     "angular-google-maps": "~2.1.2",
     "angular-scroll-glue": "~2.0.5",
-    "angular-elastic": "~2.4.2", 
+    "angular-elastic": "~2.4.2",
     "angular-selection-list": "~1.0.3",
-    "ngInfiniteScroll": "~1.2.1"
+    "ngInfiniteScroll": "~1.2.1",
+    "gsap": "~1.17.0",
+    "ngFx": "~1.1.0"
   },
   "resolutions": {
     "angular": "~1.3",

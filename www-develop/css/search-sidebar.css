@@ -240,6 +240,7 @@ img-triplist {
 .inner-result {
     border: 2px solid rgb(193, 195, 195);
     float: left;
+    margin: 20px 20px 0 0;
     width: 100%;
 }
 
