@@ -1215,7 +1215,7 @@ input.cmn-toggle-round:checked + label:after {
     width: 60vw;
     margin-left: -30vw;
 }
-.image-too-large .modal-content {
+.image-too-large .moodal-content {
     border: 1px solid #fff;
     border-radius: 2px;
 }
