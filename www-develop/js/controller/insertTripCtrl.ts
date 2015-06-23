@@ -89,7 +89,6 @@ module Controller {
                 this.selectableMoods = moods.data;
             });
 
-
             this.LocationService.getMyLocations().then(response => {
 
                 response.data.forEach((loc:any) => {
@@ -117,8 +116,6 @@ module Controller {
             $rootScope.showSearchButton = true;
 
             // handle url params
-
-
             HelperService.getMoodsByQueryString(this.$state.params.moods).then(result => {
                 this.selectedMoods = result;
                 if (this.selectedMoods.length > 0) {
@@ -406,14 +403,10 @@ module Controller {
                 //delete
             };
 
-
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
-
             };
-
-            debugger;
 
             //store trip in DB
             this.TripService.saveTrip(t, documentMetaData)
