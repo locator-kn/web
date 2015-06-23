@@ -1162,3 +1162,23 @@ input.cmn-toggle-round:checked + label:after {
 .float-left {
     float: left;
 }
+
+.image-too-large {
+    color:#fff;
+    text-align: center;
+}
+.image-too-large h1 {
+    font-size: 55px;
+    font-weight: bold;
+}
+.image-too-large p {
+    font-size: 18px;
+}
+.image-too-large .moodal {
+    width: 60vw;
+    margin-left: -30vw;
+}
+.image-too-large .modal-content {
+    border: 1px solid #fff;
+    border-radius: 2px;
+}
