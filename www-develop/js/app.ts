@@ -281,6 +281,57 @@ var app = angular.module('locator', deps)
         }
     })
 
+    .directive('tripMinView', function () {
+        var tmpl = [
+            '<div class="result">',
+            '<div class="inner-result">',
+            '<img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>',
+            '<div class="result-content-wrapper" ui-sref="trip({tripId:trip._id})">',
+            '<div class="result-content">',
+            '<h3>{{trip.title}}</h3>',
+            '<p class="result-user-info">',
+            'Von <span class="orange">{{trip.username}}</span>',
+            '</p>',
+            '<p>',
+            'Von ',
+            '<resultdate class="orange" date="trip.start_date"></resultdate>',
+            ' bis ',
+            '<resultdate class="orange" date="trip.end_date"></resultdate>',
+            '<br>',
+            '<div class="day-amount" ng-show="trip.days == 1">',
+            '<div class="day-amount-label">Dauer: </div>',
+            '<span class="orange">{{trip.days}} Tag</span>',
+            '</div>',
+            '<div class="day-amount" ng-show="trip.days != 1">',
+            '<div class="day-amount-label">Dauer: </div>',
+            '<span class="orange">{{trip.days}} Tage</span>',
+            '</div>',
+            '<div class="moods-container">',
+            '<div ng-repeat="mood in trip.moods">',
+            '<div ng-repeat="availableMood in src.availableMoods |filter:mood">',
+            '<span class="tt tt-small" aria-label="{{availableMood.title}}">',
+            '<img aria-label="{{availableMood.title}}"',
+            'class="result-mood-icon"',
+            'ng-src="./images/icons/{{availableMood.icon}}">',
+            '</span>',
+            '</div>',
+            '</div>',
+            '</div>',
+            '</p>',
+            '</div>',
+            '</div>',
+            '</div>',
+            '</div>'
+            ];
+
+        return {
+            scope: {
+                trip: "="
+            },
+            template: tmpl.join('')
+        }
+    })
+
     .directive('focus', function () {
         return function (scope, elem, attr) {
            angular.element(elem).focus();

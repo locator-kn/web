@@ -7,45 +7,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 pointer" ng-repeat="result in src.results">
-                <div class="result">
-                    <div class="inner-result">
-                        <img-triplist locations="result.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
-                        <div class="result-content-wrapper" ui-sref="trip({tripId:result._id})">
-                            <div class="result-content">
-                                <h3>{{result.title}}</h3>
-                                <p class="result-user-info">
-                                    Von <span class="orange">{{result.username}}</span>
-                                </p>
-                                <p>
-                                    Von
-                                    <resultdate class="orange" date="result.start_date"></resultdate>
-                                    bis
-                                    <resultdate class="orange" date="result.end_date"></resultdate>
-                                    <br>
-                                <div class="day-amount" ng-show="result.days == 1">
-                                    <div class="day-amount-label">Dauer:</div>
-                                    <span class="orange">{{result.days}} Tag</span>
-                                </div>
-                                <div class="day-amount" ng-show="result.days != 1">
-                                    <div class="day-amount-label">Dauer:</div>
-                                    <span class="orange">{{result.days}} Tage</span>
-                                </div>
-                                <div class="moods-container">
-                                    <div ng-repeat="mood in result.moods">
-                                        <div ng-repeat="availableMood in src.availableMoods |filter:mood">
-                                            <span class="tt tt-small" aria-label="{{availableMood.title}}">
-                                            <img aria-label="{{availableMood.title}}"
-                                                 class="result-mood-icon"
-                                                 ng-src="./images/icons/{{availableMood.icon}}">
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <trip-min-view trip="result"></trip-min-view>
             </div>
         </div>
     </div>

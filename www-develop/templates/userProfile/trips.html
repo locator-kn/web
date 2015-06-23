@@ -1,45 +1,10 @@
 <div class="mytrips-container">
     <div class="row">
-
-        <div class="col-sm-6 col-xs-12 trip" ng-repeat="trip in pc.trips">
-            <div class="inner">
-                <img ng-src="{{trip.image.picture}}" class="img-responsive">
-
-
-                <h3 ui-sref="trip({tripId: trip._id})">{{trip.title}}</h3>
-
-
-                <span>Von</span>
-                <resultdate class="orange" date="trip.start_date"></resultdate>
-                <span>bis</span>
-                <resultdate class="orange" date="trip.end_date"></resultdate>
-                <br>
-
-                <div class="day-amount" ng-show="trip.days == 1">
-                    <div class="day-amount-label">Dauer:</div>
-                    <span class="orange">{{trip.days}} Tag</span>
-                </div>
-                <div class="day-amount" ng-show="trip.days != 1">
-                    <div class="day-amount-label">Dauer:</div>
-                    <span class="orange">{{trip.days}} Tage</span>
-                </div>
-                <div class="trip-mood-container">
-                    <span ng-repeat="mood in trip.moods">
-
-                            <img class="trip-mood-icon" ng-src="./images/icons/{{mood.icon}}">
-
-                    </span>
-                </div>
-
-
-            </div>
-
+        <div class="col-xs-12 col-sm-6 col-md-6 fx-fade-up fx-speed-3000 pointer" ng-repeat="trip in pc.trips">
+            <trip-min-view trip="trip"></trip-min-view>
         </div>
-
-        <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
-
-            <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
-        </div>
-
+    </div>
+    <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
+        <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
     </div>
 </div>
