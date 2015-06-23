@@ -39,7 +39,8 @@ module Controller {
         errormsg = '';
         successmsg = '';
 
-        locationSearch;
+        locationSearch:string;
+        tripSearch:string;
 
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
@@ -371,6 +372,25 @@ module Controller {
 
         togglePublicLocation(id) {
             this.LocationService.togglePublicLocation(id);
+        }
+
+        showDelete(trip) {
+            trip.showdelete = true;
+        }
+
+        deleteTrip(trip) {
+            this.TripService.deleteTrip(trip._id)
+                .then(result => {
+
+                    //hide delete panel
+                    trip.showdelete = false;
+
+                    //remove trip from outdated view
+                    this.trips.splice(this.lodash.indexOf(this.trips, trip), 1);
+                })
+                .catch(result => {
+                    console.info('Deletion Error');
+                })
         }
 
         static

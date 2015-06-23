@@ -8,6 +8,7 @@ module Controller {
         availableMoods:any = [];
         user:any;
         locations:any = [];
+        me:boolean;
 
         slides:string[] = [];
 
@@ -24,6 +25,13 @@ module Controller {
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
                             this.user = result.data;
+
+                            if (this.user._id = this.$rootScope.userID) {
+                                this.me = true;
+                            } else {
+                                false;
+                            }
+                            
                         });
 
                     var locationsHash = this.trip.locations;

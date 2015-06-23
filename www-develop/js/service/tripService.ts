@@ -4,17 +4,17 @@ module Service {
         constructor(private $http, private basePath, private Upload) {
         }
 
-        saveTrip(newTrip, documentMetaData) {
-            if (documentMetaData._id && documentMetaData._rev) {
-                // extend new trip with meta data id and rev
-                newTrip._id = documentMetaData._id;
-                newTrip._rev = documentMetaData._rev;
+        getTripById(_id) {
+            return this.$http.get(this.basePath + '/trips/' + _id);
+        }
 
+        saveTrip(newTrip, documentMetaData) {
+            if (documentMetaData._id) {
+                // extend new trip with meta data id and rev
                 return this.$http.put(this.basePath + '/trips/' + documentMetaData._id, newTrip);
             }
             // To be sure keys don't exist
             delete documentMetaData._id;
-            delete documentMetaData._rev;
             return this.$http.post(this.basePath + '/trips', newTrip);
         }
 
@@ -45,7 +45,7 @@ module Service {
             for (var key in locationsHash) {
                 if (locationsHash.hasOwnProperty(key)) {
                     var selectedObjImages = locationsHash[key];
-                    if(selectedObjImages.picture) {
+                    if (selectedObjImages.picture) {
                         array.push(selectedObjImages.picture);
                     }
                     array.push(locationsHash[key].googlemap + '&size=' + mapSize + '&scale=' + scale);
@@ -54,6 +54,11 @@ module Service {
             return array;
         }
 
-        static serviceId:string = "TripService";
+        deleteTrip(_id) {
+            return this.$http.delete(this.basePath + '/trips/' + _id);
+        }
+
+        static
+            serviceId:string = "TripService";
     }
 }

@@ -36,6 +36,8 @@ module Controller {
         selectedMoods:any = [];
         selectableMoods:any = [];
 
+        editDataAvailable:boolean = false;
+
         accommodationEquipment:any = [];
         accommodationEquipmentSelectable = false;
         progressPercentage:number;
@@ -72,7 +74,7 @@ module Controller {
 
         selectedLocationsCount:number = 0;
 
-        constructor(private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
             this.$scope.selectImage = this.selectImage;
 
@@ -105,6 +107,9 @@ module Controller {
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;
+
+                this.initEdit();
+
             });
 
             $rootScope.overlay = false;
@@ -308,8 +313,7 @@ module Controller {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
-                    this.documentId = data.id;
-                    this.revision = data.rev;
+                    this.documentId = data._id;
                     this.uploadIsDone = true;
                     var tripImage = document.getElementById("trip-image");
                     tripImage.style.height = "auto";
@@ -349,7 +353,7 @@ module Controller {
             for (var key in this.selectedLocations) {
                 if (this.selectedLocations.hasOwnProperty(key)) {
                     var selectedObjImages = this.selectedLocations[key].images;
-                    if(selectedObjImages.picture) {
+                    if (selectedObjImages.picture) {
                         sl.push(selectedObjImages.picture);
                     }
                     sl.push(this.selectedLocations[key].images.googlemap + '&size=1151x675&scale=2');
@@ -458,6 +462,56 @@ module Controller {
             }
 
             return true;
+        }
+
+        initEdit() {
+            if (this.$state.params.tripId) {
+                this.documentId = this.$state.params.tripId;
+                this.datePickerOnLinked = true;
+
+                this.TripService.getTripById(this.$state.params.tripId)
+                    .then(result => {
+
+                        this.startDateReal = result.data.start_date;
+                        this.endDateReal = result.data.end_date;
+
+                        this.tripDescription = result.data.description;
+                        this.tripTitle = result.data.title;
+                        this.persons = result.data.persons;
+                        this.days = result.data.days;
+
+
+                        var moodqueryString = result.data.moods.join('.');
+
+                        this.selectedMoods = this.HelperService.getMoodsByQueryString(moodqueryString)
+                            .then(result => {
+                                this.selectedMoods = result;
+                            });
+
+
+                        this.selectableMoods = this.lodash.without(this.selectableMoods, this.selectedMoods);
+
+
+                        for (var key in result.data.locations) {
+                            if (result.data.locations.hasOwnProperty(key)) {
+                                this.addLocationToTrip(key);
+                            }
+                        }
+
+                        this.tripDescriptionMoney = result.data.description_money;
+
+                        if (this.accommodation = result.data.accommodation) {
+                            this.accommodationEquipment = result.data.accommodation_equipment;
+                            this.accommodationEquipmentSelectable = true;
+                        }
+
+                        this.editDataAvailable = true;
+
+
+                    }).catch(err => {
+                        console.info('error gettin trip', err);
+                    })
+            }
         }
 
         static controllerId:string = "InsertTripCtrl";
