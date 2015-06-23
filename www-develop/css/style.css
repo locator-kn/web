@@ -706,6 +706,10 @@ a.close-modal {
     position: relative;
 }
 
+.header-bar-wrapper {
+    position: relative;
+    z-index: 1000;
+}
 
 .message-badge {
     width: 25px;
@@ -1227,4 +1231,8 @@ input.cmn-toggle-round:checked + label:after {
 
 .uiview {
     margin-top: 60px;
+}
+progress-arc.hidden-height {
+    overflow: hidden;
+    height: 0;
 }

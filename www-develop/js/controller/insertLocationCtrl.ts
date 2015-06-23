@@ -6,7 +6,7 @@ module Controller {
         selectedImage:any;
         imagePath:any = '';
         imageCropData:any = {};
-        uploadIsDone:boolean = false;
+        uploadIsDone:boolean = true;
         documentWasCreated:boolean = false;
         documentId:string = '';
         revision:string = '';
