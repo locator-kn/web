@@ -101,7 +101,7 @@ module Controller {
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
-                // TODO handle images larger than 6mb
+
                 if (this.selectedImage.size >= 6291456) {
                     this.$rootScope.overlay = true;
                     this.showImageTooLargeModal = true;

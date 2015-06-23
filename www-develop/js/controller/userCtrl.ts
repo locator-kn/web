@@ -21,6 +21,8 @@ module Controller {
         isUploading:boolean = false;
         cropperCanvas:any;
 
+        showImageTooLargeModal:boolean = false;
+
         progressPercentage:number;
         availableMoods;
         birthAvailable:boolean = true;
@@ -229,12 +231,21 @@ module Controller {
         }
 
         selectImage(file) {
-            this.$rootScope.overlay = true;
-            this.showImageUploadModal = true;
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
+
+                if (this.selectedImage.size >= 6291456) {
+                    this.$rootScope.overlay = true;
+                    this.showImageTooLargeModal = true;
+                    this.$rootScope.$apply();
+                    return
+                }
+
+                this.$rootScope.overlay = true;
+                this.showImageUploadModal = true;
+
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
 
