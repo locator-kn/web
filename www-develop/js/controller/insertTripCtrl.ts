@@ -502,6 +502,7 @@ module Controller {
 
                         if (this.accommodation = result.data.accommodation) {
                             this.accommodationEquipment = result.data.accommodation_equipment;
+                            this.accommodationEquipmentSelectable = true;
                         }
 
                         this.editDataAvailable = true;
