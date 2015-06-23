@@ -44,7 +44,7 @@ module Controller {
 
         updateUrl() {
             this.$location.search(this.query);
-            this.HelperService.saveSearchContext();
+            this.HelperService.saveSearchContext(this.query);
             this.search();
         }
 
