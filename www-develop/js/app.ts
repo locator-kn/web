@@ -304,11 +304,9 @@ var app = angular.module('locator', deps)
             '</div>',
             '<div class="moods-container">',
             '<div ng-repeat="mood in trip.moods">',
-            '<div ng-repeat="availableMood in src.availableMoods |filter:mood">',
+            '<div ng-repeat="availableMood in availablemoods |filter:mood">',
             '<span class="tt tt-small" aria-label="{{availableMood.title}}">',
-            '<img aria-label="{{availableMood.title}}"',
-            'class="result-mood-icon"',
-            'ng-src="./images/icons/{{availableMood.icon}}">',
+            '<img aria-label="{{availableMood.title}}" class="result-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">',
             '</span>',
             '</div>',
             '</div>',
@@ -322,7 +320,8 @@ var app = angular.module('locator', deps)
 
         return {
             scope: {
-                trip: "="
+                trip: "=",
+                availablemoods: "="
             },
             template: tmpl.join('')
         }
