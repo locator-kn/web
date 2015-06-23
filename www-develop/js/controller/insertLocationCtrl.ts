@@ -36,7 +36,8 @@ module Controller {
 
         me:any = {};
 
-        constructor(private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+
 
             $rootScope.showSearchButton = true;
             $rootScope.showCreateButton = true;
@@ -68,6 +69,8 @@ module Controller {
                 this.map.center.latitude = details.geometry.location.A;
                 this.map.center.longitude = details.geometry.location.F;
             });
+
+            this.initEdit();
         }
 
         getEvents() {
@@ -164,7 +167,7 @@ module Controller {
                 formData._rev = this.revision;
             }
             this.LocationService.uploadImage(formData, file)
-                .error(() =>{
+                .error(() => {
                     // TODO: handle error (eg. file to large)
                     debugger;
                 })
@@ -223,6 +226,45 @@ module Controller {
                 .catch(() => {
                     debugger
                 })
+        }
+
+        initEdit() {
+
+            if (this.$state.params.locationId) {
+                this.LocationService.getLocationById(this.$state.params.locationId)
+                    .then(result => {
+
+                        this.locationFormDetails = {
+                            tags: result.data.tags.join(' '),
+                            title: result.data.title,
+                            description: result.data.description,
+                            budget: result.data.budget,
+                            city: {}
+                        }
+
+                        var lat = result.data.geotag.lat;
+                        var long = result.data.geotag.long;
+
+
+                        this.map.clickedMarker.latitude = lat;
+                        this.map.clickedMarker.longitude = long;
+
+                        this.map.center.latitude = lat;
+                        this.map.center.longitude = long;
+                        this.mapMarkerSet = true;
+
+                        this.headerImagePath = result.data.images.picture;
+                        this.imageHasBeenUploaded = true;
+
+                        this.documentId = result.data._id;
+
+
+                    })
+                    .catch(err => {
+                        console.info("error during getlocation");
+                    })
+            }
+
         }
 
         static controllerId:string = "InsertLocationCtrl";
