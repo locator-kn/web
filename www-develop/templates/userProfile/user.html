@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <input id="image-upload-profile" type="file" onchange="angular.element(this).scope().pc.selectImage(this)"
+    <input id="image-upload-profile" type="file" accept="image/*" onchange="angular.element(this).scope().pc.selectImage(this)"
            style="display: none">
     <progress-arc
         ng-hide="pc.uploadIsDone"
