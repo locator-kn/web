@@ -58,13 +58,13 @@
 
         </div>
 
-        <div ng-if="pc.tab === 'info'" ng-include="'templates/userProfile/info.html'"></div>
-        <div ng-if="pc.tab === 'account'" ng-include="'templates/userProfile/account.html'"></div>
+        <div ng-show="pc.tab === 'info'" ng-include="'templates/userProfile/info.html'"></div>
+        <div ng-show="pc.tab === 'account'" ng-include="'templates/userProfile/account.html'"></div>
 
-        <div ng-if="pc.tab === 'locations'" ng-include="'templates/userProfile/locations.html'"></div>
-        <div ng-if="pc.tab === 'trips'" ng-include="'templates/userProfile/trips.html'"></div>
+        <div ng-show="pc.tab === 'locations'" ng-include="'templates/userProfile/locations.html'"></div>
+        <div ng-show="pc.tab === 'trips'" ng-include="'templates/userProfile/trips.html'"></div>
 
-        <div ng-if="pc.tab === 'conversation'" ng-include="'templates/userProfile/conversation.html'"></div>
+        <div ng-show="pc.tab === 'conversation'" ng-include="'templates/userProfile/conversation.html'"></div>
 
 
     </div>
