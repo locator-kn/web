@@ -313,6 +313,7 @@ module Controller {
         clearFileSelection() {
             this.showImageUploadModal = false;
             this.$rootScope.overlay = false;
+            this.showImageTooLargeModal = false;
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
