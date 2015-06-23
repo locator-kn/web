@@ -1233,7 +1233,7 @@ input.cmn-toggle-round:checked + label:after {
 .uiview {
     margin-top: 60px;
 }
-.hidden-height progress-arc {
+progress-arc.hidden-height {
     overflow: hidden;
     height: 0;
 }
