@@ -33,8 +33,8 @@
             <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span>
 
                 <span ng-if="pc.tab === 'info' || pc.tab ==='account'" class="editbutton">
-                    <a ng-if="pc.edit && pc.tab === 'account'" aria-label="speichern" type="submit" class="tt tt-small save pointer submit" ng-click="pc.setNewPassword()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
-                    <a ng-if="pc.edit && pc.tab === 'info'" aria-label="speichern" type="submit" class="tt tt-small save pointer submit" ng-click="pc.updateProfile()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
+                    <a ng-if="pc.edit && pc.tab === 'account'" aria-label="speichern" type="submit" class="tt tt-small fx-fade-up save pointer submit" ng-click="pc.setNewPassword()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
+                    <a ng-if="pc.edit && pc.tab === 'info'" aria-label="speichern" type="submit" class="tt tt-small fx-fade-up save pointer submit" ng-click="pc.updateProfile()" class="button"><img src="images/icons/icons_stuff/haken.png" class="icon img-responsive"></a>
 
 
                     <a ng-if="pc.edit && (pc.tab === 'info' || pc.tab === 'account')" aria-label="abbrechen" type="abrechen" class="tt tt-small fx-fade-up save reset pointer submit" ng-click="pc.reset()" class="button"><img src="images/icons/icons_stuff/cross.png" class="icon img-responsive"></a>
