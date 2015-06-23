@@ -386,8 +386,21 @@ module Controller {
             this.LocationService.togglePublicLocation(id);
         }
 
-        showDelete(trip) {
-            trip.showdelete = true;
+        showDelete(item) {
+            item.showdelete = true;
+        }
+
+        deleteLocation(location) {
+            this.LocationService.deleteLocation(location._id)
+                .then(result => {
+                    location.showdelete = false;
+
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
+                })
+                .catch(result => {
+                    console.info('Deletion Error');
+                })
         }
 
         deleteTrip(trip) {

@@ -39,6 +39,10 @@ module Service {
             return this.$http.put(this.basePath + '/locations/' + locationId + '/togglePublic');
         }
 
+        deleteLocation(locationId) {
+            return this.$http.delete(this.basePath + '/users/my/locations/' + locationId);
+        }
+
         static serviceId:string = "LocationService";
     }
 }
