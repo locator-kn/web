@@ -1,4 +1,4 @@
-<div class="mytrips-container mylocations-container">
+<div class="mytrips-container col-xs-12 mylocations-container">
     <div class="row">
         <div class="searchbar col-xs-12">
             <input ng-model-options="{debounce:300}" ng-model="pc.tripSearch" placeholder="Suche" type="text" name="search">
@@ -39,9 +39,9 @@
 
                     <div class="switch">
                         <input ng-if="trip.public" id="{{trip._id}}" checked class="cmn-toggle cmn-toggle-round"
-                               ng-click="pc.togglePublicLocation(trip._id)" type="checkbox">
+                               ng-click="pc.togglePublicTrip(trip._id)" type="checkbox">
                         <input ng-if="!trip.public" id="{{trip._id}}" class="cmn-toggle cmn-toggle-round"
-                               ng-click="pc.togglePublicLocation(trip._id)" type="checkbox">
+                               ng-click="pc.togglePublicTrip(trip._id)" type="checkbox">
 
                         <label for="{{trip._id}}"></label>
                     </div>
