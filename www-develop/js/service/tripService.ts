@@ -54,6 +54,10 @@ module Service {
             return array;
         }
 
+        togglePublicTrip(tripId) {
+            return this.$http.put(this.basePath + '/trips/' + tripId + '/togglePublic');
+        }
+
         deleteTrip(_id) {
             return this.$http.delete(this.basePath + '/trips/' + _id);
         }

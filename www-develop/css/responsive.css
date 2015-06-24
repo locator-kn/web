@@ -23,6 +23,10 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .profile {
+        font-size: 15px;
+    }
+
     .staticButtons {
         display: none;
     }

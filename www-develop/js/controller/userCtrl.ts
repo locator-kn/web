@@ -294,7 +294,7 @@ module Controller {
                 width: Math.round(this.imageCropData.width),
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
-                yCoord: Math.round(this.imageCropData.y),
+                yCoord: Math.round(this.imageCropData.y)
             };
 
 
@@ -389,6 +389,10 @@ module Controller {
 
         togglePublicLocation(id) {
             this.LocationService.togglePublicLocation(id);
+        }
+
+        togglePublicTrip(id) {
+            this.TripService.togglePublicTrip(id);
         }
 
         showDelete(item) {
