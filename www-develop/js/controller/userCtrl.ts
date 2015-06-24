@@ -75,13 +75,25 @@ module Controller {
         }
 
         getTrips() {
-            this.TripService.getTripsByUser(this.user._id)
-                .then(result => {
-                    this.trips = result.data;
-                    this.trips.forEach(entry => {
-                        entry.username = this.user.name + ' ' + this.user.surname;
+            if (this.me) {
+
+                this.TripService.getMyTrips(this.user._id)
+                    .then(result => {
+                        this.trips = result.data;
                     })
-                })
+
+            } else {
+
+                this.TripService.getTripsByUser(this.user._id)
+                    .then(result => {
+                        this.trips = result.data;
+                        this.trips.forEach(entry => {
+                            entry.username = this.user.name + ' ' + this.user.surname;
+                        })
+                    })
+
+            }
+
         }
 
         getLocations() {
