@@ -555,6 +555,7 @@ a.close-modal {
     position: fixed;
     z-index: 500;
     top: 150px;
+    cursor: pointer;
 }
 
 .static-createButton {
