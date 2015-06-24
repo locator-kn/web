@@ -391,6 +391,10 @@ module Controller {
             this.LocationService.togglePublicLocation(id);
         }
 
+        togglePublicTrip(id) {
+            this.TripService.togglePublicTrip(id);
+        }
+
         showDelete(item) {
             item.showdelete = true;
         }
