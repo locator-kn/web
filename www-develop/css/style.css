@@ -336,6 +336,7 @@ ul.slides {
     opacity: 0;
     transition-duration: 1s;
     z-index: -1;
+    top: 0;
 }
 
 .blackopac {
@@ -1243,4 +1244,22 @@ progress-arc.hidden-height {
 .mylocations-container {
     float: left;
     width: 100%;
+}
+
+.fixed-bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.relative.bar-wrapper {
+    z-index: 100;
+}
+
+.fixed-bar .blackopac {
+    position: relative;
+}
+
+.uiview {
+    margin-top: 60px;
 }
