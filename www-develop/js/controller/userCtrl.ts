@@ -268,6 +268,8 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
+            this.clearFileSelection();
             $('#image-upload-profile').click();
         }
 
