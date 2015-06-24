@@ -168,7 +168,7 @@
                                   placeholder="für was braucht dein gast eventuell geld?"
                                   ng-model="itc.tripDescriptionMoney"></textarea>
 
-                            <div class="accommodation">
+                            <div id="accommodation" class="accommodation">
                                 <span>unterkunft</span>
 
                                 <div class="circle" ng-click="itc.toggleAccommodation()"
@@ -180,7 +180,7 @@
                                     accommodation-equipment="itc.accommodationEquipment"></acc-equ-chooser>
                             </div>
                             <div>
-                                <div class="save-trip submit-btn submit-progress" ng-class="{running: itc.running}">
+                                <div id="saveTrip" class="save-trip submit-btn submit-progress" ng-class="{running: itc.running}">
                                     <input type="submit"
                                            ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected"
                                            ng-click="itc.saveTrip()" value="SPEICHERN"/>

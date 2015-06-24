@@ -259,8 +259,10 @@ module Controller {
         toggleAccommodation() {
             this.accommodation = !this.accommodation;
             if (this.accommodation) {
+                this.scrollTo('saveTrip');
                 this.accommodationEquipmentSelectable = true;
             } else {
+                this.scrollTo('accommodation');
                 this.accommodationEquipment = [];
                 this.accommodationEquipmentSelectable = false;
             }
