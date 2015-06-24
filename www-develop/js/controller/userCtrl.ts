@@ -21,6 +21,8 @@ module Controller {
         isUploading:boolean = false;
         cropperCanvas:any;
 
+        showImageTooLargeModal:boolean = false;
+
         progressPercentage:number;
         availableMoods;
         birthAvailable:boolean = true;
@@ -39,7 +41,8 @@ module Controller {
         errormsg = '';
         successmsg = '';
 
-        locationSearch;
+        locationSearch:string;
+        tripSearch:string;
 
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
@@ -51,11 +54,11 @@ module Controller {
             this.getUser($stateParams.profileId);
 
             this.$rootScope.$on('login_success', () => {
-                this.me = this.isItMe();
+                this.me = this.isItMe;
             });
 
             if (this.$rootScope.authenticated) {
-                this.me = this.isItMe();
+                this.me = this.isItMe;
             }
 
 
@@ -75,7 +78,9 @@ module Controller {
             this.TripService.getTripsByUser(this.user._id)
                 .then(result => {
                     this.trips = result.data;
-
+                    this.trips.forEach(entry => {
+                        entry.username = this.user.name + ' ' + this.user.surname;
+                    })
                 })
         }
 
@@ -103,7 +108,7 @@ module Controller {
             this.edit = !this.edit;
         }
 
-        isItMe() {
+        get isItMe() {
             return this.$rootScope.userID === this.$stateParams.profileId;
         }
 
@@ -191,6 +196,9 @@ module Controller {
             angular.element('.overlay').bind('click', () => {
                 this.closeDialog();
             });
+
+            this.$rootScope.$emit('new_conversation');
+
         }
 
         closeDialog() {
@@ -226,12 +234,21 @@ module Controller {
         }
 
         selectImage(file) {
-            this.$rootScope.overlay = true;
-            this.showImageUploadModal = true;
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
+
+                if (this.selectedImage.size >= 6291456) {
+                    this.$rootScope.overlay = true;
+                    this.showImageTooLargeModal = true;
+                    this.$rootScope.$apply();
+                    return
+                }
+
+                this.$rootScope.overlay = true;
+                this.showImageUploadModal = true;
+
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
 
@@ -282,8 +299,8 @@ module Controller {
             this.UserService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
-                    this.progressPercentage = perc;
-                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
+                    this.progressPercentage = Math.round(perc * 100);
+                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
@@ -299,6 +316,7 @@ module Controller {
         clearFileSelection() {
             this.showImageUploadModal = false;
             this.$rootScope.overlay = false;
+            this.showImageTooLargeModal = false;
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
@@ -369,6 +387,38 @@ module Controller {
 
         togglePublicLocation(id) {
             this.LocationService.togglePublicLocation(id);
+        }
+
+        showDelete(item) {
+            item.showdelete = true;
+        }
+
+        deleteLocation(location) {
+            this.LocationService.deleteLocation(location._id)
+                .then(result => {
+                    location.showdelete = false;
+
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
+                })
+                .catch(result => {
+                    console.info('Deletion Error');
+                })
+        }
+
+        deleteTrip(trip) {
+            this.TripService.deleteTrip(trip._id)
+                .then(result => {
+
+                    //hide delete panel
+                    trip.showdelete = false;
+
+                    //remove trip from outdated view
+                    this.trips.splice(this.lodash.indexOf(this.trips, trip), 1);
+                })
+                .catch(result => {
+                    console.info('Deletion Error');
+                })
         }
 
         static

@@ -1,5 +1,5 @@
 .search-menu {
-    height: calc(100vh - 200px);
+    height: calc(100vh - 260px);
     position: absolute;
     width: 300px;
     top: 150px;
@@ -33,7 +33,7 @@
     position: fixed;
     height: 100vh;
     width: 100px;
-    top: 0px;
+    top: 60px;
     z-index: 10;
 }
 
@@ -242,6 +242,10 @@ img-triplist {
     float: left;
     margin: 20px 20px 0 0;
     width: 100%;
+}
+
+.accommodation-equipment-wrapper {
+    margin-bottom: 30px;
 }
 
 

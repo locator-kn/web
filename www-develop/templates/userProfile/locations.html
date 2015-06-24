@@ -2,11 +2,14 @@
     <div class="row">
 
         <div class="searchbar col-xs-12">
-            <input ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
+            <input ng-model-options="{debounce:300}" ng-model="pc.locationSearch" placeholder="Suche" type="text" name="search">
         </div>
+    </div>
 
+
+    <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
-             class="col-xs-12 col-sm-12 location relative">
+             class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
             <div class="inner-result">
 
                 <img class="img-responsive"
@@ -34,21 +37,38 @@
                     <span class="toggle-label">Location sichtbar</span>
 
                     <div class="switch">
-                        <input ng-if="location.public" id="{{location._id}}" checked class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
-                        <input ng-if="!location.public" id="{{location._id}}" class="cmn-toggle cmn-toggle-round" ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                        <input ng-if="location.public" id="{{location._id}}" checked class="cmn-toggle cmn-toggle-round"
+                               ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                        <input ng-if="!location.public" id="{{location._id}}" class="cmn-toggle cmn-toggle-round"
+                               ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
 
                         <label for="{{location._id}}"></label>
                     </div>
+
+                    <div class="action-buttons">
+                        <div ng-hide="!location.showdelete" class="fx-fade-up fx-speed-300 delete-message">
+                            <a ng-click="pc.deleteLocation(location)" class="red button locator-btn">Löschen</a>
+                            <a ng-click="location.showdelete = !location.showdelete" class="cyan button locator-btn">abrechen</a>
+                        </div>
+
+                    <span ui-sref="editLocation({locationId: location._id})" class="action-button edit"><img
+                        src="images/icons/icons_stuff/pencil.png"></span>
+                    <span ng-click="pc.showDelete(location)" class="action-button delete"><img
+                        src="images/icons/icons_stuff/cross.png"></span>
+
+                    </div>
+
                 </div>
 
             </div>
         </div>
-
         <div ui-sref="insertLocation" class="pointer col-xs-12 empty-locations">
 
             <img ng-src="images/icons/header/location.png">
             <span>Location hinzufügen</span>
         </div>
-
     </div>
+
+
 </div>
+

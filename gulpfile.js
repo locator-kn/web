@@ -113,6 +113,7 @@ gulp.task('watch', ['ts', 'html', 'css', 'lib', 'img', 'locale'], function () {
     gulp.watch('./www-develop/**/*.css', ['css']);
     gulp.watch('./www-develop/**/*.html', ['html']);
     gulp.watch('./www-develop/locale/**/*', ['locale']);
+    gulp.watch('./www-develop/images/**/*', ['img']);
 
     gulp.start('serve');
 });

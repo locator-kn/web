@@ -8,6 +8,7 @@ module Controller {
         availableMoods:any = [];
         user:any;
         locations:any = [];
+        me:boolean;
 
         slides:string[] = [];
 
@@ -24,6 +25,8 @@ module Controller {
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
                             this.user = result.data;
+                            this.me = this.$rootScope.userID === (this.user._id || this.user.id);
+
                         });
 
                     var locationsHash = this.trip.locations;
@@ -49,6 +52,14 @@ module Controller {
             this.TripService.getMyTrips().then(result => {
                 this.trips = result.data;
             })
+        }
+
+        participate() {
+            if (!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
+
+            this.$rootScope.$emit('new_conversation');
         }
 
 

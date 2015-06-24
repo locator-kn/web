@@ -5,7 +5,7 @@ module Service {
         searchQuery:any;
         pageSize:number = 10;
 
-        constructor(private $http, private $location, private basePath, private DataService, private lodash, private $q) {
+        constructor(private $http, private $location, private basePath, private DataService, private lodash, private $q, private UserService) {
 
         }
 
@@ -41,6 +41,13 @@ module Service {
                     url: query + '/' + cityid,
                     params: sq,
                     method: 'GET'
+                }).success(data => {
+                    data.forEach(entry => {
+                        this.UserService.getUser(entry.userid).then(result => {
+                            entry.username = result.data.name + ' ' + result.data.surname;
+                        });
+                    });
+                    return data;
                 });
             });
         }

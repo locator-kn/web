@@ -305,9 +305,8 @@ a.padding {
 }
 
 .result {
-    width: 90%;
-    margin: 0 auto;
-    height: 30%;
+    float: left;
+    width: 100%;
 }
 
 ul.slides {
@@ -654,6 +653,10 @@ a.close-modal {
     margin: -10px 0 0 -100px;
     width: 200px;
     text-align: center;
+}
+.progressbar .ng-hide {
+    overflow: hidden;
+    height: 0;
 }
 
 .progressbar {
@@ -1102,12 +1105,17 @@ a:focus {
 .big-progress, .big-progress {
     position: absolute;
     z-index: 9999;
-    width: 0;
-    height: 100%;
-    background-color: #003eff;
+    width: 100%;
+    height: 0;
+    bottom:0;
+    background-color: rgba(255,255,255,0.5);
     transition: all 1s;
     content: ' ';
-
+}
+.big-progress, .span {
+    text-align: right;
+    color: #000;
+    font-size: 50px;
 }
 
 input {
@@ -1161,4 +1169,73 @@ input.cmn-toggle-round:checked + label:after {
 
 .float-left {
     float: left;
+}
+
+.action-buttons .action-button img {
+    width: 35px;
+    float: left;
+}
+
+.mylocations-container .action-buttons {
+    float: right;
+}
+
+.action-buttons .delete-message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: white;
+    text-align: center;
+    padding: 9px;
+}
+
+.action-buttons .delete-message .button {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    color: white;
+}
+
+.action-buttons .delete-message .button.red {
+    text-align: center;
+    background-color: #ff4637;
+}
+
+.icon-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.image-too-large {
+    color:#fff;
+    text-align: center;
+}
+.image-too-large h1 {
+    font-size: 55px;
+    font-weight: bold;
+}
+.image-too-large p {
+    font-size: 18px;
+}
+.image-too-large .moodal {
+    width: 60vw;
+    margin-left: -30vw;
+}
+.image-too-large .moodal-content {
+    border: 1px solid #fff;
+    border-radius: 2px;
+    margin-bottom: 22px;
+}
+
+.fixed.header-bar-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+progress-arc.hidden-height {
+    overflow: hidden;
+    height: 0;
 }

@@ -8,6 +8,10 @@ module Controller {
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
+            $rootScope.$on('$stateChangeSuccess', function() {
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
+
             $window.onclick = (e) => {
                 if(this.openElement) {
                     this.openElement = '';

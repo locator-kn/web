@@ -6,13 +6,16 @@ module Controller {
         selectedImage:any;
         imagePath:any = '';
         imageCropData:any = {};
-        uploadIsDone:boolean = false;
+        uploadIsDone:boolean = true;
         documentWasCreated:boolean = false;
         documentId:string = '';
         revision:string = '';
         imageHasBeenUploaded:boolean = false;
         headerImagePath:string = '';
         mapMarkerSet:boolean = false;
+
+
+        isUploading:boolean = false;
 
         locationTitle:string = '';
 
@@ -32,10 +35,12 @@ module Controller {
             city: {}
         };
 
+        showImageTooLargeModal:boolean = false;
 
         me:any = {};
 
-        constructor(private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+
 
             $rootScope.showSearchButton = true;
             $rootScope.showCreateButton = true;
@@ -67,6 +72,8 @@ module Controller {
                 this.map.center.latitude = details.geometry.location.A;
                 this.map.center.longitude = details.geometry.location.F;
             });
+
+            this.initEdit();
         }
 
         getEvents() {
@@ -96,17 +103,20 @@ module Controller {
         }
 
         selectImage(file) {
-            this.$rootScope.overlay = true;
-            this.showImageUploadModal = true;
             if (file.files && file.files[0]) {
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
-                // TODO handle images larger than 6mb
-                if (this.selectedImage.size >= 2291456) {
-                    debugger
+
+                if (this.selectedImage.size >= 6291456) {
+                    this.$rootScope.overlay = true;
+                    this.showImageTooLargeModal = true;
+                    this.$rootScope.$apply();
                     return
                 }
+
+                this.$rootScope.overlay = true;
+                this.showImageUploadModal = true;
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
 
@@ -121,6 +131,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+            this.clearFileSelection();
             $('#image-upload').click();
         }
 
@@ -143,6 +154,8 @@ module Controller {
 
         uploadImage() {
             this.uploadIsDone = false;
+
+            this.isUploading = true;
             var file = this.selectedImage;
             var formData = {
                 width: Math.round(this.imageCropData.width),
@@ -159,9 +172,9 @@ module Controller {
                 formData._rev = this.revision;
             }
             this.LocationService.uploadImage(formData, file)
-                .error(() =>{
-                    // TODO: handle error (eg. file to large)
-                    debugger;
+                .error(() => {
+
+                    this.isUploading = false;
                 })
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
@@ -174,6 +187,7 @@ module Controller {
                     this.documentId = data.id;
                     this.revision = data.rev;
                     this.uploadIsDone = true;
+                    this.isUploading = false;
                 });
 
             //this.InsertTripService.uploadImage(formData);
@@ -182,6 +196,7 @@ module Controller {
         clearFileSelection() {
             this.showImageUploadModal = false;
             this.$rootScope.overlay = false;
+            this.showImageTooLargeModal = false;
             this.selectedImage = null;
             this.imagePath = '';
             $('#cropping-preview').removeData('cropper');
@@ -212,11 +227,50 @@ module Controller {
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
-                    debugger
+                    this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
                 })
                 .catch(() => {
                     debugger
                 })
+        }
+
+        initEdit() {
+
+            if (this.$state.params.locationId) {
+                this.LocationService.getLocationById(this.$state.params.locationId)
+                    .then(result => {
+
+                        this.locationFormDetails = {
+                            tags: result.data.tags.join(' '),
+                            title: result.data.title,
+                            description: result.data.description,
+                            budget: result.data.budget,
+                            city: {}
+                        }
+
+                        var lat = result.data.geotag.lat;
+                        var long = result.data.geotag.long;
+
+
+                        this.map.clickedMarker.latitude = lat;
+                        this.map.clickedMarker.longitude = long;
+
+                        this.map.center.latitude = lat;
+                        this.map.center.longitude = long;
+                        this.mapMarkerSet = true;
+
+                        this.headerImagePath = result.data.images.picture;
+                        this.imageHasBeenUploaded = true;
+
+                        this.documentId = result.data._id;
+
+
+                    })
+                    .catch(err => {
+                        console.info("error during getlocation");
+                    })
+            }
+
         }
 
         static controllerId:string = "InsertLocationCtrl";
