@@ -22,6 +22,11 @@
 
 /* XS */
 @media (max-width: 767px) {
+
+    .staticButtons {
+        display: none;
+    }
+
     .absolute-slider .welcome-left {
         width: 100%;
     }
