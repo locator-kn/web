@@ -23,7 +23,7 @@ module Controller {
 
         showImageTooLargeModal:boolean = false;
 
-        progressPercentage:number;
+        progressPercentage:number = 0;
         availableMoods;
         birthAvailable:boolean = true;
 
