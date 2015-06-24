@@ -30,6 +30,11 @@ module Controller {
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
+
+            this.$rootScope.$on('new_conversation', () => {
+                this.getConversations();
+            });
+
             this.getMe();
 
             this.getConversations();

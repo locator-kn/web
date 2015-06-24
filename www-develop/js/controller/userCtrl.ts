@@ -23,7 +23,7 @@ module Controller {
 
         showImageTooLargeModal:boolean = false;
 
-        progressPercentage:number;
+        progressPercentage:number = 0;
         availableMoods;
         birthAvailable:boolean = true;
 
@@ -196,6 +196,9 @@ module Controller {
             angular.element('.overlay').bind('click', () => {
                 this.closeDialog();
             });
+
+            this.$rootScope.$emit('new_conversation');
+
         }
 
         closeDialog() {
@@ -265,6 +268,8 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
+            this.clearFileSelection();
             $('#image-upload-profile').click();
         }
 
@@ -296,8 +301,8 @@ module Controller {
             this.UserService.uploadImage(formData, file)
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
-                    this.progressPercentage = perc;
-                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
+                    this.progressPercentage = Math.round(perc * 100);
+                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();

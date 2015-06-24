@@ -181,7 +181,7 @@ module Controller {
 
         getSelectedMoodQuerynames() {
             var selectedQuerynames = [];
-            this.selectedMoods.forEach((elem) => {
+            this.selectedMoods.forEach((elem:any) => {
                 selectedQuerynames.push(elem.query_name);
             });
             return selectedQuerynames;
@@ -259,8 +259,10 @@ module Controller {
         toggleAccommodation() {
             this.accommodation = !this.accommodation;
             if (this.accommodation) {
+                this.scrollTo('saveTrip');
                 this.accommodationEquipmentSelectable = true;
             } else {
+                this.scrollTo('accommodation');
                 this.accommodationEquipment = [];
                 this.accommodationEquipmentSelectable = false;
             }

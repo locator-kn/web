@@ -14,6 +14,9 @@ module Controller {
         headerImagePath:string = '';
         mapMarkerSet:boolean = false;
 
+
+        isUploading:boolean = false;
+
         locationTitle:string = '';
 
         googlePlacesOptions = {
@@ -151,6 +154,8 @@ module Controller {
 
         uploadImage() {
             this.uploadIsDone = false;
+
+            this.isUploading = true;
             var file = this.selectedImage;
             var formData = {
                 width: Math.round(this.imageCropData.width),
@@ -168,13 +173,13 @@ module Controller {
             }
             this.LocationService.uploadImage(formData, file)
                 .error(() => {
-                    // TODO: handle error (eg. file to large)
-                    debugger;
+
+                    this.isUploading = false;
                 })
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
-                    this.progressPercentage = perc;
-                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
+                    this.progressPercentage = Math.round(perc * 100);
+                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
@@ -182,6 +187,8 @@ module Controller {
                     this.documentId = data.id;
                     this.revision = data.rev;
                     this.uploadIsDone = true;
+                    this.isUploading = false;
+                    this.progressPercentage = 0;
                 });
 
             //this.InsertTripService.uploadImage(formData);
