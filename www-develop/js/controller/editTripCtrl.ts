@@ -58,7 +58,7 @@ module Controller {
                     this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
                     this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
 
-                    
+
                     this.fetchLocations();
                 });
 
@@ -93,16 +93,16 @@ module Controller {
 
         selectLocation(location) {
 
-            var public = this._removeLocation(this.publicLocations, location);
-            var private = this._removeLocation(this.myLocations, location);
+            var _public = this._removeLocation(this.publicLocations, location);
+            var _private = this._removeLocation(this.myLocations, location);
 
-            if (public && private) {
+            if (_public && _private) {
                 this._addLocation(this.selectedLocations, location, 'both');
 
-            } else if (public) {
+            } else if (_public) {
                 this._addLocation(this.selectedLocations, location, 'public');
 
-            } else if (private) {
+            } else if (_private) {
                 this._addLocation(this.selectedLocations, location, 'private');
             }
 
