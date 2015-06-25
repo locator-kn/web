@@ -1,6 +1,29 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
 
+    <div class="row">
+        <div class="col-xs-12 searchbar welcome_select">
+
+
+            <span class="relative green"><span class="margin-right">Du willst</span>
+                    <div class="list-selection"
+                         list-selection multiple=false
+                         values="src.days"
+                         selected-model="src.selectedDay" selected-name="src.showDays"
+                         open-element="mc.openElement"></div></span>
+
+             <span class="relative green"><div list-selection values="src.moods"
+                                               selected-model="src.selectedMood" selected-name="src.showMoods"
+                                               open-element="mc.openElement"></div></span>
+
+
+             <span class="relative green"><div class="list-selection" list-selection values="src.cities"
+                                               selected-model="src.selectedCity" selected-name="src.showCities"
+                                               open-element="mc.openElement"></div></span>
+
+        </div>
+    </div>
+
     <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2' infinite-scroll-disabled='src.noMoreTrips'>
         <div ng-show="src.results.length == 0">
             <h1>Keine Results</h1>
