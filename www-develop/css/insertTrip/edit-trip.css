@@ -60,6 +60,7 @@
     color: white;
     padding: 6px;
     margin-bottom: 0;
+    font-size: 20px;
 }
 
 .edittrip-container .location h3 {
@@ -89,11 +90,13 @@
 .edittrip-container .border-wrapper {
     border: 1px solid black;
     float: left;
+    width: 100%;
 }
 
 .publiclocations-wrapper, .mylocations-wrapper {
     float: left;
     padding: 5px;
+    width: 100%;
 }
 
 .border-radius-decent {
@@ -105,4 +108,28 @@
     max-height: 80px;
     display: inline-block;
     padding: 15px;
+}
+
+.edittrip-container .meta-section {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.edittrip-container .trip-title {
+    width: 100%;
+    background: black;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.edittrip-container .trip-title input {
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.trip-title ::-webkit-input-placeholder {
+    color: grey;
 }
