@@ -1,0 +1,44 @@
+<div class="edittrip-container container" ng-controller="EditTripCtrl as et">
+
+    <div class="row">
+        <div class="col-xs-12 searchbar welcome_select">
+
+
+            <span class="relative red"><span class="margin-right">Du bietest</span>
+                    <div class="list-selection"
+                         list-selection multiple=false
+                         values="et.days"
+                         selected-model="et.selectedDay" selected-name="et.showDays"
+                         open-element="mc.openElement"></div></span>
+
+             <span class="relative red"><div list-selection values="et.moods"
+                                    selected-model="et.selectedMood" selected-name="et.showMoods"
+                                    open-element="mc.openElement"></div></span>
+
+
+             <span class="relative red"><div class="list-selection" list-selection values="et.cities"
+                                    selected-model="et.selectedCity" selected-name="et.showCities"
+                                    open-element="mc.openElement"></div></span>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-4 locationpool">
+
+
+        </div>
+
+        <div class="col-sm-4 selectedlocations">
+
+        </div>
+
+        <div class="col-sm-4 metadata">
+
+        </div>
+
+    </div>
+
+</div>
