@@ -15,6 +15,8 @@ module Controller {
         open:any;
         selectedMood:any;
 
+        justShowMyLocations:boolean = false
+
         cities:any;
         selectedCity:any;
 
@@ -66,6 +68,29 @@ module Controller {
                 }).catch(err => {
                     console.info(err);
                 });
+        }
+
+        selectLocation(location) {
+
+            this._addLocation(this.selectedLocations, location);
+
+            if (!this.justShowMyLocations) {
+                this._removeLocation(this.publicLocations, location);
+            } else {
+                this._removeLocation(this.myLocations, location);
+            }
+
+        }
+
+
+
+        _removeLocation(locations, locationtoremove) {
+            var index = this.lodash.indexOf(locations, locationtoremove);
+            locations.splice(index, 1);
+        }
+
+        _addLocation(locations, locationtoadd) {
+            locations.push(locationtoadd);
         }
 
         static controllerId:string = "EditTripCtrl";
