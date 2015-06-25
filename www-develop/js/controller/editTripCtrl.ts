@@ -50,15 +50,22 @@ module Controller {
                 .then((responsesArray) => {
 
                     this.moods = responsesArray[0].data;
-                    this.selectedMood = this.moods[Math.floor((Math.random() * this.moods.length))];
+
 
                     this.cities = responsesArray[1].data;
-                    this.selectedCity = this.cities[Math.floor((Math.random() * this.cities.length))];
+
 
                     this.days = responsesArray[2].data;
-                    this.selectedDay = this.days[Math.floor((Math.random() * this.days.length))];
+
 
                     this.dataAvailable = true;
+
+                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods);
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
+                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
+
+                    debugger;
+
 
                     this.fetchLocations();
                 });
@@ -125,7 +132,7 @@ module Controller {
         }
 
         _removeLocation(locations, locationtoremove) {
-            var index = this.lodash.findIndex(locations, { '_id': locationtoremove._id});
+            var index = this.lodash.findIndex(locations, {'_id': locationtoremove._id});
             if (index === -1) return false;
             locations.splice(index, 1);
             return true;
