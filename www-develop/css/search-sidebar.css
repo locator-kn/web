@@ -2,7 +2,7 @@
     height: calc(100vh - 200px);
     position: absolute;
     width: 300px;
-    top: 150px;
+    top: 60px;
 }
 
 .search-menu div {
@@ -46,25 +46,25 @@
 
 .search-offset {
     position: relative;
-    padding-top: 221px;
+    padding-top: 131px;
     z-index: 100;
 }
 
 .filter-offset {
     position: relative;
-    padding-top: 363px;
+    padding-top: 273px;
     z-index: 100;
 }
 
 .date-offset {
     position: relative;
-    padding-top: 292px;
+    padding-top: 202px;
     z-index: 100;
 }
 
 .moods-offset {
     position: relative;
-    padding-top: 434px;
+    padding-top: 344px;
     z-index: 100;
 }
 
