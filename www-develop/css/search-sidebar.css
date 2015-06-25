@@ -183,12 +183,12 @@ html, body {
 }
 
 .result-trip-title {
-    margin: 10px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .result-trip-date {
     float: right;
-    margin: 10px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .result-content-wrapper {
@@ -199,7 +199,7 @@ html, body {
 }
 
 .result-content {
-    padding: 0 10px 0 10px;
+    margin: 10px 10px 0 10px;
 }
 
 .search-icon {
