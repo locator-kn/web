@@ -21,25 +21,29 @@ module Controller {
         moods:any;
         selectedMood:any;
 
+        dataAvailable:boolean = false;
+
 
         constructor(private $scope, private $q, private $rootScope, private SearchService, private HelperService, private $state, private DataService) {
 
 
-            var days = this.DataService.getAvailableAmountOfDays();
-            var cities = this.DataService.getCities();
             var moods = this.DataService.getMoods();
+            var cities = this.DataService.getCities();
+            var days = this.DataService.getAvailableAmountOfDays();
 
             this.$q.all([moods, cities, days])
                 .then((responsesArray) => {
+
                     this.moods = responsesArray[0].data;
                     this.cities = responsesArray[1].data;
                     this.days = responsesArray[2].data;
+                    this.dataAvailable = true;
 
-                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods || 'halligalli_drecksau');
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city || 'Konstanz');
-                    this.selectedCity = HelperService.getObjectByQueryName(this.days, $state.params.days || 1);
+                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods);
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
+                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
 
-                    debugger;
+
                 });
 
 
