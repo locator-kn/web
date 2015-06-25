@@ -5,6 +5,7 @@ module Controller {
 
         myLocations = [];
         publicLocations = [];
+        selectedLocations = [];
 
         showCities:string = 'showCitiesCreate';
         showMoods:string = 'showMoodsCreate';
@@ -21,6 +22,8 @@ module Controller {
         selectedDay:any;
 
         dataAvailable:boolean = false;
+
+        locationSearch = '';
 
 
         constructor(private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
@@ -45,17 +48,24 @@ module Controller {
 
                     this.fetchLocations();
                 });
-            
+
         }
 
         fetchLocations() {
-            this.LocationService.getLocationsByCity(this.selectedCity).then(result => {
-                this.publicLocations = result.data;
-            });
+            console.info(this.selectedCity);
+            this.LocationService.getLocationsByCity("Konstanz")
+                .then(result => {
+                    this.publicLocations = result.data;
+                }).catch(err => {
+                    console.info(err);
+                });
 
-            this.LocationService.getMyLocationsByCity(this.selectedCity).then(result => {
-                this.myLocations = result.data;
-            });
+            this.LocationService.getMyLocationsByCity("Konstanz")
+                .then(result => {
+                    this.myLocations = result.data;
+                }).catch(err => {
+                    console.info(err);
+                });
         }
 
         static controllerId:string = "EditTripCtrl";
