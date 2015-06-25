@@ -72,26 +72,48 @@ module Controller {
 
         selectLocation(location) {
 
-            this._addLocation(this.selectedLocations, location);
+            var public = this._removeLocation(this.publicLocations, location);
+            var private = this._removeLocation(this.myLocations, location);
 
-            if (!this.justShowMyLocations) {
-                this._removeLocation(this.publicLocations, location);
-            } else {
-                this._removeLocation(this.myLocations, location);
+            if (public && private) {
+                this._addLocation(this.selectedLocations, location, 'both');
+
+            } else if (public) {
+                this._addLocation(this.selectedLocations, location, 'public');
+
+            } else if (private) {
+                this._addLocation(this.selectedLocations, location, 'private');
             }
 
         }
 
+        deSelectLocation(locationtodeselect) {
+            this._removeLocation(this.selectedLocations, locationtodeselect);
 
+            if (locationtodeselect.origin === 'both') {
+                this.publicLocations.push(locationtodeselect);
+                this.myLocations.push(locationtodeselect);
+
+            } else if (locationtodeselect.origin === 'private') {
+                this.myLocations.push(locationtodeselect);
+
+            } else if (locationtodeselect.origin === 'public') {
+                this.publicLocations.push(locationtodeselect);
+            }
+        }
 
         _removeLocation(locations, locationtoremove) {
-            var index = this.lodash.indexOf(locations, locationtoremove);
+            var index = this.lodash.findIndex(locations, { '_id': locationtoremove._id});
+            if (index === -1) return false;
             locations.splice(index, 1);
+            return true;
         }
 
-        _addLocation(locations, locationtoadd) {
+        _addLocation(locations, locationtoadd, origin) {
+            locationtoadd.origin = origin;
             locations.push(locationtoadd);
         }
+
 
         static controllerId:string = "EditTripCtrl";
     }
