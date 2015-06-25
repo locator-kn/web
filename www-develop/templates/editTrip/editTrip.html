@@ -1,0 +1,154 @@
+<div class="edittrip-container container" ng-controller="EditTripCtrl as et">
+
+    <div class="row">
+        <div class="col-xs-12 searchbar welcome_select">
+
+
+            <span class="relative red"><span class="margin-right">Du bietest</span>
+                    <div class="list-selection"
+                         list-selection multiple=false
+                         values="et.days"
+                         selected-model="et.selectedDay" selected-name="et.showDays"
+                         open-element="mc.openElement"></div></span>
+
+             <span class="relative red"><div list-selection values="et.moods"
+                                             selected-model="et.selectedMood" selected-name="et.showMoods"
+                                             open-element="mc.openElement"></div></span>
+
+
+             <span class="relative red"><div class="list-selection" list-selection values="et.cities"
+                                             selected-model="et.selectedCity" selected-name="et.showCities"
+                                             open-element="mc.openElement"></div></span>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-5 locationpool">
+            <h2>Location auswählen</h2>
+
+            <div class="border-wrapper">
+
+                <div class="wrap">
+                    <div class="trigger">
+                        <a ng-click="et.justShowMyLocations = false" class="location-trigger" ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
+                        ng-click="et.justShowMyLocations = true" ng-class="{'active': et.justShowMyLocations}" class="location-trigger">meine</a>
+                    </div>
+                    <input ng-model-options="{debounce:300}" ng-model="et.locationSearch" placeholder="Suche"
+                           type="text"
+                           name="search">
+                </div>
+
+                <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
+                    <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
+                         class="relative location border-radius-decent">
+
+                        <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                        </div>
+                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                    </div>
+                </div>
+
+                <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
+                    <div ng-repeat="location in et.myLocations"
+                         class="relative border-radius-decent location mylocation">
+
+
+                        <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                        </div>
+
+                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-5 locationpool selectedlocations">
+
+            <div class="trip-title">
+                <input ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
+            </div>
+
+            <div class="border-wrapper">
+
+                <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
+
+                    <div ng-click="et.deSelectLocation(location)" class="select-overlay">
+                        <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
+                    </div>
+
+                    <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-2 metadata">
+
+            <div class="date meta-section">
+
+                <h2>Weitere Angaben</h2>
+
+                <input type="hidden" ng-model="et.startDateReal" required/>
+                <input type="hidden" ng-model="et.endDateReal"/>
+                <datepicker ng-if="et.editDataAvailable" start-date-real="et.startDateReal"
+                            end-date-real="et.endDateReal" on-linked="et.datePickerOnLinked"></datepicker>
+                <datepicker ng-if="!et.editDataAvailable" start-date-real="et.startDateReal"
+                            end-date-real="et.endDateReal" on-linked="et.datePickerOnLinked"></datepicker>
+
+
+                <div class="persons meta-section">
+
+                    <p class="text">anzahl personen</p>
+
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
+                         ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
+                    </div>
+
+                </div>
+
+                <div id="accommodation" class="meta-section accommodation">
+                    <span>unterkunft</span>
+
+                    <div class="circle" ng-click="et.toggleAccommodation()"
+                         ng-class="{'circle-selected': et.tripMeta.accommodation == true}"></div>
+                </div>
+                <div class="accommodation-equipment" ng-show="et.tripMeta.accommodation == true">
+                    <acc-equ-chooser
+                        accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                        accommodation-equipment="et.tripMeta.accommodationEquipment">
+                    </acc-equ-chooser>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 controls">
+            <a ng-click="et.getSelectedLocations()">Speichern</a>
+        </div>
+
+    </div>
+
+</div>

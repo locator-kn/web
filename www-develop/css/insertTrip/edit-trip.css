@@ -1,0 +1,166 @@
+.edittrip-container .welcome_select {
+    right: auto;
+    width: auto;
+}
+
+.edittrip-container .welcome_select ul {
+    top: 210px;
+    background-color: #FF4637;
+    text-align: left;
+}
+
+.edittrip-container .welcome_select .red {
+    margin-right: 8px;
+}
+
+.edittrip-container .location {
+    float: left;
+    width: 100%;
+    background: white;
+    padding: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    min-height: 110px;
+}
+
+.edittrip-container .location .img-wrapper {
+    padding-right: 0;
+}
+
+.edittrip-container .location:last-child {
+    margin-bottom: 0;
+    min-height: 100px;
+}
+
+.edittrip-container .location .select-overlay {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    float: left;
+    background: rgba(255, 70, 55, 0.71);
+    transition-duration: 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+}
+
+.edittrip-container .location:hover .select-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.edittrip-container h2 {
+    width: 100%;
+    float: left;
+    background-color: black;
+    color: white;
+    padding: 6px;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.edittrip-container .location h3 {
+    float: left;
+    padding-top: 3px;
+    font-size: 15px;
+}
+
+.edittrip-container .tags {
+    float: right;
+}
+
+.edittrip-container p {
+    float: left;
+    font-size: 12px;
+    width: 100%;
+}
+
+.edittrip-container .location-tags {
+    padding: 4px;
+}
+
+.edittrip-container .location-tags .tag {
+    font-size: 10px;
+}
+
+.edittrip-container .border-wrapper {
+    border: 1px solid black;
+    float: left;
+    width: 100%;
+}
+
+.publiclocations-wrapper, .mylocations-wrapper {
+    float: left;
+    padding: 5px;
+    width: 100%;
+}
+
+.border-radius-decent {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.edittrip-container img.trip-selection {
+    max-height: 110px;
+    display: inline-block;
+    padding: 30px;
+}
+
+.edittrip-container .meta-section {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.edittrip-container .trip-title {
+    width: 100%;
+    background: black;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.edittrip-container .trip-title input {
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.edittrip-container ::-webkit-input-placeholder {
+    color: rgb(212, 213, 215);
+}
+
+.edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container .wrap {
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.edittrip-container .wrap input {
+    width: 100%;
+    border: none;
+    background: white;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.edittrip-container .trigger a {
+    color: black;
+    font-size: 15px;
+}
+
+.edittrip-container .trigger a.active {
+    color: rgb(255, 70, 55);
+    text-decoration: underline;
+}

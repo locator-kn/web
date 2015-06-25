@@ -36,6 +36,10 @@ module Service {
             return this.lodash.findWhere(array, {'query_name': queryName});
         }
 
+        getCityByTitle(cities, title) {
+            return this.lodash.findWhere(cities, {'title': title});
+        }
+
 
         saveContext() {
             localStorage.setItem('state', this.$state.current.name);
