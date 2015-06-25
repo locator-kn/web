@@ -187,6 +187,10 @@ html, body {
     font-size: 12px;
 }
 
+.result-trip-title {
+    margin: 20px 0 0 0;
+}
+
 .result-content-wrapper {
     border-bottom: 2px solid grey;
     border-right: 2px solid grey;

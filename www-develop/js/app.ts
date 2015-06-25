@@ -289,7 +289,7 @@ var app = angular.module('locator', deps)
             '<img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>',
             '<div class="result-content-wrapper" ui-sref="trip({tripId:trip._id})">',
             '<div class="result-content">',
-            '<h3>{{trip.title}}</h3>',
+            '<h3 class="result-trip-title">{{trip.title}}</h3>',
             '<p class="result-user-info">',
             'Von <span class="orange">{{trip.username}}</span>',
             '</p>',
