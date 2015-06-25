@@ -133,3 +133,8 @@
 .trip-title ::-webkit-input-placeholder {
     color: grey;
 }
+
+.edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
+    float: left;
+    width: 100%;
+}
