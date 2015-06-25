@@ -581,6 +581,22 @@ a.close-modal {
     height: calc(100vh - 60px);
 }
 
+.results-container .welcome_select {
+    right: auto;
+    width: auto;
+}
+
+.results-container .welcome_select ul {
+    top: 210px;
+    background-color: #33c4b7;
+    text-align: left;
+}
+
+.results-container .welcome_select .red {
+    margin-right: 8px;
+}
+
+
 .results-container.loading .results {
     opacity: .2;
     z-index: -1;
