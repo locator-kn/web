@@ -12,13 +12,13 @@
                          open-element="mc.openElement"></div></span>
 
              <span class="relative red"><div list-selection values="et.moods"
-                                    selected-model="et.selectedMood" selected-name="et.showMoods"
-                                    open-element="mc.openElement"></div></span>
+                                             selected-model="et.selectedMood" selected-name="et.showMoods"
+                                             open-element="mc.openElement"></div></span>
 
 
              <span class="relative red"><div class="list-selection" list-selection values="et.cities"
-                                    selected-model="et.selectedCity" selected-name="et.showCities"
-                                    open-element="mc.openElement"></div></span>
+                                             selected-model="et.selectedCity" selected-name="et.showCities"
+                                             open-element="mc.openElement"></div></span>
 
         </div>
     </div>
@@ -27,7 +27,50 @@
     <div class="row">
 
         <div class="col-sm-4 locationpool">
+            <h2>Location auswählen</h2>
 
+            <div class="border-wrapper">
+
+                <div class="searchbar col-xs-12">
+                    <input ng-model-options="{debounce:300}" ng-model="et.locationSearch" placeholder="Suche"
+                           type="text"
+                           name="search">
+                </div>
+
+                <div class="publiclocations-wrapper">
+                    <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
+                         class="relative location border-radius-decent">
+                        <div class="row">
+                            <div class="col-xs-3 img-wrapper"><img
+                                ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=140x140'}}"
+                                class="location-picture img-responsive border-radius-decent"/>
+                            </div>
+
+                            <div class="content-wrapper col-xs-9">
+
+                                <h3>{{location.title}}</h3>
+
+                                <div class="location-tags tags">
+                                    <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
+                                </div>
+
+                                <p class="location-description">{{location.description}}</p>
+
+
+                            </div>
+
+                            <div class="select-overlay">
+                                <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mylocations-wrapper">
+                    <div ng-repeat="location in et.myLocations" class="location mylocation"></div>
+                </div>
+            </div>
 
         </div>
 
