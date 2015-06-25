@@ -45,6 +45,9 @@
                     <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
                          class="relative location border-radius-decent">
 
+                        <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                        </div>
                         <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
                     </div>
@@ -54,8 +57,12 @@
                     <div ng-repeat="location in et.myLocations"
                          class="relative border-radius-decent location mylocation">
 
-                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
+                        <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                        </div>
+
+                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
                     </div>
                 </div>
@@ -73,29 +80,11 @@
 
                 <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
 
-                    <div class="row">
-                        <div class="col-xs-3 img-wrapper"><img
-                            ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=140x140'}}"
-                            class="location-picture img-responsive border-radius-decent"/>
-                        </div>
-
-                        <div class="content-wrapper col-xs-9">
-
-                            <h3>{{location.title}}</h3>
-
-                            <div class="location-tags tags">
-                                <span ng-repeat="tag in location.tags | limitTo: 3" class="tag">{{tag}}</span>
-                            </div>
-
-                            <p class="location-description">{{location.description}}</p>
-
-                        </div>
-
-                        <div ng-click="et.deSelectLocation(location)" class="select-overlay">
-                            <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                        </div>
+                    <div ng-click="et.deSelectLocation(location)" class="select-overlay">
+                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
                     </div>
 
+                    <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
                 </div>
             </div>
