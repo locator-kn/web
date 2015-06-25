@@ -16,12 +16,11 @@
 .edittrip-container .location {
     float: left;
     width: 100%;
-    border: 2px solid white;
     background: white;
-    boreder-radius: 3px;
+    padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
-    min-height: 83px;
+    min-height: 110px;
 }
 
 .edittrip-container .location .img-wrapper {
@@ -105,9 +104,9 @@
 }
 
 .edittrip-container img.trip-selection {
-    max-height: 80px;
+    max-height: 110px;
     display: inline-block;
-    padding: 15px;
+    padding: 30px;
 }
 
 .edittrip-container .meta-section {
@@ -130,11 +129,38 @@
     font-size: 20px;
 }
 
-.trip-title ::-webkit-input-placeholder {
-    color: grey;
+.edittrip-container ::-webkit-input-placeholder {
+    color: rgb(212, 213, 215);
 }
 
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
     float: left;
     width: 100%;
+}
+
+.edittrip-container .wrap {
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.edittrip-container .wrap input {
+    width: 100%;
+    border: none;
+    background: white;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.edittrip-container .trigger a {
+    color: black;
+    font-size: 15px;
+}
+
+.edittrip-container .trigger a.active {
+    color: rgb(255, 70, 55);
+    text-decoration: underline;
 }

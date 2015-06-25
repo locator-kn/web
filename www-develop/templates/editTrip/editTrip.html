@@ -31,10 +31,10 @@
 
             <div class="border-wrapper">
 
-                <div class="searchbar col-xs-12">
+                <div class="wrap">
                     <div class="trigger">
-                        <a ng-click="et.justShowMyLocations = false" class="location-trigger">alle</a> <a
-                        ng-click="et.justShowMyLocations = true" class="location-trigger">meine</a>
+                        <a ng-click="et.justShowMyLocations = false" class="location-trigger" ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
+                        ng-click="et.justShowMyLocations = true" ng-class="{'active': et.justShowMyLocations}" class="location-trigger">meine</a>
                     </div>
                     <input ng-model-options="{debounce:300}" ng-model="et.locationSearch" placeholder="Suche"
                            type="text"
@@ -81,7 +81,7 @@
                 <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
 
                     <div ng-click="et.deSelectLocation(location)" class="select-overlay">
-                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                        <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
                     </div>
 
                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
@@ -136,7 +136,8 @@
                 <div class="accommodation-equipment" ng-show="et.tripMeta.accommodation == true">
                     <acc-equ-chooser
                         accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
-                        accommodation-equipment="et.tripMeta.accommodationEquipment"></acc-equ-chooser>
+                        accommodation-equipment="et.tripMeta.accommodationEquipment">
+                    </acc-equ-chooser>
                 </div>
 
 
