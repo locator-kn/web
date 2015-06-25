@@ -15,7 +15,8 @@ module Controller {
         open:any;
         selectedMood:any;
 
-        justShowMyLocations:boolean = false
+        justShowMyLocations:boolean = false;
+
 
         cities:any;
         selectedCity:any;
@@ -61,6 +62,10 @@ module Controller {
 
                     this.fetchLocations();
                 });
+
+            $scope.$watch('this.selectedCity', function() {
+                alert('hey, myVar has changed!');
+            });
 
         }
 
@@ -141,8 +146,7 @@ module Controller {
             this.selectedLocations.forEach(location => {
                 sl[location._id] = location.images;
             });
-
-            debugger;
+            
             return sl;
         }
 
