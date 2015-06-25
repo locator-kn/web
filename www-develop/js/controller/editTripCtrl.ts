@@ -23,6 +23,18 @@ module Controller {
         days:any;
         selectedDay:any;
 
+        tripMeta:any = {
+            title: '',
+            persons: '',
+            accommodation: false,
+            description: '',
+            budget: '',
+            accommodationEquipment: [],
+            city: {}
+        };
+
+        accommodationEquipmentSelectable = false;
+
         dataAvailable:boolean = false;
 
         locationSearch = '';
@@ -51,6 +63,16 @@ module Controller {
                     this.fetchLocations();
                 });
 
+        }
+
+        toggleAccommodation() {
+            this.tripMeta.accommodation = !this.tripMeta.accommodation;
+            if (this.tripMeta.accommodation) {
+                this.accommodationEquipmentSelectable = true;
+            } else {
+                this.tripMeta.accommodationEquipment = [];
+                this.accommodationEquipmentSelectable = false;
+            }
         }
 
         fetchLocations() {
