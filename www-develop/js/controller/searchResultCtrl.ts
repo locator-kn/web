@@ -36,7 +36,7 @@ module Controller {
                     this.days = responsesArray[2].data;
 
                     this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods || 'halligalli_drecksau');
-                    //this.selectedCity = HelperService.getObjectByQueryName(this.cities, $state.params.city || 'Konstanz');
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city || 'Konstanz');
                     this.selectedCity = HelperService.getObjectByQueryName(this.days, $state.params.days || 1);
 
                     debugger;
