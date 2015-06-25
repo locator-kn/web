@@ -50,23 +50,15 @@ module Controller {
                 .then((responsesArray) => {
 
                     this.moods = responsesArray[0].data;
-
-
                     this.cities = responsesArray[1].data;
-
-
                     this.days = responsesArray[2].data;
-
-
                     this.dataAvailable = true;
 
                     this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods);
                     this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
                     this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
 
-                    debugger;
-
-
+                    
                     this.fetchLocations();
                 });
 
@@ -84,14 +76,14 @@ module Controller {
 
         fetchLocations() {
             console.info(this.selectedCity);
-            this.LocationService.getLocationsByCity("Konstanz")
+            this.LocationService.getLocationsByCity(this.selectedCity.title)
                 .then(result => {
                     this.publicLocations = result.data;
                 }).catch(err => {
                     console.info(err);
                 });
 
-            this.LocationService.getMyLocationsByCity("Konstanz")
+            this.LocationService.getMyLocationsByCity(this.selectedCity.title)
                 .then(result => {
                     this.myLocations = result.data;
                 }).catch(err => {
