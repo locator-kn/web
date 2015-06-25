@@ -56,9 +56,11 @@
                                 <input type="hidden" ng-model="itc.startDateReal" required/>
                                 <input type="hidden" ng-model="itc.endDateReal"/>
                                 <datepicker ng-if="itc.editDataAvailable" start-date-real="itc.startDateReal"
-                                            end-date-real="itc.endDateReal" on-linked="itc.datePickerOnLinked"></datepicker>
+                                            end-date-real="itc.endDateReal"
+                                            on-linked="itc.datePickerOnLinked"></datepicker>
                                 <datepicker ng-if="!itc.editDataAvailable" start-date-real="itc.startDateReal"
-                                            end-date-real="itc.endDateReal" on-linked="itc.datePickerOnLinked"></datepicker>
+                                            end-date-real="itc.endDateReal"
+                                            on-linked="itc.datePickerOnLinked"></datepicker>
                                 <div class="days-amount">
                                     <p class="text">anzahl tage</p>
 
@@ -100,6 +102,7 @@
                             <input class="text-fields" type="text" name="tripTitle"
                                    placeholder="benenne deinen trip"
                                    ng-model="itc.tripTitle" required>
+
                             <div style="margin-top: 5px" class="validation-error"
                                  ng-show="(itc.form.tripTitle.$touched) && itc.form.tripTitle.$error.required">
                                 <p class="error-message">bitte gib einen titel für deinen trip ein</p>
@@ -109,6 +112,7 @@
                                    ng-map-autocomplete options="itc.googlePlacesOptions" ng-model="itc.tripCity"
                                    details="itc.selectedPlaceDetails"
                                    required>
+
                             <div style="margin-top: 5px" class="validation-error"
                                  ng-show="(itc.form.tripCity.$touched) && itc.form.tripCity.$error.required">
                                 <p class="error-message">bitte gib ein wo dein trip statt findet</p>
@@ -122,8 +126,10 @@
                                 <div class="locations" ng-class="{active: itc.showAvailableLocations }"
                                      ng-show="itc.availableLocations.length">
                                     <div class="location" ng-repeat="(locationId, loc) in itc.availableLocationsHash">
-                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}" alt=""
-                                                                        class="location-img"/></div>
+                                        <div class="img-container"><img
+                                            ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}"
+                                            alt=""
+                                            class="location-img"/></div>
                                         <div class="add-location">
                                             <a href="" ng-click="itc.addLocationToTrip(locationId)">+</a>
                                         </div>
@@ -139,8 +145,10 @@
 
                                 <div class="locations" ng-class="{active: itc.showSelectedLocations }">
                                     <div class="location" ng-repeat="(locationId, loc) in itc.selectedLocations">
-                                        <div class="img-container"><img ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}" alt=""
-                                                                        class="location-img"/></div>
+                                        <div class="img-container"><img
+                                            ng-src="{{loc.images.thumbnail || loc.images.googlemap + '&size=240x140'}}"
+                                            alt=""
+                                            class="location-img"/></div>
                                         <div class="add-location">
                                             <a href="" ng-click="itc.removeLocationFromTrip(locationId)">-</a>
                                         </div>
@@ -157,13 +165,15 @@
                                     <a ui-sref="insertLocation" ng-click="itc.storeValues()">location hinzufügen</a>
                                 </div>
                             </div>
-                        <textarea class="trip-description text-fields" name="tripDescription" placeholder="beschreibe deinen trip"
+                        <textarea class="trip-description text-fields" name="tripDescription"
+                                  placeholder="beschreibe deinen trip"
                                   ng-model="itc.tripDescription"
                                   required></textarea>
-                        <div class="validation-error"
-                             ng-show="(itc.form.tripDescription.$touched) && itc.form.tripDescription.$error.required">
-                            <p class="error-message">bitte gib eine beschreibung deines trips ein</p>
-                        </div>
+
+                            <div class="validation-error"
+                                 ng-show="(itc.form.tripDescription.$touched) && itc.form.tripDescription.$error.required">
+                                <p class="error-message">bitte gib eine beschreibung deines trips ein</p>
+                            </div>
                         <textarea class="trip-money text-fields" type="text"
                                   placeholder="für was braucht dein gast eventuell geld?"
                                   ng-model="itc.tripDescriptionMoney"></textarea>
@@ -180,7 +190,8 @@
                                     accommodation-equipment="itc.accommodationEquipment"></acc-equ-chooser>
                             </div>
                             <div>
-                                <div id="saveTrip" class="save-trip submit-btn submit-progress" ng-class="{running: itc.running}">
+                                <div id="saveTrip" class="save-trip submit-btn submit-progress"
+                                     ng-class="{running: itc.running}">
                                     <input type="submit"
                                            ng-disabled="itc.form.$invalid || !itc.locationHasBeenSelected"
                                            ng-click="itc.saveTrip()" value="SPEICHERN"/>
