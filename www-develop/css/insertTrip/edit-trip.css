@@ -1,0 +1,14 @@
+.edittrip-container .welcome_select {
+    right: auto;
+    width: auto;
+}
+
+.edittrip-container .welcome_select ul {
+    top: 210px;
+    background-color: #FF4637;
+    text-align: left;
+}
+
+.edittrip-container .welcome_select .red {
+    margin-right: 8px;
+}
