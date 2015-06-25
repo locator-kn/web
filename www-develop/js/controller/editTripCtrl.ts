@@ -114,6 +114,17 @@ module Controller {
             locations.push(locationtoadd);
         }
 
+        getSelectedLocations() {
+
+            var sl = {};
+            this.selectedLocations.forEach(location => {
+                sl[location._id] = location.images;
+            });
+
+            debugger;
+            return sl;
+        }
+
 
         static controllerId:string = "EditTripCtrl";
     }
