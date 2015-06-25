@@ -39,6 +39,7 @@
 /// <reference path="./service/messengerService.ts" />
 /// <reference path="./controller/messengerCtrl.ts" />
 /// <reference path="./controller/tripCtrl.ts" />
+/// <reference path="./controller/editTripCtrl.ts" />
 
 
 var deps = [
@@ -128,12 +129,12 @@ var app = angular.module('locator', deps)
 
             .state('insertTrip', {
                 url: "/insert-trip/?city&moods&days",
-                templateUrl: "templates/insertTrip/insertTrip.html"
+                templateUrl: "templates/editTrip/editTrip.html"
             })
 
             .state('editTrip', {
                 url: "/edit-trip/:tripId",
-                templateUrl: "templates/insertTrip/insertTrip.html"
+                templateUrl: "templates/editTrip/editTrip.html"
             })
 
             .state('insertLocation', {
@@ -165,6 +166,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.TripCtrl.controllerId, Controller.TripCtrl)
     .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
+    .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
 
 
     .directive('backImg', function () {
