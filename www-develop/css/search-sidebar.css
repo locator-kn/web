@@ -242,8 +242,8 @@ img-triplist {
     position: fixed;
     top: 60px;
     left: 150px;
-
-
+    display: block;
+    z-index: 100;
 }
 
 
