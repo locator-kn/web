@@ -21,9 +21,16 @@ module Service {
                         .then(response => {
                             var myIoSocket = io.connect(response.data.namespace);
                             this.socket = this.socketFactory({ioSocket: myIoSocket});
+                            this.registerEvents(this.socket);
                             resolve(this.socket)
                         });
                 }
+            });
+        }
+
+        registerEvents(socket) {
+            socket.on('new_message', newMessage => {
+                this.$rootScope.emit('new_message', newMessage);
             });
         }
 
