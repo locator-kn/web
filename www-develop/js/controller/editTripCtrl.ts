@@ -2,10 +2,14 @@ module Controller {
 
     export class EditTripCtrl {
 
+        showPreview = false;
 
+        tripId;
         myLocations = [];
         publicLocations = [];
         selectedLocations = [];
+
+        slides = [];
 
         showCities:string = 'showCitiesCreate';
         showMoods:string = 'showMoodsCreate';
@@ -29,22 +33,21 @@ module Controller {
             persons: '',
             accommodation: false,
             description: '',
-            budget: '',
-            accommodationEquipment: [],
+            start_date: undefined,
+            end_date: undefined,
+            accommodation_equipment: [],
             city: {}
         };
 
         accommodationEquipmentSelectable = false;
-
         dataAvailable:boolean = false;
-
         locationSearch = '';
 
 
-        constructor(private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
+        constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
             var moods = this.DataService.getMoods();
-            var cities = this.DataService.getCities();
+            var cities = this.DataService.getFixedCities();
             var days = this.DataService.getAvailableAmountOfDays();
 
             this.$q.all([moods, cities, days])
@@ -68,6 +71,7 @@ module Controller {
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
+                    this.$location.search('city', this.selectedCity.title);
                 }
             });
 
@@ -116,6 +120,8 @@ module Controller {
                 this._addLocation(this.selectedLocations, location, 'private');
             }
 
+            this.buildSlidesArray();
+
         }
 
         deSelectLocation(locationtodeselect) {
@@ -131,6 +137,8 @@ module Controller {
             } else if (locationtodeselect.origin === 'public') {
                 this.publicLocations.push(locationtodeselect);
             }
+
+            this.buildSlidesArray();
         }
 
         _removeLocation(locations, locationtoremove) {
@@ -153,6 +161,45 @@ module Controller {
             });
 
             return sl;
+        }
+
+        buildSlidesArray() {
+
+            this.slides = [];
+
+            this.selectedLocations.forEach((location:any) => {
+                if (location.images.picture) {
+                    this.slides.push(location.images.picture);
+                }
+                this.slides.push(location.images.googlemap + '&size=640x375');
+            });
+
+        }
+
+        tripPreview() {
+
+            this.showPreview = true;
+            var element = document.getElementById('trip-preview');
+            this.smoothScroll(element);
+        }
+
+        saveTrip() {
+            var trip = this.tripMeta;
+            trip.city = this.selectedCity;
+            trip.days = this.selectedDay.id;
+            trip.moods = [this.selectedMood.query_name];
+
+            trip.locations = this.getSelectedLocations();
+
+            debugger;
+
+            this.TripService.saveTrip(trip, this.tripId)
+                .then(result => {
+                    console.info('success');
+                })
+                .catch(err => {
+                    console.info('error');
+                });
         }
 
 
