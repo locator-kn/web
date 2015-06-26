@@ -57,7 +57,7 @@ module Controller {
                     }
                     this.conversations.forEach((element:any) => {
                         this.conversationsHash[element._id] = element;
-                        if (!element[this.$rootScope.userID + '_read']) {
+                        if (this.$rootScope.userID && !element[this.$rootScope.userID + '_read']) {
                             console.log('there is an unread message from', element);
                             this.showBadge = true;
                         }
