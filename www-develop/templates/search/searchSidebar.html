@@ -1,46 +1,17 @@
 <div class="container-sidebar">
     <div class="search-menu" ng-class="{'search-menu-inactive': sc.isActive('')}">
-
-        <div class="item" ng-class="{'item-active': sc.isActive('search')}" >
-            <img class="pointer menu-search-icon" src="images/icons/suche.png" ng-click="sc.toggleActiveItem('search')">
-            <Label class="item-description" ng-show="sc.isActive('search')">
-                <input class="input-transparent" type="text" ng-model="sc.query.city" ng-model-options="{debounce: 100}">
-            </label>
-        </div>
-        <div class="item" ng-class="{'item-active': sc.isActive('date')}">
-            <img class="pointer" src="images/icons/kalender.png" ng-click="sc.toggleActiveItem('date')">
-            <label class="item-description" ng-show="sc.isActive('date')">
-                check in / check out
-            </label>
-        </div>
         <div class="item" ng-class="{'item-active': sc.isActive('filter')}">
             <img class="pointer" src="images/icons/regler.png" ng-click="sc.toggleActiveItem('filter')">
             <label class="item-description" ng-show="sc.isActive('filter')">
                 Filter
             </label>
         </div>
-        <div class="item"ng-class="{'item-active': sc.isActive('moods')}">
-            <img class="pointer" src="images/icons/wegweiser.png" ng-click="sc.toggleActiveItem('moods')">
-            <label class="item-description" ng-show="sc.isActive('moods')">
-                Stimmung
-            </label>
-        </div>
     </div>
     <div class="settings sample-show-hide" ng-show="sc.activeItem != ''" style="clear:both;">
-        <div ng-class="{'search-offset': sc.isActive('search'), 'date-offset': sc.isActive('date'), 'filter-offset': sc.isActive('filter'), 'moods-offset': sc.isActive('moods')}">
-            <div ng-switch="sc.activeItem">
-                <div ng-switch-when="search">
-                    <div ng-include="'templates/search/city.html'"></div>
-                </div>
-                <div ng-switch-when="date">
-                    <div ng-include="'templates/search/dates.html'"></div>
-                </div>
-                <div ng-switch-when="filter">
-                    <div ng-include="'templates/search/filter.html'"></div>
-                </div>
-                <div ng-switch-when="moods">
-                    <div ng-include="'templates/search/moods.html'"></div>
-                </div>
+        <div class="filter-offset">
+            <div ng-show="sc.activeItem == 'filter'">
+                <div ng-include="'templates/search/dates.html'"></div>
+                <div ng-include="'templates/search/filter.html'"></div>
             </div>
         </div>
     </div>

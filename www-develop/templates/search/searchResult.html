@@ -9,15 +9,15 @@
                 <span class="margin-right">Du willst</span>
                     <div class="list-selection"
                          list-selection multiple=false
-                         values="src.days"
-                         selected-model="src.selectedDay" selected-name="src.showDays"
+                         values="src.query.day.allDays"
+                         selected-model="src.query.day.selectedDay" selected-name="src.query.day.showDays"
                          open-element="mc.openElement">
                     </div>
             </span>
 
              <span class="relative green">
-                 <div list-selection values="src.moods"
-                      selected-model="src.selectedMood" selected-name="src.showMoods"
+                 <div list-selection values="src.query.mood.allMoods"
+                      selected-model="src.query.mood.selectedMood" selected-name="src.query.mood.showMoods"
                       open-element="mc.openElement">
                  </div>
              </span>
@@ -25,8 +25,8 @@
 
              <span class="relative green">
                  <span class="margin-right">in</span>
-                 <div class="list-selection" list-selection values="src.cities"
-                      selected-model="src.selectedCity" selected-name="src.showCities"
+                 <div class="list-selection" list-selection values="src.query.city.allCities"
+                      selected-model="src.query.city.selectedCity" selected-name="src.query.city.showCities"
                       open-element="mc.openElement">
                  </div>
              </span>
@@ -36,7 +36,7 @@
 
     <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2' infinite-scroll-disabled='src.noMoreTrips'>
         <div ng-show="src.results.length == 0">
-            <h1>Keine Results</h1>
+            <h1>Keine Ergebnisse :(</h1>
         </div>
         <div class="row">
             <div class="col-xs-12 pointer " ng-repeat="result in src.results">
