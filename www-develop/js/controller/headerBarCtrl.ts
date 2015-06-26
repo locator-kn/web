@@ -89,13 +89,17 @@ module Controller {
 
         registerWebsockets() {
 
-            this.$rootScope.$on('new_message', (evt, newMessage) => {
-                this.showBadge = true;
-                this.unreadMessages += 1;
-                console.info('new message');
-                console.log(newMessage);
-                //this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+            this.SocketService.socketInit().then(() => {
+                // it doesnt need to be called after socketInit
+                this.$rootScope.$on('new_message', (evt, newMessage) => {
+                    this.showBadge = true;
+                    this.unreadMessages += 1;
+                    console.info('new message');
+                    console.log(newMessage);
+                    //this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                });
             });
+
 
         }
 
