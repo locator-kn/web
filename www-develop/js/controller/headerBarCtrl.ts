@@ -91,7 +91,7 @@ module Controller {
 
             this.SocketService.socketInit().then(() => {
                 // it doesnt need to be called after socketInit
-                this.$rootScope.$on('new_message', (evt, newMessage) => {
+                this.$scope.$on('new_message', (evt, newMessage) => {
                     this.showBadge = true;
                     this.unreadMessages += 1;
                     console.info('new message');
