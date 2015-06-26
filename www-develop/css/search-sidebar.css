@@ -165,11 +165,10 @@ html, body {
 }
 
 .result-trip-title {
-    margin: 0 0 0 0;
+    margin: 5px 0 20px 0;
 }
 
 .result-trip-date {
-    float: right;
     margin: 0 0 0 0;
 }
 
@@ -212,6 +211,9 @@ img-triplist {
     width: 100%;
 }
 
+.result-content-box {
+    padding: 5px 5px 0 0;
+}
 .result-content-wrapper {
     float: left;
     height: auto !important;
