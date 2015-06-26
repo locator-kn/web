@@ -7,70 +7,7 @@ module Controller {
         noMoreTrips:boolean = false;
 
 
-        // use
-        showCities:string = 'showCitiesCreate';
-        showMoods:string = 'showMoodsCreate';
-        showDays:string = 'showDaysCreate';
-
-        cities:any;
-        selectedCity:any;
-
-        days:any;
-        selectedDay:any;
-
-        moods:any;
-        selectedMood:any;
-
-        dataAvailable:boolean = false;
-
-
-        constructor(private $scope, private $q, private $rootScope, private SearchService, private HelperService, private $state, private DataService) {
-
-
-            var moods = this.DataService.getMoods();
-            var cities = this.DataService.getCities();
-            var days = this.DataService.getAvailableAmountOfDays();
-
-            this.$q.all([moods, cities, days])
-                .then((responsesArray) => {
-
-                    this.moods = responsesArray[0].data;
-                    this.cities = responsesArray[1].data;
-                    this.days = responsesArray[2].data;
-                    this.dataAvailable = true;
-
-                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods || 'buddytrip');
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city || 'Konstanz');
-                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days || 1);
-
-
-                });
-
-            // display new search results when city changed
-            $scope.$watch(angular.bind(this, () => {
-                return this.selectedCity; // `this` IS the `this` above!!
-            }), (newVal, oldVal) => {
-                if (newVal != oldVal) {
-                    //   TODO search
-                }
-            });
-
-            // display new search results when day has changed
-            $scope.$watch(angular.bind(this, () => {
-                return this.selectedDay; // `this` IS the `this` above!!
-            }), (newVal, oldVal) => {
-                if (newVal != oldVal) {
-                    //  TODO search
-                }
-            });
-            // display new search results when mood has changed
-            $scope.$watch(angular.bind(this, () => {
-                return this.selectedMood; // `this` IS the `this` above!!
-            }), (newVal, oldVal) => {
-                if (newVal != oldVal) {
-                    //   TODO search
-                }
-            });
+        constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
 
             $rootScope.$state = $state;
