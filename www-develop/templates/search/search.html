@@ -1,6 +1,7 @@
 <div ng-controller="SearchCtrl as sc">
     <div class="row">
-        <div class="col-xs-12 welcome_select searchbar">
+        <div class="welcome_select">
+            <div class="search-searchbar">
             <span class="relative green">
                 <span class="margin-right">Du willst</span>
                     <div class="list-selection"
@@ -18,7 +19,6 @@
                  </div>
              </span>
 
-
              <span class="relative green">
                  <span class="margin-right">in</span>
                  <div class="list-selection" list-selection values="sc.cities"
@@ -26,7 +26,7 @@
                       open-element="mc.openElement">
                  </div>
              </span>
-
+            </div>
         </div>
     </div>
     <div ng-include="'templates/search/searchSidebar.html'"></div>
