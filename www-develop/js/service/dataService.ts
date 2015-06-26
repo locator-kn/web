@@ -8,6 +8,7 @@ module Service {
         dataAccommodationsCache;
         dataMoodsCache;
         dayCache;
+        fixedCitiesCache;
 
         availableMoods = [{
             id: "buddytrip",
@@ -40,7 +41,7 @@ module Service {
         }, {
             id: "sturmderliebe",
             query_name: "sturm_der_liebe",
-            title: "strum der liebe",
+            title: "sturm der liebe",
             icon: "sturm_der_liebe.png",
             icon_grey: "sturm_der_liebe_grey.png",
             description: ""
@@ -115,6 +116,10 @@ module Service {
 
         getCities() {
             return this.$http.get(this.basePath + '/data/cities', {cache: this.dataCitiesCache});
+        }
+
+        getFixedCities() {
+            return this.$http.get(this.basePath + '/data/fixCities', {cache: this.fixedCitiesCache});
         }
 
         getAccomodations() {
