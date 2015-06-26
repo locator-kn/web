@@ -39,13 +39,38 @@ module Controller {
                     this.days = responsesArray[2].data;
                     this.dataAvailable = true;
 
-                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods);
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
-                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
+                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods || 'buddytrip');
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city || 'Konstanz');
+                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days || 1);
 
 
                 });
 
+            // display new search results when city changed
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedCity; // `this` IS the `this` above!!
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    //   TODO search
+                }
+            });
+
+            // display new search results when day has changed
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedDay; // `this` IS the `this` above!!
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    //  TODO search
+                }
+            });
+            // display new search results when mood has changed
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedMood; // `this` IS the `this` above!!
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    //   TODO search
+                }
+            });
 
 
             $rootScope.$state = $state;
