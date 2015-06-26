@@ -29,7 +29,7 @@ module Controller {
         getData() {
 
             var moods = this.DataService.getMoods();
-            var cities = this.DataService.getCities();
+            var cities = this.DataService.getFixedCities();
             var days = this.DataService.getAvailableAmountOfDays();
 
             this.$q.all([moods, cities, days])
