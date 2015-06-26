@@ -236,5 +236,11 @@ img-triplist {
     margin-bottom: 30px;
 }
 
+.searchbar {
+    position:fixed;
+    top: 60px;
+    left: 100px;
+}
+
 
 
