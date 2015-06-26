@@ -1,14 +1,10 @@
 <div class="container-sidebar">
     <div class="search-menu" ng-class="{'search-menu-inactive': sc.isActive('')}">
-        <div class="item" ng-class="{'item-active': sc.isActive('filter')}">
-            <img class="pointer" src="images/icons/regler.png" ng-click="sc.toggleActiveItem('filter')">
-            <label class="item-description" ng-show="sc.isActive('filter')">
-                Filter
-            </label>
+        <div class="item pointer" ng-class="{'item-active': sc.isActive('filter')}" ng-click="sc.toggleActiveItem('filter')">
         </div>
     </div>
     <div class="settings sample-show-hide" ng-show="sc.activeItem != ''" style="clear:both;">
-        <div class="filter-offset">
+        <div>
             <div ng-show="sc.activeItem == 'filter'">
                 <div class="filter-container">
                 <div ng-include="'templates/search/dates.html'"></div>
