@@ -10,8 +10,10 @@
     <div class="settings sample-show-hide" ng-show="sc.activeItem != ''" style="clear:both;">
         <div class="filter-offset">
             <div ng-show="sc.activeItem == 'filter'">
+                <div class="filter-container">
                 <div ng-include="'templates/search/dates.html'"></div>
                 <div ng-include="'templates/search/filter.html'"></div>
+                </div>
             </div>
         </div>
     </div>
