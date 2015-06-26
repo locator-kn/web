@@ -5,7 +5,8 @@ module Service {
         searchQuery:any;
         pageSize:number = 10;
 
-        constructor(private $http, private $location, private basePath, private DataService, private lodash, private $q, private UserService) {
+        constructor(private $http, private $location, private basePath, private DataService,
+                    private lodash, private $q, private UserService) {
 
         }
 
@@ -42,7 +43,7 @@ module Service {
                     params: sq,
                     method: 'GET'
                 }).success(data => {
-                    data.forEach(entry => {
+                    data.forEach((entry:any) => {
                         this.UserService.getUser(entry.userid).then(result => {
                             entry.username = result.data.name + ' ' + result.data.surname;
                         });
