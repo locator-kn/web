@@ -4,9 +4,11 @@
 }
 
 .edittrip-container .welcome_select ul {
-    top: 210px;
+    top: 50px;
     background-color: #FF4637;
     text-align: left;
+    transform: translateY(0%) scale(1) !important;
+
 }
 
 .edittrip-container .welcome_select .red {
