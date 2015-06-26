@@ -55,17 +55,22 @@ module Controller {
                     this.days = responsesArray[2].data;
                     this.dataAvailable = true;
 
-                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods);
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
-                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days);
+                    $scope.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
+                    $scope.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    $scope.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
+                    debugger;
 
                     this.fetchLocations();
                 });
 
-            $scope.$watch('this.selectedCity', function() {
-                alert('hey, myVar has changed!');
-            });
+            $scope.$watch('selectedCity', (newval, oldval) => {
+                if (newval) {
+                    this.fetchLocations();
+                }
+
+            }, true);
+
 
         }
 
@@ -81,14 +86,14 @@ module Controller {
 
         fetchLocations() {
             console.info(this.selectedCity);
-            this.LocationService.getLocationsByCity(this.selectedCity.title)
+            this.LocationService.getLocationsByCity(this.$scope.selectedCity.title)
                 .then(result => {
                     this.publicLocations = result.data;
                 }).catch(err => {
                     console.info(err);
                 });
 
-            this.LocationService.getMyLocationsByCity(this.selectedCity.title)
+            this.LocationService.getMyLocationsByCity(this.$scope.selectedCity.title)
                 .then(result => {
                     this.myLocations = result.data;
                 }).catch(err => {
@@ -146,7 +151,7 @@ module Controller {
             this.selectedLocations.forEach(location => {
                 sl[location._id] = location.images;
             });
-            
+
             return sl;
         }
 
