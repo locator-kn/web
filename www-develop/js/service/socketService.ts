@@ -22,7 +22,6 @@ module Service {
                         .then(response => {
                             var myIoSocket = io.connect(response.data.namespace);
                             this.socket = this.socketFactory({ioSocket: myIoSocket});
-                            this.registerEvents();
                             resolve(this.socket)
                         });
                 }
@@ -43,11 +42,11 @@ module Service {
             });
         }
 
-        onEvent(event, fn) {
+        /*onEvent(event, fn) {
             this.getSocket().then(socket => {
                 socket.on(event, fn);
             })
-        }
+        }*/
 
         offEvent(event) {
             this.getSocket().then(socket => {
