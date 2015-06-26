@@ -134,7 +134,8 @@ var app = angular.module('locator', deps)
 
             .state('editTrip', {
                 url: "/edit-trip/:tripId",
-                templateUrl: "templates/editTrip/editTrip.html"
+                templateUrl: "templates/editTrip/editTrip.html",
+                reloadOnSearch: false
             })
 
             .state('insertLocation', {
@@ -203,8 +204,11 @@ var app = angular.module('locator', deps)
         return {
             scope: {date: '='},
             controller: function ($scope) {
-                var date = new Date($scope.date);
-                $scope.date = moment(date).format('L');
+
+                var localdate = new Date($scope.date);
+                $scope.date = moment(localdate).format('L');
+
+
             },
             template: '{{date}}'
         };
@@ -224,13 +228,13 @@ var app = angular.module('locator', deps)
                 mapheight: '@',
                 scale: '@'
             },
-            link: (scope:any, element) =>{
+            link: (scope:any, element) => {
                 var slides:string[] = [];
                 var l = scope.locations;
                 for (var key in l) {
                     if (l.hasOwnProperty(key)) {
                         var selectedObjImages = l[key];
-                        if(selectedObjImages.picture) {
+                        if (selectedObjImages.picture) {
                             slides.push(selectedObjImages.picture);
                         }
                         slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
@@ -322,7 +326,7 @@ var app = angular.module('locator', deps)
             '</div>',
             '</div>',
             '</div>'
-            ];
+        ];
 
         return {
             scope: {
@@ -335,7 +339,7 @@ var app = angular.module('locator', deps)
 
     .directive('focus', function () {
         return function (scope, elem, attr) {
-           angular.element(elem).focus();
+            angular.element(elem).focus();
         };
     })
 
