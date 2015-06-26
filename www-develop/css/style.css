@@ -579,6 +579,7 @@ a.close-modal {
     padding-left: 60px;
     padding-right: 60px;
     height: calc(100vh - 60px);
+    margin-top: 100px;
 }
 
 .results-container .welcome_select {
@@ -592,7 +593,7 @@ a.close-modal {
     text-align: left;
 }
 
-.results-container .welcome_select .green {
+.results-container .welcome_select .greenresult-content-wrapper {
     margin-right: 8px;
 }
 

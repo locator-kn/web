@@ -4,9 +4,11 @@
 }
 
 .edittrip-container .welcome_select ul {
-    top: 210px;
+    top: 50px;
     background-color: #FF4637;
     text-align: left;
+    transform: translateY(0%) scale(1) !important;
+
 }
 
 .edittrip-container .welcome_select .red {
@@ -55,10 +57,6 @@
 .edittrip-container h2 {
     width: 100%;
     float: left;
-    background-color: black;
-    color: white;
-    padding: 6px;
-    margin-bottom: 0;
     font-size: 20px;
 }
 
@@ -90,6 +88,9 @@
     border: 1px solid black;
     float: left;
     width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 3px;
 }
 
 .publiclocations-wrapper, .mylocations-wrapper {
@@ -110,23 +111,34 @@
 }
 
 .edittrip-container .meta-section {
-    border-bottom: 1px solid black;
-    padding-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container .separator {
+    margin-left: -15px;
+    margin-right: -15px;
+    border-top: 1px solid black;
+    width: 120%;
+    float: left;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .edittrip-container .trip-title {
     width: 100%;
-    background: black;
     margin-top: 20px;
-    padding: 10px;
+    margin-bottom: 3px;
 }
 
 .edittrip-container .trip-title input {
-    background-color: transparent;
-    color: white;
-    border: none;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid black;
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 2px 5px;
 }
 
 .edittrip-container ::-webkit-input-placeholder {
@@ -174,4 +186,68 @@
 
 .edittrip-container .img-wrapper {
     overflow: hidden;
+}
+
+.edittrip-container .edit-section {
+    min-height: 80vh;
+}
+
+.edittrip-container .infobox {
+    background: black;
+    color: white;
+}
+
+.edittrip-container .slider {
+    padding-right: 0;
+}
+
+
+.edittrip-container a.button {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+    float: left;
+}
+
+.edittrip-container .flexslider {
+    height: auto;
+}
+
+.edittrip-container .description {
+    width: 100%;
+    border: none;
+    background: white;
+    border-radius: 3px;
+    padding: 5px;
+    min-height: 110px;
+}
+
+.edittrip-container .flexslider {
+    margin-bottom: 15px;
+}
+
+.edittrip-container .height-wrapper {
+    min-height: 80vh;
+}
+
+.edittrip-container #tripviewpreview h3 {
+    padding-top: 80px;
+}
+
+.edittrip-container .next-button {
+    margin-top: 5px;
+}
+
+.edittrip-container .metadata .border-wrapper {
+    padding: 15px;
+    max-height: inherit;
+}
+
+.edittrip-container .missing {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
 }
