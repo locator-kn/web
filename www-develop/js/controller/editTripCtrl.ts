@@ -62,7 +62,7 @@ module Controller {
 
                     this.fetchLocations();
                 });
-            
+
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedCity; // `this` IS the `this` above!!
             }), (newVal, oldVal) => {
