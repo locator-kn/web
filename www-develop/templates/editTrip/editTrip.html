@@ -146,6 +146,7 @@
                 </div>
 
                 <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
+                {{et.showPreview}}
             </div>
 
         </div>
@@ -153,53 +154,51 @@
 
     </div>
 
-</div>
 
+    <div ng-hide="!et.showPreview" id="tripviewpreview" class="row">
+        <h3>Übersicht</h3>
 
-<div ng-hide="!et.showPreview" id="trip-preview" class="row">
-    <h3>Übersicht</h3>
-
-    <div class="col-sm-8 slider">
-        <flex-slider class="static" direction-nav="true" slide="s in et.slides">
-            <li>
-                <img ng-src="{{s}}">
-            </li>
-        </flex-slider>
-    </div>
-
-    <div class="infobox col-sm-4">
-
-        <h3>{{et.tripMeta.title}}</h3>
-
-        <span><strong>{{et.selectedDay.title}}</strong></span>
-        <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
-        ng-show="et.tripMeta.persons > 1">en</span>
-        <span ng-show="et.tripMeta.accommodation"> | <strong>mit</strong> Übernachtung</span>
-
-        <div class="">
-            <strong>
-                <resultdate class="black" date="et.tripMeta.startDate"></resultdate>
-            </strong>
-            bis
-            <strong>
-                <resultdate class="black" date="et.tripMeta.endDate"></resultdate>
-            </strong>
+        <div class="col-sm-8 slider">
+            <flex-slider class="static" direction-nav="true" slide="s in et.slides">
+                <li>
+                    <img ng-src="{{s}}">
+                </li>
+            </flex-slider>
         </div>
 
+        <div class="infobox col-sm-4">
 
-    </div>
+            <h3>{{et.tripMeta.title}}</h3>
 
-    <div class="col-sm-8">
-        <h3>Beschreibe deinen Trip</h3>
+            <span><strong>{{et.selectedDay.title}}</strong></span>
+            <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
+            ng-show="et.tripMeta.persons > 1">en</span>
+            <span ng-show="et.tripMeta.accommodation"> | <strong>mit</strong> Übernachtung</span>
+
+            <div class="">
+                <strong>
+                    <resultdate class="black" date="et.tripMeta.startDate"></resultdate>
+                </strong>
+                bis
+                <strong>
+                    <resultdate class="black" date="et.tripMeta.endDate"></resultdate>
+                </strong>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-8">
+            <h3>Beschreibe deinen Trip</h3>
             <textarea class="description" ng-model="et.tripMeta.description"
                       placeholder="maximal 300 Zeichen"></textarea>
-    </div>
+        </div>
 
-    <div class="col-sm-4">
-        <a class="red button next-button" ng-click="et.saveTrip()">Trip speichern</a>
-    </div>
+        <div class="col-sm-4">
+            <a class="red button next-button" ng-click="et.saveTrip()">Trip speichern</a>
+        </div>
 
-</div>
+    </div>
 
 </div>
 
