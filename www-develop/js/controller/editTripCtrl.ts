@@ -11,6 +11,8 @@ module Controller {
 
         slides = [];
 
+        editDataAvailable = false;
+
         showCities:string = 'showCitiesCreate';
         showMoods:string = 'showMoodsCreate';
         showDays:string = 'showDaysCreate';
@@ -18,6 +20,9 @@ module Controller {
         moods:any;
         open:any;
         selectedMood:any;
+        filledLocations;
+
+        datePickerOnLinked = false;
 
         justShowMyLocations:boolean = false;
 
@@ -58,12 +63,16 @@ module Controller {
                     this.days = responsesArray[2].data;
                     this.dataAvailable = true;
 
-                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
-                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
+                    if (!this.$state.params.tripId) {
+                        this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
+                        this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                        this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
-                    this.fetchLocations();
+                        this.fetchLocations();
+                    }
+
+                    this.initEdit();
                 });
 
             $scope.$watch(angular.bind(this, () => {
@@ -89,20 +98,25 @@ module Controller {
         }
 
         fetchLocations() {
-            console.info(this.selectedCity);
-            this.LocationService.getLocationsByCity(this.selectedCity.title)
-                .then(result => {
-                    this.publicLocations = result.data;
-                }).catch(err => {
-                    console.info(err);
+
+            var public_locations = this.LocationService.getLocationsByCity(this.selectedCity.title);
+            var private_locations = this.LocationService.getMyLocationsByCity(this.selectedCity.title);
+
+            this.$q.all([public_locations, private_locations])
+                .then((responsesArray) => {
+
+                    this.publicLocations = responsesArray[0].data;
+                    this.myLocations = responsesArray[1].data;
+
+                    if (this.$state.params.tripId) {
+
+                        //get preselected trips
+                        this.fillSelectedLocations();
+
+                    }
                 });
 
-            this.LocationService.getMyLocationsByCity(this.selectedCity.title)
-                .then(result => {
-                    this.myLocations = result.data;
-                }).catch(err => {
-                    console.info(err);
-                });
+
         }
 
         selectLocation(location) {
@@ -191,7 +205,6 @@ module Controller {
 
             trip.locations = this.getSelectedLocations();
 
-            debugger;
 
             this.TripService.saveTrip(trip, this.tripId)
                 .then(result => {
@@ -200,6 +213,56 @@ module Controller {
                 .catch(err => {
                     console.info('error');
                 });
+        }
+
+        initEdit() {
+            if (this.$state.params.tripId) {
+                this.tripId = this.$state.params.tripId;
+                this.datePickerOnLinked = true;
+
+                this.TripService.getTripById(this.$state.params.tripId)
+                    .then(result => {
+
+                        this.tripMeta.start_date = result.data.start_date;
+                        this.tripMeta.end_date = result.data.end_date;
+
+                        this.tripMeta.description = result.data.description;
+                        this.tripMeta.title = result.data.title;
+                        this.tripMeta.persons = result.data.persons;
+
+                        this.selectedDay = this.HelperService.getObjectById(this.days, result.data.days);
+                        this.selectedCity = this.HelperService.getCityByTitle(this.cities, result.data.city.title);
+                        this.selectedMood = this.HelperService.getObjectByQueryName(this.moods, result.data.moods.join('.'));
+
+                        //city is set, so get the locations for it
+                        this.fetchLocations();
+
+                        this.filledLocations = result.data.locations;
+
+                        if (this.tripMeta.accommodation = result.data.accommodation) {
+                            this.tripMeta.accommodation_equipment = result.data.accommodation_equipment;
+                            this.accommodationEquipmentSelectable = true;
+                        }
+
+                        this.editDataAvailable = true;
+
+
+                    }).catch(err => {
+                        console.info('error gettin trip', err);
+                    })
+            }
+        }
+
+        //this should be triggered when editing a trip
+        fillSelectedLocations() {
+
+            var allLocations = this.myLocations.concat(this.publicLocations);
+
+            for (var key in this.filledLocations) {
+
+                var location = this.selectLocation(this.HelperService.getObjectBy_Id(allLocations, key));
+
+            }
         }
 
 
