@@ -26,7 +26,7 @@
 
         <div class="row">
 
-            <div class="col-sm-5 locationpool">
+            <div class="col-sm-4 locationpool">
                 <h2>Location auswählen</h2>
 
                 <div class="border-wrapper">
@@ -72,7 +72,7 @@
 
             </div>
 
-            <div class="col-sm-5 locationpool selectedlocations">
+            <div class="col-sm-4 locationpool selectedlocations">
 
                 <div class="trip-title">
                     <input ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
@@ -93,62 +93,63 @@
 
             </div>
 
-            <div class="col-sm-2 metadata">
+            <div class="col-sm-4 metadata">
 
-                <div class="date meta-section">
+                <div class="border-wrapper">
+                    <div class="date meta-section">
 
-                    <h2>Weitere Angaben</h2>
+                        <h2>Weitere Angaben</h2>
 
-                    <input type="hidden" ng-model="et.startDateReal" required/>
-                    <input type="hidden" ng-model="et.endDateReal"/>
-                    <datepicker ng-if="et.editDataAvailable" start-date-real="et.tripMeta.start_date"
-                                end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
-                    <datepicker ng-if="!et.editDataAvailable" start-date-real="et.tripMeta.start_date"
-                                end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
+                        <input type="hidden" ng-model="et.start_date" required/>
+                        <input type="hidden" ng-model="et.end_date"/>
+                        <datepicker ng-if="et.editDataAvailable" start-date-real="et.tripMeta.start_date"
+                                    end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
+                        <datepicker ng-if="!et.editDataAvailable" start-date-real="et.tripMeta.start_date"
+                                    end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
+                    </div>
+
+                    <div class="persons meta-section">
+
+                        <p class="text">anzahl personen</p>
+
+                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
+                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
+                        </div>
+                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
+                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
+                        </div>
+                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
+                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
+                        </div>
+                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
+                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
+                        </div>
+                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
+                             ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
+                        </div>
+
+                    </div>
+
+                    <div class="meta-section">
+                        <div id="accommodation" class="accommodation">
+                            <span>unterkunft</span>
+
+                            <div class="circle" ng-click="et.toggleAccommodation()"
+                                 ng-class="{'circle-selected': et.tripMeta.accommodation == true}"></div>
+                        </div>
+
+                        <div class="accommodation-equipment" ng-show="et.tripMeta.accommodation == true">
+                            <acc-equ-chooser
+                                accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                                accommodation-equipment="et.tripMeta.accommodation_equipment">
+                            </acc-equ-chooser>
+                        </div>
+                    </div>
+
+                    <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
+                    {{et.showPreview}}
                 </div>
-
-                <div class="persons meta-section">
-
-                    <p class="text">anzahl personen</p>
-
-                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
-                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
-                    </div>
-                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
-                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
-                    </div>
-                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
-                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
-                    </div>
-                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
-                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
-                    </div>
-                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
-                         ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
-                    </div>
-
-                </div>
-
-                <div class="meta-section">
-                    <div id="accommodation" class="accommodation">
-                        <span>unterkunft</span>
-
-                        <div class="circle" ng-click="et.toggleAccommodation()"
-                             ng-class="{'circle-selected': et.tripMeta.accommodation == true}"></div>
-                    </div>
-
-                    <div class="accommodation-equipment" ng-show="et.tripMeta.accommodation == true">
-                        <acc-equ-chooser
-                            accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
-                            accommodation-equipment="et.tripMeta.accommodation_equipment">
-                        </acc-equ-chooser>
-                    </div>
-                </div>
-
-                <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
-                {{et.showPreview}}
             </div>
-
         </div>
 
 
@@ -177,11 +178,11 @@
 
             <div class="">
                 <strong>
-                    <resultdate class="black" date="et.tripMeta.startDate"></resultdate>
+                    <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
                 </strong>
                 bis
                 <strong>
-                    <resultdate class="black" date="et.tripMeta.endDate"></resultdate>
+                    <resultdate class="black" date="et.tripMeta.end_date"></resultdate>
                 </strong>
             </div>
 
