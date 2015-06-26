@@ -46,10 +46,6 @@ module Controller {
 
             this.getMe();
 
-            this.UserService.getUsersOnline().then((response) => {
-                this.usersOnline = response.data.usersOnline;
-            })
-
         }
 
         getConversations() {
@@ -113,10 +109,17 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
-                    this.getConversations()
+                    this.getConversations();
+                    this.getStats();
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
+        }
+
+        getStats() {
+            this.UserService.getUsersOnline().then((response) => {
+                this.usersOnline = response.data.usersOnline;
+            });
         }
 
         sendNewPassword(mail, form) {
