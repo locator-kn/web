@@ -292,32 +292,44 @@ var app = angular.module('locator', deps)
         var tmpl = [
             '<div class="result">',
             '<div class="inner-result">',
+            '<div class="row">',
+            '<div class="col-xs-12 col-sm-8">',
             '<img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>',
+            '</div>',
+            '<div class="col-xs-12 col-sm-4 result-content-box">',
             '<div class="result-content-wrapper" ui-sref="trip({tripId:trip._id})">',
-            '<div class="result-content row">',
-            '<div class="col-xs-6">',
+
             '<h3 class="result-trip-title">{{trip.title}}</h3>',
-            '<p class="result-user-info">',
-            'Von <span class="black"><strong>{{trip.username}}</strong></span></p>',
-            '<div class="day-amount black">',
-            '<span><strong>{{trip.days}}</strong> Tag</span><span ng-show="trip.days > 1">e</span>',
-            '<span> | <strong>TODO</strong> Location</span><span ng-show="trip.locations.length > 1">s</span>',
-            '<span> | <strong>{{trip.persons}}</strong> Person</span><span ng-show="trip.persons > 1">en</span>',
-            '<span ng-show="trip.accommodation"> | <strong>mit</strong> Übernachtung</span>',
-            '</div>',
-            '</div>',
-            '<div class="col-xs-6">',
+
             '<div class="result-trip-date">',
             '<strong><resultdate class="black" date="trip.start_date"></resultdate></strong>',
             ' bis ',
             '<strong><resultdate class="black" date="trip.end_date"></resultdate></strong>',
             '</div>',
+
+            '<p class="result-user-info">',
+            'Von <span class="black"><strong>{{trip.username}}</strong></span></p>',
+            '<div class="day-amount black">',
+
+
+
+            '<span><strong>{{trip.days}}</strong> Tag</span><span ng-show="trip.days > 1">e</span>',
+            '<span> | <strong>TODO</strong> Location</span><span ng-show="trip.locations.length > 1">s</span>',
+            '<span> | <strong>{{trip.persons}}</strong> Person</span><span ng-show="trip.persons > 1">en</span>',
+            '</div>',
+
+
+            '<span ng-show="trip.accommodation"> | <strong>mit</strong> Übernachtung</span>',
+
+
             '<div class="moods-container">',
             '<div ng-repeat="mood in trip.moods">',
             '<div ng-repeat="availableMood in availablemoods |filter:mood">',
             '<span class="tt tt-small" aria-label="{{availableMood.title}}">',
             '<img aria-label="{{availableMood.title}}" class="result-mood-icon" ng-src="./images/icons/{{availableMood.icon}}">',
             '</span>',
+
+
             '</div>',
             '</div>',
             '</div>',
