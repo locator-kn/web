@@ -7,6 +7,7 @@ module Service {
 
         constructor(private $http, private $q, private basePathRealtime, private $rootScope, private socketFactory) {
             this.socketInit();
+            this.registerEvents();
         }
 
         getSocket() {
@@ -21,15 +22,15 @@ module Service {
                         .then(response => {
                             var myIoSocket = io.connect(response.data.namespace);
                             this.socket = this.socketFactory({ioSocket: myIoSocket});
-                            this.registerEvents(this.socket);
+                            this.registerEvents();
                             resolve(this.socket)
                         });
                 }
             });
         }
 
-        registerEvents(socket) {
-            socket.on('new_message', newMessage => {
+        registerEvents() {
+            this.getSocket().on('new_message', newMessage => {
                 this.$rootScope.$emit('new_message', newMessage);
             });
         }
