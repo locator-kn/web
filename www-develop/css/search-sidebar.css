@@ -44,27 +44,9 @@
     width: 220px;
 }
 
-.search-offset {
-    position: relative;
-    padding-top: 131px;
-    z-index: 100;
-}
-
 .filter-offset {
     position: relative;
     padding-top: 131px;
-    z-index: 100;
-}
-
-.date-offset {
-    position: relative;
-    padding-top: 202px;
-    z-index: 100;
-}
-
-.moods-offset {
-    position: relative;
-    padding-top: 344px;
     z-index: 100;
 }
 
