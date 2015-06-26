@@ -3,7 +3,7 @@
         <div ng-class="{'logged-in': authenticated, 'logged-out': !authenticated}" class="header-bar">
 
             <img alt="logo" class="logo-small pointer" ui-sref="welcome" src="images/logo/locator_small.png">
-
+            <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
             <div class="header-right">
                 <div ng-if="!authenticated" class="btn-group">
                     <a class="padding register tt tt-small"
