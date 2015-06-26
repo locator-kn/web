@@ -129,7 +129,8 @@ var app = angular.module('locator', deps)
 
             .state('insertTrip', {
                 url: "/insert-trip/?city&moods&days",
-                templateUrl: "templates/editTrip/editTrip.html"
+                templateUrl: "templates/editTrip/editTrip.html",
+                reloadOnSearch: false
             })
 
             .state('editTrip', {
