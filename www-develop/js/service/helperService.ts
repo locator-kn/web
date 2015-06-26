@@ -36,6 +36,15 @@ module Service {
             return this.lodash.findWhere(array, {'query_name': queryName});
         }
 
+        getObjectById(array, id) {
+            return this.lodash.findWhere(array, {'id': id.toString()});
+        }
+
+        getObjectBy_Id(array, _id) {
+            debugger;
+            return this.lodash.findWhere(array, {'_id': _id});
+        }
+
         getCityByTitle(cities, title) {
             return this.lodash.findWhere(cities, {'title': title});
         }
