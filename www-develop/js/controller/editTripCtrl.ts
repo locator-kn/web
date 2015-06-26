@@ -59,7 +59,6 @@ module Controller {
                     $scope.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
                     $scope.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
-                    debugger;
 
                     this.fetchLocations();
                 });
