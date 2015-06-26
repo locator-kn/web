@@ -25,6 +25,8 @@ module Controller {
 
         conversationsHash:any = {};
 
+        usersOnline:number = 0;
+
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout) {
 
@@ -43,6 +45,10 @@ module Controller {
             this.getConversations();
 
             this.getMe();
+
+            this.UserService.getUsersOnline().then((response) => {
+                this.usersOnline = response.data.usersOnline;
+            })
 
         }
 
