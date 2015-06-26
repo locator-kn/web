@@ -125,12 +125,11 @@
 
 .edittrip-container .trip-title input {
     background-color: white;
-    color: white;
     border-radius: 4px;
     border: 1px solid black;
     width: 100%;
-    font-size: 18px;
-    padding: 3px;
+    font-size: 16px;
+    padding: 2px 5px;
 }
 
 .edittrip-container ::-webkit-input-placeholder {
