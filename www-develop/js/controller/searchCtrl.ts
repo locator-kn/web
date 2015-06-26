@@ -54,9 +54,10 @@ module Controller {
                 return this.selectedCity;
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
-                    this.query.city = this.selectedCity.query_name;
+                    this.query.city = this.selectedCity.title;
                 }
             });
+
             this.$scope.$watchCollection(angular.bind(this, (selectedMood) => {
                 return this.selectedMood;
             }), (newVal, oldVal) => {
@@ -64,6 +65,7 @@ module Controller {
                     this.query.moods = this.selectedMood.query_name;
                 }
             });
+
             this.$scope.$watchCollection(angular.bind(this, (selectedDay) => {
                 return this.selectedDay;
             }), (newVal, oldVal) => {
