@@ -3,34 +3,44 @@ module Controller {
 
         query:any = {};
         activeItem:string = '';
-        selectedMoods = [];
-        selectableMoods = [];
-        showSelectableMoods = false;
-        tripCities = [];
+        moods:any = [];
+        cities:any = [];
+        days:any = [];
+        dataAvailable = false;
+
+        showCities:string = 'showCitiesCreate';
+        showMoods:string = 'showMoodsCreate';
+        showDays:string = 'showDaysCreate';
+
+        selectedCity:any = '';
+        selectedMood:any = '';
+        selectedDay:any = '';
 
         constructor(private HelperService, private $scope, private $rootScope, private $location,
-                    private SearchService, private DataService, private $state, private UserService) {
+                    private SearchService, private DataService, private $state, private UserService, private $q) {
 
             this.query = $location.search();
             this.query.accommodation = false;
 
-            $rootScope.showSearchButton = false;
-            $rootScope.showCreateButton = true;
-
             this.$rootScope.$emit('loading');
 
-            this.DataService.getMoods().then(result => {
-                this.selectableMoods = result.data;
-            });
 
-            HelperService.getMoodsByQueryString($state.params.moods).then(moods => {
-                this.selectedMoods = moods;
-                this.updateUrl();
-            }).catch(err=> console.error(err));
+            var moods = this.DataService.getMoods();
+            var cities = this.DataService.getCities();
+            var days = this.DataService.getAvailableAmountOfDays();
 
-            this.DataService.getAvailableCities()
-                .then(result => {
-                    this.tripCities = result.data;
+            this.$q.all([moods, cities, days])
+                .then((responsesArray) => {
+
+                    this.moods = responsesArray[0].data;
+                    this.cities = responsesArray[1].data;
+                    this.days = responsesArray[2].data;
+                    this.dataAvailable = true;
+
+                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
+                    this.selectedCity= HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
+                    this.updateUrl();
                 });
 
             //watch the query variable and fire updateUrl() on change
@@ -40,7 +50,28 @@ module Controller {
                 this.updateUrl();
             });
 
-            this.search();
+            this.$scope.$watchCollection(angular.bind(this, (selectedCity) => {
+                return this.selectedCity;
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.query.city = this.selectedCity.query_name;
+                }
+            });
+            this.$scope.$watchCollection(angular.bind(this, (selectedMood) => {
+                return this.selectedMood;
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.query.moods = this.selectedMood.query_name;
+                }
+            });
+            this.$scope.$watchCollection(angular.bind(this, (selectedDay) => {
+                return this.selectedDay;
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.query.days = this.selectedDay.query_name;
+                }
+            });
+
 
         }
 
