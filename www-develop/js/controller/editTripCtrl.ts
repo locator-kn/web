@@ -55,20 +55,21 @@ module Controller {
                     this.days = responsesArray[2].data;
                     this.dataAvailable = true;
 
-                    $scope.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
-                    $scope.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
-                    $scope.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
+                    this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
 
                     this.fetchLocations();
                 });
-
-            $scope.$watch('selectedCity', (newval, oldval) => {
-                if (newval) {
+            
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedCity; // `this` IS the `this` above!!
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
                     this.fetchLocations();
                 }
-
-            }, true);
+            });
 
 
         }
@@ -85,14 +86,14 @@ module Controller {
 
         fetchLocations() {
             console.info(this.selectedCity);
-            this.LocationService.getLocationsByCity(this.$scope.selectedCity.title)
+            this.LocationService.getLocationsByCity(this.selectedCity.title)
                 .then(result => {
                     this.publicLocations = result.data;
                 }).catch(err => {
                     console.info(err);
                 });
 
-            this.LocationService.getMyLocationsByCity(this.$scope.selectedCity.title)
+            this.LocationService.getMyLocationsByCity(this.selectedCity.title)
                 .then(result => {
                     this.myLocations = result.data;
                 }).catch(err => {
