@@ -105,99 +105,101 @@
                                 end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
                     <datepicker ng-if="!et.editDataAvailable" start-date-real="et.tripMeta.start_date"
                                 end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
+                </div>
 
+                <div class="persons meta-section">
 
-                    <div class="persons meta-section">
+                    <p class="text">anzahl personen</p>
 
-                        <p class="text">anzahl personen</p>
-
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
-                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
-                        </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
-                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
-                        </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
-                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
-                        </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
-                             ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
-                        </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
-                             ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
-                        </div>
-
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
+                         ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
+                    </div>
+                    <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
+                         ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
                     </div>
 
-                    <div id="accommodation" class="meta-section accommodation">
+                </div>
+
+                <div class="meta-section">
+                    <div id="accommodation" class="accommodation">
                         <span>unterkunft</span>
 
                         <div class="circle" ng-click="et.toggleAccommodation()"
                              ng-class="{'circle-selected': et.tripMeta.accommodation == true}"></div>
                     </div>
+
                     <div class="accommodation-equipment" ng-show="et.tripMeta.accommodation == true">
                         <acc-equ-chooser
                             accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
                             accommodation-equipment="et.tripMeta.accommodation_equipment">
                         </acc-equ-chooser>
                     </div>
-
-                    <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
                 </div>
 
+                <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
             </div>
 
-
-
         </div>
+
 
     </div>
 
+</div>
 
-    <div ng-hide="!et.showPreview" id="trip-preview" class="row">
-        <h3>Übersicht</h3>
 
-        <div class="col-sm-8 slider">
-            <flex-slider class="static" direction-nav="true" slide="s in et.slides">
-                <li>
-                    <img ng-src="{{s}}">
-                </li>
-            </flex-slider>
+<div ng-hide="!et.showPreview" id="trip-preview" class="row">
+    <h3>Übersicht</h3>
+
+    <div class="col-sm-8 slider">
+        <flex-slider class="static" direction-nav="true" slide="s in et.slides">
+            <li>
+                <img ng-src="{{s}}">
+            </li>
+        </flex-slider>
+    </div>
+
+    <div class="infobox col-sm-4">
+
+        <h3>{{et.tripMeta.title}}</h3>
+
+        <span><strong>{{et.selectedDay.title}}</strong></span>
+        <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
+        ng-show="et.tripMeta.persons > 1">en</span>
+        <span ng-show="et.tripMeta.accommodation"> | <strong>mit</strong> Übernachtung</span>
+
+        <div class="">
+            <strong>
+                <resultdate class="black" date="et.tripMeta.startDate"></resultdate>
+            </strong>
+            bis
+            <strong>
+                <resultdate class="black" date="et.tripMeta.endDate"></resultdate>
+            </strong>
         </div>
 
-        <div class="infobox col-sm-4">
 
-            <h3>{{et.tripMeta.title}}</h3>
+    </div>
 
-            <span><strong>{{et.selectedDay.title}}</strong></span>
-            <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
-            ng-show="et.tripMeta.persons > 1">en</span>
-            <span ng-show="et.tripMeta.accommodation"> | <strong>mit</strong> Übernachtung</span>
-
-            <div class="">
-                <strong>
-                    <resultdate class="black" date="et.tripMeta.startDate"></resultdate>
-                </strong>
-                bis
-                <strong>
-                    <resultdate class="black" date="et.tripMeta.endDate"></resultdate>
-                </strong>
-            </div>
-
-
-        </div>
-
-        <div class="col-sm-8">
-            <h3>Beschreibe deinen Trip</h3>
+    <div class="col-sm-8">
+        <h3>Beschreibe deinen Trip</h3>
             <textarea class="description" ng-model="et.tripMeta.description"
                       placeholder="maximal 300 Zeichen"></textarea>
-        </div>
-
-        <div class="col-sm-4">
-            <a class="red button next-button" ng-click="et.saveTrip()">Trip speichern</a>
-        </div>
-
     </div>
+
+    <div class="col-sm-4">
+        <a class="red button next-button" ng-click="et.saveTrip()">Trip speichern</a>
+    </div>
+
+</div>
 
 </div>
 
