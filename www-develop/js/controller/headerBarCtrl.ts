@@ -89,7 +89,7 @@ module Controller {
 
         registerWebsockets() {
 
-            this.$rootScope.$on('new_message', (newMessage) => {
+            this.$rootScope.$on('new_message', (evt, newMessage) => {
                 this.showBadge = true;
                 this.unreadMessages += 1;
                 console.info('new message');
