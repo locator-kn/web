@@ -80,7 +80,7 @@ module Controller {
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
-                    this.$location.search('city', this.selectedCity.title);
+                    if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
                 }
             });
 
@@ -191,9 +191,8 @@ module Controller {
         }
 
         tripPreview() {
-
             this.showPreview = true;
-            var element = document.getElementById('trip-preview');
+            var element = document.getElementById('tripviewpreview');
             this.smoothScroll(element);
         }
 
@@ -256,11 +255,14 @@ module Controller {
         //this should be triggered when editing a trip
         fillSelectedLocations() {
 
-            var allLocations = this.myLocations.concat(this.publicLocations);
+            var allLocations;
+            var alreadySortedIn = [];
 
             for (var key in this.filledLocations) {
 
-                var location = this.selectLocation(this.HelperService.getObjectBy_Id(allLocations, key));
+                this.LocationService.getLocationById(key).then(result => {
+                    this.selectLocation(result.data);
+                })
 
             }
         }
