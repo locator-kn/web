@@ -32,7 +32,7 @@ module Service {
         registerEvents() {
             this.getSocket().then(socket => {
                 socket.on('new_message', newMessage => {
-                    this.$rootScope.$emit('new_message', newMessage);
+                    this.$rootScope.$broadcast('new_message', newMessage);
                 });
             });
         }
