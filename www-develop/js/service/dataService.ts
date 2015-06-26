@@ -8,6 +8,7 @@ module Service {
         dataAccommodationsCache;
         dataMoodsCache;
         dayCache;
+        fixedCitiesCache;
 
         availableMoods = [{
             id: "buddytrip",
@@ -115,6 +116,10 @@ module Service {
 
         getCities() {
             return this.$http.get(this.basePath + '/data/cities', {cache: this.dataCitiesCache});
+        }
+
+        getFixedCities() {
+            return this.$http.get(this.basePath + '/data/fixCities', {cache: this.fixedCitiesCache});
         }
 
         getAccomodations() {
