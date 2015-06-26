@@ -26,7 +26,7 @@
 
         <div class="row">
 
-            <div class="col-sm-4 locationpool">
+            <div class="col-sm-5 locationpool">
                 <h2>Location auswählen</h2>
 
                 <div class="border-wrapper">
@@ -80,6 +80,12 @@
 
                 <div class="border-wrapper">
 
+
+                    <div ng-if="!et.selectedLocations.length" class="relative location mylocation missing">
+                        <h4>keine Locations gewählt</h4>
+                    </div>
+
+
                     <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
 
                         <div ng-click="et.deSelectLocation(location)" class="select-overlay">
@@ -93,12 +99,13 @@
 
             </div>
 
-            <div class="col-sm-4 metadata">
+            <div class="col-sm-3 metadata">
+
+                <h2>Weitere Angaben</h2>
 
                 <div class="border-wrapper">
                     <div class="date meta-section">
 
-                        <h2>Weitere Angaben</h2>
 
                         <input type="hidden" ng-model="et.start_date" required/>
                         <input type="hidden" ng-model="et.end_date"/>
@@ -107,6 +114,8 @@
                         <datepicker ng-if="!et.editDataAvailable" start-date-real="et.tripMeta.start_date"
                                     end-date-real="et.tripMeta.end_date" on-linked="et.datePickerOnLinked"></datepicker>
                     </div>
+
+                    <span class="separator"></span>
 
                     <div class="persons meta-section">
 
@@ -130,6 +139,8 @@
 
                     </div>
 
+                    <span class="separator"></span>
+
                     <div class="meta-section">
                         <div id="accommodation" class="accommodation">
                             <span>unterkunft</span>
@@ -146,9 +157,9 @@
                         </div>
                     </div>
 
-                    <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
-                    {{et.showPreview}}
+
                 </div>
+                <a class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
             </div>
         </div>
 
@@ -157,7 +168,7 @@
 
 
     <div ng-hide="!et.showPreview" id="tripviewpreview" class="row">
-        <h3>Übersicht</h3>
+        <div class="col-xs-12"><h3>Übersicht</h3></div>
 
         <div class="col-sm-8 slider">
             <flex-slider class="static" direction-nav="true" slide="s in et.slides">
