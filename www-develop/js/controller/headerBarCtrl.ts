@@ -46,10 +46,6 @@ module Controller {
 
             this.getMe();
 
-            this.UserService.getUsersOnline().then((response) => {
-                this.usersOnline = response.data.usersOnline;
-            })
-
         }
 
         getConversations() {
@@ -93,7 +89,7 @@ module Controller {
 
         registerWebsockets() {
 
-            this.SocketService.onEvent('new_message', (newMessage) => {
+            this.$rootScope.on('new_message', (newMessage) => {
                 this.showBadge = true;
                 this.unreadMessages += 1;
                 console.info('new message');
@@ -113,10 +109,20 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
-                    this.getConversations()
+                    this.getConversations();
+                    // TODO: getMe maps currently to user_public view. So we cant get this info
+                    //if(this.user.isAdmin) {
+                        this.getStats();
+                    //}
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
+        }
+
+        getStats() {
+            this.UserService.getUsersOnline().then((response) => {
+                this.usersOnline = response.data.usersOnline;
+            });
         }
 
         sendNewPassword(mail, form) {
