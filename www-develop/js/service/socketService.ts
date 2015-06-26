@@ -30,8 +30,10 @@ module Service {
         }
 
         registerEvents() {
-            this.getSocket().on('new_message', newMessage => {
-                this.$rootScope.$emit('new_message', newMessage);
+            this.getSocket().then(socket => {
+                socket.on('new_message', newMessage => {
+                    this.$rootScope.$emit('new_message', newMessage);
+                });
             });
         }
 
