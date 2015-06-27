@@ -204,6 +204,7 @@
 .edittrip-container .infobox {
     background: rgb(34, 34, 34);
     color: white;
+    height: 400px;
 }
 
 .edittrip-container .slider {
@@ -322,7 +323,6 @@
     width: 100%;
     margin-bottom: 10px;
     font-size: 14px;
-
 }
 
 span.info.err {
@@ -355,3 +355,11 @@ span.info.err {
     padding-top: 65px;
 }
 
+.edittrip-container .top-wrapper {
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container .slide-img {
+    height: 400px;
+}
