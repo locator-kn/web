@@ -3,6 +3,7 @@ module Controller {
     export class EditTripCtrl {
 
         showPreview = false;
+        error = false;
 
         tripId;
         myLocations = [];
@@ -191,6 +192,15 @@ module Controller {
         }
 
         tripPreview() {
+
+            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.start_date || !this.tripMeta.end_date || !this.tripMeta.persons) {
+                this.error = true;
+                return;
+            } else {
+                this.error = false;
+            }
+
+
             this.showPreview = true;
             var element = document.getElementById('tripviewpreview');
             this.smoothScroll(element);
