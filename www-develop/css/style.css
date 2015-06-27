@@ -11,7 +11,6 @@ html {
 body {
     background: #f5f5f5;
     background-image: url('../images/background-patterns/debut_light_hell.png');
-    text-transform: lowercase;
 }
 
 .opener h2 {
@@ -816,7 +815,6 @@ img.center {
 
 .profile ::-webkit-input-placeholder {
     color: rgba(166, 166, 166, 1);
-    text-transform: lowercase;
 }
 
 .profile.container {
@@ -1137,9 +1135,6 @@ a:focus {
     font-size: 50px;
 }
 
-input {
-    text-transform: lowercase;
-}
 
 .description {
     font-size: 15px;
@@ -1147,7 +1142,7 @@ input {
 
 input.cmn-toggle-round + label {
     padding: 2px;
-    width: 70px;
+    width: 50px;
     height: 20px;
     background-color: #F5F5F5;
     border-radius: 60px;
@@ -1178,12 +1173,16 @@ input.cmn-toggle-round:checked + label:before {
     background-color: #33c4b7;
 }
 input.cmn-toggle-round:checked + label:after {
-    margin-left: 60px;
+    margin-left: 34px;
 }
 
 .switch {
     float: left;
     position: relative;
+}
+
+.switch [type=checkbox]  {
+    visibility: hidden;
 }
 
 .float-left {
