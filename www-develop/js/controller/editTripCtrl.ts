@@ -196,7 +196,7 @@ module Controller {
                 if (location.images.picture) {
                     this.slides.push(location.images.picture);
                 }
-                this.slides.push(location.images.googlemap + '&size=640x375');
+                this.slides.push(location.images.googlemap + '&size=640x375&scale=2');
             });
 
         }
