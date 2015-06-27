@@ -208,6 +208,11 @@ module Controller {
                 this.dateValidation();
 
                 this.error = true;
+
+
+                var element = document.getElementById('page-top');
+                this.smoothScroll(element);
+
                 return;
             } else {
                 this.error = false;
