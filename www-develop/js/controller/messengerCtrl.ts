@@ -62,6 +62,9 @@ module Controller {
                     }
                     console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
                     this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                } else {
+
+                    // TODO indicate unread
                 }
             });
         }
