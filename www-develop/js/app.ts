@@ -206,12 +206,16 @@ var app = angular.module('locator', deps)
             scope: {date: '='},
             controller: function ($scope) {
 
-                var localdate = new Date($scope.date);
-                $scope.date = moment(localdate).format('L');
+                $scope.$watch('date', (newVal, oldVal, scope) => {
+                    if (newVal) {
 
+                        var localdate = new Date(newVal);
+                        $scope.date2 = moment(localdate).format('L');
+                    }
+                });
 
             },
-            template: '{{date}}'
+            template: '{{date2}}'
         };
     })
 
@@ -311,7 +315,6 @@ var app = angular.module('locator', deps)
             '<p class="result-user-info">',
             'Von <span class="black"><strong>{{trip.username}}</strong></span></p>',
             '<div class="day-amount black">',
-
 
 
             '<span><strong>{{trip.days}}</strong> Tag</span><span ng-show="trip.days > 1">e</span>',
