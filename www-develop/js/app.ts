@@ -242,7 +242,8 @@ var app = angular.module('locator', deps)
                         if (selectedObjImages.picture) {
                             slides.push(selectedObjImages.picture);
                         }
-                        slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
+                        //slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
+                        slides.push(l[key].googlemap + '&size=900x900' + '&scale=' + scope.scale);
                     }
                 }
                 scope.slides = slides;
