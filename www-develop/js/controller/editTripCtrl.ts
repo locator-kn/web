@@ -38,13 +38,13 @@ module Controller {
             persons: '',
             accommodation: false,
             description: '',
-            start_date: undefined,
-            end_date: undefined,
+            start_date: '',
+            end_date: '',
             accommodation_equipment: [],
             city: {}
         };
 
-        accommodationEquipmentSelectable = false;
+        accommodationEquipmentSelectable = true;
         dataAvailable:boolean = false;
         locationSearch = '';
 
