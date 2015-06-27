@@ -584,9 +584,9 @@ a.close-modal {
 }
 
 .results-container .welcome_select {
-    right: auto;
-    width: auto;
-}
+     right: auto;
+     width: auto;
+ }
 
 .results-container .welcome_select ul {
     top: 210px;
@@ -597,7 +597,6 @@ a.close-modal {
 .results-container .welcome_select .greenresult-content-wrapper {
     margin-right: 8px;
 }
-
 
 .results-container.loading .results {
     opacity: .2;
@@ -1343,4 +1342,11 @@ progress-arc.hidden-height {
 .footer a:hover {
     text-decoration: none;
     color: #ff4637;
+}
+
+.search-container .welcome_select ul {
+    top: 50px;
+    background-color: #33c4b7;
+    text-align: left;
+    transform: translateY(0%) scale(1) !important;
 }
