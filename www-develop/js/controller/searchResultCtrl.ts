@@ -4,7 +4,11 @@ module Controller {
         animateLoading = true;
         availableMoods:any = [];
         pageCount:number = 1;
-        constructor(private $scope, private $rootScope, private SearchService, private $state, private DataService) {
+        noMoreTrips:boolean = false;
+
+
+        constructor(private $rootScope, private SearchService, private $state, private DataService) {
+
 
             $rootScope.$state = $state;
 
@@ -36,12 +40,15 @@ module Controller {
         }
 
         loadMorePages() {
-            if(this.results == undefined){
+            if (this.results == undefined) {
                 return;
             }
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
+                    if (!result.length) {
+                        this.noMoreTrips = true;
+                    }
                     result.data.forEach(entry => {
                             this.results.push(entry);
                         }

@@ -3,13 +3,13 @@
         <div ng-class="{'logged-in': authenticated, 'logged-out': !authenticated}" class="header-bar">
 
             <img alt="logo" class="logo-small pointer" ui-sref="welcome" src="images/logo/locator_small.png">
-
+            <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
             <div class="header-right">
                 <div ng-if="!authenticated" class="btn-group">
                     <a class="padding register tt tt-small"
                        aria-label="Registriere dich jetzt und werde ein Teil einer aussergewöhnlichen Community"
-                       ng-click="hc.openRegisterDialog()">Registieren</a>
-                    <a class="padding login" ng-click="hc.openLoginDialog()">Login</a>
+                       ng-click="mc.openRegisterDialog()">Registieren</a>
+                    <a class="padding login" ng-click="mc.openLoginDialog()">Login</a>
                 </div>
                 <div ng-if="authenticated" class="btn-group">
 
@@ -20,13 +20,13 @@
 
                         <ul class="user-dropdown fx-fade-up" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
-                            <li ui-sref="user({profileId: userID, tab: 'info'})" ui-sref-active="active">Profile</li>
+                            <li ui-sref="user({profileId: userID, tab: 'info'})" ui-sref-active="active">Profil</li>
                             <li ui-sref="user({profileId: userID, tab: 'locations'})" ui-sref-active="active">Meine
                                 Locations
                             </li>
                             <li ui-sref="user({profileId: userID, tab: 'trips'})" ui-sref-active="active">Meine Trips
                             </li>
-                            <li ng-click="hc.logout()">Logout</li>
+                            <li ng-click="mc.logout()">Logout</li>
                         </ul>
                     </div>
                 </div>
@@ -58,8 +58,7 @@
                     </ul>
                 </div>
 
-                <div class="moodal" id="loginmodal" ng-include="'templates/modal/login.html'"></div>
-                <div class="moodal" id="registermodal" ng-include="'templates/modal/register.html'"></div>
+
 
             </div>
         </div>

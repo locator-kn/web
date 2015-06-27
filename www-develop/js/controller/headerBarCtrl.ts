@@ -25,8 +25,11 @@ module Controller {
 
         conversationsHash:any = {};
 
+        usersOnline:number = 0;
+
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout) {
+
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
             });
@@ -35,25 +38,14 @@ module Controller {
                 this.getConversations();
             });
 
-            this.getMe();
+            this.$rootScope.$on('get_me', () => {
+                this.getMe();
+            });
 
             this.getConversations();
 
-            this.hotkeys.add({
-                combo: 'esc',
-                description: 'Close the Modal',
-                callback: () => {
-                    this.closeDialog();
-                }
-            });
+            this.getMe();
 
-            $rootScope.$on('openLoginDialog', () => {
-                this.openLoginDialog();
-            });
-
-            $rootScope.$on('closeDialog', () => {
-                this.closeDialog();
-            });
         }
 
         getConversations() {
@@ -65,7 +57,7 @@ module Controller {
                     }
                     this.conversations.forEach((element:any) => {
                         this.conversationsHash[element._id] = element;
-                        if (!element[this.$rootScope.userID + '_read']) {
+                        if (this.$rootScope.userID && !element[this.$rootScope.userID + '_read']) {
                             console.log('there is an unread message from', element);
                             this.showBadge = true;
                         }
@@ -97,130 +89,22 @@ module Controller {
 
         registerWebsockets() {
 
-            this.SocketService.onEvent('new_message', (newMessage) => {
-                this.showBadge = true;
-                this.unreadMessages += 1;
-                console.info('new message');
-                console.log(newMessage);
-                //this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-            });
-
-        }
-
-
-        login(form) {
-            if (form.$invalid) {
-                return;
-            }
-
-
-            console.info('Login ' + this.mail);
-
-            this.UserService.login(this.mail, this.password)
-
-                .then(result => {
-                    console.info("Login Success");
-                    this.errormsg = '';
-
-                    this.getMe();
-                    this.$rootScope.authenticated = true;
-                    this.closeDialog();
-
-                }).catch(resp => {
-                    if (resp.status === 401) {
-                        this.errormsg = "Falsche Mail oder falsches Passwort angegeben.";
+            this.SocketService.socketInit().then(() => {
+                // it doesnt need to be called after socketInit
+                this.$scope.$on('new_message', (evt, newMessage) => {
+                    if (this.$state.params.opponentId && this.$state.params.opponentId === newMessage.conversation_id) {
+                        console.log('incomming message is in current window, do nothing in headerbar');
                         return;
                     }
-                    console.info("Login Error");
-                    this.errormsg = "Oops, da lief etwas falsch";
+                    this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                    this.showBadge = true;
+                    this.unreadMessages += 1;
                 });
-        }
-
-        register(form) {
-            if (form.$invalid) {
-                return;
-            }
-
-            this.UserService.register(this.name, this.mail, this.password)
-                .then(result => {
-                    console.info("Register Success");
-                    this.getMe();
-
-                    //close the dialog after success
-                    this.closeDialog();
-
-                })
-                .catch(resp => {
-                    if (resp.status === 409) {
-                        this.errormsg = 'Diese Mail gibts schon';
-                        return;
-                    }
-                    console.info("Register Error");
-                    console.info(resp);
-                    this.errormsg = "Oops, da lief etwas falsch";
-                });
-
-
-        }
-
-        openLoginDialog() {
-            this.forgotPassword = false;
-            this.resetInput();
-            this.$rootScope.overlay = true;
-            angular.element(this.$element).find('#loginmodal').addClass('active');
-
-            angular.element('.overlay').bind('click', () => {
-                this.closeDialog();
             });
 
-        }
-
-        openRegisterDialog() {
-            this.resetInput();
-            this.$rootScope.overlay = true;
-            angular.element(this.$element).find('#registermodal').addClass('active');
-
-            angular.element('.overlay').bind('click', () => {
-                this.closeDialog();
-            });
 
         }
 
-        resetInput() {
-            this.errormsg = '';
-            this.successmsg = '';
-            this.user = '';
-            this.name = '';
-            this.password = '';
-            this.mail = '';
-        }
-
-        loginFacebook() {
-            this.UserService.loginFacebook();
-        }
-
-        loginGoogle() {
-            this.UserService.loginGoogle();
-        }
-
-        closeDialog() {
-            this.$rootScope.overlay = false;
-            angular.element(this.$element).find('.moodal.active').removeClass('active');
-        }
-
-
-        logout() {
-            console.info('Logout');
-            this.UserService.logout()
-                .then(() => {
-                    console.info("Logout Success");
-                    this.$rootScope.authenticated = false;
-                    this.$rootScope.userID = '';
-                    this.$state.go('welcome');
-                }).catch(() => {
-                    console.info("Logout Error");
-                });
-        }
 
         getMe() {
             this.UserService.getMe()
@@ -231,10 +115,20 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     console.info(result.data._id);
                     this.$rootScope.$emit('login_success');
-                    this.getConversations()
+                    this.getConversations();
+                    // TODO: getMe maps currently to user_public view. So we cant get this info
+                    //if(this.user.isAdmin) {
+                        this.getStats();
+                    //}
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
+        }
+
+        getStats() {
+            this.UserService.getUsersOnline().then((response) => {
+                this.usersOnline = response.data.usersOnline;
+            });
         }
 
         sendNewPassword(mail, form) {
@@ -247,7 +141,6 @@ module Controller {
                 .then(() => {
                     console.info("Success");
                     this.successmsg = 'Email wurde an dich verschickt';
-
 
                     this.$timeout(() => {
 

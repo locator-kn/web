@@ -1,31 +1,31 @@
 .search-menu {
-    height: calc(100vh - 260px);
+    height: 100px;
     position: absolute;
-    width: 300px;
-    top: 150px;
+    width: 100px;
+    top: 0px;
 }
 
 .search-menu div {
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-top: 40px;
     position: relative;
     z-index: 200;
 }
 
 .item-active {
-    background-color: rgb(85, 212, 205);;
+    background-color: rgb(85, 212, 205);
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
-    position: relative;
 }
 
 .settings {
-    width: 220px;
+    width: 200px;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    top: 160px;
     z-index: 191;
-    margin-left: 80px;
+    margin-left: 0px;
     background: #33c4b7;
 }
 
@@ -37,34 +37,9 @@
     z-index: 10;
 }
 
-.item-description {
-    display: inline;
-    text-align: center;
-    float: right;
-    width: 220px;
-}
-
-.search-offset {
-    position: relative;
-    padding-top: 221px;
-    z-index: 100;
-}
-
 .filter-offset {
     position: relative;
-    padding-top: 363px;
-    z-index: 100;
-}
-
-.date-offset {
-    position: relative;
-    padding-top: 292px;
-    z-index: 100;
-}
-
-.moods-offset {
-    position: relative;
-    padding-top: 434px;
+    padding-top: 131px;
     z-index: 100;
 }
 
@@ -82,7 +57,7 @@ html, body {
 }
 
 .filter-container {
-    padding: 5px 15px 30px 15px;
+    padding: 10px 15px 30px 15px;
 }
 
 .input-transparent {
@@ -113,11 +88,11 @@ html, body {
 }
 
 .search-menu .item {
-    max-width: 50px;
-}
-
-.search-menu .item-active {
-    max-width: none;
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/icons/regler.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .city-suggestion p {
@@ -148,7 +123,7 @@ html, body {
     padding-left: 30px;
 }
 
-.date-range-container {
+.setting-selection-container {
     padding-top: 10px;
 }
 
@@ -168,11 +143,6 @@ html, body {
     display: inline;
 }
 
-.moods-container {
-    display: inline-block;
-    padding-left: 100px;
-}
-
 .moods-container div {
     display: inline-block;
 }
@@ -187,6 +157,14 @@ html, body {
     font-size: 12px;
 }
 
+.result-trip-title {
+    margin: 5px 0 20px 0;
+}
+
+.result-trip-date {
+    margin: 0 0 0 0;
+}
+
 .result-content-wrapper {
     border-bottom: 2px solid grey;
     border-right: 2px solid grey;
@@ -195,7 +173,7 @@ html, body {
 }
 
 .result-content {
-    padding: 0px 10px 0px 10px;
+    margin: 10px 10px 0 10px;
 }
 
 .search-icon {
@@ -226,6 +204,9 @@ img-triplist {
     width: 100%;
 }
 
+.result-content-box {
+    padding: 5px 5px 0 0;
+}
 .result-content-wrapper {
     float: left;
     height: auto !important;
@@ -235,6 +216,8 @@ img-triplist {
 
 .moods-container {
     float: right;
+    width: 100%;
+    display: inline-block;
 }
 
 .inner-result {
@@ -244,8 +227,16 @@ img-triplist {
     width: 100%;
 }
 
-.accommodation-equipment-wrapper {
+.accommodation-equipment {
     margin-bottom: 30px;
+}
+
+.search-searchbar {
+    position: fixed;
+    top: 60px;
+    left: 200px;
+    display: block;
+    z-index: 100;
 }
 
 

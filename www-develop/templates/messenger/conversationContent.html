@@ -16,7 +16,7 @@
     </div>
 
     <div class="content" scroll-glue>
-        <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messages">
+        <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messages track by $index">
             <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
                 <span class="bubble"></span>
             </p>

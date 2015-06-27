@@ -18,7 +18,7 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        constructor(private $filter, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
+        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
 
 
             this.getConversations();
@@ -49,18 +49,23 @@ module Controller {
         }
 
         registerSocketEvent() {
-            this.SocketService.offEvent('new_message');
-            this.SocketService.onEvent('new_message', (newMessage) => {
+            //this.SocketService.offEvent('new_message');
+            this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
-                if(this.$state.params.opponentId === newMessage.conversation_id )
-                    if(this.selectedConversation._id === newMessage.conversation_id){
+                if(this.$state.params.opponentId === newMessage.conversation_id ) {
+                    if (this.selectedConversation._id === newMessage.conversation_id) {
                         this.messages.push(newMessage);
 
                         this.emitAck(newMessage.from, newMessage.conversation_id);
                     } else {
                         this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                     }
+                    console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
                     this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                } else {
+
+                    // TODO indicate unread
+                }
             });
         }
 

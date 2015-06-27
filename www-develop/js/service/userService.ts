@@ -7,7 +7,7 @@ module Service {
         usersMeCache;
 
 
-        constructor(private Upload, private $http, private $q, private basePath, private HelperService, private CacheFactory) {
+        constructor(private Upload, private $http, private $q, private basePath, private basePathRealtime, private HelperService, private CacheFactory) {
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';
 
@@ -136,6 +136,10 @@ module Service {
                     "password": newPassword
 
                 });
+        }
+
+        getUsersOnline() {
+            return this.$http.get(this.basePathRealtime + '/users/stats');
         }
 
         static serviceId:string = "UserService";

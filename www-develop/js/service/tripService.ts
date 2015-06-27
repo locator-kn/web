@@ -8,13 +8,11 @@ module Service {
             return this.$http.get(this.basePath + '/trips/' + _id);
         }
 
-        saveTrip(newTrip, documentMetaData) {
-            if (documentMetaData._id) {
+        saveTrip(newTrip, id) {
+            if (id) {
                 // extend new trip with meta data id and rev
-                return this.$http.put(this.basePath + '/trips/' + documentMetaData._id, newTrip);
+                return this.$http.put(this.basePath + '/trips/' + id, newTrip);
             }
-            // To be sure keys don't exist
-            delete documentMetaData._id;
             return this.$http.post(this.basePath + '/trips', newTrip);
         }
 
@@ -52,6 +50,10 @@ module Service {
                 }
             }
             return array;
+        }
+
+        togglePublicTrip(tripId) {
+            return this.$http.put(this.basePath + '/trips/' + tripId + '/togglePublic');
         }
 
         deleteTrip(_id) {

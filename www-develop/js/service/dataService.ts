@@ -8,6 +8,7 @@ module Service {
         dataAccommodationsCache;
         dataMoodsCache;
         dayCache;
+        fixedCitiesCache;
 
         availableMoods = [{
             id: "buddytrip",
@@ -40,7 +41,7 @@ module Service {
         }, {
             id: "sturmderliebe",
             query_name: "sturm_der_liebe",
-            title: "strum der liebe",
+            title: "sturm der liebe",
             icon: "sturm_der_liebe.png",
             icon_grey: "sturm_der_liebe_grey.png",
             description: ""
@@ -117,6 +118,10 @@ module Service {
             return this.$http.get(this.basePath + '/data/cities', {cache: this.dataCitiesCache});
         }
 
+        getFixedCities() {
+            return this.$http.get(this.basePath + '/data/fixCities', {cache: this.fixedCitiesCache});
+        }
+
         getAccomodations() {
             return this.$http.get(this.basePath + '/data/accommodations', {cache: this.dataAccommodationsCache});
         }
@@ -138,10 +143,10 @@ module Service {
             return this.$q((resolve) => {
                 resolve({
                     data: [
-                        {"id": "1", "title": "1 Tag"},
-                        {"id": "2", "title": "2 Tage"},
-                        {"id": "3", "title": "3 Tage"},
-                        {"id": "4", "title": "3+ Tage"},
+                        {"id": "1", "title": "1 Tag", "query_name": "1"},
+                        {"id": "2", "title": "2 Tage", "query_name": "2"},
+                        {"id": "3", "title": "3 Tage", "query_name": "3"},
+                        {"id": "4", "title": "3+ Tage", "query_name": "3plus"},
                     ]
                 });
             }, {cache: this.dayCache});

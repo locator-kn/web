@@ -23,7 +23,7 @@ module Controller {
 
         showImageTooLargeModal:boolean = false;
 
-        progressPercentage:number;
+        progressPercentage:number = 0;
         availableMoods;
         birthAvailable:boolean = true;
 
@@ -75,13 +75,25 @@ module Controller {
         }
 
         getTrips() {
-            this.TripService.getTripsByUser(this.user._id)
-                .then(result => {
-                    this.trips = result.data;
-                    this.trips.forEach(entry => {
-                        entry.username = this.user.name + ' ' + this.user.surname;
+            if (this.me) {
+
+                this.TripService.getMyTrips(this.user._id)
+                    .then(result => {
+                        this.trips = result.data;
                     })
-                })
+
+            } else {
+
+                this.TripService.getTripsByUser(this.user._id)
+                    .then(result => {
+                        this.trips = result.data;
+                        this.trips.forEach(entry => {
+                            entry.username = this.user.name + ' ' + this.user.surname;
+                        })
+                    })
+
+            }
+
         }
 
         getLocations() {
@@ -268,6 +280,8 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
+            this.clearFileSelection();
             $('#image-upload-profile').click();
         }
 
@@ -292,7 +306,7 @@ module Controller {
                 width: Math.round(this.imageCropData.width),
                 height: Math.round(this.imageCropData.height),
                 xCoord: Math.round(this.imageCropData.x),
-                yCoord: Math.round(this.imageCropData.y),
+                yCoord: Math.round(this.imageCropData.y)
             };
 
 
@@ -387,6 +401,10 @@ module Controller {
 
         togglePublicLocation(id) {
             this.LocationService.togglePublicLocation(id);
+        }
+
+        togglePublicTrip(id) {
+            this.TripService.togglePublicTrip(id);
         }
 
         showDelete(item) {

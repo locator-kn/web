@@ -1,7 +1,7 @@
 <div class="insert-location-container" ng-controller="InsertLocationCtrl as ilc">
     <div class="image-upload-modal" ng-show="ilc.showImageUploadModal">
         <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
-        <div class="big-progress" ng-style="{'height': ilc.progressPercentage * 100 + '%'}"></div>
+        <div class="big-progress" ng-style="{'height': ilc.progressPercentage + '%'}"><span>{{ilc.progressPercentage}} %</span></div>
 
         <div class="controls" ng-show="!ilc.isUploading">
             <div class="btns">
@@ -19,7 +19,7 @@
                style="display: none">
 
         <div class="header-image">
-            <div class="header-image" ng-style="{'background-image': 'url(' + ilc.headerImagePath + ')' }"></div>
+            <div class="header-image" ng-style="{'background-image': 'url(' + ilc.headerImagePath + ')', 'background-size': 'cover'}"></div>
         </div>
 
     </div>

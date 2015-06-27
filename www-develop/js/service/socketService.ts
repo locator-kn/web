@@ -7,6 +7,7 @@ module Service {
 
         constructor(private $http, private $q, private basePathRealtime, private $rootScope, private socketFactory) {
             this.socketInit();
+            this.registerEvents();
         }
 
         getSocket() {
@@ -27,17 +28,25 @@ module Service {
             });
         }
 
+        registerEvents() {
+            this.getSocket().then(socket => {
+                socket.on('new_message', newMessage => {
+                    this.$rootScope.$broadcast('new_message', newMessage);
+                });
+            });
+        }
+
         emit(event, data) {
             this.getSocket().then(socket => {
                 socket.emit(event, data);
             });
         }
 
-        onEvent(event, fn) {
+        /*onEvent(event, fn) {
             this.getSocket().then(socket => {
                 socket.on(event, fn);
             })
-        }
+        }*/
 
         offEvent(event) {
             this.getSocket().then(socket => {

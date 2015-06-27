@@ -178,8 +178,8 @@ module Controller {
                 })
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
-                    this.progressPercentage = perc;
-                    console.log('progress:', this.progressPercentage * 100, '% ', evt.config.file.name);
+                    this.progressPercentage = Math.round(perc * 100);
+                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
@@ -188,6 +188,7 @@ module Controller {
                     this.revision = data.rev;
                     this.uploadIsDone = true;
                     this.isUploading = false;
+                    this.progressPercentage = 0;
                 });
 
             //this.InsertTripService.uploadImage(formData);
@@ -212,7 +213,7 @@ module Controller {
         save() {
             var formValues = angular.copy(this.locationFormDetails);
 
-            formValues.tags = formValues.tags.split(" ");
+            formValues.tags = formValues.tags.split(' ');
 
             formValues.city = {
                 title: this.selectedPlaceDetails.name,

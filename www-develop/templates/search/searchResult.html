@@ -1,12 +1,12 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
 
-    <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2'>
+    <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2' infinite-scroll-disabled='src.noMoreTrips'>
         <div ng-show="src.results.length == 0">
-            <h1>Keine Results</h1>
+            <h1>Keine Ergebnisse :(</h1>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 pointer" ng-repeat="result in src.results">
+            <div class="col-xs-12 pointer " ng-repeat="result in src.results">
                 <trip-min-view trip="result" availablemoods="src.availableMoods"></trip-min-view>
             </div>
         </div>
