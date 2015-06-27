@@ -107,8 +107,7 @@
                     <h2>Weitere Angaben</h2>
 
                     <div class="border-wrapper">
-                        <div ng-class="{'err' : et.error && et.dateValid}" class="date meta-section">
-{{et.dateValid}}
+                        <div ng-class="{'err' : et.error && !et.dateValid}" class="date meta-section">
 
                             <input type="hidden" ng-model="et.start_date" required/>
                             <input type="hidden" ng-model="et.end_date"/>
