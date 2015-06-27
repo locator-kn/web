@@ -107,8 +107,8 @@
                     <h2>Weitere Angaben</h2>
 
                     <div class="border-wrapper">
-                        <div ng-class="{'err' : et.error && (!et.tripMeta.date_start || !et.tripMeta.end_start)}" class="date meta-section">
-
+                        <div ng-class="{'err' : et.error && et.dateValid}" class="date meta-section">
+{{et.dateValid}}
 
                             <input type="hidden" ng-model="et.start_date" required/>
                             <input type="hidden" ng-model="et.end_date"/>

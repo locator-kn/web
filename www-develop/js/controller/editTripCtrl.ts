@@ -4,6 +4,7 @@ module Controller {
 
         showPreview = false;
         error = false;
+        dateValid = false;
 
         tripId;
         myLocations = [];
@@ -77,11 +78,20 @@ module Controller {
                 });
 
             $scope.$watch(angular.bind(this, () => {
-                return this.selectedCity; // `this` IS the `this` above!!
+                return this.selectedCity;
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
                     if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
+                }
+            });
+
+
+            $scope.$watchCollection(angular.bind(this, () => {
+                return [this.tripMeta.start_date, this.tripMeta.end_date];
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.dateValidation();
                 }
             });
 
@@ -194,6 +204,9 @@ module Controller {
         tripPreview() {
 
             if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.start_date || !this.tripMeta.end_date || !this.tripMeta.persons) {
+
+                this.dateValidation();
+
                 this.error = true;
                 return;
             } else {
@@ -204,6 +217,18 @@ module Controller {
             this.showPreview = true;
             var element = document.getElementById('tripviewpreview');
             this.smoothScroll(element);
+        }
+
+
+        dateValidation() {
+            debugger;
+
+            if (this.tripMeta.start_date && this.tripMeta.end_date) {
+                this.dateValid = true;
+            } else {
+                this.dateValid = false;
+            }
+
         }
 
         saveTrip() {
