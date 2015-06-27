@@ -262,7 +262,7 @@ module Controller {
                 this.scrollTo('saveTrip');
                 this.accommodationEquipmentSelectable = true;
             } else {
-                this.scrollTo('accommodation');
+                this.scrollTo('accommodation ');
                 this.accommodationEquipment = [];
                 this.accommodationEquipmentSelectable = false;
             }
