@@ -220,6 +220,13 @@
     width: 100%;
     float: left;
     border-radius: 3px;
+
+    transition-duration: 0.3s;
+}
+
+.edittrip-container a.button:hover {
+    background: rgb(34, 34, 34);
+    text-decoration: none;
 }
 
 .edittrip-container .flexslider {
