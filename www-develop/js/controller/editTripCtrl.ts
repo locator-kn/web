@@ -3,6 +3,8 @@ module Controller {
     export class EditTripCtrl {
 
         showPreview = false;
+        error = false;
+        dateValid = false;
 
         tripId;
         myLocations = [];
@@ -38,13 +40,13 @@ module Controller {
             persons: '',
             accommodation: false,
             description: '',
-            start_date: undefined,
-            end_date: undefined,
+            start_date: '',
+            end_date: '',
             accommodation_equipment: [],
             city: {}
         };
 
-        accommodationEquipmentSelectable = false;
+        accommodationEquipmentSelectable = true;
         dataAvailable:boolean = false;
         locationSearch = '';
 
@@ -76,11 +78,20 @@ module Controller {
                 });
 
             $scope.$watch(angular.bind(this, () => {
-                return this.selectedCity; // `this` IS the `this` above!!
+                return this.selectedCity;
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
                     if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
+                }
+            });
+
+
+            $scope.$watchCollection(angular.bind(this, () => {
+                return [this.tripMeta.start_date, this.tripMeta.end_date];
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.dateValidation();
                 }
             });
 
@@ -185,15 +196,45 @@ module Controller {
                 if (location.images.picture) {
                     this.slides.push(location.images.picture);
                 }
-                this.slides.push(location.images.googlemap + '&size=640x375');
+                this.slides.push(location.images.googlemap + '&size=640x375&scale=2');
             });
 
         }
 
         tripPreview() {
+
+            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.start_date || !this.tripMeta.end_date || !this.tripMeta.persons) {
+
+                this.dateValidation();
+
+                this.error = true;
+
+
+                var element = document.getElementById('page-top');
+                this.smoothScroll(element);
+
+                return;
+            } else {
+                this.error = false;
+            }
+
+
             this.showPreview = true;
             var element = document.getElementById('tripviewpreview');
             this.smoothScroll(element);
+        }
+
+
+        dateValidation() {
+
+            if (this.tripMeta.start_date === "Invalid date" || this.tripMeta.end_date === "Invalid date") {
+                this.dateValid = false;
+            } else if (this.tripMeta.start_date === "" || this.tripMeta.end_date === "") {
+                this.dateValid = false;
+            } else {
+                this.dateValid = true;
+            }
+
         }
 
         saveTrip() {

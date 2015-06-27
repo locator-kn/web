@@ -91,7 +91,7 @@
     <link rel="icon" href="images/favicon.png" type="image/png"/>
 </head>
 
-<body ng-class="{'slider': slider}" ng-app="locator" ng-controller="MainCtrl as mc">
+<body id="page-top" ng-class="{'slider': slider}" ng-app="locator" ng-controller="MainCtrl as mc">
 
 <div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
     <!--<flex-slider class="static" control-nav="false" direction-nav="false" slide="s in sc.slides">
@@ -123,6 +123,9 @@
 
 <div class="uiview" autoscroll="true" ng-include="'templates/static/staticButtons.html'"></div>
 <div ui-view></div>
+
+
+<div class="container-fluid footer" ng-include="'templates/static/footer.html'"></div>
 
 
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
