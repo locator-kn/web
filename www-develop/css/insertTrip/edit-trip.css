@@ -40,7 +40,7 @@
     width: 100%;
     height: 100%;
     float: left;
-    background: rgba(255, 70, 55, 0.71);
+    background: rgba(34, 34, 34, 0.7);
     transition-duration: 0.3s;
     position: absolute;
     top: 0;
@@ -57,7 +57,10 @@
 .edittrip-container h2 {
     width: 100%;
     float: left;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 100;
+    margin-bottom: 17px;
+    margin-top: 28px;
 }
 
 .edittrip-container .location h3 {
@@ -85,7 +88,7 @@
 }
 
 .edittrip-container .border-wrapper {
-    border: 1px solid black;
+    border: 1px solid rgb(34, 34, 34);
     float: left;
     width: 100%;
     max-height: 400px;
@@ -118,7 +121,7 @@
 .edittrip-container .separator {
     margin-left: -15px;
     margin-right: -15px;
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(34, 34, 34);
     width: 120%;
     float: left;
 
@@ -129,16 +132,16 @@
 .edittrip-container .trip-title {
     width: 100%;
     margin-top: 20px;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
 }
 
 .edittrip-container .trip-title input {
     background-color: white;
     border-radius: 4px;
-    border: 1px solid black;
+    border: 1px solid rgb(34, 34, 34);
     width: 100%;
     font-size: 16px;
-    padding: 2px 5px;
+    padding: 10px;
 }
 
 .edittrip-container ::-webkit-input-placeholder {
@@ -168,7 +171,7 @@
 }
 
 .edittrip-container .trigger a {
-    color: black;
+    color: rgb(34, 34, 34);
     font-size: 15px;
 }
 
@@ -193,7 +196,7 @@
 }
 
 .edittrip-container .infobox {
-    background: black;
+    background: rgb(34, 34, 34);
     color: white;
 }
 
@@ -201,15 +204,16 @@
     padding-right: 0;
 }
 
-
 .edittrip-container a.button {
     padding: 10px 20px;
-    background-color: red;
+    background-color: rgb(255, 70, 55);
+    text-align: center;
     color: white;
     font-size: 20px;
     cursor: pointer;
     width: 100%;
     float: left;
+    border-radius: 3px;
 }
 
 .edittrip-container .flexslider {
@@ -244,10 +248,70 @@
 .edittrip-container .metadata .border-wrapper {
     padding: 15px;
     max-height: inherit;
+    overflow: hidden;
 }
 
 .edittrip-container .missing {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
     padding-top: 20px;
+}
+
+.edittrip-container .dp-highlight .ui-state-default {
+    background: rgb(34, 34, 34);
+    color: white;
+}
+
+.edittrip-container .datepicker .round-right a {
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 30%;
+}
+
+.edittrip-container .accommodation span {
+    color: rgb(34, 34, 34);
+    margin: 0;
+    padding: 0;
+}
+
+.edittrip-container .insert-trip-circle-selected {
+    background: rgb(34, 34, 34);
+    color: white;
+}
+
+.edittrip-container .equi-ico.pointer {
+    width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;
+    max-width: 50px;
+    float: left;
+}
+
+.edittrip-container .accommodation-equipment {
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container .accommodation-equipment span.info {
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container {
+    padding-bottom: 30px;
+}
+
+.edittrip-container input.cmn-toggle-round:checked + label:before {
+    background-color: rgb(34, 34, 34);;
+}
+
+.edittrip-container .switch {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.edittrip-container .meta-section span.info {
+    font-size: 15px;
+    float: left;
+    width: 100%;
 }
