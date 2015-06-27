@@ -237,9 +237,6 @@
     min-height: 80vh;
 }
 
-.edittrip-container #tripviewpreview h3 {
-    padding-top: 80px;
-}
 
 .edittrip-container .next-button {
     margin-top: 5px;
@@ -314,4 +311,16 @@
     font-size: 15px;
     float: left;
     width: 100%;
+}
+
+.edittrip-container .bottom-wrapper.relative {
+    float: left;
+    width: 100%;
+}
+
+.edittrip-container .bottom-wrapper .absolute-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 5px;
 }
