@@ -221,7 +221,7 @@ module Controller {
 
 
         dateValidation() {
-            
+
             if (this.tripMeta.start_date === "Invalid date" || this.tripMeta.end_date === "Invalid date") {
                 this.dateValid = false;
             } else if (this.tripMeta.start_date === "" || this.tripMeta.end_date === "") {

@@ -1279,3 +1279,67 @@ progress-arc.hidden-height {
 .uiview {
     margin-top: 60px;
 }
+
+.footer {
+    background: rgb(34, 34, 34);
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer .footer_logo {
+    width: 200px;
+}
+
+.footer a {
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.footer ul {
+    float: left;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    padding: 20px;
+    display: inline-block;
+}
+
+.footer img.social {
+    height: 25px;
+    margin-right: 5px;
+    margin-top: -2px;
+}
+
+.social-wrapper {
+    text-align: center;
+    float: left;
+    width: 100%;
+}
+
+
+.footer .separator {
+    background: #ff4637;
+    position: relative;
+    display: block;
+    content: "";
+    height: 2px;
+    width: 40px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.footer h4 {
+    font-weight: 100;
+    margin-top: 40px;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: #ff4637;
+}
