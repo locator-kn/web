@@ -53,19 +53,15 @@ module Controller {
             this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
                 if(this.$state.params.opponentId === newMessage.conversation_id ) {
-                    if (this.selectedConversation._id === newMessage.conversation_id) {
-                        this.messages.push(newMessage);
+                    this.messages.push(newMessage);
 
-                        this.emitAck(newMessage.from, newMessage.conversation_id);
-                    } else {
-                        this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-                    }
-                    console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
-                    this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                    this.emitAck(newMessage.from, newMessage.conversation_id);
                 } else {
-
-                    // TODO indicate unread
+                    this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
+                console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+
             });
         }
 
