@@ -20,14 +20,11 @@ module Controller {
 
         constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
 
-
             this.getConversations();
-
-            $rootScope.$on('$stateChangeSuccess', () => {
-                console.log('$stateChangeSuccess has been triggered');
-                var con = this.getConversationById(this.$state.params.opponentId);
+            if($state.params.opponentId) {
+                var con = this.getConversationById($state.params.opponentId);
                 this.select(con);
-            });
+            }
 
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
