@@ -92,7 +92,7 @@
     float: left;
     width: 100%;
     max-height: 400px;
-    max-height: calc(100vh - 250px);
+    max-height: calc(100vh - 320px);
     overflow-y: scroll;
     border-radius: 3px;
 }
