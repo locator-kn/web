@@ -248,7 +248,16 @@ module Controller {
 
             this.TripService.saveTrip(trip, this.tripId)
                 .then(result => {
-                    console.info('success');
+
+                    this.$rootScope.lastInsertedTripId = result.data.id;
+
+                    //get an image for succes page
+                    for (var prop in trip.locations) {
+                        this.$rootScope.successImg = trip.locations[prop].picture || (trip.locations[prop].googlemap + '&size=640x375&scale=2');
+                        break;
+                    }
+
+                    this.$state.go('editTripSuccess');
                 })
                 .catch(err => {
                     console.info('error');

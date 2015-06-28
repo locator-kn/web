@@ -1,0 +1,19 @@
+<div class="container trip-success-container relative">
+    <div class="wrapper">
+        <div class="row">
+            <div class="tripsuccess-image relative col-sm-8"
+                 style="background-image: url({{successImg}}); background-size: cover;">
+                <div class="success-overlay">
+                    <h2>Dein Trip wurde zur Datenbank hinzugefügt</h2>
+                </div>
+            </div>
+            <div class="col-sm-4 infobox">
+                <ul class="success-menu">
+                    <li><a class="pointer" ui-sref="trip({tripId: lastInsertedTripId})">Trip ansehen</a></li>
+                    <li><a class="pointer" ui-sref="user({profileId: userID, tab: 'trips'})">Alle meine Trips ansehen</a></li>
+                    <li><a class="pointer" ui-sref="insertLocation">Location hinzufügen</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

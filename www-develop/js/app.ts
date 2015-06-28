@@ -139,6 +139,12 @@ var app = angular.module('locator', deps)
                 reloadOnSearch: false
             })
 
+            .state('editTripSuccess', {
+                url: "/edit-trip-success/",
+                templateUrl: "templates/editTrip/editTripSuccess.html"
+            })
+
+
             .state('insertLocation', {
                 url: "/insert-location",
                 templateUrl: "templates/location/insertLocation.html",

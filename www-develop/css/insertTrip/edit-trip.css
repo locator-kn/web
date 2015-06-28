@@ -370,7 +370,63 @@ span.info.err {
     padding-top: 15px;
 }
 
-.edittrip-container .equ-chooser  {
+.edittrip-container .equ-chooser {
     float: left;
     width: 100%;
+}
+
+.success-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 110px;
+    color: white;
+}
+
+.tripsuccess-image {
+    height: 300px;
+}
+
+.trip-success-container {
+    min-height: 90vh;
+}
+
+.trip-success-container .wrapper {
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+    width: 100%;
+}
+
+.trip-success-container .infobox {
+    height: 300px;
+    background: black;
+    border-left: 1px solid white;
+}
+
+.trip-success-container .infobox ul {
+    list-style: none;
+    padding: 0;
+}
+
+.trip-success-container .infobox ul li a {
+    color: white;
+}
+
+.trip-success-container ul.success-menu li {
+    border-bottom: 1px solid white;
+    margin-left: -15px;
+    margin-right: -15px;
+    line-height: 30px;
+    padding: 15px;
+}
+
+.trip-success-container ul.success-menu li:last-child {
+    border-bottom: none;
 }
