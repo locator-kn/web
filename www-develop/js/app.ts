@@ -33,6 +33,7 @@
 /// <reference path="./service/insertTripService.ts" />
 
 /// <reference path="./service/helperService.ts" />
+/// <reference path="./service/utilityService.ts" />
 
 /// <reference path="./controller/contextCtrl.ts" />
 /// <reference path="./service/socketService.ts" />
@@ -381,5 +382,6 @@ var app = angular.module('locator', deps)
     .service(Service.MessengerService.serviceId, Service.MessengerService)
     .service(Service.SocketService.serviceId, Service.SocketService)
     .service(Service.LocationService.serviceId, Service.LocationService)
-    .service(Service.InsertTripService.serviceId, Service.InsertTripService);
+    .service(Service.InsertTripService.serviceId, Service.InsertTripService)
+    .service(Service.UtilityService.serviceId, Service.UtilityService);
 
