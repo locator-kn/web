@@ -22,7 +22,7 @@ module Controller {
 
             this.getConversations();
 
-            $rootScope.$on('login_success', () => {
+            $scope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
             if (this.$rootScope.authenticated) {
@@ -30,6 +30,7 @@ module Controller {
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
+
         }
 
         toTrusted(html_code) {
