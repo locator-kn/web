@@ -115,7 +115,7 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     this.$rootScope.userName = result.data.name + ' ' + result.data.surname;
 
-                    this.$rootScope.$emit('login_success');
+                    this.$rootScope.$broadcast('login_success');
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
                     //if(this.user.isAdmin) {
