@@ -15,10 +15,11 @@ module Controller {
         textbox = '';
         messagesIdCache;
         showEmojis:boolean;
+        debouncedAck:any;
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
+        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime, private UtilityService) {
 
             this.getConversations();
 
@@ -30,6 +31,8 @@ module Controller {
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
+
+            this.debouncedAck =  this.UtilityService.debounce(this.emitAck, 1000, false);
 
         }
 
@@ -50,7 +53,7 @@ module Controller {
                 if(this.$state.params.opponentId === newMessage.conversation_id ) {
                     this.messages.push(newMessage);
 
-                    this.emitAck(newMessage.from, newMessage.conversation_id);
+                    this.debouncedAck(newMessage.from, newMessage.conversation_id);
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
@@ -106,6 +109,8 @@ module Controller {
         }
 
         emitAck(from, conversation_id) {
+
+
             console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
             setTimeout(() => {
                 this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
