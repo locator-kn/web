@@ -49,7 +49,7 @@
                         <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
                              class="relative location border-radius-decent">
 
-                            <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <div class="pointer" ng-click="et.selectLocation(location)" class="select-overlay">
                                 <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
                             </div>
                             <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
@@ -62,7 +62,7 @@
                              class="relative border-radius-decent location mylocation">
 
 
-                            <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <div class="pointer" ng-click="et.selectLocation(location)" class="select-overlay">
                                 <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
                             </div>
 
