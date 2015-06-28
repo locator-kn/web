@@ -113,7 +113,8 @@ module Controller {
                     this.user = result.data;
                     this.$rootScope.authenticated = true;
                     this.$rootScope.userID = result.data._id;
-                    console.info(result.data._id);
+                    this.$rootScope.userName = result.data.name + ' ' + result.data.surname;
+
                     this.$rootScope.$emit('login_success');
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info

@@ -363,3 +363,14 @@ span.info.err {
 .edittrip-container .slide-image {
     height: 400px;
 }
+
+.edittrip-container .equ-headline {
+    float: left;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.edittrip-container .equ-chooser  {
+    float: left;
+    width: 100%;
+}

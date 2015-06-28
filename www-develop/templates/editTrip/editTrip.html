@@ -207,10 +207,11 @@
 
 
                 <div class="daterange">
-                    <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
+                    <strong><resultdate class="black" date="et.tripMeta.start_date"></resultdate></strong>
                     bis
-                    <resultdate class="black" date="et.tripMeta.end_date"></resultdate>
+                    <strong><resultdate class="black" date="et.tripMeta.end_date"></resultdate></strong>
                 </div>
+                <p>von <strong>{{userName}}</strong></p>
 
                 <span>{{et.selectedDay.title}}</span>
 
@@ -218,7 +219,15 @@
                 ng-if="et.selectedLocations.length !== 1">s</span></span>
                 <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
                 ng-show="et.tripMeta.persons > 1">en</span>
-                <span ng-show="et.tripMeta.accommodation"> | <strong>mit</strong> Übernachtung</span>
+
+
+                <span class="equ-headline info-headline" ng-show="et.tripMeta.accommodation">mit Übernachtung</span>
+                <acc-equ-chooser class="equ-chooser" ng-show="et.tripMeta.accommodation">
+
+                    accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                    accommodation-equipment="et.tripMeta.accommodation_equipment">
+                </acc-equ-chooser>
+
 
             </div>
         </div>
