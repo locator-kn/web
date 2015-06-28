@@ -21,10 +21,6 @@ module Controller {
         constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime) {
 
             this.getConversations();
-            if($state.params.opponentId) {
-                var con = this.getConversationById($state.params.opponentId);
-                this.select(con);
-            }
 
             $rootScope.$on('login_success', () => {
                 this.registerSocketEvent();
