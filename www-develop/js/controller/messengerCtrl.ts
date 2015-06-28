@@ -24,6 +24,7 @@ module Controller {
             this.getConversations();
 
             $rootScope.$on('$stateChangeSuccess', () => {
+                console.log('$stateChangeSuccess has been triggered');
                 var con = this.getConversationById(this.$state.params.opponentId);
                 this.select(con);
             });
