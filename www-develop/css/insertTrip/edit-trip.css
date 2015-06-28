@@ -41,7 +41,7 @@
     height: 100%;
     float: left;
     background: rgba(34, 34, 34, 0.7);
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
     position: absolute;
     top: 0;
     left: 0;
@@ -221,13 +221,21 @@
     width: 100%;
     float: left;
     border-radius: 3px;
-
+    margin-top: 5px;
     transition-duration: 0.3s;
 }
 
 .edittrip-container a.button:hover {
     background: rgb(34, 34, 34);
     text-decoration: none;
+}
+
+.edittrip-container a.insert-location {
+    background: rgb(34, 34, 34);
+}
+
+.edittrip-container a.insert-location:hover {
+    background-color: rgb(255, 70, 55);
 }
 
 .edittrip-container .flexslider {
@@ -251,9 +259,6 @@
     min-height: 80vh;
 }
 
-.edittrip-container .next-button {
-    margin-top: 5px;
-}
 
 .edittrip-container .metadata .border-wrapper {
     padding: 15px;
