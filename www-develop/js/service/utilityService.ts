@@ -11,7 +11,7 @@ module Service {
         // N milliseconds. If `immediate` is passed, trigger the function on the
         // leading edge, instead of the trailing.
         // Borrowed from: http://davidwalsh.name/javascript-debounce-function
-        debounce(func, wait, immediate) {
+        debounce(func:any, wait:number, immediate:boolean) {
             var timeout;
             return function() {
                 var context = this, args = arguments;
