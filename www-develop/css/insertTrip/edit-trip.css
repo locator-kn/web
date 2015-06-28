@@ -307,7 +307,7 @@
 }
 
 .edittrip-container input.cmn-toggle-round:checked + label:before {
-    background-color: rgb(34, 34, 34);;
+    background-color: rgb(34, 34, 34);
 }
 
 .edittrip-container .switch {
@@ -382,8 +382,7 @@ span.info.err {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(34, 34, 34, 0.6);
     padding-top: 110px;
     color: white;
 }
@@ -406,7 +405,7 @@ span.info.err {
 
 .trip-success-container .infobox {
     height: 300px;
-    background: black;
+    background: rgb(34, 34, 34);
     border-left: 1px solid white;
 }
 
