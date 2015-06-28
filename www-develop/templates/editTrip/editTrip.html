@@ -49,7 +49,7 @@
                         <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
                              class="relative location border-radius-decent">
 
-                            <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
                                 <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
                             </div>
                             <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
@@ -62,7 +62,7 @@
                              class="relative border-radius-decent location mylocation">
 
 
-                            <div ng-click="et.selectLocation(location)" class="select-overlay">
+                            <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
                                 <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
                             </div>
 
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-
+                <a class="red button insert-location" ng-click="et.addLocation()">Location hinzufügen</a>
             </div>
 
             <div class="col-sm-4 locationpool selectedlocations">
@@ -100,7 +100,6 @@
 
                     </div>
                 </div>
-
             </div>
 
             <div class="col-sm-3 metadata">
@@ -170,7 +169,8 @@
                              ng-show="et.tripMeta.accommodation == true">
                             <span class="info">Angaben zur Unterkunft</span>
                             <acc-equ-chooser
-                                accommodation-equipment-selectable="et.accommodationEquipmentSelectable" just-show-selected="false"
+                                accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                                just-show-selected="false"
                                 accommodation-equipment="et.tripMeta.accommodation_equipment">
                             </acc-equ-chooser>
                         </div>
@@ -207,9 +207,13 @@
 
 
                 <div class="daterange">
-                    <strong><resultdate class="black" date="et.tripMeta.start_date"></resultdate></strong>
+                    <strong>
+                        <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
+                    </strong>
                     bis
-                    <strong><resultdate class="black" date="et.tripMeta.end_date"></resultdate></strong>
+                    <strong>
+                        <resultdate class="black" date="et.tripMeta.end_date"></resultdate>
+                    </strong>
                 </div>
                 <p>von <strong>{{userName}}</strong></p>
 
@@ -223,9 +227,9 @@
 
                 <span class="equ-headline info-headline" ng-show="et.tripMeta.accommodation">mit Übernachtung</span>
                 <acc-equ-chooser class="equ-chooser" ng-show="et.tripMeta.accommodation"
-                                 just-show-selected = true
-                    accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
-                    accommodation-equipment="et.tripMeta.accommodation_equipment">
+                                 just-show-selected=true
+                                 accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                                 accommodation-equipment="et.tripMeta.accommodation_equipment">
                 </acc-equ-chooser>
 
 

@@ -4,7 +4,8 @@ module Controller {
 
         showPreview = false;
         error = false;
-        dateValid = false;
+
+        dateValid = true;
 
         tripId;
         myLocations = [];
@@ -87,13 +88,15 @@ module Controller {
             });
 
 
-            $scope.$watchCollection(angular.bind(this, () => {
-                return [this.tripMeta.start_date, this.tripMeta.end_date];
-            }), (newVal, oldVal) => {
-                if (newVal != oldVal) {
-                    this.dateValidation();
-                }
-            });
+            // Datevalidation is optional
+
+            /*$scope.$watchCollection(angular.bind(this, () => {
+             return [this.tripMeta.start_date, this.tripMeta.end_date];
+             }), (newVal, oldVal) => {
+             if (newVal != oldVal) {
+             this.dateValidation();
+             }
+             });*/
 
 
         }
@@ -203,9 +206,10 @@ module Controller {
 
         tripPreview() {
 
-            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.start_date || !this.tripMeta.end_date || !this.tripMeta.persons) {
+            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.persons) {
 
-                this.dateValidation();
+                // date is optional
+                // this.dateValidation();
 
                 this.error = true;
 
@@ -224,7 +228,7 @@ module Controller {
             this.smoothScroll(element);
         }
 
-
+        //optional
         dateValidation() {
 
             if (this.tripMeta.start_date === "Invalid date" || this.tripMeta.end_date === "Invalid date") {
@@ -245,12 +249,25 @@ module Controller {
 
             trip.locations = this.getSelectedLocations();
 
+            // remove undefined or empty fields
+            for (var key in trip) {
+                if (trip.hasOwnProperty(key)) {
+
+                    var x = trip[key];
+                    var y = trip.key;
+                    if (!trip[key]) {
+                        delete trip[key];
+                    }
+                }
+            }
+
 
             this.TripService.saveTrip(trip, this.tripId)
                 .then(result => {
 
                     this.$rootScope.lastInsertedTripId = result.data.id;
 
+                    debugger;
                     //get an image for succes page
                     for (var prop in trip.locations) {
                         this.$rootScope.successImg = trip.locations[prop].picture || (trip.locations[prop].googlemap + '&size=640x375&scale=2');
