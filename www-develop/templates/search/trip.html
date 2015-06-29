@@ -16,52 +16,52 @@
                         <img class="pointer profile-image" ng-src="{{tc.user.picture.picture}}">
                     </div>
                 </div>
-                <div class="btn-mood-container">
-                    <div class="trip-mood-container">
+                <div class="col-xs-6 btn-mood-container">
+                    <!--<div class="trip-mood-container">
                         <span ng-repeat="mood in tc.trip.moods">
                             <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
                                 <img class="trip-mood-icon" ng-src="images/icons/{{availableMood.icon}}">
                             </span>
                         </span>
-                    </div>
+                    </div>-->
                     <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">TEILNEHMEN</div>
                     <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">Bearbeiten</div>
                 </div>
             </div>
-            <div class="row content-bottom">
-                <div class="col-sm-6 left-section">
-                    <div class="trip-info">
-                        <h1>{{tc.trip.title}}</h1><br>
-                        <p>{{tc.trip.description}}</p>
-                        <h1>Infos</h1>
-                        <strong><resultdate class="black" date="tc.trip.start_date"></resultdate></strong>
-                        bis
-                        <strong><resultdate class="black" date="tc.trip.end_date"></resultdate></strong>
-                        </div>
-                        <p class="result-user-info">
-                        Von <span class="black"><strong>{{tc.username}}</strong></span></p>
-                        <div class="day-amount black">
-                        <span><strong>{{tc.trip.days}}</strong> Tag</span><span ng-show="tc.trip.days > 1">e</span>
-                        <span> | <strong>{{tc.locations.length}}</strong> Location</span><span ng-show="tc.locations.length > 1">s</span>
-                        <span> | <strong>{{tc.trip.persons}}</strong> Person</span><span ng-show="tc.trip.persons > 1">en</span>
-                        </div>
-
-                        <div ng-hide="tc.trip.accommodation == false">
-                            <p>mit Übernachtung</p>
-                            <div class="accommodation-equipment-wrapper">
-                                <acc-equ-chooser accommodation-equipment-selectable="false" just-show-selected="true"
-                                                 accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser>
-                            </div>
-                        </div>
+        </div>
+        <div class="row trip-info-container">
+            <div class="col-sm-6 left-section">
+                <div class="trip-info">
+                    <h1>{{tc.trip.title}}</h1>
+                    <p>{{tc.trip.description}}</p>
+                    <h1>Infos</h1>
+                    <strong><resultdate class="black" date="tc.trip.start_date"></resultdate></strong>
+                    bis
+                    <strong><resultdate class="black" date="tc.trip.end_date"></resultdate></strong>
+                </div>
+                <div class="result-user-info">
+                    Von <span class="black"><strong>{{tc.username}}</strong></span></div><br>
+                <div class="day-amount black">
+                    <span><strong>{{tc.trip.days}}</strong> Tag</span><span ng-show="tc.trip.days > 1">e</span>
+                    <span> | <strong>{{tc.locations.length}}</strong> Location</span><span ng-show="tc.locations.length > 1">s</span>
+                    <span> | <strong>{{tc.trip.persons}}</strong> Person</span><span ng-show="tc.trip.persons > 1">en</span>
                 </div>
 
-                <div class="col-sm-6">
-                    <h1>Locations</h1>
-                    <div class="edittrip-container">
-                        <div class="mylocations-wrapper">
-                            <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container">
-                                <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
-                            </div>
+                <div ng-hide="tc.trip.accommodation == false">
+                    <p>mit Übernachtung</p>
+                    <div class="accommodation-equipment-wrapper">
+                        <acc-equ-chooser accommodation-equipment-selectable="false" just-show-selected="true"
+                                         accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h1>Locations</h1>
+                <div class="edittrip-container">
+                    <div class="mylocations-wrapper">
+                        <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container">
+                            <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
                         </div>
                     </div>
                 </div>
