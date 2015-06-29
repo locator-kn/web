@@ -433,11 +433,13 @@ module Controller {
             .then(result => {
                     debugger;
                     this.locationReallyDelete = false;
+                    location.showdelete = false;
                     console.log('Hard deletion success');
                 })
             .catch(result => {
                     debugger;
                     this.locationReallyDelete = false;
+                    location.showdelete = false;
                     console.log('Hard deletion error');
                 })
         }
