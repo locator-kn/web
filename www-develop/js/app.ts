@@ -22,6 +22,7 @@
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
 /// <reference path="./controller/insertLocationCtrl.ts" />
 /// <reference path="./controller/locationCtrl.ts" />
+/// <reference path="./controller/locationViewCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
 
@@ -181,6 +182,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
+    .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
 
 
     .directive('backImg', function () {

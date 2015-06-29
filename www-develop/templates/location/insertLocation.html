@@ -71,21 +71,21 @@
                 <div class="content-bottom">
                     <form novalidate name="ilc.form" id="insertLocationForm">
 
-
+                        <label class="uppercase">Location Titel</label>
                         <input
                             ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
-                            class="text-fields" type="text" placeholder="Wie heißt diese Location?"
+                            class="text-fields" type="text" placeholder="Wie heißt deine Location?"
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
 
-
+                        <label class="uppercase">Tags</label>
                         <input ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
-                            class="text-fields" type="text" placeholder="Tags"
+                            class="text-fields" type="text" placeholder="Aussagekrägtige Tags mit Space getrennt"
                                ng-model="ilc.locationFormDetails.tags"
                                name="locationTag"
                                required>
 
-
+                        <label class="uppercase">Beschreibung</label>
                         <textarea ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
                                   ng-model="ilc.locationFormDetails.description" name="locationDescription"
