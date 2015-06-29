@@ -412,6 +412,12 @@ module Controller {
             item.showdelete = true;
         }
 
+        showLocation(location) {
+            this.$state.go('locationView', {
+                locationId: location._id
+            })
+        }
+
         deleteLocation(location) {
             this.LocationService.deleteLocation(location._id)
                 .then(result => {
