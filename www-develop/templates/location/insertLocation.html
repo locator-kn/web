@@ -54,14 +54,15 @@
 
             <div class="input-content">
                 <div class="content-bottom">
-
-                    <input class="location-city text-fields" type="text"
-                           placeholder="Suche einen Ort"
-                           ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.googlePlacesInput"
-                           details="ilc.selectedPlaceDetails" name="locationCity"
-                           required>
-                    <a class="pointer tagme-button" ng-click="ilc.getMyLocation()">Tagme</a>
-
+                    <div class="search-wrapper">
+                        <input class="location-city text-fields" type="text"
+                               placeholder="Suche einen Ort"
+                               ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.googlePlacesInput"
+                               details="ilc.selectedPlaceDetails" name="locationCity"
+                               required>
+                        <a aria-label="Mein Standort" class="tt tt-small pointer tagme-button" ng-click="ilc.getMyLocation()"><img
+                            class="img-responsive-height" src="images/icons/flag_klein_360.png"></a>
+                    </div>
                 </div>
             </div>
 
@@ -81,24 +82,26 @@
                             required>
 
                         <label class="uppercase">Tags</label>
-                        <input ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
+                        <input
+                            ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
                             class="text-fields" type="text" placeholder="Aussagekrägtige Tags mit Space getrennt"
-                               ng-model="ilc.locationFormDetails.tags"
-                               name="locationTag"
-                               required>
+                            ng-model="ilc.locationFormDetails.tags"
+                            name="locationTag"
+                            required>
 
                         <label class="uppercase">Beschreibung</label>
-                        <textarea ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
+                        <textarea
+                            ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
-                                  ng-model="ilc.locationFormDetails.description" name="locationDescription"
-                                  required></textarea>
+                            ng-model="ilc.locationFormDetails.description" name="locationDescription"
+                            required></textarea>
 
 
                         <div class="save pointer">
                             <input
                                 class=" red button uppercase" type="submit"
-                                   ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
-                                   ng-click="ilc.save()" value="Location erstellen"/>
+                                ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
+                                ng-click="ilc.save()" value="Location erstellen"/>
                         </div>
 
                     </form>

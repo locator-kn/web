@@ -130,16 +130,14 @@
 }
 
 .insert-location-container .tagme-button {
-    height: 40px;
-    width: 60px;
-    background: #33c4b7;
-    border: 2px solid white;
-    margin-top: 15px;
     float: right;
+}
 
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-left: none;
+.insert-location-container .tagme-button img {
+    float: right;
+    padding: 8px;
+    height: 40px;
+    padding-right: 15px;
 }
 
 .insert-location-container .spinner {
@@ -147,11 +145,6 @@
 }
 
 .spinner {
-    width: 40px;
-    height: 40px;
-    margin: 100px auto;
-    background-color: #333;
-
     border-radius: 100%;
     -webkit-animation: scaleout 1.0s infinite ease-in-out;
     animation: scaleout 1.0s infinite ease-in-out;
@@ -181,24 +174,38 @@
 
 .insert-location-container .spinner {
     position: absolute;
-    z-index: 1000;
+    z-index: 100;
     left: 50%;
-    margin-left: -35px;
+    margin-left: -70px;
+    margin-top: -70px;
+    background: rgb(34,34,34);
     top: 50%;
-    margin-top: -35px;
 
     visibility: hidden;
     opacity: 0;
 
-    transition-duration: 0.3s;
+    transition-duration: 1s;
 
-    height: 70px;
-    width: 70px;
+    height: 140px;
+    width: 140px;
 }
 
 .insert-location-container .spinner.loading {
     visibility: visible;
     opacity: 1;
+}
+
+.search-wrapper input{
+    border: none;
+    background: none;
+    margin: 0 !important;
+}
+
+.search-wrapper {
+    margin-top: 15px;
+    border: 2px solid white;
+    border-radius: 3px;
+    background-color: rgba(34, 34, 34, 0.1);
 }
 
 

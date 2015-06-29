@@ -1379,3 +1379,7 @@ progress-arc.hidden-height {
     width: 5px;
     border-radius: 3px;
 }
+.img-responsive-height {
+    height: 100%;
+    width: auto;
+}
