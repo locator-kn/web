@@ -22,7 +22,7 @@
     background-color: black;
     border-radius: 50%;
     z-index: 10;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .trip-image a.choose-image img {
@@ -34,7 +34,13 @@
     border: 2px solid white;
     background: none;
     color: rgb(34, 34, 34);
-    margin-top: 15px;
+    background-color: rgba(34,34,34,0.1);
+}
+
+.insert-location-container .input-wrapper {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 .insert-location-container .content-bottom .text-fields {
@@ -74,7 +80,7 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 175px;
+    height: 145px;
     padding: 15px;
 }
 
@@ -99,4 +105,5 @@
     font-size: 11px;
     top: -15px;
     position: absolute;
+    right: 0;
 }
