@@ -226,6 +226,9 @@ module Controller {
                 lat: this.map.clickedMarker.latitude
             };
 
+
+            debugger;
+
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
                     this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
