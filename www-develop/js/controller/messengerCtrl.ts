@@ -12,6 +12,8 @@ module Controller {
         conversationsHash = {};
         selectedConversation:SelectedConversation = null;
         messages = [];
+        messagesHash = {};
+
         textbox = '';
         messagesIdCache;
         showEmojis:boolean;
@@ -73,6 +75,10 @@ module Controller {
                             .then(result => {
                                 element['opponent'] = result.data;
                             });
+
+                        this.MessengerService.getConversation(element._id).then((result) => {
+                            this.messagesHash[element._id] = result.data;
+                        })
                     });
                     if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
@@ -89,7 +95,7 @@ module Controller {
         getConversation(conversation) {
             return this.MessengerService.getConversation(conversation._id)
                 .then(result => {
-                    this.messages = result.data;
+                    this.messages[conversation._id] = result.data;
                 });
         }
 
