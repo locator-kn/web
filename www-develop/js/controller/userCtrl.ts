@@ -421,7 +421,7 @@ module Controller {
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
                 .catch(result => {
-                    debugger;
+                    //location is used in trip
                     if (result.data.message === 'Location in use') {
                         location.showdelete = false;
                         this.locationReallyDelete = true;
@@ -432,16 +432,18 @@ module Controller {
         deleteLocationForce(location) {
             this.LocationService.deleteLocationForce(location._id)
             .then(result => {
-                    debugger;
                     this.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion success');
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
             .catch(result => {
-                    debugger;
                     this.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion error');
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
         }
 
