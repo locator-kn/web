@@ -1,3 +1,11 @@
-/**
- * Created by denni_000 on 29.06.2015.
- */
+module Controller {
+
+    export class LocationViewCtrl {
+
+        constructor(private $scope) {
+
+        }
+
+        static controllerId:string = "LocationViewCtrl";
+    }
+}
