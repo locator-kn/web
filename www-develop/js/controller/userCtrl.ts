@@ -426,7 +426,7 @@ module Controller {
                         this.locationReallyDelete = true;
                     }
 
-                    //console.info('Deletion Error');
+                    console.log('deletion error');
                 })
         }
 
