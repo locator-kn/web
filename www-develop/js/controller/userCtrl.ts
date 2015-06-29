@@ -421,7 +421,7 @@ module Controller {
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
                 .catch(result => {
-
+                    debugger;
                     if (result.data.message === 'Location in use') {
                         this.locationReallyDelete = true;
                     }
@@ -431,10 +431,12 @@ module Controller {
         deleteLocationForce(location) {
             this.LocationService.deleteLocationForce(location._id)
             .then(result => {
+                    debugger;
                     this.locationReallyDelete = false;
                     console.log('Hard deletion success');
                 })
             .catch(result => {
+                    debugger;
                     this.locationReallyDelete = false;
                     console.log('Hard deletion error');
                 })
