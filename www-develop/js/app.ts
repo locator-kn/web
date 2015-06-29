@@ -69,7 +69,8 @@ var deps = [
     'luegg.directives',
     'monospaced.elastic',
     'infinite-scroll',
-    'ngFx', 'ngAnimate'
+    'ngFx', 'ngAnimate',
+    'geolocation'
 ];
 
 var app = angular.module('locator', deps)
