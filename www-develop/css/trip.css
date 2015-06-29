@@ -23,6 +23,7 @@
     vertical-align: middle;
     line-height: 50px;
     position: relative;
+    border-radius: 3px 3px 0px 0px
 }
 
 .trip-mood-container {
@@ -33,7 +34,7 @@
 }
 
 .btn-mood-container {
-    margin-top: -75px;
+    margin-top: -100px;
     float: right;
 }
 
@@ -53,5 +54,9 @@
 
 .trip-location-container .content-wrapper {
     max-height: 100px;
+}
+
+.trip-info-container {
+    padding-bottom: 20px;
 }
 
