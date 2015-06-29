@@ -2,3 +2,101 @@
     width: 100%;
     height: 300px;
 }
+
+.insert-location-container .input-content {
+    float: left;
+    width: 100%;
+}
+
+.insert-location-container .trip-image {
+    background-image: none;
+    border-radius: 3px;
+    border: 2px solid white;
+    height: auto;
+}
+
+.trip-image a.choose-image {
+    width: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 10;
+    border: 1px solid white;
+}
+
+.trip-image a.choose-image img {
+    padding: 15px;
+}
+
+.insert-location-container input, .insert-location-container textarea {
+    border-radius: 3px;
+    border: 2px solid white;
+    background: none;
+    color: rgb(34, 34, 34);
+    margin-top: 15px;
+}
+
+.insert-location-container .content-bottom .text-fields {
+    margin-top: 15px;
+}
+
+.insert-location-container .content-bottom .text-fields:first-child {
+    margin-top: 0;
+}
+
+.insert-location-container .content-bottom .text-fields.location-city {
+    margin-top: 15px;
+}
+
+.insert-location-container ui-gmap-google-map {
+    float: left;
+    width: 100%;
+}
+
+.insert-location-container .google-maps-location {
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid white;
+    margin: 0;
+}
+
+.insert-location-container .content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.insert-location-container .button {
+    background: #ff4637;
+    width: 100%;
+    padding: 15px;
+    color: white;
+}
+
+.insert-location-container .content-bottom .location-description {
+    height: 175px;
+    padding: 15px;
+}
+
+.insert-location-container {
+    padding-bottom: 60px;
+}
+
+.insert-location-container .header-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.insert-location-container .text-fields:focus {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(34, 34, 34);
+}
+
+.insert-location-container .validation-error .error-message {
+    color: #ff4637;
+    font-size: 11px;
+    top: -15px;
+    position: absolute;
+}

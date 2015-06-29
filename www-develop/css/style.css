@@ -1371,3 +1371,7 @@ progress-arc.hidden-height {
     width: 5px;
     border-radius: 3px;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
