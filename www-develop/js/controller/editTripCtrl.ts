@@ -206,7 +206,7 @@ module Controller {
 
         tripPreview() {
 
-            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0 || !this.tripMeta.persons) {
+            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0) {
 
                 // date is optional
                 // this.dateValidation();
@@ -253,11 +253,12 @@ module Controller {
             for (var key in trip) {
                 if (trip.hasOwnProperty(key)) {
 
-                    var x = trip[key];
-                    var y = trip.key;
-                    if (!trip[key]) {
-                        delete trip[key];
+                    if (key !== 'accommodation') {
+                        if (!trip[key]) {
+                            delete trip[key];
+                        }
                     }
+
                 }
             }
 
@@ -267,7 +268,6 @@ module Controller {
 
                     this.$rootScope.lastInsertedTripId = result.data.id;
 
-                    debugger;
                     //get an image for succes page
                     for (var prop in trip.locations) {
                         this.$rootScope.successImg = trip.locations[prop].picture || (trip.locations[prop].googlemap + '&size=640x375&scale=2');
