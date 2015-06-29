@@ -7,6 +7,7 @@ module Controller {
         trips:any;
         availableMoods:any = [];
         user:any;
+        username:string;
         locations:any = [];
         me:boolean;
 
@@ -19,14 +20,12 @@ module Controller {
             this.SearchService.getTripById(this.$stateParams.tripId)
                 .then(result => {
                     this.trip = result.data;
-                    this.trip.start_date = moment(new Date(this.trip.start_date)).format('L');
-                    this.trip.end_date = moment(new Date(this.trip.end_date)).format('L');
 
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
                             this.user = result.data;
+                            this.username = this.user.name + ' ' + this.user.surname;
                             this.me = this.$rootScope.userID === (this.user._id || this.user.id);
-
                         });
 
                     var locationsHash = this.trip.locations;
