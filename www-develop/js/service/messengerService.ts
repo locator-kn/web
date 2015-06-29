@@ -17,6 +17,23 @@ module Service {
             return this.$http.get(this.basePathRealtime + '/messages/' + id, {cache: this.messagesIdCache});
         }
 
+        getMessagesCacheById(id) {
+            return this.messagesIdCache.get(this.basePathRealtime + '/messages/' + id);
+        }
+
+        putMessageByConversationId(id, data) {
+            var cacheData = this.getMessagesCacheById(id);
+            if(cacheData) {
+                var parsedData = JSON.parse(cacheData[1])
+                parsedData.push(data);
+                var string = JSON.stringify(parsedData);
+                cacheData[1] = string;
+                console.log('update cache for:', this.basePathRealtime + '/messages/' + id);
+
+                this.messagesIdCache.put(this.basePathRealtime + '/messages/' + id, cacheData);
+            }
+        }
+
         sendMessage(msg, conversationID, toID, fromID) {
 
             return this.$http.post(this.basePathRealtime + '/messages/' + conversationID,
