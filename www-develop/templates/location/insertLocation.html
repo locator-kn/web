@@ -19,7 +19,7 @@
             </div>
 
             <div id="trip-image" class="trip-image">
-                <img class="img-responsive placeholder-imaeg" src="images/header-image-placeholder.jpg">
+                <img class="img-responsive placeholder-imaeg" src="images/header-image-placeholder.png">
 
                 <div class="image-too-large" ng-if="ilc.showImageTooLargeModal"
                      ng-include="'templates/modal/imageTooLarge.html'"></div>
@@ -42,7 +42,8 @@
 
     <div class="row content">
         <div class="col-sm-6">
-            <div class="google-maps-location">
+            <div class="google-maps-location relative">
+                <div ng-class="{'loading': ilc.gpsLoading}" class="spinner"></div>
                 <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom'
                                     events="ilc.map.events">
                     <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
@@ -53,13 +54,15 @@
 
             <div class="input-content">
                 <div class="content-bottom">
-
-                    <input class="location-city text-fields" type="text"
-                           placeholder="In welcher Stadt ist diese Location?"
-                           ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
-                           details="ilc.selectedPlaceDetails" name="locationCity"
-                           required>
-
+                    <div class="search-wrapper">
+                        <input class="location-city text-fields" type="text"
+                               placeholder="Suche einen Ort"
+                               ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.googlePlacesInput"
+                               details="ilc.selectedPlaceDetails" name="locationCity"
+                               required>
+                        <a aria-label="Mein Standort" class="tt tt-small pointer tagme-button" ng-click="ilc.getMyLocation()"><img
+                            class="img-responsive-height" src="images/icons/flag_klein_360.png"></a>
+                    </div>
                 </div>
             </div>
 
@@ -71,32 +74,34 @@
                 <div class="content-bottom">
                     <form novalidate name="ilc.form" id="insertLocationForm">
 
-
+                        <label class="uppercase">Location Titel</label>
                         <input
                             ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
-                            class="text-fields" type="text" placeholder="Wie heißt diese Location?"
+                            class="text-fields" type="text" placeholder="Wie heißt deine Location?"
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
 
+                        <label class="uppercase">Tags</label>
+                        <input
+                            ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
+                            class="text-fields" type="text" placeholder="Aussagekrägtige Tags mit Space getrennt"
+                            ng-model="ilc.locationFormDetails.tags"
+                            name="locationTag"
+                            required>
 
-                        <input ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
-                            class="text-fields" type="text" placeholder="Tags"
-                               ng-model="ilc.locationFormDetails.tags"
-                               name="locationTag"
-                               required>
-
-
-                        <textarea ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
+                        <label class="uppercase">Beschreibung</label>
+                        <textarea
+                            ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
-                                  ng-model="ilc.locationFormDetails.description" name="locationDescription"
-                                  required></textarea>
+                            ng-model="ilc.locationFormDetails.description" name="locationDescription"
+                            required></textarea>
 
 
                         <div class="save pointer">
-                            <input ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
+                            <input
                                 class=" red button uppercase" type="submit"
-                                   ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
-                                   ng-click="ilc.save()" value="Location erstellen"/>
+                                ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
+                                ng-click="ilc.save()" value="Location erstellen"/>
                         </div>
 
                     </form>

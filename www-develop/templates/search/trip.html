@@ -8,7 +8,7 @@
         </flex-slider>
     </div>
 
-    <div class="container trip-container header content-width">
+    <div class="container trip-container header content-width margin-right">
         <div class="row">
             <div class="content-header">
                 <div class="col-xs-6">
@@ -17,13 +17,12 @@
                     </div>
                 </div>
                 <div class="col-xs-6 btn-mood-container">
-                    <!--<div class="trip-mood-container">
-                        <span ng-repeat="mood in tc.trip.moods">
-                            <span class="trip-mood-icon tt tt-small" aria-label="{{availableMood.title}}" ng-repeat="availableMood in tc.availableMoods |filter:mood">
-                                <img class="trip-mood-icon" ng-src="images/icons/{{availableMood.icon}}">
+                        <div ng-repeat="mood in tc.trip.moods" class="trip-mood-container">
+                            <span ng-repeat="availableMood in tc.availableMoods |filter:mood" class="tt tt-small" aria-label="{{availableMood.title}}">
+                                <span class="trip-mood-icon" style="background-image: url('images/icons/{{availableMood.icon}}')">
+                                </span>
                             </span>
-                        </span>
-                    </div>-->
+                        </div>
                     <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">TEILNEHMEN</div>
                     <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">Bearbeiten</div>
                 </div>
@@ -60,7 +59,7 @@
                 <h1>Locations</h1>
                 <div class="edittrip-container">
                     <div class="mylocations-wrapper">
-                        <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container">
+                        <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container s-uiref=">
                             <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
                         </div>
                     </div>

@@ -7,37 +7,44 @@
 }
 
 .trip-mood-icon {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+
 }
 
 .message-button {
     width: 100%;
-    height: 50px;
+    height: 80px;
     background: #33c4b7;
     z-index: 10;
     position: relative;
     color: white;
     text-align: center;
     vertical-align: middle;
-    line-height: 50px;
+    line-height: 80px;
     position: relative;
     border-radius: 3px 3px 0px 0px;
     float: right;
     display: inline-block;
+    font-size: 24px;
 }
 
 .trip-mood-container {
-    padding-top: 50px;
     position: relative;
     display: inline-block;
-    z-index: 100;
-    margin-left: -50px;
+    z-index: 10;
+    margin-left: -90px;
+    width: 80px;
+    height: 80px;
+    background-color: pink;
+    border-radius: 3px 3px 0px 0px;
 }
 
 .btn-mood-container {
-    margin-top: -50px;
+    margin-top: -80px;
     float: right;
 }
 

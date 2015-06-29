@@ -14,8 +14,9 @@ module Controller {
         headerImagePath:string = '';
         mapMarkerSet:boolean = false;
 
-
         isUploading:boolean = false;
+
+        gpsLoading:boolean = false;
 
         locationTitle:string = '';
 
@@ -39,7 +40,15 @@ module Controller {
 
         me:any = {};
 
-        constructor(private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedPlaceDetails;
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.selectLocationFromInput();
+                }
+            });
 
 
             $rootScope.showSearchButton = true;
@@ -238,7 +247,6 @@ module Controller {
             };
 
 
-
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
                     this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
@@ -284,6 +292,42 @@ module Controller {
                         console.info("error during getlocation");
                     })
             }
+
+        }
+
+        selectLocationFromInput() {
+            var lat;
+            var long;
+
+            lat = this.selectedPlaceDetails.geometry.location.A;
+            long = this.selectedPlaceDetails.geometry.location.F
+
+            this.map.clickedMarker.latitude = lat;
+            this.map.clickedMarker.longitude = long;
+            this.map.zoom = 15,
+            this.map.center.latitude = lat;
+            this.map.center.longitude = long;
+            this.mapMarkerSet = true;
+        }
+
+
+        getMyLocation() {
+            this.gpsLoading = true;
+            this.geolocation.getLocation().then(data => {
+
+                this.gpsLoading = false;
+
+                var lat = data.coords.latitude;
+                var long = data.coords.longitude
+                this.map.zoom = 15,
+                this.map.clickedMarker.latitude = lat;
+                this.map.clickedMarker.longitude = long;
+
+                this.map.center.latitude = lat;
+                this.map.center.longitude = long;
+                this.mapMarkerSet = true;
+
+            });
 
         }
 

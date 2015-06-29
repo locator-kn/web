@@ -1073,7 +1073,11 @@ img-triplist .flex-direction-nav a::before {
 }*/
 
 .container.content-width {
-    max-width: 770px;
+    max-width: 900px;
+}
+
+.margin-right {
+    margin-right: 100px;
 }
 
 .not-available {
@@ -1375,7 +1379,7 @@ progress-arc.hidden-height {
     width: 5px;
     border-radius: 3px;
 }
-
-.uppercase {
-    text-transform: uppercase;
+.img-responsive-height {
+    height: 100%;
+    width: auto;
 }
