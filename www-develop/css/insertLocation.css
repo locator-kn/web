@@ -34,7 +34,13 @@
     border: 2px solid white;
     background: none;
     color: rgb(34, 34, 34);
-    background-color: rgba(34,34,34,0.1);
+    background-color: rgba(34, 34, 34, 0.1);
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.insert-location-container input.error, .insert-location-container textarea.error {
+    border-color: rgb(255, 70, 55);
 }
 
 .insert-location-container .input-wrapper {
@@ -44,12 +50,9 @@
 }
 
 .insert-location-container .content-bottom .text-fields {
-    margin-top: 15px;
-}
-
-.insert-location-container .content-bottom .text-fields:first-child {
     margin-top: 0;
 }
+
 
 .insert-location-container .content-bottom .text-fields.location-city {
     margin-top: 15px;
@@ -80,7 +83,7 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 145px;
+    height: 175px;
     padding: 15px;
 }
 
