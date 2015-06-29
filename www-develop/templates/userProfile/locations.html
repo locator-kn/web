@@ -50,11 +50,11 @@
                         <div ng-hide="!location.showdelete" class="fx-fade-up fx-speed-300 delete-message">
                             <a ng-click="pc.deleteLocation(location)" class="red button locator-btn pointer">Löschen</a>
                             <a ng-click="location.showdelete = !location.showdelete"
-                               class="cyan button locator-btn pointer">abbrechen</a>
+                               class="cyan button locator-btn pointer">Abbrechen</a>
                         </div>
                         <div ng-hide="!pc.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
-                            <a ng-click="pc.deleteLocation(location)" class="red button locator-btn pointer">Wirklich löschen</a>
-                            <a ng-click="location.showdelete = !location.showdelete" class="cyan button locator-btn pointer">abbrechen</a>
+                            <a ng-click="pc.deleteLocationForce(location)" class="red button locator-btn pointer">Wirklich löschen</a>
+                            <a ng-click="location.locationReallyDelete = !location.locationReallyDelete" class="cyan button locator-btn pointer">Abbrechen</a>
                         </div>
 
                     <span ui-sref="editLocation({locationId: location._id})" class="action-button pointer edit"><img
