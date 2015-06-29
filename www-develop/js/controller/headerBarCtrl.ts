@@ -28,7 +28,7 @@ module Controller {
         usersOnline:number = 0;
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout) {
+        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
@@ -159,6 +159,10 @@ module Controller {
         triggerforgotPassword() {
             this.errormsg = '';
             this.forgotPassword = true;
+        }
+
+        searchWithContext(){
+            this.$state.go('search', this.HelperService.getSearchContext());
         }
 
         static controllerId:string = "HeaderBarCtrl";
