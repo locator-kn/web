@@ -110,20 +110,7 @@ module Controller {
             this.mapMarkerSet = true;
             this.$scope.$apply();
 
-
-            this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
-                .then(result => {
-                    var locality;
-                    result.data.results.forEach(item => {
-                        if (item.types[0] == 'locality') {
-                            locality = item;
-                        }
-                    });
-
-                    this.locationFormDetails.city.title = locality.formatted_address;
-                    this.locationFormDetails.city.place_id = locality.place_id;
-                    this.locationFormDetails.city.id = locality.place_id;
-                });
+            this.getCityFromMarker();
 
         }
 
@@ -247,6 +234,7 @@ module Controller {
             };
 
 
+
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
                     this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
@@ -296,6 +284,10 @@ module Controller {
         }
 
         selectLocationFromInput() {
+
+            this.getCityFromMarker();
+
+
             var lat;
             var long;
 
@@ -327,8 +319,26 @@ module Controller {
                 this.map.center.longitude = long;
                 this.mapMarkerSet = true;
 
+                this.getCityFromMarker();
+
             });
 
+        }
+
+        getCityFromMarker() {
+            this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
+                .then(result => {
+                    var locality;
+                    result.data.results.forEach(item => {
+                        if (item.types[0] == 'locality') {
+                            locality = item;
+                        }
+                    });
+
+                    this.locationFormDetails.city.title = locality.formatted_address;
+                    this.locationFormDetails.city.place_id = locality.place_id;
+                    this.locationFormDetails.city.id = locality.place_id;
+                });
         }
 
         static controllerId:string = "InsertLocationCtrl";
