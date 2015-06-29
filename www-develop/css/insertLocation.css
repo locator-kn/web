@@ -16,13 +16,19 @@
 }
 
 .trip-image a.choose-image {
-    width: 100px;
-    margin-top: -50px;
-    margin-left: -50px;
-    background-color: black;
+    width: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: rgb(34, 34, 34);
     border-radius: 50%;
     z-index: 10;
     border: 2px solid white;
+
+    transition-duration: 0.2s;
+}
+
+.trip-image a.choose-image:hover {
+    background-color: rgb(255, 70, 55);
 }
 
 .trip-image a.choose-image img {
