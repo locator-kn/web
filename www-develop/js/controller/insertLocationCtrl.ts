@@ -16,6 +16,8 @@ module Controller {
 
         isUploading:boolean = false;
 
+        gpsLoading:boolean = false;
+
         locationTitle:string = '';
 
         googlePlacesOptions = {
@@ -38,7 +40,7 @@ module Controller {
 
         me:any = {};
 
-        constructor(private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedPlaceDetails;
@@ -302,10 +304,31 @@ module Controller {
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = long;
-
+            this.map.zoom = 15,
             this.map.center.latitude = lat;
             this.map.center.longitude = long;
             this.mapMarkerSet = true;
+        }
+
+
+        getMyLocation() {
+            this.gpsLoading = true;
+            this.geolocation.getLocation().then(data => {
+
+                this.gpsLoading = false;
+
+                var lat = data.coords.latitude;
+                var long = data.coords.longitude
+                this.map.zoom = 15,
+                this.map.clickedMarker.latitude = lat;
+                this.map.clickedMarker.longitude = long;
+
+                this.map.center.latitude = lat;
+                this.map.center.longitude = long;
+                this.mapMarkerSet = true;
+
+            });
+
         }
 
         static controllerId:string = "InsertLocationCtrl";
