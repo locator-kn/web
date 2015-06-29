@@ -17,7 +17,7 @@ module Service {
         }
 
         saveLocation(location, id?:string) {
-            if(id) {
+            if (id) {
                 return this.$http.put(this.basePath + '/users/my/locations/' + id, location);
             }
             return this.$http.post(this.basePath + '/users/my/locations', location)
@@ -51,8 +51,9 @@ module Service {
             return this.$http.get(this.basePath + '/users/my/locations/city/' + city);
         }
 
-
-
+        getCityByCoords(lat, long) {
+            return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&sensor=true');
+        }
 
 
         static serviceId:string = "LocationService";
