@@ -196,7 +196,7 @@
 }
 
 .search-wrapper input{
-    border: none;
+    border: none !important;
     background: none;
     margin: 0 !important;
 }
