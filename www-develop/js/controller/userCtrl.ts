@@ -43,6 +43,7 @@ module Controller {
 
         locationSearch:string;
         tripSearch:string;
+        locationReallyDelete:boolean = false;
 
         constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
@@ -420,7 +421,29 @@ module Controller {
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
                 .catch(result => {
-                    console.info('Deletion Error');
+                    //location is used in trip
+                    if (result.data.message === 'Location in use') {
+                        location.showdelete = false;
+                        this.locationReallyDelete = true;
+                    }
+                })
+        }
+
+        deleteLocationForce(location) {
+            this.LocationService.deleteLocationForce(location._id)
+            .then(result => {
+                    this.locationReallyDelete = false;
+                    location.showdelete = false;
+                    console.log('Hard deletion success');
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
+                })
+            .catch(result => {
+                    this.locationReallyDelete = false;
+                    location.showdelete = false;
+                    console.log('Hard deletion error');
+                    //remove location from outdated view
+                    this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
         }
 

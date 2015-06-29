@@ -13,10 +13,9 @@
 }
 
 .message-button {
-    margin-top: -25px;
     width: 180px;
     height: 50px;
-    background: #ff4637;
+    background: #33c4b7;
     z-index: 10;
     position: relative;
     color: white;
@@ -29,12 +28,30 @@
 .trip-mood-container {
     padding-top: 50px;
     position: relative;
+    display: inline-block;
+    z-index: 100;
 }
 
 .btn-mood-container {
+    margin-top: -75px;
     float: right;
 }
 
 .trip-container .message-button {
-    margin-top: -25px;
+    display: inline-block;
 }
+
+.trip-locations-wrapper .location{
+    float: left;
+    width: 100%;
+    background: white;
+    padding: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    min-height: 110px;
+}
+
+.trip-location-container .content-wrapper {
+    max-height: 100px;
+}
+

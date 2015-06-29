@@ -43,6 +43,10 @@ module Service {
             return this.$http.delete(this.basePath + '/users/my/locations/' + locationId);
         }
 
+        deleteLocationForce(locationId) {
+            return this.$http.delete(this.basePath + '/users/my/locations/' + locationId + '/force');
+        }
+
         getLocationsByCity(city:string) {
             return this.$http.get(this.basePath + '/locations/city/' + city);
         }

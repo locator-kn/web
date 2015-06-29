@@ -12,6 +12,8 @@ module Controller {
         conversationsHash = {};
         selectedConversation:SelectedConversation = null;
         messages = [];
+        messagesHash = {};
+
         textbox = '';
         messagesIdCache;
         showEmojis:boolean;
@@ -51,14 +53,13 @@ module Controller {
             this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
                 if(this.$state.params.opponentId === newMessage.conversation_id ) {
-                    this.messages.push(newMessage);
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
-                console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
-                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                this.messagesHash[newMessage.conversation_id].push(newMessage);
+                this.MessengerService.putMessageByConversationId(newMessage.conversation_id, newMessage);
 
             });
         }
@@ -74,6 +75,10 @@ module Controller {
                             .then(result => {
                                 element['opponent'] = result.data;
                             });
+
+                        this.MessengerService.getConversation(element._id).then((result) => {
+                            this.messagesHash[element._id] = result.data;
+                        })
                     });
                     if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
@@ -90,7 +95,7 @@ module Controller {
         getConversation(conversation) {
             return this.MessengerService.getConversation(conversation._id)
                 .then(result => {
-                    this.messages = result.data;
+                    this.messagesHash[conversation._id] = result.data;
                 });
         }
 
@@ -125,7 +130,7 @@ module Controller {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
-                    this.messages.push({message: this.textbox, from: this.$rootScope.userID});
+                    this.messagesHash[this.selectedConversation._id].push({message: this.textbox, from: this.$rootScope.userID})
                     this.textbox = '';
                     console.info("Msg Success");
                 })

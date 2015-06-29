@@ -1208,15 +1208,19 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .action-buttons .delete-message .button {
-    text-align: center;
-    color: black;
-    text-decoration: none;
-    color: white;
-}
+     text-align: center;
+     color: black;
+     text-decoration: none;
+     color: white;
+ }
 
 .action-buttons .delete-message .button.red {
     text-align: center;
     background-color: #ff4637;
+}
+
+.action-buttons .delete-message p {
+    font-size: 14px;
 }
 
 .icon-wrapper {
