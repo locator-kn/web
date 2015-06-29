@@ -130,6 +130,7 @@ module Controller {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
+                    // TODO, this might take some times too long
                     this.messagesHash[this.selectedConversation._id].push({message: this.textbox, from: this.$rootScope.userID})
                     this.textbox = '';
                     console.info("Msg Success");
