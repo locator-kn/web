@@ -11,10 +11,10 @@
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-            <div class="inner-result" ng-click="pc.showLocation(location)">
+            <div class="inner-result">
 
                 <img class="img-responsive"
-                     ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
+                     ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}" ng-click="pc.showLocation(location)">
 
                 <div class="content">
                     <div class="row">
