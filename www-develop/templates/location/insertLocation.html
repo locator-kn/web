@@ -1,98 +1,110 @@
-<div class="insert-location-container" ng-controller="InsertLocationCtrl as ilc">
-    <div class="image-upload-modal" ng-show="ilc.showImageUploadModal">
-        <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
-        <div class="big-progress" ng-style="{'height': ilc.progressPercentage + '%'}"><span>{{ilc.progressPercentage}} %</span></div>
+<div class="insert-location-container container content-width" ng-controller="InsertLocationCtrl as ilc">
+    <div class="row">
+        <div class="col-xs-12">
 
-        <div class="controls" ng-show="!ilc.isUploading">
-            <div class="btns">
-                <div class="locator-btn save-btn" ng-click="ilc.uploadImage()">hochladen</div>
-                <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection()">abbrechen</div>
+            <h3 class="uppercase">Neue Location erstellen</h3>
+
+            <div class="image-upload-modal" ng-show="ilc.showImageUploadModal">
+                <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
+
+                <div class="big-progress" ng-style="{'height': ilc.progressPercentage + '%'}"><span>{{ilc.progressPercentage}} %</span>
+                </div>
+
+                <div class="controls" ng-show="!ilc.isUploading">
+                    <div class="btns">
+                        <div class="locator-btn save-btn" ng-click="ilc.uploadImage()">hochladen</div>
+                        <div class="locator-btn cancel-btn" ng-click="ilc.clearFileSelection()">abbrechen</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="trip-image" class="trip-image">
+                <img class="img-responsive placeholder-imaeg" src="images/header-image-placeholder.jpg">
+
+                <div class="image-too-large" ng-if="ilc.showImageTooLargeModal"
+                     ng-include="'templates/modal/imageTooLarge.html'"></div>
+
+
+                <a class="choose-image" ng-click="ilc.showImageChooser()">
+                    <img class="img-responsive" src="images/icons/camera.png">
+                </a>
+                <input id="image-upload" type="file" accept="image/*"
+                       onchange="angular.element(this).scope().ilc.selectImage(this)"
+                       style="display: none">
+
+                <div class="header-image">
+                    <img ng-hide="!ilc.headerImagePath" class="img-responsive" ng-src="{{ilc.headerImagePath}}">
+                </div>
             </div>
         </div>
     </div>
-    <div id="trip-image" class="trip-image">
-        <div  class="image-too-large" ng-if="ilc.showImageTooLargeModal" ng-include="'templates/modal/imageTooLarge.html'"></div>
 
 
-        <a class="choose-image welcome_button" ng-click="ilc.showImageChooser()">Choose image</a>
-        <input id="image-upload" type="file" accept="image/*" onchange="angular.element(this).scope().ilc.selectImage(this)"
-               style="display: none">
+    <div class="row content">
+        <div class="col-sm-6">
+            <div class="google-maps-location">
+                <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom'
+                                    events="ilc.map.events">
+                    <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
+                                    options="ilc.map.clickedMarker.options">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
 
-        <div class="header-image">
-            <div class="header-image" ng-style="{'background-image': 'url(' + ilc.headerImagePath + ')', 'background-size': 'cover'}"></div>
-        </div>
+            <div class="input-content">
+                <div class="content-bottom">
 
-    </div>
-    <div class="container content-width">
-        <div class="row">
-            <div class="input-content container content-width">
-                <div class="content-header">
-                    <div class="col-xs-6">
-                        <img class="profile-image" ng-src="{{ilc.me.picture.picture}}">
-                    </div>
+                    <input class="location-city text-fields" type="text"
+                           placeholder="In welcher Stadt ist diese Location?"
+                           ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
+                           details="ilc.selectedPlaceDetails" name="locationCity"
+                           required>
 
                 </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="input-content">
                 <div class="content-bottom">
                     <form novalidate name="ilc.form" id="insertLocationForm">
-                        <div>
-                            <input class="text-fields" type="text" placeholder="Wie heißt diese Location?"
-                                   ng-model="ilc.locationFormDetails.title" name="locationTitle"
-                                   required>
-                            <div style="margin-top: 5px" class="validation-error"
-                                 ng-show="(ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required">
-                                <p class="error-message">bitte gib den namen der location ein</p>
-                            </div>
 
-                            <input class="text-fields" type="text" placeholder="Tags"
-                                   ng-model="ilc.locationFormDetails.tags"
-                                   name="locationTag"
-                                   required>
-                            <div style="margin-top: 5px" class="validation-error"
-                                 ng-show="(ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required">
-                                <p class="error-message">bitte gib tags für deine location ein</p>
-                            </div>
 
-                        <textarea class="location-description text-fields" placeholder="Beschreibe deine Location"
+                        <input
+                            ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
+                            class="text-fields" type="text" placeholder="Wie heißt diese Location?"
+                            ng-model="ilc.locationFormDetails.title" name="locationTitle"
+                            required>
+
+
+                        <input ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
+                            class="text-fields" type="text" placeholder="Tags"
+                               ng-model="ilc.locationFormDetails.tags"
+                               name="locationTag"
+                               required>
+
+
+                        <textarea ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
+                            class="location-description text-fields" placeholder="Beschreibe deine Location"
                                   ng-model="ilc.locationFormDetails.description" name="locationDescription"
                                   required></textarea>
-                            <div class="validation-error"
-                                 ng-show="(ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required">
-                                <p class="error-message">bitte gib eine beschreibung für deine location ein</p>
-                            </div>
-                        <textarea class="trip-money text-fields" type="text"
-                                  placeholder="Für was braucht dein Gast eventuell Geld?"
-                                  ng-model="ilc.locationFormDetails.budget"
-                                  ></textarea>
 
-                            <p>Wähle eine Stadt und markiere die Location auf der Karte:</p>
-                            <input class="location-city text-fields" type="text"
-                                   placeholder="In welcher Stadt ist diese Location?"
-                                   ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.tripCity"
-                                   details="ilc.selectedPlaceDetails" name="locationCity"
-                                   required>
-                            <div style="margin-top: 5px" class="validation-error"
-                                 ng-show="(ilc.form.locationCity.$touched) && ilc.form.locationCity.$error.required">
-                                <p class="error-message">bitte gib den ort deiner location ein</p>
-                            </div>
 
-                            <div class="google-maps-location">
-                                <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom' events="ilc.map.events">
-                                    <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
-                                                    options="ilc.map.clickedMarker.options">
-                                    </ui-gmap-marker>
-                                </ui-gmap-google-map>
-                            </div>
-
-                            <div class="save-trip">
-                                <input type="submit"
-                                       ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
-                                       ng-click="ilc.save()" value="SPEICHERN"/>
-                            </div>
+                        <div class="save pointer">
+                            <input ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
+                                class=" red button uppercase" type="submit"
+                                   ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
+                                   ng-click="ilc.save()" value="Location erstellen"/>
                         </div>
+
                     </form>
+
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
