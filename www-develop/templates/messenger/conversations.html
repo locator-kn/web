@@ -7,6 +7,6 @@
             <h3>{{ conversation.opponent.name }}</h3>
           <!--  <p>{{ conversation.lastMessage }}</p> -->
         </div>
-        <span class="last-message" ng-bind="mc.messagesHash[mc.selectedConversation._id][mc.messagesHash[mc.selectedConversation._id].length - 1].message"></span>
+        <span class="last-message" ng-bind="mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].message"></span>
     </md-list-item>
 </md-list>
