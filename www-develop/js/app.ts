@@ -152,7 +152,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('locationView', {
-                url: "location/:locationId",
+                url: "/location/:locationId",
                 templateUrl: "templates/location/locationView.html"
             })
 
