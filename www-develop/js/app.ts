@@ -182,7 +182,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.InsertLocationCtrl.controllerId, Controller.InsertLocationCtrl)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
-    .controller(Controller.LocationCtrl.controllerId, Controller.LocationViewCtrl)
+    .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
 
 
     .directive('backImg', function () {
