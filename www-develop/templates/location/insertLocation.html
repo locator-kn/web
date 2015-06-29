@@ -19,7 +19,7 @@
             </div>
 
             <div id="trip-image" class="trip-image">
-                <img class="img-responsive placeholder-imaeg" src="images/header-image-placeholder.jpg">
+                <img class="img-responsive placeholder-imaeg" src="images/header-image-placeholder.png">
 
                 <div class="image-too-large" ng-if="ilc.showImageTooLargeModal"
                      ng-include="'templates/modal/imageTooLarge.html'"></div>
@@ -42,7 +42,8 @@
 
     <div class="row content">
         <div class="col-sm-6">
-            <div class="google-maps-location">
+            <div class="google-maps-location relative">
+                <div ng-class="{'loading': ilc.gpsLoading}" class="spinner"></div>
                 <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom'
                                     events="ilc.map.events">
                     <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
@@ -59,6 +60,7 @@
                            ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.googlePlacesInput"
                            details="ilc.selectedPlaceDetails" name="locationCity"
                            required>
+                    <a class="pointer tagme-button" ng-click="ilc.getMyLocation()">Tagme</a>
 
                 </div>
             </div>
@@ -93,7 +95,7 @@
 
 
                         <div class="save pointer">
-                            <input ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
+                            <input
                                 class=" red button uppercase" type="submit"
                                    ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
                                    ng-click="ilc.save()" value="Location erstellen"/>
