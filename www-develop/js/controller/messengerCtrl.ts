@@ -53,12 +53,12 @@ module Controller {
             this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
                 if(this.$state.params.opponentId === newMessage.conversation_id ) {
-                    this.messagesHash[newMessage.conversation_id].push(newMessage);
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
+                this.messagesHash[newMessage.conversation_id].push(newMessage);
                 this.MessengerService.putMessageByConversationId(newMessage.conversation_id, newMessage);
 
             });
