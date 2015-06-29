@@ -423,6 +423,7 @@ module Controller {
                 .catch(result => {
                     debugger;
                     if (result.data.message === 'Location in use') {
+                        location.showdelete = false;
                         this.locationReallyDelete = true;
                     }
                 })
