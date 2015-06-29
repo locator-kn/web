@@ -100,6 +100,22 @@ module Controller {
             console.log(this.map.clickedMarker);
             this.mapMarkerSet = true;
             this.$scope.$apply();
+
+
+            this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
+                .then(result => {
+                    var locality;
+                    result.data.results.forEach(item => {
+                        if (item.types[0] == 'locality') {
+                            locality = item;
+                        }
+                    });
+
+                    this.locationFormDetails.city.title = locality.formatted_address;
+                    this.locationFormDetails.city.place_id = locality.place_id;
+                    this.locationFormDetails.city.id = locality.place_id;
+                });
+
         }
 
         selectImage(file) {
@@ -213,13 +229,8 @@ module Controller {
         save() {
             var formValues = angular.copy(this.locationFormDetails);
 
-            formValues.tags = formValues.tags.split(' ');
 
-            formValues.city = {
-                title: this.selectedPlaceDetails.name,
-                id: this.selectedPlaceDetails.id,
-                place_id: this.selectedPlaceDetails.place_id
-            };
+            formValues.tags = formValues.tags.split(' ');
 
             formValues.geotag = {
                 long: this.map.clickedMarker.longitude,
@@ -227,7 +238,6 @@ module Controller {
             };
 
 
-            debugger;
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
