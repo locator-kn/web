@@ -57,8 +57,7 @@ module Controller {
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
-                console.log('remove cache for:', this.basePathRealtime + '/messages/' + newMessage.conversation_id);
-                this.messagesIdCache.remove(this.basePathRealtime + '/messages/' + newMessage.conversation_id);
+                this.MessengerService.putMessageByConversationId(newMessage.conversation_id, newMessage);
 
             });
         }
