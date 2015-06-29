@@ -11,7 +11,7 @@
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-            <div class="inner-result">
+            <div class="inner-result" ng-click="pc.showLocation(location)">
 
                 <img class="img-responsive"
                      ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
@@ -34,7 +34,7 @@
                     <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
-                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder">
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder" ng-class="{'big-padding': pc.locationReallyDelete}">
                     <span class="toggle-label">Location sichtbar</span>
 
                     <div class="switch">
@@ -53,7 +53,7 @@
                                class="cyan button locator-btn pointer">Abbrechen</a>
                         </div>
                         <div ng-hide="!pc.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
-                            <p>Location wird in einem Trip verwendet. Wirklich löschen?</p>
+                            <p>Die Location wird in einem Trip verwendet. Wirklich löschen?</p>
                             <a ng-click="pc.deleteLocationForce(location)" class="red button locator-btn pointer">Ja</a>
                             <a ng-click="pc.locationReallyDelete = !pc.locationReallyDelete" class="cyan button locator-btn pointer">Nein</a>
                         </div>

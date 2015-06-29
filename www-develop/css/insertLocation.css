@@ -2,3 +2,210 @@
     width: 100%;
     height: 300px;
 }
+
+.insert-location-container .input-content {
+    float: left;
+    width: 100%;
+}
+
+.insert-location-container .trip-image {
+    background-image: none;
+    border-radius: 3px;
+    border: 2px solid white;
+    height: auto;
+}
+
+.trip-image a.choose-image {
+    width: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: rgb(34, 34, 34);
+    border-radius: 50%;
+    z-index: 10;
+    border: 2px solid white;
+
+    transition-duration: 0.2s;
+}
+
+.trip-image a.choose-image:hover {
+    background-color: rgb(255, 70, 55);
+}
+
+.insert-location-container .red.button:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+.trip-image a.choose-image img {
+    padding: 15px;
+}
+
+.insert-location-container input, .insert-location-container textarea {
+    border-radius: 3px;
+    border: 2px solid white;
+    background: none;
+    color: rgb(34, 34, 34);
+    background-color: rgba(34, 34, 34, 0.1);
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.insert-location-container input.error, .insert-location-container textarea.error {
+    border-color: rgb(255, 70, 55);
+}
+
+.insert-location-container .input-wrapper {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.insert-location-container .content-bottom .text-fields {
+    margin-top: 0;
+}
+
+.insert-location-container .content-bottom .text-fields.location-city {
+    margin-top: 15px;
+    width: calc(100% - 60px);
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.insert-location-container ui-gmap-google-map {
+    float: left;
+    width: 100%;
+}
+
+.insert-location-container .google-maps-location {
+    border-radius: 3px;
+    overflow: hidden;
+    border: 2px solid white;
+    margin: 0;
+}
+
+.insert-location-container .content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.insert-location-container .button {
+    background: #ff4637;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.insert-location-container .content-bottom .location-description {
+    height: 100px;
+    padding: 15px;
+}
+
+.insert-location-container label {
+    margin-left: 2px;
+}
+
+.insert-location-container {
+    padding-bottom: 60px;
+}
+
+.insert-location-container .header-image {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.insert-location-container .text-fields:focus {
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+.insert-location-container .validation-error .error-message {
+    color: #ff4637;
+    font-size: 11px;
+    top: -15px;
+    position: absolute;
+    right: 0;
+}
+
+.insert-location-container .tagme-button {
+    float: right;
+}
+
+.insert-location-container .tagme-button img {
+    float: right;
+    padding: 8px;
+    height: 40px;
+    padding-right: 15px;
+}
+
+.insert-location-container .spinner {
+    position: absolute;
+}
+
+.spinner {
+    border-radius: 100%;
+    -webkit-animation: scaleout 1.0s infinite ease-in-out;
+    animation: scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes scaleout {
+    0% {
+        -webkit-transform: scale(0.0)
+    }
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleout {
+    0% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+        opacity: 0;
+    }
+}
+
+.insert-location-container .spinner {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    margin-left: -70px;
+    margin-top: -70px;
+    background: rgb(34,34,34);
+    top: 50%;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition-duration: 1s;
+
+    height: 140px;
+    width: 140px;
+}
+
+.insert-location-container .spinner.loading {
+    visibility: visible;
+    opacity: 1;
+}
+
+.search-wrapper input{
+    border: none !important;
+    background: none;
+    margin: 0 !important;
+}
+
+.search-wrapper {
+    margin-top: 15px;
+    border: 2px solid white;
+    border-radius: 3px;
+    background-color: rgba(34, 34, 34, 0.1);
+}
+
+

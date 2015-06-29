@@ -14,8 +14,9 @@ module Controller {
         headerImagePath:string = '';
         mapMarkerSet:boolean = false;
 
-
         isUploading:boolean = false;
+
+        gpsLoading:boolean = false;
 
         locationTitle:string = '';
 
@@ -39,7 +40,15 @@ module Controller {
 
         me:any = {};
 
-        constructor(private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+
+            $scope.$watch(angular.bind(this, () => {
+                return this.selectedPlaceDetails;
+            }), (newVal, oldVal) => {
+                if (newVal != oldVal) {
+                    this.selectLocationFromInput();
+                }
+            });
 
 
             $rootScope.showSearchButton = true;
@@ -100,6 +109,22 @@ module Controller {
             console.log(this.map.clickedMarker);
             this.mapMarkerSet = true;
             this.$scope.$apply();
+
+
+            this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
+                .then(result => {
+                    var locality;
+                    result.data.results.forEach(item => {
+                        if (item.types[0] == 'locality') {
+                            locality = item;
+                        }
+                    });
+
+                    this.locationFormDetails.city.title = locality.formatted_address;
+                    this.locationFormDetails.city.place_id = locality.place_id;
+                    this.locationFormDetails.city.id = locality.place_id;
+                });
+
         }
 
         selectImage(file) {
@@ -213,18 +238,14 @@ module Controller {
         save() {
             var formValues = angular.copy(this.locationFormDetails);
 
-            formValues.tags = formValues.tags.split(' ');
 
-            formValues.city = {
-                title: this.selectedPlaceDetails.name,
-                id: this.selectedPlaceDetails.id,
-                place_id: this.selectedPlaceDetails.place_id
-            };
+            formValues.tags = formValues.tags.split(' ');
 
             formValues.geotag = {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
+
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
@@ -271,6 +292,42 @@ module Controller {
                         console.info("error during getlocation");
                     })
             }
+
+        }
+
+        selectLocationFromInput() {
+            var lat;
+            var long;
+
+            lat = this.selectedPlaceDetails.geometry.location.A;
+            long = this.selectedPlaceDetails.geometry.location.F
+
+            this.map.clickedMarker.latitude = lat;
+            this.map.clickedMarker.longitude = long;
+            this.map.zoom = 15,
+            this.map.center.latitude = lat;
+            this.map.center.longitude = long;
+            this.mapMarkerSet = true;
+        }
+
+
+        getMyLocation() {
+            this.gpsLoading = true;
+            this.geolocation.getLocation().then(data => {
+
+                this.gpsLoading = false;
+
+                var lat = data.coords.latitude;
+                var long = data.coords.longitude
+                this.map.zoom = 15,
+                this.map.clickedMarker.latitude = lat;
+                this.map.clickedMarker.longitude = long;
+
+                this.map.center.latitude = lat;
+                this.map.center.longitude = long;
+                this.mapMarkerSet = true;
+
+            });
 
         }
 

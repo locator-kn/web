@@ -1073,7 +1073,11 @@ img-triplist .flex-direction-nav a::before {
 }*/
 
 .container.content-width {
-    max-width: 770px;
+    max-width: 900px;
+}
+
+.margin-right {
+    margin-right: 100px;
 }
 
 .not-available {
@@ -1220,7 +1224,7 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .action-buttons .delete-message p {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .icon-wrapper {
@@ -1374,4 +1378,8 @@ progress-arc.hidden-height {
     background-color: rgb(200,200,200);
     width: 5px;
     border-radius: 3px;
+}
+.img-responsive-height {
+    height: 100%;
+    width: auto;
 }
