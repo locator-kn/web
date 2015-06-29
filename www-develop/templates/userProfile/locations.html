@@ -54,7 +54,7 @@
                         </div>
                         <div ng-hide="!pc.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
                             <a ng-click="pc.deleteLocationForce(location)" class="red button locator-btn pointer">Wirklich löschen</a>
-                            <a ng-click="location.locationReallyDelete = !location.locationReallyDelete" class="cyan button locator-btn pointer">Abbrechen</a>
+                            <a ng-click="location.locationReallyDelete = false" class="cyan button locator-btn pointer">Abbrechen</a>
                         </div>
 
                     <span ui-sref="editLocation({locationId: location._id})" class="action-button pointer edit"><img
