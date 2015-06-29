@@ -83,8 +83,12 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 175px;
+    height: 100px;
     padding: 15px;
+}
+
+.insert-location-container label {
+    margin-left: 2px;
 }
 
 .insert-location-container {
