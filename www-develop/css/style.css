@@ -1104,8 +1104,6 @@ img-triplist .flex-direction-nav a::before {
     padding: 15px;
     text-align: center;
     color: white;
-    border-left: 15px solid #F5F5F5;
-    border-right: 15px solid #F5F5F5;
 }
 
 .empty-locations a {
@@ -1295,6 +1293,7 @@ progress-arc.hidden-height {
 .footer a {
     color: white;
     transition-duration: 0.3s;
+    text-decoration: none;
 }
 
 .footer ul {
