@@ -130,16 +130,14 @@
 }
 
 .insert-location-container .tagme-button {
-    height: 40px;
-    width: 60px;
-    background: #33c4b7;
-    border: 2px solid white;
-    margin-top: 15px;
     float: right;
+}
 
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-left: none;
+.insert-location-container .tagme-button img {
+    float: right;
+    padding: 8px;
+    height: 40px;
+    padding-right: 15px;
 }
 
 .insert-location-container .spinner {
@@ -195,6 +193,19 @@
 .insert-location-container .spinner.loading {
     visibility: visible;
     opacity: 1;
+}
+
+.search-wrapper input{
+    border: none;
+    background: none;
+    margin: 0 !important;
+}
+
+.search-wrapper {
+    margin-top: 15px;
+    border: 2px solid white;
+    border-radius: 3px;
+    background-color: rgba(34, 34, 34, 0.1);
 }
 
 
