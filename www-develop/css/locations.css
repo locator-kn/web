@@ -20,6 +20,10 @@
     padding: 15px;
 }
 
+.big-padding {
+    padding: 25px;
+}
+
 .location-settings input {
     visibility: hidden;
 }
