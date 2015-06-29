@@ -1220,7 +1220,7 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .action-buttons .delete-message p {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .icon-wrapper {
