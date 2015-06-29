@@ -1,12 +1,14 @@
 <div class="mytrips-container col-xs-12 mylocations-container">
     <div class="row">
         <div class="searchbar col-xs-12">
-            <input ng-model-options="{debounce:300}" ng-model="pc.tripSearch" placeholder="Suche" type="text" name="search">
+            <input ng-model-options="{debounce:300}" ng-model="pc.tripSearch" placeholder="Suche" type="text"
+                   name="search">
         </div>
     </div>
 
     <div class="row fx-fade-up fx-speed-3000">
-        <div class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 tripsmall" ng-repeat="trip in pc.trips | filter:pc.tripSearch">
+        <div class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 tripsmall"
+             ng-repeat="trip in pc.trips | filter:pc.tripSearch">
 
             <div class="inner-result">
                 <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
@@ -49,7 +51,8 @@
                     <div class="action-buttons">
                         <div ng-hide="!trip.showdelete" class="fx-fade-up fx-speed-300 delete-message">
                             <a ng-click="pc.deleteTrip(trip)" class="red button locator-btn">Löschen</a>
-                            <a ng-click="trip.showdelete = !trip.showdelete" class="cyan button locator-btn">nicht löschen</a>
+                            <a ng-click="trip.showdelete = !trip.showdelete" class="cyan button locator-btn">nicht
+                                löschen</a>
                         </div>
 
                     <span ui-sref="editTrip({tripId: trip._id})" class="action-button edit"><img
@@ -64,8 +67,10 @@
 
             </div>
         </div>
-        <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
-            <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
+        <div class="col-xs-12">
+            <div ui-sref="insertTrip" class="pointer col-xs-12 empty-locations">
+                <img ng-src="images/icons/header/stift.png"> <span>Trip anlegen</span>
+            </div>
         </div>
     </div>
 
