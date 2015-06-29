@@ -53,7 +53,7 @@ module Controller {
             this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
                 if(this.$state.params.opponentId === newMessage.conversation_id ) {
-                    this.messages.push(newMessage);
+                    this.messagesHash[newMessage.conversation_id].push(newMessage);
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
                 } else {
@@ -95,7 +95,7 @@ module Controller {
         getConversation(conversation) {
             return this.MessengerService.getConversation(conversation._id)
                 .then(result => {
-                    this.messages[conversation._id] = result.data;
+                    this.messagesHash[conversation._id] = result.data;
                 });
         }
 
@@ -130,7 +130,7 @@ module Controller {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
-                    this.messages.push({message: this.textbox, from: this.$rootScope.userID});
+                    this.messagesHash[this.selectedConversation._id].push({message: this.textbox, from: this.$rootScope.userID})
                     this.textbox = '';
                     console.info("Msg Success");
                 })
