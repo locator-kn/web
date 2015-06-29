@@ -425,8 +425,18 @@ module Controller {
                     if (result.data.message === 'Location in use') {
                         this.locationReallyDelete = true;
                     }
+                })
+        }
 
-                    console.log('deletion error');
+        deleteLocationForce(location) {
+            this.LocationService.deleteLocationForce(location._id)
+            .then(result => {
+                    this.locationReallyDelete = false;
+                    console.log('Hard deletion success');
+                })
+            .catch(result => {
+                    this.locationReallyDelete = false;
+                    console.log('Hard deletion error');
                 })
         }
 
