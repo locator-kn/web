@@ -11,6 +11,7 @@ module Controller {
             this.LocationServce.getLocationById(this.locationId)
                 .then(result => {
                     this.location = result.data;
+                    console.log(this.location);
             });
         }
 
