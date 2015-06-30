@@ -269,6 +269,8 @@ module Controller {
                         this.map.center.longitude = long;
                         this.mapMarkerSet = true;
 
+                        this.getCityFromMarker();
+
                         this.headerImagePath = result.data.images.picture;
                         this.imageHasBeenUploaded = true;
 
