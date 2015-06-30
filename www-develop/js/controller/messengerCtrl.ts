@@ -136,7 +136,7 @@ module Controller {
                     console.info("Msg Success");
                 })
                 .catch(result => {
-                    console.info("Error");
+                    console.info("Error", result);
                 });
         };
 
