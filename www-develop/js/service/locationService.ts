@@ -1,7 +1,7 @@
 module Service {
     export class LocationService {
 
-        constructor(private $http, private basePath, private Upload) {
+        constructor(private $http, private basePath, private Upload, private $q) {
         }
 
         uploadImage(formData, file) {
@@ -32,7 +32,18 @@ module Service {
         }
 
         getLocationById(locationId) {
-            return this.$http.get(this.basePath + '/locations/' + locationId);
+            return this.$q((resolve, reject) => {
+
+                this.$http.get(this.basePath + '/locations/' + locationId)
+                    .error(err => {
+                        reject(err);
+                    })
+                    .then(response => {
+                        resolve(response)
+                    });
+
+            });
+            //return this.$http.get(this.basePath + '/locations/' + locationId);
         }
 
         togglePublicLocation(locationId) {
