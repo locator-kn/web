@@ -32,18 +32,7 @@ module Service {
         }
 
         getLocationById(locationId) {
-            return this.$q((resolve, reject) => {
-
-                this.$http.get(this.basePath + '/locations/' + locationId)
-                    .error(err => {
-                        reject(err);
-                    })
-                    .then(response => {
-                        resolve(response)
-                    });
-
-            });
-            //return this.$http.get(this.basePath + '/locations/' + locationId);
+            return this.$http.get(this.basePath + '/locations/' + locationId);
         }
 
         togglePublicLocation(locationId) {
