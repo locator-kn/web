@@ -1,7 +1,7 @@
 module Service {
     export class LocationService {
 
-        constructor(private $http, private basePath, private Upload) {
+        constructor(private $http, private basePath, private Upload, private $q) {
         }
 
         uploadImage(formData, file) {
