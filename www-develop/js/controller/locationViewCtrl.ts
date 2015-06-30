@@ -5,10 +5,10 @@ module Controller {
         locationId:any;
         location:any;
 
-        constructor(private $scope, private $stateParams, private LocationSerivce) {
+        constructor(private $scope, private $stateParams, private LocationService) {
             this.locationId = $stateParams.locationId;
 
-            this.LocationSerivce.getLocationById(this.locationId)
+            this.LocationService.getLocationById(this.locationId)
                 .then(result => {
                     this.location = result.data;
                     console.log(this.location);
