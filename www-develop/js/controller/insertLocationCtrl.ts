@@ -285,9 +285,6 @@ module Controller {
 
         selectLocationFromInput() {
 
-            this.getCityFromMarker();
-
-
             var lat;
             var long;
 
@@ -300,6 +297,8 @@ module Controller {
             this.map.center.latitude = lat;
             this.map.center.longitude = long;
             this.mapMarkerSet = true;
+
+            this.getCityFromMarker();
         }
 
 
