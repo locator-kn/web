@@ -12,7 +12,7 @@ module Controller {
             this.LocationService.getLocationById(this.locationId)
                 .then(result => {
                     this.location = result.data;
-                    this.locationImagePath = this.location.images.picture;
+                    this.locationImagePath = this.location.images.thumbnail;
                     console.log(this.location);
                     console.log(this.locationImagePath);
             });
