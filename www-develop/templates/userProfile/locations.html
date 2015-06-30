@@ -11,21 +11,22 @@
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-            <div class="inner-result" ng-click="pc.showLocation(location)">
+            <div class="inner-result">
+                <div class="link-to-location-view" ng-click="pc.showLocation(location)">
+                    <img class="img-responsive"
+                         ng-src="{{location.images.picture}}">
 
-                <img class="img-responsive"
-                     ng-src="{{location.images.picture || location.images.googlemap + '&size=550x322'}}">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h3>{{location.city.title}}</h3>
+                            </div>
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <h3>{{location.city.title}}</h3>
-                        </div>
+                            <div class="col-sm-7">
+                                <h3>{{location.title}}</h3>
 
-                        <div class="col-sm-7">
-                            <h3>{{location.title}}</h3>
-
-                            <p clas="description">{{location.description}}</p>
+                                <p clas="description">{{location.description}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

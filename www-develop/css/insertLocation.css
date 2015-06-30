@@ -178,7 +178,7 @@
     left: 50%;
     margin-left: -70px;
     margin-top: -70px;
-    background: rgb(34,34,34);
+    background: rgb(34, 34, 34);
     top: 50%;
 
     visibility: hidden;
@@ -195,7 +195,7 @@
     opacity: 1;
 }
 
-.search-wrapper input{
+.search-wrapper input {
     border: none !important;
     background: none;
     margin: 0 !important;
