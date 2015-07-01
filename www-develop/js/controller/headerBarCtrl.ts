@@ -88,9 +88,9 @@ module Controller {
         }
 
         registerWebsockets() {
-
+            this.SocketService.socketInit().then(() => {
                 // it doesnt need to be called after socketInit
-                this.$scope.$on('new_message', (evt, newMessage) => {
+                this.$rootScope.$on('new_message', (evt, newMessage) => {
                     if (this.$state.params.opponentId && this.$state.params.opponentId === newMessage.conversation_id) {
                         console.log('incomming message is in current window, do nothing in headerbar');
                         return;
@@ -99,7 +99,7 @@ module Controller {
                     this.showBadge = true;
                     this.unreadMessages += 1;
                 });
-
+            });
 
         }
 
