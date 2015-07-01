@@ -59,10 +59,7 @@ module Service {
                 return;
             }
 
-            return this.$http.get(this.basePathRealtime + '/connect/me').then(response => {
-                var myIoSocket = io(response.data.namespace);
-                this.socket = this.socketFactory({ioSocket: myIoSocket});
-            });
+            return this.getSocket();
 
         }
 
