@@ -76,10 +76,7 @@
 
             <div class="col-sm-4 locationpool selectedlocations">
 
-                <div class="trip-title">
-                    <input ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
-                           ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
-                </div>
+               <h2>Gewählte Locations</h2>
 
                 <div ng-class="{'err' : et.error && et.selectedLocations.length === 0}" class="border-wrapper">
 
@@ -237,7 +234,15 @@
         </div>
         <div class="bottom-wrapper relative">
             <div class="col-sm-9">
-                <h3>Beschreibe deinen Trip</h3>
+
+
+                <label>Triptitel</label>
+                <div class="trip-title">
+                    <input ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
+                           ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
+                </div>
+
+                <label>Beschreibe deinen Trip</label>
             <textarea class="description" ng-model="et.tripMeta.description"
                       placeholder="maximal 300 Zeichen"></textarea>
             </div>
