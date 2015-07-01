@@ -183,3 +183,8 @@ span.bubble {
 .logged-out .messenger-popover {
     display: none;
 }
+
+.messenger-container .messages-wrapper {
+    width: 100%;
+    max-width: 353px;
+}
