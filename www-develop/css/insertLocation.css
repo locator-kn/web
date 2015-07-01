@@ -83,6 +83,10 @@
     margin: 0;
 }
 
+.insert-location-container .google-maps-location.error {
+    border-color: #ff4637;
+}
+
 .insert-location-container .content {
     padding-top: 30px;
     padding-bottom: 30px;

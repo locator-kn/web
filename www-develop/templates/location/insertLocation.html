@@ -42,7 +42,7 @@
 
     <div class="row content">
         <div class="col-sm-6">
-            <div class="google-maps-location relative">
+            <div ng-class="{'error' : ilc.error && !ilc.mapMarkerSet}" class="google-maps-location relative">
                 <div ng-class="{'loading': ilc.gpsLoading}" class="spinner"></div>
                 <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom'
                                     events="ilc.map.events">
@@ -76,14 +76,14 @@
 
                         <label class="uppercase">Location Titel</label>
                         <input
-                            ng-class="{'error' : (ilc.form.locationTitle.$touched) && ilc.form.locationTitle.$error.required}"
+                            ng-class="{'error' : (ilc.error) && ilc.form.locationTitle.$error.required}"
                             class="text-fields" type="text" placeholder="Wie heißt deine Location?"
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
 
                         <label class="uppercase">Tags</label>
                         <input
-                            ng-class="{'error' : (ilc.form.locationTag.$touched) && ilc.form.locationTag.$error.required}"
+                            ng-class="{'error' : (ilc.error) && ilc.form.locationTag.$error.required}"
                             class="text-fields" type="text" placeholder="Aussagekrägtige Tags mit Space getrennt"
                             ng-model="ilc.locationFormDetails.tags"
                             name="locationTag"
@@ -91,7 +91,7 @@
 
                         <label class="uppercase">Beschreibung</label>
                         <textarea
-                            ng-class="{'error' : (ilc.form.locationDescription.$touched) && ilc.form.locationDescription.$error.required}"
+                            ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
                             ng-model="ilc.locationFormDetails.description" name="locationDescription"
                             required></textarea>
@@ -100,7 +100,6 @@
                         <div class="save pointer">
                             <input
                                 class=" red button uppercase" type="submit"
-                                ng-disabled="ilc.form.$invalid || !ilc.mapMarkerSet"
                                 ng-click="ilc.save()" value="Location erstellen"/>
                         </div>
 
