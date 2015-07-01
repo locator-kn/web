@@ -61,6 +61,8 @@
 
 .insert-location-container .content-bottom .text-fields {
     margin-top: 0;
+    padding-left: 10px;
+
 }
 
 .insert-location-container .content-bottom .text-fields.location-city {
@@ -101,8 +103,8 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 100px;
-    padding: 15px;
+    height: 102px;
+    padding: 10px;
 }
 
 .insert-location-container label {
@@ -210,6 +212,35 @@
     border: 2px solid white;
     border-radius: 3px;
     background-color: rgba(34, 34, 34, 0.1);
+}
+
+tags-input .host {
+    margin: 0;
+}
+
+tags-input {
+    margin-bottom: 15px;
+}
+
+tags-input .tags {
+    border: 2px solid white !important;
+    background-color: rgba(34, 34, 34, 0.1) !important;
+    border-radius: 3px;
+}
+
+tags-input .tags .tag-item {
+    background: #33c4b7 !important;
+    color: white;
+}
+
+tags-input .tags .tag-item .remove-button {
+    color: rgb(34, 34, 34) !important;
+}
+
+tags-input .tags.focused {
+    outline: none !important;
+    border: 2px solid white !important;
+    box-shadow: 1px 1px 1px 0 #d3d3d3 inset !important;
 }
 
 
