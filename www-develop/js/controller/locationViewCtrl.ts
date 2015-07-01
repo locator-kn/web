@@ -18,19 +18,16 @@ module Controller {
                     this.locationImagePath = this.location.images.picture;
                     this.userId = this.location.userid;
                     console.log(this.location);
+                    this.UserService.getUser(this.userId)
+                    .then(resultUser => {
+                            this.user = resultUser.data;
+                            if (!this.user.picture) {
+                                this.profileImagePath = "/images/profile.jpg"
+                            } else {
+                                this.profileImagePath = this.user.picture.picture;
+                            }
+                        })
             });
-
-            /*locationPromise.then(this.UserService.getUser(this.userId)
-                .then(result => {
-                    this.user = result.data;
-                    if (!this.user.picture) {
-                        this.profileImagePath = "/images/profile.jpg"
-                    } else {
-                        this.profileImagePath = this.user.picture.picture;
-                    }
-                })
-            );*/
-
         }
 
         static controllerId:string = "LocationViewCtrl";

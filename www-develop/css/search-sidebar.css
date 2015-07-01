@@ -197,10 +197,11 @@ img-triplist {
     width: 100%;
 }
 
-.result-content-box {
+trip-min-view .result-content-box {
     background: rgb(34, 34, 34);
     height: 100%;
     border-left: 2px solid white;
+    padding: 0 0 0 0
 }
 
 .no-margin {
@@ -210,11 +211,15 @@ img-triplist {
 .no-padding {
     padding: 0 0 0 0;
 }
-.result-content-wrapper {
+
+.trip-min-view .result-content-wrapper {
     float: left;
     height: 250px;
     width: 100%;
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 5px 5px 0 5px;
 }
 
 .moods-container {
@@ -223,11 +228,12 @@ img-triplist {
     display: inline-block;
 }
 
-.inner-result {
+.trip-min-view .inner-result {
     float: left;
     margin: 20px 20px 0 0;
     width: 100%;
     color: white;
+    border: none;
 }
 
 .accommodation-equipment {
@@ -242,7 +248,7 @@ img-triplist {
     z-index: 100;
 }
 
-.result-content-bottom {
+.trip-min-view .result-content-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -257,6 +263,31 @@ img-triplist {
 
 .white-border {
     border-right: 2px solid white;
+}
+
+.result-content-wrapper {
+     border-bottom: 2px solid grey;
+     border-right: 2px solid grey;
+     border-left: 2px solid grey;
+     height: 130px;
+}
+
+.result-content-box {
+    padding: 5px 5px 0 0;
+}
+
+.inner-result {
+    border: 2px solid rgb(193, 195, 195);
+    float: left;
+    margin: 20px 20px 0 0;
+    width: 100%;
+}
+
+.result-content-wrapper {
+    float: left;
+    height: 250px;
+    width: 100%;
+    border: none;
 }
 
 
