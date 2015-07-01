@@ -187,4 +187,5 @@ span.bubble {
 .messenger-container .messages-wrapper {
     width: 100%;
     max-width: 353px;
+    margin: 0 0 0 100px;
 }
