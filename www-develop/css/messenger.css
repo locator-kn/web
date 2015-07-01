@@ -46,6 +46,12 @@
 .messenger-container .conversations .item.unread {
     background-color: #100e10;
 }
+.messenger-container .conversations .profileimage {
+    text-align: right;
+}
+.messenger-container .conversations .profileimage .profile-image {
+    margin: 0;
+}
 
 
 .md-avatar {

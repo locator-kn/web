@@ -1,4 +1,7 @@
 <md-list class="conversations">
+    <div class="profileimage">
+        <img src="" class="profile-image" alt=""/>
+    </div>
     <h2>Kontakte</h2>
     <div class="list">
         <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read']}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
