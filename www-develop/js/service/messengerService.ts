@@ -26,8 +26,7 @@ module Service {
             if(cacheData) {
                 var parsedData = JSON.parse(cacheData[1])
                 parsedData.push(data);
-                var string = JSON.stringify(parsedData);
-                cacheData[1] = string;
+                cacheData[1] = JSON.stringify(parsedData);
                 console.log('update cache for:', this.basePathRealtime + '/messages/' + id);
 
                 this.messagesIdCache.put(this.basePathRealtime + '/messages/' + id, cacheData);

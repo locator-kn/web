@@ -121,20 +121,25 @@ module Controller {
             console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
             setTimeout(() => {
                 this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
-            }, 200);
+            }, 10);
             this.conversationsHash[conversation_id][this.$rootScope.userID + '_read'] = true;
         }
 
         _sendMessage = () => {
 
             this.textbox = this.textbox.replace(/<\/?[^>]+(>|$)/g, "");
+            var newMessage = {
+                message: this.textbox,
+                from: this.$rootScope.userID,
+                timestamp: Date.now()
+            };
+            this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
+            this.messagesHash[this.selectedConversation._id].push(newMessage);
+            this.textbox = '';
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
-                    // TODO, this might take some times too long
-                    this.messagesHash[this.selectedConversation._id].push({message: this.textbox, from: this.$rootScope.userID})
-                    this.textbox = '';
                     console.info("Msg Success");
                 })
                 .catch(result => {
