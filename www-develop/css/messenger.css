@@ -1,12 +1,12 @@
 .messenger-container .conversations {
     height: calc(95vh);
     width: 100%;
-    max-width: 400px;
+    max-width: 362px;
     float: right;
 }
 .messenger-container .conversations .list {
     max-height: calc(100vh - 60px);
-    width: 200px;
+    width: 261px;
     float: right;
     margin: 0px -9px 0 0;
 }
@@ -15,18 +15,26 @@
     padding: 2px;
     float: left;
     width: 100%;
-    border-top-left-radius: 49px;
-    border-bottom-left-radius: 49px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #fff;
-    max-height: 98px;
+    max-height: 60px;
     margin: 3px 0;
 }
 
 .messenger-container .conversations .item h3 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
+    float: left;
+    margin: 20px 0 0 10px;
+}
+.messenger-container .conversations .item .time {
+    font-size: 12px;
+    font-weight: normal;
+    float: right;
+    margin: 20px 10px 0 0;
 }
 
 .messenger-container .conversations .item.active {
@@ -51,15 +59,14 @@
 }
 .messenger-container .conversations .profileimage .profile-image {
     margin: 0;
+    height: 46px;
+    width: 46px;
 }
 
 
 .md-avatar {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 8px;
-    margin-top: 16px;
-    margin-right: 16px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     box-sizing: content-box;
     float: left;
