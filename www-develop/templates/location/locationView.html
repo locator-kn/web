@@ -2,8 +2,29 @@
     <div class="col-xs-12 col-sm-12">
         <div class="location-view-image">
             <img class="header-image"
-                 ng-src="{{pc.locationImagePath}}">
-            <a>Test</a>
+                 ng-src="{{lt.locationImagePath}}">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="location-title">
+                <p>{{lt.location.title}}</p>
+            </div>
+            <div class="location-creator">
+                <p>Lukas am 01.07.2015</p>
+            </div>
+            <div class="location-description">
+                <p>{{lt.location.description}}</p>
+            </div>
+            <div class="location-tags" ng-repeat="tag in lt.location.tags">
+                <div class="row">
+                    {{tag}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <p>Karte</p>
         </div>
     </div>
 </div>

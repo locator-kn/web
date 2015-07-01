@@ -38,9 +38,9 @@
                         </li>
                         <li ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
                             <img ng-src="images/icons/header/stift.png"></li>
-                        <li ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" class="messenger tt tt-small"
-                            aria-label="Messenger" aria-not-authenticated="Finde Trips und trete mit Leuten in Kontakt" active-popover
-                            click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()">
+                        <li ui-sref="messenger" ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" class="messenger tt tt-small"
+                            aria-label="Messenger" aria-not-authenticated="Finde Trips und trete mit Leuten in Kontakt"> <!--active-popover
+                            click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()"-->
                             <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
                             <img ng-src="images/icons/header/chat.png">
                             <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover fx-fade-up">

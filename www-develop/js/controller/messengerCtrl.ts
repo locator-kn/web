@@ -83,6 +83,8 @@ module Controller {
                     if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
                         this.select(con);
+                    } else {
+                        this.$state.go('messenger.opponent', {opponentId: this.conversations[0]._id});
                     }
                 });
         }
