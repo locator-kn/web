@@ -91,8 +91,8 @@ module Controller {
             this.SocketService.socketInit().then(() => {
                 // it doesnt need to be called after socketInit
                 this.$rootScope.$on('new_message', (evt, newMessage) => {
-                    if (this.$state.params.opponentId && this.$state.params.opponentId === newMessage.conversation_id) {
-                        console.log('incomming message is in current window, do nothing in headerbar');
+                    if (this.$state.params.opponentId) {
+                        console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
