@@ -113,8 +113,8 @@ module Controller {
 
         fetchLocations() {
 
-            var public_locations = this.LocationService.getLocationsByCity(this.selectedCity.title);
-            var private_locations = this.LocationService.getMyLocationsByCity(this.selectedCity.title);
+            var public_locations = this.LocationService.getLocationsByCity(this.selectedCity.place_id);
+            var private_locations = this.LocationService.getMyLocationsByCity(this.selectedCity.place_id);
 
             this.$q.all([public_locations, private_locations])
                 .then((responsesArray) => {

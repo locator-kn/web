@@ -1,29 +1,58 @@
+.messenger-container .conversations {
+    height: calc(95vh);
+    width: 100%;
+    max-width: 400px;
+    float: right;
+}
+.messenger-container .conversations .list {
+    max-height: calc(100vh - 60px);
+    width: 200px;
+    float: right;
+    margin: 0px -9px 0 0;
+}
+
 .messenger-container .conversations .item {
-    padding: 10px;
+    padding: 2px;
     float: left;
     width: 100%;
+    border-top-left-radius: 49px;
+    border-bottom-left-radius: 49px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fff;
+    max-height: 98px;
+    margin: 3px 0;
 }
 
-.messenger-container .conversations .item:nth-child(odd) {
-    background: rgb(232, 232, 232);
-}
-
-.messenger-container .conversations .item:nth-child(even) {
-    background: whitesmoke;
+.messenger-container .conversations .item h3 {
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .messenger-container .conversations .item.active {
     background-color: #33c4b7;
+    position: relative;
+}
+.messenger-container .conversations .item.active::after {
+    background-color: #33c4b7;
+    content: ' ';
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    right: -20px;
+    top: 0;
 }
 
 .messenger-container .conversations .item.unread {
     background-color: #100e10;
 }
-
-.messenger-container .conversations {
-    max-height: calc(100vh - 60px);
-    overflow-y: scroll;
+.messenger-container .conversations .profileimage {
+    text-align: right;
 }
+.messenger-container .conversations .profileimage .profile-image {
+    margin: 0;
+}
+
 
 .md-avatar {
     width: 40px;

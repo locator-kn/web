@@ -1,12 +1,17 @@
 <md-list class="conversations">
-    <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read']}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line" ng-repeat="conversation in mc.conversations">
+    <div class="profileimage">
+        <img src="" class="profile-image" alt=""/>
+    </div>
+    <h2>Kontakte</h2>
+    <div class="list">
+        <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read']}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
 
-        <img class="md-avatar" ng-src="{{conversation.opponent.picture.picture}}"/>
+            <img class="md-avatar" ng-src="{{conversation.opponent.picture.picture}}"/>
 
-        <div class="md-list-item-text">
-            <h3>{{ conversation.opponent.name }}</h3>
-          <!--  <p>{{ conversation.lastMessage }}</p> -->
-        </div>
-        <span class="last-message" ng-bind="mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].message"></span>
-    </md-list-item>
+            <div class="md-list-item-text">
+                <h3>{{ conversation.opponent.name }}</h3>
+              <!--  <p>{{ conversation.lastMessage }}</p> -->
+            </div>
+        </md-list-item>
+    </div>
 </md-list>
