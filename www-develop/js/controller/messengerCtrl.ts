@@ -25,7 +25,7 @@ module Controller {
 
             this.getConversations();
 
-            $rootScope.$on('login_success', () => {
+            $scope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
             if (this.$rootScope.authenticated) {
