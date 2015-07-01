@@ -21,6 +21,15 @@
         </div>
         <div class="col-xs-6">
             <p>Karte</p>
+            <div class="google-maps-location relative">
+                <div ng-class="{'loading': ilc.gpsLoading}" class="spinner"></div>
+                <ui-gmap-google-map center='ilc.map.center' zoom='ilc.map.zoom'
+                                    events="ilc.map.events">
+                    <ui-gmap-marker coords="ilc.map.clickedMarker" idKey="ilc.map.clickedMarker.id"
+                                    options="ilc.map.clickedMarker.options">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
         </div>
     </div>
 </div>
