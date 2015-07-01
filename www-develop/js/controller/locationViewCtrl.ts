@@ -20,7 +20,7 @@ module Controller {
                     console.log(this.location);
             });
 
-            locationPromise.then(this.UserService.getUser(this.userId)
+            /*locationPromise.then(this.UserService.getUser(this.userId)
                 .then(result => {
                     this.user = result.data;
                     if (!this.user.picture) {
@@ -29,7 +29,7 @@ module Controller {
                         this.profileImagePath = this.user.picture.picture;
                     }
                 })
-            );
+            );*/
 
         }
 
