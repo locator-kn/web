@@ -137,12 +137,12 @@ module Controller {
             };
             this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
             this.messagesHash[this.selectedConversation._id].push(newMessage);
-            this.textbox = '';
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
                     console.info("Msg Success");
+                    this.textbox = '';
                 })
                 .catch(result => {
                     console.info("Error", result);
