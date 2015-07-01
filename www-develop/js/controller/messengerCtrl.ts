@@ -83,6 +83,8 @@ module Controller {
                     if (this.$state.params.opponentId) {
                         var con = this.getConversationById(this.$state.params.opponentId);
                         this.select(con);
+                    } else {
+                        this.select(this.conversations[0]);
                     }
                 });
         }
