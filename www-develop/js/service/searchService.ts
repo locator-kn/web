@@ -47,6 +47,7 @@ module Service {
                         this.UserService.getUser(entry.userid).then(result => {
                             entry.username = result.data.name + ' ' + result.data.surname;
                         });
+                        entry.locationCount = Object.keys(entry.locations).length;
                     });
                     return data;
                 });
