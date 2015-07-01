@@ -4,7 +4,8 @@
 }
 
 .edittrip-container .welcome_select ul {
-    top: 50px;
+    top: 52px;
+    left: 0;
     background-color: #FF4637;
     text-align: left;
     transform: translateY(0%) scale(1) !important;
@@ -144,7 +145,7 @@
 .edittrip-container .trip-title input {
     background-color: white;
     border-radius: 4px;
-    border: 1px solid rgb(34, 34, 34);
+    border: none;
     width: 100%;
     font-size: 16px;
     padding: 10px;
@@ -247,7 +248,7 @@
     border: none;
     background: white;
     border-radius: 3px;
-    padding: 5px;
+    padding: 10px;
     min-height: 110px;
 }
 
