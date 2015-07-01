@@ -18,7 +18,7 @@ module Controller {
                     this.locationImagePath = this.location.images.picture;
                     this.userId = this.location.userid;
                     console.log(this.location);
-                    this.UserService.getUserById(this.userId)
+                    this.UserService.getUser(this.userId)
                     .then(resultUser => {
                             this.user = resultUser.data;
                             if (!this.user.picture) {
