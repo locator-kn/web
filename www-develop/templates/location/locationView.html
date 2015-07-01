@@ -1,15 +1,13 @@
 <div class="locationview-container container" ng-controller="LocationViewCtrl as lt">
-    <div class="col-xs-12 col-sm-12">
-        <div class="location-view-image">
-            <img class="header-image"
-                 ng-src="{{lt.locationImagePath}}">
+    <div class="location-view-image">
+        <img class="header-image"
+             ng-src="{{lt.locationImagePath}}">
 
-        </div>
     </div>
     <div class="row">
         <div class="col-xs-6">
             <div class="location-title">
-                <p>{{lt.location.title}}</p>
+                <p class="big-font-size">{{lt.location.title}}</p>
             </div>
             <div class="location-creator">
                 <p>Lukas am 01.07.2015</p>
@@ -17,12 +15,18 @@
             <div class="location-description">
                 <p>{{lt.location.description}}</p>
             </div>
-            <div ng-if="lt.location.tags.length > 0" class="location-tags locationborder">
+            <div class="location-tags locationborder" ng-if="lt.location.tags.length > 0">
                 <span ng-repeat="tag in lt.location.tags" class="tag">{{tag}}</span>
             </div>
         </div>
-        <div class="col-xs-6">
-            <p>Karte</p>
+        <div class="col-xs-4 col-xs-offset-2">
+            <div class="">
+                <p class="big-font-size">Karte</p>
+            </div>
+
+            <div class="google-maps-location">
+                <img ng-src="{{lt.location.images.googlemap}}">
+            </div>
         </div>
     </div>
 </div>
