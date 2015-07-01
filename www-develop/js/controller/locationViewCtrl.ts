@@ -12,7 +12,7 @@ module Controller {
         constructor(private $scope, private $stateParams, private LocationService, private UserService) {
             this.locationId = $stateParams.locationId;
 
-            var locationPromise = this.LocationService.getLocationById(this.locationId)
+            this.LocationService.getLocationById(this.locationId)
                 .then(result => {
                     this.location = result.data;
                     this.locationImagePath = this.location.images.picture;
