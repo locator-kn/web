@@ -196,7 +196,7 @@ module Controller {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
-                    this.documentId = data.id;
+                  
                     this.revision = data.rev;
                     this.uploadIsDone = true;
                     this.isUploading = false;
