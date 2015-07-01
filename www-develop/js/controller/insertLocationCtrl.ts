@@ -15,7 +15,7 @@ module Controller {
         mapMarkerSet:boolean = false;
 
         isUploading:boolean = false;
-
+        error:boolean = false;
         gpsLoading:boolean = false;
 
         locationTitle:string = '';
@@ -224,7 +224,15 @@ module Controller {
         }
 
         save() {
+
+            if (!this.mapMarkerSet || !this.locationFormDetails.title || !this.locationFormDetails.description || !this.locationFormDetails.tags) {
+                this.error = true;
+                return;
+            }
+
             var formValues = angular.copy(this.locationFormDetails);
+
+
 
 
             formValues.tags = formValues.tags.split(' ');
@@ -256,7 +264,7 @@ module Controller {
                             description: result.data.description,
                             budget: result.data.budget,
                             city: {}
-                        }
+                        };
 
                         var lat = result.data.geotag.lat;
                         var long = result.data.geotag.long;
