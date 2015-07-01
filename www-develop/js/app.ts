@@ -70,7 +70,8 @@ var deps = [
     'monospaced.elastic',
     'infinite-scroll',
     'ngFx', 'ngAnimate',
-    'geolocation'
+    'geolocation',
+    'ngTagsInput'
 ];
 
 var app = angular.module('locator', deps)
