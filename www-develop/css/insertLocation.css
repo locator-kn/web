@@ -101,7 +101,7 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 100px;
+    height: 102px;
     padding: 15px;
     padding-top: 10px;
 }
@@ -224,6 +224,7 @@ tags-input {
 tags-input .tags {
     border: 2px solid white !important;
     background-color: rgba(34, 34, 34, 0.1) !important;
+    border-radius: 3px;
 }
 
 tags-input .tags .tag-item {
