@@ -89,7 +89,6 @@ module Controller {
 
         registerWebsockets() {
 
-            this.SocketService.socketInit().then(() => {
                 // it doesnt need to be called after socketInit
                 this.$scope.$on('new_message', (evt, newMessage) => {
                     if (this.$state.params.opponentId && this.$state.params.opponentId === newMessage.conversation_id) {
@@ -100,7 +99,6 @@ module Controller {
                     this.showBadge = true;
                     this.unreadMessages += 1;
                 });
-            });
 
 
         }
