@@ -206,10 +206,7 @@ module Controller {
 
         tripPreview() {
 
-            if (this.tripMeta.title.length < 2 || this.selectedLocations.length === 0) {
-
-                // date is optional
-                // this.dateValidation();
+            if (this.selectedLocations.length === 0) {
 
                 this.error = true;
 
