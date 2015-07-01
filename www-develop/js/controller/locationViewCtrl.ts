@@ -20,7 +20,7 @@ module Controller {
                     console.log(this.location);
             });
 
-            this.UserService.getUser(this.userId)
+            /*locationPromise.then(this.UserService.getUser(this.userId)
                 .then(result => {
                     this.user = result.data;
                     if (!this.user.picture) {
@@ -28,7 +28,9 @@ module Controller {
                     } else {
                         this.profileImagePath = this.user.picture.picture;
                     }
-                });
+                })
+            );*/
+
         }
 
         static controllerId:string = "LocationViewCtrl";
