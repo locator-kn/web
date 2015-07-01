@@ -232,16 +232,17 @@ module Controller {
 
             var formValues = angular.copy(this.locationFormDetails);
 
+            var stringTags = [];
+            formValues.tags.forEach(item => {
+                stringTags.push(item.text);
+            });
+            formValues.tags = stringTags;
 
-
-
-            formValues.tags = formValues.tags.split(' ');
 
             formValues.geotag = {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
-
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then(() => {
@@ -255,20 +256,25 @@ module Controller {
         initEdit() {
 
             if (this.$state.params.locationId) {
+
+
                 this.LocationService.getLocationById(this.$state.params.locationId)
                     .then(result => {
 
                         this.locationFormDetails = {
-                            tags: result.data.tags.join(' '),
+                            tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
                             budget: result.data.budget,
                             city: {}
                         };
 
+                        //handle tags for tagging directive
+                        //this.locationFormDetails.tags = this.simpleToObjectArray(this.locationFormDetails.tags);
+
+
                         var lat = result.data.geotag.lat;
                         var long = result.data.geotag.long;
-
 
                         this.map.clickedMarker.latitude = lat;
                         this.map.clickedMarker.longitude = long;
@@ -348,6 +354,18 @@ module Controller {
                     this.locationFormDetails.city.place_id = locality.place_id;
                     this.locationFormDetails.city.id = locality.place_id;
                 });
+        }
+
+        //used to resolve tagging arrays
+        simpleToObjectArray(simpleArray) {
+            var complexArray = [];
+
+            simpleArray.forEach(item => {
+                complexArray.push({text: item});
+            });
+
+
+            return complexArray;
         }
 
         static controllerId:string = "InsertLocationCtrl";
