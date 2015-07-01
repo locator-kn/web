@@ -242,5 +242,22 @@ img-triplist {
     z-index: 100;
 }
 
+.result-content-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    border-top: 2px solid white;
+}
+
+.result-content-bottom .icon-container {
+    height: 100%;
+}
+
+.white-border {
+    border-right: 2px solid white;
+}
+
 
 
