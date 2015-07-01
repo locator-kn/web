@@ -15,7 +15,7 @@
             <div class="location-description">
                 <p>{{lt.location.description}}</p>
             </div>
-            <div class="location-tags locationborder" ng-if="lt.location.tags.length > 0">
+            <div class="location-tags" ng-if="lt.location.tags.length > 0">
                 <span ng-repeat="tag in lt.location.tags" class="tag">{{tag}}</span>
             </div>
         </div>
@@ -24,9 +24,7 @@
                 <p class="big-font-size">Karte</p>
             </div>
 
-            <div class="google-maps-location">
-                <div class="map-image" style="background-image: url({{lt.location.images.googlemap + '&size=400x450'}});"></div>
-            </div>
+            <div class="map-image" style="background-image: url({{lt.location.images.googlemap + '&size=400x450'}});"></div>
         </div>
     </div>
 </div>
