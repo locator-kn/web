@@ -235,6 +235,31 @@ var app = angular.module('locator', deps)
         };
     })
 
+    .directive('messengerDate', function () {
+        return {
+            scope: {date: '='},
+            controller: function ($scope) {
+
+                $scope.$watch('date', (newVal, oldVal, scope) => {
+                    var yesterday = new Date(Date.now() - 1000 * 60 * 60 * 24);
+                    yesterday.setHours(0,0,0,0);
+
+                    if (newVal) {
+                        var localdate = new Date(newVal);
+                        if(moment(localdate).isBefore(yesterday)) {
+                            var a = moment(localdate).day();
+                            $scope.date2 = moment.weekdays(a);
+                        } else {
+                            $scope.date2 = moment(localdate).format('HH:mm');
+                        }
+                    }
+                });
+
+            },
+            template: '{{date2}}'
+        };
+    })
+
     .directive('imgTriplist', () => {
         var tmpl = [
             '<flex-slider class="static" control-nav="false" direction-nav="true" animation="fade" animation-loop="true" slide="s in slides"><li>',
