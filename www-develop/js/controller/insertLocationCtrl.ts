@@ -198,7 +198,7 @@ module Controller {
                     this.clearFileSelection();
                     this.showNewImage(data);
                     this.documentId = data.id;
-                    this.revision = data.rev;
+
                     this.uploadIsDone = true;
                     this.isUploading = false;
                     this.progressPercentage = 0;
