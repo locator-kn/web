@@ -259,6 +259,21 @@ trip-min-view .result-content-box {
 
 .result-content-bottom .icon-container {
     height: 100%;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.result-content-bottom .look-icon {
+    background-image: url("../images/icons/ansehen.png");
+}
+
+.result-content-bottom .location-icon {
+    background-image: url("../images/icons/location.png");
+}
+
+.result-content-bottom .messenger-icon {
+    background-image: url("../images/icons/messenger.png");
 }
 
 .white-border {

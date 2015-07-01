@@ -988,6 +988,10 @@ img-triplist .flex-direction-nav a::before {
     height: 100%;
 }
 
+.locationview-container .header-image {
+    width: 100vw;
+}
+
 .ng-hide-add, .ng-hide-remove {
     /* ensure visibility during the transition */
     display: block !important; /* yes, important */
