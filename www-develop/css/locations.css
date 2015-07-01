@@ -28,9 +28,20 @@
     font-size: 20px;
 }
 
+.map-title {
+    margin-top: 40px;
+}
+
+.location-title {
+    margin-top: 40px;
+}
+
 .google-maps-location .map-image {
-    height: auto;
-    width: 100%;
+    height: 454px;
+    width: 404px;
+    margin-bottom: 40px;
+    border-radius: 3px;
+    border: 2px solid white;
 }
 
 .location-settings input {
