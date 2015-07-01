@@ -28,6 +28,11 @@
     font-size: 20px;
 }
 
+.google-maps-location .map-image {
+    height: auto;
+    width: 100%;
+}
+
 .location-settings input {
     visibility: hidden;
 }

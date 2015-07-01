@@ -1384,3 +1384,7 @@ progress-arc.hidden-height {
     height: 100%;
     width: auto;
 }
+
+.light-grey {
+    background-color: rgba(0,0,0, .2);
+}

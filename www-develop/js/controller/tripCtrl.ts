@@ -34,7 +34,6 @@ module Controller {
                             this.LocationService.getLocationById(key)
                                 .then(result => {
                                     this.locations.push(result.data);
-                                    console.info(result.data);
                                 });
                         }
                     }
