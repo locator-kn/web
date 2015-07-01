@@ -128,13 +128,18 @@ module Controller {
         _sendMessage = () => {
 
             this.textbox = this.textbox.replace(/<\/?[^>]+(>|$)/g, "");
+            var newMessage = {
+                message: this.textbox,
+                from: this.$rootScope.userID,
+                timestamp: Date.now()
+            };
+            this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
+            this.messagesHash[this.selectedConversation._id].push(newMessage);
+            this.textbox = '';
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
-                    // TODO, this might take some times too long
-                    this.messagesHash[this.selectedConversation._id].push({message: this.textbox, from: this.$rootScope.userID})
-                    this.textbox = '';
                     console.info("Msg Success");
                 })
                 .catch(result => {
