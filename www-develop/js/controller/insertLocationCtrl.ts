@@ -179,10 +179,11 @@ module Controller {
                 _rev: ''
             };
 
-            if (this.documentWasCreated) {
+            if (this.documentId) {
                 formData._id = this.documentId;
-                formData._rev = this.revision;
             }
+
+
             this.LocationService.uploadImage(formData, file)
                 .error(() => {
 
@@ -232,7 +233,6 @@ module Controller {
                 long: this.map.clickedMarker.longitude,
                 lat: this.map.clickedMarker.latitude
             };
-
 
 
             this.LocationService.saveLocation(formValues, this.documentId).
@@ -296,7 +296,7 @@ module Controller {
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = long;
             this.map.zoom = 15,
-            this.map.center.latitude = lat;
+                this.map.center.latitude = lat;
             this.map.center.longitude = long;
             this.mapMarkerSet = true;
 
@@ -313,7 +313,7 @@ module Controller {
                 var lat = data.coords.latitude;
                 var long = data.coords.longitude
                 this.map.zoom = 15,
-                this.map.clickedMarker.latitude = lat;
+                    this.map.clickedMarker.latitude = lat;
                 this.map.clickedMarker.longitude = long;
 
                 this.map.center.latitude = lat;
