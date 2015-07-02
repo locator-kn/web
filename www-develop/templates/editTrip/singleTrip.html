@@ -1,9 +1,15 @@
 
-<div class="row">
+<div class="row relative">
     <div class="col-xs-3 img-wrapper"><img
-        ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=140x140'}}"
+        ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}"
         class="location-picture img-responsive border-radius-decent"/>
     </div>
+
+<!--
+    <div class="image-overlay">
+        <img class="img-responsive" ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=700x340'}}">
+    </div>-->
+
 
     <div class="content-wrapper col-xs-9">
 
