@@ -11,6 +11,7 @@ html {
 body {
     background: #f5f5f5;
     background-image: url('../images/background-patterns/debut_light_hell.png');
+    font-weight: 300;
 }
 
 .opener h2 {
