@@ -31,18 +31,11 @@
                     <span ng-show="trip.accommodation"> | <strong>mit</strong> Übernachtung</span>
 
                     <div class="moods-container">
-                        <div ng-repeat="mood in trip.moods">
-                            <div ng-repeat="availableMood in availablemoods |filter:mood">
-                                <span class="tt tt-small" aria-label="{{availableMood.title}}">
-                                    <img aria-label="{{availableMood.title}}" class="result-mood-icon"
-                                        ng-src="./images/icons/{{availableMood.icon}}">
-                                </span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="result-content-bottom">
-                    <div class="col-xs-3 icon-container white-border"></div>
+                    <div class="col-xs-3 icon-container white-border" style="background-image: url('./images/icons/moods_white/{{trip.moods[0]}}.png')"></div
                     <div class="col-xs-3 icon-container look-icon"></div>
                     <div class="col-xs-3 icon-container location-icon"></div>
                     <div class="col-xs-3 icon-container messenger-icon"></div>
