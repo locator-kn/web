@@ -98,6 +98,9 @@
 .messenger-container .header .trip-preview .result-content-bottom {
     display: none;
 }
+.messenger-container .header .trip-preview img-triplist .flexslider, .messenger-container .header .trip-min-view .result-content-wrapper {
+    height: 100px;
+}
 .messenger-container .header .trip-preview .inner-result {
     margin: 0;
 }
