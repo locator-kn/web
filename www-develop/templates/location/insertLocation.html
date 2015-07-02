@@ -82,7 +82,7 @@
                             required>
 
                         <label class="uppercase">Tags</label>
-                        <tags-input max-tags="4" placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
+                        <tags-input ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}" placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
 
 
                         <label class="uppercase">Beschreibung</label>
@@ -95,7 +95,7 @@
 
                         <div class="save pointer">
                             <input
-                                class=" red button uppercase" type="submit"
+                                class="red button uppercase" type="submit"
                                 ng-click="ilc.save()" value="Location erstellen"/>
                         </div>
 

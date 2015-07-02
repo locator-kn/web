@@ -86,6 +86,7 @@ module Controller {
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
+                    this.selectedLocations = [];
                     if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
                 }
             });
