@@ -11,7 +11,7 @@
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-            <div class="inner-result">
+            <div class="wrapper">
                 <div class="link-to-location-view" ng-click="pc.showLocation(location)">
                     <img class="img-responsive"
                          ng-src="{{location.images.picture}}">
@@ -23,7 +23,9 @@
                             </div>
 
                             <div class="col-xs-12">
-                                <h3>{{location.title}}, {{location.city.title}}</h3>
+                                <h2>{{location.title}}</h2>
+
+                                <h3>{{location.city.title}}</h3>
 
                                 <p clas="description">{{location.description}}</p>
                             </div>
