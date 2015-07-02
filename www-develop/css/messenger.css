@@ -83,6 +83,8 @@
     float: left;
     width: 100%;
     height: calc(100vh - 230px);
+    background-color: #fff;
+    padding: 10px;
 }
 
 .messenger-container .content .message {
@@ -143,22 +145,24 @@ button#chat_submit {
 }
 
 span.bubble {
-    height: 20px;
-    width: 30px;
-    background-color: #33C4B7;
-    float: left;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #33c4b8 transparent transparent transparent;
     position: absolute;
-    bottom: -4px;
-    left: -16px;
-    transform: rotate(52deg);
+    left: 0;
+    bottom: -15px;
 }
 
 .out span.bubble {
-    right: -13px;
-    background-color: #ff4637;
-    left: inherit;
-    bottom: -5px;
-    transform: rotate(35deg);
+    right: 0;
+    left: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #ff4837 transparent transparent;
 }
 
 .emoji-overlay {
