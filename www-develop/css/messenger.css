@@ -192,3 +192,6 @@ span.bubble {
     max-width: 353px;
     margin: 0 0 0 100px;
 }
+.messenger-container h2 {
+    font-size: 22px;
+}
