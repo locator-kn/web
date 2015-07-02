@@ -88,6 +88,8 @@ module Controller {
             });
 
 
+
+
             // Datevalidation is optional
 
             /*$scope.$watchCollection(angular.bind(this, () => {
@@ -339,13 +341,35 @@ module Controller {
                 city: this.selectedCity,
                 day: this.selectedDay,
                 mood: this.selectedMood,
-                location: this.selectedLocations
+                locations: this.selectedLocations
             };
 
             this.InsertTripService.setStateStored(true);
             this.InsertTripService.storeAllValues(data);
 
             this.$state.go('insertLocation');
+        }
+
+
+        getStoredTripValues() {
+
+            var data = this.InsertTripService.getAllValues();
+
+            this.tripMeta = data.formData;
+            this.selectedCity = data.city;
+            this.selectedDay = data.day;
+            this.selectedMood = data.mood;
+
+            //select stored locations
+            data.locations.forEach(item => {
+               this.selectLocation(item);
+            });
+
+            //set false on successful fetch
+            this.InsertTripService.setStateStored(false);
+
+            debugger;
+
         }
 
 
