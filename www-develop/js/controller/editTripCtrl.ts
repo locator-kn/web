@@ -331,6 +331,23 @@ module Controller {
             }
         }
 
+        //create new location and save context
+        createNewLocation() {
+
+            var data = {
+                formData: this.tripMeta,
+                city: this.selectedCity,
+                day: this.selectedDay,
+                mood: this.selectedMood,
+                location: this.selectedLocations
+            };
+
+            this.InsertTripService.setStateStored(true);
+            this.InsertTripService.storeAllValues(data);
+
+            this.$state.go('insertLocation');
+        }
+
 
         static controllerId:string = "EditTripCtrl";
     }
