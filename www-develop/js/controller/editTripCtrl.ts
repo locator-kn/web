@@ -321,9 +321,10 @@ module Controller {
 
                 this.LocationService.getLocationById(key).then(result => {
                     this.selectLocation(result.data);
-                })
+                });
 
             }
+            this.uniqueList(this.selectedLocations);
         }
 
         //create new location and save context
@@ -369,14 +370,16 @@ module Controller {
 
             this.LocationService.getLocationById(this.InsertTripService.newCreatedLocationId).then(result => {
                 this.selectLocation(result.data);
-                this.selectedLocations = this.lodash.uniq(this.selectedLocations, '_id');
-
-                debugger;
+                this.selectedLocations = this.uniqueList(this.selectedLocations);
             });
 
 
             //set false on successful fetch
             this.InsertTripService.setStateStored(false);
+        }
+
+        uniqueList(list) {
+            return this.lodash.uniq(list, '_id');
         }
 
 
