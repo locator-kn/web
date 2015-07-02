@@ -138,7 +138,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('editTrip', {
-                url: "/edit-trip/:tripId",
+                url: "/edit-trip/:tripId?city",
                 templateUrl: "templates/editTrip/editTrip.html",
                 reloadOnSearch: false
             })
@@ -148,9 +148,8 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/editTrip/editTripSuccess.html"
             })
 
-
             .state('insertLocation', {
-                url: "/insert-location",
+                url: "/insert-location?tmp",
                 templateUrl: "templates/location/insertLocation.html"
             })
 
