@@ -8,12 +8,12 @@
 
 
     <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
-        <div class="header" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
-            <img
-                ng-src="{{mc.selectedConversation.opponent.picture.picture}}"
-                class="md-avatar"/>
-
-            <h2>{{mc.selectedConversation.opponent.name}}</h2>
+        <div class="header">
+            <span class="trip pointer"  ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']">Trip</span>
+            <div class="trip-preview" ng-if="mc.selectedConversation['tripPopoverOpen']">
+                aslkdjalksdjalksdj
+            </div>
+            <span class="profile pointer" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">profile</span>
         </div>
 
         <div class="content" scroll-glue>
