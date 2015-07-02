@@ -134,9 +134,9 @@
 }
 
 .edittrip-container img.trip-selection {
-    max-height: 110px;
+    height: 100%;
     display: inline-block;
-    padding: 30px;
+    padding: 25px;
 }
 
 .edittrip-container .meta-section {
