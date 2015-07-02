@@ -10,7 +10,7 @@
         <div class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 tripsmall"
              ng-repeat="trip in pc.trips | filter:pc.tripSearch">
 
-            <div class="inner-result">
+            <div class="wrapper">
                 <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
                 <div class="col-xs-12"><h3>{{trip.title}}</h3>
 

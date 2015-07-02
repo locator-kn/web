@@ -36,7 +36,6 @@
     padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
-    min-height: 95px;
 }
 
 .edittrip-container .location .img-wrapper {
@@ -46,7 +45,6 @@
 
 .edittrip-container .location:last-child {
     margin-bottom: 0;
-    min-height: 100px;
 }
 
 .edittrip-container .location .select-overlay {
@@ -54,12 +52,14 @@
     visibility: hidden;
     width: 100%;
     height: 100%;
-    float: left;
+    width: calc(100% - 94px);
     background: rgba(34, 34, 34, 0.7);
     transition-duration: 0.2s;
     position: absolute;
     top: 0;
-    left: 0;
+    border-radius: 3px;
+    right: 0;
+    border: 3px solid white;
     text-align: center;
     z-index: 1;
 }
@@ -136,9 +136,9 @@
 }
 
 .edittrip-container img.trip-selection {
-    max-height: 110px;
+    height: 100%;
     display: inline-block;
-    padding: 30px;
+    padding: 25px;
 }
 
 .edittrip-container .meta-section {
@@ -209,8 +209,7 @@
 }
 
 .edittrip-container img.location-picture {
-    height: 100px;
-    width: 100px;
+    height: 80px;
     background-size: cover;
     width: auto;
     max-width: none !important;
@@ -292,7 +291,7 @@
 .edittrip-container .missing {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
-    padding-top: 20px;
+    padding: 40px;
 }
 
 .edittrip-container .dp-highlight .ui-state-default {
@@ -462,3 +461,15 @@ span.info.err {
     padding-top: 30px;
 }
 
+.edittrip-container .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    padding-top: 30px;
+    background: black;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
