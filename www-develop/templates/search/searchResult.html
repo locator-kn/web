@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 pointer " ng-repeat="result in src.results">
-                <trip-min-view trip="result" availablemoods="src.availableMoods"></trip-min-view>
+                <trip-min-view trip="result" mood="result.mood"></trip-min-view>
             </div>
         </div>
     </div>
