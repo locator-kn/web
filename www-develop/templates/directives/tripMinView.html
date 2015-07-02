@@ -1,6 +1,9 @@
 <div class="result trip-min-view">
     <div class="inner-result">
-        <div class="row">
+        <div class="row row-container">
+            <div class="location-container" ng-show="showLocs == true">
+                <h3>Locations</h3>
+            </div>
             <div class="col-xs-12 col-sm-8 no-margin no-padding">
                 <img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
             </div>
@@ -38,9 +41,9 @@
 
                 </div>
                 <div class="result-content-bottom">
-                    <div class="col-xs-3 icon-container white-border" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
+                    <div class="col-xs-3 icon-container white-border" ng-style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
                     <div class="col-xs-3 icon-container look-icon"></div>
-                    <div class="col-xs-3 icon-container location-icon"></div>
+                    <div class="col-xs-3 icon-container location-icon" ng-click="showLocations()"></div>
                     <div class="col-xs-3 icon-container messenger-icon"></div>
                 </div>
             </div>
