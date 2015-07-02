@@ -23,11 +23,12 @@
     padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
-    min-height: 110px;
+    min-height: 95px;
 }
 
 .edittrip-container .location .img-wrapper {
     padding-right: 0;
+    border-radius: 3px;
 }
 
 .edittrip-container .location:last-child {
