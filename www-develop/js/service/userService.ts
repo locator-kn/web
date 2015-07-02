@@ -41,8 +41,8 @@ module Service {
             return this.$q((resolve, reject) => {
                 if (!data.data.picture) {
                     data.data.picture = {
-                        picture: 'images/profile.jpg',
-                        thumbnail: 'images/profile.jpg'
+                        picture: 'images/profile.png',
+                        thumbnail: 'images/profile.png'
                     }
                 }
                 resolve(data);
