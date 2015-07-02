@@ -75,6 +75,35 @@
 .messenger-container .header {
     float: left;
     width: 100%;
+    background-color: #000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: 160px 0 0 0;
+    color: #fff;
+    position: relative;
+}
+.messenger-container .header span {
+    float: right;
+    padding: 7px;
+}
+
+.messenger-container .header .trip-preview {
+    position: absolute;
+    right: 10px;
+    bottom: -30px;
+    background-color: #000;
+    z-index: 999;
+}
+.messenger-container .header .trip-preview::before {
+    content: ' ';
+    position: absolute;
+    top: -10px;
+    right: 1px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #000000 transparent;
 }
 
 .messenger-container .content {
@@ -83,16 +112,15 @@
     float: left;
     width: 100%;
     height: calc(100vh - 230px);
+    background-color: #fff;
+    padding: 10px;
 }
 
 .messenger-container .content .message {
     width: 100%;
-}
-
-.messenger-container .content .message {
     float: left;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 4px;
+    margin-top: 3px;
 }
 
 .messenger-container .content .message p {
@@ -100,7 +128,7 @@
     color: white;
     max-width: 65%;
     position: relative;
-    padding: 15px;
+    padding: 10px;
     word-wrap: break-word;
     border-radius: 5px;
 }
@@ -113,7 +141,7 @@
 
 .messenger-button {
     width: 60px;
-    height: 70px;
+    min-height: 30px;
     border: none;
     float: left;
     background: white;
@@ -128,8 +156,10 @@ button#chat_submit {
     background: white;
     border: none;
     float: left;
-    padding: 11px;
-    height: 70px;
+    padding: 8px 0 0 11px;
+    min-height: 22px;
+    line-height: 11px;
+    font-size: 11px;
 }
 
 .chat-input {
@@ -144,22 +174,24 @@ button#chat_submit {
 }
 
 span.bubble {
-    height: 20px;
-    width: 30px;
-    background-color: #33C4B7;
-    float: left;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #33c4b8 transparent transparent transparent;
     position: absolute;
-    bottom: -4px;
-    left: -16px;
-    transform: rotate(52deg);
+    left: 0;
+    bottom: -15px;
 }
 
 .out span.bubble {
-    right: -13px;
-    background-color: #ff4637;
-    left: inherit;
-    bottom: -5px;
-    transform: rotate(35deg);
+    right: 0;
+    left: auto;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #ff4837 transparent transparent;
 }
 
 .emoji-overlay {
@@ -187,4 +219,8 @@ span.bubble {
 .messenger-container .messages-wrapper {
     width: 100%;
     max-width: 353px;
+    margin: 0 0 0 100px;
+}
+.messenger-container h2 {
+    font-size: 22px;
 }

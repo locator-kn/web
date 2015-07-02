@@ -10,6 +10,8 @@ var typescript15 = require('typescript');
 var template = require('gulp-template');
 var url = require('url');
 
+var intervalMS = 500;
+
 
 var tsProjectEmily = ts.createProject({
     declarationFiles: true,
@@ -25,6 +27,7 @@ gulp.task('default', ['ts', 'html', 'css', 'lib', 'locale', 'img']);
 
 
 gulp.task('ts', function () {
+    intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
     var live = process.argv.indexOf('--live') !== -1;
     var baseIdx = process.argv.indexOf('--base');
     var production = process.argv.indexOf('--production');
@@ -109,11 +112,11 @@ gulp.task('img', function () {
 });
 
 gulp.task('watch', ['ts', 'html', 'css', 'lib', 'img', 'locale'], function () {
-    gulp.watch('./www-develop/**/*.ts', ['ts']);
-    gulp.watch('./www-develop/**/*.css', ['css']);
-    gulp.watch('./www-develop/**/*.html', ['html']);
-    gulp.watch('./www-develop/locale/**/*', ['locale']);
-    gulp.watch('./www-develop/images/**/*', ['img']);
+    gulp.watch('./www-develop/**/*.ts', { interval: intervalMS }, ['ts']);
+    gulp.watch('./www-develop/**/*.css', { interval: intervalMS }, ['css']);
+    gulp.watch('./www-develop/**/*.html', { interval: intervalMS }, ['html']);
+    gulp.watch('./www-develop/locale/**/*', { interval: intervalMS }, ['locale']);
+    gulp.watch('./www-develop/images/**/*', { interval: intervalMS }, ['img']);
 
     gulp.start('serve');
 });

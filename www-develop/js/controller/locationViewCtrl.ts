@@ -22,7 +22,7 @@ module Controller {
                     .then(resultUser => {
                             this.user = resultUser.data;
                             if (!this.user.picture) {
-                                this.profileImagePath = "/images/profile.jpg"
+                                this.profileImagePath = "/images/profile.png"
                             } else {
                                 this.profileImagePath = this.user.picture.picture;
                             }

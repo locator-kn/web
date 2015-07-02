@@ -92,8 +92,7 @@
     border: 1px solid rgb(34, 34, 34);
     float: left;
     width: 100%;
-    max-height: 400px;
-    max-height: calc(100vh - 320px);
+    height: 400px;
     overflow-y: scroll;
     border-radius: 3px;
 }
@@ -105,7 +104,6 @@
 
 .publiclocations-wrapper, .mylocations-wrapper {
     float: left;
-    padding: 5px;
     width: 100%;
 }
 
@@ -189,6 +187,7 @@
 
 .edittrip-container img.location-picture {
     height: 100px;
+    width: 100px;
     background-size: cover;
     width: auto;
     max-width: none !important;
@@ -435,3 +434,4 @@ span.info.err {
 .trip-success-container ul.success-menu li:last-child {
     border-bottom: none;
 }
+
