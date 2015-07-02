@@ -119,7 +119,7 @@ module Controller {
                         this.fillSelectedLocations();
                     }
 
-                    if (this.InsertTripService.getStateStored()) {
+                    if (this.InsertTripService.getStateStored() && this.$state.params.tmp) {
                         this.getStoredTripValues();
                     }
 
