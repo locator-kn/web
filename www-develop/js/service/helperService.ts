@@ -76,6 +76,14 @@ module Service {
             return JSON.parse(localStorage.getItem('searchContext'));
         }
 
+        getMoodByQueryName(query_name) {
+            return this.DataService.getMoods().then(result => {
+                    var allMoods = result.data;
+                    var res = this.getObjectByQueryName(allMoods, query_name);
+                    return res;
+            });
+        }
+
 
         static serviceId:string = "HelperService";
     }

@@ -6,7 +6,7 @@ module Service {
         pageSize:number = 10;
 
         constructor(private $http, private $location, private basePath, private DataService,
-                    private lodash, private $q, private UserService) {
+                    private lodash, private $q, private UserService, private HelperService) {
 
         }
 
@@ -47,6 +47,9 @@ module Service {
                         this.UserService.getUser(entry.userid).then(result => {
                             entry.username = result.data.name + ' ' + result.data.surname;
                         });
+                        this.HelperService.getMoodByQueryName(entry.moods[0]).then(result => {
+                            entry.mood = result;
+                        });
                         entry.locationCount = Object.keys(entry.locations).length;
                     });
                     return data;
@@ -74,6 +77,7 @@ module Service {
         getTripById(tripId) {
             return this.$http.get(this.basePath + '/trips/'+tripId);
         }
+
 
 
         static serviceId:string = "SearchService";

@@ -111,4 +111,8 @@
     margin-right: 10px;
 }
 
+.mylocations-container .link-to-location-view {
+    cursor: pointer;
+}
+
 

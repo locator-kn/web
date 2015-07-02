@@ -339,7 +339,7 @@ var app = angular.module('locator', deps)
         return {
             scope: {
                 trip: "=",
-                availablemoods: "="
+                mood: "="
             },
             templateUrl: 'templates/directives/tripMinView.html'
         }
