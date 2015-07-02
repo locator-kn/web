@@ -287,7 +287,7 @@ trip-min-view .result-content-box {
     background-color: rgb(34, 34, 34);
     width: 300px;
     height: 100%;
-    z-index: 50;
+    z-index: 5;
     padding: 0 5px 0 5px;
     overflow: scroll;
 }
