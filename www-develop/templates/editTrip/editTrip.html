@@ -28,77 +28,82 @@
 
         <div class="row">
 
-            <div class="col-sm-5 locationpool">
-                <h2>Locations auswählen</h2>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6 locationpool">
+                        <h2>Locations auswählen</h2>
 
-                <div class="border-wrapper">
+                        <div class="border-wrapper">
 
-                    <div class="wrap">
-                        <div class="trigger">
-                            <a ng-click="et.justShowMyLocations = false" class="pointer location-trigger"
-                               ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
-                            ng-click="et.justShowMyLocations = true" ng-class="{'active': et.justShowMyLocations}"
-                            class="pointer location-trigger">meine</a>
-                        </div>
-                        <input ng-model-options="{debounce:300}" ng-model="et.locationSearch" placeholder="Suche"
-                               type="text"
-                               name="search">
-                    </div>
-
-                    <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
-                        <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
-                             class="relative location border-radius-decent">
-
-                            <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                            </div>
-                            <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
-
-                        </div>
-                    </div>
-
-                    <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
-                        <div ng-repeat="location in et.myLocations"
-                             class="relative border-radius-decent location mylocation">
-
-
-                            <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                            <div class="wrap">
+                                <div class="trigger">
+                                    <a ng-click="et.justShowMyLocations = false" class="pointer location-trigger"
+                                       ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
+                                    ng-click="et.justShowMyLocations = true"
+                                    ng-class="{'active': et.justShowMyLocations}"
+                                    class="pointer location-trigger">meine</a>
+                                </div>
+                                <input ng-model-options="{debounce:300}" ng-model="et.locationSearch"
+                                       placeholder="Suche"
+                                       type="text"
+                                       name="search">
                             </div>
 
-                            <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+                            <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
+                                <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
+                                     class="relative location border-radius-decent">
 
+                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
+                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                                    </div>
+                                    <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                                </div>
+                            </div>
+
+                            <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
+                                <div ng-repeat="location in et.myLocations"
+                                     class="relative border-radius-decent location mylocation">
+
+
+                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
+                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
+                                    </div>
+
+                                    <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <a class="red button insert-location" ng-click="et.createNewLocation()">Location hinzufügen</a>
+                    </div>
+                    <div class="col-sm-6 locationpool selectedlocations">
+
+                        <h2>Gewählte Locations</h2>
+
+                        <div ng-class="{'err' : et.error && et.selectedLocations.length === 0}" class="border-wrapper">
+
+
+                            <div ng-if="!et.selectedLocations.length"
+                                 class="relative location mylocation missing mylocations-wrapper">
+                                <h4>keine Locations gewählt</h4>
+                            </div>
+
+
+                            <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
+
+                                <div ng-click="et.deSelectLocation(location)" class="select-overlay">
+                                    <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
+                                </div>
+
+                                <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <a class="red button insert-location" ng-click="et.createNewLocation()">Location hinzufügen</a>
-            </div>
-
-            <div class="col-sm-4 locationpool selectedlocations">
-
-               <h2>Gewählte Locations</h2>
-
-                <div ng-class="{'err' : et.error && et.selectedLocations.length === 0}" class="border-wrapper">
-
-
-                    <div ng-if="!et.selectedLocations.length"
-                         class="relative location mylocation missing mylocations-wrapper">
-                        <h4>keine Locations gewählt</h4>
-                    </div>
-
-
-                    <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
-
-                        <div ng-click="et.deSelectLocation(location)" class="select-overlay">
-                            <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
-                        </div>
-
-                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
-
-                    </div>
+                    <!-- row zu -->
                 </div>
             </div>
-
             <div class="col-sm-3 metadata">
 
                 <h2>Weitere Angaben</h2>
@@ -178,6 +183,7 @@
                 <a type="submit" class="red button next-button" ng-click="et.tripPreview()">Weiter</a>
 
             </div>
+
         </div>
 
 
@@ -237,6 +243,7 @@
 
 
                 <label>Triptitel</label>
+
                 <div class="trip-title">
                     <input ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
                            ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
