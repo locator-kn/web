@@ -90,9 +90,19 @@
 .messenger-container .header .trip-preview {
     position: absolute;
     right: 10px;
-    bottom: -30px;
+    top: 50px;
     background-color: #000;
     z-index: 999;
+    width: 100%;
+}
+.messenger-container .header .trip-preview .result-content-bottom {
+    display: none;
+}
+.messenger-container .header .trip-preview img-triplist .flexslider, .messenger-container .header .trip-min-view .result-content-wrapper {
+    height: 100px;
+}
+.messenger-container .header .trip-preview .inner-result {
+    margin: 0;
 }
 .messenger-container .header .trip-preview::before {
     content: ' ';
