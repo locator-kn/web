@@ -14,6 +14,19 @@
 
 .edittrip-container .welcome_select .red {
     margin-right: 8px;
+    border-radius: 3px;
+}
+
+.edittrip-container .welcome_select {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.edittrip-container .welcome_select.data-available {
+    opacity: 1;
+    visibility: visible;
 }
 
 .edittrip-container .location {
@@ -23,7 +36,6 @@
     padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
-    min-height: 95px;
 }
 
 .edittrip-container .location .img-wrapper {
@@ -33,7 +45,6 @@
 
 .edittrip-container .location:last-child {
     margin-bottom: 0;
-    min-height: 100px;
 }
 
 .edittrip-container .location .select-overlay {
@@ -123,9 +134,9 @@
 }
 
 .edittrip-container img.trip-selection {
-    max-height: 110px;
+    height: 100%;
     display: inline-block;
-    padding: 30px;
+    padding: 25px;
 }
 
 .edittrip-container .meta-section {
@@ -196,8 +207,7 @@
 }
 
 .edittrip-container img.location-picture {
-    height: 100px;
-    width: 100px;
+    height: 80px;
     background-size: cover;
     width: auto;
     max-width: none !important;

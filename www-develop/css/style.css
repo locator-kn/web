@@ -11,6 +11,7 @@ html {
 body {
     background: #f5f5f5;
     background-image: url('../images/background-patterns/debut_light_hell.png');
+    font-weight: 300;
 }
 
 .opener h2 {
@@ -585,9 +586,9 @@ a.close-modal {
 }
 
 .results-container .welcome_select {
-     right: auto;
-     width: auto;
- }
+    right: auto;
+    width: auto;
+}
 
 .results-container .welcome_select ul {
     top: 210px;
@@ -673,6 +674,7 @@ a.close-modal {
     width: 200px;
     text-align: center;
 }
+
 .progressbar .ng-hide {
     overflow: hidden;
     height: 0;
@@ -1131,17 +1133,17 @@ a:focus {
     z-index: 9999;
     width: 100%;
     height: 0;
-    bottom:0;
-    background-color: rgba(255,255,255,0.5);
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
     transition: all 1s;
     content: ' ';
 }
+
 .big-progress, .span {
     text-align: right;
     color: #000;
     font-size: 50px;
 }
-
 
 .description {
     font-size: 15px;
@@ -1153,6 +1155,7 @@ input.cmn-toggle-round + label {
     height: 20px;
     border-radius: 60px;
 }
+
 input.cmn-toggle-round + label:before,
 input.cmn-toggle-round + label:after {
     display: block;
@@ -1162,12 +1165,14 @@ input.cmn-toggle-round + label:after {
     bottom: 1px;
     content: "";
 }
+
 input.cmn-toggle-round + label:before {
     right: 1px;
     background-color: #D5D5D5;
     border-radius: 60px;
     transition: background 0.4s;
 }
+
 input.cmn-toggle-round + label:after {
     width: 30px;
     background-color: whitesmoke;
@@ -1175,9 +1180,11 @@ input.cmn-toggle-round + label:after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: margin 0.4s;
 }
+
 input.cmn-toggle-round:checked + label:before {
     background-color: #33c4b7;
 }
+
 input.cmn-toggle-round:checked + label:after {
     margin-left: 34px;
 }
@@ -1187,7 +1194,7 @@ input.cmn-toggle-round:checked + label:after {
     position: relative;
 }
 
-.switch [type=checkbox]  {
+.switch [type=checkbox] {
     visibility: hidden;
 }
 
@@ -1216,11 +1223,11 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .action-buttons .delete-message .button {
-     text-align: center;
-     color: black;
-     text-decoration: none;
-     color: white;
- }
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    color: white;
+}
 
 .action-buttons .delete-message .button.red {
     text-align: center;
@@ -1237,20 +1244,24 @@ input.cmn-toggle-round:checked + label:after {
 }
 
 .image-too-large {
-    color:#fff;
+    color: #fff;
     text-align: center;
 }
+
 .image-too-large h1 {
     font-size: 55px;
     font-weight: bold;
 }
+
 .image-too-large p {
     font-size: 18px;
 }
+
 .image-too-large .moodal {
     width: 60vw;
     margin-left: -30vw;
 }
+
 .image-too-large .moodal-content {
     border: 1px solid #fff;
     border-radius: 2px;
@@ -1334,7 +1345,6 @@ progress-arc.hidden-height {
     width: 100%;
 }
 
-
 .footer .separator {
     background: #ff4637;
     position: relative;
@@ -1372,23 +1382,29 @@ progress-arc.hidden-height {
     float: right;
 }
 
-
 .border-wrapper::-webkit-scrollbar {
     background: transparent;
     width: 5px;
 }
 
-
 .border-wrapper::-webkit-scrollbar-thumb {
-    background-color: rgb(200,200,200);
+    background-color: rgb(200, 200, 200);
     width: 5px;
     border-radius: 3px;
 }
+
 .img-responsive-height {
     height: 100%;
     width: auto;
 }
 
 .light-grey {
-    background-color: rgba(0,0,0, .2);
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.mylocations-container .wrapper {
+    float: left;
+    width: 100%;
+    border: 1px solid rgb(34, 34, 34);
+    border-radius: 3px;
 }
