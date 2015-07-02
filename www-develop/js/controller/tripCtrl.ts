@@ -62,7 +62,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
-            this.MessengerService.startConversation('init message TODO', this.$rootScope.userID, this.trip._id || this.trip.id);
+            this.MessengerService.startConversation('init message TODO', this.user._id, this.trip._id || this.trip.id);
 
             this.$rootScope.$broadcast('new_conversation');
         }
