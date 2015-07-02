@@ -289,6 +289,11 @@ trip-min-view .result-content-box {
     height: 100%;
     z-index: 50;
     padding: 0 5px 0 5px;
+    overflow: scroll;
+}
+
+.location-container::-webkit-scrollbar {
+    display: none;
 }
 
 .location-container .white {
