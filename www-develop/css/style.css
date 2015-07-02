@@ -1026,6 +1026,10 @@ img-triplist .flex-direction-nav a::before {
     padding-top: 20px;
 }
 
+.mylocations-container h2 {
+    margin-top: 10px;
+}
+
 .profile .cropper-container .cropper-face {
     border-radius: 50%;
 }
