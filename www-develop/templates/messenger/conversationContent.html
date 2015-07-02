@@ -9,7 +9,7 @@
 
     <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
         <div class="header">
-            <span class="trip pointer"  ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']">Trip</span>
+            <span class="trip pointer" ng-if="mc.selectedConversation.trip" ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']">Trip</span>
             <div class="trip-preview" ng-if="mc.selectedConversation['tripPopoverOpen']">
                 <trip-min-view trip="mc.selectedConversation.tripObject"></trip-min-view>
             </div>
