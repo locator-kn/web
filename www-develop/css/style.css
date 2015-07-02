@@ -762,6 +762,10 @@ textarea {
     border-radius: 50%;
 }
 
+.small-border-radius {
+    border-radius: 3px;
+}
+
 .profile-image {
     width: 150px;
     height: 150px;
@@ -1411,4 +1415,8 @@ progress-arc.hidden-height {
     width: 100%;
     border: 1px solid rgb(34, 34, 34);
     border-radius: 3px;
+}
+
+.mytrips-container .tripsmall {
+    padding-bottom: 15px;
 }
