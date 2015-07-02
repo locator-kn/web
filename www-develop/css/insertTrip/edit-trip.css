@@ -291,7 +291,7 @@
 .edittrip-container .missing {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
-    padding-top: 20px;
+    padding: 40px;
 }
 
 .edittrip-container .dp-highlight .ui-state-default {
@@ -461,3 +461,15 @@ span.info.err {
     padding-top: 30px;
 }
 
+.edittrip-container .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    padding-top: 30px;
+    background: black;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
