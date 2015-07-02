@@ -2,8 +2,17 @@
     <div class="inner-result">
         <div class="row row-container">
             <div class="location-container" ng-show="showLocs == true">
-                <h3>Locations</h3>
+                <h3 class="white">Locations</h3>
+                <div class="edittrip-container">
+                    <div class="mylocations-wrapper">
+                        <div ng-repeat="location in locations" class="relative location border-radius-decent trip-location-container">
+                            <div class="pointer" ng-include="'templates/editTrip/singleTrip.html'" include-replace>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="col-xs-12 col-sm-8 no-margin no-padding">
                 <img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
             </div>
