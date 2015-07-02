@@ -1,39 +1,41 @@
-<div ng-if="mc.selectedConversation === null" class="content-wrapper">
-    <div class="header">
-        <h2>Select a conversation!</h2>
+<div class="messages-wrapper">
+    <div ng-if="mc.selectedConversation === null" class="content-wrapper">
+        <div class="header">
+            <h2>Select a conversation!</h2>
+        </div>
+
     </div>
 
-</div>
 
+    <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
+        <div class="header" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
+            <img
+                ng-src="{{mc.selectedConversation.opponent.picture.picture}}"
+                class="md-avatar"/>
 
-<div ng-if="mc.selectedConversation !== null" class="content-wrapper">
-    <div class="header" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
-        <img
-            ng-src="{{mc.selectedConversation.opponent.picture.picture}}"
-            class="md-avatar"/>
+            <h2>{{mc.selectedConversation.opponent.name}}</h2>
+        </div>
 
-        <h2>{{mc.selectedConversation.opponent.name}}</h2>
-    </div>
+        <div class="content" scroll-glue>
+            <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messagesHash[mc.selectedConversation._id] track by $index">
+                <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
+                    <span class="bubble"></span>
+                </p>
 
-    <div class="content" scroll-glue>
-        <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messagesHash[mc.selectedConversation._id] track by $index">
-            <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
-                <span class="bubble"></span>
-            </p>
-
+            </div>
         </div>
     </div>
+
+    <form class="relative chat-input" ng-if="mc.selectedConversation != null">
+
+        <div class="emoji-overlay" ng-if="mc.showEmojis">
+
+            <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)" ng-repeat="item in mc.emojis"></span>
+
+        </div>
+        <textarea id="chat_box" ng-model="mc.textbox" ng-keydown="mc.sendMessage($event)"></textarea>
+        <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji"><img class="emoji-icon" src="./images/icons/face.png"></button>
+        <!--<button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>-->
+    </form>
+
 </div>
-
-<form class="relative chat-input" ng-if="mc.selectedConversation != null">
-
-    <div class="emoji-overlay" ng-if="mc.showEmojis">
-
-        <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)" ng-repeat="item in mc.emojis"></span>
-
-    </div>
-    <textarea id="chat_box" ng-model="mc.textbox" ng-keydown="mc.sendMessage($event)"></textarea>
-    <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji"><img class="emoji-icon" src="./images/icons/face.png"></button>
-    <!--<button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>-->
-</form>
-
