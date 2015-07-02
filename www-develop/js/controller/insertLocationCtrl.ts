@@ -40,7 +40,7 @@ module Controller {
 
         me:any = {};
 
-        constructor(private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedPlaceDetails;
@@ -245,8 +245,19 @@ module Controller {
             };
 
             this.LocationService.saveLocation(formValues, this.documentId).
-                then(() => {
-                    this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
+                then((result) => {
+                    if (this.$state.params.tmp) {
+
+                        var data = this.InsertTripService.getAllValues();
+                        this.InsertTripService.newCreatedLocationId = result.data.id;
+                        debugger;
+
+                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title});
+
+                    } else {
+                        this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
+                    }
+
                 })
                 .catch(() => {
                     debugger
