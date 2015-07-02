@@ -1,6 +1,8 @@
 interface SelectedConversation {
     _id:string;
     opponent:any;
+    trip?:string;
+    tripObject?:any;
 }
 
 
@@ -21,7 +23,7 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime, private UtilityService) {
+        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime, private UtilityService, private TripService) {
 
             this.getConversations();
 
@@ -113,6 +115,11 @@ module Controller {
                 // if the clicked conversation is unread, send ack to server
                 if(!this.selectedConversation[this.$rootScope.userID + '_read']) {
                     this.emitAck(conversation.opponent._id, conversation._id)
+                }
+                if(this.selectedConversation.trip) {
+                    this.TripService.getTripById(this.selectedConversation.trip).then(result => {
+                        this.selectedConversation.tripObject = result.data;
+                    })
                 }
             });
         }
