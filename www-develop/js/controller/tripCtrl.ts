@@ -63,7 +63,7 @@ module Controller {
                 return this.$rootScope.$emit('openLoginDialog');
             }
 
-            this.$rootScope.$emit('new_conversation');
+            this.$rootScope.$broadcast('new_conversation');
         }
 
 
