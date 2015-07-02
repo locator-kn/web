@@ -87,12 +87,9 @@
 
 .messenger-container .content .message {
     width: 100%;
-}
-
-.messenger-container .content .message {
     float: left;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 4px;
+    margin-top: 3px;
 }
 
 .messenger-container .content .message p {
