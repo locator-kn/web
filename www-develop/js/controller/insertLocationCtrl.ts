@@ -250,9 +250,8 @@ module Controller {
 
                         var data = this.InsertTripService.getAllValues();
                         this.InsertTripService.newCreatedLocationId = result.data.id;
-                        debugger;
 
-                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title});
+                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title, tmp: 'true'});
 
                     } else {
                         this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});

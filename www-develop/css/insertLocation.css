@@ -243,4 +243,7 @@ tags-input .tags.focused {
     box-shadow: 1px 1px 1px 0 #d3d3d3 inset !important;
 }
 
+tags-input.error .tags {
+    border: 2px solid #ff4637 !important;
+}
 

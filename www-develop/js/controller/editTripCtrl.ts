@@ -86,6 +86,7 @@ module Controller {
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
+                    this.selectedLocations = [];
                     if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
                 }
             });
@@ -119,7 +120,7 @@ module Controller {
                         this.fillSelectedLocations();
                     }
 
-                    if (this.InsertTripService.getStateStored()) {
+                    if (this.InsertTripService.getStateStored() && this.$state.params.tmp) {
                         this.getStoredTripValues();
                     }
 
@@ -321,9 +322,10 @@ module Controller {
 
                 this.LocationService.getLocationById(key).then(result => {
                     this.selectLocation(result.data);
-                })
+                });
 
             }
+            this.uniqueList(this.selectedLocations);
         }
 
         //create new location and save context
@@ -369,14 +371,16 @@ module Controller {
 
             this.LocationService.getLocationById(this.InsertTripService.newCreatedLocationId).then(result => {
                 this.selectLocation(result.data);
-                this.selectedLocations = this.lodash.uniq(this.selectedLocations, '_id');
-
-                debugger;
+                this.selectedLocations = this.uniqueList(this.selectedLocations);
             });
 
 
             //set false on successful fetch
             this.InsertTripService.setStateStored(false);
+        }
+
+        uniqueList(list) {
+            return this.lodash.uniq(list, '_id');
         }
 
 
