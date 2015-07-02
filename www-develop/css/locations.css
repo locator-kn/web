@@ -107,4 +107,8 @@
     height: 50px;
 }
 
+.locationview-container .further-links:first-child {
+    margin-right: 10px;
+}
+
 
