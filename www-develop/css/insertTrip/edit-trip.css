@@ -46,7 +46,6 @@
 
 .edittrip-container .location:last-child {
     margin-bottom: 0;
-    min-height: 100px;
 }
 
 .edittrip-container .location .select-overlay {
@@ -209,8 +208,7 @@
 }
 
 .edittrip-container img.location-picture {
-    height: 100px;
-    width: 100px;
+    height: 80px;
     background-size: cover;
     width: auto;
     max-width: none !important;
