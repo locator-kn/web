@@ -22,9 +22,15 @@
                         Von <span class="black"><strong>{{trip.username}}</strong></span></p>
 
                     <div class="day-amount black">
-                        <span><strong>{{trip.days}}</strong> Tag</span><span ng-show="trip.days > 1">e</span>
-                        <span> | <strong>{{trip.locationCount}}</strong> Location</span><span ng-show="trip.locationCount > 1">s</span>
-                        <span> | <strong>{{trip.persons}}</strong> Person</span><span ng-show="trip.persons > 1">en</span>
+                        <span><strong>{{trip.days}} </strong>
+                            <ng-pluralize count="trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize>
+                        </span>
+                        <span> | <strong>{{trip.locationCount}} </strong>
+                            <ng-pluralize count="trip.locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                        </span>
+                        <span> | <strong>{{trip.persons}} </strong>
+                            <ng-pluralize count="trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
+                        </span>
                     </div>
                     <br>
 
