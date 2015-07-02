@@ -46,9 +46,9 @@ module Service {
 
         startConversation(msg:string, userId:string, tripId?:string) {
             var newCon:any = {
-                user_id: userId
+                user_id: userId,
+                message: msg
             };
-            newCon.message = msg;
             newCon.trip = tripId;
 
             return this.$http.post(this.basePathRealtime + '/conversations', newCon);
