@@ -2,6 +2,7 @@ module Service {
     export class InsertTripService {
         stateStored:any = false;
         allValues:any = {};
+        newCreatedLocationId;
 
         constructor(private $rootScope) {
         }
