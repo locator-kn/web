@@ -14,6 +14,7 @@
 
 .edittrip-container .welcome_select .red {
     margin-right: 8px;
+    border-radius: 3px;
 }
 
 .edittrip-container .location {
