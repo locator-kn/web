@@ -110,7 +110,7 @@
 
 .messenger-button {
     width: 60px;
-    height: 70px;
+    min-height: 30px;
     border: none;
     float: left;
     background: white;
@@ -125,8 +125,10 @@ button#chat_submit {
     background: white;
     border: none;
     float: left;
-    padding: 11px;
-    height: 70px;
+    padding: 8px 0 0 11px;
+    min-height: 22px;
+    line-height: 11px;
+    font-size: 11px;
 }
 
 .chat-input {
