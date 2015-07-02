@@ -101,9 +101,28 @@
 .messenger-container .header .trip-preview img-triplist .flexslider, .messenger-container .header .trip-min-view .result-content-wrapper {
     height: 100px;
 }
+.messenger-container .header trip-min-view span {
+    float: left;
+    padding: 2px;
+}
 .messenger-container .header .trip-preview .inner-result {
     margin: 0;
 }
+.messenger-container .header trip-min-view .result-content-wrapper h3.result-trip-title {
+    font-size: 15px;
+}
+.messenger-container .header trip-min-view .result-content-wrapper, .messenger-container .header trip-min-view .result-content-wrapper .result-user-info {
+    font-size: 10px;
+}
+@media (min-width: 768px) {
+    .col-sm-8 {
+        width: 60%;
+    }
+    .col-sm-4 {
+        width: 40%;
+    }
+}
+
 .messenger-container .header .trip-preview::before {
     content: ' ';
     position: absolute;
