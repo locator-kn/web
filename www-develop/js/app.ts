@@ -138,7 +138,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('editTrip', {
-                url: "/edit-trip/:tripId?city",
+                url: "/edit-trip/:tripId?city&tmp",
                 templateUrl: "templates/editTrip/editTrip.html",
                 reloadOnSearch: false
             })

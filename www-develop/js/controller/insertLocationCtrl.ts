@@ -250,9 +250,8 @@ module Controller {
 
                         var data = this.InsertTripService.getAllValues();
                         this.InsertTripService.newCreatedLocationId = result.data.id;
-                        debugger;
 
-                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title});
+                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title, tmp: 'true'});
 
                     } else {
                         this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
@@ -276,8 +275,7 @@ module Controller {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
-                            budget: result.data.budget,
-                            city: {}
+                            budget: result.data.budget
                         };
 
                         //handle tags for tagging directive
@@ -316,12 +314,12 @@ module Controller {
             var long;
 
             lat = this.selectedPlaceDetails.geometry.location.A;
-            long = this.selectedPlaceDetails.geometry.location.F
+            long = this.selectedPlaceDetails.geometry.location.F;
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = long;
-            this.map.zoom = 15,
-                this.map.center.latitude = lat;
+            this.map.zoom = 15;
+            this.map.center.latitude = lat;
             this.map.center.longitude = long;
             this.mapMarkerSet = true;
 
@@ -336,9 +334,9 @@ module Controller {
                 this.gpsLoading = false;
 
                 var lat = data.coords.latitude;
-                var long = data.coords.longitude
-                this.map.zoom = 15,
-                    this.map.clickedMarker.latitude = lat;
+                var long = data.coords.longitude;
+                this.map.zoom = 15;
+                this.map.clickedMarker.latitude = lat;
                 this.map.clickedMarker.longitude = long;
 
                 this.map.center.latitude = lat;
