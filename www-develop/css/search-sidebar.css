@@ -220,6 +220,7 @@ trip-min-view .result-content-box {
     border-left: none;
     border-right: none;
     padding: 5px 5px 0 5px;
+    color: white;
 }
 
 .moods-container {
@@ -232,7 +233,6 @@ trip-min-view .result-content-box {
     float: left;
     margin: 20px 20px 0 0;
     width: 100%;
-    color: white;
     border: none;
 }
 
@@ -288,6 +288,11 @@ trip-min-view .result-content-box {
     width: 300px;
     height: 100%;
     z-index: 50;
+    padding: 0 5px 0 5px;
+}
+
+.location-container .white {
+    color: white;
 }
 
 .trip-min-view .row-container {
