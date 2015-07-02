@@ -80,10 +80,16 @@
     border-top-right-radius: 5px;
     margin: 160px 0 0 0;
     color: #fff;
+    position: relative;
 }
 .messenger-container .header span {
     float: right;
     padding: 7px;
+}
+
+.messenger-container .header .trip-preview {
+    position: absolute;
+    right: 10px;
 }
 
 .messenger-container .content {
