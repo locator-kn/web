@@ -13,7 +13,7 @@ module Controller {
 
         slides:string[] = [];
 
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService) {
+        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -38,6 +38,11 @@ module Controller {
                         }
                     }
                     this.slides = this.TripService.getHeaderImagesByTrip(this.trip);
+
+                    this.HelperService.getMoodByQueryName(this.trip.moods[0])
+                        .then(result => {
+                            this.trip.mood = result;
+                        });
 
                 });
 
