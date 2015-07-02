@@ -40,15 +40,29 @@
 .messenger-container .conversations .item.active {
     background-color: #33c4b7;
     position: relative;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 .messenger-container .conversations .item.active::after {
-    background-color: #33c4b7;
     content: ' ';
-    width: 20px;
-    height: 100%;
     position: absolute;
     right: -20px;
     top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 29.5px 0 29.5px 14px;
+    border-color: transparent transparent transparent #33c4b7;
+}
+
+.messenger-container .conversations .item.active::before {
+    content: ' ';
+    position: absolute;
+    right: -6px;
+    top: 0;
+    width: 7px;
+    height: 100%;
+    background-color: #33c4b7;
 }
 
 .messenger-container .conversations .item.unread {
