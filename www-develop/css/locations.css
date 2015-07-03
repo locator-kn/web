@@ -106,7 +106,7 @@
     border-radius: 3px;
 }
 
-.locationview-container .further-links img {
+/*.locationview-container .further-links img {
     width: 50px;
     height: 50px;
 }
@@ -117,6 +117,24 @@
 
 .mylocations-container .link-to-location-view {
     cursor: pointer;
+}*/
+.locationview-container .link-container {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    width: 120px;
+    height: 80px;
+    background: rgb(34, 34, 34);
+    border-radius: 3px 3px 0px 0px;
+    float: right;
+    padding: 15px 10px 15px 10px;
 }
 
+.locationview-container .link-container .all-locations {
+    background-size: 50px 50px;
+}
+
+.locationview-container .link-container .messenger {
+    background-size: 50px 50px;
+}
 
