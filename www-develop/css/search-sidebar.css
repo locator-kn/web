@@ -329,5 +329,30 @@ trip-min-view .result-content-box {
     border: none;
 }
 
+.setting-selection-container input.cmn-toggle-round:checked + label:before {
+    background-color: white;
+}
+
+.setting-selection-container input.cmn-toggle-round + label:after {
+    width: 30px;
+    background-color: #33c4b7;
+    border-radius: 100%;
+    transition: margin 0.4s;
+    border: solid white 3px;
+}
+
+.setting-selection-container input.cmn-toggle-round + label:before {
+    right: 1px;
+    background-color: #33c4b7;
+    border-radius: 60px;
+    transition: background 0.4s;
+    border: solid white 3px;
+}
+
+.setting-selection-container span {
+    display: block;
+    padding-bottom: 5px;
+}
+
 
 
