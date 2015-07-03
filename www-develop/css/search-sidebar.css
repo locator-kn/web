@@ -62,8 +62,12 @@ html, body {
 }
 
 .filter-container {
-    padding: 10px 15px 30px 15px;
+    padding: 10px 15px 15px 15px;
     color: white;
+}
+
+.filter-container hr {
+    margin: 10px -15px 0px -15px;
 }
 
 .input-transparent {
