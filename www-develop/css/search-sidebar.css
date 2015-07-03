@@ -17,6 +17,11 @@
     background-color: rgb(85, 212, 205);
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
+    background-image: url(../images/icons/filter_weiss.png);
+}
+
+.item-black {
+    background-image: url(../images/icons/filter_schwarz.png);
 }
 
 .settings {
@@ -58,6 +63,7 @@ html, body {
 
 .filter-container {
     padding: 10px 15px 30px 15px;
+    color: white;
 }
 
 .input-transparent {
@@ -72,7 +78,7 @@ html, body {
 
 .circle {
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid white;
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -83,16 +89,16 @@ html, body {
 }
 
 .circle-selected {
-    background-color: black;
+    background-color: white;
     color: #33c4b7;
 }
 
 .search-menu .item {
     width: 100px;
     height: 100px;
-    background-image: url(../images/icons/regler.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 50px 50px;
 }
 
 .city-suggestion p {
