@@ -54,7 +54,6 @@ module Controller {
                         }
                     );
                 });
-            console.info(this.results);
         }
 
         emitResult(result) {

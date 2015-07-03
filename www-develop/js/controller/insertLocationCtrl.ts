@@ -40,7 +40,7 @@ module Controller {
 
         me:any = {};
 
-        constructor(private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedPlaceDetails;
@@ -245,8 +245,18 @@ module Controller {
             };
 
             this.LocationService.saveLocation(formValues, this.documentId).
-                then(() => {
-                    this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
+                then((result) => {
+                    if (this.$state.params.tmp) {
+
+                        var data = this.InsertTripService.getAllValues();
+                        this.InsertTripService.newCreatedLocationId = result.data.id;
+
+                        this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title, tmp: 'true'});
+
+                    } else {
+                        this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
+                    }
+
                 })
                 .catch(() => {
                     debugger
@@ -265,8 +275,7 @@ module Controller {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
-                            budget: result.data.budget,
-                            city: {}
+                            budget: result.data.budget
                         };
 
                         //handle tags for tagging directive
@@ -305,12 +314,12 @@ module Controller {
             var long;
 
             lat = this.selectedPlaceDetails.geometry.location.A;
-            long = this.selectedPlaceDetails.geometry.location.F
+            long = this.selectedPlaceDetails.geometry.location.F;
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = long;
-            this.map.zoom = 15,
-                this.map.center.latitude = lat;
+            this.map.zoom = 15;
+            this.map.center.latitude = lat;
             this.map.center.longitude = long;
             this.mapMarkerSet = true;
 
@@ -325,9 +334,9 @@ module Controller {
                 this.gpsLoading = false;
 
                 var lat = data.coords.latitude;
-                var long = data.coords.longitude
-                this.map.zoom = 15,
-                    this.map.clickedMarker.latitude = lat;
+                var long = data.coords.longitude;
+                this.map.zoom = 15;
+                this.map.clickedMarker.latitude = lat;
                 this.map.clickedMarker.longitude = long;
 
                 this.map.center.latitude = lat;

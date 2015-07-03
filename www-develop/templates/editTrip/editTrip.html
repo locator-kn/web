@@ -1,7 +1,7 @@
 <div class="edittrip-container container" ng-controller="EditTripCtrl as et">
     <div class="height-wrapper">
         <div class="row">
-            <div class="col-xs-12 searchbar welcome_select">
+            <div ng-class="{'data-available': et.dataAvailable}" class="col-xs-12 searchbar welcome_select">
 
 
             <span class="relative red"><span class="margin-right">Du bietest</span>
@@ -51,7 +51,7 @@
 
                             <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
                                 <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
-                                     class="relative location border-radius-decent">
+                                     ng-class="{'opened': location.opened}" class="relative location border-radius-decent">
 
                                     <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
                                         <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
@@ -63,7 +63,7 @@
 
                             <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
                                 <div ng-repeat="location in et.myLocations"
-                                     class="relative border-radius-decent location mylocation">
+                                     ng-class="{'opened': location.opened}" class="relative border-radius-decent location mylocation">
 
 
                                     <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
@@ -90,13 +90,13 @@
                             </div>
 
 
-                            <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
+                            <div ng-repeat="location in et.selectedLocations" ng-class="{'opened': location.opened}" class="relative location mylocation">
 
-                                <div ng-click="et.deSelectLocation(location)" class="select-overlay">
+                                <div ng-click="et.deSelectLocation(location)" class="pointer select-overlay">
                                     <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
                                 </div>
 
-                                <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+                                <div ng-include="'templates/editTrip/selected-singleTrip.html'" include-replace></div>
 
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                     <!-- row zu -->
                 </div>
             </div>
-            <div class="col-sm-3 metadata">
+            <div ng-class="{'accomodation': et.tripMeta.accommodation}" class="col-sm-3 metadata">
 
                 <h2>Weitere Angaben</h2>
 

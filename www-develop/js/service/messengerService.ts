@@ -44,13 +44,20 @@ module Service {
             )
         }
 
-        startConversation(msg, userId) {
-            return this.$http.post(this.basePathRealtime + '/conversations',
-                {
-                    "message": msg,
-                    "user_id": userId
-                }
-            )
+        startConversation(msg:string, userId:string, tripId?:string) {
+            var newCon:any = {
+                user_id: userId,
+                message: msg
+            };
+            newCon.trip = tripId;
+
+            return this.$http.post(this.basePathRealtime + '/conversations', newCon);
+        }
+
+        getInitMessage(userOwner, trip) {
+            var tripUsername = userOwner.name;
+            return 'Hi ' + tripUsername + '! Ich möchte an deinem Trip "'+ trip.title +'" teilnehmen.';
+
         }
 
         static serviceId:string = "MessengerService";

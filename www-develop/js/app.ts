@@ -138,7 +138,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('editTrip', {
-                url: "/edit-trip/:tripId",
+                url: "/edit-trip/:tripId?city&tmp",
                 templateUrl: "templates/editTrip/editTrip.html",
                 reloadOnSearch: false
             })
@@ -148,9 +148,8 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/editTrip/editTripSuccess.html"
             })
 
-
             .state('insertLocation', {
-                url: "/insert-location",
+                url: "/insert-location?tmp",
                 templateUrl: "templates/location/insertLocation.html"
             })
 
@@ -340,7 +339,26 @@ var app = angular.module('locator', deps)
         return {
             scope: {
                 trip: "=",
-                availablemoods: "="
+                mood: "=",
+            },
+            controller: function ($scope, LocationService) {
+                $scope.showLocs = false;
+                $scope.locations = []
+                $scope.showLocations = function() {
+                    $scope.showLocs = !$scope.showLocs;
+                    if($scope.locations.length == 0) {
+                        var locationsHash = $scope.trip.locations;
+                        for (var key in locationsHash) {
+                            if (locationsHash.hasOwnProperty(key)) {
+                                LocationService.getLocationById(key)
+                                    .then(result => {
+                                        this.locations.push(result.data);
+                                    });
+                            }
+                        }
+                    }
+                };
+
             },
             templateUrl: 'templates/directives/tripMinView.html'
         }

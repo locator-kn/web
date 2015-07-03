@@ -11,7 +11,7 @@
     <div class="row fx-fade-up fx-speed-3000">
         <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-            <div class="inner-result">
+            <div class="wrapper">
                 <div class="link-to-location-view" ng-click="pc.showLocation(location)">
                     <img class="img-responsive"
                          ng-src="{{location.images.picture}}">
@@ -19,11 +19,13 @@
                     <div class="content">
                         <div class="row">
                             <div class="col-sm-5">
-                                <h3>{{location.city.title}}</h3>
+
                             </div>
 
-                            <div class="col-sm-7">
-                                <h3>{{location.title}}</h3>
+                            <div class="col-xs-12">
+                                <h2>{{location.title}}</h2>
+
+                                <h3>{{location.city.title}}</h3>
 
                                 <p clas="description">{{location.description}}</p>
                             </div>
@@ -35,7 +37,8 @@
                     <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
-                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder" ng-class="{'big-padding': pc.locationReallyDelete}">
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder"
+                     ng-class="{'big-padding': pc.locationReallyDelete}">
                     <span class="toggle-label">Location sichtbar</span>
 
                     <div class="switch">
@@ -56,7 +59,8 @@
                         <div ng-hide="!pc.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
                             <p>Die Location wird in einem Trip verwendet. Wirklich löschen?</p>
                             <a ng-click="pc.deleteLocationForce(location)" class="red button locator-btn pointer">Ja</a>
-                            <a ng-click="pc.locationReallyDelete = !pc.locationReallyDelete" class="cyan button locator-btn pointer">Nein</a>
+                            <a ng-click="pc.locationReallyDelete = !pc.locationReallyDelete"
+                               class="cyan button locator-btn pointer">Nein</a>
                         </div>
 
                     <span ui-sref="editLocation({locationId: location._id})" class="action-button pointer edit"><img
@@ -71,7 +75,7 @@
             </div>
         </div>
         <div class="col-xs-12">
-            <div ui-sref="insertLocation" class="pointer col-xs-12 empty-locations">
+            <div ui-sref="insertLocation" class="small-border-radius pointer col-xs-12 empty-locations">
 
                 <img ng-src="images/icons/header/location.png">
                 <span>Location hinzufügen</span>

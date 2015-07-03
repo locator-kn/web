@@ -215,6 +215,7 @@ span.green {
     background-color: #33c4b7;
     padding: 3px 10px;
     margin: 5px 0;
+    border-radius: 3px;
 }
 
 span.red {
@@ -222,6 +223,7 @@ span.red {
     background-color: #ff4637;
     padding: 3px 10px;
     margin: 5px 0;
+    border-radius: 3px;
 }
 
 h2#sub-headline {

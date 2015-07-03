@@ -39,8 +39,11 @@
     margin-left: -90px;
     width: 80px;
     height: 80px;
-    background-color: pink;
+    background: rgb(34, 34, 34);
     border-radius: 3px 3px 0px 0px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .btn-mood-container {

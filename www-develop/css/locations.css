@@ -59,6 +59,10 @@
     border-top: 2px solid rgb(193, 195, 195);
 }
 
+.mylocations-container .locationborder {
+    border-top: 1px solid rgb(34,34,34);
+}
+
 .location-tags .tag {
     background: rgb(49, 47, 48);
     border-radius: 10px;

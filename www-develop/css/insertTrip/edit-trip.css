@@ -14,6 +14,19 @@
 
 .edittrip-container .welcome_select .red {
     margin-right: 8px;
+    border-radius: 3px;
+}
+
+.edittrip-container .welcome_select {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.edittrip-container .welcome_select.data-available {
+    opacity: 1;
+    visibility: visible;
 }
 
 .edittrip-container .location {
@@ -23,16 +36,15 @@
     padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
-    min-height: 110px;
 }
 
 .edittrip-container .location .img-wrapper {
     padding-right: 0;
+    border-radius: 3px;
 }
 
 .edittrip-container .location:last-child {
     margin-bottom: 0;
-    min-height: 100px;
 }
 
 .edittrip-container .location .select-overlay {
@@ -40,12 +52,14 @@
     visibility: hidden;
     width: 100%;
     height: 100%;
-    float: left;
+    width: calc(100% - 94px);
     background: rgba(34, 34, 34, 0.7);
     transition-duration: 0.2s;
     position: absolute;
     top: 0;
-    left: 0;
+    border-radius: 3px;
+    right: 0;
+    border: 3px solid white;
     text-align: center;
     z-index: 1;
 }
@@ -97,6 +111,15 @@
     border-radius: 3px;
 }
 
+.edittrip-container .metadata .border-wrapper {
+    height: 400px;
+    transition-duration: 0.3s;
+}
+
+.edittrip-container .metadata.accomodation .border-wrapper {
+    height: 560px;
+}
+
 .edittrip-container .border-wrapper.err {
     background-color: rgba(255, 246, 245, 1);
     border: 1px solid rgb(255, 70, 55);
@@ -113,9 +136,9 @@
 }
 
 .edittrip-container img.trip-selection {
-    max-height: 110px;
+    height: 100%;
     display: inline-block;
-    padding: 30px;
+    padding: 25px;
 }
 
 .edittrip-container .meta-section {
@@ -136,8 +159,8 @@
 
 .edittrip-container .trip-title {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .edittrip-container .trip-title input {
@@ -186,8 +209,7 @@
 }
 
 .edittrip-container img.location-picture {
-    height: 100px;
-    width: 100px;
+    height: 80px;
     background-size: cover;
     width: auto;
     max-width: none !important;
@@ -269,7 +291,7 @@
 .edittrip-container .missing {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
-    padding-top: 20px;
+    padding: 40px;
 }
 
 .edittrip-container .dp-highlight .ui-state-default {
@@ -435,3 +457,57 @@ span.info.err {
     border-bottom: none;
 }
 
+.bottom-wrapper {
+    padding-top: 30px;
+}
+
+.edittrip-container .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    padding-top: 30px;
+    background: black;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.edittrip-container .opened .img-wrapper {
+    width: 100%;
+    padding-right: 15px;
+}
+
+.edittrip-container .opened .content-wrapper {
+    width: 100%;
+}
+
+.edittrip-container .opened .img-wrapper img {
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.edittrip-container .location.opened .select-overlay {
+    display: none !important;
+}
+
+.edittrip-container .controls .control-button {
+    width: 50px;
+    height: 50px;
+}
+
+.edittrip-container .controls {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.edittrip-container .opened .controls {
+    display: block;
+}

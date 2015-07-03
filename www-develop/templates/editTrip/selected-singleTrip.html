@@ -1,13 +1,13 @@
 <div class="row relative">
 
     <div class="controls">
-        <a ng-click="et.selectLocation(location)"><img class="pointer control-button insert-location"
-                                                          src="images/icons/trip/plus.png"></a>
+        <a ng-click="et.deSelectLocation(location)"><img class="pointer control-button insert-location"
+                                                          src="images/icons/trip/cross.png"></a>
     </div>
 
     <div class="col-xs-3 img-wrapper"><img
         ng-click="et.triggerPrevew(location)"
-        ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}"
+        ng-src="http://locator-app.com{{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}"
         class="pointer location-picture img-responsive border-radius-decent"/>
     </div>
 

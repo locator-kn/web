@@ -29,7 +29,6 @@ module Controller {
 
         justShowMyLocations:boolean = false;
 
-
         cities:any;
         selectedCity:any;
 
@@ -75,6 +74,10 @@ module Controller {
                         this.fetchLocations();
                     }
 
+                    if (this.$state.params.city) {
+                        this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
+                    }
+
                     this.initEdit();
                 });
 
@@ -83,24 +86,10 @@ module Controller {
             }), (newVal, oldVal) => {
                 if (newVal != oldVal) {
                     this.fetchLocations();
+                    this.selectedLocations = [];
                     if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
                 }
             });
-
-
-
-
-            // Datevalidation is optional
-
-            /*$scope.$watchCollection(angular.bind(this, () => {
-             return [this.tripMeta.start_date, this.tripMeta.end_date];
-             }), (newVal, oldVal) => {
-             if (newVal != oldVal) {
-             this.dateValidation();
-             }
-             });*/
-
-
         }
 
         toggleAccommodation() {
@@ -124,12 +113,17 @@ module Controller {
                     this.publicLocations = responsesArray[0].data;
                     this.myLocations = responsesArray[1].data;
 
-                    if (this.$state.params.tripId) {
 
+
+                    if (this.$state.params.tripId) {
                         //get preselected trips
                         this.fillSelectedLocations();
-
                     }
+
+                    if (this.InsertTripService.getStateStored() && this.$state.params.tmp) {
+                        this.getStoredTripValues();
+                    }
+
                 });
 
 
@@ -139,6 +133,8 @@ module Controller {
 
             var _public = this._removeLocation(this.publicLocations, location);
             var _private = this._removeLocation(this.myLocations, location);
+
+            location.opened = false;
 
             if (_public && _private) {
                 this._addLocation(this.selectedLocations, location, 'both');
@@ -328,9 +324,10 @@ module Controller {
 
                 this.LocationService.getLocationById(key).then(result => {
                     this.selectLocation(result.data);
-                })
+                });
 
             }
+            this.uniqueList(this.selectedLocations);
         }
 
         //create new location and save context
@@ -341,13 +338,16 @@ module Controller {
                 city: this.selectedCity,
                 day: this.selectedDay,
                 mood: this.selectedMood,
-                locations: this.selectedLocations
+                locations: this.selectedLocations,
+                accommodation_equipment: this.tripMeta.accommodation_equipment,
+                accomodation: this.tripMeta.accomodation,
+                tripId: this.tripId
             };
 
             this.InsertTripService.setStateStored(true);
             this.InsertTripService.storeAllValues(data);
 
-            this.$state.go('insertLocation');
+            this.$state.go('insertLocation', {tmp: 'true'});
         }
 
 
@@ -356,20 +356,42 @@ module Controller {
             var data = this.InsertTripService.getAllValues();
 
             this.tripMeta = data.formData;
-            this.selectedCity = data.city;
             this.selectedDay = data.day;
             this.selectedMood = data.mood;
 
+            this.editDataAvailable = true;
+            this.datePickerOnLinked = true;
+
+            this.tripMeta.accommodation_equipment = data.accommodation_equipment;
+            this.tripMeta.accommodation = data.accomodation;
+
+
             //select stored locations
             data.locations.forEach(item => {
-               this.selectLocation(item);
+                this.selectLocation(item);
             });
+
+            this.LocationService.getLocationById(this.InsertTripService.newCreatedLocationId).then(result => {
+                this.selectLocation(result.data);
+                this.selectedLocations = this.uniqueList(this.selectedLocations);
+            });
+
 
             //set false on successful fetch
             this.InsertTripService.setStateStored(false);
+        }
 
-            debugger;
+        uniqueList(list) {
+            return this.lodash.uniq(list, '_id');
+        }
 
+        triggerPrevew(location) {
+
+            if (!location.opened) {
+                location.opened = true;
+            } else {
+                location.opened = !location.opened;
+            }
         }
 
 
