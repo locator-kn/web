@@ -1401,6 +1401,18 @@ progress-arc.hidden-height {
     border-radius: 3px;
 }
 
+
+.locator-scroller::-webkit-scrollbar {
+    background: transparent;
+    width: 5px;
+}
+
+.locator-scroller::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    width: 5px;
+    border-radius: 3px;
+}
+
 .img-responsive-height {
     height: 100%;
     width: auto;
