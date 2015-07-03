@@ -30,12 +30,11 @@ module Controller {
             });
         }
 
-        moveToUserLocations() {
+        moveToUserTab() {
             this.$state.go('user', {
                 profileId: this.userId,
                 tab: 'locations'
             })
-
         }
 
         static controllerId:string = "LocationViewCtrl";
