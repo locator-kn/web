@@ -51,7 +51,7 @@
                 </div>
                 <div class="result-content-bottom">
                     <div class="col-xs-3 icon-container white-border tt tt-small" aria-label="{{trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
-                    <div class="col-xs-3 icon-container look-icon tt tt-small" aria-label="Trip ansehen"></div>
+                    <div class="col-xs-3 icon-container look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId:trip._id})"></div>
                     <div class="col-xs-3 icon-container location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
                     <div class="col-xs-3 icon-container messenger-icon tt tt-small" aria-label="Nachricht senden"></div>
                 </div>
