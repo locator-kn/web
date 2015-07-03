@@ -357,6 +357,7 @@ trip-min-view .result-content-box {
     border-radius: 100%;
     transition: margin 0.4s;
     border: solid white 3px;
+    box-shadow: none;
 }
 
 .setting-selection-container input.cmn-toggle-round + label:before {
