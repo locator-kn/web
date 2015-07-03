@@ -54,6 +54,12 @@ module Service {
             return this.$http.post(this.basePathRealtime + '/conversations', newCon);
         }
 
+        getInitMessage(userOwner, trip) {
+            var tripUsername = userOwner.name;
+            return 'Hi ' + tripUsername + '! Ich möchte an deinem Trip "'+ trip.title +'" teilnehmen.';
+
+        }
+
         static serviceId:string = "MessengerService";
     }
 }

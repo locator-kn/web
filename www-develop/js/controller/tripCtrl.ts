@@ -13,7 +13,7 @@ module Controller {
 
         slides:string[] = [];
 
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private MessengerService) {
+        constructor(private $rootScope, private $stateParams, private $state, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private MessengerService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -62,9 +62,13 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
-            this.MessengerService.startConversation('init message TODO', this.user._id, this.trip._id || this.trip.id);
+            var msg = this.MessengerService.getInitMessage(this.user, this.trip);
+            this.MessengerService.startConversation(msg, this.user._id, this.trip._id || this.trip.id).then((result:any) => {
+                var conId = result.id;
+                this.$state.go('messenger.opponent', {opponentId: conId});
+                this.$rootScope.$broadcast('new_conversation');
+            });
 
-            this.$rootScope.$broadcast('new_conversation');
         }
 
 
