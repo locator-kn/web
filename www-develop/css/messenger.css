@@ -159,7 +159,7 @@
     overflow-x: hidden;
     float: left;
     width: 100%;
-    height: calc(100vh - 230px);
+    height: calc(95vh - 230px);
     background-color: #fff;
     padding: 10px;
 }
