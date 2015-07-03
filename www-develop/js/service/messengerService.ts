@@ -54,9 +54,13 @@ module Service {
             return this.$http.post(this.basePathRealtime + '/conversations', newCon);
         }
 
-        getInitMessage(userOwner, trip) {
+        getInitMessage(userOwner, trip, participator) {
             var tripUsername = userOwner.name;
-            return 'Hi ' + tripUsername + '! Ich möchte an deinem Trip "'+ trip.title +'" teilnehmen.';
+            return 'Ahoi '+tripUsername+'! '+
+                    participator.name+' hat deinen Trip '+
+                    trip.title+' gefunden und möchte gerne teilnehmen.'+
+                    'Ihr wollt bestimmt noch ein paar Details des Trips besprechen.'+
+                    'Viel Spaß wünscht euer Locator Team.';
 
         }
 

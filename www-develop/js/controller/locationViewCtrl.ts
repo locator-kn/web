@@ -9,7 +9,7 @@ module Controller {
         user:any;
         profileImagePath:any;
 
-        constructor(private $scope, private $stateParams, private LocationService, private UserService) {
+        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state) {
             this.locationId = $stateParams.locationId;
 
             this.LocationService.getLocationById(this.locationId)
@@ -28,6 +28,13 @@ module Controller {
                             }
                         })
             });
+        }
+
+        moveToUserTab(tab) {
+            this.$state.go('user', {
+                profileId: this.userId,
+                tab: tab
+            })
         }
 
         static controllerId:string = "LocationViewCtrl";
