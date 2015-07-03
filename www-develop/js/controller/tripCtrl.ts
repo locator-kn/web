@@ -62,6 +62,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
+
             this.UserService.getMe().then(user => {
                 var participant = user.data;
                 var msg = this.MessengerService.getInitMessage(this.user, this.trip, participant);

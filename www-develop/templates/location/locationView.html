@@ -1,7 +1,10 @@
 <div class="locationview-container" ng-controller="LocationViewCtrl as lt">
-    <div class="location-view-image header-image-container">
-        <img class="header-image"
-             ng-src="{{lt.locationImagePath}}">
+    <!--<div class="location-view-image header-image-container">-->
+        <!--<img class="header-image"-->
+             <!--ng-src="{{lt.locationImagePath}}">-->
+    <!--</div>-->
+    <div id="trip-image" class="trip-image header-image-container">
+        <div class="header-image" style="background-image: url({{lt.locationImagePath}});"></div>
     </div>
     <div class="container">
         <div class="row">

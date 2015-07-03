@@ -9,12 +9,12 @@
 
     <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
         <div class="header">
-            <span class="trip pointer" ng-if="mc.selectedConversation.trip" ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']"><img src="images/icons/trip_weiss.png" height="20"></span>
+            <span class="trip pointer" ng-if="mc.selectedConversation.trip" ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']"><img style="margin: 3px" src="images/icons/trip_weiss.png" height="20"></span>
             <div class="trip" ng-if="mc.selectedConversation['tripPopoverOpen']">
                 <div class="triangle"></div>
                 <div class="trip-preview">
                     <trip-min-view class="col-xs-12" trip="mc.selectedConversation.tripObject"></trip-min-view>
-                    <div class="addtional-text">asdasd asd asd as das d</div>
+                    <!--<div class="addtional-text">asdasd asd asd as das d</div>-->
                 </div>
             </div>
             <span class="profile pointer" ui-sref="user({profileId: mc.selectedConversation.opponent._id})"><img src="images/icons/profile_white.png" height="20"></span>
