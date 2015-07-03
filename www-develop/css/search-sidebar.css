@@ -268,12 +268,25 @@ trip-min-view .result-content-box {
     background-image: url("../images/icons/ansehen.png");
 }
 
+
+.result-content-bottom .look-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-eye.png");
+}
+
 .result-content-bottom .location-icon {
     background-image: url("../images/icons/location.png");
 }
 
+.result-content-bottom .location-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-locations.png");
+}
+
 .result-content-bottom .messenger-icon {
     background-image: url("../images/icons/messenger.png");
+}
+
+.result-content-bottom .messenger-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-message.png");
 }
 
 .white-border {
