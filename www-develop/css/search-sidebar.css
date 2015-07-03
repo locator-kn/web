@@ -262,6 +262,11 @@ trip-min-view .result-content-box {
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
 }
 
 .result-content-bottom .look-icon {
