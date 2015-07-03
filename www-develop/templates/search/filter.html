@@ -8,5 +8,15 @@
 </div>
 <div class="setting-selection-container">
     <span>Übernachtung</span>
-    <div class="circle" ng-click="sc.toggleAccomodation()" ng-class="{'circle-selected': sc.query.accommodation == true}"></div>
+    <div class="switch">
+        <input ng-if="sc.accommodation" id="accomodation-selection" checked
+               class="cmn-toggle cmn-toggle-round"
+               ng-click="sc.toggleAccomodation()"
+               type="checkbox">
+        <input ng-if="!sc.accommodation" id="accomodation-selection"
+               class="cmn-toggle cmn-toggle-round"
+               ng-click="sc.toggleAccomodation()"
+               type="checkbox">
+        <label for="accomodation-selection"></label>
+    </div>
 </div>
