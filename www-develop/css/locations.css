@@ -122,11 +122,15 @@
     position: relative;
     display: inline-block;
     z-index: 10;
-    margin-left: -90px;
-    width: 80px;
+    width: 120px;
     height: 80px;
     background: rgb(34, 34, 34);
     border-radius: 3px 3px 0px 0px;
+    float: right;
+    padding: 15px 10px 15px 10px;
+}
+
+.locationview-container .link-container .all-locations {
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center;
