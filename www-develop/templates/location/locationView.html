@@ -1,8 +1,4 @@
 <div class="locationview-container" ng-controller="LocationViewCtrl as lt">
-    <!--<div class="location-view-image header-image-container">-->
-        <!--<img class="header-image"-->
-             <!--ng-src="{{lt.locationImagePath}}">-->
-    <!--</div>-->
     <div id="trip-image" class="trip-image header-image-container">
         <div class="header-image" style="background-image: url({{lt.locationImagePath}});"></div>
     </div>
@@ -13,10 +9,12 @@
                     <img class="profile-image" ng-src="{{lt.profileImagePath}}">
                 </div>
                 <div class="col-xs-6">
-                    <div class="further-links">
-                        <img ng-src="../images/icons/messenger.png">
-                        <img ng-src="../images/icons/messenger.png">
+                    <div class="trip-mood-container" style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
                     </div>
+                    <!--<div class="further-links">-->
+                        <!--<img ng-src="../images/icons/messenger.png">-->
+                        <!--<img ng-src="../images/icons/messenger.png">-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
