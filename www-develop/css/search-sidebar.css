@@ -383,5 +383,18 @@ trip-min-view .result-content-box {
     padding-bottom: 5px;
 }
 
+.filter-container .ui-widget-content,
+.filter-container .ui-state-default,
+.filter-container .ui-widget-content .ui-state-default,
+.filter-container .ui-widget-header .ui-state-default{
+    color: white;
+}
+
+.filter-container .dp-highlight .ui-state-default {
+    background-color: white;
+    color: #33c4b7;
+}
+
+
 
 
