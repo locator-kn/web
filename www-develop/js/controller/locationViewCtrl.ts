@@ -30,10 +30,10 @@ module Controller {
             });
         }
 
-        moveToUserTab() {
+        moveToUserTab(tab) {
             this.$state.go('user', {
                 profileId: this.userId,
-                tab: 'locations'
+                tab: tab
             })
         }
 
