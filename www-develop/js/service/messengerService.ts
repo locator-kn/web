@@ -44,13 +44,14 @@ module Service {
             )
         }
 
-        startConversation(msg, userId) {
-            return this.$http.post(this.basePathRealtime + '/conversations',
-                {
-                    "message": msg,
-                    "user_id": userId
-                }
-            )
+        startConversation(msg:string, userId:string, tripId?:string) {
+            var newCon:any = {
+                user_id: userId,
+                message: msg
+            };
+            newCon.trip = tripId;
+
+            return this.$http.post(this.basePathRealtime + '/conversations', newCon);
         }
 
         static serviceId:string = "MessengerService";
