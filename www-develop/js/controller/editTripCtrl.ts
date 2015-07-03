@@ -134,6 +134,8 @@ module Controller {
             var _public = this._removeLocation(this.publicLocations, location);
             var _private = this._removeLocation(this.myLocations, location);
 
+            location.opened = false;
+
             if (_public && _private) {
                 this._addLocation(this.selectedLocations, location, 'both');
 
@@ -381,6 +383,15 @@ module Controller {
 
         uniqueList(list) {
             return this.lodash.uniq(list, '_id');
+        }
+
+        triggerPrevew(location) {
+
+            if (!location.opened) {
+                location.opened = true;
+            } else {
+                location.opened = !location.opened;
+            }
         }
 
 
