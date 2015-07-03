@@ -473,3 +473,41 @@ span.info.err {
     height: 100%;
     z-index: 10;
 }
+
+.edittrip-container .opened .img-wrapper {
+    width: 100%;
+    padding-right: 15px;
+}
+
+.edittrip-container .opened .content-wrapper {
+    width: 100%;
+}
+
+.edittrip-container .opened .img-wrapper img {
+    height: auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.edittrip-container .location.opened .select-overlay {
+    display: none !important;
+}
+
+.edittrip-container .controls .control-button {
+    width: 50px;
+    height: 50px;
+}
+
+.edittrip-container .controls {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.edittrip-container .opened .controls {
+    display: block;
+}
