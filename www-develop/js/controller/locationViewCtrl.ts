@@ -9,8 +9,9 @@ module Controller {
         user:any;
         profileImagePath:any;
         me:boolean = false;
+        conversationId:any;
 
-        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope) {
+        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
             this.locationId = $stateParams.locationId;
 
             this.LocationService.getLocationById(this.locationId)
@@ -34,6 +35,14 @@ module Controller {
                                 this.profileImagePath = this.user.picture.picture;
                             }
                         })
+
+                    this.MessengerService.getConversations()
+                        .then(result => {
+                            debugger;
+                            this.conversationId = this.lodash.findWhere(result.data, {
+                                'opponent': this.userId
+                            })._id;
+                        });
             });
         }
 
@@ -45,10 +54,17 @@ module Controller {
         }
 
         moveToMessenger() {
-            this.$state.go('user', {
-                profileId: this.userId,
-                tab: 'conversation'
-            })
+            debugger;
+            if (this.conversationId) {
+                this.$state.go('messenger.opponent', {
+                    opponentId: this.conversationId
+                });
+            } else {
+                this.$state.go('user', {
+                    profileId: this.userId,
+                    tab: 'conversation'
+                })
+            }
         }
 
         moveToEditTrip() {
