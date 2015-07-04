@@ -1434,3 +1434,25 @@ progress-arc.hidden-height {
 .header-bar li.not-authenticated {
     display: none;
 }
+.edit-overlay {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.edit-overlay:hover.upload-hint::before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    left: 0;
+    position: absolute;
+    background:rgba(0,0,0,.2)
+}
+
+.edit-overlay:hover.upload-hint::after {
+    content: 'Foto hochladen';
+    width: 100%;
+    left: 0;
+    top: 42%;
+    position: absolute;
+}
