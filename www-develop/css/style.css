@@ -287,12 +287,12 @@ body.slider {
 
 .header-bar .btn-group {
     float: left;
-    min-height: 50px;
+    min-height: 40px;
 }
 
 .header-bar .btn-group a {
     color: #fff;
-    line-height: 60px;
+    line-height: 40px;
 }
 
 .header-bar .btn-group a:hover {
@@ -341,7 +341,7 @@ ul.slides {
 }
 
 .blackopac {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(34, 34, 34, 0.9);
 }
 
 .overlay.active {
@@ -606,11 +606,14 @@ a.close-modal {
 }
 
 .logo-small {
-    height: 30px;
-    margin-top: 13px;
+    height: 60px;
+    background-color: rgb(17, 17, 17);
+    position: absolute;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    left: 0;
+    top: 0;
     width: auto;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 
 @keyframes slidein {
@@ -706,12 +709,12 @@ a.close-modal {
 
 .header-bar .menu ul li {
     float: left;
-    line-height: 60px;
-    padding: 0 5px;
+    line-height: 40px;
+    padding: 0 10px;
 }
 
 .header-bar .menu ul li img {
-    height: 35px;
+    height: 25px;
 }
 
 .header-bar .header-right {
@@ -1401,7 +1404,6 @@ progress-arc.hidden-height {
     border-radius: 3px;
 }
 
-
 .locator-scroller::-webkit-scrollbar {
     background: transparent;
     width: 5px;
@@ -1431,4 +1433,8 @@ progress-arc.hidden-height {
 
 .mytrips-container .tripsmall {
     padding-bottom: 15px;
+}
+
+.header-bar li.not-authenticated {
+    display: none;
 }
