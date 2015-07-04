@@ -26,7 +26,6 @@
     "jquery-ui": "~1.11.4",
     "angular-socket-io": "~0.7.0",
     "angular-cache": "~4.2.0",
-    "angular-daterange-picker": "~0.3.0",
     "angular-mood-selection": "~1.0.9",
     "angular-fix-on-scroll": "~0.3.0",
     "angular-accommodation-equipment-chooser": "~0.4.0",
@@ -38,7 +37,8 @@
     "gsap": "~1.17.0",
     "ngFx": "~1.1.0",
     "angularjs-geolocation": "~0.1.1",
-    "ng-tags-input": "~2.3.0"
+    "ng-tags-input": "~2.3.0",
+    "angular-daterange-picker": "~0.3.1"
   },
   "resolutions": {
     "angular": "~1.3",
