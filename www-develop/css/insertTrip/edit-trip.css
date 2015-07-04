@@ -199,13 +199,14 @@
 }
 
 .edittrip-container .trigger a {
-    color: rgb(34, 34, 34);
+    color: rgb(255, 70, 55);
     font-size: 15px;
+    text-decoration: underline;
 }
 
 .edittrip-container .trigger a.active {
-    color: rgb(255, 70, 55);
-    text-decoration: underline;
+
+    color: rgb(34, 34, 34);
 }
 
 .edittrip-container img.location-picture {
