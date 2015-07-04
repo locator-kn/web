@@ -255,5 +255,11 @@ h2#sub-headline {
 .welcome-right {
     right: 0;
 }
-
+a.more-link {
+    color: #fff;
+    text-decoration: underline;
+}
+a.more-link:hover {
+    text-decoration: none;
+}
 
