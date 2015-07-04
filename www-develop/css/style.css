@@ -982,13 +982,7 @@ img-triplist .flex-direction-nav a::before {
 }
 
 .header-image-container, .header-image-container .flexslider {
-    height: 450px;
-}
-
-@media screen and (min-height: 850px) {
-    .header-image-container, .header-image-container .flexslider {
-        height: 700px;
-    }
+    height: calc(50vh - 60px);
 }
 
 .header-image {
@@ -1435,7 +1429,9 @@ progress-arc.hidden-height {
 .mytrips-container .tripsmall {
     padding-bottom: 15px;
 }
-
+.half-viewport-height {
+            min-height: 50vh;
+}
 .header-bar li.not-authenticated {
     display: none;
 }
