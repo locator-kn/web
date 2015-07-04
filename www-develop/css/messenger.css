@@ -17,8 +17,8 @@
     width: 100%;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: #fff;
     max-height: 60px;
     margin: 3px 0;
@@ -90,8 +90,8 @@
     float: left;
     width: 100%;
     background-color: #000;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     margin: 85px 0 0 0;
     color: #fff;
     position: relative;
@@ -103,7 +103,7 @@
 
 .messenger-container .header .trip-preview {
     position: absolute;
-    border-radius: 5px;
+    border-radius: 3px;
     border-top-right-radius: 0;
     overflow: hidden;
     right: 13px;
@@ -162,6 +162,8 @@
     height: calc(95vh - 230px);
     background-color: #fff;
     padding: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .messenger-container .content .message {
@@ -178,7 +180,7 @@
     position: relative;
     padding: 10px;
     word-wrap: break-word;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .messenger-container .content .message.out p {
@@ -229,7 +231,7 @@ span.bubble {
     border-color: #33c4b8 transparent transparent transparent;
     position: absolute;
     left: 0;
-    bottom: -15px;
+    bottom: -10px;
 }
 
 .out span.bubble {
