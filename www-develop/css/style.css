@@ -1446,14 +1446,16 @@ progress-arc.hidden-height {
     border-radius: 50%;
     left: 0;
     position: absolute;
-    background:rgba(0,0,0,.2);
+    background:rgba(0,0,0,.4);
     cursor: pointer;
 }
 
 .edit-overlay:hover.upload-hint::after {
     content: 'Foto hochladen';
+    color: #fff;
     width: 100%;
     left: 0;
     top: 42%;
     position: absolute;
+    cursor: pointer;
 }
