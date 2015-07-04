@@ -56,10 +56,10 @@
                             <a ng-click="location.showdelete = !location.showdelete"
                                class="cyan button locator-btn pointer">Abbrechen</a>
                         </div>
-                        <div ng-hide="!pc.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
+                        <div ng-hide="!location.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message">
                             <p>Die Location wird in einem Trip verwendet. Wirklich löschen?</p>
                             <a ng-click="pc.deleteLocationForce(location)" class="red button locator-btn pointer">Ja</a>
-                            <a ng-click="pc.locationReallyDelete = !pc.locationReallyDelete"
+                            <a ng-click="location.locationReallyDelete = !location.locationReallyDelete"
                                class="cyan button locator-btn pointer">Nein</a>
                         </div>
 
