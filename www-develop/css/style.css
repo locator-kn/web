@@ -715,7 +715,8 @@ a.close-modal {
 }
 
 .header-bar .header-right {
-    float: right
+    float: right;
+    margin-right: 50px;
 }
 
 .statistic_container {
