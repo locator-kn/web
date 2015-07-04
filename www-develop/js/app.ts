@@ -343,7 +343,8 @@ var app = angular.module('locator', deps)
             },
             controller: function ($scope, LocationService) {
                 $scope.showLocs = false;
-                $scope.locations = []
+                $scope.locations = [];
+                $scope.locationCount = Object.keys($scope.trip.locations).length;
                 $scope.showLocations = function() {
                     $scope.showLocs = !$scope.showLocs;
                     if($scope.locations.length == 0) {

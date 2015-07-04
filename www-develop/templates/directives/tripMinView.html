@@ -37,8 +37,8 @@
                         <span><strong>{{trip.days}} </strong>
                             <ng-pluralize count="trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize>
                         </span>
-                        <span> | <strong>{{trip.locationCount}} </strong>
-                            <ng-pluralize count="trip.locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                        <span> | <strong>{{locationCount}} </strong>
+                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
                         </span>
                         <span> | <strong>{{trip.persons}} </strong>
                             <ng-pluralize count="trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
