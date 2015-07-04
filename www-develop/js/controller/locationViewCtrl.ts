@@ -45,12 +45,16 @@ module Controller {
         }
 
         moveToMessenger() {
-            if (!this.me) {
-                this.$state.go('user', {
-                    profileId: this.userId,
-                    tab: 'conversation'
-                })
-            }
+            this.$state.go('user', {
+                profileId: this.userId,
+                tab: 'conversation'
+            })
+        }
+
+        moveToEditTrip() {
+            this.$state.go('editLocation', {
+                locationId: this.locationId
+            })
         }
 
         static controllerId:string = "LocationViewCtrl";
