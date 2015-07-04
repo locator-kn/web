@@ -46,7 +46,17 @@
                     </div>
                     <br>
 
-                    <span class="min-view-accomodation-container" ng-show="trip.accommodation"><strong>mit</strong> Übernachtung</span>
+                    <div class="min-view-accomodation-container" ng-show="trip.accommodation">
+                        <div class="accomodation-label">
+                            mit Übernachtung
+                        </div>
+                        <acc-equ-chooser
+                            accommodation-equipment-selectable="trip.accommodation_equipment"
+                            just-show-selected="true"
+                            accommodation-equipment="trip.accommodation_equipment"
+                            icons-color="'white'">
+                        </acc-equ-chooser>
+                    </div>
 
                 </div>
                 <div class="result-content-bottom">

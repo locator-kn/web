@@ -224,7 +224,7 @@ trip-min-view .result-content-box {
 
 .trip-min-view .result-content-wrapper {
     float: left;
-    height: 250px;
+    height: 400px;
     width: 100%;
     border-top: none;
     border-left: none;
@@ -393,6 +393,14 @@ trip-min-view .result-content-box {
 .filter-container .dp-highlight .ui-state-default {
     background-color: white;
     color: #33c4b7;
+}
+
+.accomodation-label .accomodation-label {
+    display: block;
+}
+
+.min-view-accomodation-container {
+    width: 250px;
 }
 
 

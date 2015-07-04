@@ -343,7 +343,7 @@ var app = angular.module('locator', deps)
             },
             controller: function ($scope, LocationService) {
                 $scope.showLocs = false;
-                $scope.locations = []
+                $scope.locations = [];
                 $scope.showLocations = function() {
                     $scope.showLocs = !$scope.showLocs;
                     if($scope.locations.length == 0) {
@@ -358,7 +358,6 @@ var app = angular.module('locator', deps)
                         }
                     }
                 };
-
             },
             templateUrl: 'templates/directives/tripMinView.html'
         }
