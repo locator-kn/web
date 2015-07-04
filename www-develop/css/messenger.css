@@ -17,8 +17,8 @@
     width: 100%;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
     background-color: #fff;
     max-height: 60px;
     margin: 3px 0;
@@ -90,8 +90,8 @@
     float: left;
     width: 100%;
     background-color: #000;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     margin: 85px 0 0 0;
     color: #fff;
     position: relative;
@@ -103,11 +103,14 @@
 
 .messenger-container .header .trip-preview {
     position: absolute;
-    right: 0;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    overflow: hidden;
+    right: 13px;
     top: 50px;
     background-color: #000;
     z-index: 999;
-    width: 100%;
+    width: 93%;
 }
 .messenger-container .header .trip-preview .result-content-bottom, .messenger-container .header trip-min-view .result-user-info {
     display: none;
@@ -138,11 +141,12 @@
     }
 }
 
-.messenger-container .header .trip-preview::before {
+.messenger-container .header .trip .triangle::before {
     content: ' ';
     position: absolute;
-    top: -10px;
-    right: 10px;
+    top: 40px;
+    right: 13px;
+    z-index: 99;
     width: 0;
     height: 0;
     border-style: solid;
@@ -155,9 +159,11 @@
     overflow-x: hidden;
     float: left;
     width: 100%;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 320px);
     background-color: #fff;
     padding: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .messenger-container .content .message {
@@ -174,7 +180,7 @@
     position: relative;
     padding: 10px;
     word-wrap: break-word;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .messenger-container .content .message.out p {
@@ -225,7 +231,7 @@ span.bubble {
     border-color: #33c4b8 transparent transparent transparent;
     position: absolute;
     left: 0;
-    bottom: -15px;
+    bottom: -10px;
 }
 
 .out span.bubble {

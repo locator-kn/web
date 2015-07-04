@@ -1,7 +1,7 @@
 <div class="locationview-container" ng-controller="LocationViewCtrl as lt">
-    <div class="location-view-image header-image-container">
-        <img class="header-image"
-             ng-src="{{lt.locationImagePath}}">
+    <div id="trip-image" class="trip-image header-image-container">
+        <div class="header-image" style="background-image: url({{lt.locationImagePath}});"></div>
+        <div class="location-icon" style="background-image: url({{'./images/icons/location_white.png'}});"></div>
     </div>
     <div class="container">
         <div class="row">
@@ -10,15 +10,16 @@
                     <img class="profile-image" ng-src="{{lt.profileImagePath}}">
                 </div>
                 <div class="col-xs-6">
-                    <div class="further-links">
-                        <img ng-src="../images/icons/messenger.png">
-                        <img ng-src="../images/icons/messenger.png">
+                    <div class="link-container">
+                        <div class="all-locations pointer" style="background-image: url('./images/icons/all_locations.png')" ng-click="lt.moveToAllLocations()"></div>
+                        <div ng-hide="lt.me" class="messenger pointer" style="background-image: url('./images/icons/messenger.png')"  ng-click="lt.moveToMessenger()"></div>
+                        <div ng-hide="!lt.me" class="edit-location pointer" style="background-image: url('./images/icons/header/stift.png')"  ng-click="lt.moveToEditTrip()"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-5">
+        <div class="row fix-position-bottom">
+            <div class="col-xs-5 fix-position-left">
                 <div class="location-title">
                     <p class="big-font-size">{{lt.location.title}}</p>
                 </div>
