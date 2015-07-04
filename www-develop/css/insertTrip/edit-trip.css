@@ -205,8 +205,9 @@
 }
 
 .edittrip-container .trigger a.active {
-
+    text-decoration: none;
     color: rgb(34, 34, 34);
+    cursor: auto;
 }
 
 .edittrip-container img.location-picture {
