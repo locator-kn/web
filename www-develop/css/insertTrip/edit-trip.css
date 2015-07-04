@@ -281,7 +281,6 @@
     min-height: 80vh;
 }
 
-
 .edittrip-container .metadata .border-wrapper {
     padding: 15px;
     max-height: inherit;
@@ -489,7 +488,6 @@ span.info.err {
     margin-bottom: 10px;
 }
 
-
 .edittrip-container .location.opened .select-overlay {
     display: none !important;
 }
@@ -510,4 +508,9 @@ span.info.err {
 
 .edittrip-container .opened .controls {
     display: block;
+}
+
+.edittrip-container .missing h4 {
+    font-size: 16px;
+    line-height: 20px;
 }

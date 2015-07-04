@@ -50,8 +50,17 @@
                             </div>
 
                             <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
+
+                                <div ng-if="!et.publicLocations.length"
+                                     class="relative location public missing mylocations-wrapper">
+                                    <h4>Leider gibt es noch keine öffentlichen Locations für {{et.selectedCity.title}}</h4>
+                                </div>
+
+
                                 <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
-                                     ng-class="{'opened': location.opened}" class="relative location border-radius-decent">
+                                     ng-class="{'opened': location.opened}"
+                                     class="relative location border-radius-decent">
+
 
                                     <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
                                         <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
@@ -62,8 +71,16 @@
                             </div>
 
                             <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
+
+                                <div ng-if="!et.myLocations.length"
+                                     class="relative location public missing mylocations-wrapper">
+                                    <h4>Du hast noch keine Locations in {{et.selectedCity.title}}</h4>
+                                </div>
+
+
                                 <div ng-repeat="location in et.myLocations"
-                                     ng-class="{'opened': location.opened}" class="relative border-radius-decent location mylocation">
+                                     ng-class="{'opened': location.opened}"
+                                     class="relative border-radius-decent location mylocation">
 
 
                                     <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
@@ -90,7 +107,8 @@
                             </div>
 
 
-                            <div ng-repeat="location in et.selectedLocations" ng-class="{'opened': location.opened}" class="relative location mylocation">
+                            <div ng-repeat="location in et.selectedLocations" ng-class="{'opened': location.opened}"
+                                 class="relative location mylocation">
 
                                 <div ng-click="et.deSelectLocation(location)" class="pointer select-overlay">
                                     <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
