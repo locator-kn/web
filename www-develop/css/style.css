@@ -606,14 +606,13 @@ a.close-modal {
 }
 
 .logo-small {
-    height: 60px;
+    width: 100px;
     background-color: rgb(17, 17, 17);
     position: absolute;
-    border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 5px;
     padding: 10px;
     left: 0;
     top: 0;
-    width: auto;
 }
 
 @keyframes slidein {
