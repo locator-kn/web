@@ -50,7 +50,6 @@ module Service {
                         this.HelperService.getMoodByQueryName(entry.moods[0]).then(result => {
                             entry.mood = result;
                         });
-                        entry.locationCount = Object.keys(entry.locations).length;
                     });
                     return data;
                 });
