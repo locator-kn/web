@@ -606,7 +606,7 @@ a.close-modal {
 }
 
 .logo-small {
-    width: 100px;
+    height: 60px;
     background-color: rgb(17, 17, 17);
     position: absolute;
     border-bottom-right-radius: 5px;
