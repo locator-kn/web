@@ -135,3 +135,16 @@
     float: left;
 }
 
+.locationview-container .fix-position-bottom {
+    position: relative;
+    bottom: 40px;
+}
+
+
+.locationview-container .fix-position-left {
+    position: relative;
+    left: 150px;
+}
+
+
+
