@@ -40,7 +40,7 @@
 
                     <span><strong>{{tc.trip.days}}</strong> <ng-pluralize count="tc.trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize></span>
 
-                    <span> | <strong>{{tc.locations.length}}</strong> Location</span><span ng-show="tc.locations.length > 1">s</span>
+                    <span> | <strong>{{tc.locations.length}}</strong> <ng-pluralize count="tc.locations.length" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize></span>
                     <span> | <strong>{{tc.trip.persons}}</strong> Person</span><span ng-show="tc.trip.persons > 1">en</span>
                 </div>
 
