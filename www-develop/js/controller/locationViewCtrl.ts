@@ -19,7 +19,7 @@ module Controller {
                     this.locationImagePath = this.location.images.picture;
                     console.log(this.locationImagePath);
 
-                    if (this.locationImagePath === '') {
+                    if (this.locationImagePath === undefined) {
                         this.locationImagePath = this.location.images.googlemap + '&size=1151x675&scale=2';
                     }
 
