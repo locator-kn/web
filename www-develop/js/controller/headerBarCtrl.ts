@@ -80,11 +80,6 @@ module Controller {
             }
 
             this.showBadge = false;
-            this.unreadMessages = 0;
-            if (!this.showMessengerPopover) {
-                this.getConversations();
-            }
-            this.showMessengerPopover = !this.showMessengerPopover
         }
 
         registerWebsockets() {
