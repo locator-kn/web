@@ -17,8 +17,13 @@ module Controller {
                 .then(result => {
                     this.location = result.data;
                     this.locationImagePath = this.location.images.picture;
+                    console.log(this.locationImagePath);
+
+                    if (this.locationImagePath === '') {
+                        this.locationImagePath = this.location.images.googlemap + '&size=1151x675&scale=2';
+                    }
+
                     this.userId = this.location.userid;
-                    console.log(this.location);
                     this.UserService.getUser(this.userId)
                     .then(resultUser => {
                             this.user = resultUser.data;
