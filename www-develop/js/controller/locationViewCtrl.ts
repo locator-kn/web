@@ -38,7 +38,6 @@ module Controller {
 
                     this.MessengerService.getConversations()
                         .then(result => {
-                            debugger;
                             this.conversationId = this.lodash.findWhere(result.data, {
                                 'opponent': this.userId
                             })._id;
@@ -54,7 +53,6 @@ module Controller {
         }
 
         moveToMessenger() {
-            debugger;
             if (this.conversationId) {
                 this.$state.go('messenger.opponent', {
                     opponentId: this.conversationId
