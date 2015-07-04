@@ -1446,7 +1446,8 @@ progress-arc.hidden-height {
     border-radius: 50%;
     left: 0;
     position: absolute;
-    background:rgba(0,0,0,.2)
+    background:rgba(0,0,0,.2);
+    cursor: pointer;
 }
 
 .edit-overlay:hover.upload-hint::after {
