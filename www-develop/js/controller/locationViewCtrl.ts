@@ -8,8 +8,9 @@ module Controller {
         userId:any;
         user:any;
         profileImagePath:any;
+        me:boolean = false;
 
-        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state) {
+        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope) {
             this.locationId = $stateParams.locationId;
 
             this.LocationService.getLocationById(this.locationId)
@@ -21,6 +22,7 @@ module Controller {
                     this.UserService.getUser(this.userId)
                     .then(resultUser => {
                             this.user = resultUser.data;
+                            this.me = this.$rootScope.userID === this.userId;
                             if (!this.user.picture) {
                                 this.profileImagePath = "/images/profile.png"
                             } else {
@@ -30,11 +32,20 @@ module Controller {
             });
         }
 
-        moveToUserTab(tab) {
+        moveToAllLocations() {
             this.$state.go('user', {
                 profileId: this.userId,
-                tab: tab
+                tab: 'locations'
             })
+        }
+
+        moveToMessenger() {
+            if (!this.me) {
+                this.$state.go('user', {
+                    profileId: this.userId,
+                    tab: 'conversation'
+                })
+            }
         }
 
         static controllerId:string = "LocationViewCtrl";
