@@ -96,6 +96,11 @@
     padding-left: 0;
 }
 
+.locationview-container .location-tags .tag {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
 .locationview-container .further-links {
     position: relative;
     bottom: 70px;
