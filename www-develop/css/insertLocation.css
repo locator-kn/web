@@ -17,6 +17,7 @@
 
 .trip-image a.choose-image {
     width: 80px;
+    height: 80px;
     margin-top: -40px;
     margin-left: -40px;
     background-color: rgb(34, 34, 34);
@@ -103,7 +104,7 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 102px;
+    height: 107px;
     padding: 10px;
 }
 

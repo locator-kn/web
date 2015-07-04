@@ -7,7 +7,7 @@
                placeholder="Nachname">
         <input ng-hide="!pc.me" ng-disabled="!pc.edit" ng-model="pc.user.birthdate" class="input col-xs-12" type="date" name="birthdate"
                placeholder="Dein Alter">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input col-xs-12" type="text" name="name"
+        <input ng-hide="!pc.me && !pc.user.residence" ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input col-xs-12" type="text" name="name"
                placeholder="Dein Wohnort">
         <label>Beschreibung:</label>
         <textarea ng-disabled="!pc.edit" class="input col-xs-12" type="text" ng-model="pc.user.description"

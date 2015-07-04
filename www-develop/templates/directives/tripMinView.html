@@ -20,7 +20,7 @@
                 <div class="result-content-wrapper" ui-sref="trip({tripId:trip._id})">
                     <h3 class="result-trip-title">{{trip.title}}</h3>
 
-                    <div class="result-trip-date">
+                    <div class="result-trip-date" ng-if="trip.start_date && trip.end_date">
                         <strong>
                             <resultdate class="black" date="trip.start_date"></resultdate>
                         </strong>
@@ -34,19 +34,23 @@
                         Von <span class="black"><strong>{{trip.username}}</strong></span></p>
 
                     <div class="day-amount black">
-                        <span><strong>{{trip.days}} </strong>
+                        <span ng-if="trip.days"><strong>{{trip.days}} </strong>
                             <ng-pluralize count="trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize>
                         </span>
-                        <span> | <strong>{{trip.locationCount}} </strong>
-                            <ng-pluralize count="trip.locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                        <span>
+                            <span ng-if="trip.days"> | </span>
+                            <strong>{{locationCount}}</strong>
+                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
                         </span>
-                        <span> | <strong>{{trip.persons}} </strong>
+                        <span ng-if="trip.persons">
+                            <span ng-show="trip.days || trip.persons "> | </span>
+                            <strong>{{trip.persons}}</strong>
                             <ng-pluralize count="trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
                         </span>
                     </div>
                     <br>
 
-                    <span class="min-view-accomodation-container" ng-show="trip.accommodation"><strong>mit</strong> Übernachtung</span>
+                    <span class="min-view-accomodation-container" ng-show="trip.accommodation">mit Übernachtung</span>
 
                 </div>
                 <div class="result-content-bottom">
