@@ -982,7 +982,7 @@ img-triplist .flex-direction-nav a::before {
 }
 
 .header-image-container, .header-image-container .flexslider {
-    height: calc(50vh - 60px);
+    height: calc(50vh - 40px);
 }
 
 .header-image {
