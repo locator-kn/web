@@ -18,8 +18,8 @@
 
     <div class="row">
         <div class="col-xs-12 userheader">
-            <div class="edit-overlay profile-image center border-radius" ng-class="{'upload-hint': pc.isItMe}">
-                <img ng-click="pc.showImageChooser()" ng-class="{'pointer': pc.isItMe}" class="img-responsive border-radius"
+            <div ng-click="pc.showImageChooser()" class="edit-overlay profile-image center border-radius" ng-class="{'upload-hint': pc.isItMe}">
+                <img ng-class="{'pointer': pc.isItMe}" class="img-responsive border-radius"
                  ng-src="{{pc.profileImagePath}}" class="img-responsive">
             </div>
             <h2 class="center">{{pc.user.name}} <span class="age" ng-if="pc.birthAvailable">({{pc.birthdate}})</span>
