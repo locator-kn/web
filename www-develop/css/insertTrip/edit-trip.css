@@ -51,7 +51,7 @@
     opacity: 0;
     visibility: hidden;
     height: 100%;
-    width: calc(100% - 30px);
+    width: calc(100% - 18px);
     background: rgba(34, 34, 34, 0.9);
     transition-duration: 0.2s;
     position: absolute;
