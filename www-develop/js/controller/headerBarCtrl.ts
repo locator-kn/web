@@ -98,6 +98,9 @@ module Controller {
                         console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
+                    if(!this.conversationsHash[newMessage.conversation_id]) {
+                        this.conversationsHash[newMessage.conversation_id] = {};
+                    }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                     this.showBadge = true;
                     this.unreadMessages += 1;

@@ -28,7 +28,7 @@
     width: 200px;
     height: 100vh;
     position: fixed;
-    top: 160px;
+    top: 165px;
     z-index: 191;
     margin-left: 0px;
     background: #33c4b7;
@@ -99,8 +99,8 @@ html, body {
 }
 
 .search-menu .item {
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 105px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
