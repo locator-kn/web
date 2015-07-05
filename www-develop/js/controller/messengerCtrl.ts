@@ -62,6 +62,9 @@ module Controller {
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
+                if(!this.messagesHash[newMessage.conversation_id]) {
+                    this.messagesHash[newMessage.conversation_id] = [];
+                }
                 this.messagesHash[newMessage.conversation_id].push(newMessage);
                 this.MessengerService.putMessageByConversationId(newMessage.conversation_id, newMessage);
 
