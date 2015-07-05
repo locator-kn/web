@@ -74,6 +74,31 @@
         padding-top: 10px;
         padding-bottom: 30px;
     }
+
+    a.welcome_button {
+        width: 100%;
+    }
+
+    .logo-small {
+        display: none;
+    }
+
+    span.green, span.red {
+        width: 100%;
+    }
+
+    .header-bar .menu {
+        margin-right: 0;
+    }
+
+    .text-wrapper {
+        float: left;
+        width: 100%;
+    }
+
+    .footer ul li {
+        float: left;
+    }
 }
 
 
