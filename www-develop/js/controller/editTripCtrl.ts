@@ -71,7 +71,7 @@ module Controller {
                         this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
                         this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
-                        this.fetchLocations();
+                        //this.fetchLocations();
                     }
 
                     if (this.$state.params.city) {
@@ -130,6 +130,8 @@ module Controller {
         }
 
         selectLocation(location) {
+
+            debugger;
 
             var _public = this._removeLocation(this.publicLocations, location);
             var _private = this._removeLocation(this.myLocations, location);
