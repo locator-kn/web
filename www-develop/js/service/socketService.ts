@@ -20,8 +20,10 @@ module Service {
                             reject(err);
                         })
                         .then(response => {
-                            var myIoSocket = io.connect(response.data.namespace);
-                            this.socket = this.socketFactory({ioSocket: myIoSocket});
+                            console.log('connecting to socketio');
+                            //var myIoSocket = io.connect(':3002' + response.data.namespace);
+                            var socketNd = io.connect();
+                            this.socket = this.socketFactory({ioSocket: socketNd});
                             resolve(this.socket)
                         });
                 }

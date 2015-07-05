@@ -38,10 +38,10 @@
                             <div class="wrap">
                                 <div class="trigger">
                                     <a ng-click="et.justShowMyLocations = false" class="pointer location-trigger"
-                                       ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
+                                       ng-class="{'active': !et.justShowMyLocations}">Alle</a> <a
                                     ng-click="et.justShowMyLocations = true"
                                     ng-class="{'active': et.justShowMyLocations}"
-                                    class="pointer location-trigger">meine</a>
+                                    class="pointer location-trigger">Meine</a>
                                 </div>
                                 <input ng-model-options="{debounce:300}" ng-model="et.locationSearch"
                                        placeholder="Suche"
@@ -53,7 +53,7 @@
 
                                 <div ng-if="!et.publicLocations.length"
                                      class="relative location public missing mylocations-wrapper">
-                                    <h4>Leider gibt es noch keine öffentlichen Locations für {{et.selectedCity.title}}</h4>
+                                    <h4>Leider gibt es noch keine öffentlichen Locations für <strong>{{et.selectedCity.title}}</strong></h4>
                                 </div>
 
 
@@ -74,7 +74,7 @@
 
                                 <div ng-if="!et.myLocations.length"
                                      class="relative location public missing mylocations-wrapper">
-                                    <h4>Du hast noch keine Locations in {{et.selectedCity.title}}</h4>
+                                    <h4>Du hast noch keine Locations in <strong>{{et.selectedCity.title}}</strong></h4>
                                 </div>
 
 
