@@ -57,8 +57,6 @@ module Controller {
 
             if ($state.current.name === 'insertTrip') {
                 this.$rootScope.breadcrumb = 'Trip einstellen';
-            } else {
-                this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
             }
 
             var moods = this.DataService.getMoods();
@@ -304,6 +302,9 @@ module Controller {
                         this.selectedDay = this.HelperService.getObjectById(this.days, result.data.days);
                         this.selectedCity = this.HelperService.getCityByTitle(this.cities, result.data.city.title);
                         this.selectedMood = this.HelperService.getObjectByQueryName(this.moods, result.data.moods.join('.'));
+
+                        this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
+
 
                         //city is set, so get the locations for it
                         this.fetchLocations();
