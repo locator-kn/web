@@ -99,6 +99,10 @@
     .footer ul li {
         float: left;
     }
+
+    .tt {
+        display: none;
+    }
 }
 
 
