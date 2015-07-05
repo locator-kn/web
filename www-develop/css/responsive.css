@@ -23,6 +23,10 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .edittrip-container img.location-picture {
+        min-width: 60px;
+    }
+
     .profile {
         font-size: 15px;
     }

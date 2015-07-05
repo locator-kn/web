@@ -30,18 +30,32 @@
                     <h1>{{tc.trip.title}}</h1>
                     <p>{{tc.trip.description}}</p>
                     <h1>Infos</h1>
+                    <div ng-if="tc.trip.start_date && tc.trip.end_date">
                     <strong><resultdate class="black" date="tc.trip.start_date"></resultdate></strong>
                     bis
                     <strong><resultdate class="black" date="tc.trip.end_date"></resultdate></strong>
+                    </div>
                 </div>
                 <div class="result-user-info">
-                    Von <span class="black pointer" ui-sref="user({profileId: tc.trip.userid})"><strong>{{tc.username}}</strong></span></div><br>
+                    Von <span class="black pointer" ui-sref="user({profileId: tc.trip.userid})"><strong>{{tc.username}}</strong></span>
+                </div>
+                <br>
                 <div class="day-amount black">
 
-                    <span><strong>{{tc.trip.days}}</strong> <ng-pluralize count="tc.trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize></span>
-
-                    <span> | <strong>{{tc.locations.length}}</strong> <ng-pluralize count="tc.locations.length" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize></span>
-                    <span> | <strong>{{tc.trip.persons}}</strong> <ng-pluralize count="tc.trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize></span>
+                    <span ng-if="tc.trip.days">
+                        <strong>{{tc.trip.days}}</strong>
+                        <ng-pluralize count="tc.trip.days" when="{'1': 'Tag', 'other': 'Tage'}"></ng-pluralize>
+                    </span>
+                    <span>
+                        <span ng-if="tc.trip.days"> | </span>
+                        <strong>{{tc.locations.length}}</strong>
+                        <ng-pluralize count="tc.locations.length" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                    </span>
+                    <span ng-if="tc.trip.persons">
+                        <span ng-if="tc.trip.days || tc.trip.persons"> | </span>
+                        <strong>{{tc.trip.persons}}</strong>
+                        <ng-pluralize count="tc.trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
+                    </span>
                 </div>
 
                 <div ng-hide="tc.trip.accommodation == false">
