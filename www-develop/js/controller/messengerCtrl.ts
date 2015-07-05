@@ -126,7 +126,9 @@ module Controller {
 
         emitAck(from, conversation_id) {
 
-
+            if(from === this.$rootScope.userID) {
+                return
+            }
             console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
             setTimeout(() => {
                 this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
