@@ -64,16 +64,7 @@ module Controller {
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
-
-            this.UserService.getMe().then(user => {
-                var participant = user.data;
-                var msg = this.MessengerService.getInitMessage(this.user, this.trip, participant);
-                this.MessengerService.startConversation(msg, this.user._id, this.trip._id || this.trip.id).then((result:any) => {
-                    var conId = result.data.id;
-                    this.$state.go('messenger.opponent', {opponentId: conId});
-                    this.$rootScope.$broadcast('new_conversation');
-                });
-            });
+            this.TripService.participate(this.user, this.trip);
         }
 
 

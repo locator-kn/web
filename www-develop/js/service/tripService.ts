@@ -1,7 +1,7 @@
 module Service {
     export class TripService {
 
-        constructor(private $http, private basePath, private Upload) {
+        constructor(private $http, private basePath, private Upload, private $rootScope, private UserService, private MessengerService, private $state) {
         }
 
         getTripById(_id) {
@@ -59,6 +59,24 @@ module Service {
         deleteTrip(_id) {
             return this.$http.delete(this.basePath + '/trips/' + _id);
         }
+
+        participate(user, trip) {
+            if (!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
+
+            this.UserService.getMe().then(me => {
+                var participant = me.data;
+                var msg = this.MessengerService.getInitMessage(user, trip, participant);
+                this.MessengerService.startConversation(msg, user._id, trip._id || trip.id).then((result:any) => {
+                    var conId = result.data.id;
+                    this.$state.go('messenger.opponent', {opponentId: conId});
+                    this.$rootScope.$broadcast('new_conversation');
+                });
+            });
+        }
+
+
 
         static
             serviceId:string = "TripService";
