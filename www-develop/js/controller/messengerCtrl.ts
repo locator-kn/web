@@ -117,7 +117,7 @@ module Controller {
             if (this.selectedConversation.opponent.name) {
                 this.$rootScope.breadcrumb = 'Messenger | ' + this.selectedConversation.opponent.name;
             }
-            
+
             this.getConversation(this.selectedConversation).then(result => {
                 // if the clicked conversation is unread, send ack to server
                 if (!this.selectedConversation[this.$rootScope.userID + '_read']) {
@@ -133,7 +133,9 @@ module Controller {
 
         emitAck(from, conversation_id) {
 
-
+            if(from === this.$rootScope.userID) {
+                return
+            }
             console.log('send ack for received message', {
                 from: this.$rootScope.userID,
                 opponent: from,
@@ -157,8 +159,8 @@ module Controller {
                 from: this.$rootScope.userID,
                 timestamp: Date.now()
             };
-            this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
-            this.messagesHash[this.selectedConversation._id].push(newMessage);
+            //this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
+            //this.messagesHash[this.selectedConversation._id].push(newMessage);
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
