@@ -19,6 +19,8 @@ module Controller {
         constructor(private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
+            this.$rootScope.breadcrumb = 'Suchergebnisse';
+
             this.query = $location.search();
             this.query.accommodation = false;
 

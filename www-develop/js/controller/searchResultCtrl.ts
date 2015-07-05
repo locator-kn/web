@@ -9,7 +9,6 @@ module Controller {
 
         constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
-
             $rootScope.$state = $state;
 
             $rootScope.$on('loading', () => {

@@ -53,6 +53,12 @@ module Controller {
 
         constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
+
+
+            if ($state.current.name === 'insertTrip') {
+                this.$rootScope.breadcrumb = 'Trip einstellen';
+            }
+
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getFixedCities();
             var days = this.DataService.getAvailableAmountOfDays();
@@ -296,6 +302,9 @@ module Controller {
                         this.selectedDay = this.HelperService.getObjectById(this.days, result.data.days);
                         this.selectedCity = this.HelperService.getCityByTitle(this.cities, result.data.city.title);
                         this.selectedMood = this.HelperService.getObjectByQueryName(this.moods, result.data.moods.join('.'));
+
+                        this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
+
 
                         //city is set, so get the locations for it
                         this.fetchLocations();

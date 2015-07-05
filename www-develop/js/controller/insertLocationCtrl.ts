@@ -42,6 +42,10 @@ module Controller {
 
         constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
+            if (this.$state.current.name === 'insertLocation') {
+                this.$rootScope.breadcrumb = 'Location erstellen';
+            }
+
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedPlaceDetails;
             }), (newVal, oldVal) => {
@@ -298,6 +302,13 @@ module Controller {
                         this.imageHasBeenUploaded = true;
 
                         this.documentId = result.data._id;
+
+
+                        if (this.$state.current.name === 'insertLocation') {
+                            this.$rootScope.breadcrumb = 'Location erstellen';
+                        } else {
+                            this.$rootScope.breadcrumb = 'Location bearbeiten | ' + this.locationFormDetails.title;
+                        }
 
 
                     })

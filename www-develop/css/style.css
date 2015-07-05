@@ -1127,6 +1127,7 @@ img-triplist .flex-direction-nav a::before {
 
 .empty-locations img {
     margin-right: 5px;
+    max-width: 50px;
 }
 
 a:focus {
@@ -1381,6 +1382,10 @@ progress-arc.hidden-height {
     transform: translateY(0%) scale(1) !important;
 }
 
+.footer .footer_logo {
+    display: inline-block;
+}
+
 .htwg_logo {
     width: 180px;
     margin-top: 26px;
@@ -1458,4 +1463,14 @@ progress-arc.hidden-height {
     top: 42%;
     position: absolute;
     cursor: pointer;
+}
+
+h2.breadcrumbs {
+    padding: 0;
+    margin: 0;
+    margin-left: 100px;
+    font-size: 12px;
+    color: white;
+    line-height: 40px;
+    float: left;
 }

@@ -14,9 +14,12 @@ module Controller {
         constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
             this.locationId = $stateParams.locationId;
 
+
             this.LocationService.getLocationById(this.locationId)
                 .then(result => {
                     this.location = result.data;
+                    this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
+                    
                     this.locationImagePath = this.location.images.picture;
                     console.log(this.locationImagePath);
 
@@ -34,7 +37,7 @@ module Controller {
                             } else {
                                 this.profileImagePath = this.user.picture.picture;
                             }
-                        })
+                        });
 
                     this.MessengerService.getConversations()
                         .then(result => {
