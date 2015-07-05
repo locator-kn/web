@@ -53,6 +53,14 @@ module Controller {
 
         constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
+
+
+            if ($state.current.name === 'insertTrip') {
+                this.$rootScope.breadcrumb = 'Trip einstellen';
+            } else {
+                this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
+            }
+
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getFixedCities();
             var days = this.DataService.getAvailableAmountOfDays();

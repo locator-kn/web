@@ -17,9 +17,11 @@ module Controller {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
+
             this.SearchService.getTripById(this.$stateParams.tripId)
                 .then(result => {
                     this.trip = result.data;
+                    this.$rootScope.breadcrumb = 'Tripdetail | ' + this.trip.title;
 
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {

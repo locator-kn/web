@@ -72,6 +72,9 @@ module Controller {
             $rootScope.showSearchButton = true;
             $rootScope.showCreateButton = true;
 
+            this.$rootScope.breadcrumb = 'Profil | ' + this.tab;
+
+
 
         }
 
@@ -394,8 +397,10 @@ module Controller {
                     return;
                 }
 
-                this.$location.search({tab: name});
                 this.tab = name;
+                this.$location.search({tab: name});
+
+
             }
 
         }

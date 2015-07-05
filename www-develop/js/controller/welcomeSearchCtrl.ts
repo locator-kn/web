@@ -22,6 +22,8 @@ module Controller {
 
             this.getData();
 
+            this.$rootScope.breadcrumb = '';
+
         }
 
         getData() {
