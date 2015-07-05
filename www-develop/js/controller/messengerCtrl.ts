@@ -144,8 +144,8 @@ module Controller {
                 from: this.$rootScope.userID,
                 timestamp: Date.now()
             };
-            this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
-            this.messagesHash[this.selectedConversation._id].push(newMessage);
+            //this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
+            //this.messagesHash[this.selectedConversation._id].push(newMessage);
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
