@@ -27,6 +27,14 @@
         font-size: 15px;
     }
 
+    .header-bar .edit-user {
+        display: none;
+    }
+
+    .header-bar .header-right {
+        margin: 0;
+    }
+
     .staticButtons {
         display: none;
     }
@@ -45,6 +53,26 @@
 
     .row.select_wrapper {
         padding-top: 15px;
+    }
+
+    .footer .footer_logo {
+        float: left;
+        margin: 15px 0;
+    }
+
+    .welcome_wrapper {
+        left: 0;
+        width: 100%;
+    }
+
+    .welcome_select {
+        width: 100%;
+        right: 0;
+    }
+
+    .welcome_button_wrapper {
+        padding-top: 10px;
+        padding-bottom: 30px;
     }
 }
 
