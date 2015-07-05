@@ -27,7 +27,7 @@
     line-height: 60px;
     position: relative;
     border-radius: 3px 3px 0px 0px;
-    float: right;
+    float: left;
     display: inline-block;
     font-size: 24px;
 }
@@ -36,7 +36,7 @@
     position: relative;
     display: inline-block;
     z-index: 10;
-    margin-left: -90px;
+    margin-left: -70px;
     width: 60px;
     height: 60px;
     background: rgb(34, 34, 34);
@@ -44,10 +44,12 @@
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: center;
+    float: left;
+    padding-left: 10px;
 }
 
 .btn-mood-container {
-    margin-top: -80px;
+    margin-top: -60px;
     float: right;
 }
 
