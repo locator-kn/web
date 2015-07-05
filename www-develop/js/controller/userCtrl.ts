@@ -75,7 +75,6 @@ module Controller {
             this.$rootScope.breadcrumb = 'Profil | ' + this.tab;
 
 
-
         }
 
         getTrips() {
@@ -165,17 +164,20 @@ module Controller {
         updateProfile() {
 
             // remove keys form user object when undefined or empty string
-            /*for (var property in this.user) {
-             if (this.user.hasOwnProperty(property)) {
-             if (this.user[property] === '' || !this.user[property]) {
-             delete this.user[property];
-             }
-             }
-             }*/
+            for (var property in this.user) {
 
-            if (!this.user.birthdate) {
+                if (this.user.hasOwnProperty(property)) {
+                    this.user[property] = this.user[property] || ''
+                }
+            }
+
+
+
+            if (!this.user.birthdate || isNaN(this.user.birthdate)) {
                 this.user.birthdate = '';
             }
+
+
 
 
             if (this.user.birthdate > new Date()) {
@@ -443,14 +445,14 @@ module Controller {
 
         deleteLocationForce(location) {
             this.LocationService.deleteLocationForce(location._id)
-            .then(result => {
+                .then(result => {
                     location.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion success');
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
-            .catch(result => {
+                .catch(result => {
                     location.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion error');
