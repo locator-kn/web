@@ -263,3 +263,8 @@ a.more-link:hover {
     text-decoration: none;
 }
 
+.not-selectable a {
+    text-decoration: none;
+    cursor: initial;
+}
+

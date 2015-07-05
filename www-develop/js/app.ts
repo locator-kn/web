@@ -341,10 +341,11 @@ var app = angular.module('locator', deps)
                 trip: "=",
                 mood: "=",
             },
-            controller: function ($scope, LocationService) {
+            controller: function ($scope, LocationService, TripService, UserService) {
                 $scope.showLocs = false;
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
+                console.info($scope.trip);
 
                 $scope.showLocations = function() {
                     $scope.showLocs = !$scope.showLocs;
@@ -360,6 +361,14 @@ var app = angular.module('locator', deps)
                         }
                     }
                 };
+
+                $scope.participate = function() {
+                    UserService.getUser($scope.trip.userid).then(result => {
+                        var user = result.data;
+                        TripService.participate(user, $scope.trip);
+                    });
+                };
+
             },
             templateUrl: 'templates/directives/tripMinView.html'
         }
