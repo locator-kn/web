@@ -61,9 +61,6 @@ module Controller {
         }
 
         participate() {
-            if (!this.$rootScope.authenticated) {
-                return this.$rootScope.$emit('openLoginDialog');
-            }
             this.TripService.participate(this.user, this.trip);
         }
 
