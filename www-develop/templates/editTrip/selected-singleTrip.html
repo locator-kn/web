@@ -17,7 +17,7 @@
         <h3>{{location.title}}</h3>
 
         <div class="location-tags tags">
-            <span ng-repeat="tag in location.tags | limitTo: 3" class="tag">{{tag}}</span>
+            <span ng-repeat="tag in location.tags track by $index | limitTo: 3" class="tag">{{tag}}</span>
         </div>
 
         <p class="location-description">{{location.description}}</p>
