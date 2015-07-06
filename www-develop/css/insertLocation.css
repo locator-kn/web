@@ -245,6 +245,6 @@ tags-input .tags.focused {
 }
 
 tags-input.error .tags {
-    border: 2px solid #ff4637 !important;
+    border: 1px solid #ff4637 !important;
 }
 
