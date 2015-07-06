@@ -42,8 +42,8 @@
 }
 
 .locationview-container .map-image {
-    height: 452px;
-    width: 402px;
+    height: 420px;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 40px;
     border-radius: 3px;
@@ -127,7 +127,6 @@
     padding: 15px 15px 15px 15px;
     position: relative;
     bottom: 80px;
-    right: 50px;
 }
 
 .locationview-container .link-container .all-locations {
