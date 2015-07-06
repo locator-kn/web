@@ -217,6 +217,7 @@
 
 .edittrip-container .img-wrapper {
     overflow: hidden;
+    min-height: 80px;
 }
 
 .edittrip-container .edit-section {

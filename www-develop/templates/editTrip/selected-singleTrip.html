@@ -5,10 +5,14 @@
                                                           src="images/icons/trip/cross.png"></a>
     </div>
 
-    <div class="col-xs-3 img-wrapper"><img
+    <div class="col-xs-3 img-wrapper"
+         style="background-image: url({{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}); background-size: cover;">
+
+
+    <!--<img
         ng-click="et.triggerPrevew(location)"
         ng-src="{{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}"
-        class="pointer location-picture img-responsive border-radius-decent"/>
+        class="pointer location-picture img-responsive border-radius-decent"/>-->
     </div>
 
 
