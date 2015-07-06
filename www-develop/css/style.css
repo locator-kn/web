@@ -734,13 +734,14 @@ a.close-modal {
 }
 
 .message-badge {
-    width: 25px;
-    height: 25px;
+    width: 12px;
+    height: 12px;
     position: absolute;
-    background: darkred;
+    background: #33c4b7;
     border-radius: 50%;
-    border: 1px solid #fff;
     text-align: center;
+    right: 8px;
+    top: 8px;
 }
 
 .text-responsive {
