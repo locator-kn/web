@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="locator" ng-controller="MainCtrl as mc">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Locator</title>
+    <title ng-bind="mc.title || mc.defaultTitle"></title>
 
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
@@ -86,7 +86,7 @@
     <script src="js/app.js"></script>
 </head>
 
-<body id="page-top" ng-class="{'slider': slider}" ng-app="locator" ng-controller="MainCtrl as mc">
+<body id="page-top" ng-class="{'slider': slider}">
 
 <div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
 
