@@ -406,14 +406,14 @@ ul.slides {
 
 .header-bar .user .user-dropdown {
     position: absolute;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    margin-left: -70px;
+    width: 140px;
     z-index: 10000;
     min-width: 120px;
 }
 
 .header-bar .user ul.user-dropdown {
-    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -1496,7 +1496,7 @@ h3 {
 }
 
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px), screen and (min-width: 992px) {
     .container {
         max-width: 900px;
     }
