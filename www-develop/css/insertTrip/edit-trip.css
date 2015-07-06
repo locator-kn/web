@@ -36,6 +36,7 @@
     padding: 4px;
     overflow: hidden;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 .edittrip-container .location .img-wrapper {
@@ -89,15 +90,23 @@
 .edittrip-container p {
     float: left;
     font-size: 12px;
+    line-height: 14px;
     width: 100%;
+    margin: 0;
 }
 
 .edittrip-container .location-tags {
-    padding: 4px;
+    padding: 0;
 }
 
 .edittrip-container .location-tags .tag {
     font-size: 10px;
+    padding: 2px 4px;
+    margin-right: 3px;
+}
+
+.edittrip-container .location-tags .tag:last-child {
+    margin-right: 0;
 }
 
 .edittrip-container .border-wrapper {
@@ -107,7 +116,13 @@
     height: 400px;
     overflow-y: scroll;
     border-radius: 3px;
+    padding-left: 5px;
 }
+
+.edittrip-container .selectedlocations .border-wrapper {
+    padding-top: 5px;
+}
+
 
 .edittrip-container .metadata .border-wrapper {
     height: 400px;
@@ -179,7 +194,7 @@
 .edittrip-container .wrap {
     width: 100%;
     float: left;
-    padding: 5px;
+    padding-top: 5px;
 }
 
 .edittrip-container .wrap input {
@@ -188,9 +203,10 @@
     background: white;
     border-radius: 4px;
     padding: 5px;
-    font-size: 18px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 14px;
 }
 
 .edittrip-container .trigger a {
@@ -292,6 +308,7 @@
     max-height: inherit;
     overflow: hidden;
 }
+
 
 .edittrip-container .missing {
     text-align: center;
@@ -533,6 +550,7 @@ span.info.err {
 
 .edittrip-container .content-wrapper {
     min-height: 80px;
+    padding-left: 7px;
 }
 
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
