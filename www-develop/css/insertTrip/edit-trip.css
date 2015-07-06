@@ -90,7 +90,9 @@
 .edittrip-container p {
     float: left;
     font-size: 12px;
+    line-height: 14px;
     width: 100%;
+    margin: 0;
 }
 
 .edittrip-container .location-tags {
