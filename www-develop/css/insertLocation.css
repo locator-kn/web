@@ -226,11 +226,14 @@ tags-input .tags {
     border: 1px solid rgb(204, 204, 204) !important;
     background-color: rgba(34, 34, 34, 0.1) !important;
     border-radius: 3px;
+    padding: 4px;
 }
 
 tags-input .tags .tag-item {
     background: #33c4b7 !important;
     color: white;
+    boder: none !important;
+    line-height: 26px !important;
 }
 
 tags-input .tags .tag-item .remove-button {
