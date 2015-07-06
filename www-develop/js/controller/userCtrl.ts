@@ -134,7 +134,7 @@ module Controller {
                     if (!result.data.picture) {
                         this.profileImagePath = "/images/profile.png"
                     } else {
-                        this.profileImagePath = result.data.picture.picture;
+                        this.profileImagePath = result.data.picture;
                     }
 
                     this.getTrips();

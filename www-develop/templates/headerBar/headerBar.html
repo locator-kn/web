@@ -21,7 +21,7 @@
                     <div active-popover click-value="hc.openUser" compare-to="mc.openElement" class="user"
                          ui-sref-active="active">
                         <a class="edit-user">{{hc.user.name}}</a>
-                        <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
+                        <a><img class="profile_thumbnail" ng-src="{{hc.user.picture + '?size=userThumb'}}"></a>
 
                         <ul class="user-dropdown fx-fade-up" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
@@ -48,7 +48,7 @@
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})"
                                     ng-class="{unread: !con[userID + '_read']}">
-                                    <img ng-src="{{con.opponent.picture}}?size='user.thumb'" alt="" class="profile"/>
+                                    <img ng-src="{{con.opponent.picture}}" alt="" class="profile"/>
 
                                     read: {{con[userID + '_read']}}
                                     <p class="from">{{con.opponent.name}}</p>
