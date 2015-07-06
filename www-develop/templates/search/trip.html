@@ -8,7 +8,7 @@
         </flex-slider>
     </div>
 
-    <div class="container half-viewport-height trip-container header content-width">
+    <div class="container">
         <div class="row">
             <div class="content-header">
                 <div class="col-xs-6">
@@ -16,7 +16,7 @@
                         <img class="pointer profile-image" ng-src="{{tc.user.picture.picture}}">
                     </div>
                 </div>
-                <div class="col-xs-6 btn-mood-container">
+                <div class="col-xs-5 btn-mood-container">
                         <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
                         </div>
                     <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">TEILNEHMEN</div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row trip-info-container">
-            <div class="col-sm-6 left-section">
+            <div class="col-xs-5 fix-position-left">
                 <div class="trip-info">
                     <h1>{{tc.trip.title}}</h1>
                     <p>{{tc.trip.description}}</p>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-xs-5 col-xs-offset-2">
                 <h1>Locations</h1>
                 <div class="edittrip-container">
                     <div class="mylocations-wrapper without-overlay">
