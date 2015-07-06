@@ -345,7 +345,6 @@ var app = angular.module('locator', deps)
                 $scope.showLocs = false;
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
-                console.info($scope.trip);
 
                 $scope.showLocations = function() {
                     $scope.showLocs = !$scope.showLocs;

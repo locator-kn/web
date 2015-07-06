@@ -62,9 +62,6 @@
                                      class="relative location border-radius-decent">
 
 
-                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                                    </div>
                                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
                                 </div>
@@ -83,9 +80,6 @@
                                      class="relative border-radius-decent location mylocation">
 
 
-                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                                    </div>
 
                                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
@@ -109,10 +103,6 @@
 
                             <div ng-repeat="location in et.selectedLocations" ng-class="{'opened': location.opened}"
                                  class="relative location mylocation">
-
-                                <div ng-click="et.deSelectLocation(location)" class="pointer select-overlay">
-                                    <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
-                                </div>
 
                                 <div ng-include="'templates/editTrip/selected-singleTrip.html'" include-replace></div>
 
