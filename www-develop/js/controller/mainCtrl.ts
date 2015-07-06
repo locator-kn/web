@@ -28,7 +28,7 @@ module Controller {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
             });
 
-            $rootScope.$on('updateTitle', (title) => {
+            $rootScope.$on('updateTitle', (scope, title) => {
                this.title = title ||'';
             });
 
