@@ -185,7 +185,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
 
-    .directive('contenteditable', ['$sce', ($sce) => {
+    .directive('contenteditable', [($sce) => {
         return {
             restrict: 'A', // only activate on element attribute
             require: '?ngModel', // get a hold of NgModelController
@@ -194,7 +194,7 @@ var app = angular.module('locator', deps)
 
                 // Specify how UI should be updated
                 ngModel.$render = function() {
-                    element.html($sce.getTrustedHtml(ngModel.$viewValue || ''));
+                    element.html(ngModel.$viewValue || '');
                 };
 
                 // Listen for change events to enable binding
