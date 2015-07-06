@@ -1485,3 +1485,9 @@ h2.breadcrumbs {
 .action-button {
     float: left;
 }
+
+
+h2 {
+    font-size: 27px;
+    font-weight: 400;
+}
