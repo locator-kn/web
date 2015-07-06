@@ -100,7 +100,7 @@
         float: left;
     }
 
-    .tt {
+    .tt:before, .tt:after {
         display: none;
     }
 }
