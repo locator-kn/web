@@ -35,7 +35,7 @@ module Controller {
                             if (!this.user.picture) {
                                 this.profileImagePath = '/images/profile.png?size=user';
                             } else {
-                                this.profileImagePath = this.user.picture.picture + '?size=user';
+                                this.profileImagePath = this.user.picture + '?size=user';
                             }
                         });
 
