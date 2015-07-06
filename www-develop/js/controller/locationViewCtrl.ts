@@ -19,7 +19,7 @@ module Controller {
                 .then(result => {
                     this.location = result.data;
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
-                    
+
                     this.locationImagePath = this.location.images.picture;
                     console.log(this.locationImagePath);
 
@@ -41,9 +41,10 @@ module Controller {
 
                     this.MessengerService.getConversations()
                         .then(result => {
-                            this.conversationId = this.lodash.findWhere(result.data, {
+                            var conversation = this.lodash.findWhere(result.data, {
                                 'opponent': this.userId
-                            })._id;
+                            });
+                            this.conversationId = conversation._id || conversation.id || '';
                         });
             });
         }
