@@ -24,7 +24,9 @@ module Controller {
                     console.log(this.locationImagePath);
 
                     if (this.locationImagePath === undefined) {
-                        this.locationImagePath = this.location.images.googlemap + '&size=1151x675&scale=2';
+                        this.locationImagePath = this.location.images.googlemap + '&size=1400x819&scale=2';
+                    } else {
+                        this.locationImagePath = this.locationImagePath + '&size=max'
                     }
 
                     this.userId = this.location.userid;
@@ -35,7 +37,7 @@ module Controller {
                             if (!this.user.picture) {
                                 this.profileImagePath = '/images/profile.png?size=user';
                             } else {
-                                this.profileImagePath = this.user.picture.picture + '?size=user';
+                                this.profileImagePath = this.user.picture + '?size=user';
                             }
                         });
 
