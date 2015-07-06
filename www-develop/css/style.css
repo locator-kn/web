@@ -1477,3 +1477,11 @@ h2.breadcrumbs {
     line-height: 40px;
     float: left;
 }
+
+.switch-wrapper {
+    float: left;
+}
+
+.action-button {
+    float: left;
+}
