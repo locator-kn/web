@@ -347,7 +347,8 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();
+            this.profileImagePath = data.imageLocation + '?' + Date.now();
+            debugger;
         }
 
         setNewPassword() {

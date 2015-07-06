@@ -100,8 +100,12 @@
         float: left;
     }
 
-    .tt {
+    .tt:before, .tt:after {
         display: none;
+    }
+
+    h2.breadcrumbs {
+        margin-left: 0;
     }
 }
 
