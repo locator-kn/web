@@ -1000,6 +1000,10 @@ img-triplist .flex-direction-nav a::before {
     height: 100%;
 }
 
+trip-min-view .header-image {
+    border-radius: 3px 0 0 3px;
+}
+
 .locationview-container .header-image {
     width: 100vw;
 }
