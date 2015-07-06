@@ -103,7 +103,7 @@
 }
 
 .insert-location-container .content-bottom .location-description {
-    height: 107px;
+    height: 102px;
     padding: 10px;
 }
 
@@ -232,7 +232,7 @@ tags-input .tags {
 tags-input .tags .tag-item {
     background: #33c4b7 !important;
     color: white;
-    boder: none !important;
+    border: none !important;
     line-height: 26px !important;
 }
 
