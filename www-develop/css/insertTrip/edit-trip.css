@@ -113,7 +113,13 @@
     height: 400px;
     overflow-y: scroll;
     border-radius: 3px;
+    padding-left: 5px;
 }
+
+.edittrip-container .selectedlocations .border-wrapper {
+    padding-top: 5px;
+}
+
 
 .edittrip-container .metadata .border-wrapper {
     height: 400px;
@@ -297,12 +303,8 @@
     padding: 15px;
     max-height: inherit;
     overflow: hidden;
-    padding-left: 5px;
 }
 
-.edittrip-container .selectedlocations .border-wrapper {
-    padding-top: 5px;
-}
 
 .edittrip-container .missing {
     text-align: center;
