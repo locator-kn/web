@@ -220,6 +220,10 @@
     min-height: 80px;
 }
 
+.edittrip-container .trip-wrapper {
+    padding-left: 15px;
+}
+
 .edittrip-container .edit-section {
     min-height: 80vh;
 }
