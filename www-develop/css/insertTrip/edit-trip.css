@@ -170,10 +170,6 @@
     padding: 10px;
 }
 
-.edittrip-container ::-webkit-input-placeholder {
-    color: rgb(212, 213, 215);
-}
-
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
     float: left;
     width: 100%;

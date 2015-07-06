@@ -1520,6 +1520,10 @@ h3 {
     font-size: 25px;
 }
 
+::-webkit-input-placeholder {
+    color: rgb(212, 213, 215);
+}
+
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
     .container {
