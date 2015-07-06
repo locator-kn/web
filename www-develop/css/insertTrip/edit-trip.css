@@ -132,7 +132,6 @@
 .publiclocations-wrapper, .mylocations-wrapper {
     float: left;
     width: 100%;
-    padding-left: 5px;
 }
 
 .border-radius-decent {
@@ -298,6 +297,11 @@
     padding: 15px;
     max-height: inherit;
     overflow: hidden;
+    padding-left: 5px;
+}
+
+.edittrip-container .selectedlocations .border-wrapper {
+    padding-top: 5px;
 }
 
 .edittrip-container .missing {
@@ -540,6 +544,7 @@ span.info.err {
 
 .edittrip-container .content-wrapper {
     min-height: 80px;
+    padding-left: 7px;
 }
 
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
