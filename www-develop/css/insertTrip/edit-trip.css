@@ -483,6 +483,7 @@ span.info.err {
     width: 100%;
     padding-right: 15px;
     min-height: 200px;
+    margin-bottom: 10px;
 }
 
 .edittrip-container .opened .trip-wrapper {
