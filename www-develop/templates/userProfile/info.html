@@ -11,7 +11,7 @@
                placeholder="Dein Wohnort">
         <label>Beschreibung:</label>
 
-        <div contenteditable="pc.edit" class="input col-xs-12" ng-model="pc.user.description" strip-br="true"></div>
+        <div ng-attr-contenteditable="{{pc.edit && true || false }}" class="input col-xs-12" ng-model="pc.user.description" strip-br="true"></div>
         <!--<textarea ng-disabled="!pc.edit" class="input col-xs-12" type="text" ng-model="pc.user.description"-->
                           <!--placeholder=""></textarea>-->
 
