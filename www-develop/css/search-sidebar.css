@@ -435,4 +435,7 @@ trip-min-view .result-content-box {
     height: 100%;
 }
 
-
+.results-container .img-list-container img-triplist .flexslider {
+    height: 300px;
+    border-radius: 3px 0 0 3px;
+}
