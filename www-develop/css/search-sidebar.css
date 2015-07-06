@@ -417,6 +417,14 @@ trip-min-view .result-content-box {
 
 .min-view-accomodation-container acc-equ-chooser div {
     margin: 0 0 0 0;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+}
+
+.min-view-accomodation-container {
+    margin-top: 10px;
 }
 
 .search-searchbar .green {
