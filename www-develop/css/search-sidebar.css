@@ -423,6 +423,10 @@ trip-min-view .result-content-box {
     width: 40px;
 }
 
+.min-view-accomodation-container {
+    margin-top: 10px;
+}
+
 .search-searchbar .green {
     margin-right: 8px;
 }
