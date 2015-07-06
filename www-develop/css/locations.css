@@ -42,8 +42,8 @@
 }
 
 .locationview-container .map-image {
-    height: 452px;
-    width: 402px;
+    height: 420px;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 40px;
     border-radius: 3px;
@@ -119,29 +119,28 @@
 .locationview-container .link-container {
     display: inline-block;
     z-index: 10;
-    width: 140px;
-    height: 80px;
+    width: 110px;
+    height: 50px;
     background: rgb(34, 34, 34);
     border-radius: 3px 3px 0px 0px;
     float: right;
-    padding: 15px 15px 15px 15px;
+    padding: 5px 10px 5px 10px;
     position: relative;
-    bottom: 80px;
-    right: 50px;
+    bottom: 50px;
 }
 
 .locationview-container .link-container .all-locations {
-    background-size: 50px 50px;
-    height: 50px;
-    width: 50px;
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
     float: left;
     margin-right: 10px;
 }
 
 .locationview-container .link-container .messenger {
-    background-size: 50px 50px;
-    width: 50px;
-    height: 50px;
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
     float: left;
 }
 
