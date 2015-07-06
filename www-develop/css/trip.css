@@ -76,3 +76,16 @@
     left: 150px;
 }
 
+.insert-trip-container .trip-icon {
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 133px 158px;
+    width: 133px;
+    height: 158px;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 20px;
+}
+

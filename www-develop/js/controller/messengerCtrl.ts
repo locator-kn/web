@@ -180,7 +180,7 @@ module Controller {
 
         sendMessage(event) {
 
-            if (event && event.keyCode !== 13) {
+            if (event && event.keyCode !== 13 || !this.textbox) {
                 return;
             }
             this._sendMessage();
