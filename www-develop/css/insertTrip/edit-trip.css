@@ -220,6 +220,7 @@
     min-height: 80px;
 }
 
+
 .edittrip-container .trip-wrapper {
     padding-left: 15px;
 }
@@ -481,6 +482,7 @@ span.info.err {
 .edittrip-container .opened .img-wrapper {
     width: 100%;
     padding-right: 15px;
+    min-height: 200px;
 }
 
 .edittrip-container .opened .content-wrapper {
