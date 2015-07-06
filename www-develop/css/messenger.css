@@ -83,9 +83,6 @@
 .messenger-container .conversations .item.replied .icon {
     background-image: url('../images/icons/chat/messenger_antwort.png');
 }
-.messenger-container .conversations .item.unread .icon {
-    background: url('../images/icons/chat/messenger_erhalten.png');
-}
 .messenger-container .conversations .profileimage {
     text-align: right;
 }
