@@ -284,7 +284,7 @@ trip-min-view .result-content-box {
 }
 
 .result-content-bottom .icon-container:first-child {
-    width: 50px;
+    width: 51px;
     margin-left: 0px;
 }
 
@@ -412,7 +412,7 @@ trip-min-view .result-content-box {
 }
 
 .min-view-accomodation-container {
-    width: 200px;
+    width: 100%;
 }
 
 .min-view-accomodation-container acc-equ-chooser div {
@@ -437,4 +437,5 @@ trip-min-view .result-content-box {
 
 .results-container .img-list-container img-triplist .flexslider {
     height: 300px;
+    border-radius: 3px 0 0 3px;
 }
