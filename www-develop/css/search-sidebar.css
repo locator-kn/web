@@ -280,11 +280,12 @@ trip-min-view .result-content-box {
     -webkit-transition:.5s;
     transition:.5s;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .result-content-bottom .icon-container:first-child {
-    width: 70px;
+    width: 50px;
+    margin-left: 0px;
 }
 
 .result-content-bottom .look-icon {
@@ -336,7 +337,7 @@ trip-min-view .result-content-box {
     color: white;
 }
 
-.trip-min-view .row-container {
+.results-container .trip-min-view .row-container {
     position: relative;
     height: 300px;
 }
@@ -411,7 +412,11 @@ trip-min-view .result-content-box {
 }
 
 .min-view-accomodation-container {
-    width: 100%;
+    width: 200px;
+}
+
+.min-view-accomodation-container acc-equ-chooser div {
+    margin: 0 0 0 0;
 }
 
 .search-searchbar .green {
@@ -422,6 +427,6 @@ trip-min-view .result-content-box {
     height: 100%;
 }
 
-.img-list-container img-triplist .flexslider {
+.results-container .img-list-container img-triplist .flexslider {
     height: 300px;
 }

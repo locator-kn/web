@@ -819,6 +819,12 @@ img.center {
     padding: 5px 10px;
     transition-duration: 0.3s;
     line-height: 30px;
+    font-size: 14px;
+}
+
+.profile .description {
+    line-height: 20px;
+    padding: 10px;
 }
 
 .profile ::-webkit-input-placeholder {
@@ -1146,18 +1152,25 @@ a:focus {
 }
 svg .st0 {
     fill: none;
-    stroke: #1D1D1B;
+    stroke: rgba(255,255,255,.4);
     stroke-width: 40;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-miterlimit: 10;
     stroke-dasharray: 1430;
 }
-svg#Ebene_1 {
-    height: 50%;
-    margin: 20vh 0 0;
+svg#Ebene_1, svg#Ebene_2 {
+    width: 190px;
+    position: absolute;
+    left: 50%;
+    margin: 33vh 0 0 -95px;
 }
-
+svg#Ebene_1 {
+    z-index: 9991;
+}
+svg#Ebene_1 .st0 {
+    stroke: #fff;
+}
 .big-progress, .span {
     text-align: center;
     color: #000;
@@ -1165,7 +1178,7 @@ svg#Ebene_1 {
 }
 
 .description {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 input.cmn-toggle-round + label {
@@ -1505,6 +1518,10 @@ h2 {
 h3 {
     font-weight: 400;
     font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(212, 213, 215);
 }
 
 

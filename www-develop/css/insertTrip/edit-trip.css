@@ -166,12 +166,8 @@
     border-radius: 4px;
     border: none;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px;
-}
-
-.edittrip-container ::-webkit-input-placeholder {
-    color: rgb(212, 213, 215);
 }
 
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
