@@ -16,6 +16,7 @@
 
 .mylocations-container .location-tags .tag {
     margin-bottom: 5px;
+    display: inline-block;
 }
 
 .location-settings {
