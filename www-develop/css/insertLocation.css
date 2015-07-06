@@ -11,7 +11,7 @@
 .insert-location-container .trip-image {
     background-image: none;
     border-radius: 3px;
-    border: 1px solid rgb(34, 34, 34);
+    border: 1px solid rgb(204, 204, 204);
     height: auto;
 }
 
@@ -23,7 +23,6 @@
     background-color: rgb(34, 34, 34);
     border-radius: 50%;
     z-index: 10;
-    border: 1px solid rgb(34, 34, 34);
 
     transition-duration: 0.2s;
 }
@@ -42,7 +41,7 @@
 
 .insert-location-container input, .insert-location-container textarea {
     border-radius: 3px;
-    border: 1px solid rgb(34, 34, 34);
+    border: 1px solid rgb(204, 204, 204);
     background: none;
     color: rgb(34, 34, 34);
     background-color: rgba(34, 34, 34, 0.1);
@@ -82,7 +81,7 @@
 .insert-location-container .google-maps-location {
     border-radius: 3px;
     overflow: hidden;
-    border: 1px solid rgb(34, 34, 34);
+    border: 1px solid rgb(204, 204, 204);
     margin: 0;
 }
 
@@ -125,7 +124,7 @@
 .insert-location-container .text-fields:focus {
     border-style: solid;
     border-width: 1px;
-    border-color: rgb(34, 34, 34);
+    border-color: rgb(204, 204, 204);
 }
 
 .insert-location-container .validation-error .error-message {
@@ -210,7 +209,7 @@
 
 .search-wrapper {
     margin-top: 15px;
-    border: 1px solid rgb(34, 34, 34);
+    border: 1px solid rgb(204, 204, 204);
     border-radius: 3px;
     background-color: rgba(34, 34, 34, 0.1);
 }
@@ -224,7 +223,7 @@ tags-input {
 }
 
 tags-input .tags {
-    border: 1px solid rgb(34, 34, 34) !important;
+    border: 1px solid rgb(204, 204, 204) !important;
     background-color: rgba(34, 34, 34, 0.1) !important;
     border-radius: 3px;
 }
@@ -240,8 +239,10 @@ tags-input .tags .tag-item .remove-button {
 
 tags-input .tags.focused {
     outline: none !important;
-    border: 1px solid rgb(34, 34, 34) !important;
+    border: 1px solid transparent !important;
     box-shadow: 1px 1px 1px 0 #d3d3d3 inset !important;
+
+
 }
 
 tags-input.error .tags {
