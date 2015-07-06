@@ -144,7 +144,8 @@ module Controller {
 
                         this.MessengerService.getConversations()
                             .then(result => {
-                                this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
+                                var user = this.lodash.findWhere(result.data, {'opponent': this.user._id});
+                                this.conversationId = user._id || '';
                             });
                     }
 

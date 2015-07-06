@@ -88,6 +88,7 @@ module Controller {
             }
 
             this.showBadge = false;
+            this.$scope.$emit('updateTitle', '');
         }
 
         registerWebsockets() {
@@ -105,6 +106,11 @@ module Controller {
                     this.showBadge = true;
                     this.unreadMessages += 1;
                     this.lastMessageIn = newMessage.conversation_id;
+                    var newTitle = {
+                        add: true,
+                        text: '(' + this.unreadMessages + ')'
+                    };
+                    this.$scope.$emit('updateTitle', newTitle);
                 });
             });
 

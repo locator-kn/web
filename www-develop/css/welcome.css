@@ -145,6 +145,7 @@ a.welcome_button:hover {
 
 .welcome_container .opener.show a.welcome_button {
     opacity: 1;
+    border-radius: 3px;
 }
 
 .welcome_wrapper {
