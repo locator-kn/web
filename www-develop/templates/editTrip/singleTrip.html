@@ -7,7 +7,7 @@
 
 
     <div class="col-xs-3 img-wrapper"
-         style="background-image: url({{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}); background-size: cover;">
+         ng-click="et.triggerPrevew(location)" class="pointer" style="background-image: url({{location.images.thumbnail || location.images.googlemap + '&size=170x140'}}); background-size: cover;">
 
         <!--<img
         ng-click="et.triggerPrevew(location)"
