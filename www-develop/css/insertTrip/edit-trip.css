@@ -529,3 +529,11 @@ span.info.err {
 .edittrip-container .content-wrapper {
     min-height: 80px;
 }
+
+.edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
+    background-color: white;
+}
+
+.without-overlay .select-overlay {
+    display: none;
+}
