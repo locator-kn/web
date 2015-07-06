@@ -819,6 +819,12 @@ img.center {
     padding: 5px 10px;
     transition-duration: 0.3s;
     line-height: 30px;
+    font-size: 14px;
+}
+
+.profile .description {
+    line-height: 20px;
+    padding: 10px;
 }
 
 .profile ::-webkit-input-placeholder {
@@ -1154,10 +1160,10 @@ svg .st0 {
     stroke-dasharray: 1430;
 }
 svg#Ebene_1, svg#Ebene_2 {
-    height: 20%;
+    width: 190px;
     position: absolute;
     left: 50%;
-    margin: 33vh 0 0 -11.5%;
+    margin: 33vh 0 0 -95px;
 }
 svg#Ebene_1 {
     z-index: 9991;
@@ -1172,7 +1178,7 @@ svg#Ebene_1 .st0 {
 }
 
 .description {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 input.cmn-toggle-round + label {
@@ -1512,6 +1518,12 @@ h2 {
 h3 {
     font-weight: 400;
     font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(163, 163, 163) !important;
+    font-weight: 300 !important;
+    font-size: 14px;
 }
 
 
