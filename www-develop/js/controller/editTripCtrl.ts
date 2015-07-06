@@ -54,7 +54,6 @@ module Controller {
         constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
 
-
             if ($state.current.name === 'insertTrip') {
                 this.$rootScope.breadcrumb = 'Trip einstellen';
             }
@@ -120,7 +119,6 @@ module Controller {
                     this.myLocations = responsesArray[1].data;
 
 
-
                     if (this.$state.params.tripId) {
                         //get preselected trips
                         this.fillSelectedLocations();
@@ -136,7 +134,7 @@ module Controller {
         }
 
         selectLocation(location) {
-            
+
             var _public = this._removeLocation(this.publicLocations, location);
             var _private = this._removeLocation(this.myLocations, location);
 
@@ -400,6 +398,15 @@ module Controller {
                 location.opened = true;
             } else {
                 location.opened = !location.opened;
+            }
+        }
+
+        setPersons(value) {
+
+            if (this.tripMeta.persons === value) {
+                this.tripMeta.persons = '';
+            } else {
+                this.tripMeta.persons = value;
             }
         }
 
