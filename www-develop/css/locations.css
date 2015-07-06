@@ -93,11 +93,10 @@
     font-size: 15px;
     border-radius: 3px;
     border: 1px solid rgb(204, 204, 204);
+    line-height: 14px;
 }
 
-.searchbar ::-webkit-input-placeholder {
-    line-height: 18px;
-}
+
 
 .locationview-container .location-tags {
     padding-left: 0;
