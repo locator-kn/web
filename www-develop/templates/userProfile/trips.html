@@ -55,9 +55,9 @@
                                 löschen</a>
                         </div>
 
-                    <span ui-sref="editTrip({tripId: trip._id})" class="action-button edit"><img
+                    <span aria-label="Trip bearbeiten" ui-sref="editTrip({tripId: trip._id})" class="tt tt-small action-button pointer edit"><img
                         src="images/icons/icons_stuff/pencil.png"></span>
-                    <span ng-click="pc.showDelete(trip)" class="action-button delete"><img
+                    <span aria-label="Trip löschen" ng-click="pc.showDelete(trip)" class="tt tt-small action-button pointer delete"><img
                         src="images/icons/icons_stuff/cross.png"></span>
 
                     </div>
