@@ -1,0 +1,23 @@
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 841.9 595.3" style="enable-background:new 0 0 841.9 595.3;" xml:space="preserve">
+<style type="text/css">
+    .st0{fill:none;stroke:#1D1D1B;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+    <defs>
+        <style>
+            .st0 {
+                stroke-dasharray: 1430;
+            }
+        </style>
+    </defs>
+</style>
+<script>
+    <!-- var i = 1430;
+    setInterval(function() {
+        a = document.querySelector('path');
+        a.setAttribute('stroke-dashoffset', i);
+        i -= 10;
+    }, 300); -->
+</script>
+<path class="st0" d="M423.1,549.8l-171-179.2c-28.6-34.6-45.5-78.4-45.5-125.5c0-113.4,97-204.8,216.5-204.8
+    S639.6,131.6,639.6,245c0,47.2-16.9,90.9-45.5,125.5L423.1,549.8"/>
+</svg>
