@@ -11,7 +11,7 @@
 .insert-location-container .trip-image {
     background-image: none;
     border-radius: 3px;
-    border: 2px solid white;
+    border: 2px solid black;
     height: auto;
 }
 
@@ -23,7 +23,7 @@
     background-color: rgb(34, 34, 34);
     border-radius: 50%;
     z-index: 10;
-    border: 2px solid white;
+    border: 2px solid black;
 
     transition-duration: 0.2s;
 }
@@ -42,7 +42,7 @@
 
 .insert-location-container input, .insert-location-container textarea {
     border-radius: 3px;
-    border: 2px solid white;
+    border: 2px solid black;
     background: none;
     color: rgb(34, 34, 34);
     background-color: rgba(34, 34, 34, 0.1);
@@ -82,7 +82,7 @@
 .insert-location-container .google-maps-location {
     border-radius: 3px;
     overflow: hidden;
-    border: 2px solid white;
+    border: 2px solid black;
     margin: 0;
 }
 
@@ -210,7 +210,7 @@
 
 .search-wrapper {
     margin-top: 15px;
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 3px;
     background-color: rgba(34, 34, 34, 0.1);
 }
