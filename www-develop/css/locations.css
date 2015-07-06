@@ -37,12 +37,12 @@
 }
 
 .locationview-container .map-image {
-    height: 454px;
-    width: 404px;
+    height: 452px;
+    width: 402px;
     margin-top: 10px;
     margin-bottom: 40px;
     border-radius: 3px;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .location-settings input {
