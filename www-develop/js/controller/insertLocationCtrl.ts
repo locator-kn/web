@@ -224,7 +224,7 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            var cacheBuster = data.date.split(' ').join('');
+            var cacheBuster = Date.now();
             this.headerImagePath = data.location + '?size=mid&c=' + cacheBuster;
         }
 
