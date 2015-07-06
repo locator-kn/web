@@ -1147,13 +1147,32 @@ a:focus {
     width: 100%;
     height: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.5);
     transition: all 1s;
     content: ' ';
 }
-
+svg .st0 {
+    fill: none;
+    stroke: rgba(255,255,255,.4);
+    stroke-width: 40;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1430;
+}
+svg#Ebene_1, svg#Ebene_2 {
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    margin: 33vh 0 0 -11.5%;
+}
+svg#Ebene_1 {
+    z-index: 9991;
+}
+svg#Ebene_1 .st0 {
+    stroke: #fff;
+}
 .big-progress, .span {
-    text-align: right;
+    text-align: center;
     color: #000;
     font-size: 50px;
 }
