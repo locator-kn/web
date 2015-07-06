@@ -44,6 +44,9 @@ module Controller {
                             var conversation = this.lodash.findWhere(result.data, {
                                 'opponent': this.userId
                             });
+                            if (!conversation) {
+                                return;
+                            }
                             this.conversationId = conversation._id || conversation.id || '';
                         });
             });

@@ -71,3 +71,8 @@
     padding-bottom: 20px;
 }
 
+.trip-info-container .fix-position-left {
+    position: relative;
+    left: 150px;
+}
+

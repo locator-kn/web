@@ -406,3 +406,7 @@ trip-min-view .result-content-box {
 .min-view-accomodation-container {
     width: 250px;
 }
+
+.search-searchbar .green {
+    margin-right: 8px;
+}
