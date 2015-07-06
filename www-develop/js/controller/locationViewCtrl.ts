@@ -26,7 +26,7 @@ module Controller {
                     if (this.locationImagePath === undefined) {
                         this.locationImagePath = this.location.images.googlemap + '&size=1400x819&scale=2';
                     } else {
-                        this.locationImagePath = this.locationImagePath + '&size=max'
+                        this.locationImagePath = this.locationImagePath + '?size=max'
                     }
 
                     this.userId = this.location.userid;
