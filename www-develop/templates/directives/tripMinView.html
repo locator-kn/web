@@ -13,8 +13,8 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-8 no-margin no-padding">
-                <img-triplist locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
+            <div class="col-xs-12 col-sm-8 no-margin no-padding img-list-container">
+                <img-triplist id="result-slider" locations="trip.locations" mapwidth="300" mapheight="150" scale="1"></img-triplist>
             </div>
             <div class="col-xs-12 col-sm-4 no-margin result-content-box">
                 <div class="result-content-wrapper" ui-sref="trip({tripId:trip._id})">
@@ -64,10 +64,10 @@
 
                 </div>
                 <div class="result-content-bottom">
-                    <div class="col-xs-3 icon-container white-border tt tt-small" aria-label="{{trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
-                    <div class="col-xs-3 icon-container look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId:trip._id})"></div>
-                    <div class="col-xs-3 icon-container location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
-                    <div class="col-xs-3 icon-container messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                    <div class="icon-container white-border tt tt-small" aria-label="{{trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
+                    <div class="icon-container look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId:trip._id})"></div>
+                    <div class="icon-container location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
+                    <div class="icon-container messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
                 </div>
             </div>
         </div>
