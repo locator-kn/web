@@ -41,7 +41,7 @@
                         <li ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" ng-click="hc.redirectToMessenger()" class="pointer messenger tt tt-small"
                             aria-label="Messenger" aria-not-authenticated="Finde Trips und trete mit Leuten in Kontakt"> <!--active-popover
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()"-->
-                            <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
+                            <div class="message-badge" ng-show="hc.showBadge"></div>
                             <img ng-src="images/icons/header/messenger_weiss.png">
                             <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover fx-fade-up">
                                 <div class="arrow"></div>
