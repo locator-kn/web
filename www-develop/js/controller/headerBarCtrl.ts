@@ -88,6 +88,7 @@ module Controller {
             }
 
             this.showBadge = false;
+            this.$scope.$emit('updateTitle', '');
         }
 
         registerWebsockets() {
