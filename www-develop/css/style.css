@@ -1128,7 +1128,7 @@ img-triplist .flex-direction-nav a::before {
 
 .empty-locations img {
     margin-right: 5px;
-    max-width: 50px;
+    height: 40px;
 }
 
 a:focus {
