@@ -960,6 +960,9 @@ input:-webkit-autofill {
     margin-top: 10px;
     margin-bottom: 0;
 }
+.user-form [contenteditable] {
+    min-height: 100px;
+}
 
 .profile-button.active {
     background: rgb(31, 35, 35);
