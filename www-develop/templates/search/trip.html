@@ -70,7 +70,7 @@
             <div class="col-sm-6">
                 <h1>Locations</h1>
                 <div class="edittrip-container">
-                    <div class="mylocations-wrapper">
+                    <div class="mylocations-wrapper without-overlay">
                         <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container">
                             <div class="pointer" ng-include="'templates/editTrip/singleTrip.html'" include-replace ui-sref="locationView({locationId: location._id})">
                             </div>
