@@ -11,7 +11,7 @@
 .insert-location-container .trip-image {
     background-image: none;
     border-radius: 3px;
-    border: 2px solid white;
+    border: 2px solid black;
     height: auto;
 }
 
