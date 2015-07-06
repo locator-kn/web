@@ -21,7 +21,7 @@
         <div class="row fix-position-bottom">
             <div class="col-xs-5 fix-position-left">
                 <div class="location-title">
-                    <p class="big-font-size">{{lt.location.title}}</p>
+                    <h2>{{lt.location.title}}</h2>
                 </div>
                 <div class="location-creator">
                     <p>von <strong>{{lt.user.name}}</strong> am <strong> <resultdate class="black" date="lt.location.create_date"></resultdate></strong></p>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-xs-5 col-xs-offset-2">
                 <div class="map-title">
-                    <p class="big-font-size">Karte</p>
+                    <h2>Karte</h2>
                 </div>
 
                 <div class="map-image" style="background-image: url({{lt.location.images.googlemap + '&size=345x420'}});"></div>
