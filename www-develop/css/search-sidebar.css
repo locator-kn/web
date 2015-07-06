@@ -280,11 +280,12 @@ trip-min-view .result-content-box {
     -webkit-transition:.5s;
     transition:.5s;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .result-content-bottom .icon-container:first-child {
-    width: 70px;
+    width: 50px;
+    margin-left: 0px;
 }
 
 .result-content-bottom .look-icon {
