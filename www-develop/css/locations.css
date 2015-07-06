@@ -90,13 +90,15 @@
     width: 300px;
     max-width: 100%;
     padding: 4px;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 3px;
     border: 1px solid rgb(204, 204, 204);
     line-height: 14px;
 }
 
-
+.searchbar ::-webkit-input-placeholder {
+    line-height: 18px;
+}
 
 .locationview-container .location-tags {
     padding-left: 0;
