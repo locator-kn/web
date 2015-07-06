@@ -200,7 +200,7 @@ module Controller {
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
-                    this.showNewImage(data);
+                    this.showNewImage(headers);
                     this.documentId = data.id;
 
                     this.uploadIsDone = true;
@@ -224,7 +224,7 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.headerImagePath = data.imageLocation.picture + '&size=mid';
+            this.headerImagePath = data.location;
         }
 
         save() {
