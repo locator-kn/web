@@ -819,6 +819,12 @@ img.center {
     padding: 5px 10px;
     transition-duration: 0.3s;
     line-height: 30px;
+    font-size: 14px;
+}
+
+.profile .description {
+    line-height: 20px;
+    padding: 10px;
 }
 
 .profile ::-webkit-input-placeholder {
@@ -1153,7 +1159,7 @@ a:focus {
 }
 
 .description {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 input.cmn-toggle-round + label {
