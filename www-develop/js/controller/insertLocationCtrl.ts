@@ -224,7 +224,7 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.headerImagePath = data.imageLocation.picture;
+            this.headerImagePath = data.imageLocation.picture + '&size=mid';
         }
 
         save() {
