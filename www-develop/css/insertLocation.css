@@ -124,8 +124,8 @@
 
 .insert-location-container .text-fields:focus {
     border-style: solid;
-    border-width: 2px;
-    border-color: white;
+    border-width: 1px;
+    border-color: black;
 }
 
 .insert-location-container .validation-error .error-message {
@@ -240,7 +240,7 @@ tags-input .tags .tag-item .remove-button {
 
 tags-input .tags.focused {
     outline: none !important;
-    border: 1px solid white !important;
+    border: 1px solid black !important;
     box-shadow: 1px 1px 1px 0 #d3d3d3 inset !important;
 }
 
