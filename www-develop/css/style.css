@@ -1521,7 +1521,9 @@ h3 {
 }
 
 ::-webkit-input-placeholder {
-    color: rgb(212, 213, 215);
+    color: rgb(163, 163, 163) !important;
+    font-weight: 300 !important;
+    font-size: 14px;
 }
 
 
