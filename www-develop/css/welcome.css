@@ -61,7 +61,7 @@ a.welcome_button {
     color: white;
     text-decoration: none;
     border: 1px solid white;
-    padding: 5px 20px;
+    padding: 6px 20px;
     font-size: 25px;
     transition-duration: 0.2s;
     transition-delay: 0s !important;
@@ -214,7 +214,7 @@ a.welcome_button:hover {
 span.green {
     float: left;
     background-color: #33c4b7;
-    padding: 3px 10px;
+    padding: 4px 10px;
     margin: 5px 0;
     border-radius: 3px;
 }
@@ -222,7 +222,7 @@ span.green {
 span.red {
     float: left;
     background-color: #ff4637;
-    padding: 3px 10px;
+    padding: 4px 10px;
     margin: 5px 0;
     border-radius: 3px;
 }
