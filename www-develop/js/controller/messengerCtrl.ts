@@ -27,6 +27,8 @@ module Controller {
 
             this.$rootScope.breadcrumb = 'Messenger';
 
+            this.$scope.$emit('updateTitle', '');
+
             this.getConversations();
 
             $scope.$on('login_success', () => {

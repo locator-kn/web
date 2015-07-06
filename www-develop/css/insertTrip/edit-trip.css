@@ -217,6 +217,12 @@
 
 .edittrip-container .img-wrapper {
     overflow: hidden;
+    min-height: 80px;
+}
+
+
+.edittrip-container .trip-wrapper {
+    padding-left: 15px;
 }
 
 .edittrip-container .edit-section {
@@ -476,6 +482,7 @@ span.info.err {
 .edittrip-container .opened .img-wrapper {
     width: 100%;
     padding-right: 15px;
+    min-height: 200px;
 }
 
 .edittrip-container .opened .content-wrapper {
