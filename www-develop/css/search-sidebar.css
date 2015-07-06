@@ -411,7 +411,7 @@ trip-min-view .result-content-box {
 }
 
 .min-view-accomodation-container {
-    width: 250px;
+    width: 100%;
 }
 
 .search-searchbar .green {
@@ -419,7 +419,7 @@ trip-min-view .result-content-box {
 }
 
 .trip-min-view .img-list-container {
-    height: 300px;
+    height: 100%;
 }
 
 .img-list-container img-triplist .flexslider {
