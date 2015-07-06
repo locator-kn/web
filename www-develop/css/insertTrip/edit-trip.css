@@ -98,6 +98,12 @@
 
 .edittrip-container .location-tags .tag {
     font-size: 10px;
+    padding: 2px 4px;
+    margin-right: 3px;
+}
+
+.edittrip-container .location-tags .tag:last-child {
+    margin-right: 0;
 }
 
 .edittrip-container .border-wrapper {
