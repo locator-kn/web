@@ -48,7 +48,7 @@
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})"
                                     ng-class="{unread: !con[userID + '_read']}">
-                                    <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
+                                    <img ng-src="{{con.opponent.picture}}?size='user.thumb'" alt="" class="profile"/>
 
                                     read: {{con[userID + '_read']}}
                                     <p class="from">{{con.opponent.name}}</p>
