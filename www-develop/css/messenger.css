@@ -66,15 +66,31 @@
 }
 
 .messenger-container .conversations .item.unread {
-    background-color: #100e10;
+    color: #33c4b7;
+}
+.messenger-container .conversations .item .icon {
+    float: right;
+    margin: 19px 12px 0 0;
+    padding: 8px;
+    background-size: cover;
+}
+.messenger-container .conversations .item.unread .icon {
+    background-image: url('../images/icons/chat/messenger_erhalten.png');
+}
+.messenger-container .conversations .item.seen .icon {
+    background-image: url('../images/icons/chat/messenger_angesehn.png');
+}
+.messenger-container .conversations .item.replied .icon {
+    background-image: url('../images/icons/chat/messenger_antwort.png');
 }
 .messenger-container .conversations .profileimage {
     text-align: right;
 }
 .messenger-container .conversations .profileimage .profile-image {
     margin: 0;
-    height: 46px;
-    width: 46px;
+    height: 92px;
+    width: 92px;
+    border-radius: 50%;
 }
 
 

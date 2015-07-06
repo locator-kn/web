@@ -1,17 +1,17 @@
 <md-list class="conversations">
     <div class="profileimage">
-        <img src="" class="profile-image" alt=""/>
+        <img ng-src="{{userImageUrl + '?size=user'}}" class="profile-image" alt=""/>
     </div>
     <h2>Kontakte</h2>
     <div class="list">
-        <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read']}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
+        <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read'], seen: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from !== userID, replied: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from === userID}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
 
-            <img class="md-avatar" ng-src="{{conversation.opponent.picture.picture}}"/>
+            <img class="md-avatar" ng-src="{{conversation.opponent.picture + '?size=user'}}"/>
 
             <div class="md-list-item-text">
                 <h3>{{ conversation.opponent.name }}</h3>
-              <!--  <p>{{ conversation.lastMessage }}</p> -->
                 <div class="time" messenger-date date="mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].timestamp">{{mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].timestamp}}</div>
+                <div class="icon"></div>
             </div>
         </md-list-item>
     </div>
