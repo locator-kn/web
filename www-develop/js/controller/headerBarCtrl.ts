@@ -105,7 +105,11 @@ module Controller {
                     this.showBadge = true;
                     this.unreadMessages += 1;
                     this.lastMessageIn = newMessage.conversation_id;
-                    this.$scope.$emit('updateTitle', this.unreadMessages);
+                    var newTitle = {
+                        add: true,
+                        text: '(' + this.unreadMessages + ')'
+                    };
+                    this.$scope.$emit('updateTitle', newTitle);
                 });
             });
 
