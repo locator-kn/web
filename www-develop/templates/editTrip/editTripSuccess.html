@@ -9,7 +9,7 @@
             </div>
             <div class="col-sm-4 infobox">
                 <ul class="success-menu">
-                    <li><div class="image" style="background-image: url('./images/icons/ansehen.png')"></div><a class="pointer" ui-sref="trip({tripId: lastInsertedTripId})">Trip ansehen</a></li>
+                    <li ui-sref="trip({tripId: lastInsertedTripId})"><div class="image" style="background-image: url('./images/icons/ansehen.png')"></div><a class="pointer">Trip ansehen</a></li>
                     <li><div class="image" style="background-image: url('./images/icons/alle_trips.png')"></div><a class="pointer" ui-sref="user({profileId: userID, tab: 'trips'})">Alle Trips ansehen</a></li>
                     <li><div class="image" style="background-image: url('./images/icons/trip_erstellen.png')"></div><a class="pointer" ui-sref="insertTrip">Weiteren Trip hinzufügen</a></li>
                     <li><div class="image" style="background-image: url('./images/icons/all_locations.png')"></div><a class="pointer" ui-sref="user({profileId: userID, tab: 'locations'})">Alle Locations ansehen</a></li>
