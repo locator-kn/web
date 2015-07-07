@@ -287,7 +287,7 @@ body.slider {
 
 .header-bar .btn-group {
     float: left;
-    min-height: 40px;
+    min-height: 45px;
 }
 
 .header-bar .btn-group a {
@@ -387,7 +387,7 @@ ul.slides {
 }
 
 .header-bar .user {
-    margin: 0 10px 0;
+    margin: 1px 10px 0;
     float: left;
     position: relative;
     cursor: pointer;
@@ -608,7 +608,7 @@ a.close-modal {
     background-color: rgb(17, 17, 17);
     position: absolute;
     border-bottom-right-radius: 5px;
-    padding: 10px;
+    padding: 11px;
     left: 0;
     top: 0;
 }
@@ -700,7 +700,7 @@ a.close-modal {
 .header-bar .menu ul {
     list-style: none;
     float: left;
-    margin: 0;
+    margin: 1px 0 0 0;
     padding: 0;
 }
 
@@ -1502,7 +1502,7 @@ progress-arc.hidden-height {
 
 h2.breadcrumbs {
     padding: 0;
-    margin: 0;
+    margin: 1px 0 0;
     margin-left: 100px;
     font-size: 12px;
     color: white;
