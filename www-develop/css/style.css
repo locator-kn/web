@@ -292,7 +292,7 @@ body.slider {
 
 .header-bar .btn-group a {
     color: #fff;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .header-bar .btn-group a:hover {
@@ -1502,11 +1502,11 @@ progress-arc.hidden-height {
 
 h2.breadcrumbs {
     padding: 0;
-    margin: 1px 0 0;
+    margin: 0;
     margin-left: 100px;
     font-size: 12px;
     color: white;
-    line-height: 40px;
+    line-height: 45px;
     float: left;
 }
 
