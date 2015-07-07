@@ -78,10 +78,6 @@
         width: 100%;
     }
 
-    .logo-small {
-        display: none;
-    }
-
     span.green, span.red {
         width: 100%;
     }
@@ -129,6 +125,10 @@
 
     .edittrip-container .bottom-wrapper .absolute-bottom-right {
         position: inherit;
+    }
+
+    .logo-small {
+        height: 40px;
     }
 }
 
