@@ -38,10 +38,19 @@ module Service {
                 });
                 return;
             }
+            this.$rootScope.$on('logout_success', () => {
+                this.logoutCleanup();
+            });
             this.getSocket().then(socket => {
                 socket.on('new_message', newMessage => {
                     this.$rootScope.$broadcast('new_message', newMessage);
                 });
+            });
+        }
+
+        logoutCleanup() {
+            this.getSocket().then(socket => {
+                socket.disconnect();
             });
         }
 
