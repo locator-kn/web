@@ -527,7 +527,7 @@ span.info.err {
     width: 100%;
 }
 
-.edittrip-container .opened .img-wrapper img {
+.edittrip-container .opened .img-wrapper img.image {
     height: auto;
     width: 100%;
     margin-bottom: 10px;
