@@ -256,7 +256,7 @@ trip-min-view .result-content-box {
     top: 60px;
     left: 200px;
     display: block;
-    z-index: 100;
+    z-index: 80;
 }
 
 .trip-min-view .result-content-bottom {
