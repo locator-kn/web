@@ -608,7 +608,7 @@ a.close-modal {
     background-color: rgb(17, 17, 17);
     position: absolute;
     border-bottom-right-radius: 5px;
-    padding: 10px;
+    padding: 11px;
     left: 0;
     top: 0;
 }
