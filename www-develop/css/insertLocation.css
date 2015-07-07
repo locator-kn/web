@@ -213,6 +213,18 @@
     border: 1px solid rgb(204, 204, 204);
     border-radius: 3px;
     background-color: rgba(34, 34, 34, 0.1);
+    float: left;
+}
+
+a.help-trigger {
+    height: 40px;
+    margin-top: 15px;
+    float: left;
+}
+
+a.help-trigger img {
+    height: 100%;
+    padding: 8px;
 }
 
 tags-input .host {
@@ -246,10 +258,34 @@ tags-input .tags.focused {
     border: 1px solid transparent !important;
     box-shadow: 1px 1px 1px 0 #d3d3d3 inset !important;
 
-
 }
 
 tags-input.error .tags {
     border: 1px solid #ff4637 !important;
+}
+
+.search-wrapper {
+    width: calc(100% - 30px);
+}
+
+.help-box {
+    background: rgba(34, 34, 34, 0.8);
+    color: white;
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 57px;
+    border-radius: 3px;
+    width: 100%;
+
+    display: none;
+}
+.help-trigger:hover .help-box {
+    display: block;
+    font-size: 12px;
+}
+
+.help-trigger .help-box p {
+    margin: 0;
 }
 
