@@ -432,14 +432,14 @@ span.info.err {
     height: 100%;
     text-align: center;
     background-color: rgba(34, 34, 34, 0.6);
-    padding-top: 110px;
+    padding-top: 165px;
     color: white;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
 
 .tripsuccess-image {
-    height: 300px;
+    height: 401px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
@@ -449,7 +449,7 @@ span.info.err {
 }
 
 .trip-success-container .wrapper {
-    height: 300px;
+    height: 401px;
     position: absolute;
     top: 50%;
     margin-top: -150px;
@@ -457,7 +457,7 @@ span.info.err {
 }
 
 .trip-success-container .infobox {
-    height: 300px;
+    height: 401px;
     background: rgb(34, 34, 34);
     border-left: 1px solid white;
     border-top-right-radius: 3px;
