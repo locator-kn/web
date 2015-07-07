@@ -253,10 +253,10 @@ trip-min-view .result-content-box {
 
 .search-searchbar {
     position: fixed;
-    top: 60px;
-    left: 200px;
+    top: 65px;
     display: block;
     z-index: 80;
+    padding-left: 15px;
 }
 
 .trip-min-view .result-content-bottom {
@@ -340,6 +340,7 @@ trip-min-view .result-content-box {
 .results-container .trip-min-view .row-container {
     position: relative;
     height: 300px;
+    margin: 0 0 0 0;
 }
 
 .result-content-wrapper {
@@ -438,4 +439,15 @@ trip-min-view .result-content-box {
 .results-container .img-list-container img-triplist .flexslider {
     height: 300px;
     border-radius: 3px 0 0 3px;
+}
+
+.search-container .fixed-top {
+    position: fixed;
+    top: 60px;
+    height: 100px;
+    width: 100%;
+}
+
+.search-container .welcome_select {
+    right: 0;
 }

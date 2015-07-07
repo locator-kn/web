@@ -834,7 +834,7 @@ img.center {
 
 .profile.container {
     max-width: 550px;
-    padding: 50px 15px;
+    padding: 30px 15px;
 }
 
 .profile .startconversation {
@@ -1522,6 +1522,10 @@ h2.breadcrumbs {
 h2 {
     font-size: 27px;
     font-weight: 400;
+}
+
+h2.page-headline {
+    margin-top: 30px;
 }
 
 h3 {

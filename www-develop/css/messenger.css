@@ -3,6 +3,7 @@
     width: 100%;
     max-width: 362px;
     float: right;
+    padding-top: 30px;
 }
 .messenger-container .conversations .list {
     max-height: calc(100vh - 60px);
@@ -269,7 +270,6 @@ span.bubble {
 }
 
 .conversations {
-    padding-top: 15px;
     float: left;
     width: 100%;
 }

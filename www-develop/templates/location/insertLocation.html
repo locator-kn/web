@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12">
 
-            <h3 class="uppercase">Neue Location erstellen</h3>
+            <h2 class="page-headline uppercase">{{ilc.headline}}</h2>
 
             <div class="image-upload-modal" ng-show="ilc.showImageUploadModal">
                 <img src="{{ilc.imagePath.result}}" id="cropping-preview" alt="" class="image-modal"/>
@@ -64,7 +64,7 @@
                 </ui-gmap-google-map>
             </div>
 
-            <div class="input-content">
+            <div class="input-content relative">
                 <div class="content-bottom">
                     <div class="search-wrapper">
                         <input class="location-city text-fields" type="text"
@@ -72,9 +72,16 @@
                                ng-map-autocomplete options="ilc.googlePlacesOptions" ng-model="ilc.googlePlacesInput"
                                details="ilc.selectedPlaceDetails" name="locationCity"
                                required>
-                        <a aria-label="Mein Standort" class="tt tt-small pointer tagme-button" ng-click="ilc.getMyLocation()"><img
+                        <a aria-label="Mein Standort" class="tt tt-small pointer tagme-button"
+                           ng-click="ilc.getMyLocation()"><img
                             class="img-responsive-height" src="images/icons/flag_klein_360.png"></a>
                     </div>
+                    <a class="pointer help-trigger"><img class="img-responsive" src="images/icons/fragezeichen.png">
+
+                        <div class="help-box"><p>Damit man deine Location auch findet, kannst du sie auf der Karte markieren.
+                            <br>Klicke auf das Fähnchen, wenn du dich direkt dort aufhälst.</p></div>
+                    </a>
+
                 </div>
             </div>
 
@@ -94,7 +101,9 @@
                             required>
 
                         <label class="uppercase">Tags (z.B. Bar, Cocktails, günstig, ...)</label>
-                        <tags-input add-on-space="true" add-on-comma="true" ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}" placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
+                        <tags-input add-on-space="true" add-on-comma="true"
+                                    ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}"
+                                    placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
 
 
                         <label class="uppercase">Beschreibung <span class="max-length">({{100 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
