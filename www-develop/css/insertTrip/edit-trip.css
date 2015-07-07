@@ -434,10 +434,14 @@ span.info.err {
     background-color: rgba(34, 34, 34, 0.6);
     padding-top: 110px;
     color: white;
+    border-top-left-radius: 3px;
+    border-right-left-radius: 3px;
 }
 
 .tripsuccess-image {
     height: 300px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .trip-success-container {
@@ -456,6 +460,8 @@ span.info.err {
     height: 300px;
     background: rgb(34, 34, 34);
     border-left: 1px solid white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .trip-success-container .infobox ul {
@@ -465,18 +471,26 @@ span.info.err {
 
 .trip-success-container .infobox ul li a {
     color: white;
+    margin-left: 10px;
 }
 
 .trip-success-container ul.success-menu li {
     border-bottom: 1px solid white;
     margin-left: -15px;
     margin-right: -15px;
-    line-height: 30px;
+    line-height: 50px;
     padding: 15px;
 }
 
 .trip-success-container ul.success-menu li:last-child {
     border-bottom: none;
+}
+
+.trip-success-container .success-menu .image {
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    float:left;
 }
 
 .bottom-wrapper {

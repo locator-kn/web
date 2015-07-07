@@ -405,6 +405,13 @@ module Controller {
                 //delete
             };
 
+            // delete thumbnails (hacky) TODO: remove
+            for (var loc in t.locations) {
+                if (t.locations.hasOwnProperty(loc)) {
+                    delete loc.thumbnail;
+                }
+            }
+
             var documentMetaData = {
                 _id: this.documentId || '',
                 _rev: this.revision || ''
