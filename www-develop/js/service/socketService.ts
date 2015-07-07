@@ -4,18 +4,22 @@ module Service {
     export class SocketService {
 
         socket = null;
+        isOpening = false;
 
-        constructor(private $http, private $q, private basePathRealtime, private $rootScope, private socketFactory) {
+        constructor(private $http, private $q, private $timeout, private basePathRealtime, private $rootScope, private socketFactory) {
             this.socketInit();
             this.registerEvents();
         }
 
         getSocket() {
             return this.$q((resolve, reject) => {
-                if(this.socket) {
+                if(this.socket || this.isOpening) {
                     console.log('resolving existing socket');
-                    resolve(this.socket);
+                    this.$timeout(() => {
+                        resolve(this.socket);
+                    }, 500);
                 } else {
+                    this.isOpening = true;
                     this.$http.get(this.basePathRealtime + '/connect/me')
                         .error(err => {
                             reject(err);
@@ -51,8 +55,10 @@ module Service {
 
         logoutCleanup() {
             this.getSocket().then(socket => {
+                socket.removeAllListeners();
                 socket.disconnect();
                 this.socket = null;
+                this.isOpening = false;
             });
         }
 
