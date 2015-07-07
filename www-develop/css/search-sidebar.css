@@ -340,6 +340,7 @@ trip-min-view .result-content-box {
 .results-container .trip-min-view .row-container {
     position: relative;
     height: 300px;
+    margin: 0 0 0 0;
 }
 
 .result-content-wrapper {
