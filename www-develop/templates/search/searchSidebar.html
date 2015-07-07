@@ -1,6 +1,6 @@
 <div class="container-sidebar">
-    <div class="search-menu" ng-class="{'search-menu-inactive': sc.isActive('')}">
-        <div class="item pointer" ng-class="{'item-active': sc.isActive('filter')}" ng-click="sc.toggleActiveItem('filter')">
+    <div  ng-class="{'search-menu-inactive': sc.isActive('')}" class="search-menu">
+        <div class="item pointer" ng-class="{'item-active': sc.isActive('filter'), 'item-black tt tt-small' : sc.isActive('')}" ng-click="sc.toggleActiveItem('filter')" aria-label="Weitere Filter">
         </div>
     </div>
     <div class="settings sample-show-hide" ng-show="sc.activeItem != ''" style="clear:both;">

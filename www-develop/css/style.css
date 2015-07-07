@@ -287,12 +287,12 @@ body.slider {
 
 .header-bar .btn-group {
     float: left;
-    min-height: 50px;
+    min-height: 40px;
 }
 
 .header-bar .btn-group a {
     color: #fff;
-    line-height: 60px;
+    line-height: 40px;
 }
 
 .header-bar .btn-group a:hover {
@@ -341,7 +341,7 @@ ul.slides {
 }
 
 .blackopac {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(34, 34, 34, 0.9);
 }
 
 .overlay.active {
@@ -406,14 +406,14 @@ ul.slides {
 
 .header-bar .user .user-dropdown {
     position: absolute;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    margin-left: -70px;
+    width: 140px;
     z-index: 10000;
     min-width: 120px;
 }
 
 .header-bar .user ul.user-dropdown {
-    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -578,9 +578,7 @@ a.close-modal {
 
 .results-container.container {
     position: relative;
-    padding-left: 60px;
-    padding-right: 60px;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 40px);
     margin-top: 100px;
     margin-bottom: 30px;
 }
@@ -606,11 +604,13 @@ a.close-modal {
 }
 
 .logo-small {
-    height: 30px;
-    margin-top: 13px;
-    width: auto;
-    margin-left: 15px;
-    margin-right: 15px;
+    height: 60px;
+    background-color: rgb(17, 17, 17);
+    position: absolute;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    left: 0;
+    top: 0;
 }
 
 @keyframes slidein {
@@ -706,16 +706,17 @@ a.close-modal {
 
 .header-bar .menu ul li {
     float: left;
-    line-height: 60px;
-    padding: 0 5px;
+    line-height: 40px;
+    padding: 0 10px;
 }
 
 .header-bar .menu ul li img {
-    height: 35px;
+    height: 25px;
 }
 
 .header-bar .header-right {
-    float: right
+    float: right;
+    margin-right: 50px;
 }
 
 .statistic_container {
@@ -733,13 +734,14 @@ a.close-modal {
 }
 
 .message-badge {
-    width: 25px;
-    height: 25px;
+    width: 12px;
+    height: 12px;
     position: absolute;
-    background: darkred;
+    background: #33c4b7;
     border-radius: 50%;
-    border: 1px solid #fff;
     text-align: center;
+    right: 8px;
+    top: 8px;
 }
 
 .text-responsive {
@@ -812,12 +814,18 @@ img.center {
     width: 100%;
     background: none;
     border: 1px solid rgba(204, 204, 204, 1);
-    background: rgba(204, 204, 204, 1);
+    background: rgba(34, 34, 34, 0.1);
     border-radius: 3px;
     margin: 5px 0;
     padding: 5px 10px;
     transition-duration: 0.3s;
     line-height: 30px;
+    font-size: 14px;
+}
+
+.profile .description {
+    line-height: 20px;
+    padding: 10px;
 }
 
 .profile ::-webkit-input-placeholder {
@@ -943,6 +951,7 @@ input:-webkit-autofill {
 .profile-label {
     margin-top: 15px;
     margin-bottom: 0;
+    font-size: 14px;
 }
 
 .profile-button {
@@ -956,6 +965,9 @@ input:-webkit-autofill {
 .user-form label {
     margin-top: 10px;
     margin-bottom: 0;
+}
+.user-form [contenteditable] {
+    min-height: 100px;
 }
 
 .profile-button.active {
@@ -978,13 +990,7 @@ img-triplist .flex-direction-nav a::before {
 }
 
 .header-image-container, .header-image-container .flexslider {
-    height: 450px;
-}
-
-@media screen and (min-height: 850px) {
-    .header-image-container, .header-image-container .flexslider {
-        height: 700px;
-    }
+    height: calc(50vh - 40px);
 }
 
 .header-image {
@@ -992,6 +998,10 @@ img-triplist .flex-direction-nav a::before {
     background-size: cover;
     background-position: 50% 50%;
     height: 100%;
+}
+
+trip-min-view .header-image {
+    border-radius: 3px 0 0 3px;
 }
 
 .locationview-container .header-image {
@@ -1119,9 +1129,12 @@ img-triplist .flex-direction-nav a::before {
 
 .empty-locations {
     background-color: #33c4b7;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     color: white;
+
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
 
 .empty-locations a {
@@ -1130,6 +1143,7 @@ img-triplist .flex-direction-nav a::before {
 
 .empty-locations img {
     margin-right: 5px;
+    height: 40px;
 }
 
 a:focus {
@@ -1142,19 +1156,38 @@ a:focus {
     width: 100%;
     height: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.5);
     transition: all 1s;
     content: ' ';
 }
-
+svg .st0 {
+    fill: none;
+    stroke: rgba(255,255,255,.4);
+    stroke-width: 40;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 1430;
+}
+svg#Ebene_1, svg#Ebene_2 {
+    width: 190px;
+    position: absolute;
+    left: 50%;
+    margin: 33vh 0 0 -95px;
+}
+svg#Ebene_1 {
+    z-index: 9991;
+}
+svg#Ebene_1 .st0 {
+    stroke: #fff;
+}
 .big-progress, .span {
-    text-align: right;
+    text-align: center;
     color: #000;
     font-size: 50px;
 }
 
 .description {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 input.cmn-toggle-round + label {
@@ -1307,7 +1340,7 @@ progress-arc.hidden-height {
 }
 
 .uiview {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .footer {
@@ -1384,6 +1417,10 @@ progress-arc.hidden-height {
     transform: translateY(0%) scale(1) !important;
 }
 
+.footer .footer_logo {
+    display: inline-block;
+}
+
 .htwg_logo {
     width: 180px;
     margin-top: 26px;
@@ -1396,6 +1433,17 @@ progress-arc.hidden-height {
 }
 
 .border-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    width: 5px;
+    border-radius: 3px;
+}
+
+.locator-scroller::-webkit-scrollbar {
+    background: transparent;
+    width: 5px;
+}
+
+.locator-scroller::-webkit-scrollbar-thumb {
     background-color: rgb(200, 200, 200);
     width: 5px;
     border-radius: 3px;
@@ -1419,4 +1467,74 @@ progress-arc.hidden-height {
 
 .mytrips-container .tripsmall {
     padding-bottom: 15px;
+}
+.half-viewport-height {
+            min-height: 50vh;
+}
+.header-bar li.not-authenticated {
+    display: none;
+}
+.edit-overlay {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.edit-overlay:hover.upload-hint::before {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    left: 0;
+    position: absolute;
+    background:rgba(0,0,0,.4);
+    cursor: pointer;
+}
+
+.edit-overlay:hover.upload-hint::after {
+    content: 'Foto hochladen';
+    color: #fff;
+    width: 100%;
+    left: 0;
+    top: 42%;
+    position: absolute;
+    cursor: pointer;
+}
+
+h2.breadcrumbs {
+    padding: 0;
+    margin: 0;
+    margin-left: 100px;
+    font-size: 12px;
+    color: white;
+    line-height: 40px;
+    float: left;
+}
+
+.switch-wrapper {
+    float: left;
+}
+
+.action-button {
+    float: left;
+}
+
+
+h2 {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 25px;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(163, 163, 163) !important;
+    font-weight: 300 !important;
+    font-size: 14px;
+}
+
+label {
+    font-size: 14px;
 }

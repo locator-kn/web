@@ -53,6 +53,11 @@ module Controller {
 
         constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
+
+            if ($state.current.name === 'insertTrip') {
+                this.$rootScope.breadcrumb = 'Trip einstellen';
+            }
+
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getFixedCities();
             var days = this.DataService.getAvailableAmountOfDays();
@@ -71,7 +76,7 @@ module Controller {
                         this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
                         this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
 
-                        this.fetchLocations();
+                        //this.fetchLocations();
                     }
 
                     if (this.$state.params.city) {
@@ -114,7 +119,6 @@ module Controller {
                     this.myLocations = responsesArray[1].data;
 
 
-
                     if (this.$state.params.tripId) {
                         //get preselected trips
                         this.fillSelectedLocations();
@@ -133,6 +137,8 @@ module Controller {
 
             var _public = this._removeLocation(this.publicLocations, location);
             var _private = this._removeLocation(this.myLocations, location);
+
+            location.opened = false;
 
             if (_public && _private) {
                 this._addLocation(this.selectedLocations, location, 'both');
@@ -293,6 +299,9 @@ module Controller {
                         this.selectedCity = this.HelperService.getCityByTitle(this.cities, result.data.city.title);
                         this.selectedMood = this.HelperService.getObjectByQueryName(this.moods, result.data.moods.join('.'));
 
+                        this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
+
+
                         //city is set, so get the locations for it
                         this.fetchLocations();
 
@@ -381,6 +390,24 @@ module Controller {
 
         uniqueList(list) {
             return this.lodash.uniq(list, '_id');
+        }
+
+        triggerPrevew(location) {
+
+            if (!location.opened) {
+                location.opened = true;
+            } else {
+                location.opened = !location.opened;
+            }
+        }
+
+        setPersons(value) {
+
+            if (this.tripMeta.persons === value) {
+                this.tripMeta.persons = '';
+            } else {
+                this.tripMeta.persons = value;
+            }
         }
 
 

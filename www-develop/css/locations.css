@@ -14,6 +14,11 @@
     padding: 15px;
 }
 
+.mylocations-container .location-tags .tag {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
 .location-settings {
     float: left;
     width: 100%;
@@ -22,10 +27,6 @@
 
 .big-padding {
     padding: 30px;
-}
-
-.big-font-size {
-    font-size: 20px;
 }
 
 .map-title {
@@ -37,12 +38,12 @@
 }
 
 .locationview-container .map-image {
-    height: 454px;
-    width: 404px;
+    height: 420px;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 40px;
     border-radius: 3px;
-    border: 2px solid white;
+    border: 1px solid rgb(34, 34, 34);
 }
 
 .location-settings input {
@@ -65,9 +66,9 @@
 
 .location-tags .tag {
     background: rgb(49, 47, 48);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 5px;
-    padding: 4px;
+    padding: 2px 5px;
     color: white;
     font-size: 15px;
 }
@@ -89,11 +90,23 @@
     width: 300px;
     max-width: 100%;
     padding: 4px;
-    font-size: 15px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid rgb(204, 204, 204);
+    line-height: 14px;
+}
+
+.searchbar ::-webkit-input-placeholder {
+    line-height: 18px;
 }
 
 .locationview-container .location-tags {
     padding-left: 0;
+}
+
+.locationview-container .location-tags .tag {
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .locationview-container .further-links {
@@ -106,17 +119,64 @@
     border-radius: 3px;
 }
 
-.locationview-container .further-links img {
-    width: 50px;
+.locationview-container .link-container {
+    display: inline-block;
+    z-index: 10;
+    width: 110px;
     height: 50px;
+    background: rgb(34, 34, 34);
+    border-radius: 3px 3px 0px 0px;
+    float: right;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    bottom: 50px;
 }
 
-.locationview-container .further-links img:first-child {
+.locationview-container .link-container .all-locations {
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
+    float: left;
     margin-right: 10px;
 }
 
-.mylocations-container .link-to-location-view {
-    cursor: pointer;
+.locationview-container .link-container .messenger {
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    float: left;
 }
+
+.locationview-container .link-container .edit-location {
+    background-size: 40px 40px;
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.locationview-container .fix-position-bottom {
+    position: relative;
+    bottom: 40px;
+}
+
+
+.locationview-container .fix-position-left {
+    position: relative;
+    left: 150px;
+}
+
+.locationview-container .location-icon {
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 133px 158px;
+    width: 133px;
+    height: 158px;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 20px;
+}
+
 
 

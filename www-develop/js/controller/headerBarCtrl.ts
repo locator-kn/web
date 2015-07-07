@@ -26,6 +26,7 @@ module Controller {
         conversationsHash:any = {};
 
         usersOnline:number = 0;
+        lastMessageIn:string = '';
 
 
         constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout, private HelperService) {
@@ -69,7 +70,7 @@ module Controller {
                 });
         }
 
-        openPopover() {
+        redirectToMessenger() {
 
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
@@ -78,13 +79,16 @@ module Controller {
             if (!this.conversations.length) {
                 return;
             }
+            if(this.lastMessageIn) {
+                this.$state.go('messenger.opponent', {
+                    opponentId: this.lastMessageIn
+                });
+            } else {
+                this.$state.go('messenger');
+            }
 
             this.showBadge = false;
-            this.unreadMessages = 0;
-            if (!this.showMessengerPopover) {
-                this.getConversations();
-            }
-            this.showMessengerPopover = !this.showMessengerPopover
+            this.$scope.$emit('updateTitle', '');
         }
 
         registerWebsockets() {
@@ -95,9 +99,18 @@ module Controller {
                         console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
+                    if(!this.conversationsHash[newMessage.conversation_id]) {
+                        this.conversationsHash[newMessage.conversation_id] = {};
+                    }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                     this.showBadge = true;
-                    this.unreadMessages += 1;
+                    this.unreadMessages = 1;
+                    this.lastMessageIn = newMessage.conversation_id;
+                    var newTitle = {
+                        add: true,
+                        text: '(' + this.unreadMessages + ')'
+                    };
+                    this.$scope.$emit('updateTitle', newTitle);
                 });
             });
 
@@ -112,6 +125,7 @@ module Controller {
                     this.$rootScope.authenticated = true;
                     this.$rootScope.userID = result.data._id;
                     this.$rootScope.userName = result.data.name + ' ' + result.data.surname;
+                    this.$rootScope.userImageUrl = result.data.picture;
 
                     this.$rootScope.$broadcast('login_success');
                     this.getConversations();

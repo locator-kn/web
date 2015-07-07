@@ -7,6 +7,10 @@ module Controller {
         // no error if empty string
         errormsg:string = '';
 
+        title:string = '';
+        locatorTitle:string = 'Locator';
+        defaultTitle:string = 'Locator | Die Plattform für Kurztrips aus deiner Perspektive';
+
         // success message
         successmsg:string = '';
 
@@ -23,6 +27,14 @@ module Controller {
 
             $rootScope.$on('$stateChangeSuccess', function() {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
+
+            $rootScope.$on('updateTitle', (scope, title:any) => {
+                if(title.add) {
+                    this.title = title.text + ' ' + this.locatorTitle
+                } else {
+                    this.title = title || this.defaultTitle;
+                }
             });
 
             $window.onclick = (e) => {

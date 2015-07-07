@@ -1,0 +1,30 @@
+<div class="row relative trip-wrapper">
+
+    <div class="controls">
+        <a ng-click="et.deSelectLocation(location)"><img class="pointer control-button insert-location"
+                                                          src="images/icons/trip/cross.png"></a>
+    </div>
+
+    <div class="col-xs-3 img-wrapper pointer"
+         ng-click="et.triggerPrevew(location)" style="background-image: url({{location.images.picture + '?size=small' || location.images.googlemap + '&size=400x234'}}); background-size: cover;">
+    </div>
+
+
+    <div class="content-wrapper col-xs-9">
+
+        <div ng-click="et.deSelectLocation(location)" class="pointer select-overlay">
+            <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
+        </div>
+
+        <h3>{{location.title}}</h3>
+
+        <div class="location-tags tags">
+            <span ng-repeat="tag in location.tags | limitTo: 3 track by $index" class="tag">{{tag}}</span>
+        </div>
+
+        <p class="location-description">{{location.description}}</p>
+
+    </div>
+
+</div>
+

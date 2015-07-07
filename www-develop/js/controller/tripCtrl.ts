@@ -13,13 +13,15 @@ module Controller {
 
         slides:string[] = [];
 
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private MessengerService) {
+        constructor(private $rootScope, private $stateParams, private $state, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private MessengerService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
+
 
             this.SearchService.getTripById(this.$stateParams.tripId)
                 .then(result => {
                     this.trip = result.data;
+                    this.$rootScope.breadcrumb = 'Tripdetail | ' + this.trip.title;
 
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
@@ -59,12 +61,7 @@ module Controller {
         }
 
         participate() {
-            if (!this.$rootScope.authenticated) {
-                return this.$rootScope.$emit('openLoginDialog');
-            }
-            this.MessengerService.startConversation('init message TODO', this.user._id, this.trip._id || this.trip.id);
-
-            this.$rootScope.$broadcast('new_conversation');
+            this.TripService.participate(this.user, this.trip);
         }
 
 

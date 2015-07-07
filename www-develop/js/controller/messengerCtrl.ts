@@ -25,6 +25,10 @@ module Controller {
 
         constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime, private UtilityService, private TripService) {
 
+            this.$rootScope.breadcrumb = 'Messenger';
+
+            this.$scope.$emit('updateTitle', '');
+
             this.getConversations();
 
             $scope.$on('login_success', () => {
@@ -36,7 +40,7 @@ module Controller {
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
 
-            this.debouncedAck =  this.UtilityService.debounce(this.emitAck, 1000, false);
+            this.debouncedAck = this.UtilityService.debounce(this.emitAck, 1000, false);
 
         }
 
@@ -54,11 +58,14 @@ module Controller {
             //this.SocketService.offEvent('new_message');
             this.$scope.$on('new_message', (evt, newMessage) => {
                 console.log('neWmEssage');
-                if(this.$state.params.opponentId === newMessage.conversation_id ) {
+                if (this.$state.params.opponentId === newMessage.conversation_id) {
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
+                }
+                if(!this.messagesHash[newMessage.conversation_id]) {
+                    this.messagesHash[newMessage.conversation_id] = [];
                 }
                 this.messagesHash[newMessage.conversation_id].push(newMessage);
                 this.MessengerService.putMessageByConversationId(newMessage.conversation_id, newMessage);
@@ -111,12 +118,17 @@ module Controller {
                 return;
             }
             this.selectedConversation = conversation;
+
+            if (this.selectedConversation.opponent.name) {
+                this.$rootScope.breadcrumb = 'Messenger | ' + this.selectedConversation.opponent.name;
+            }
+
             this.getConversation(this.selectedConversation).then(result => {
                 // if the clicked conversation is unread, send ack to server
-                if(!this.selectedConversation[this.$rootScope.userID + '_read']) {
+                if (!this.selectedConversation[this.$rootScope.userID + '_read']) {
                     this.emitAck(conversation.opponent._id, conversation._id)
                 }
-                if(this.selectedConversation.trip) {
+                if (this.selectedConversation.trip) {
                     this.TripService.getTripById(this.selectedConversation.trip).then(result => {
                         this.selectedConversation.tripObject = result.data;
                     })
@@ -126,10 +138,20 @@ module Controller {
 
         emitAck(from, conversation_id) {
 
-
-            console.log('send ack for received message', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+            if(from === this.$rootScope.userID) {
+                return
+            }
+            console.log('send ack for received message', {
+                from: this.$rootScope.userID,
+                opponent: from,
+                conversation_id: conversation_id
+            });
             setTimeout(() => {
-                this.SocketService.emit('message_ack', {from: this.$rootScope.userID, opponent: from, conversation_id: conversation_id});
+                this.SocketService.emit('message_ack', {
+                    from: this.$rootScope.userID,
+                    opponent: from,
+                    conversation_id: conversation_id
+                });
             }, 10);
             this.conversationsHash[conversation_id][this.$rootScope.userID + '_read'] = true;
         }
@@ -142,8 +164,8 @@ module Controller {
                 from: this.$rootScope.userID,
                 timestamp: Date.now()
             };
-            this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
-            this.messagesHash[this.selectedConversation._id].push(newMessage);
+            //this.MessengerService.putMessageByConversationId(this.selectedConversation._id, newMessage);
+            //this.messagesHash[this.selectedConversation._id].push(newMessage);
 
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
@@ -158,7 +180,7 @@ module Controller {
 
         sendMessage(event) {
 
-            if (event && event.keyCode !== 13) {
+            if (event && event.keyCode !== 13 || !this.textbox) {
                 return;
             }
             this._sendMessage();

@@ -17,16 +17,22 @@
     background-color: rgb(85, 212, 205);
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
+    background-image: url(../images/icons/filter_weiss.png);
+}
+
+.item-black {
+    background-image: url(../images/icons/filter_schwarz.png);
 }
 
 .settings {
     width: 200px;
     height: 100vh;
     position: fixed;
-    top: 160px;
+    top: 165px;
     z-index: 191;
     margin-left: 0px;
     background: #33c4b7;
+    border-top-right-radius: 3px;
 }
 
 .container-sidebar {
@@ -57,7 +63,12 @@ html, body {
 }
 
 .filter-container {
-    padding: 10px 15px 30px 15px;
+    padding: 10px 15px 15px 15px;
+    color: white;
+}
+
+.filter-container hr {
+    margin: 10px -15px 0px -15px;
 }
 
 .input-transparent {
@@ -72,7 +83,7 @@ html, body {
 
 .circle {
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid white;
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -83,16 +94,17 @@ html, body {
 }
 
 .circle-selected {
-    background-color: black;
+    background-color: white;
     color: #33c4b7;
 }
 
 .search-menu .item {
-    width: 100px;
-    height: 100px;
-    background-image: url(../images/icons/regler.png);
+    width: 105px;
+    height: 105px;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 50px 50px;
+    border-top-right-radius: 3px;
 }
 
 .city-suggestion p {
@@ -200,8 +212,8 @@ img-triplist {
 trip-min-view .result-content-box {
     background: rgb(34, 34, 34);
     height: 100%;
-    border-left: 2px solid white;
-    padding: 0 0 0 0
+    border-left: 1px solid white;
+    padding: 0 0 0 0;
 }
 
 .no-margin {
@@ -214,8 +226,7 @@ trip-min-view .result-content-box {
 
 .trip-min-view .result-content-wrapper {
     float: left;
-    height: 250px;
-    width: 100%;
+    height: 100%;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -253,31 +264,57 @@ trip-min-view .result-content-box {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    border-top: 2px solid white;
+    height: 50px;
+    border-top: 1px solid white;
 }
 
 .result-content-bottom .icon-container {
     height: 100%;
-    background-size: 50px 50px;
+    width: 40px;
+    background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.result-content-bottom .icon-container:first-child {
+    width: 51px;
+    margin-left: 0px;
 }
 
 .result-content-bottom .look-icon {
     background-image: url("../images/icons/ansehen.png");
 }
 
+
+.result-content-bottom .look-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-eye.png");
+}
+
 .result-content-bottom .location-icon {
     background-image: url("../images/icons/location.png");
+}
+
+.result-content-bottom .location-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-locations.png");
 }
 
 .result-content-bottom .messenger-icon {
     background-image: url("../images/icons/messenger.png");
 }
 
+.result-content-bottom .messenger-icon:hover {
+    background-image: url("../images/icons/trip-min-view/hover-message.png");
+}
+
 .white-border {
-    border-right: 2px solid white;
+    border-right: 1px solid white;
 }
 
 .trip-min-view .location-container {
@@ -300,19 +337,22 @@ trip-min-view .result-content-box {
     color: white;
 }
 
-.trip-min-view .row-container {
+.results-container .trip-min-view .row-container {
     position: relative;
+    height: 300px;
 }
 
 .result-content-wrapper {
-     border-bottom: 2px solid grey;
-     border-right: 2px solid grey;
-     border-left: 2px solid grey;
-     height: 130px;
+    border-bottom: 2px solid grey;
+    border-right: 2px solid grey;
+    border-left: 2px solid grey;
+    height: 130px;
 }
 
 .result-content-box {
     padding: 5px 5px 0 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .inner-result {
@@ -329,5 +369,73 @@ trip-min-view .result-content-box {
     border: none;
 }
 
+.setting-selection-container input.cmn-toggle-round:checked + label:before {
+    background-color: white;
+}
 
+.setting-selection-container input.cmn-toggle-round + label:after {
+    width: 30px;
+    background-color: #33c4b7;
+    border-radius: 100%;
+    transition: margin 0.4s;
+    border: solid white 3px;
+    box-shadow: none;
+}
 
+.setting-selection-container input.cmn-toggle-round + label:before {
+    right: 1px;
+    background-color: #33c4b7;
+    border-radius: 60px;
+    transition: background 0.4s;
+    border: solid white 3px;
+}
+
+.setting-selection-container span {
+    display: block;
+    padding-bottom: 5px;
+}
+
+.filter-container .ui-widget-content,
+.filter-container .ui-state-default,
+.filter-container .ui-widget-content .ui-state-default,
+.filter-container .ui-widget-header .ui-state-default{
+    color: white;
+}
+
+.filter-container .dp-highlight .ui-state-default {
+    background-color: white;
+    color: #33c4b7;
+}
+
+.accomodation-label .accomodation-label {
+    display: block;
+}
+
+.min-view-accomodation-container {
+    width: 100%;
+}
+
+.min-view-accomodation-container acc-equ-chooser div {
+    margin: 0 0 0 0;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+}
+
+.min-view-accomodation-container {
+    margin-top: 10px;
+}
+
+.search-searchbar .green {
+    margin-right: 8px;
+}
+
+.trip-min-view .img-list-container {
+    height: 100%;
+}
+
+.results-container .img-list-container img-triplist .flexslider {
+    height: 300px;
+    border-radius: 3px 0 0 3px;
+}

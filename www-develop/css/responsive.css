@@ -27,6 +27,14 @@
         font-size: 15px;
     }
 
+    .header-bar .edit-user {
+        display: none;
+    }
+
+    .header-bar .header-right {
+        margin: 0;
+    }
+
     .staticButtons {
         display: none;
     }
@@ -46,6 +54,89 @@
     .row.select_wrapper {
         padding-top: 15px;
     }
+
+    .footer .footer_logo {
+        margin: 15px 0;
+    }
+
+    .welcome_wrapper {
+        left: 0;
+        width: 100%;
+    }
+
+    .welcome_select {
+        width: 100%;
+        right: 0;
+    }
+
+    .welcome_button_wrapper {
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    a.welcome_button {
+        width: 100%;
+    }
+
+    .logo-small {
+        display: none;
+    }
+
+    span.green, span.red {
+        width: 100%;
+    }
+
+    .header-bar .menu {
+        margin-right: 0;
+    }
+
+    .text-wrapper {
+        float: left;
+        width: 100%;
+    }
+
+    .htwg_logo {
+        float: initial;
+    }
+
+    .footer h4 {
+        text-align: center;
+    }
+
+    .center-xs {
+        text-align: center;
+    }
+
+    .tt:before, .tt:after {
+        display: none !important;
+    }
+
+    h2.breadcrumbs {
+        margin-left: 0;
+    }
+
+    .insert-location-container .search-wrapper {
+        margin-bottom: 15px;
+    }
+
+    h2.breadcrumbs {
+        display: none;
+    }
+
+    .welcome_select {
+        font-size: 25px;
+    }
+
+    .edittrip-container .bottom-wrapper .absolute-bottom-right {
+        position: inherit;
+    }
 }
+
+@media screen and (min-width: 1200px), screen and (min-width: 992px) {
+    .container {
+        max-width: 900px;
+    }
+}
+
 
 

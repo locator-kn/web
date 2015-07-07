@@ -42,6 +42,10 @@ module Controller {
 
         constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
+            if (this.$state.current.name === 'insertLocation') {
+                this.$rootScope.breadcrumb = 'Location erstellen';
+            }
+
             $scope.$watch(angular.bind(this, () => {
                 return this.selectedPlaceDetails;
             }), (newVal, oldVal) => {
@@ -196,8 +200,8 @@ module Controller {
                 }).success((data, status, headers, config) => {
                     console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
-                    this.showNewImage(data);
                     this.documentId = data.id;
+                    this.showNewImage(headers());
 
                     this.uploadIsDone = true;
                     this.isUploading = false;
@@ -220,7 +224,8 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.headerImagePath = data.imageLocation.picture;
+            var cacheBuster = Date.now();
+            this.headerImagePath = data.location + '?size=mid&c=' + cacheBuster;
         }
 
         save() {
@@ -298,6 +303,13 @@ module Controller {
                         this.imageHasBeenUploaded = true;
 
                         this.documentId = result.data._id;
+
+
+                        if (this.$state.current.name === 'insertLocation') {
+                            this.$rootScope.breadcrumb = 'Location erstellen';
+                        } else {
+                            this.$rootScope.breadcrumb = 'Location bearbeiten | ' + this.locationFormDetails.title;
+                        }
 
 
                     })

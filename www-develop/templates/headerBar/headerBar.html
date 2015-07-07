@@ -1,22 +1,27 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row" ng-controller="HeaderBarCtrl as hc">
         <div ng-class="{'logged-in': authenticated, 'logged-out': !authenticated}" class="header-bar">
 
             <img alt="logo" class="logo-small pointer" ui-sref="welcome" src="images/logo/locator_small.png">
+            <h2 class="breadcrumbs">{{breadcrumb}}</h2>
+
             <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
             <div class="header-right">
                 <div ng-if="!authenticated" class="btn-group">
+
+                    <a class="padding login" ng-click="mc.openLoginDialog()">Anmelden</a>
+
                     <a class="padding register tt tt-small"
                        aria-label="Registriere dich jetzt und werde ein Teil einer aussergewöhnlichen Community"
-                       ng-click="mc.openRegisterDialog()">Registieren</a>
-                    <a class="padding login" ng-click="mc.openLoginDialog()">Login</a>
+                       ng-click="mc.openRegisterDialog()">Registrieren</a>
+
                 </div>
                 <div ng-if="authenticated" class="btn-group">
 
                     <div active-popover click-value="hc.openUser" compare-to="mc.openElement" class="user"
                          ui-sref-active="active">
                         <a class="edit-user">{{hc.user.name}}</a>
-                        <a><img class="profile_thumbnail" ng-src="{{hc.user.picture.thumbnail}}"></a>
+                        <a><img class="profile_thumbnail" ng-src="{{hc.user.picture + '?size=userThumb'}}"></a>
 
                         <ul class="user-dropdown fx-fade-up" ng-show="mc.openElement === hc.openUser">
                             <div class="arrow"></div>
@@ -33,22 +38,17 @@
 
                 <div class="menu btn-group">
                     <ul>
-                        <li ui-sref="insertLocation" class="pointer tt tt-small"
-                            aria-label="Erstelle eine neue Location"><img ng-src="images/icons/header/location.png">
-                        </li>
-                        <li ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
-                            <img ng-src="images/icons/header/stift.png"></li>
-                        <li ui-sref="messenger" ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" class="messenger tt tt-small"
+                        <li ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" ng-click="hc.redirectToMessenger()" class="pointer messenger tt tt-small"
                             aria-label="Messenger" aria-not-authenticated="Finde Trips und trete mit Leuten in Kontakt"> <!--active-popover
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()"-->
-                            <div class="message-badge" ng-show="hc.showBadge">{{hc.unreadMessages}}</div>
-                            <img ng-src="images/icons/header/chat.png">
+                            <div class="message-badge" ng-show="hc.showBadge"></div>
+                            <img ng-src="images/icons/header/messenger_weiss.png">
                             <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover fx-fade-up">
                                 <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})"
                                     ng-class="{unread: !con[userID + '_read']}">
-                                    <img ng-src="{{con.opponent.picture.thumbnail}}" alt="" class="profile"/>
+                                    <img ng-src="{{con.opponent.picture}}" alt="" class="profile"/>
 
                                     read: {{con[userID + '_read']}}
                                     <p class="from">{{con.opponent.name}}</p>
@@ -56,9 +56,16 @@
                             </ul>
                         </li>
                         <li class="pointer tt tt-small" aria-label="Suche nach Trips" ng-click="hc.searchWithContext()">
-                            <img ng-src="images/icons/header/suche.png">
+                            <img ng-src="images/icons/header/suche_weiss.png">
                         </li>
-                    </ul>
+
+
+                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertLocation" class="pointer tt tt-small"
+                            aria-label="Erstelle eine neue Location"><img ng-src="images/icons/header/neue_location_weiss.png">
+                        </li>
+                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
+                            <img ng-src="images/icons/header/trip_erstellen_weiss.png"></li>
+                        </ul>
                 </div>
 
 

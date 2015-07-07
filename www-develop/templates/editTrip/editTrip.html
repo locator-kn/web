@@ -38,10 +38,10 @@
                             <div class="wrap">
                                 <div class="trigger">
                                     <a ng-click="et.justShowMyLocations = false" class="pointer location-trigger"
-                                       ng-class="{'active': !et.justShowMyLocations}">alle</a> <a
+                                       ng-class="{'active': !et.justShowMyLocations}">Alle</a> <a
                                     ng-click="et.justShowMyLocations = true"
                                     ng-class="{'active': et.justShowMyLocations}"
-                                    class="pointer location-trigger">meine</a>
+                                    class="pointer location-trigger">Meine</a>
                                 </div>
                                 <input ng-model-options="{debounce:300}" ng-model="et.locationSearch"
                                        placeholder="Suche"
@@ -50,25 +50,36 @@
                             </div>
 
                             <div ng-hide="et.justShowMyLocations" class="publiclocations-wrapper">
+
+                                <div ng-if="!et.publicLocations.length"
+                                     class="relative location public missing mylocations-wrapper">
+                                    <h4>Leider gibt es noch keine öffentlichen Locations für <strong>{{et.selectedCity.title}}</strong></h4>
+                                </div>
+
+
                                 <div ng-repeat="location in et.publicLocations | filter:et.locationSearch"
+                                     ng-class="{'opened': location.opened}"
                                      class="relative location border-radius-decent">
 
-                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                                    </div>
+
                                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
                                 </div>
                             </div>
 
                             <div ng-hide="!et.justShowMyLocations" class="mylocations-wrapper">
+
+                                <div ng-if="!et.myLocations.length"
+                                     class="relative location public missing mylocations-wrapper">
+                                    <h4>Du hast noch keine Locations in <strong>{{et.selectedCity.title}}</strong></h4>
+                                </div>
+
+
                                 <div ng-repeat="location in et.myLocations"
+                                     ng-class="{'opened': location.opened}"
                                      class="relative border-radius-decent location mylocation">
 
 
-                                    <div ng-click="et.selectLocation(location)" class="select-overlay pointer">
-                                        <a><img class="trip-selection img-responsive" src="images/icons/trip/plus.png"></a>
-                                    </div>
 
                                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
 
@@ -90,13 +101,10 @@
                             </div>
 
 
-                            <div ng-repeat="location in et.selectedLocations" class="relative location mylocation">
+                            <div ng-repeat="location in et.selectedLocations" ng-class="{'opened': location.opened}"
+                                 class="relative location mylocation">
 
-                                <div ng-click="et.deSelectLocation(location)" class="pointer select-overlay">
-                                    <a><img class="trip-selection img-responsive" src="images/icons/trip/cross.png"></a>
-                                </div>
-
-                                <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+                                <div ng-include="'templates/editTrip/selected-singleTrip.html'" include-replace></div>
 
                             </div>
                         </div>
@@ -127,21 +135,23 @@
 
                         <span class="info">anzahl personen</span>
 
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=1"
+                        <div class="insert-trip-circle" ng-click="et.setPersons(1)"
                              ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 1}">1
                         </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=2"
+                        <div class="insert-trip-circle" ng-click="et.setPersons(2)"
                              ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 2}">2
                         </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=3"
+                        <div class="insert-trip-circle" ng-click="et.setPersons(3)"
                              ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 3}">3
                         </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=4"
+                        <div class="insert-trip-circle" ng-click="et.setPersons(4)"
                              ng-class="{'insert-trip-circle-selected':  et.tripMeta.persons == 4}">4
                         </div>
-                        <div class="insert-trip-circle" ng-click="et.tripMeta.persons=5"
+                        <div class="insert-trip-circle" ng-click="et.setPersons(5)"
                              ng-class="{'insert-trip-circle-selected': et.tripMeta.persons == 5}">4+
                         </div>
+
+
 
                     </div>
 
@@ -232,7 +242,7 @@
                 <acc-equ-chooser class="equ-chooser" ng-show="et.tripMeta.accommodation"
                                  just-show-selected=true
                                  accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
-                                 accommodation-equipment="et.tripMeta.accommodation_equipment">
+                                 accommodation-equipment="et.tripMeta.accommodation_equipment" icons-color="'white'">
                 </acc-equ-chooser>
 
 

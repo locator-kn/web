@@ -72,6 +72,8 @@ module Controller {
             $rootScope.showSearchButton = true;
             $rootScope.showCreateButton = true;
 
+            this.$rootScope.breadcrumb = 'Profil | ' + this.tab;
+
 
         }
 
@@ -132,7 +134,7 @@ module Controller {
                     if (!result.data.picture) {
                         this.profileImagePath = "/images/profile.png"
                     } else {
-                        this.profileImagePath = result.data.picture.picture;
+                        this.profileImagePath = result.data.picture;
                     }
 
                     this.getTrips();
@@ -142,7 +144,8 @@ module Controller {
 
                         this.MessengerService.getConversations()
                             .then(result => {
-                                this.conversationId = this.lodash.findWhere(result.data, {'opponent': this.user._id})._id;
+                                var user = this.lodash.findWhere(result.data, {'opponent': this.user._id});
+                                this.conversationId = user._id || '';
                             });
                     }
 
@@ -162,17 +165,20 @@ module Controller {
         updateProfile() {
 
             // remove keys form user object when undefined or empty string
-            /*for (var property in this.user) {
-             if (this.user.hasOwnProperty(property)) {
-             if (this.user[property] === '' || !this.user[property]) {
-             delete this.user[property];
-             }
-             }
-             }*/
+            for (var property in this.user) {
 
-            if (!this.user.birthdate) {
+                if (this.user.hasOwnProperty(property)) {
+                    this.user[property] = this.user[property] || ''
+                }
+            }
+
+
+
+            if (!this.user.birthdate || isNaN(this.user.birthdate)) {
                 this.user.birthdate = '';
             }
+
+
 
 
             if (this.user.birthdate > new Date()) {
@@ -341,7 +347,8 @@ module Controller {
 
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
-            this.profileImagePath = data.imageLocation.picture + '?' + Date.now();
+            this.profileImagePath = data.imageLocation + '?' + Date.now();
+            debugger;
         }
 
         setNewPassword() {
@@ -394,8 +401,10 @@ module Controller {
                     return;
                 }
 
-                this.$location.search({tab: name});
                 this.tab = name;
+                this.$location.search({tab: name});
+
+
             }
 
         }
@@ -410,6 +419,7 @@ module Controller {
 
         showDelete(item) {
             item.showdelete = true;
+            item.locationReallyDelete = false;
         }
 
         showLocation(location) {
@@ -430,22 +440,22 @@ module Controller {
                     //location is used in trip
                     if (result.data.message === 'Location in use') {
                         location.showdelete = false;
-                        this.locationReallyDelete = true;
+                        location.locationReallyDelete = true;
                     }
                 })
         }
 
         deleteLocationForce(location) {
             this.LocationService.deleteLocationForce(location._id)
-            .then(result => {
-                    this.locationReallyDelete = false;
+                .then(result => {
+                    location.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion success');
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
-            .catch(result => {
-                    this.locationReallyDelete = false;
+                .catch(result => {
+                    location.locationReallyDelete = false;
                     location.showdelete = false;
                     console.log('Hard deletion error');
                     //remove location from outdated view
