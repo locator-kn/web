@@ -24,6 +24,8 @@ module Controller {
             country: 'de'
         };
 
+        headline:string;
+
         map:any = {};
         clickedMarker:any = {};
         selectedPlaceDetails:any = {};
@@ -44,6 +46,7 @@ module Controller {
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
+                this.headline = 'Neue Location erstellen';
             }
 
             $scope.$watch(angular.bind(this, () => {
@@ -308,6 +311,7 @@ module Controller {
                         if (this.$state.current.name === 'insertLocation') {
                             this.$rootScope.breadcrumb = 'Location erstellen';
                         } else {
+                            this.headline = 'Location ' + this.locationFormDetails.title + '  bearbeiten';
                             this.$rootScope.breadcrumb = 'Location bearbeiten | ' + this.locationFormDetails.title;
                         }
 
