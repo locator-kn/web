@@ -465,6 +465,7 @@ span.info.err {
 
 .trip-success-container .infobox ul li a {
     color: white;
+    margin-left: 10px;
 }
 
 .trip-success-container ul.success-menu li {
