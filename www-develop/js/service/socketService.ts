@@ -51,6 +51,7 @@ module Service {
         logoutCleanup() {
             this.getSocket().then(socket => {
                 socket.disconnect();
+                this.socket = null;
             });
         }
 
