@@ -287,7 +287,7 @@ body.slider {
 
 .header-bar .btn-group {
     float: left;
-    min-height: 40px;
+    min-height: 45px;
 }
 
 .header-bar .btn-group a {
@@ -700,7 +700,7 @@ a.close-modal {
 .header-bar .menu ul {
     list-style: none;
     float: left;
-    margin: 0;
+    margin: 1px 0 0 0;
     padding: 0;
 }
 
