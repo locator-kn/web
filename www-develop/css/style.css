@@ -1533,12 +1533,25 @@ h3 {
     font-size: 25px;
 }
 
-::-webkit-input-placeholder {
+::-webkit-input-placeholder  {
     color: rgb(163, 163, 163) !important;
     font-weight: 300 !important;
     font-size: 14px;
 }
 
+
 label {
     font-size: 14px;
+}
+
+input.error, textarea.error {
+    border-color: #ff4637 !important;
+}
+
+.bigger-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    opacity: 0.9;
 }
