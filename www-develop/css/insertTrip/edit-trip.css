@@ -435,7 +435,7 @@ span.info.err {
     padding-top: 110px;
     color: white;
     border-top-left-radius: 3px;
-    border-right-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .tripsuccess-image {
