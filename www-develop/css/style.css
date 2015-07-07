@@ -387,7 +387,7 @@ ul.slides {
 }
 
 .header-bar .user {
-    margin: 0 10px 0;
+    margin: 1px 10px 0;
     float: left;
     position: relative;
     cursor: pointer;
