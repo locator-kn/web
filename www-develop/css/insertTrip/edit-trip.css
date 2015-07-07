@@ -232,7 +232,7 @@
 
 .edittrip-container .img-wrapper {
     overflow: hidden;
-    min-height: 80px;
+    min-height: 75px;
 }
 
 
@@ -527,7 +527,7 @@ span.info.err {
     width: 100%;
 }
 
-.edittrip-container .opened .img-wrapper img {
+.edittrip-container .opened .img-wrapper img.image {
     height: auto;
     width: 100%;
     margin-bottom: 10px;
@@ -538,8 +538,8 @@ span.info.err {
 }
 
 .edittrip-container .controls .control-button {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .edittrip-container .controls {
