@@ -58,6 +58,7 @@ module Service {
                 socket.removeAllListeners();
                 socket.disconnect();
                 this.socket = null;
+                this.isOpening = false;
             });
         }
 
