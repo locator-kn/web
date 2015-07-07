@@ -31,6 +31,13 @@ module Service {
         }
 
         registerEvents() {
+
+            if(!this.$rootScope.authenticated) {
+                this.$rootScope.$on('login_success', () => {
+                    this.registerEvents();
+                });
+                return;
+            }
             this.getSocket().then(socket => {
                 socket.on('new_message', newMessage => {
                     this.$rootScope.$broadcast('new_message', newMessage);
