@@ -1555,3 +1555,8 @@ input.error, textarea.error {
     height: 20px;
     opacity: 0.9;
 }
+
+.opened .bigger-button {
+    left: 5px;
+    top: 5px;
+}
