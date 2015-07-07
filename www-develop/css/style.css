@@ -1559,4 +1559,6 @@ input.error, textarea.error {
 .opened .bigger-button {
     left: 5px;
     top: 5px;
+
+    height: 30px;
 }
