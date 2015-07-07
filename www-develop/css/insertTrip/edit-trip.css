@@ -460,6 +460,8 @@ span.info.err {
     height: 300px;
     background: rgb(34, 34, 34);
     border-left: 1px solid white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .trip-success-container .infobox ul {
