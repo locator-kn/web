@@ -255,7 +255,7 @@ trip-min-view .result-content-box {
     position: fixed;
     top: 65px;
     display: block;
-    z-index: 80;
+    z-index: 5;
     padding-left: 15px;
 }
 
@@ -446,7 +446,7 @@ trip-min-view .result-content-box {
     top: 60px;
     height: 100px;
     width: 100%;
-    z-index: 50;
+    z-index: 5;
 }
 
 .search-container .welcome_select {
