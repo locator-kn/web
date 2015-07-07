@@ -24,6 +24,7 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
     transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
+    border-radius: 3px;
 }
 
 .welcome_select ul {
