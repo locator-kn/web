@@ -13,6 +13,7 @@ module Service {
         getSocket() {
             return this.$q((resolve, reject) => {
                 if(this.socket) {
+                    console.log('resolving existing socket');
                     resolve(this.socket);
                 } else {
                     this.$http.get(this.basePathRealtime + '/connect/me')
@@ -38,10 +39,20 @@ module Service {
                 });
                 return;
             }
+            this.$rootScope.$on('logout_success', () => {
+                this.logoutCleanup();
+            });
             this.getSocket().then(socket => {
                 socket.on('new_message', newMessage => {
                     this.$rootScope.$broadcast('new_message', newMessage);
                 });
+            });
+        }
+
+        logoutCleanup() {
+            this.getSocket().then(socket => {
+                socket.disconnect();
+                this.socket = null;
             });
         }
 
