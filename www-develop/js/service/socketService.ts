@@ -13,6 +13,7 @@ module Service {
         getSocket() {
             return this.$q((resolve, reject) => {
                 if(this.socket) {
+                    console.log('resolving existing socket');
                     resolve(this.socket);
                 } else {
                     this.$http.get(this.basePathRealtime + '/connect/me')
