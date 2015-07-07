@@ -81,10 +81,12 @@
     float: left;
     padding-top: 3px;
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .edittrip-container .tags {
-    float: right;
+    float: left;
+    width: 100%;
 }
 
 .edittrip-container p {
@@ -93,6 +95,7 @@
     line-height: 14px;
     width: 100%;
     margin: 0;
+    margin-bottom: 3px;
 }
 
 .edittrip-container .location-tags {
@@ -180,7 +183,6 @@
     background: rgba(34, 34, 34, 0.1);
     border: 1px solid rgba(204, 204, 204, 1);
     border-radius: 4px;
-    border: none;
     width: 100%;
     font-size: 14px;
     padding: 10px;
@@ -206,7 +208,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 19px;
 }
 
 .edittrip-container .trigger a {
