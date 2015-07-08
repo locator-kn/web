@@ -565,6 +565,7 @@ span.info.err {
 }
 
 .edittrip-container .content-wrapper {
+    min-height: 75px;
     padding-left: 7px;
 }
 
