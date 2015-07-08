@@ -389,11 +389,12 @@ var app = angular.module('locator', deps)
                 mood: "=",
                 size: "="
             },
-            controller: function ($scope, LocationService, TripService, UserService) {
+            controller: function ($scope, $rootScope, LocationService, TripService, UserService) {
 
                 $scope.showLocs = false;
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
+                $scope.meId = $rootScope.userID;
 
                 $scope.showLocations = function () {
                     $scope.showLocs = !$scope.showLocs;
