@@ -254,7 +254,7 @@
                 <label>Triptitel</label>
 
                 <div class="trip-title">
-                    <input ng-class="{'error': et.validationFails && et.tripMeta.title.length < 2}" ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
+                    <input maxlength="40" ng-class="{'error': et.validationFails && et.tripMeta.title.length < 2}" ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
                            ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
                 </div>
 

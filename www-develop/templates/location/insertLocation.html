@@ -95,7 +95,7 @@
 
                         <label class="uppercase">Location Titel</label>
                         <input
-                            ng-class="{'error' : (ilc.error) && ilc.form.locationTitle.$error.required}"
+                            maxlength="30" ng-class="{'error' : (ilc.error) && ilc.form.locationTitle.$error.required}"
                             class="text-fields" type="text" placeholder="Wie heißt deine Location?"
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
