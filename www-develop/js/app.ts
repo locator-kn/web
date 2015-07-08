@@ -313,7 +313,8 @@ var app = angular.module('locator', deps)
                 locations: '=',
                 mapwidth: '@',
                 mapheight: '@',
-                scale: '@'
+                scale: '@',
+                size: '='
             },
             link: (scope:any, element) => {
                 var slides:string[] = [];
@@ -322,7 +323,11 @@ var app = angular.module('locator', deps)
                     if (l.hasOwnProperty(key)) {
                         var selectedObjImages = l[key];
                         if (selectedObjImages.picture) {
-                            slides.push(selectedObjImages.picture + '?size=mid');
+                            if (scope.size === 'mid') {
+                                slides.push(selectedObjImages.picture + '?size=mid');
+                            } else {
+                                slides.push(selectedObjImages.picture);
+                            }
                         }
                         //slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
                         slides.push(l[key].googlemap + '&size=900x900' + '&scale=' + scope.scale);
@@ -382,8 +387,10 @@ var app = angular.module('locator', deps)
             scope: {
                 trip: "=",
                 mood: "=",
+                size: "="
             },
             controller: function ($scope, LocationService, TripService, UserService) {
+
                 $scope.showLocs = false;
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
