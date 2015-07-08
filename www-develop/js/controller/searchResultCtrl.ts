@@ -9,7 +9,7 @@ module Controller {
         dataLoading:boolean = false;
 
 
-        constructor(private $rootScope, private SearchService, private $state, private DataService, private UtilityService) {
+        constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
             $rootScope.$state = $state;
 
