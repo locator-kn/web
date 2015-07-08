@@ -20,6 +20,8 @@ module Controller {
         selectedDay:any = '';
         scrollevent:any;
 
+        debouncedGetTripsByQuery:any;
+
         constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
@@ -30,8 +32,7 @@ module Controller {
 
             this.$rootScope.$emit('loading');
 
-
-
+            this.debouncedGetTripsByQuery = this.UtilityService.debounce(this.getTripsByQuery, 200, false);
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getCities();
             var days = this.DataService.getAvailableAmountOfDays();
@@ -109,7 +110,10 @@ module Controller {
         }
 
         search() {
+            this.debouncedGetTripsByQuery();
+        }
 
+        getTripsByQuery() {
             this.$rootScope.$emit('loading');
             if (!this.query.city/* || !this.tripCities.length*/) {
                 return;
