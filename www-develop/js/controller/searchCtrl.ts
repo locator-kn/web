@@ -104,7 +104,6 @@ module Controller {
             }
             this.lastScrollTop = st;
             this.$scope.$apply();
-            console.info(this.hideBar);
         }
 
         updateUrl() {

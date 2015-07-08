@@ -6,6 +6,8 @@ module Controller {
         pageCount:number = 1;
         noMoreTrips:boolean = false;
 
+        dataLoading:boolean = false;
+
 
         constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
@@ -27,6 +29,22 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
             });
+
+            $(window).scroll(() => {
+                this.checkScrolledToBottom();
+            });
+
+        }
+
+        checkScrolledToBottom() {
+            if(this.dataLoading) {
+                return;
+            }
+            var st = $(window).scrollTop();
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - ($('.footer').outerHeight() + 100)) {
+                this.dataLoading = true;
+                this.loadMorePages();
+            }
         }
 
 
@@ -43,8 +61,10 @@ module Controller {
                 return;
             }
             this.pageCount += 1;
+            console.info('pagecount'+this.pageCount);
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
+                    console.info('looad');
                     if (!result.length) {
                         this.noMoreTrips = true;
                     }
@@ -52,6 +72,7 @@ module Controller {
                             this.results.push(entry);
                         }
                     );
+                    this.dataLoading = false;
                 });
         }
 
