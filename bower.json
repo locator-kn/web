@@ -32,7 +32,7 @@
     "angular-google-maps": "~2.1.2",
     "angular-scroll-glue": "~2.0.5",
     "angular-elastic": "~2.4.2",
-    "angular-selection-list": "~1.2.0",
+    "angular-selection-list": "~1.2.1",
     "ngInfiniteScroll": "~1.2.1",
     "gsap": "~1.17.0",
     "ngFx": "~1.1.0",

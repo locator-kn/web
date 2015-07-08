@@ -15,6 +15,8 @@
     overflow-y: auto;
     left: 0;
     width: 100%;
+    border-radius: 3px;
+    padding
 }
 
 .createview .welcome_select ul {
