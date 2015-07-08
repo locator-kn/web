@@ -69,9 +69,10 @@
                 </div>
                 <div class="result-content-bottom">
                     <div class="icon-container white-border tt tt-small" aria-label="{{trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
-                    <div class="icon-container look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId:trip._id})"></div>
+                    <div class="icon-container look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId: trip._id})"></div>
                     <div class="icon-container location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
-                    <div class="icon-container messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                    <div ng-if="meId != trip.userid" class="icon-container messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                    <div ng-if="meId == trip.userid" class="icon-container edit-icon tt tt-small" ui-sref="editTrip({tripId: trip._id})" aria-label="Bearbeiten"></div>
                 </div>
             </div>
         </div>

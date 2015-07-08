@@ -317,6 +317,10 @@ trip-min-view .result-content-box {
     background-image: url("../images/icons/trip-min-view/hover-message.png");
 }
 
+.result-content-bottom .edit-icon {
+    background-image: url("../images/icons/edit_location.png");
+}
+
 .white-border {
     border-right: 1px solid white;
 }
