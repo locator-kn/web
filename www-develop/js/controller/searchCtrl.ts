@@ -49,6 +49,9 @@ module Controller {
             this.$scope.$watchCollection(angular.bind(this, (query) => {
                 return this.query;
             }), () => {
+                if(this.query.start_date && !this.query.end_date) {
+                    this.query.end_date = this.query.start_date;
+                }
                 this.updateUrl();
             });
 
