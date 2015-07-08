@@ -88,10 +88,6 @@ var app = angular.module('locator', deps)
      });
      })*/
 
-    /* .config(function ($sceProvider) {
-     $sceProvider.enabled(false);
-     })*/
-
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
 
@@ -185,6 +181,21 @@ var app = angular.module('locator', deps)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
 
+
+    .filter('truncate', function () {
+        return function (value, max) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+
+            return value + '…';
+        };
+    })
+
     .directive('contenteditable', [($sce) => {
         return {
             restrict: 'A', // only activate on element attribute
@@ -193,12 +204,12 @@ var app = angular.module('locator', deps)
                 if (!ngModel) return; // do nothing if no ng-model
 
                 // Specify how UI should be updated
-                ngModel.$render = function() {
+                ngModel.$render = function () {
                     element.html(ngModel.$viewValue || '');
                 };
 
                 // Listen for change events to enable binding
-                element.on('blur keyup change', function() {
+                element.on('blur keyup change', function () {
                     scope.$evalAsync(read);
                 });
                 read(); // initialize
@@ -208,7 +219,7 @@ var app = angular.module('locator', deps)
                     var html = element.html();
                     // When we clear the content editable the browser leaves a <br> behind
                     // If strip-br attribute is provided then we strip this out
-                    if ( attrs.stripBr && html == '<br>' ) {
+                    if (attrs.stripBr && html == '<br>') {
                         html = '';
                     }
                     ngModel.$setViewValue(html);
@@ -272,11 +283,11 @@ var app = angular.module('locator', deps)
 
                 $scope.$watch('date', (newVal, oldVal, scope) => {
                     var yesterday = new Date(Date.now() - 1000 * 60 * 60 * 24);
-                    yesterday.setHours(0,0,0,0);
+                    yesterday.setHours(0, 0, 0, 0);
 
                     if (newVal) {
                         var localdate = new Date(newVal);
-                        if(moment(localdate).isBefore(yesterday)) {
+                        if (moment(localdate).isBefore(yesterday)) {
                             var a = moment(localdate).day();
                             $scope.date2 = moment.weekdays(a);
                         } else {
@@ -377,9 +388,9 @@ var app = angular.module('locator', deps)
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
 
-                $scope.showLocations = function() {
+                $scope.showLocations = function () {
                     $scope.showLocs = !$scope.showLocs;
-                    if($scope.locations.length == 0) {
+                    if ($scope.locations.length == 0) {
                         var locationsHash = $scope.trip.locations;
                         for (var key in locationsHash) {
                             if (locationsHash.hasOwnProperty(key)) {
@@ -392,7 +403,7 @@ var app = angular.module('locator', deps)
                     }
                 };
 
-                $scope.participate = function() {
+                $scope.participate = function () {
                     UserService.getUser($scope.trip.userid).then(result => {
                         var user = result.data;
                         TripService.participate(user, $scope.trip);
