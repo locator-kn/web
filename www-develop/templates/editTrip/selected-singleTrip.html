@@ -21,7 +21,8 @@
 
         <h3>{{location.title}}</h3>
 
-        <p class="location-description">{{location.description}}</p>
+        <p ng-if="!location.opened" class="location-description short">{{location.description | truncate: 72}}</p>
+        <p ng-if="location.opened" class="location-description">{{location.description}}</p>
 
         <div class="location-tags tags">
             <span ng-repeat="tag in location.tags | limitTo: 3 track by $index" class="tag">{{tag}}</span>
