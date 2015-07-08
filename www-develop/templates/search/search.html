@@ -1,31 +1,33 @@
 <div class="search-container" ng-controller="SearchCtrl as sc">
-    <div class="row">
-        <div class="welcome_select">
-            <div class="search-searchbar">
-        <span class="relative green">
-            <span class="margin-right">Du willst</span>
-                <div class="list-selection"
-                     list-selection multiple=false
-                     values="sc.days"
-                     selected-model="sc.selectedDay" selected-name="sc.showDays"
-                     open-element="mc.openElement">
+    <div class="container">
+        <div class="row fixed-top">
+            <div class="welcome_select">
+                <div class="search-searchbar">
+                    <span class="relative green">
+                        <span class="margin-right">Du willst</span>
+                            <div class="list-selection"
+                                 list-selection multiple=false
+                                 values="sc.days"
+                                 selected-model="sc.selectedDay" selected-name="sc.showDays"
+                                 open-element="mc.openElement">
+                            </div>
+                    </span>
+
+                     <span class="relative green">
+                         <div list-selection values="sc.moods"
+                              selected-model="sc.selectedMood" selected-name="sc.showMoods"
+                              open-element="mc.openElement">
+                         </div>
+                     </span>
+
+                     <span class="relative green">
+                         <span class="margin-right">in</span>
+                         <div class="list-selection" list-selection values="sc.cities"
+                              selected-model="sc.selectedCity" selected-name="sc.showCities"
+                              open-element="mc.openElement">
+                         </div>
+                     </span>
                 </div>
-        </span>
-
-         <span class="relative green">
-             <div list-selection values="sc.moods"
-                  selected-model="sc.selectedMood" selected-name="sc.showMoods"
-                  open-element="mc.openElement">
-             </div>
-         </span>
-
-         <span class="relative green">
-             <span class="margin-right">in</span>
-             <div class="list-selection" list-selection values="sc.cities"
-                  selected-model="sc.selectedCity" selected-name="sc.showCities"
-                  open-element="mc.openElement">
-             </div>
-         </span>
             </div>
         </div>
     </div>

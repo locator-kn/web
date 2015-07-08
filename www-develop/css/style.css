@@ -287,12 +287,12 @@ body.slider {
 
 .header-bar .btn-group {
     float: left;
-    min-height: 40px;
+    min-height: 45px;
 }
 
 .header-bar .btn-group a {
     color: #fff;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .header-bar .btn-group a:hover {
@@ -608,7 +608,7 @@ a.close-modal {
     background-color: rgb(17, 17, 17);
     position: absolute;
     border-bottom-right-radius: 5px;
-    padding: 10px;
+    padding: 11px;
     left: 0;
     top: 0;
 }
@@ -700,7 +700,7 @@ a.close-modal {
 .header-bar .menu ul {
     list-style: none;
     float: left;
-    margin: 0;
+    margin: 1px 0 0 0;
     padding: 0;
 }
 
@@ -1506,7 +1506,7 @@ h2.breadcrumbs {
     margin-left: 100px;
     font-size: 12px;
     color: white;
-    line-height: 40px;
+    line-height: 45px;
     float: left;
 }
 
@@ -1533,12 +1533,32 @@ h3 {
     font-size: 25px;
 }
 
-::-webkit-input-placeholder {
+::-webkit-input-placeholder  {
     color: rgb(163, 163, 163) !important;
     font-weight: 300 !important;
     font-size: 14px;
 }
 
+
 label {
     font-size: 14px;
+}
+
+input.error, textarea.error {
+    border-color: #ff4637 !important;
+}
+
+.bigger-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    opacity: 0.9;
+}
+
+.opened .bigger-button {
+    left: 5px;
+    top: 5px;
+
+    height: 30px;
 }

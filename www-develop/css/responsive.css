@@ -128,7 +128,15 @@
     }
 
     .logo-small {
-        height: 40px;
+        height: 45px;
+    }
+
+    .search-container .search-searchbar {
+        position: relative;
+    }
+
+    .search-container .fixed-top {
+        position: relative;
     }
 }
 

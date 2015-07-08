@@ -254,9 +254,9 @@ trip-min-view .result-content-box {
 .search-searchbar {
     position: fixed;
     top: 65px;
-    left: 200px;
     display: block;
-    z-index: 80;
+    z-index: 5;
+    padding-left: 15px;
 }
 
 .trip-min-view .result-content-bottom {
@@ -439,4 +439,16 @@ trip-min-view .result-content-box {
 .results-container .img-list-container img-triplist .flexslider {
     height: 300px;
     border-radius: 3px 0 0 3px;
+}
+
+.search-container .fixed-top {
+    position: fixed;
+    top: 60px;
+    height: 100px;
+    width: 100%;
+    z-index: 5;
+}
+
+.search-container .welcome_select {
+    right: 0;
 }

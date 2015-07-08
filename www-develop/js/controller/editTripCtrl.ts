@@ -4,6 +4,7 @@ module Controller {
 
         showPreview = false;
         error = false;
+        validationFails = false;
 
         dateValid = true;
 
@@ -248,6 +249,13 @@ module Controller {
 
             trip.locations = this.getSelectedLocations();
 
+            debugger;
+            if (this.tripMeta.title < 2 || this.tripMeta.description < 2) {
+                this.validationFails = true;
+                debugger;
+                return;
+            }
+
             // remove undefined or empty fields
             for (var key in trip) {
                 if (trip.hasOwnProperty(key)) {
@@ -260,7 +268,6 @@ module Controller {
 
                 }
             }
-
 
             this.TripService.saveTrip(trip, this.tripId)
                 .then(result => {
