@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row fixed-top"  ng-show="sc.showSearchBar == true">
             <div class="welcome_select">
-                <div ng-class="{'fade-top' : (sc.hideBar || sc.showSearchBar)}" class="search-searchbar">
+                <div ng-class="{'fade-top' : (sc.hideBar && !sc.showSearchBar)}" class="search-searchbar">
                     <span class="relative green">
                         <span class="margin-right">Du willst</span>
                             <div class="list-selection"
