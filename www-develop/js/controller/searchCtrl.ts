@@ -132,7 +132,9 @@ module Controller {
         toggleActiveItem(item) {
             if (item == this.activeItem) {
                 this.activeItem = '';
+                this.hideBar = true;
             } else {
+                this.hideBar = false;
                 this.activeItem = item;
             }
         }
