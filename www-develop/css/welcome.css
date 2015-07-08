@@ -16,7 +16,6 @@
     left: 0;
     width: 100%;
     border-radius: 3px;
-    padding
 }
 
 .createview .welcome_select ul {
@@ -49,7 +48,7 @@
 .welcome_select ul li {
     cursor: pointer;
     padding: 3px 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 span.margin-right {
