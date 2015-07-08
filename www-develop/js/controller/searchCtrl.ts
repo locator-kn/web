@@ -60,7 +60,7 @@ module Controller {
             this.$scope.$watchCollection(angular.bind(this, (query) => {
                 return this.query;
             }), () => {
-                if(this.query.start_date && !this.query.end_date) {
+                if (this.query.start_date && !this.query.end_date) {
                     this.query.end_date = this.query.start_date;
                 }
                 this.updateUrl();
@@ -93,9 +93,13 @@ module Controller {
         }
 
         checkScrollDirection() {
+
             var st = $(window).scrollTop();
-            if (st > this.lastScrollTop){
+
+            if (st > this.lastScrollTop) {
                 this.hideBar = true;
+            } else if (st < 100) {
+                this.hideBar = false;
             } else {
                 this.hideBar = false;
             }

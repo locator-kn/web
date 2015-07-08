@@ -966,6 +966,7 @@ input:-webkit-autofill {
     margin-top: 10px;
     margin-bottom: 0;
 }
+
 .user-form [contenteditable] {
     min-height: 100px;
 }
@@ -1159,27 +1160,32 @@ a:focus {
     transition: all 1s;
     content: ' ';
 }
+
 svg .st0 {
     fill: none;
-    stroke: rgba(255,255,255,.4);
+    stroke: rgba(255, 255, 255, .4);
     stroke-width: 40;
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-miterlimit: 10;
     stroke-dasharray: 1430;
 }
+
 svg#Ebene_1, svg#Ebene_2 {
     width: 190px;
     position: absolute;
     left: 50%;
     margin: 33vh 0 0 -95px;
 }
+
 svg#Ebene_1 {
     z-index: 9991;
 }
+
 svg#Ebene_1 .st0 {
     stroke: #fff;
 }
+
 .big-progress, .span {
     text-align: center;
     color: #000;
@@ -1468,17 +1474,21 @@ progress-arc.hidden-height {
 .mytrips-container .tripsmall {
     padding-bottom: 15px;
 }
+
 .half-viewport-height {
-            min-height: 50vh;
+    min-height: 50vh;
 }
+
 .header-bar li.not-authenticated {
     display: none;
 }
+
 .edit-overlay {
     margin-left: auto;
     margin-right: auto;
     position: relative;
 }
+
 .edit-overlay:hover.upload-hint::before {
     content: ' ';
     width: 100%;
@@ -1486,7 +1496,7 @@ progress-arc.hidden-height {
     border-radius: 50%;
     left: 0;
     position: absolute;
-    background:rgba(0,0,0,.4);
+    background: rgba(0, 0, 0, .4);
     cursor: pointer;
 }
 
@@ -1518,7 +1528,6 @@ h2.breadcrumbs {
     float: left;
 }
 
-
 h2 {
     font-size: 27px;
     font-weight: 400;
@@ -1533,12 +1542,11 @@ h3 {
     font-size: 25px;
 }
 
-::-webkit-input-placeholder  {
+::-webkit-input-placeholder {
     color: rgb(163, 163, 163) !important;
     font-weight: 300 !important;
     font-size: 14px;
 }
-
 
 label {
     font-size: 14px;
@@ -1567,6 +1575,7 @@ trip-min-view {
     float: left;
     width: 100%;
 }
+
 .header-icon {
     position: absolute;
     top: 40%;
@@ -1579,5 +1588,22 @@ trip-min-view {
 
 tags-input .tags .input, tags-input .tags .tag-item {
     font: inherit;
+}
+
+.search-container .fade-top .open ul {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.search-container .welcome_select {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.search-container .welcome_select.data-available {
+    opacity: 1;
+    visibility: visible;
 }
 
