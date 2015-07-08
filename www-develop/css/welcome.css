@@ -11,12 +11,17 @@
     z-index: 1000;
     display: block;
     background-color: #33c4b7;
-    max-height: 400px;
+    padding: 0;
     overflow-y: auto;
+    left: 0;
+    width: 100%;
+    border-radius: 3px;
+    padding
 }
 
 .createview .welcome_select ul {
     background: #ff4637;
+    border-radius: 3px;
 }
 
 .welcome_select .open ul {
@@ -24,7 +29,6 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
     transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
-    border-radius: 3px;
 }
 
 .welcome_select ul {
@@ -44,6 +48,7 @@
 
 .welcome_select ul li {
     cursor: pointer;
+    padding: 3px 10px;
     font-size: 20px;
 }
 
@@ -257,10 +262,12 @@ h2#sub-headline {
 .welcome-right {
     right: 0;
 }
+
 a.more-link {
     color: #fff;
     text-decoration: underline;
 }
+
 a.more-link:hover {
     text-decoration: none;
 }
@@ -268,5 +275,21 @@ a.more-link:hover {
 .not-selectable a {
     text-decoration: none;
     cursor: initial;
+}
+
+.welcome_select .list-icon {
+    height: 29px;
+    margin-right: 5px;
+    width: auto;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.opener h2 {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin: 0;
+    background-color: rgb(34, 34, 34);
+    padding: 5px;
 }
 
