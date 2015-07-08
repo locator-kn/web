@@ -58,7 +58,7 @@
                                 </div>
 
 
-                                <div ng-repeat="location in et.publicLocations | filter:et.locationSearch track by location._id"
+                                <div ng-repeat="location in et.publicLocations | filter:et.locationSearch track by $index"
                                      ng-class="{'opened': location.opened}"
                                      class="relative location border-radius-decent">
 
@@ -76,7 +76,7 @@
                                 </div>
 
 
-                                <div ng-repeat="location in et.myLocations track by location._id"
+                                <div ng-repeat="location in et.myLocations track by $index"
                                      ng-class="{'opened': location.opened}"
                                      class="relative border-radius-decent location mylocation">
 
@@ -101,7 +101,7 @@
                             </div>
 
 
-                            <div ng-repeat="location in et.selectedLocations track by location._id" ng-class="{'opened': location.opened}"
+                            <div ng-repeat="location in et.selectedLocations track by $index" ng-class="{'opened': location.opened}"
                                  class="relative location mylocation">
 
                                 <div ng-include="'templates/editTrip/selected-singleTrip.html'" include-replace></div>
