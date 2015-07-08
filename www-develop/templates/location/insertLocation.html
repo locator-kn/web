@@ -116,9 +116,12 @@
 
 
                         <div class="save pointer">
-                            <input
+                            <input ng-if="!ilc.$state.params.locationId"
                                 class="red button uppercase" type="submit"
                                 ng-click="ilc.save()" value="Location erstellen"/>
+                            <input ng-if="ilc.$state.params.locationId"
+                                class="red button uppercase" type="submit"
+                                ng-click="ilc.save()" value="Location bearbeiten"/>
                         </div>
 
                     </form>

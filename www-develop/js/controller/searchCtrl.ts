@@ -92,7 +92,7 @@ module Controller {
                     this.query.days = this.selectedDay.query_name;
                 }
             });
-            
+
         }
 
         checkScrollDirection() {
