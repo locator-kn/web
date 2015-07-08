@@ -41,7 +41,7 @@ module Controller {
                 return;
             }
             var st = $(window).scrollTop();
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - 400) {
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - ($('.footer').outerHeight() + 100)) {
                 this.dataLoading = true;
                 this.loadMorePages();
             }
