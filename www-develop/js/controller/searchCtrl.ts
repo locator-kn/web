@@ -93,7 +93,14 @@ module Controller {
         }
 
         checkScrollDirection() {
+
             var st = $(window).scrollTop();
+
+            if (st < 100) {
+                this.hideBar = false;
+                return;
+            }
+
             if (st > this.lastScrollTop){
                 this.hideBar = true;
             } else {
