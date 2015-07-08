@@ -13,13 +13,13 @@
     background-color: #33c4b7;
     padding: 0;
     overflow-y: auto;
+    left: 0;
+    width: 100%;
 }
 
 .createview .welcome_select ul {
     background: #ff4637;
     border-radius: 3px;
-    left: 0;
-    width: 100%;
 }
 
 .welcome_select .open ul {
