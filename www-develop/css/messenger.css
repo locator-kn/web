@@ -30,6 +30,10 @@
     font-weight: bold;
     float: left;
     margin: 20px 0 0 10px;
+    width: 42%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .messenger-container .conversations .item .time {
     font-size: 12px;
@@ -70,7 +74,7 @@
     color: #33c4b7;
 }
 .messenger-container .conversations .item .icon {
-    float: right;
+    float: left;
     margin: 19px 12px 0 0;
     padding: 8px;
     background-size: cover;
