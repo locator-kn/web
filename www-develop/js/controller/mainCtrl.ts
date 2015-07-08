@@ -52,6 +52,7 @@ module Controller {
 
             this.$rootScope.$on("$locationChangeStart", () => {
                 $rootScope.slider = $location.$$path === '/welcome';
+                $rootScope.hideFooter = $location.$$path === '/search';
             });
 
             $rootScope.$on('openLoginDialog', () => {
