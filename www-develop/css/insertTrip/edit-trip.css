@@ -453,7 +453,7 @@ span.info.err {
 .trip-success-container .wrapper {
     height: 401px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     margin-top: -150px;
     width: 100%;
 }
