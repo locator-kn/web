@@ -20,10 +20,6 @@ module Controller {
         selectedDay:any = '';
         scrollevent:any;
 
-        previousScroll = 0;
-
-        showSearchBar:boolean = true;
-
         constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
