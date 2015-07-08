@@ -1595,3 +1595,15 @@ tags-input .tags .input, tags-input .tags .tag-item {
     opacity: 0;
 }
 
+.search-container .welcome_select {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.search-container .welcome_select.data-available {
+    opacity: 1;
+    visibility: visible;
+}
+
