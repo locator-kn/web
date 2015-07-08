@@ -27,7 +27,7 @@ module Service {
         }, {
             id: "halligalli",
             query_name: "halligalli_drecksau",
-            title: "Galligalli Drecksau",
+            title: "Halligalli Drecksau",
             icon: "halligalli_drecksau.png",
             icon_grey: "halligalli_drecksau_grey.png",
             description: ""
