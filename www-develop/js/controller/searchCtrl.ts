@@ -8,6 +8,9 @@ module Controller {
         days:any = [];
         dataAvailable = false;
 
+        lastScrollTop = 0;
+        hideBar:boolean = false;
+
         showCities:string = 'showCitiesCreate';
         showMoods:string = 'showMoodsCreate';
         showDays:string = 'showDaysCreate';
@@ -15,12 +18,13 @@ module Controller {
         selectedCity:any = '';
         selectedMood:any = '';
         selectedDay:any = '';
+        scrollevent:any;
 
         previousScroll = 0;
 
         showSearchBar:boolean = true;
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location,
+        constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
             this.$rootScope.breadcrumb = 'Suchergebnisse';
@@ -29,6 +33,7 @@ module Controller {
             this.query.accommodation = false;
 
             this.$rootScope.$emit('loading');
+
 
 
             var moods = this.DataService.getMoods();
@@ -44,10 +49,15 @@ module Controller {
                     this.dataAvailable = true;
 
                     this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
-                    this.selectedCity= HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
                     this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
                     this.updateUrl();
                 });
+
+            this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 400, true);
+            $(window).scroll(() => {
+                this.scrollevent();
+            });
 
             //watch the query variable and fire updateUrl() on change
             this.$scope.$watchCollection(angular.bind(this, (query) => {
@@ -82,19 +92,19 @@ module Controller {
                     this.query.days = this.selectedDay.query_name;
                 }
             });
+            
+        }
 
-            angular.element(window).scroll(event => {
-                var scroll = angular.element(window).scrollTop();
-                if (scroll > this.previousScroll){
-                    this.showSearchBar = false;
-                } else {
-                    this.showSearchBar = true;
-                }
-                this.previousScroll = scroll;
-                this.$scope.$apply();
-            });
-
-
+        checkScrollDirection() {
+            var st = $(window).scrollTop();
+            if (st > this.lastScrollTop){
+                this.hideBar = true;
+            } else {
+                this.hideBar = false;
+            }
+            this.lastScrollTop = st;
+            this.$scope.$apply();
+            console.info(this.hideBar);
         }
 
         updateUrl() {

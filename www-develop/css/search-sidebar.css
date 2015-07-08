@@ -452,3 +452,12 @@ trip-min-view .result-content-box {
 .search-container .welcome_select {
     right: 0;
 }
+
+.search-searchbar {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.search-searchbar.fade-top {
+    top: -60px;
+}
