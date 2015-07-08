@@ -16,6 +16,10 @@ module Controller {
         selectedMood:any = '';
         selectedDay:any = '';
 
+        previousScroll = 0;
+
+        showSearchBar:boolean = true;
+
         constructor(private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
@@ -49,6 +53,9 @@ module Controller {
             this.$scope.$watchCollection(angular.bind(this, (query) => {
                 return this.query;
             }), () => {
+                if(this.query.start_date && !this.query.end_date) {
+                    this.query.end_date = this.query.start_date;
+                }
                 this.updateUrl();
             });
 
@@ -74,6 +81,17 @@ module Controller {
                 if (newVal != oldVal) {
                     this.query.days = this.selectedDay.query_name;
                 }
+            });
+
+            angular.element(window).scroll(event => {
+                var scroll = angular.element(window).scrollTop();
+                if (scroll > this.previousScroll){
+                    this.showSearchBar = false;
+                } else {
+                    this.showSearchBar = true;
+                }
+                this.previousScroll = scroll;
+                this.$scope.$apply();
             });
 
 
