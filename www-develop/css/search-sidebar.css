@@ -247,6 +247,10 @@ trip-min-view .result-content-box {
     border: none;
 }
 
+.search-container .inner-result {
+    margin: 25px 0;
+}
+
 .accommodation-equipment {
     margin-bottom: 30px;
 }
