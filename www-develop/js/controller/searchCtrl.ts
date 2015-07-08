@@ -54,7 +54,7 @@ module Controller {
                     this.updateUrl();
                 });
 
-            this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 400, true);
+            this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 250, true);
             $(window).scroll(() => {
                 this.scrollevent();
             });
