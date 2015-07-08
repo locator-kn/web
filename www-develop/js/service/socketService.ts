@@ -27,7 +27,7 @@ module Service {
                         .then(response => {
                             console.log('connecting to socketio');
                             //var myIoSocket = io.connect(':3002' + response.data.namespace);
-                            var socketNd = io.connect();
+                            var socketNd = io();
                             this.socket = this.socketFactory({ioSocket: socketNd});
                             resolve(this.socket)
                         });
