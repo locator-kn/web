@@ -29,24 +29,7 @@ module Controller {
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
             });
-
-            $(window).scroll(() => {
-                this.checkScrolledToBottom();
-            });
-
         }
-
-        checkScrolledToBottom() {
-            if(this.dataLoading) {
-                return;
-            }
-            var st = $(window).scrollTop();
-            if ($(window).scrollTop() + $(window).height() > $(document).height() - ($('.footer').outerHeight() + 100)) {
-                this.dataLoading = true;
-                this.loadMorePages();
-            }
-        }
-
 
         search() {
             this.$rootScope.$emit('loading');
@@ -57,15 +40,14 @@ module Controller {
         }
 
         loadMorePages() {
-            if (this.results == undefined) {
+            if (this.results == undefined || this.dataLoading) {
                 return;
             }
+            this.dataLoading = true
             this.pageCount += 1;
-            console.info('pagecount'+this.pageCount);
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
-                    console.info('looad');
-                    if (!result.length) {
+                    if (!result.data.length) {
                         this.noMoreTrips = true;
                     }
                     result.data.forEach(entry => {
