@@ -69,7 +69,7 @@ var deps = [
     'luegg.directives',
     'monospaced.elastic',
     'infinite-scroll',
-    'ngFx', 'ngAnimate',
+    //'ngFx', 'ngAnimate',
     'geolocation',
     'ngTagsInput'
 ];
