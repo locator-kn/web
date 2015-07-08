@@ -1567,3 +1567,16 @@ trip-min-view {
     float: left;
     width: 100%;
 }
+.header-icon {
+    position: absolute;
+    top: 40%;
+    height: auto;
+    width: 120px !important;
+    margin-top: -60px;
+    left: 50%;
+    margin-left: -30px;
+}
+
+tags-input .tags .input, tags-input .tags .tag-item {
+    font: inherit;
+}

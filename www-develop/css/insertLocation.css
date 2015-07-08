@@ -246,7 +246,11 @@ tags-input .tags .tag-item {
     background: #33c4b7 !important;
     color: white;
     border: none !important;
-    line-height: 26px !important;
+    line-height: 28px !important;
+}
+
+tags-input .tags .input {
+    line-height: 28px;
 }
 
 tags-input .tags .tag-item .remove-button {

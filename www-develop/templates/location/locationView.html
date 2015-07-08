@@ -1,19 +1,27 @@
 <div class="locationview-container" ng-controller="LocationViewCtrl as lt">
     <div id="trip-image" class="trip-image header-image-container">
         <div class="header-image" style="background-image: url({{lt.locationImagePath}});"></div>
-        <div class="location-icon" style="background-image: url({{'./images/icons/location_white.png'}});"></div>
+        <img class="header-icon location-icon img-responsive" src="images/icons/location_white.png">
+
     </div>
     <div class="container">
         <div class="row">
             <div class="content-header">
                 <div class="col-xs-6">
-                    <img class="profile-image pointer" ng-src="{{lt.profileImagePath}}" ui-sref="user({profileId: lt.userId})">
+                    <img class="profile-image pointer" ng-src="{{lt.profileImagePath}}"
+                         ui-sref="user({profileId: lt.userId})">
                 </div>
                 <div class="col-xs-6">
                     <div class="link-container" ng-hide="lt.userId === 'locator-app'">
-                        <div class="all-locations pointer" style="background-image: url('./images/icons/all_locations.png')" ng-click="lt.moveToAllLocations()"></div>
-                        <div ng-hide="lt.me" class="messenger pointer" style="background-image: url('./images/icons/messenger.png')"  ng-click="lt.moveToMessenger()"></div>
-                        <div ng-hide="!lt.me" class="edit-location pointer" style="background-image: url('./images/icons/edit_location.png')"  ng-click="lt.moveToEditTrip()"></div>
+                        <div class="all-locations pointer"
+                             style="background-image: url('./images/icons/all_locations.png')"
+                             ng-click="lt.moveToAllLocations()"></div>
+                        <div ng-hide="lt.me" class="messenger pointer"
+                             style="background-image: url('./images/icons/messenger.png')"
+                             ng-click="lt.moveToMessenger()"></div>
+                        <div ng-hide="!lt.me" class="edit-location pointer"
+                             style="background-image: url('./images/icons/edit_location.png')"
+                             ng-click="lt.moveToEditTrip()"></div>
                     </div>
                 </div>
             </div>
@@ -24,7 +32,11 @@
                     <h2>{{lt.location.title}}</h2>
                 </div>
                 <div class="location-creator">
-                    <p>von <span class="pointer" ui-sref="user({profileId: lt.userId})"><strong>{{lt.user.name}}</strong></span> am <strong> <resultdate class="black" date="lt.location.create_date"></resultdate></strong></p>
+                    <p>von <span class="pointer"
+                                 ui-sref="user({profileId: lt.userId})"><strong>{{lt.user.name}}</strong></span> am
+                        <strong>
+                            <resultdate class="black" date="lt.location.create_date"></resultdate>
+                        </strong></p>
                 </div>
                 <div class="location-description">
                     <p>{{lt.location.description}}</p>
@@ -38,7 +50,8 @@
                     <h2>Karte</h2>
                 </div>
 
-                <div class="map-image" style="background-image: url({{lt.location.images.googlemap + '&size=345x420'}});"></div>
+                <div class="map-image"
+                     style="background-image: url({{lt.location.images.googlemap + '&size=345x420'}});"></div>
             </div>
         </div>
     </div>
