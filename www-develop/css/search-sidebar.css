@@ -461,3 +461,7 @@ trip-min-view .result-content-box {
 .search-searchbar.fade-top {
     top: -60px;
 }
+
+.without-overlay .bigger-button {
+    display: none;
+}
