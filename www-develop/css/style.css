@@ -607,7 +607,7 @@ a.close-modal {
     height: 60px;
     background-color: rgb(17, 17, 17);
     position: absolute;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 3px;
     padding: 11px;
     left: 0;
     top: 0;
@@ -1434,7 +1434,7 @@ progress-arc.hidden-height {
 
 .border-wrapper::-webkit-scrollbar-thumb {
     background-color: rgb(200, 200, 200);
-    width: 5px;
+    width: 4px;
     border-radius: 3px;
 }
 
