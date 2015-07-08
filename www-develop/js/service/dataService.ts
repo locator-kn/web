@@ -13,83 +13,83 @@ module Service {
         availableMoods = [{
             id: "buddytrip",
             query_name: "buddytrip",
-            title: "buddytrip",
+            title: "Buddytrip",
             icon: "buddytrip.png",
             icon_grey: "buddytrip_grey.png",
             description: ''
         }, {
             id: "girlsontour",
             query_name: "girls_on_tour",
-            title: "girls on tour",
+            title: "Girls on Tour",
             icon: "girls_on_tour.png",
             icon_grey: "girls_on_tour_grey.png",
             description: ""
         }, {
             id: "halligalli",
             query_name: "halligalli_drecksau",
-            title: "halligalli drecksau",
+            title: "Galligalli Drecksau",
             icon: "halligalli_drecksau.png",
             icon_grey: "halligalli_drecksau_grey.png",
             description: ""
         }, {
             id: "muskelkater",
             query_name: "muskelkater",
-            title: "muskelkater",
+            title: "Muskelkater",
             icon: "muskelkater.png",
             icon_grey: "muskelkater_grey.png",
             description: ""
         }, {
             id: "sturmderliebe",
             query_name: "sturm_der_liebe",
-            title: "sturm der liebe",
+            title: "Sturm der Liebe",
             icon: "sturm_der_liebe.png",
             icon_grey: "sturm_der_liebe_grey.png",
             description: ""
         }, {
             id: "gruenergehtsnicht",
             query_name: "gruener_gehts_nicht",
-            title: "grüner gehts nicht",
+            title: "Grüner gehts nicht",
             icon: "gruener_gehts_nicht.png",
             icon_grey: "gruener_gehts_nicht_grey.png",
             description: ""
         }, {
             id: "hastenichtgesehen",
             query_name: "haste_nicht_gesehen",
-            title: "haste nicht gesehen",
+            title: "Haste nicht gesehen",
             icon: "haste_nicht_gesehen.png",
             icon_grey: "haste_nicht_gesehen_grey.png",
             description: ""
         }, {
             id: "singlesuntersich",
             query_name: "singles_unter_sich",
-            title: "singles unter sich",
+            title: "Singles unter sich",
             icon: "singles_unter_sich.png",
             icon_grey: "singles_unter_sich_grey.png",
             description: ""
         }, {
             id: "familyfun",
             query_name: "family_fun",
-            title: "family fun",
+            title: "Family Fun",
             icon: "family_fun.png",
             icon_grey: "family_fun_grey.png",
             description: ""
         }, {
             query_name: "kultur_und_sightseeing",
-            title: "kultur und sightseeing",
+            title: "Kultur und Sightseeing",
             icon: "kultur_und_sightseeing.png",
             icon_grey: "kultur_und_sightseeing_grey.png",
             description: ""
         }, {
             id: "leckermaeulchen",
             query_name: 'leckermaeulchen',
-            title: 'leckermäulchen',
+            title: 'Leckermäulchen',
             icon: 'leckermaeulchen.png',
             icon_grey: 'leckermaeulchen_grey.png',
             description: ''
         }, {
             id: "entspannung",
             query_name: "entspannung_pur",
-            title: "entspannnung pur",
+            title: "Entspannnung pur",
             icon: "entspannung_pur.png",
             icon_grey: "entspannung_pur_grey.png",
             description: ""
