@@ -98,6 +98,10 @@
     margin-bottom: 3px;
 }
 
+.edittrip-container p.short {
+    white-space: pre;
+}
+
 .edittrip-container .location-tags {
     padding: 0;
 }
