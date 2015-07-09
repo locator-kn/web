@@ -29,7 +29,7 @@ module Controller {
         lastMessageIn:string = '';
 
 
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout, private HelperService) {
+        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
