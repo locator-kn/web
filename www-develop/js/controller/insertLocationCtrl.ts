@@ -375,7 +375,7 @@ module Controller {
                         }
                     });
 
-                    if(!locality) {
+                    if (!locality) {
                         return;
                     }
 
