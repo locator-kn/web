@@ -99,7 +99,7 @@ html, body {
 }
 
 .search-menu .item {
-    width: 105px;
+    width: 103px;
     height: 105px;
     background-repeat: no-repeat;
     background-position: center;
@@ -247,6 +247,10 @@ trip-min-view .result-content-box {
     border: none;
 }
 
+.search-container .inner-result {
+    margin: 25px 0;
+}
+
 .accommodation-equipment {
     margin-bottom: 30px;
 }
@@ -311,6 +315,10 @@ trip-min-view .result-content-box {
 
 .result-content-bottom .messenger-icon:hover {
     background-image: url("../images/icons/trip-min-view/hover-message.png");
+}
+
+.result-content-bottom .edit-icon {
+    background-image: url("../images/icons/edit_location.png");
 }
 
 .white-border {
@@ -451,4 +459,17 @@ trip-min-view .result-content-box {
 
 .search-container .welcome_select {
     right: 0;
+}
+
+.search-searchbar {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.search-searchbar.fade-top {
+    top: -60px;
+}
+
+.without-overlay .bigger-button {
+    display: none;
 }

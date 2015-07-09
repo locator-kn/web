@@ -1,8 +1,8 @@
 <div class="search-container" ng-controller="SearchCtrl as sc">
     <div class="container">
         <div class="row fixed-top">
-            <div class="welcome_select">
-                <div class="search-searchbar">
+            <div ng-class="{'data-available': sc.dataAvailable}" class="welcome_select">
+                <div ng-class="{'fade-top' : sc.hideBar}" class="search-searchbar">
                     <span class="relative green">
                         <span class="margin-right">Du willst</span>
                             <div class="list-selection"
@@ -14,7 +14,7 @@
                     </span>
 
                      <span class="relative green">
-                         <div list-selection values="sc.moods"
+                         <div icons="true" list-selection values="sc.moods"
                               selected-model="sc.selectedMood" selected-name="sc.showMoods"
                               open-element="mc.openElement">
                          </div>

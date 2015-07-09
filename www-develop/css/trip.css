@@ -76,19 +76,6 @@
     left: 150px;
 }
 
-.insert-trip-container .trip-icon {
-    margin-left: auto;
-    margin-right: auto;
-    background-size: 173px 139px;
-    width: 173px;
-    height: 139px;
-    z-index: 10;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 20px;
-}
-
 .insert-trip-container .accommodation-equipment-wrapper {
     margin-left: -16px;
     margin-top: -25px;

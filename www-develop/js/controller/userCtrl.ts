@@ -45,8 +45,29 @@ module Controller {
         tripSearch:string;
         locationReallyDelete:boolean = false;
 
-        constructor(private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
+            this.hotkeys.add({
+                combo: 'esc',
+                description: 'escape',
+                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+                callback: () => {
+                    this.reset();
+                }
+            });
+
+            this.hotkeys.add({
+                combo: 'return',
+                description: 'save',
+                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+                callback: () => {
+                    if (this.tab === 'info') {
+                        this.updateProfile();
+                    } else if (this.tab === 'account') {
+                        this.setNewPassword();
+                    }
+                }
+            });
 
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
@@ -145,7 +166,7 @@ module Controller {
                         this.MessengerService.getConversations()
                             .then(result => {
                                 var user = this.lodash.findWhere(result.data, {'opponent': this.user._id});
-                                if(!user) {
+                                if (!user) {
                                     return;
                                 }
                                 this.conversationId = user._id || '';
@@ -176,12 +197,9 @@ module Controller {
             }
 
 
-
             if (!this.user.birthdate || isNaN(this.user.birthdate)) {
                 this.user.birthdate = '';
             }
-
-
 
 
             if (this.user.birthdate > new Date()) {

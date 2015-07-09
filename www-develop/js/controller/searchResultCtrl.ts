@@ -6,6 +6,8 @@ module Controller {
         pageCount:number = 1;
         noMoreTrips:boolean = false;
 
+        dataLoading:boolean = false;
+
 
         constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
@@ -29,7 +31,6 @@ module Controller {
             });
         }
 
-
         search() {
             this.$rootScope.$emit('loading');
             this.SearchService.getAllTrips()
@@ -39,19 +40,23 @@ module Controller {
         }
 
         loadMorePages() {
-            if (this.results == undefined) {
+            if (this.results == undefined || this.dataLoading) {
                 return;
             }
+
+            this.dataLoading = true
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
-                    if (!result.length) {
+                    if (!result.data.length) {
                         this.noMoreTrips = true;
+                        this.$rootScope.hideFooter = false;
                     }
                     result.data.forEach(entry => {
                             this.results.push(entry);
                         }
                     );
+                    this.dataLoading = false;
                 });
         }
 

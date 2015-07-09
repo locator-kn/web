@@ -11,12 +11,16 @@
     z-index: 1000;
     display: block;
     background-color: #33c4b7;
-    max-height: 400px;
+    padding: 0;
     overflow-y: auto;
+    left: 0;
+    width: 100%;
+    border-radius: 3px;
 }
 
 .createview .welcome_select ul {
     background: #ff4637;
+    border-radius: 3px;
 }
 
 .welcome_select .open ul {
@@ -24,7 +28,6 @@
     opacity: 1;
     transform: translateY(-50%) scale(1);
     transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
-    border-radius: 3px;
 }
 
 .welcome_select ul {
@@ -44,7 +47,8 @@
 
 .welcome_select ul li {
     cursor: pointer;
-    font-size: 20px;
+    padding: 3px 10px;
+    font-size: 18px;
 }
 
 span.margin-right {
@@ -257,10 +261,11 @@ h2#sub-headline {
 .welcome-right {
     right: 0;
 }
+
 a.more-link {
-    color: #fff;
     text-decoration: underline;
 }
+
 a.more-link:hover {
     text-decoration: none;
 }
@@ -268,5 +273,73 @@ a.more-link:hover {
 .not-selectable a {
     text-decoration: none;
     cursor: initial;
+}
+
+.welcome_select .list-icon {
+    height: 29px;
+    margin-right: 5px;
+    width: auto;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.opener h2 {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin: 0;
+    background-color: rgb(34, 34, 34);
+    padding: 10px;
+}
+
+.welcome_select ul li:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.feedback input[type="text"] {
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 48px;
+    border: 1px solid #e6e6e6;
+    line-height: 48px;
+}
+
+.feedback textarea {
+    background-color: #f3f3f3;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.feedback-submit {
+    color: white;
+    background: #343434;
+    border: 1px solid #343434;
+    margin-top: 5px;
+}
+
+.feedback-submit:hover {
+    background-color: #ff4637;
+    border: 1px solid #ff4637;
+    color: white;
+}
+
+.feedback input {
+    font-family: 'Signika', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    border-radius: 3px;
+    outline: 0;
+    display: block;
+    max-width: 100%;
+    padding: 6px 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    background: transparent;
+    color: #808080;
+    -webkit-transition: all 0.2s
+}
+
+.feedback textarea {
+    border-radius: 3px;
 }
 

@@ -8,6 +8,9 @@ module Controller {
         days:any = [];
         dataAvailable = false;
 
+        lastScrollTop = 0;
+        hideBar:boolean = false;
+
         showCities:string = 'showCitiesCreate';
         showMoods:string = 'showMoodsCreate';
         showDays:string = 'showDaysCreate';
@@ -15,8 +18,11 @@ module Controller {
         selectedCity:any = '';
         selectedMood:any = '';
         selectedDay:any = '';
+        scrollevent:any;
 
-        constructor(private HelperService, private $scope, private $rootScope, private $location,
+        debouncedGetTripsByQuery:any;
+
+        constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private UserService, private $q) {
 
             this.$rootScope.breadcrumb = 'Suchergebnisse';
@@ -26,7 +32,7 @@ module Controller {
 
             this.$rootScope.$emit('loading');
 
-
+            this.debouncedGetTripsByQuery = this.UtilityService.debounce(this.getTripsByQuery, 200, false);
             var moods = this.DataService.getMoods();
             var cities = this.DataService.getCities();
             var days = this.DataService.getAvailableAmountOfDays();
@@ -40,15 +46,23 @@ module Controller {
                     this.dataAvailable = true;
 
                     this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
-                    this.selectedCity= HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
                     this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
                     this.updateUrl();
                 });
+
+            this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 250, true);
+            $(window).scroll(() => {
+                this.scrollevent();
+            });
 
             //watch the query variable and fire updateUrl() on change
             this.$scope.$watchCollection(angular.bind(this, (query) => {
                 return this.query;
             }), () => {
+                if (this.query.start_date && !this.query.end_date) {
+                    this.query.end_date = this.query.start_date;
+                }
                 this.updateUrl();
             });
 
@@ -76,7 +90,21 @@ module Controller {
                 }
             });
 
+        }
 
+        checkScrollDirection() {
+
+            var st = $(window).scrollTop();
+
+            if (st > this.lastScrollTop) {
+                this.hideBar = true;
+            } else if (st < 100) {
+                this.hideBar = false;
+            } else {
+                this.hideBar = false;
+            }
+            this.lastScrollTop = st;
+            this.$scope.$apply();
         }
 
         updateUrl() {
@@ -86,7 +114,10 @@ module Controller {
         }
 
         search() {
+            this.debouncedGetTripsByQuery();
+        }
 
+        getTripsByQuery() {
             this.$rootScope.$emit('loading');
             if (!this.query.city/* || !this.tripCities.length*/) {
                 return;
@@ -104,7 +135,9 @@ module Controller {
         toggleActiveItem(item) {
             if (item == this.activeItem) {
                 this.activeItem = '';
+                this.hideBar = true;
             } else {
+                this.hideBar = false;
                 this.activeItem = item;
             }
         }

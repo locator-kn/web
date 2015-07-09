@@ -14,7 +14,6 @@
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/userCtrl.ts" />
-/// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
 /// <reference path="./controller/welcomeCreateCtrl.ts" />
@@ -27,11 +26,14 @@
 /// <reference path="./controller/mainCtrl.ts" />
 
 /// <reference path="./service/userService.ts" />
+/// <reference path="./service/feedbackService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/tripService.ts" />
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
+/// <reference path="./controller/feedbackCtrl.ts" />
+
 
 /// <reference path="./service/helperService.ts" />
 /// <reference path="./service/utilityService.ts" />
@@ -69,7 +71,7 @@ var deps = [
     'luegg.directives',
     'monospaced.elastic',
     'infinite-scroll',
-    'ngFx', 'ngAnimate',
+    //'ngFx', 'ngAnimate',
     'geolocation',
     'ngTagsInput'
 ];
@@ -86,10 +88,6 @@ var app = angular.module('locator', deps)
      GoogleMapApiProvider.configure({
      china: false
      });
-     })*/
-
-    /* .config(function ($sceProvider) {
-     $sceProvider.enabled(false);
      })*/
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -184,6 +182,22 @@ var app = angular.module('locator', deps)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
+    .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
+
+
+    .filter('truncate', function () {
+        return function (value, max) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+
+            return value + '…';
+        };
+    })
 
     .directive('contenteditable', [($sce) => {
         return {
@@ -193,12 +207,12 @@ var app = angular.module('locator', deps)
                 if (!ngModel) return; // do nothing if no ng-model
 
                 // Specify how UI should be updated
-                ngModel.$render = function() {
+                ngModel.$render = function () {
                     element.html(ngModel.$viewValue || '');
                 };
 
                 // Listen for change events to enable binding
-                element.on('blur keyup change', function() {
+                element.on('blur keyup change', function () {
                     scope.$evalAsync(read);
                 });
                 read(); // initialize
@@ -208,7 +222,7 @@ var app = angular.module('locator', deps)
                     var html = element.html();
                     // When we clear the content editable the browser leaves a <br> behind
                     // If strip-br attribute is provided then we strip this out
-                    if ( attrs.stripBr && html == '<br>' ) {
+                    if (attrs.stripBr && html == '<br>') {
                         html = '';
                     }
                     ngModel.$setViewValue(html);
@@ -272,11 +286,11 @@ var app = angular.module('locator', deps)
 
                 $scope.$watch('date', (newVal, oldVal, scope) => {
                     var yesterday = new Date(Date.now() - 1000 * 60 * 60 * 24);
-                    yesterday.setHours(0,0,0,0);
+                    yesterday.setHours(0, 0, 0, 0);
 
                     if (newVal) {
                         var localdate = new Date(newVal);
-                        if(moment(localdate).isBefore(yesterday)) {
+                        if (moment(localdate).isBefore(yesterday)) {
                             var a = moment(localdate).day();
                             $scope.date2 = moment.weekdays(a);
                         } else {
@@ -292,7 +306,7 @@ var app = angular.module('locator', deps)
 
     .directive('imgTriplist', () => {
         var tmpl = [
-            '<flex-slider class="static" control-nav="false" direction-nav="true" animation="fade" animation-loop="true" slide="s in slides"><li>',
+            '<flex-slider class="static" control-nav="false" direction-nav="true" animation="fade" animation-loop="true" slideshow="false" slide="s in slides"><li>',
             '<div class="header-image" style="background-image: url({{s}});"></div>',
             '</li></flex-slider>'
         ];
@@ -302,7 +316,8 @@ var app = angular.module('locator', deps)
                 locations: '=',
                 mapwidth: '@',
                 mapheight: '@',
-                scale: '@'
+                scale: '@',
+                size: '='
             },
             link: (scope:any, element) => {
                 var slides:string[] = [];
@@ -311,7 +326,11 @@ var app = angular.module('locator', deps)
                     if (l.hasOwnProperty(key)) {
                         var selectedObjImages = l[key];
                         if (selectedObjImages.picture) {
-                            slides.push(selectedObjImages.picture);
+                            if (scope.size === 'mid') {
+                                slides.push(selectedObjImages.picture + '?size=mid');
+                            } else {
+                                slides.push(selectedObjImages.picture);
+                            }
                         }
                         //slides.push(l[key].googlemap + '&size=' + scope.mapwidth + 'x' + scope.mapheight + '&scale=' + scope.scale);
                         slides.push(l[key].googlemap + '&size=900x900' + '&scale=' + scope.scale);
@@ -371,15 +390,18 @@ var app = angular.module('locator', deps)
             scope: {
                 trip: "=",
                 mood: "=",
+                size: "="
             },
-            controller: function ($scope, LocationService, TripService, UserService) {
+            controller: function ($scope, $rootScope, LocationService, TripService, UserService) {
+
                 $scope.showLocs = false;
                 $scope.locations = [];
                 $scope.locationCount = Object.keys($scope.trip.locations).length;
+                $scope.meId = $rootScope.userID;
 
-                $scope.showLocations = function() {
+                $scope.showLocations = function () {
                     $scope.showLocs = !$scope.showLocs;
-                    if($scope.locations.length == 0) {
+                    if ($scope.locations.length == 0) {
                         var locationsHash = $scope.trip.locations;
                         for (var key in locationsHash) {
                             if (locationsHash.hasOwnProperty(key)) {
@@ -392,7 +414,7 @@ var app = angular.module('locator', deps)
                     }
                 };
 
-                $scope.participate = function() {
+                $scope.participate = function () {
                     UserService.getUser($scope.trip.userid).then(result => {
                         var user = result.data;
                         TripService.participate(user, $scope.trip);
@@ -426,5 +448,6 @@ var app = angular.module('locator', deps)
     .service(Service.SocketService.serviceId, Service.SocketService)
     .service(Service.LocationService.serviceId, Service.LocationService)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
-    .service(Service.UtilityService.serviceId, Service.UtilityService);
+    .service(Service.UtilityService.serviceId, Service.UtilityService)
+    .service(Service.FeedbackService.serviceId, Service.FeedbackService);
 

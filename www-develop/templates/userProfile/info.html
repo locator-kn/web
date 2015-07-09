@@ -1,13 +1,13 @@
 <div class="col-xs-12">
 
     <form name="pc.infoForm" ng-class="{editable: pc.edit}" novalidate class="user-form">
-        <input ng-disabled="!pc.edit" ng-model="pc.user.name" class="input col-sm-6" type="text" name="name"
+        <input maxlength="30" ng-disabled="!pc.edit" ng-model="pc.user.name" class="input col-sm-6" type="text" name="name"
                placeholder="Vorname">
-        <input ng-hide="!pc.me && !pc.user.surname" ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input col-sm-6" type="text" name="surname"
+        <input maxlength="30" ng-hide="!pc.me && !pc.user.surname" ng-disabled="!pc.edit" ng-model="pc.user.surname" class="input col-sm-6" type="text" name="surname"
                placeholder="Nachname">
         <input ng-hide="!pc.me" ng-disabled="!pc.edit" ng-model="pc.user.birthdate" class="input col-xs-12" type="date" name="birthdate"
                placeholder="yyyy-MM-dd">
-        <input ng-hide="!pc.me && !pc.user.residence" ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input col-xs-12" type="text" name="name"
+        <input maxlength="40" ng-hide="!pc.me && !pc.user.residence" ng-disabled="!pc.edit" ng-model="pc.user.residence" ng-map-autocomplete class="input col-xs-12" type="text" name="name"
                placeholder="Dein Wohnort">
         <label>Beschreibung:</label>
 

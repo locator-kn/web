@@ -6,7 +6,7 @@
                 <div class="header-image" style="background-image: url({{s}});"></div>
             </li>
         </flex-slider>
-        <div class="trip-icon" style="background-image: url({{'./images/icons/header/trip_erstellen_weiss.png'}});"></div>
+        <img class="header-icon trip-icon img-responsive" src="images/icons/header/trip_erstellen_weiss.png">
     </div>
 
     <div class="container">
@@ -18,29 +18,41 @@
                     </div>
                 </div>
                 <div class="col-xs-5 btn-mood-container">
-                        <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
-                        </div>
+                    <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
+                         style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
+                    </div>
                     <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">TEILNEHMEN</div>
-                    <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">Bearbeiten</div>
+                    <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">
+                        Bearbeiten
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row trip-info-container">
             <div class="col-xs-5 fix-position-left">
                 <div class="trip-info">
-                    <h1>{{tc.trip.title}}</h1>
+                    <h2>{{tc.trip.title}}</h2>
+
                     <p>{{tc.trip.description}}</p>
-                    <h1>Infos</h1>
+
+                    <h2>Infos</h2>
+
                     <div ng-if="tc.trip.start_date && tc.trip.end_date">
-                    <strong><resultdate class="black" date="tc.trip.start_date"></resultdate></strong>
-                    bis
-                    <strong><resultdate class="black" date="tc.trip.end_date"></resultdate></strong>
+                        <strong>
+                            <resultdate class="black" date="tc.trip.start_date"></resultdate>
+                        </strong>
+                        bis
+                        <strong>
+                            <resultdate class="black" date="tc.trip.end_date"></resultdate>
+                        </strong>
                     </div>
                 </div>
                 <div class="result-user-info">
-                    Von <span class="black pointer" ui-sref="user({profileId: tc.trip.userid})"><strong>{{tc.username}}</strong></span>
+                    Von <span class="black pointer"
+                              ui-sref="user({profileId: tc.trip.userid})"><strong>{{tc.username}}</strong></span>
                 </div>
                 <br>
+
                 <div class="day-amount black">
 
                     <span ng-if="tc.trip.days">
@@ -50,18 +62,22 @@
                     <span>
                         <span ng-if="tc.trip.days"> | </span>
                         <strong>{{tc.locations.length}}</strong>
-                        <ng-pluralize count="tc.locations.length" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                        <ng-pluralize count="tc.locations.length"
+                                      when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
                     </span>
                     <span ng-if="tc.trip.persons">
                         <span ng-if="tc.trip.days || tc.trip.persons"> | </span>
                         <strong>{{tc.trip.persons}}</strong>
-                        <ng-pluralize count="tc.trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
+                        <ng-pluralize count="tc.trip.persons"
+                                      when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
                     </span>
                 </div>
 
                 <div ng-hide="tc.trip.accommodation == false">
                     <br>
+
                     <p>mit Übernachtung</p>
+
                     <div class="accommodation-equipment-wrapper">
                         <acc-equ-chooser accommodation-equipment-selectable="false" just-show-selected="true"
                                          accommodation-equipment="tc.trip.accommodation_equipment"></acc-equ-chooser>
@@ -70,11 +86,14 @@
             </div>
 
             <div class="col-xs-5 col-xs-offset-2">
-                <h1>Locations</h1>
+                <h2>Locations</h2>
+
                 <div class="edittrip-container">
                     <div class="mylocations-wrapper without-overlay">
-                        <div ng-repeat="location in tc.locations" class="relative location border-radius-decent trip-location-container">
-                            <div class="pointer" ng-include="'templates/editTrip/singleTrip.html'" include-replace ui-sref="locationView({locationId: location._id})">
+                        <div ng-repeat="location in tc.locations"
+                             class="relative location border-radius-decent trip-location-container">
+                            <div class="pointer" ng-include="'templates/editTrip/singleTrip.html'" include-replace
+                                 ui-sref="locationView({locationId: location._id})">
                             </div>
                         </div>
                     </div>
