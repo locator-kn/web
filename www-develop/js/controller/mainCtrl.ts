@@ -25,12 +25,12 @@ module Controller {
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
-            $rootScope.$on('$stateChangeSuccess', function() {
+            $rootScope.$on('$stateChangeSuccess', function () {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
             });
 
             $rootScope.$on('updateTitle', (scope, title:any) => {
-                if(title.add) {
+                if (title.add) {
                     this.title = title.text + ' ' + this.locatorTitle
                 } else {
                     this.title = title || this.defaultTitle;
@@ -38,14 +38,14 @@ module Controller {
             });
 
             $window.onclick = (e) => {
-                if(this.openElement) {
+                if (this.openElement) {
                     this.openElement = '';
                     this.$scope.$apply();
                 }
             };
 
             $rootScope.$on('newPopoverSelected', (e, clickValue)=> {
-                if(this.$rootScope.openElement === clickValue)
+                if (this.$rootScope.openElement === clickValue)
                     clickValue = '';
                 this.openElement = this.$rootScope.openElement = clickValue;
             });

@@ -31,7 +31,7 @@ module Controller {
 
                     this.userId = this.location.userid;
                     this.UserService.getUser(this.userId)
-                    .then(resultUser => {
+                        .then(resultUser => {
                             this.user = resultUser.data;
                             this.me = this.$rootScope.userID === this.userId;
                             if (!this.user.picture) {
@@ -51,7 +51,7 @@ module Controller {
                             }
                             this.conversationId = conversation._id || conversation.id || '';
                         });
-            });
+                });
         }
 
         moveToAllLocations() {
