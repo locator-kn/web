@@ -131,18 +131,37 @@
         height: 45px;
     }
 
-    .search-container .search-searchbar {
-        position: relative;
-    }
-
-    .search-container .fixed-top {
-        position: relative;
+    .search-container .fixed-top, .search-container .search-searchbar {
+        position: initial;
+        float: left;
+        width: 100%;
     }
 
     .edittrip-container .border-wrapper {
         height: auto;
         overflow: inherit;
     }
+
+    /* tripminview */
+    .trip-min-view .result-content-box {
+        height: auto;
+        float: left;
+        width: 100%;
+    }
+
+    .trip-min-view .result-content-wrapper {
+        margin-bottom: 50px;
+    }
+
+    .results-container.container {
+        margin-top: 0px;
+    }
+
+    .search-container .fixed-top {
+        height: auto;
+        margin-top: 30px;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {

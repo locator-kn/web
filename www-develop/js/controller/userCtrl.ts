@@ -32,6 +32,7 @@ module Controller {
 
         trips;
         locations;
+        defaultLocation;
 
         tab:string;
         possibleTabs = ['info', 'account', 'locations', 'trips', 'conversation'];
@@ -124,8 +125,12 @@ module Controller {
             if (this.me) {
                 this.LocationService.getMyLocations()
                     .then(result => {
-                        console.info(result.data);
                         this.locations = result.data;
+                        // extract possible default location
+                        if(this.locations.length && this.locations[0].isDefault) {
+                            this.defaultLocation = this.locations[0];
+                            this.locations.splice(0,1);
+                        }
                     });
 
             } else {

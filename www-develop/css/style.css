@@ -1627,7 +1627,7 @@ tags-input .tags .input, tags-input .tags .tag-item {
 }
 
 .onepage-container {
-    padding: 60px 0;
+    padding: 60px 15px;
 }
 
 .onepage-container .container {
@@ -1642,4 +1642,12 @@ tags-input .tags .input, tags-input .tags .tag-item {
 h1 {
     font-weight: 600;
     font-size: 32px;
+}
+
+.flex-direction-nav a {
+    z-index: 8;
+}
+
+.ui-helper-clearfix {
+    display: none;
 }

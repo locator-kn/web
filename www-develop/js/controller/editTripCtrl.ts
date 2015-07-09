@@ -249,10 +249,8 @@ module Controller {
 
             trip.locations = this.getSelectedLocations();
 
-            debugger;
             if (this.tripMeta.title < 2 || this.tripMeta.description < 2) {
                 this.validationFails = true;
-                debugger;
                 return;
             }
 
