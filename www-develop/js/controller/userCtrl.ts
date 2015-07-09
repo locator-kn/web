@@ -127,9 +127,9 @@ module Controller {
                     .then(result => {
                         this.locations = result.data;
                         // extract possible default location
-                        if(this.locations.length && this.locations[0].isDefault) {
+                        if (this.locations.length && this.locations[0].isDefault) {
                             this.defaultLocation = this.locations[0];
-                            this.locations.splice(0,1);
+                            this.locations.splice(0, 1);
                         }
                     });
 
