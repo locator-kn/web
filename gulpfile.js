@@ -66,6 +66,9 @@ gulp.task('ts', function () {
         .pipe(ts(tsProjectEmily));
 
     tsResult._events.error[0] = function (error) {
+        if(!error.__safety || !error.__safety.toString()) {
+            return;
+        }
         notifier.notify({
             'title': 'Compilation error',
             'message': error.__safety.toString(),
