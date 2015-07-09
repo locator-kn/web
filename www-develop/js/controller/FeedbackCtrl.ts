@@ -29,8 +29,6 @@ module Controller {
                 }).catch(() => {
                     this.feedbackerror = true;
                 });
-
-
         }
 
         static controllerId:string = "FeedbackCtrl";
