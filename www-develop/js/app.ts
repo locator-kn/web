@@ -14,7 +14,6 @@
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/userCtrl.ts" />
-/// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
 /// <reference path="./controller/welcomeCreateCtrl.ts" />
@@ -27,6 +26,7 @@
 /// <reference path="./controller/mainCtrl.ts" />
 
 /// <reference path="./service/userService.ts" />
+/// <reference path="./service/feedbackService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/tripService.ts" />
@@ -445,5 +445,6 @@ var app = angular.module('locator', deps)
     .service(Service.SocketService.serviceId, Service.SocketService)
     .service(Service.LocationService.serviceId, Service.LocationService)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
-    .service(Service.UtilityService.serviceId, Service.UtilityService);
+    .service(Service.UtilityService.serviceId, Service.UtilityService)
+    .service(Service.FeedbackService.serviceId, Service.FeedbackService);
 

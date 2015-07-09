@@ -20,7 +20,29 @@
     <h3>oops, a server error occured, Steffen has been notified</h3>
 </div>
 
-<div class="container-fluid statistic_container cyan">
+<div class="container-fluid onepage-container video-fluid grey">
+    <div class="container video-container">
+        <iframe src="https://player.vimeo.com/video/132811955" width="800" height="450" frameborder="0"
+                webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+    </div>
+</div>
+
+<div class="container-fluid description-container onepage-container white">
+    <div class="container">
+        <h2>Verreisen - und bei Freunden ankommen.</h2>
+
+        <p>Du machst dich auf einen Städte-Kurztrip, hast aber keine Lust auf die üblichen Sehenswürdigkeiten?
+            Du willst eine Reise nach deinen Vorstellungen und Plätze kennenlernen, die nicht im Reiseführer stehen?
+            Oder hast du Lust, anderen die coolsten Orte deiner Stadt zu zeigen? Beides ist mit Locator möglich.
+            Locator bringt Einheimische und Fremde zusammen – in welcher Form, entscheidet ihr. Ob ihr nur
+            Tipps übers Smartphone austauscht oder euch persönlich trefft, bleibt euch überlassen. Die App funktioniert
+            wie ein Netzwerk für Kurztrips: Zeige anderen, was du an deiner Stadt liebst und erlebe Städte
+            so, wie du es alleine nicht könntest. Werde ein Teil von Locator – damit Fremde zu Freunden werden.</p>
+    </div>
+</div>
+
+
+<div class="container-fluid onepage-container description-container grey">
 
     <div class="container">
 
@@ -29,10 +51,11 @@
                 <h2>Hintergrund</h2>
 
                 <p>Studenten der Fachrichtung Kommunikationsdesign haben sich 2015 mit der Projektreihe »Designer für
-                    Gerechtigkeit« am Konziljubiläum der Stadt Konstanz beteiligt. Die Entwicklung der App ist Teil
+                    Gerechtigkeit« am Konziljubiläum der Stadt Konstanz beteiligt.<br>Die Entwicklung der App ist Teil
                     dieser Reihe – auch vor dem Hintergrund der historischen Situation: Zu Zeiten des Konstanzer Konzils
                     1414 bis 1418 lebten in Konstanz mehr Fremde als Einheimische.
-                    <a href="http://project.locator-app.com" target="_blank" class="more-link">Mehr Infos zum Gesamtprojekt</a>.</p>
+                    <a href="http://project.locator-app.com" target="_blank" class="more-link">Mehr Infos zum
+                        Gesamtprojekt</a>.</p>
             </div>
 
             <div class="col-sm-4">
@@ -59,4 +82,40 @@
 
     </div>
 </div>
+
+
+<div class="container-fluid onepage-container description-container white">
+
+    <div class="container feedback">
+
+        <form id="forms">
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type="text" placeholder="Name" id="name" name="name">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" placeholder="Email" id="email" name="email">
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" placeholder="Betreff" id="subject" name="subject">
+                </div>
+                <div class="col-xs-12">
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <input class="feedback-submit" type="submit" value="absenden">
+                    <input type="hidden" name="submit">
+                </div>
+                <div class="col-xs-12 col-sm-8 success-feedback">
+                    <p class="thanks">Vielen Dank für dein Feedback!</p>
+                </div>
+                <div class="col-xs-12 col-sm-8 error-feedback">
+                    <p class="generic">Oops, da ist was schief gelaufen</p>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
