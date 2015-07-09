@@ -104,6 +104,7 @@ module Controller {
                 this.hideBar = false;
             } else if (st > this.lastScrollTop) {
                 this.hideBar = true;
+                this.activeItem = '';
             } else {
                 this.hideBar = false;
             }

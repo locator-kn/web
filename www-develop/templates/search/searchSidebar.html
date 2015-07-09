@@ -1,16 +1,19 @@
 <div class="container-sidebar">
-    <div  ng-class="{'search-menu-inactive': sc.isActive('')}" class="search-menu">
-        <div class="item pointer" ng-class="{'item-active': sc.isActive('filter'), 'item-black tt tt-small' : sc.isActive('')}" ng-click="sc.toggleActiveItem('filter')" aria-label="Weitere Filter">
+    <div ng-class="{'search-menu-inactive': sc.isActive('')}" class="search-menu">
+        <div class="item pointer"
+             ng-class="{'item-active': sc.isActive('filter'), 'item-black tt tt-small' : sc.isActive('')}"
+             ng-click="sc.toggleActiveItem('filter')" aria-label="Weitere Filter">
         </div>
     </div>
-    <div class="settings sample-show-hide" ng-show="sc.activeItem != ''" style="clear:both;">
+    <div class="settings sample-show-hide" ng-class="{'toggle' : sc.activeItem != ''}">
         <div>
-            <div ng-show="sc.activeItem == 'filter'">
-                <div class="filter-container">
-                    <datepicker start-date-real="sc.query.start_date" end-date-real="sc.query.end_date" on-linked="false"></datepicker>
-                    <div ng-include="'templates/search/filter.html'"></div>
-                </div>
+
+            <div class="filter-container">
+                <datepicker start-date-real="sc.query.start_date" end-date-real="sc.query.end_date"
+                            on-linked="false"></datepicker>
+                <div ng-include="'templates/search/filter.html'"></div>
             </div>
+
         </div>
     </div>
 </div>

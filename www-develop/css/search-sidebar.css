@@ -473,3 +473,13 @@ trip-min-view .result-content-box {
 .without-overlay .bigger-button {
     display: none;
 }
+
+.container-sidebar .settings {
+    left: -200px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.container-sidebar .settings.toggle {
+    left: 0;
+}
