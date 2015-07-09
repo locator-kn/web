@@ -1647,3 +1647,7 @@ h1 {
 .flex-direction-nav a {
     z-index: 8;
 }
+
+.ui-helper-clearfix {
+    display: none;
+}
