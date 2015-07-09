@@ -17,7 +17,7 @@ module Controller {
         showMoods:string = 'showMoodsCreate';
         showDays:string = 'showDaysCreate';
 
-        constructor(private $state, private $scope, private $rootScope, private $element, private DataService, private $q) {
+        constructor(private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
