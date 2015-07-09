@@ -291,13 +291,13 @@ module Controller {
 
 
                         var lat = result.data.geotag.lat;
-                        var long = result.data.geotag.long;
+                        var lon = result.data.geotag.long;
 
                         this.map.clickedMarker.latitude = lat;
-                        this.map.clickedMarker.longitude = long;
+                        this.map.clickedMarker.longitude = lon;
 
                         this.map.center.latitude = lat;
-                        this.map.center.longitude = long;
+                        this.map.center.longitude = lon;
                         this.mapMarkerSet = true;
 
                         this.getCityFromMarker();
@@ -327,16 +327,16 @@ module Controller {
         selectLocationFromInput() {
 
             var lat;
-            var long;
+            var lon;
 
             lat = this.selectedPlaceDetails.geometry.location.A;
-            long = this.selectedPlaceDetails.geometry.location.F;
+            lon = this.selectedPlaceDetails.geometry.location.F;
 
             this.map.clickedMarker.latitude = lat;
-            this.map.clickedMarker.longitude = long;
+            this.map.clickedMarker.longitude = lon;
             this.map.zoom = 15;
             this.map.center.latitude = lat;
-            this.map.center.longitude = long;
+            this.map.center.longitude = lon;
             this.mapMarkerSet = true;
 
             this.getCityFromMarker();
@@ -350,13 +350,13 @@ module Controller {
                 this.gpsLoading = false;
 
                 var lat = data.coords.latitude;
-                var long = data.coords.longitude;
+                var lon = data.coords.longitude;
                 this.map.zoom = 15;
                 this.map.clickedMarker.latitude = lat;
-                this.map.clickedMarker.longitude = long;
+                this.map.clickedMarker.longitude = lon;
 
                 this.map.center.latitude = lat;
-                this.map.center.longitude = long;
+                this.map.center.longitude = lon;
                 this.mapMarkerSet = true;
 
                 this.getCityFromMarker();
