@@ -9,6 +9,8 @@ var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 var template = require('gulp-template');
 var url = require('url');
+var autoprefixer = require('gulp-autoprefixer');
+var minifyCss = require('gulp-minify-css');
 
 var intervalMS = 500;
 
@@ -96,7 +98,24 @@ gulp.task('locale', function () {
 });
 
 gulp.task('css', function () {
-    gulp.src('./www-develop/**/*.css').pipe(gulp.dest('./www'));
+    var cssmin = process.argv.indexOf('--cssmin') !== -1;
+    if(cssmin) {
+        return gulp.src('./www-develop/**/*.css')
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
+            .pipe(minifyCss({compatibility: 'ie8'}))
+            .pipe(gulp.dest('./www'));
+    } else {
+        return gulp.src('./www-develop/**/*.css')
+            .pipe(autoprefixer({
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
+            .pipe(gulp.dest('./www'));
+    }
+
 });
 
 gulp.task('html', function () {
