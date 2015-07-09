@@ -9,6 +9,7 @@ var server = require('gulp-server-livereload');
 var typescript15 = require('typescript');
 var template = require('gulp-template');
 var url = require('url');
+var autoprefixer = require('gulp-autoprefixer');
 
 var intervalMS = 500;
 
@@ -96,7 +97,12 @@ gulp.task('locale', function () {
 });
 
 gulp.task('css', function () {
-    gulp.src('./www-develop/**/*.css').pipe(gulp.dest('./www'));
+    gulp.src('./www-develop/**/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('./www'));
 });
 
 gulp.task('html', function () {
