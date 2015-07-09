@@ -1643,3 +1643,7 @@ h1 {
     font-weight: 600;
     font-size: 32px;
 }
+
+.flex-direction-nav a {
+    z-index: 8;
+}

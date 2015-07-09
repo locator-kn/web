@@ -51,7 +51,11 @@ module Controller {
                     this.updateUrl();
                 });
 
-            this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 250, true);
+
+            //just do this on xs
+            if (angular.element(document).width() > 767) {
+                this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 250, true);
+            }
             $(window).scroll(() => {
                 this.scrollevent();
             });
@@ -96,10 +100,10 @@ module Controller {
 
             var st = $(window).scrollTop();
 
-            if (st > this.lastScrollTop) {
-                this.hideBar = true;
-            } else if (st < 100) {
+            if (st < 200) {
                 this.hideBar = false;
+            } else if (st > this.lastScrollTop) {
+                this.hideBar = true;
             } else {
                 this.hideBar = false;
             }
