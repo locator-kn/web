@@ -263,7 +263,6 @@ h2#sub-headline {
 }
 
 a.more-link {
-    color: #fff;
     text-decoration: underline;
 }
 
@@ -293,5 +292,54 @@ a.more-link:hover {
 }
 
 .welcome_select ul li:hover {
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
+
+.feedback input[type="text"] {
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 48px;
+    border: 1px solid #e6e6e6;
+    line-height: 48px;
+}
+
+.feedback textarea {
+    background-color: #f3f3f3;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.feedback-submit {
+    color: white;
+    background: #343434;
+    border: 1px solid #343434;
+    margin-top: 5px;
+}
+
+.feedback-submit:hover {
+    background-color: #ff4637;
+    border: 1px solid #ff4637;
+    color: white;
+}
+
+.feedback input {
+    font-family: 'Signika', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+    border-radius: 3px;
+    outline: 0;
+    display: block;
+    max-width: 100%;
+    padding: 6px 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    background: transparent;
+    color: #808080;
+    -webkit-transition: all 0.2s
+}
+
+.feedback textarea {
+    border-radius: 3px;
+}
+

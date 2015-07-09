@@ -6,7 +6,7 @@ module Service {
 
         getMoodQuery(moods) {
             var moodQuery = [];
-            moods.forEach(function (entry) {
+            moods.forEach(function (entry:any) {
                 moodQuery.push(entry.query_name);
             });
 

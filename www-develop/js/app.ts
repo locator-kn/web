@@ -14,7 +14,6 @@
 /// <reference path="./controller/insertTripCtrl.ts" />
 
 /// <reference path="./controller/userCtrl.ts" />
-/// <reference path="./service/editProfileService.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
 /// <reference path="./controller/welcomeCreateCtrl.ts" />
@@ -27,11 +26,14 @@
 /// <reference path="./controller/mainCtrl.ts" />
 
 /// <reference path="./service/userService.ts" />
+/// <reference path="./service/feedbackService.ts" />
 /// <reference path="./service/dataService.ts" />
 /// <reference path="./service/searchService.ts" />
 /// <reference path="./service/tripService.ts" />
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
+/// <reference path="./controller/feedbackCtrl.ts" />
+
 
 /// <reference path="./service/helperService.ts" />
 /// <reference path="./service/utilityService.ts" />
@@ -180,6 +182,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
+    .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
 
 
     .filter('truncate', function () {
@@ -445,5 +448,6 @@ var app = angular.module('locator', deps)
     .service(Service.SocketService.serviceId, Service.SocketService)
     .service(Service.LocationService.serviceId, Service.LocationService)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
-    .service(Service.UtilityService.serviceId, Service.UtilityService);
+    .service(Service.UtilityService.serviceId, Service.UtilityService)
+    .service(Service.FeedbackService.serviceId, Service.FeedbackService);
 
