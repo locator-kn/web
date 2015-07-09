@@ -1,7 +1,7 @@
 module Controller {
     export class SearchMainCtrl {
         query:any;
-        constructor(private $scope, private $location) {
+        constructor() {
             this.query = {};
             this.query.city = '';
             this.query.dateFrom =  '';
