@@ -143,6 +143,18 @@
         height: auto;
         overflow: inherit;
     }
+
+
+    /* tripminview */
+    .trip-min-view .result-content-box {
+        height: auto;
+    }
+
+    .trip-min-view .result-content-wrapper {
+        margin-bottom: 50px;
+    }
+
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
