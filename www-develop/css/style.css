@@ -1608,3 +1608,38 @@ tags-input .tags .input, tags-input .tags .tag-item {
     visibility: visible;
 }
 
+.grey {
+    background-color: rgb(238, 240, 239);
+}
+
+.white {
+    background-color: white;
+}
+
+.container.video-container {
+    max-width: 830px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.video-container iframe {
+    max-width: 100%;
+}
+
+.onepage-container {
+    padding: 60px 0;
+}
+
+.onepage-container .container {
+    max-width: 830px;
+}
+
+.onepage-container h2 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 32px;
+}
