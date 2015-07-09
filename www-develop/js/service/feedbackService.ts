@@ -6,7 +6,8 @@ module Service {
         }
 
         saveLocation(data) {
-            return this.$http.put(this.basePath + '/mail/feedback' + data);
+            var doveBasePath = 'http://locator-app.com';
+            return this.$http.post(doveBasePath + '/mail/feedback', data);
         }
 
 
