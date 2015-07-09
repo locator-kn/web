@@ -5,7 +5,7 @@ module Controller {
         randomLeft:string;
         randomRight:string;
 
-        constructor($scope, private $state) {
+        constructor(private $state) {
             this.slides = [
                 './images/konstanz_background01.jpg',
                 './images/konstanz_background02.jpg',
