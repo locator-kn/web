@@ -64,7 +64,7 @@ module Controller {
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
-                if(!this.messagesHash[newMessage.conversation_id]) {
+                if (!this.messagesHash[newMessage.conversation_id]) {
                     this.messagesHash[newMessage.conversation_id] = [];
                 }
                 this.messagesHash[newMessage.conversation_id].push(newMessage);
@@ -138,7 +138,7 @@ module Controller {
 
         emitAck(from, conversation_id) {
 
-            if(from === this.$rootScope.userID) {
+            if (from === this.$rootScope.userID) {
                 return
             }
             console.log('send ack for received message', {
