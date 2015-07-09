@@ -16,7 +16,7 @@ module Controller {
 
         dataAvailable:boolean = false;
 
-        constructor(private HelperService, private $scope, private $rootScope, private $element, private DataService, private $q, private $state) {
+        constructor(private $rootScope, private DataService, private $q, private $state) {
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
 
