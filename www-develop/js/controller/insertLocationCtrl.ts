@@ -369,7 +369,7 @@ module Controller {
             this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
                 .then(result => {
                     var locality;
-                    result.data.results.forEach(item => {
+                    result.data.results.forEach((item:any) => {
                         if (item.types[0] == 'locality') {
                             locality = item;
                         }
