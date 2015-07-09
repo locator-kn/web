@@ -138,6 +138,11 @@
     .search-container .fixed-top {
         position: relative;
     }
+
+    .edittrip-container .border-wrapper {
+        height: auto;
+        overflow: inherit;
+    }
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
