@@ -13,15 +13,9 @@
                 </div>
                 <div class="col-xs-6">
                     <div class="link-container" ng-hide="lt.userId === 'locator-app'">
-                        <div class="all-locations pointer"
-                             style="background-image: url('./images/icons/all_locations.png')"
-                             ng-click="lt.moveToAllLocations()"></div>
-                        <div ng-hide="lt.me" class="messenger pointer"
-                             style="background-image: url('./images/icons/messenger.png')"
-                             ng-click="lt.moveToMessenger()"></div>
-                        <div ng-hide="!lt.me" class="edit-location pointer"
-                             style="background-image: url('./images/icons/edit_location.png')"
-                             ng-click="lt.moveToEditTrip()"></div>
+                        <div class="all-locations pointer tt tt-small" aria-label="Alle Locations anzeigen" style="background-image: url('./images/icons/all_locations.png')"ng-click="lt.moveToAllLocations()"></div>
+                        <div ng-hide="lt.me" class="messenger pointer tt tt-small" aria-label="Kontakt aufnehmen" style="background-image: url('./images/icons/messenger.png')"  ng-click="lt.moveToMessenger()"></div>
+                        <div ng-hide="!lt.me" class="edit-location pointer tt tt-small" aria-label="Location bearbeiten" style="background-image: url('./images/icons/edit_location.png')"  ng-click="lt.moveToEditTrip()"></div>
                     </div>
                 </div>
             </div>
