@@ -112,7 +112,7 @@ module Controller {
                 this.TripService.getTripsByUser(this.user._id)
                     .then(result => {
                         this.trips = result.data;
-                        this.trips.forEach(entry => {
+                        this.trips.forEach((entry:any) => {
                             entry.username = this.user.name + ' ' + this.user.surname;
                         })
                     })
