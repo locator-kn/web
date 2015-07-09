@@ -7,6 +7,7 @@ module Service {
         usersMeCache;
 
 
+        static $inject = ['Upload', '$http', '$q', 'basePath', 'basePathRealtime', 'HelperService', 'CacheFactory'];
         constructor(private Upload, private $http, private $q, private basePath, private basePathRealtime, private HelperService, private CacheFactory) {
             this.facebook = this.basePath + '/loginFacebook';
             this.google = this.basePath + '/loginGoogle';

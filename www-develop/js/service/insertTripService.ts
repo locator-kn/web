@@ -4,7 +4,7 @@ module Service {
         allValues:any = {};
         newCreatedLocationId;
 
-        constructor(private $rootScope) {
+        constructor() {
         }
 
         setStateStored(state) {

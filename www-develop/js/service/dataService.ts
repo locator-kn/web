@@ -95,6 +95,7 @@ module Service {
             description: ""
         }];
 
+        static $inject = ['$http', 'basePath', 'CacheFactory', '$q'];
         constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();

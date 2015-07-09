@@ -6,6 +6,8 @@ module Service {
         socket = null;
         isOpening = false;
 
+
+        static $inject = ['$http', '$q', '$timeout', 'basePathRealtime', '$rootScope', 'socketFactory'];
         constructor(private $http, private $q, private $timeout, private basePathRealtime, private $rootScope, private socketFactory) {
             this.socketInit();
             this.registerEvents();

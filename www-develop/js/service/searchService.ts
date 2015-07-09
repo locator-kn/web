@@ -5,7 +5,9 @@ module Service {
         searchQuery:any;
         pageSize:number = 10;
 
-        constructor(private $http, private $location, private basePath, private DataService,
+
+        static $inject = ['$http', 'basePath', 'DataService', 'lodash', '$q', 'UserService', 'HelperService'];
+        constructor(private $http, private basePath, private DataService,
                     private lodash, private $q, private UserService, private HelperService) {
 
         }

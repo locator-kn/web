@@ -3,7 +3,9 @@ module Service {
         myConversationsCache;
         messagesIdCache;
 
-        constructor(private $http, private $q, private basePathRealtime, private CacheFactory) {
+
+        static $inject = ['$http', 'basePathRealtime', 'CacheFactory'];
+        constructor(private $http, private basePathRealtime, private CacheFactory) {
             this.myConversationsCache = this.CacheFactory.createCache('myConversations');
             this.messagesIdCache = this.CacheFactory.createCache('messagesId');
         }

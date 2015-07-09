@@ -1,6 +1,8 @@
 module Service {
     export class TripService {
 
+
+        static $inject = ['$http', 'basePath', 'Upload', '$rootScope', 'UserService', 'MessengerService', '$state'];
         constructor(private $http, private basePath, private Upload, private $rootScope, private UserService, private MessengerService, private $state) {
         }
 

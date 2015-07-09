@@ -1,7 +1,9 @@
 module Service {
     export class LocationService {
 
-        constructor(private $http, private basePath, private Upload, private $q) {
+
+        static $inject = ['$http', 'basePath', 'Upload'];
+        constructor(private $http, private basePath, private Upload) {
         }
 
         uploadImage(formData, file) {
