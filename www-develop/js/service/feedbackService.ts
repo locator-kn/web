@@ -5,6 +5,9 @@ module Service {
 
         }
 
+        saveLocation(data) {
+            return this.$http.put(this.basePath + '/mail/feedback' + data);
+        }
 
 
         static serviceId:string = "FeedbackService";

@@ -32,6 +32,8 @@
 /// <reference path="./service/tripService.ts" />
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
+/// <reference path="./controller/feedbackCtrl.ts" />
+
 
 /// <reference path="./service/helperService.ts" />
 /// <reference path="./service/utilityService.ts" />
@@ -180,6 +182,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.LocationCtrl.controllerId, Controller.LocationCtrl)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
+    .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
 
 
     .filter('truncate', function () {
