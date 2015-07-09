@@ -17,6 +17,7 @@ module Controller {
         showMoods:string = 'showMoodsCreate';
         showDays:string = 'showDaysCreate';
 
+        static $inject = ['$state', '$rootScope', 'DataService', '$q'];
         constructor(private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;

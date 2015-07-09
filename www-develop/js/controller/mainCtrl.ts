@@ -21,6 +21,7 @@ module Controller {
 
         forgotPassword:boolean = false;
 
+        static $inject = ['$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window'];
         constructor(private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window) {
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;

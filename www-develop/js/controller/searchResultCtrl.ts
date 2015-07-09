@@ -8,7 +8,7 @@ module Controller {
 
         dataLoading:boolean = false;
 
-
+        static $inject = ['$rootScope', 'SearchService', '$state', 'DataService'];
         constructor(private $rootScope, private SearchService, private $state, private DataService) {
 
             $rootScope.$state = $state;

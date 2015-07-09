@@ -16,6 +16,7 @@ module Controller {
 
         dataAvailable:boolean = false;
 
+        static $inject = ['$rootScope', 'DataService', '$q', '$state'];
         constructor(private $rootScope, private DataService, private $q, private $state) {
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;

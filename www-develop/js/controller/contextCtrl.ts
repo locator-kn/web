@@ -5,6 +5,7 @@ module Controller {
 
         context:string;
 
+        static $inject = ['HelperService', '$state'];
         constructor(private HelperService, private $state) {
             //debugger;
             var state = this.HelperService.getContext();

@@ -28,7 +28,7 @@ module Controller {
         usersOnline:number = 0;
         lastMessageIn:string = '';
 
-
+        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService'];
         constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
             this.$rootScope.$on('login_success', () => {

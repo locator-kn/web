@@ -13,6 +13,7 @@ module Controller {
 
         slides:string[] = [];
 
+        static $inject = ['$rootScope', '$stateParams', 'SearchService', 'TripService', 'DataService', 'UserService', 'LocationService', 'HelperService'];
         constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;

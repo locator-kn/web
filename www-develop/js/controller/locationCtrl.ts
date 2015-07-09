@@ -5,6 +5,7 @@ module Controller {
         locations;
 
 
+        static $inject = ['LocationService'];
         constructor(private LocationService) {
             this.getMyLocations();
         }

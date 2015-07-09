@@ -42,6 +42,7 @@ module Controller {
 
         me:any = {};
 
+        static $inject = ['InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
         constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             if (this.$state.current.name === 'insertLocation') {

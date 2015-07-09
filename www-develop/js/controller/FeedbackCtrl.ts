@@ -16,6 +16,7 @@ module Controller {
         mailPattern = /[^\s@]+@[^\s@]+\.[^\s@]+/;
 
 
+        static $inject = ['FeedbackService'];
         constructor(private FeedbackService) {
         }
 

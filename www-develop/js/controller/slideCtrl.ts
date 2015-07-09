@@ -5,6 +5,7 @@ module Controller {
         randomLeft:string;
         randomRight:string;
 
+        static $inject = ['$state'];
         constructor(private $state) {
             this.slides = [
                 './images/konstanz_background01.jpg',

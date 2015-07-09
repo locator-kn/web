@@ -46,6 +46,7 @@ module Controller {
         tripSearch:string;
         locationReallyDelete:boolean = false;
 
+        static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
         constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
             this.hotkeys.add({

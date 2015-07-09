@@ -22,6 +22,7 @@ module Controller {
 
         debouncedGetTripsByQuery:any;
 
+        static $inject = ['UtilityService', 'HelperService', '$scope', '$rootScope', '$location', 'SearchService', 'DataService', '$state', '$q'];
         constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private $q) {
 
