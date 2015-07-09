@@ -13,7 +13,7 @@ module Controller {
 
         slides:string[] = [];
 
-        constructor(private $rootScope, private $stateParams, private $state, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private MessengerService) {
+        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
