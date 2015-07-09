@@ -84,38 +84,43 @@
 </div>
 
 
-<div class="container-fluid onepage-container description-container white">
+<div class="container-fluid onepage-container description-container white" ng-controller="FeedbackCtrl as fc">
 
     <div class="container feedback">
 
-        <form id="forms">
+        <form name="form" id="forms" ng-hide="fc.feedbacksent || fc.feedbackerror">
             <div class="row">
                 <div class="col-sm-4">
-                    <input type="text" placeholder="Name" id="name" name="name">
+                    <input required ng-minlength="2" ng-model="fc.feedback.name" type="text" placeholder="Name" id="name"
+                           name="name"
+                           ng-class="{'error': form.$submitted && form.name.$invalid}">
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" placeholder="Email" id="email" name="email">
+                    <input required ng-pattern="fc.mailPattern" ng-model="fc.feedback.mail" type="text" placeholder="Email" id="email" name="email"
+                           ng-class="{'error': form.$submitted && form.email.$invalid}">
                 </div>
                 <div class="col-sm-4">
-                    <input type="text" placeholder="Betreff" id="subject" name="subject">
+                    <input required ng-minlength="1" ng-model="fc.feedback.subject" type="text" placeholder="Betreff" id="subject" name="subject"
+                           ng-class="{'error': form.$submitted && form.subject.$invalid}">
                 </div>
                 <div class="col-xs-12">
-                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea required ng-minlength="1" ng-model="fc.feedback.message" name="message" id="message" cols="30" rows="10"
+                              ng-class="{'error': form.$submitted && form.message.$invalid}">
 
+                    </textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
-                    <input class="feedback-submit" type="submit" value="absenden">
-                    <input type="hidden" name="submit">
-                </div>
-                <div class="col-xs-12 col-sm-8 success-feedback">
-                    <p class="thanks">Vielen Dank für dein Feedback!</p>
-                </div>
-                <div class="col-xs-12 col-sm-8 error-feedback">
-                    <p class="generic">Oops, da ist was schief gelaufen</p>
+                    <input class="feedback-submit" type="submit"  ng-click="fc.submitFeedback(form.$invalid)" value="absenden">
                 </div>
             </div>
         </form>
+        <div ng-show="fc.feedbacksent" class="col-xs-12 col-sm-8 success-feedback">
+            <p class="thanks">Vielen Dank für dein Feedback!</p>
+        </div>
+        <div ng-show="fc.feedbackerror" class="col-xs-12 col-sm-8 error-feedback">
+            <p class="generic">Oops, da ist was schief gelaufen</p>
+        </div>
     </div>
 </div>
