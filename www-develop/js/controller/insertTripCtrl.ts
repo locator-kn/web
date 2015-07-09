@@ -94,16 +94,16 @@ module Controller {
                 response.data.forEach((loc:any) => {
 
                     /*if (!loc.images) {
-                        loc.images = {};
-                        loc.images.picture = this.getStaticMap({
-                            size: '1151x675',
-                            geotag: loc.geotag
-                        });
-                        loc.images.thumbnail = this.getStaticMap({
-                            size: '180x100',
-                            geotag: loc.geotag
-                        });
-                    }*/
+                     loc.images = {};
+                     loc.images.picture = this.getStaticMap({
+                     size: '1151x675',
+                     geotag: loc.geotag
+                     });
+                     loc.images.thumbnail = this.getStaticMap({
+                     size: '180x100',
+                     geotag: loc.geotag
+                     });
+                     }*/
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;
