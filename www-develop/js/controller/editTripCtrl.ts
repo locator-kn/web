@@ -51,8 +51,8 @@ module Controller {
         dataAvailable:boolean = false;
         locationSearch = '';
 
-
-        constructor(private smoothScroll, private $q, private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
+        static $inject = ['smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService'];
+        constructor(private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService) {
 
 
             if ($state.current.name === 'insertTrip') {

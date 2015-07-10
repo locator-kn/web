@@ -74,6 +74,7 @@ module Controller {
 
         selectedLocationsCount:number = 0;
 
+        static $inject = ['lodash', '$scope', '$timeout', '$rootScope', '$state', '$anchorScroll', '$location', 'InsertTripService', 'TripService', 'LocationService', 'UserService', 'DataService', 'HelperService'];
         constructor(private lodash, private $scope, private $timeout, private $rootScope, private $state, private $anchorScroll, private $location, private InsertTripService, private TripService, private LocationService, private UserService, private DataService, private HelperService) {
 
             this.$scope.selectImage = this.selectImage;
@@ -94,16 +95,16 @@ module Controller {
                 response.data.forEach((loc:any) => {
 
                     /*if (!loc.images) {
-                        loc.images = {};
-                        loc.images.picture = this.getStaticMap({
-                            size: '1151x675',
-                            geotag: loc.geotag
-                        });
-                        loc.images.thumbnail = this.getStaticMap({
-                            size: '180x100',
-                            geotag: loc.geotag
-                        });
-                    }*/
+                     loc.images = {};
+                     loc.images.picture = this.getStaticMap({
+                     size: '1151x675',
+                     geotag: loc.geotag
+                     });
+                     loc.images.thumbnail = this.getStaticMap({
+                     size: '180x100',
+                     geotag: loc.geotag
+                     });
+                     }*/
                     this.availableLocationsHash[loc._id] = loc;
                 });
                 this.availableLocations = response.data;

@@ -46,6 +46,7 @@ module Controller {
         tripSearch:string;
         locationReallyDelete:boolean = false;
 
+        static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
         constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
             this.hotkeys.add({
@@ -112,7 +113,7 @@ module Controller {
                 this.TripService.getTripsByUser(this.user._id)
                     .then(result => {
                         this.trips = result.data;
-                        this.trips.forEach(entry => {
+                        this.trips.forEach((entry:any) => {
                             entry.username = this.user.name + ' ' + this.user.surname;
                         })
                     })
@@ -127,9 +128,9 @@ module Controller {
                     .then(result => {
                         this.locations = result.data;
                         // extract possible default location
-                        if(this.locations.length && this.locations[0].isDefault) {
+                        if (this.locations.length && this.locations[0].isDefault) {
                             this.defaultLocation = this.locations[0];
-                            this.locations.splice(0,1);
+                            this.locations.splice(0, 1);
                         }
                     });
 

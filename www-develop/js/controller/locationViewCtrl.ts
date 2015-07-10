@@ -11,7 +11,9 @@ module Controller {
         me:boolean = false;
         conversationId:any;
 
-        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
+
+        static $inject = ['$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
+        constructor(private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
             this.locationId = $stateParams.locationId;
 
 
@@ -31,7 +33,7 @@ module Controller {
 
                     this.userId = this.location.userid;
                     this.UserService.getUser(this.userId)
-                    .then(resultUser => {
+                        .then(resultUser => {
                             this.user = resultUser.data;
                             this.me = this.$rootScope.userID === this.userId;
                             if (!this.user.picture) {
@@ -51,7 +53,7 @@ module Controller {
                             }
                             this.conversationId = conversation._id || conversation.id || '';
                         });
-            });
+                });
         }
 
         moveToAllLocations() {

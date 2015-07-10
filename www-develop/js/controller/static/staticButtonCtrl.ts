@@ -1,7 +1,8 @@
 module Controller {
     export class StaticButtonCtrl {
 
-        constructor($scope, private $rootScope, private $state, private HelperService) {
+        static $inject = ['$rootScope', '$state', 'HelperService'];
+        constructor(private $rootScope, private $state, private HelperService) {
             $rootScope.showCreateButton = false;
             $rootScope.showSearchButton = false;
         }

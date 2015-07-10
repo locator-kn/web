@@ -1,7 +1,9 @@
 module Service {
     export class LocationService {
 
-        constructor(private $http, private basePath, private Upload, private $q) {
+
+        static $inject = ['$http', 'basePath', 'Upload'];
+        constructor(private $http, private basePath, private Upload) {
         }
 
         uploadImage(formData, file) {
@@ -66,8 +68,8 @@ module Service {
             return this.$http.get(this.basePath + '/users/my/locations/city/' + city);
         }
 
-        getCityByCoords(lat, long) {
-            return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + long + '&sensor=true');
+        getCityByCoords(lat, lon) {
+            return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
         }
 
 

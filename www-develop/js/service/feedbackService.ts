@@ -1,7 +1,9 @@
 module Service {
     export class FeedbackService {
 
-        constructor(private $http, private basePath) {
+
+        static $inject = ['$http'];
+        constructor(private $http) {
 
         }
 

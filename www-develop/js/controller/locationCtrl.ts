@@ -5,7 +5,8 @@ module Controller {
         locations;
 
 
-        constructor(private $scope, private $rootScope, private $state, private LocationService, private UserService, private DataService, private HelperService) {
+        static $inject = ['LocationService'];
+        constructor(private LocationService) {
             this.getMyLocations();
         }
 

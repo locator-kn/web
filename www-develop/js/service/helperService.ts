@@ -1,7 +1,10 @@
 
 module Service {
     export class HelperService {
-        constructor(private $http, private basePath, private $state, private DataService, private lodash,private $q) {
+
+
+        static $inject = ['$state', 'DataService', 'lodash', '$q'];
+        constructor(private $state, private DataService, private lodash, private $q) {
         }
 
         getMoodQuery(moods) {

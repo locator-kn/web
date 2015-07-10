@@ -16,7 +16,8 @@ module Controller {
         mailPattern = /[^\s@]+@[^\s@]+\.[^\s@]+/;
 
 
-        constructor(private $rootScope, private $scope, private FeedbackService) {
+        static $inject = ['FeedbackService'];
+        constructor(private FeedbackService) {
         }
 
         submitFeedback(invalid) {

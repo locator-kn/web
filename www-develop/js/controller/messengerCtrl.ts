@@ -23,7 +23,8 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private basePathRealtime, private UtilityService, private TripService) {
+        static $inject = ['$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
+        constructor(private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
 
             this.$rootScope.breadcrumb = 'Messenger';
 
@@ -64,7 +65,7 @@ module Controller {
                 } else {
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                 }
-                if(!this.messagesHash[newMessage.conversation_id]) {
+                if (!this.messagesHash[newMessage.conversation_id]) {
                     this.messagesHash[newMessage.conversation_id] = [];
                 }
                 this.messagesHash[newMessage.conversation_id].push(newMessage);
@@ -138,7 +139,7 @@ module Controller {
 
         emitAck(from, conversation_id) {
 
-            if(from === this.$rootScope.userID) {
+            if (from === this.$rootScope.userID) {
                 return
             }
             console.log('send ack for received message', {

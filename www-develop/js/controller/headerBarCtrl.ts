@@ -28,8 +28,8 @@ module Controller {
         usersOnline:number = 0;
         lastMessageIn:string = '';
 
-
-        constructor(private hotkeys, private $scope, private $state, private $rootScope, private $location, private UserService, private $element, private MessengerService, private SocketService, private $timeout, private HelperService) {
+        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService'];
+        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
@@ -79,7 +79,7 @@ module Controller {
             if (!this.conversations.length) {
                 return;
             }
-            if(this.lastMessageIn) {
+            if (this.lastMessageIn) {
                 this.$state.go('messenger.opponent', {
                     opponentId: this.lastMessageIn
                 });
@@ -99,11 +99,11 @@ module Controller {
                         console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
-                    if(!this.conversationsHash[newMessage.conversation_id]) {
+                    if (!this.conversationsHash[newMessage.conversation_id]) {
                         this.conversationsHash[newMessage.conversation_id] = {};
                     }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-                    if(this.$rootScope.userID !== newMessage.from) {
+                    if (this.$rootScope.userID !== newMessage.from) {
                         this.showBadge = true;
                         this.unreadMessages = 1;
                         this.lastMessageIn = newMessage.conversation_id;
@@ -133,7 +133,7 @@ module Controller {
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
                     //if(this.user.isAdmin) {
-                        this.getStats();
+                    this.getStats();
                     //}
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
@@ -175,7 +175,7 @@ module Controller {
             this.forgotPassword = true;
         }
 
-        searchWithContext(){
+        searchWithContext() {
             this.$state.go('search', this.HelperService.getSearchContext());
         }
 

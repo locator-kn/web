@@ -95,12 +95,14 @@ module Service {
             description: ""
         }];
 
+        static $inject = ['$http', 'basePath', 'CacheFactory', '$q'];
         constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
 
             this.dataCitiesCache = CacheFactory.createCache('dataCities');
+            this.fixedCitiesCache = CacheFactory.createCache('dataFixCities');
             this.dataAccommodationsCache = CacheFactory.createCache('dataAccommodations');
             this.dataMoodsCache = CacheFactory.createCache('dataMoods');
             this.dayCache = CacheFactory.createCache('dataDay');
@@ -146,7 +148,7 @@ module Service {
                         {"id": "1", "title": "1 Tag", "query_name": "1"},
                         {"id": "2", "title": "2 Tage", "query_name": "2"},
                         {"id": "3", "title": "3 Tage", "query_name": "3"},
-                        {"id": "4", "title": "3+ Tage", "query_name": "3plus"},
+                        {"id": "4", "title": "3+ Tage", "query_name": "3plus"}
                     ]
                 });
             }, {cache: this.dayCache});

@@ -42,6 +42,7 @@ module Controller {
 
         me:any = {};
 
+        static $inject = ['InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
         constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             if (this.$state.current.name === 'insertLocation') {
@@ -291,13 +292,13 @@ module Controller {
 
 
                         var lat = result.data.geotag.lat;
-                        var long = result.data.geotag.long;
+                        var lon = result.data.geotag.long;
 
                         this.map.clickedMarker.latitude = lat;
-                        this.map.clickedMarker.longitude = long;
+                        this.map.clickedMarker.longitude = lon;
 
                         this.map.center.latitude = lat;
-                        this.map.center.longitude = long;
+                        this.map.center.longitude = lon;
                         this.mapMarkerSet = true;
 
                         this.getCityFromMarker();
@@ -327,16 +328,16 @@ module Controller {
         selectLocationFromInput() {
 
             var lat;
-            var long;
+            var lon;
 
             lat = this.selectedPlaceDetails.geometry.location.A;
-            long = this.selectedPlaceDetails.geometry.location.F;
+            lon = this.selectedPlaceDetails.geometry.location.F;
 
             this.map.clickedMarker.latitude = lat;
-            this.map.clickedMarker.longitude = long;
+            this.map.clickedMarker.longitude = lon;
             this.map.zoom = 15;
             this.map.center.latitude = lat;
-            this.map.center.longitude = long;
+            this.map.center.longitude = lon;
             this.mapMarkerSet = true;
 
             this.getCityFromMarker();
@@ -350,13 +351,13 @@ module Controller {
                 this.gpsLoading = false;
 
                 var lat = data.coords.latitude;
-                var long = data.coords.longitude;
+                var lon = data.coords.longitude;
                 this.map.zoom = 15;
                 this.map.clickedMarker.latitude = lat;
-                this.map.clickedMarker.longitude = long;
+                this.map.clickedMarker.longitude = lon;
 
                 this.map.center.latitude = lat;
-                this.map.center.longitude = long;
+                this.map.center.longitude = lon;
                 this.mapMarkerSet = true;
 
                 this.getCityFromMarker();
@@ -369,11 +370,15 @@ module Controller {
             this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
                 .then(result => {
                     var locality;
-                    result.data.results.forEach(item => {
+                    result.data.results.forEach((item:any) => {
                         if (item.types[0] == 'locality') {
                             locality = item;
                         }
                     });
+
+                    if (!locality) {
+                        return;
+                    }
 
                     this.locationFormDetails.city.title = locality.formatted_address;
                     this.locationFormDetails.city.place_id = locality.place_id;
