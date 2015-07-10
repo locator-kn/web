@@ -85,17 +85,19 @@ module Controller {
                     }
 
                     this.initEdit();
+
+                    $scope.$watch(angular.bind(this, () => {
+                        return this.selectedCity;
+                    }), (newVal, oldVal) => {
+                        if (newVal != oldVal) {
+                            this.fetchLocations();
+                            this.selectedLocations = [];
+                            if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
+                        }
+                    });
                 });
 
-            $scope.$watch(angular.bind(this, () => {
-                return this.selectedCity;
-            }), (newVal, oldVal) => {
-                if (newVal != oldVal) {
-                    this.fetchLocations();
-                    this.selectedLocations = [];
-                    if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
-                }
-            });
+
         }
 
         toggleAccommodation() {
