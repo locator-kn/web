@@ -23,6 +23,16 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .locationview-container .fix-position-left {
+        left: inherit;
+    }
+
+    .content-header .profile-image {
+        height: 75px;
+        width: auto;
+        margin-top: -37px;
+    }
+
     .welcome_container .opener .welcome_wrapper {
         padding-right: 15px;
     }
