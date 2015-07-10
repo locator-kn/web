@@ -1718,3 +1718,7 @@ h1 {
 .minus-fifty-top {
     margin-top: -50px;
 }
+
+.back-wrapper {
+    float: right;
+}

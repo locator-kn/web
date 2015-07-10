@@ -93,20 +93,20 @@
                 <div class="content-bottom">
                     <form novalidate name="ilc.form" id="insertLocationForm">
 
-                        <label class="uppercase">Location Titel</label>
+                        <label>Location Titel</label>
                         <input
                             maxlength="30" ng-class="{'error' : (ilc.error) && ilc.form.locationTitle.$error.required}"
                             class="text-fields" type="text" placeholder="Wie heißt deine Location?"
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
 
-                        <label class="uppercase">Tags (z.B. Bar, Cocktails, günstig, ...)</label>
+                        <label>Tags (z.B. Bar, Cocktails, günstig, ...)</label>
                         <tags-input add-on-space="true" add-on-comma="true"
                                     ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}"
                                     placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
 
 
-                        <label class="uppercase">Beschreibung <span class="max-length">({{100 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
+                        <label>Beschreibung <span class="max-length">({{100 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
                         <textarea
                             maxlength="100"
                             ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
