@@ -509,8 +509,8 @@ trip-min-view .result-content-box {
 .search-container .fixed-top {
     position: fixed;
     top: 60px;
-    height: 100px;
-    width: 100%;
+    height: 60px;
+    width: auto;
     z-index: 5;
 }
 
