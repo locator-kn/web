@@ -1588,6 +1588,7 @@ trip-min-view {
     width: 120px !important;
     margin-top: -60px;
     left: 50%;
+    z-index: 10;
     margin-left: -30px;
 }
 
