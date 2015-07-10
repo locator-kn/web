@@ -5,15 +5,24 @@ module Service {
         searchQuery:any;
         pageSize:number = 10;
 
+        allTripsCache:any;
+        searchCache:any;
 
-        static $inject = ['$http', 'basePath', 'DataService', 'lodash', '$q', 'UserService', 'HelperService'];
+
+        static $inject = ['$http', 'basePath', 'DataService', 'lodash', '$q', 'UserService', 'HelperService', 'CacheFactory'];
         constructor(private $http, private basePath, private DataService,
-                    private lodash, private $q, private UserService, private HelperService) {
+                    private lodash, private $q, private UserService, private HelperService, private CacheFactory) {
+            this.allTripsCache = this.CacheFactory.createCache('allTrips', {
+                maxAge: 120000 // 2 min
+            });
+            this.searchCache = this.CacheFactory.createCache('searchTrips', {
+                maxAge: 120000 // 2 min
+            });
 
         }
 
         getAllTrips() {
-            return this.$http.get(this.basePath + '/trips');
+            return this.$http.get(this.basePath + '/trips', {cache: this.allTripsCache});
         }
 
         getTripsByQuery(searchQuery) {
@@ -44,7 +53,7 @@ module Service {
                     url: query + '/' + cityid,
                     params: sq,
                     method: 'GET'
-                }).success(data => {
+                }, {cache: this.searchCache}).success(data => {
                     data.forEach((entry:any) => {
                         this.UserService.getUser(entry.userid).then(result => {
                             entry.username = result.data.name + ' ' + result.data.surname;
