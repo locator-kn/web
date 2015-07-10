@@ -306,7 +306,7 @@ var app = angular.module('locator', deps)
 
     .directive('imgTriplist', () => {
         var tmpl = [
-            '<flex-slider class="static" control-nav="false" direction-nav="true" animation="fade" animation-loop="true" slideshow="false" slide="s in slides"><li>',
+            '<flex-slider prev-text="" next-text="" class="static" control-nav="false" direction-nav="true" animation="fade" animation-loop="true" slideshow="false" slide="s in slides"><li>',
             '<div class="header-image" style="background-image: url({{s}});"></div>',
             '</li></flex-slider>'
         ];
