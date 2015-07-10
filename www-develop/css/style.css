@@ -1653,10 +1653,6 @@ h1 {
     z-index: 2;
 }
 
-.ui-helper-clearfix {
-    display: none;
-}
-
 .flex-direction-nav a.flex-prev:before, .flex-direction-nav a.flex-next:before {
     content: none;
 }
@@ -1721,4 +1717,8 @@ h1 {
 
 .back-wrapper {
     float: right;
+}
+
+.datepicker .ui-widget {
+    border-width: 1px;
 }
