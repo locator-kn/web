@@ -27,6 +27,7 @@
 .edittrip-container .welcome_select.data-available {
     opacity: 1;
     visibility: visible;
+    width: 100%;
 }
 
 .edittrip-container .location {
@@ -130,7 +131,6 @@
     padding-top: 5px;
 }
 
-
 .edittrip-container .metadata .border-wrapper {
     height: 400px;
     transition-duration: 0.3s;
@@ -195,6 +195,7 @@
 .edittrip-container datepicker, .edittrip-container .datepicker, .edittrip-container .ui-datepicker {
     float: left;
     width: 100%;
+    max-width: 250px;
 }
 
 .edittrip-container .wrap {
@@ -238,7 +239,6 @@
     overflow: hidden;
     min-height: 75px;
 }
-
 
 .edittrip-container .trip-wrapper {
     padding-left: 15px;
@@ -315,7 +315,6 @@
     overflow: hidden;
 }
 
-
 .edittrip-container .missing {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
@@ -344,12 +343,11 @@
 }
 
 .edittrip-container .equi-ico.pointer {
-    width: 25%;
     padding-left: 15px;
     padding-right: 15px;
     margin: 0;
-    max-width: 50px;
     float: left;
+    width: 25%;
 }
 
 .edittrip-container .accommodation-equipment {
@@ -496,7 +494,7 @@ span.info.err {
     background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    float:left;
+    float: left;
 }
 
 .bottom-wrapper {
