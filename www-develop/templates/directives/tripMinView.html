@@ -72,8 +72,12 @@
                     <div class="icon-circle-container">
                         <div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId: trip._id})"></div>
                     </div>
-                    <div class="icon-container location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
-                    <div ng-if="meId != trip.userid" class="icon-container messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                    <div class="icon-circle-container">
+                        <div class="icon-circle location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
+                    </div>
+                    <div class="icon-circle-container">
+                        <div ng-if="meId != trip.userid" class="icon-circle messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                    </div>
                     <div ng-if="meId == trip.userid" class="icon-container edit-icon tt tt-small" ui-sref="editTrip({tripId: trip._id})" aria-label="Bearbeiten"></div>
                 </div>
             </div>

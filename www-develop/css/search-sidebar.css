@@ -301,7 +301,7 @@ trip-min-view .result-content-box {
     display: block;
     cursor: pointer;
     background-color: white;
-    background-size: 40px 40px;
+    background-size: 30px 30px;
     background-repeat: no-repeat;
     background-position: center;
     margin-right: auto;
@@ -312,31 +312,20 @@ trip-min-view .result-content-box {
     transition: background 0.4s;
 }
 
-
-
-.result-content-bottom .look-icon {
-    background-image: url("../images/icons/ansehen_transparent.png");
-}
-
-
 .result-content-bottom .icon-circle:hover {
     background-color: #33c4b7;
 }
 
-.result-content-bottom .location-icon {
-    background-image: url("../images/icons/location.png");
+.result-content-bottom .look-icon {
+    background-image: url("../images/icons/trip-min-view/trip_ansicht.svg");
 }
 
-.result-content-bottom .location-icon:hover {
-    background-image: url("../images/icons/trip-min-view/hover-locations.png");
+.result-content-bottom .location-icon {
+    background-image: url("../images/icons/trip-min-view/locations.svg");
 }
 
 .result-content-bottom .messenger-icon {
-    background-image: url("../images/icons/messenger.png");
-}
-
-.result-content-bottom .messenger-icon:hover {
-    background-image: url("../images/icons/trip-min-view/hover-message.png");
+    background-image: url("../images/icons/trip-min-view/chat.svg");
 }
 
 .result-content-bottom .edit-icon {
