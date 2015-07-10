@@ -1,9 +1,30 @@
 module Service {
     export class LocationService {
 
+        locationsCache:any;
+        locationsUserIdCache:any;
+        locationsCityCache:any;
+        locationsMyCityCache:any;
 
-        static $inject = ['$http', 'basePath', 'Upload'];
-        constructor(private $http, private basePath, private Upload) {
+
+        static $inject = ['$http', 'basePath', 'Upload', 'CacheFactory'];
+
+        constructor(private $http, private basePath, private Upload, private CacheFactory) {
+            this.locationsCache = CacheFactory.createCache('locations', {
+                maxAge: 120000 // 2 min
+            });
+
+            this.locationsUserIdCache = CacheFactory.createCache('locationsUserId', {
+                maxAge: 120000 // 2 min
+            });
+
+            this.locationsCityCache = CacheFactory.createCache('locationsCity', {
+                maxAge: 120000 // 2 min
+            });
+
+            this.locationsMyCityCache = CacheFactory.createCache('locationsMyCity', {
+                maxAge: 120000 // 2 min
+            });
         }
 
         uploadImage(formData, file) {
@@ -21,7 +42,7 @@ module Service {
             } else {
                 return this.Upload.upload({
 
-                url: this.basePath + '/locations/' + id + '/picture',
+                    url: this.basePath + '/locations/' + id + '/picture',
                     fields: formData,
                     file: file
                 });
@@ -37,11 +58,11 @@ module Service {
         }
 
         getMyLocations() {
-            return this.$http.get(this.basePath + '/users/my/locations');
+            return this.$http.get(this.basePath + '/users/my/locations', {cache: this.locationsCache});
         }
 
         getLocationsByUser(userID) {
-            return this.$http.get(this.basePath + '/users/' + userID + '/locations');
+            return this.$http.get(this.basePath + '/users/' + userID + '/locations', {cache: this.locationsUserIdCache});
         }
 
         getLocationById(locationId) {
@@ -61,11 +82,11 @@ module Service {
         }
 
         getLocationsByCity(city:string) {
-            return this.$http.get(this.basePath + '/locations/city/' + city);
+            return this.$http.get(this.basePath + '/locations/city/' + city, {cache: this.locationsUserIdCache});
         }
 
         getMyLocationsByCity(city:string) {
-            return this.$http.get(this.basePath + '/users/my/locations/city/' + city);
+            return this.$http.get(this.basePath + '/users/my/locations/city/' + city, {cache: this.locationsMyCityCache});
         }
 
         getCityByCoords(lat, lon) {

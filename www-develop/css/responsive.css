@@ -23,6 +23,10 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .trip-image .placeholder-imaeg {
+        min-height: inherit;
+    }
+
     .profile {
         font-size: 15px;
     }

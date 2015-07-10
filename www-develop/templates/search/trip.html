@@ -21,7 +21,7 @@
                     <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
                          style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
                     </div>
-                    <div ng-if="!tc.me" class="message-button pointer" ng-click="tc.participate()">TEILNEHMEN</div>
+                    <div ng-if="!tc.me" class="uppercase message-button pointer" ng-click="tc.participate()">Kontaktieren</div>
                     <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me" class="message-button pointer">
                         Bearbeiten
                     </div>

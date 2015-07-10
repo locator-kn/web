@@ -11,8 +11,6 @@
 
 /// <reference path="./controller/headerBarCtrl.ts" />
 
-/// <reference path="./controller/insertTripCtrl.ts" />
-
 /// <reference path="./controller/userCtrl.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
@@ -172,7 +170,6 @@ var app = angular.module('locator', deps)
     .controller(Controller.WelcomeSearchCtrl.controllerId, Controller.WelcomeSearchCtrl)
     .controller(Controller.WelcomeCreateCtrl.controllerId, Controller.WelcomeCreateCtrl)
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
-    .controller(Controller.InsertTripCtrl.controllerId, Controller.InsertTripCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)
     .controller(Controller.MessengerCtrl.controllerId, Controller.MessengerCtrl)
