@@ -1,9 +1,13 @@
 module Service {
     export class TripService {
 
+        tripsCache:any;
 
-        static $inject = ['$http', 'basePath', 'Upload', '$rootScope', 'UserService', 'MessengerService', '$state'];
-        constructor(private $http, private basePath, private Upload, private $rootScope, private UserService, private MessengerService, private $state) {
+        static $inject = ['$http', 'basePath', 'Upload', '$rootScope', 'UserService', 'MessengerService', '$state', 'CacheFactory'];
+        constructor(private $http, private basePath, private Upload, private $rootScope, private UserService, private MessengerService, private $state, private CacheFactory) {
+            this.tripsCache = CacheFactory.createCache('trips', {
+                maxAge: 120000 // 2 min
+            });
         }
 
         getTripById(_id) {
@@ -31,7 +35,7 @@ module Service {
         }
 
         getMyTrips() {
-            return this.$http.get(this.basePath + '/users/my/trips');
+            return this.$http.get(this.basePath + '/users/my/trips', {cache: this.tripsCache});
         }
 
         getTripsByUser(userid) {
