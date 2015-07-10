@@ -27,6 +27,7 @@
 .edittrip-container .welcome_select.data-available {
     opacity: 1;
     visibility: visible;
+    width: 100%;
 }
 
 .edittrip-container .location {
