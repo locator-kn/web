@@ -1,12 +1,12 @@
 .messenger-container .conversations {
-    height: calc(95vh);
+    min-height: calc(95vh);
     width: 100%;
     max-width: 362px;
     float: right;
     padding-top: 30px;
 }
 .messenger-container .conversations .list {
-    max-height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     width: 261px;
     float: right;
     margin: 0px -9px 0 0;
