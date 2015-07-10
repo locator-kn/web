@@ -30,9 +30,9 @@
     }
 
     .content-header .profile-image {
-        height: 75px;
+        height: 90px;
         width: auto;
-        margin-top: -75px;
+        margin-top: -90px;
     }
 
     .welcome_container .opener .welcome_wrapper {
@@ -74,6 +74,8 @@
 
     .message-button {
         width: calc(100% - 50px);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 
     .profile {
