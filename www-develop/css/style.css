@@ -1589,7 +1589,7 @@ trip-min-view {
     margin-top: -60px;
     left: 50%;
     z-index: 10;
-    margin-left: -30px;
+    margin-left: -60px;
 }
 
 tags-input .tags .input, tags-input .tags .tag-item {
