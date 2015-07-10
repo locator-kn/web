@@ -95,10 +95,6 @@ module Controller {
                     });
                     this.setUpLocations();
                 });
-
-
-
-
         }
 
         setUpLocations() {
