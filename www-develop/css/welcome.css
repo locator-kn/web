@@ -138,6 +138,12 @@ a.welcome_button:hover {
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
     transition-delay: 1s;
+    padding-right: 45px;
+}
+
+.createview .welcome_wrapper {
+    padding-left: 45px;
+    padding-right: 15px;
 }
 
 .welcome_container .opener.show .welcome_wrapper {
@@ -156,15 +162,17 @@ a.welcome_button:hover {
 .welcome_wrapper {
     margin: 0 auto;
     float: left;
-    left: 50%;
     position: relative;
 }
 
 .welcome_select {
     float: left;
     position: relative;
-    right: 50%;
-    width: 290px;
+    width: 100%;
+}
+
+.searchview span.green, .searchview .welcome_button {
+    float: right;
 }
 
 .welcome_select .selection {
@@ -214,6 +222,12 @@ a.welcome_button:hover {
 
 .text-wrapper {
     float: left;
+    max-width: 350px;
+    width: 100%;
+}
+
+.searchview .text-wrapper {
+    float: right;
 }
 
 span.green {

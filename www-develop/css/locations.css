@@ -38,7 +38,7 @@
 }
 
 .locationview-container .map-image {
-    height: 420px;
+    height: 350px;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 40px;
@@ -120,16 +120,12 @@
 }
 
 .locationview-container .link-container {
-    display: inline-block;
-    z-index: 10;
-    width: 110px;
     height: 50px;
     background: rgb(34, 34, 34);
     border-radius: 3px 3px 0px 0px;
     float: right;
     padding: 5px 10px 5px 10px;
     position: relative;
-    bottom: 50px;
 }
 
 .locationview-container .link-container .all-locations {
@@ -159,12 +155,23 @@
     bottom: 40px;
 }
 
-
 .locationview-container .fix-position-left {
     position: relative;
     left: 150px;
 }
 
+.locationview-container .previous-trip-button {
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    width: calc(100% - 115px);
+    background-color: #33c4b7;
+    color: white;
+    float: left;
+    text-decoration: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
 
 
 
