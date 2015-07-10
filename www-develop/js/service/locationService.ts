@@ -1,15 +1,9 @@
 module Service {
     export class LocationService {
 
-        locationsCache:any;
+        static $inject = ['$http', 'basePath', 'Upload'];
 
-
-        static $inject = ['$http', 'basePath', 'Upload', 'CacheFactory'];
-
-        constructor(private $http, private basePath, private Upload, private CacheFactory) {
-            this.locationsCache = CacheFactory.createCache('locations', {
-                maxAge: 120000 // 2 min
-            });
+        constructor(private $http, private basePath, private Upload) {
         }
 
         uploadImage(formData, file) {
@@ -43,7 +37,7 @@ module Service {
         }
 
         getMyLocations() {
-            return this.$http.get(this.basePath + '/users/my/locations', {cache: this.locationsCache});
+            return this.$http.get(this.basePath + '/users/my/locations');
         }
 
         getLocationsByUser(userID) {
