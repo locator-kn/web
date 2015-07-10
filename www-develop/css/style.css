@@ -1712,7 +1712,7 @@ h1 {
 .back-button {
     width: auto;
     height: 30px;
-    padding-right: 15px;
+    padding: 0 15px;
 }
 
 .minus-fifty-top {

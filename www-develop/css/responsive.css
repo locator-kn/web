@@ -17,7 +17,9 @@
 
 /* SM */
 @media (max-width: 991px) {
-
+    .flex-direction-nav a {
+        background: none;
+    }
 }
 
 /* XS */
@@ -30,7 +32,7 @@
     .content-header .profile-image {
         height: 75px;
         width: auto;
-        margin-top: -37px;
+        margin-top: -75px;
     }
 
     .welcome_container .opener .welcome_wrapper {
@@ -54,25 +56,27 @@
         border-left: none;
     }
 
-    .flex-direction-nav .flex-next {
-        right: 0;
+    .flex-direction-nav a.flex-next {
+        right: 0 !important;
     }
 
-    .flex-direction-nav .flex-prev {
-        left: 0;
+    .flex-direction-nav a.flex-prev {
+        left: 0 !important;
     }
 
     .trip-info-container .fix-position-left {
         left: inherit;
     }
 
-    .tripview .btn-mood-container {
-        margin-top: 0;
-    }
 
 
     .trip-image .placeholder-imaeg {
         min-height: inherit;
+    }
+
+    .message-button {
+        width: 100%;
+        margin-top: -50px;
     }
 
     .profile {
