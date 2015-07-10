@@ -320,7 +320,7 @@ module Controller {
         }
 
         imageChoice() {
-            var cropperElem = $('#cropping-preview');
+            var cropperElem:any = $('#cropping-preview');
             cropperElem.cropper({
                 aspectRatio: 1,
                 modal: false,
