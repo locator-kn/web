@@ -395,6 +395,7 @@ trip-min-view .result-content-box {
 
 .location-container .white {
     color: white;
+    background: none;
 }
 
 .results-container .trip-min-view .row-container {
