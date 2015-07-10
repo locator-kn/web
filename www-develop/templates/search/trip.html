@@ -1,4 +1,4 @@
-<div class="insert-trip-container" ng-controller="TripCtrl as tc">
+<div class="tripview insert-trip-container" ng-controller="TripCtrl as tc">
 
     <div class="trip-image header-image-container">
         <flex-slider class="static" direction-nav="false" slide="s in tc.slides">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="row trip-info-container">
-            <div class="col-xs-5 fix-position-left">
+            <div class="col-xs-12 col-sm-5 fix-position-left">
                 <div class="trip-info">
                     <h2>{{tc.trip.title}}</h2>
 
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-5 col-xs-offset-2">
+            <div class="col-xs-12 col-sm-5 col-sm-offset-2">
                 <h2>Locations</h2>
 
                 <div class="edittrip-container">
