@@ -30,7 +30,7 @@
     .content-header .profile-image {
         height: 75px;
         width: auto;
-        margin-top: -37px;
+        margin-top: -75px;
     }
 
     .welcome_container .opener .welcome_wrapper {
@@ -66,13 +66,14 @@
         left: inherit;
     }
 
-    .tripview .btn-mood-container {
-        margin-top: 0;
-    }
-
 
     .trip-image .placeholder-imaeg {
         min-height: inherit;
+    }
+
+    .message-button {
+        width: 100%;
+        margin-top: -50px;
     }
 
     .profile {
