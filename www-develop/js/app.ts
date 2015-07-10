@@ -11,8 +11,6 @@
 
 /// <reference path="./controller/headerBarCtrl.ts" />
 
-/// <reference path="./controller/insertTripCtrl.ts" />
-
 /// <reference path="./controller/userCtrl.ts" />
 
 /// <reference path="./controller/welcomeSearchCtrl.ts" />
