@@ -337,8 +337,8 @@ trip-min-view .result-content-box {
     display: inline-block;
 }
 
-.locationview-container .icon-circle:last-child {
-    margin-left: 10px;
+.locationview-container .icon-circle:first-child {
+    margin-right: 10px;
 }
 
 .locationview-container .icon-circle:hover {
@@ -366,7 +366,7 @@ trip-min-view .result-content-box {
 }
 
 .locationview-container .all-locations-icon {
-    background-image: url("../images/icons/trip-min-view/trip_ansicht.svg");
+    background-image: url("../images/icons/trip-min-view/alle_locations.svg");
 }
 
 .result-content-bottom .edit-icon {
@@ -395,6 +395,7 @@ trip-min-view .result-content-box {
 
 .location-container .white {
     color: white;
+    background: none;
 }
 
 .results-container .trip-min-view .row-container {
