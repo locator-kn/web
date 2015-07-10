@@ -338,7 +338,7 @@ trip-min-view .result-content-box {
 }
 
 .locationview-container .icon-circle:last-child {
-    float: right;
+    margin-left: 10px;
 }
 
 .locationview-container .icon-circle:hover {
