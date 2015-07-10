@@ -25,12 +25,17 @@
                          class="uppercase message-button pointer">
                         Bearbeiten
                     </div>
-                    <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
+                    <div class="hidden-xs trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
                          style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 visible-xs">
+            <div class="col-xs-12 visible-xs move-50-top">
+
+                <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
+                     style="background-image: url('./images/icons/moods_white/{{tc.trip.mood.icon}}')">
+                </div>
+
                 <div ng-if="!tc.me" class="uppercase message-button pointer" ng-click="tc.participate()">Kontaktieren
                 </div>
             </div>
