@@ -1664,8 +1664,10 @@ h1 {
     content: none;
     width: 31px;
     height: 59px;
-    border-radius: 3px;
-    background-color: rgba(34,34,34,0.7);
+    background-color: rgba(34, 34, 34, 0.7);
+    top: 0;
+    margin: 0;
+    height: 100% !important;
 }
 
 .flex-direction-nav a.flex-prev {
@@ -1673,6 +1675,7 @@ h1 {
     background-repeat: no-repeat;
     background-size: 75%;
     background-position: center;
+    margin: 0;
 }
 
 .flex-direction-nav a.flex-next {
@@ -1680,8 +1683,23 @@ h1 {
     background-repeat: no-repeat;
     background-size: 75%;
     background-position: center;
+    margin: 0;
 }
 
 .trip-image .placeholder-imaeg {
     min-height: 509px;
+}
+
+.flexslider {
+    position: relative;
+}
+
+.flexslider:hover .flex-direction-nav .flex-prev {
+    left: 0;
+    opacity: 1;
+}
+
+.flexslider:hover .flex-direction-nav .flex-next {
+    right: 0;
+    opacity: 1;
 }
