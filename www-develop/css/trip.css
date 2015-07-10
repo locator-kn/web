@@ -80,3 +80,9 @@
     margin-top: -25px;
 }
 
+.trip-info-container .edittrip-container {
+    padding-top: 15px;
+    float: left;
+    width: 100%;
+    padding-top: 0;
+}
