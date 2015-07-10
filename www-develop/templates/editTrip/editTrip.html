@@ -90,14 +90,14 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 locationpool selectedlocations">
 
-                        <h3>Gewählte Locations</h3>
+                        <h3>Trip beinhaltet</h3>
 
                         <div ng-class="{'err' : et.error && et.selectedLocations.length === 0}" class="border-wrapper">
 
 
                             <div ng-if="!et.selectedLocations.length"
                                  class="relative location mylocation missing mylocations-wrapper">
-                                <h4>keine Locations gewählt</h4>
+                                <h4>Noch keine Locations ausgewählt</h4>
                             </div>
 
 
@@ -114,7 +114,7 @@
             </div>
             <div ng-class="{'accomodation': et.tripMeta.accommodation}" class="col-xs-12 col-sm-3 metadata">
 
-                <h3>Weitere Angaben</h3>
+                <h3>Sonstiges</h3>
 
                 <div class="border-wrapper">
                     <div ng-class="{'err' : et.error && !et.dateValid}" class="date meta-section">
