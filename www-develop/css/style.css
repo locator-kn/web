@@ -1708,3 +1708,13 @@ h1 {
 .uppercase {
     text-transform: uppercase;
 }
+
+.back-button {
+    width: auto;
+    height: 30px;
+    padding-right: 15px;
+}
+
+.minus-fifty-top {
+    margin-top: -50px;
+}

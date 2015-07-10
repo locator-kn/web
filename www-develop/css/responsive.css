@@ -23,6 +23,44 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .welcome_container .opener .welcome_wrapper {
+        padding-right: 15px;
+    }
+
+    .createview .welcome_wrapper {
+        padding-left: 15px;
+    }
+
+    .welcome_wrapper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .welcome_wrapper .text-wrapper {
+        max-width: inherit;
+    }
+
+    .trip-min-view .result-content-box {
+        border-left: none;
+    }
+
+    .flex-direction-nav .flex-next {
+        right: 0;
+    }
+
+    .flex-direction-nav .flex-prev {
+        left: 0;
+    }
+
+    .trip-info-container .fix-position-left {
+        left: inherit;
+    }
+
+    .tripview .btn-mood-container {
+        margin-top: 0;
+    }
+
+
     .trip-image .placeholder-imaeg {
         min-height: inherit;
     }
