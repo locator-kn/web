@@ -1669,14 +1669,14 @@ h1 {
 }
 
 .flex-direction-nav a.flex-prev {
-    background-image: url('/images/icons/icons_stuff/slideshow_slider_links.svg');
+    background-image: url('../images/icons/icons_stuff/slideshow_slider_links.svg');
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
 }
 
 .flex-direction-nav a.flex-next {
-    background-image: url('/images/icons/icons_stuff/slideshow_slider_rechts.svg');
+    background-image: url('../images/icons/icons_stuff/slideshow_slider_rechts.svg');
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: center;
