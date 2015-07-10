@@ -181,6 +181,7 @@
     float: left;
     width: 100%;
     height: calc(100vh - 320px);
+    min-height: 300px;
     background-color: #fff;
     padding: 10px;
     border-bottom-left-radius: 3px;
