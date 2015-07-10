@@ -1703,3 +1703,7 @@ h1 {
     right: 0;
     opacity: 1;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
