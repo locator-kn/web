@@ -370,7 +370,11 @@ trip-min-view .result-content-box {
 }
 
 .result-content-bottom .edit-icon {
-    background-image: url("../images/icons/edit_location.png");
+    background-image: url("../images/icons/trip-min-view/edit.svg");
+}
+
+.locationview-container .edit-icon {
+    background-image: url("../images/icons/trip-min-view/edit.svg");
 }
 
 .white-border {
