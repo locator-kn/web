@@ -73,6 +73,17 @@ module Controller {
             });
 
 
+            $rootScope.$on('$stateChangeSuccess', (ev, to, toParams, from, fromParams) => {
+
+                if (to.name === 'locationView' && from.name === 'trip' && fromParams.tripId) {
+                    this.$rootScope.previousTrip = fromParams.tripId;
+                } else {
+                    this.$rootScope.previousTrip = '';
+                }
+
+            });
+
+
         }
 
 
