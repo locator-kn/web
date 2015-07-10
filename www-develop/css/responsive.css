@@ -17,7 +17,9 @@
 
 /* SM */
 @media (max-width: 991px) {
-
+    .flex-direction-nav a {
+        background: none;
+    }
 }
 
 /* XS */
@@ -54,17 +56,18 @@
         border-left: none;
     }
 
-    .flex-direction-nav .flex-next {
-        right: 0;
+    .flex-direction-nav a.flex-next {
+        right: 0 !important;
     }
 
-    .flex-direction-nav .flex-prev {
-        left: 0;
+    .flex-direction-nav a.flex-prev {
+        left: 0 !important;
     }
 
     .trip-info-container .fix-position-left {
         left: inherit;
     }
+
 
 
     .trip-image .placeholder-imaeg {
