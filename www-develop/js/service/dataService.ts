@@ -102,6 +102,7 @@ module Service {
 
 
             this.dataCitiesCache = CacheFactory.createCache('dataCities');
+            this.fixedCitiesCache = CacheFactory.createCache('dataFixCities');
             this.dataAccommodationsCache = CacheFactory.createCache('dataAccommodations');
             this.dataMoodsCache = CacheFactory.createCache('dataMoods');
             this.dayCache = CacheFactory.createCache('dataDay');
