@@ -5,7 +5,6 @@
 
 /// <reference path="./controller/slideCtrl.ts" />
 
-/// <reference path="./controller/searchMainCtrl.ts" />
 /// <reference path="./controller/searchCtrl.ts" />
 /// <reference path="./controller/searchResultCtrl.ts" />
 
@@ -163,7 +162,6 @@ var app = angular.module('locator', deps)
     })
 
     .controller(Controller.SlideCtrl.controllerId, Controller.SlideCtrl)
-    .controller(Controller.SearchMainCtrl.controllerId, Controller.SearchMainCtrl)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.HeaderBarCtrl.controllerId, Controller.HeaderBarCtrl)

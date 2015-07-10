@@ -7,17 +7,18 @@
     <div class="container">
         <div class="row">
             <div class="content-header">
-                <div class="col-xs-5">
+                <div class="col-xs-4">
                     <img class="profile-image pointer" ng-src="{{lt.profileImagePath}}"
                          ui-sref="user({profileId: lt.userId})">
                 </div>
-                <div class="col-xs-7 minus-fifty-top">
-                    <a ng-if="previousTrip != ''" ui-sref="trip({tripId: previousTrip})" class="previous-trip-button uppercase pointer"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg"> Zurück zum Trip</a>
-                    <div class="link-container" ng-hide="lt.userId === 'locator-app'">
+                <div class="col-xs-8 minus-fifty-top">
+                   <div class="link-container" ng-hide="lt.userId === 'locator-app'">
                             <div class="icon-circle all-locations-icon pointer tt tt-small" aria-label="Alle Locations anzeigen" ng-click="lt.moveToAllLocations()"></div>
                             <div ng-hide="lt.me" class="icon-circle messenger-icon pointer tt tt-small" aria-label="Kontakt aufnehmen" ng-click="lt.moveToMessenger()"></div>
-                            <div ng-hide="!lt.me" class="icon-circle tt tt-small" aria-label="Location bearbeiten" style="background-image: url('./images/icons/edit_location.png')"  ng-click="lt.moveToEditTrip()"></div>
+                            <div ng-hide="!lt.me" class="icon-circle edit-icon tt tt-small" aria-label="Location bearbeiten" ng-click="lt.moveToEditTrip()"></div>
                     </div>
+                    <span aria-label="Zurück zum Trip" class="back-wrapper tt tt-small"><a ng-if="previousTrip != ''" ui-sref="trip({tripId: previousTrip})" class="previous-trip-button uppercase pointer"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg"></a></span>
+
                 </div>
             </div>
         </div>
