@@ -10,6 +10,10 @@ module Service {
             });
         }
 
+        clearTripsCache() {
+            this.tripsCache.removeAll();
+        }
+
         getTripById(_id) {
             return this.$http.get(this.basePath + '/trips/' + _id);
         }
@@ -17,9 +21,15 @@ module Service {
         saveTrip(newTrip, id) {
             if (id) {
                 // extend new trip with meta data id and rev
-                return this.$http.put(this.basePath + '/trips/' + id, newTrip);
+                return this.$http.put(this.basePath + '/trips/' + id, newTrip).then((result) => {
+                    this.clearTripsCache();
+                    return result;
+                });
             }
-            return this.$http.post(this.basePath + '/trips', newTrip);
+            return this.$http.post(this.basePath + '/trips', newTrip).then((result) => {
+                this.clearTripsCache();
+                return result;
+            });
         }
 
         uploadImage(formData, file) {
