@@ -12,8 +12,7 @@
 
 /// <reference path="./controller/userCtrl.ts" />
 
-/// <reference path="./controller/welcomeSearchCtrl.ts" />
-/// <reference path="./controller/welcomeCreateCtrl.ts" />
+/// <reference path="./controller/WelcomeCtrl.ts" />
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
 /// <reference path="./controller/insertLocationCtrl.ts" />
@@ -165,8 +164,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.SearchCtrl.controllerId, Controller.SearchCtrl)
     .controller(Controller.SearchResultCtrl.controllerId, Controller.SearchResultCtrl)
     .controller(Controller.HeaderBarCtrl.controllerId, Controller.HeaderBarCtrl)
-    .controller(Controller.WelcomeSearchCtrl.controllerId, Controller.WelcomeSearchCtrl)
-    .controller(Controller.WelcomeCreateCtrl.controllerId, Controller.WelcomeCreateCtrl)
+    .controller(Controller.WelcomeCtrl.controllerId, Controller.WelcomeCtrl)
     .controller(Controller.StaticButtonCtrl.controllerId, Controller.StaticButtonCtrl)
     .controller(Controller.MainCtrl.controllerId, Controller.MainCtrl)
     .controller(Controller.ContextCtrl.controllerId, Controller.ContextCtrl)

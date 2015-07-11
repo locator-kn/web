@@ -8,6 +8,19 @@
         padding-top: 50px;
     }
 
+    .welcome-wrapper .help {
+        padding: 15px;
+    }
+
+    .help-item .help-icon {
+        height: 60px;
+    }
+
+    .help-item {
+        line-height: 60px;
+        margin: 0;
+    }
+
 }
 
 /* LG */

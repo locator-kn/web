@@ -1,4 +1,4 @@
-<div ng-hide="showSteffen" class="container-fluid">
+<div ng-hide="showSteffen" class="welcome-wrapper container-fluid relative" ng-controller="WelcomeCtrl as wc">
     <div class="container welcome_container">
         <div class="row">
             <div class="col-xs-12 center logocontainer">
@@ -11,7 +11,13 @@
             <div class="col-sm-6 createview" ng-include="'templates/welcome/createView.html'"></div>
         </div>
     </div>
+
+    <div ng-class="{'showup': wc.searchHelp}" class="search help" ng-include="'templates/welcome/searchHelp.html'"></div>
+    <div ng-class="{'showup': wc.createHelp}" class="create help" ng-include="'templates/welcome/createHelp.html'"></div>
+
 </div>
+
+
 
 
 <div ng-hide="!showSteffen" class="container absolute steffencontainer">
