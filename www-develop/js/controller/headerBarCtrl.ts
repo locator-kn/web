@@ -132,9 +132,9 @@ module Controller {
                     this.$rootScope.$broadcast('login_success');
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
-                    //if(this.user.isAdmin) {
-                    this.getStats();
-                    //}
+                    if(this.user.isAdmin) {
+                        this.getStats();
+                    }
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                 });
