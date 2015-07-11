@@ -48,7 +48,7 @@ module Service {
         };
 
         detroyMeCache() {
-            this.CacheFactory.get(this.basePath + '/users/me').removeAll();
+            this.usersMeCache.removeAll();
         }
 
         getMe() {
