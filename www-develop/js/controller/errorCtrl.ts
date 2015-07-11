@@ -10,6 +10,8 @@ module Controller {
 
             if(this.params.t) {
                 this.currentError = this.ErrorService.getError(this.params.t);
+            } else if(this.params.r) {
+                this.currentError = this.ErrorService.getStaticError(this.params.r);
             }
 
         }
