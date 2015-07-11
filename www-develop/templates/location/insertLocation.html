@@ -106,9 +106,9 @@
                                     placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
 
 
-                        <label>Beschreibung <span class="max-length">({{100 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
+                        <label>Beschreibung <span class="max-length">({{300 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
                         <textarea
-                            maxlength="100"
+                            maxlength="300"
                             ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
                             ng-model="ilc.locationFormDetails.description" name="locationDescription"

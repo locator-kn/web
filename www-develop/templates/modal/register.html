@@ -10,5 +10,5 @@
     <input required ng-model="mc.password" type="password" placeholder="Passwort" name="inputPassword">
     <div ng-class="{open: mc.errormsg}" class="msg error-msg">{{mc.errormsg}}</div>
     <input ng-click="mc.register(form)" class="pointer register submit button" value="Registrieren" type="submit">
+    <a ng-click="mc.closeDialog(); mc.openLoginDialog()" class="pointer forgotpw">Schon registriert?</a>
 </form>
-

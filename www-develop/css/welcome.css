@@ -450,14 +450,12 @@ a.more-link:hover {
 }
 
 .front-help-wrapper {
-    float: right;
-    padding-left: 5px;
+    float: left;
+    padding-right: 10px;
 }
 
 .front-help-wrapper img {
-    height: 35px;
-    margin-top: 7px;
-    margin-left: 5px;
+    height: 15px;
 }
 
 .searchview .welcome_button_wrapper {
@@ -466,4 +464,20 @@ a.more-link:hover {
 
 .createview .welcome_button_wrapper {
     float: left;
+}
+
+.front-help-wrapper {
+    padding: 7px 10px;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin-top: 14px;
+    transition-duration: 0.3s;
+}
+
+.searchview .front-help-wrapper:hover {
+    background-color: #33c4b7;
+}
+
+.createview .front-help-wrapper:hover {
+    background-color: #ff4637;
 }
