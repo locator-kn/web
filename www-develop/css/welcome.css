@@ -418,6 +418,10 @@ a.more-link:hover {
     font-weight: 400;
 }
 
+.help-item {
+    line-height: 80px;
+}
+
 .help-item .help-icon {
     height: 80px;
     margin-right: 15px;
