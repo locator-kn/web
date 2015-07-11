@@ -3,9 +3,11 @@
         <div class="row row-container">
             <div class="location-container" ng-show="showLocs == true">
                 <h3 class="white">Locations</h3>
+
                 <div class="edittrip-container">
                     <div class="mylocations-wrapper without-overlay">
-                        <div ng-repeat="location in locations" class="relative location border-radius-decent trip-location-container">
+                        <div ng-repeat="location in locations"
+                             class="relative location border-radius-decent trip-location-container">
                             <div class="pointer" ng-include="'templates/editTrip/singleTrip.html'" include-replace>
                             </div>
                         </div>
@@ -14,16 +16,25 @@
             </div>
 
             <div class="col-xs-12 col-sm-8 no-margin no-padding img-list-container">
-               <img-triplist id="result-slider" size="size" locations="trip.locations" mapwidth="300" mapheight="150" scale="1">
-                   <h2>{{size}} dwqddqwdqqw</h2>
+                <img-triplist id="result-slider" size="size" locations="trip.locations" mapwidth="300" mapheight="150"
+                              scale="1">
+                    <h2>{{size}} dwqddqwdqqw</h2>
 
-               </img-triplist>
+                </img-triplist>
             </div>
             <div class="colxs-12 col-sm-4 no-margin result-content-box">
                 <div class="result-content-wrapper pointer" ui-sref="trip({tripId:trip._id})">
                     <h3 class="result-trip-title">{{trip.title}}</h3>
 
-                    <div class="result-trip-date" ng-if="trip.start_date && trip.end_date">
+
+                    <div class="daterange" ng-if="!(trip.start_date && trip.end_date)"><strong>Ohne Datum</strong></div>
+
+                    <div class="daterange" ng-if="(trip.start_date == trip.end_date)"><strong>
+                        <resultdate class="black" date="trip.start_date"></resultdate>
+                    </strong></div>
+
+                    <div class="result-trip-date"
+                         ng-if="(trip.start_date && trip.end_date) && (trip.start_date !== trip.end_date)">
                         <strong>
                             <resultdate class="black" date="trip.start_date"></resultdate>
                         </strong>
@@ -44,12 +55,14 @@
                         <span>
                             <span ng-if="trip.days"> | </span>
                             <strong>{{locationCount}}</strong>
-                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
+                            <ng-pluralize count="locationCount"
+                                          when="{'1': 'Location', 'other': 'Locations'}"></ng-pluralize>
                         </span>
                         <span ng-if="trip.persons">
                             <span ng-show="trip.days || trip.persons "> | </span>
                             <strong>{{trip.persons}}</strong>
-                            <ng-pluralize count="trip.persons" when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
+                            <ng-pluralize count="trip.persons"
+                                          when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
                         </span>
                     </div>
                     <br>
@@ -68,18 +81,23 @@
 
                 </div>
                 <div class="result-content-bottom">
-                    <div class="icon-container tt tt-small" aria-label="{{trip.mood.title}}" style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
+                    <div class="icon-container tt tt-small" aria-label="{{trip.mood.title}}"
+                         style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
                     <div class="icon-circle-container">
-                        <div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen" ui-sref="trip({tripId: trip._id})"></div>
+                        <div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen"
+                             ui-sref="trip({tripId: trip._id})"></div>
                     </div>
                     <div class="icon-circle-container">
-                        <div class="icon-circle location-icon tt tt-small " aria-label="Locations ansehen" ng-click="showLocations()"></div>
+                        <div class="icon-circle location-icon tt tt-small " aria-label="Locations ansehen"
+                             ng-click="showLocations()"></div>
                     </div>
                     <div ng-if="meId != trip.userid" class="icon-circle-container">
-                        <div class="icon-circle messenger-icon tt tt-small" aria-label="Teilnehmen" ng-click="participate()"></div>
+                        <div class="icon-circle messenger-icon tt tt-small" aria-label="Teilnehmen"
+                             ng-click="participate()"></div>
                     </div>
                     <div ng-if="meId == trip.userid" class="icon-circle-container">
-                        <div class="icon-circle edit-icon tt tt-small" ui-sref="editTrip({tripId: trip._id})" aria-label="Bearbeiten"></div>
+                        <div class="icon-circle edit-icon tt tt-small" ui-sref="editTrip({tripId: trip._id})"
+                             aria-label="Bearbeiten"></div>
                     </div>
                 </div>
             </div>

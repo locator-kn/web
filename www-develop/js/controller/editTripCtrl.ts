@@ -224,6 +224,11 @@ module Controller {
 
                 return;
             } else {
+
+                if (this.tripMeta.start_date && !this.tripMeta.end_date) {
+                    this.tripMeta.end_date = this.tripMeta.start_date;
+                }
+
                 this.error = false;
             }
 

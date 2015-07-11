@@ -220,7 +220,11 @@
 
                 <div class="daterange" ng-if="!(et.tripMeta.start_date && et.tripMeta.end_date)"><strong>Ohne Datum</strong></div>
 
-                <div ng-if="et.tripMeta.start_date && et.tripMeta.end_date" class="daterange">
+                <div class="daterange" ng-if="(et.tripMeta.start_date == et.tripMeta.end_date)"><strong>
+                    <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
+                </strong></div>
+
+                <div ng-if="(et.tripMeta.start_date && et.tripMeta.end_date) && (et.tripMeta.start_date !== et.tripMeta.end_date)" class="daterange">
                     <strong>
                         <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
                     </strong>
