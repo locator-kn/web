@@ -8,8 +8,8 @@
                     <img class="sad-lorenz" src="/images/svgs/lorenz_traurig.svg">
                 </div>
                 <div class="message">
-                    <p ng-if="!ec.params.r || !ec.currentError">Leider ist etwas schief gelaufen</p>
-                    <p ng-if="ec.currentError" ng-bind="ec.currentError.message"></p>
+                    <p ng-if="!ec.params.r || !ec.currentError || !ec.currentError.message">Leider ist etwas schief gelaufen</p>
+                    <p ng-if="ec.currentError && ec.currentError.message" ng-bind="ec.currentError.message"></p>
                 </div>
             </div>
 
