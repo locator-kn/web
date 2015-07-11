@@ -127,7 +127,7 @@ module Controller {
                     this.$rootScope.authenticated = true;
                     this.$rootScope.userID = result.data._id;
                     this.$rootScope.userName = result.data.name + ' ' + result.data.surname;
-                    this.$rootScope.userImageUrl = result.data.picture;
+                    this.$rootScope.userImageUrl = result.data.picture || '';
 
                     this.$rootScope.$broadcast('login_success');
                     this.getConversations();
