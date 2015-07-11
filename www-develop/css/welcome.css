@@ -374,6 +374,7 @@ a.more-link:hover {
     padding: 30px;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
+    overflow-x: hidden;
 }
 
 .welcome-wrapper .help.search {
@@ -414,7 +415,6 @@ a.more-link:hover {
 }
 
 .help p {
-    line-height: 80px;
     font-weight: 400;
 }
 
