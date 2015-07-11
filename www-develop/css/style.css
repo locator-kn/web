@@ -25,7 +25,7 @@ body {
 }
 
 .full-without-header {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 45px);
 }
 
 .absolute-slider {
