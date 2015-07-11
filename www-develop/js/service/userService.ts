@@ -49,6 +49,7 @@ module Service {
 
         detroyMeCache() {
             this.usersMeCache.removeAll();
+            this.usersIdCache.removeAll();
         }
 
         getMe() {
