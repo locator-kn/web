@@ -29,6 +29,8 @@
 /// <reference path="./service/tripService.ts" />
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
+/// <reference path="./service/errorService.ts" />
+
 /// <reference path="./controller/feedbackCtrl.ts" />
 
 

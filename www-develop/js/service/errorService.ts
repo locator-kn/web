@@ -6,7 +6,6 @@ module Service {
 
         }
 
-
         static serviceId:string = "ErrorService";
     }
 }
