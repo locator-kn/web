@@ -451,5 +451,6 @@ var app = angular.module('locator', deps)
     .service(Service.LocationService.serviceId, Service.LocationService)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
     .service(Service.UtilityService.serviceId, Service.UtilityService)
-    .service(Service.FeedbackService.serviceId, Service.FeedbackService);
+    .service(Service.FeedbackService.serviceId, Service.FeedbackService)
+    .service(Service.ErrorService.serviceId, Service.ErrorService);
 
