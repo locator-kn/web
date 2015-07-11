@@ -2,8 +2,8 @@ module Controller {
 
     export class ErrorCtrl {
         params:any;
-        static $inject = ['$state'];
-        constructor(private $state) {
+        static $inject = ['$state', 'ErrorService'];
+        constructor(private $state, private ErrorService) {
             this.params = this.$state.params;
         }
 
