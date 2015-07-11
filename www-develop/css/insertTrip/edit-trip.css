@@ -64,7 +64,7 @@
     z-index: 1;
 }
 
-.edittrip-container .location:hover .select-overlay {
+.edittrip-container .content-wrapper:hover .select-overlay {
     opacity: 1;
     visibility: visible;
 }
