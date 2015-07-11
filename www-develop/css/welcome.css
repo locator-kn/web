@@ -478,3 +478,22 @@ a.more-link:hover {
 .createview .front-help-wrapper:hover {
     background-color: #ff4637;
 }
+
+.beta-badge {
+    width: 150px;
+    height: 150px;
+    background-image: url(../images/stoerer.png);
+    background-size: 100%;
+    padding: 20px;
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+    position: absolute;
+    right: 160px;
+    top: -50px;
+}
+
+.beta-badge h3 {
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+}

@@ -21,6 +21,10 @@
         margin: 0;
     }
 
+    .beta-badge {
+        top: -20px;
+    }
+
 }
 
 /* LG */
