@@ -161,7 +161,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('error', {
-                url: "/error?r&c",
+                url: "/error?r&t",
                 templateUrl: "templates/error/genericLorenz.html"
             });
 

@@ -51,8 +51,8 @@ module Controller {
         dataAvailable:boolean = false;
         locationSearch = '';
 
-        static $inject = ['smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService'];
-        constructor(private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService) {
+        static $inject = ['smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
+        constructor(private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
 
 
             if ($state.current.name === 'insertTrip') {
@@ -291,7 +291,14 @@ module Controller {
                     this.$state.go('editTripSuccess');
                 })
                 .catch(err => {
-                    console.info('error');
+                    var timestamp = Date.now();
+                    // set error with according timestamp
+                    this.ErrorService.setError(timestamp, err.data);
+                    // redirect to error-page and supply timestamp as param
+                    this.$state.go('error', {
+                        t: timestamp + '',
+                        r: 'bs'
+                    });
                 });
         }
 
