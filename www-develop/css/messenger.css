@@ -181,6 +181,7 @@
     float: left;
     width: 100%;
     height: calc(100vh - 320px);
+    min-height: 300px;
     background-color: #fff;
     padding: 10px;
     border-bottom-left-radius: 3px;
@@ -287,9 +288,10 @@ span.bubble {
 }
 
 .messenger-container .messages-wrapper {
-    width: calc(100% - 100px);
-    max-width: 353px;
+    width: calc(100% - 200px);
+    max-width: 600px;
     margin: 0 0 0 100px;
+    float:left;
 }
 .messenger-container h2 {
     font-size: 22px;
