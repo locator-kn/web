@@ -148,7 +148,7 @@ module Service {
                         {"id": "1", "title": "1 Tag", "query_name": "1"},
                         {"id": "2", "title": "2 Tage", "query_name": "2"},
                         {"id": "3", "title": "3 Tage", "query_name": "3"},
-                        {"id": "4", "title": "3+ Tage", "query_name": "3plus"}
+                        {"id": "4", "title": "3 Tage +", "query_name": "3plus"}
                     ]
                 });
             }, {cache: this.dayCache});
