@@ -120,6 +120,7 @@
     width: 100%;
     position: absolute;
     top: 0;
+    overflow: hidden;
 }
 
 .insert-location-container .text-fields:focus {
