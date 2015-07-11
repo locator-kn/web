@@ -12,12 +12,13 @@
 
 /// <reference path="./controller/userCtrl.ts" />
 
-/// <reference path="./controller/WelcomeCtrl.ts" />
+/// <reference path="./controller/welcomeCtrl.ts" />
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
 /// <reference path="./controller/insertLocationCtrl.ts" />
 /// <reference path="./controller/locationCtrl.ts" />
 /// <reference path="./controller/locationViewCtrl.ts" />
+/// <reference path="./controller/errorCtrl.ts" />
 
 /// <reference path="./controller/mainCtrl.ts" />
 
@@ -155,6 +156,11 @@ var app = angular.module('locator', deps)
             .state('editLocation', {
                 url: "/edit-location/:locationId",
                 templateUrl: "templates/location/insertLocation.html"
+            })
+
+            .state('error', {
+                url: "/error?r&c",
+                templateUrl: "templates/error/genericLorenz.html"
             });
 
         $urlRouterProvider.otherwise('welcome');
@@ -176,6 +182,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.EditTripCtrl.controllerId, Controller.EditTripCtrl)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
     .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
+    .controller(Controller.ErrorCtrl.controllerId, Controller.ErrorCtrl)
 
 
     .filter('truncate', function () {
