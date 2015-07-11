@@ -57,6 +57,14 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .edittrip-container .datepicker .ui-widget {
+        border-width: 1px;
+    }
+
+    .edittrip-container .metadata .border-wrapper {
+        padding: 15px;
+    }
+
     .welcome-wrapper .help {
         width: 100%;
         height: auto;
