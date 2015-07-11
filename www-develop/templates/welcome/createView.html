@@ -1,30 +1,30 @@
-<div class="opener create" ng-controller="WelcomeCreateCtrl as wc" ng-class="{show: wc.dataAvailable}">
+<div class="opener create" ng-class="{show: wc.dataAvailable}">
 
     <div class="welcome_wrapper">
         <div class="welcome_select">
 
-            <span class="red"><span class="margin-right">Du bietest</span>
+             <span class="fullwidth"><span class="red"><span class="margin-right">Du bietest</span>
                     <div class="list-selection"
                          title="'Triplänge'" list-selection multiple=false
-                         values="wc.days"
-                         selected-model="wc.selectedDay" selected-name="wc.showDays"
-                         open-element="mc.openElement"></div></span>
+                         values="wc.create.days"
+                         selected-model="wc.create.selectedDay" selected-name="wc.create.showDays"
+                         open-element="mc.openElement"></div></span></span>
 
 
 
-            <span class="red"><div title="'Tripstimmung'" class="list-selection" list-selection values="wc.moods"
-                                   icons="true" selected-model="wc.selectedMood" selected-name="wc.showMoods"
-                                   open-element="mc.openElement"></div></span>
+             <span class="fullwidth"><span class="red"><div title="'Tripstimmung'" class="list-selection" list-selection values="wc.create.moods"
+                                   icons="true" selected-model="wc.create.selectedMood" selected-name="wc.create.showMoods"
+                                   open-element="mc.openElement"></div></span></span>
 
             <span class="fullwidth"><span class="red"> <span class="margin-right">in</span>
 
-           <div title="'Triport'" class="list-selection" list-selection values="wc.cities"
-                selected-model="wc.selectedCity" selected-name="wc.showCities"
+           <div title="'Triport'" class="list-selection" list-selection values="wc.create.cities"
+                selected-model="wc.create.selectedCity" selected-name="wc.create.showCities"
                 open-element="mc.openElement"></div></span></span>
 
             <div class="fullwidth welcome_button_wrapper">
                 <a class="welcome_button"
-                   ng-click="wc.create()">Trip
+                   ng-click="wc.startCreate()">Trip
                     erstellen</a>
             </div>
         </div>

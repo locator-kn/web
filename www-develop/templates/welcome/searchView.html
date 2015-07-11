@@ -1,29 +1,31 @@
-<div class="opener search" ng-controller="WelcomeSearchCtrl as wc" ng-class="{show: wc.dataAvailable}">
+<div class="opener search" ng-class="{show: wc.dataAvailable}">
 
     <div class="welcome_wrapper">
         <div class="welcome_select">
             <div class="text-wrapper">
-                <span class="green"><span class="margin-right">Du willst</span>
+                <span class="fullwidth"> <span class="green"><span class="margin-right">Du willst</span>
                     <div class="list-selection" title="'Triplänge'"
                          list-selection multiple=false
-                         values="wc.days"
-                         selected-model="wc.selectedDay" selected-name="wc.showDays"
-                         open-element="mc.openElement"></div></span>
+                         values="wc.search.days"
+                         selected-model="wc.search.selectedDay" selected-name="wc.search.showDays"
+                         open-element="mc.openElement"></div></span></span>
 
-                <span class="green">
+                <span class="fullwidth"> <span class="green">
 
-                    <div title="'Tripstimmung'" class="list-selection" list-selection multiple=false values="wc.moods"
-                         icons="true" selected-model="wc.selectedMood" selected-name="wc.showMoods"
-                         open-element="mc.openElement"></div>
-</span>
+                    <div title="'Tripstimmung'" class="list-selection" list-selection multiple=false
+                         values="wc.search.moods"
+                         icons="true" selected-model="wc.search.selectedMood" selected-name="wc.search.showMoods"
+                         open-element="mc.openElement"></div></span></span>
+
             <span class="fullwidth"><span class="green"><span class="margin-right">in</span>
 
-            <div title="'Städte'" class="list-selection" list-selection values="wc.cities" selected-name="wc.showCities"
-                 open-element="mc.openElement" selected-model="wc.selectedCity"></div></span></span>
+            <div title="'Städte'" class="list-selection" list-selection values="wc.search.cities"
+                 selected-name="wc.search.showCities"
+                 open-element="mc.openElement" selected-model="wc.search.selectedCity"></div></span></span>
             </div>
             <div class="fullwidth welcome_button_wrapper">
                 <a class="welcome_button"
-                   ng-click="wc.search()">Trip
+                   ng-click="wc.startSearch()">Trip
                     suchen</a>
             </div>
         </div>
