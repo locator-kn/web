@@ -137,7 +137,7 @@
 }
 
 .edittrip-container .metadata.accomodation .border-wrapper {
-    height: 560px;
+    height: 540px;
 }
 
 .edittrip-container .border-wrapper.err {
@@ -348,6 +348,8 @@
     margin: 0;
     float: left;
     width: 25%;
+    height: 44px;
+    background-size: 100% !important;
 }
 
 .edittrip-container .accommodation-equipment {
