@@ -296,8 +296,7 @@ module Controller {
                     this.ErrorService.setError(timestamp, err.data);
                     // redirect to error-page and supply timestamp as param
                     this.$state.go('error', {
-                        t: timestamp + '',
-                        r: 'bs'
+                        t: timestamp
                     });
                 });
         }
