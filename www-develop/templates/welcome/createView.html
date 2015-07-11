@@ -12,9 +12,11 @@
 
 
 
-             <span class="fullwidth"><span class="red"><div title="'Tripstimmung'" class="list-selection" list-selection values="wc.create.moods"
-                                   icons="true" selected-model="wc.create.selectedMood" selected-name="wc.create.showMoods"
-                                   open-element="mc.openElement"></div></span></span>
+             <span class="fullwidth"><span class="red"><div title="'Tripstimmung'" class="list-selection" list-selection
+                                                            values="wc.create.moods"
+                                                            icons="true" selected-model="wc.create.selectedMood"
+                                                            selected-name="wc.create.showMoods"
+                                                            open-element="mc.openElement"></div></span></span>
 
             <span class="fullwidth"><span class="red"> <span class="margin-right">in</span>
 
@@ -22,10 +24,16 @@
                 selected-model="wc.create.selectedCity" selected-name="wc.create.showCities"
                 open-element="mc.openElement"></div></span></span>
 
-            <div class="fullwidth welcome_button_wrapper">
+            <div class="welcome_button_wrapper">
                 <a class="welcome_button"
                    ng-click="wc.startCreate()">Trip
-                    erstellen</a>
+                    erstellen
+                </a>
+                <span ng-click="wc.createHelp = true" class="tt tt-small front-help-wrapper"
+                      aria-label="Wie kann ich Trips erstellen?"><img class="img-responsive"
+                                                                      src="images/icons/fragezeichen.png"></span>
+
+
             </div>
         </div>
     </div>
