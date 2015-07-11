@@ -12,6 +12,10 @@ module Service {
             this.errorHashMap[timestamp] = error;
         }
 
+        getError(timestamp) {
+            return this.errorHashMap[timestamp];
+        }
+
         static serviceId:string = "ErrorService";
     }
 }
