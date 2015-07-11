@@ -497,3 +497,7 @@ a.more-link:hover {
     font-weight: 700;
     font-size: 22px;
 }
+
+.welcome-wrapper .bold {
+    font-weight: 600px;
+}
