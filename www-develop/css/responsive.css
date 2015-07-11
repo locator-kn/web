@@ -38,6 +38,44 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .welcome-wrapper .help {
+        width: 100%;
+        height: auto;
+        top: 0;
+    }
+
+    .help-item span {
+        width: calc(100% - 80px);
+        float: right;
+        line-height: 27px;
+    }
+
+    .help-item {
+        line-height: 27px;
+    }
+
+    .welcome-wrapper .right .help-icon {
+        float: initial;
+    }
+
+
+    .welcome-wrapper .right .help-icon {
+        margin-right: 15px;
+        margin-left: 0;
+    }
+
+    .help-item {
+        padding-bottom: 15px;
+    }
+
+    .welcome-wrapper .help.search {
+        left: -100vw;
+    }
+
+    .welcome-wrapper .help.create {
+        right: -100vw;
+    }
+
     .locationview-container .fix-position-left {
         left: inherit;
     }
