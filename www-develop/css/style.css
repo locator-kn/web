@@ -1722,3 +1722,9 @@ h1 {
 .datepicker .ui-widget {
     border-width: 1px;
 }
+.error-container .sad-lorenz {
+    width: 40vw;
+}
+.viewport-margin-top-10 {
+    margin-top: 10vh;
+}
