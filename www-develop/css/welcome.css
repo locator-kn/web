@@ -361,3 +361,104 @@ a.more-link:hover {
     text-align: center;
 }
 
+.welcome-wrapper {
+    overflow: hidden;
+}
+
+.welcome-wrapper .help {
+    width: 50%;
+    height: calc(100vh - 45px);
+    position: absolute;
+    bottom: 0;
+    color: white;
+    padding: 30px;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.welcome-wrapper .help.search {
+    background-color: #33c4b7;
+    left: -50vw;
+}
+
+.welcome-wrapper .help.create {
+    background-color: #ff4637;
+    right: -50vw;
+}
+
+.welcome-wrapper .help.search.showup {
+    left: 0;
+}
+
+.welcome-wrapper .help.create.showup {
+    right: 0;
+}
+
+.welcome-wrapper .close-button.right {
+    float: right;
+    height: 20px;
+    margin-top: 16px;
+}
+
+.separator {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: calc(100% + 30px);
+    float: left;
+    margin-left: -15px;
+}
+
+.welcome-wrapper .help h2 {
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.help p {
+    line-height: 80px;
+    font-weight: 400;
+}
+
+.help-item .help-icon {
+    height: 80px;
+    margin-right: 15px;
+}
+
+.welcome-wrapper .right .help-icon, .welcome-wrapper .right span {
+    float: right;
+}
+
+.welcome-wrapper .right .help-icon {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.separator {
+    margin-bottom: 30px;
+}
+
+.separator.second {
+    margin-top: 30px;
+}
+
+.help p {
+    font-size: 18px;
+}
+
+.front-help-wrapper {
+    float: right;
+    padding-left: 5px;
+}
+
+.front-help-wrapper img {
+    height: 35px;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+.searchview .welcome_button_wrapper {
+    float: right
+}
+
+.createview .welcome_button_wrapper {
+    float: left;
+}
