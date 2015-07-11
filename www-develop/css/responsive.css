@@ -33,6 +33,21 @@
     .flex-direction-nav a {
         background: none;
     }
+
+    .edittrip-container .metadata .border-wrapper {
+        padding: 0;
+    }
+
+    .edittrip-container .datepicker .ui-widget {
+        border-width: 0px;
+        border-bottom: 1px solid rgb(34,34,34);
+    }
+
+    .edittrip-container .persons.meta-section, .edittrip-container .accomo.meta-section {
+        padding: 0 5px;
+    }
+
+
 }
 
 /* XS */

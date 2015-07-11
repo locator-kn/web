@@ -350,6 +350,7 @@
     width: 25%;
     height: 44px;
     background-size: 100% !important;
+    background-repeat: no-repeat;
 }
 
 .edittrip-container .accommodation-equipment {
