@@ -1,13 +1,19 @@
-<div class="edittrip-container container" ng-controller="ErrorCtrl as ec">
-    <div class="height-wrapper">
-        <div class="row">
+<div class="error-container container full-without-header" ng-controller="ErrorCtrl as ec">
 
-            <div class="col-xs-12 col-sm-9">
+        <div class="row viewport-margin-top-10">
 
+            <div class="col-xs-12 center col-sm-12">
+                <h1>Fehler</h1>
+                <div class="">
+                    <img class="sad-lorenz" src="/images/svgs/lorenz_traurig.svg">
+                </div>
+                <div class="message">
+                    <p ng-if="!ec.params.r">Leider ist etwas schief gelaufen</p>
+                    <p ng-if="ec.params.r" ng-bind="ec.params.r"></p>
+                </div>
             </div>
 
         </div>
-    </div>
 </div>
 
 
