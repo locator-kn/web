@@ -47,6 +47,10 @@ module Service {
             });
         };
 
+        detroyMeCache() {
+            this.CacheFactory.get(this.basePath + '/users/me').removeAll();
+        }
+
         getMe() {
             return this.$q((resolve, reject) => {
 
@@ -84,6 +88,8 @@ module Service {
                     "description": newUserData.description,
                     "residence": newUserData.residence,
                     "birthdate": newUserData.birthdate
+                }).then(() => {
+                    this.detroyMeCache();
                 })
         }
 
