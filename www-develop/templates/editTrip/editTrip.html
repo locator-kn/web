@@ -156,7 +156,7 @@
 
                     <span class="separator"></span>
 
-                    <div class="meta-section">
+                    <div class="meta-section accomo">
                         <div id="accommodation" class="accommodation">
                             <span class="info">Übernachtung bei mir</span>
 
@@ -202,9 +202,10 @@
     <div ng-hide="!et.showPreview" id="tripviewpreview" class="row">
         <div class="col-xs-12"><h3>Übersicht</h3></div>
 
+
         <div class="top-wrapper">
             <div class="col-sm-9 slider">
-                <flex-slider class="static" direction-nav="true" slide="s in et.slides">
+                <flex-slider prev-text="" next-text="" class="static" direction-nav="true" slide="s in et.slides">
                     <li>
                         <div class="slide-image" style="background-image: url({{s}}); background-size: cover;"></div>
                     </li>
@@ -215,10 +216,15 @@
 
             <div class="infobox col-sm-3">
 
-                <h3>{{et.tripMeta.title}}</h3>
+                <h3>{{et.tripMeta.title || 'Triptitel'}}</h3>
 
+                <div class="daterange" ng-if="!(et.tripMeta.start_date && et.tripMeta.end_date)"><strong>Ohne Datum</strong></div>
 
-                <div class="daterange">
+                <div class="daterange" ng-if="(et.tripMeta.start_date == et.tripMeta.end_date)"><strong>
+                    <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
+                </strong></div>
+
+                <div ng-if="(et.tripMeta.start_date && et.tripMeta.end_date) && (et.tripMeta.start_date !== et.tripMeta.end_date)" class="daterange">
                     <strong>
                         <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
                     </strong>

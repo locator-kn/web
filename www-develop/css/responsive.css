@@ -33,11 +33,25 @@
     .flex-direction-nav a {
         background: none;
     }
+
+    .edittrip-container .metadata .border-wrapper {
+        padding: 0;
+    }
+
+    .edittrip-container .datepicker .ui-widget {
+        border-width: 0px;
+        border-bottom: 1px solid rgb(34,34,34);
+    }
+
+    .edittrip-container .persons.meta-section, .edittrip-container .accomo.meta-section {
+        padding: 0 5px;
+    }
+
+
 }
 
 /* XS */
 @media (max-width: 767px) {
-
 
     .welcome-wrapper .help {
         width: 100%;
@@ -58,7 +72,6 @@
     .welcome-wrapper .right .help-icon {
         float: initial;
     }
-
 
     .welcome-wrapper .right .help-icon {
         margin-right: 15px;
@@ -184,6 +197,27 @@
 
     .front-help-wrapper {
         float: right;
+    }
+
+    .edittrip-container .equi-ico.pointer {
+        width: 12%;
+        height: 85px;
+        background-repeat: no-repeat;
+    }
+
+    .edittrip-container .infobox {
+        height: auto;
+        padding: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .edittrip-container .infobox h3 {
+        margin-top: 0;
+    }
+
+    .edittrip-container .slider {
+        padding-right: 15px;
     }
 
     a.welcome_button {
