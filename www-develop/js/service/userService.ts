@@ -41,10 +41,7 @@ module Service {
         decorateUserImage = (data) => {
             return this.$q((resolve, reject) => {
                 if (!data.data.picture) {
-                    data.data.picture = {
-                        picture: 'images/profile.png',
-                        thumbnail: 'images/profile.png'
-                    }
+                    data.data.picture = 'images/profile.png'
                 }
                 resolve(data);
             });
