@@ -38,6 +38,7 @@
 /* XS */
 @media (max-width: 767px) {
 
+
     .welcome-wrapper .help {
         width: 100%;
         height: auto;
@@ -178,6 +179,11 @@
     .welcome_button_wrapper {
         padding-top: 10px;
         padding-bottom: 30px;
+        width: 100%;
+    }
+
+    .front-help-wrapper {
+        float: right;
     }
 
     a.welcome_button {
