@@ -1,9 +1,10 @@
 module Controller {
 
     export class ErrorCtrl {
-
-        static $inject = [];
-        constructor() {
+        params:any;
+        static $inject = ['$state'];
+        constructor(private $state) {
+            this.params = this.$state.params;
         }
 
         static controllerId:string = "ErrorCtrl";
