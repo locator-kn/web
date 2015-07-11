@@ -89,8 +89,9 @@ module Service {
                     "description": newUserData.description,
                     "residence": newUserData.residence,
                     "birthdate": newUserData.birthdate
-                }).then(() => {
+                }).then((result) => {
                     this.detroyMeCache();
+                    return result;
                 })
         }
 
