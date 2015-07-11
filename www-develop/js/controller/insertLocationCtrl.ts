@@ -34,7 +34,6 @@ module Controller {
             tags: '',
             title: '',
             description: '',
-            budget: '',
             city: {}
         };
 
@@ -284,7 +283,6 @@ module Controller {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
-                            budget: result.data.budget
                         };
 
                         //handle tags for tagging directive
