@@ -1,6 +1,9 @@
 module Controller {
     export class WelcomeCtrl {
 
+        searchHelp:boolean = false;
+        createHelp:boolean = false;
+
         search:any = {
             moods: [],
             open: '',
