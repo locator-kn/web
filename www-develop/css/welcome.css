@@ -365,7 +365,7 @@ a.more-link:hover {
 .welcome-wrapper .arrow-down {
     position: absolute;
     left: 50%;
-    bottom: -1px;
+    bottom: 5px;
     margin-left: -38px;
     width: 75px;
 }
