@@ -33,13 +33,16 @@
                 <div class="toggle-settings" ng-click="moreFilter=!moreFilter">
                     Weitere Filter
                 </div>
-                <div ng-show="moreFilter">
+                <div class="settings-container" ng-show="moreFilter">
+                    <div class="datepicker-container">
+                        <datepicker  start-date-real="sc.query.start_date" end-date-real="sc.query.end_date"
+                                     on-linked="false"></datepicker>
+                    </div>
                     <div class="filter-container" ng-include="'templates/search/filter.html'"></div>
                 </div>
             </span>
         </div>
     </div>
-
     <div ng-include="'templates/search/searchSidebar.html'"></div>
     <div ng-include="'templates/search/searchResult.html'"></div>
 </div>
