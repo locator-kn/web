@@ -274,11 +274,13 @@ trip-min-view .result-content-box {
 {
     height: 100%;
     width: calc(25% - 4px);
-    background-size: 100%;
+    background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
     -webkit-transition:.5s;
     transition:.5s;
+    transition-property: background-color;
+    -webkit-transition-property: background-color;
     display: inline-block;
 }
 
