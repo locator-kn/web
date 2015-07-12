@@ -42,7 +42,7 @@
             <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)" ng-repeat="item in mc.emojis"></span>
 
         </div>
-        <textarea id="chat_box" ng-model="mc.textbox" ng-keydown="mc.sendMessage($event)"></textarea>
+        <textarea id="chat_box" focus ng-model="mc.textbox" ng-keydown="mc.sendMessage($event)"></textarea>
         <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji"><img class="emoji-icon" src="./images/icons/face.png"></button>
         <!--<button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>-->
     </form>
