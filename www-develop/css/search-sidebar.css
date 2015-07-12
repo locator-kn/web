@@ -277,6 +277,7 @@ trip-min-view .result-content-box {
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
+    -webkit-transition:.5s;
     transition:.5s;
     display: inline-block;
 }
@@ -290,29 +291,12 @@ trip-min-view .result-content-box {
 {
     height: 100%;
     width: calc(25% - 4px);
+    -webkit-transition:.5s;
     transition:.5s;
     display: inline-block;
 }
 
-.locationview-container .icon-circle
-{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: block;
-    cursor: pointer;
-    background-color: white;
-    background-size: 40px 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background 0.4s;
-}
-
+.locationview-container .icon-circle,
 .result-content-bottom .icon-circle
 {
     border-radius: 50%;
@@ -328,7 +312,9 @@ trip-min-view .result-content-box {
     margin-left: auto;
     position: relative;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    -webkit-transition: background 0.4s;
     transition: background 0.4s;
 }
 
@@ -565,6 +551,7 @@ trip-min-view .result-content-box {
 .mobile-settings .datepicker-container {
     display: inline-block;
     float: left;
+    margin-right: 5px;
 }
 
 .mobile-settings hr {
@@ -579,10 +566,26 @@ trip-min-view .result-content-box {
 
 .mobile-settings .filter-container {
     display: inline-block;
-    padding-left: 10px;
     padding-top: 0;
+    padding-left: 0;
 }
 
 .mobile-settings .settings-container {
     margin-top: 5px;
 }
+
+.toggle-settings .filter-icon {
+    background-image: url(../images/icons/filter_weiss.png);
+    background-size: 30px 30px;
+    background-position: center;
+    width: 30px;
+    height: 34px;
+    float: left;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.mobile-settings .filter-container .setting-selection-container:first-child {
+    padding-top: 0;
+}
+
