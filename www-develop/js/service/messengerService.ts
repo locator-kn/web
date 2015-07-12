@@ -23,13 +23,10 @@ module Service {
             return this.messagesIdCache.get(this.basePathRealtime + '/messages/' + id);
         }
 
-        clearConversationsCache() {
-            this.messagesIdCache.clearAll();
+        clearAll() {
+            this.CacheFactory.clearAll();
         }
 
-        clearMessagesCache() {
-            this.messagesIdCache.clearAll();
-        }
 
         putMessageByConversationId(id, data) {
             var cacheData = this.getMessagesCacheById(id);
