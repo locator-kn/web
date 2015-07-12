@@ -220,7 +220,7 @@ module Controller {
 
 
                 var element = document.getElementById('page-top');
-                this.smoothScroll(element);
+                this.smoothScroll(element, {offset: 60});
 
                 return;
             } else {

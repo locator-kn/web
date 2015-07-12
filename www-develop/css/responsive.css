@@ -9,7 +9,7 @@
     }
 
     .welcome-wrapper .help {
-        padding: 15px;
+        padding: 15px 30px;
     }
 
     .help-item .help-icon {
@@ -23,6 +23,16 @@
 
     .beta-badge {
         top: -20px;
+    }
+
+    .edittrip-container .content-wrapper:hover .select-overlay {
+        display: block;
+    }
+
+    .edittrip-container .location .select-overlay {
+        visibility: visible;
+        opacity: 1;
+        display: none;
     }
 
 }
@@ -393,6 +403,23 @@
 
     .messenger-container h2 {
         text-align: center;
+    }
+
+    .trip-success-container .wrapper {
+        position: inherit;
+    }
+
+    .trip-success-container .infobox {
+        border-left: none;
+    }
+
+    .trip-success-container .wrapper {
+        margin-top: 0;
+        padding: 15px;
+    }
+
+    .trip-success-container .wrapper {
+        height: auto;
     }
 
 }
