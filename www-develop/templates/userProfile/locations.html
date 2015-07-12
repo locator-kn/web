@@ -1,7 +1,7 @@
 <div class="mylocations-container col-xs-12">
     <div class="row">
 
-        <div class="searchbar col-xs-12">
+        <div ng-if="pc.locations.length > 0" class="searchbar col-xs-12">
             <input ng-model-options="{debounce:300}" ng-model="pc.locationSearch" placeholder="Suche" type="text"
                    name="search">
         </div>
@@ -15,6 +15,11 @@
 
                 <img ng-src="images/icons/header/neue_location_weiss.png">
                 <span>Location hinzufügen</span>
+            </div>
+        </div>
+
+        <div ng-if="!pc.me && pc.locations.length === 0" class="center col-xs-12">
+                <span>{{pc.user.name}} hat noch keine Locations erstellt</span>
             </div>
         </div>
 
