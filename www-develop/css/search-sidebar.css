@@ -565,6 +565,7 @@ trip-min-view .result-content-box {
 .mobile-settings .datepicker-container {
     display: inline-block;
     float: left;
+    margin-right: 5px;
 }
 
 .mobile-settings hr {
@@ -579,8 +580,8 @@ trip-min-view .result-content-box {
 
 .mobile-settings .filter-container {
     display: inline-block;
-    padding-left: 10px;
     padding-top: 0;
+    padding-left: 0;
 }
 
 .mobile-settings .settings-container {
@@ -596,5 +597,9 @@ trip-min-view .result-content-box {
     float: left;
     display: inline-block;
     margin-right: 5px;
+}
+
+.mobile-settings .filter-container .setting-selection-container:first-child {
+    padding-top: 0;
 }
 
