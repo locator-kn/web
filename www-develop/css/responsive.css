@@ -354,6 +354,45 @@
     .messenger-container .messages-wrapper {
         width: 100%;
         max-width: none;
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    #chat {
+        padding-top: 15px;
+    }
+
+    #conversations .list {
+        margin-top: 15px;
+    }
+
+    .messenger-container .header {
+        margin-top: 15px;
+    }
+
+    .messenger-container .conversations .list {
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        min-height: initial;
+    }
+
+    .messenger-container .conversations {
+        max-width: none;
+        min-height: initial;
+        margin-bottom: 30px;
+    }
+
+    .messenger-container .conversations .profileimage {
+        display: none;
+    }
+
+    .messenger-container .light-grey {
+        min-height: 500px;
+    }
+
+    .messenger-container h2 {
+        text-align: center;
     }
 
 }
