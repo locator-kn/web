@@ -598,3 +598,19 @@ trip-min-view .result-content-box {
     padding-top: 0;
 }
 
+.load-more-button {
+    border-radius: 3px;
+    background: #33c4b7;
+    position: relative;
+    width: 260px;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
