@@ -117,7 +117,7 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 45px);
     overflow: hidden;
     padding-bottom: 50px;
 }
