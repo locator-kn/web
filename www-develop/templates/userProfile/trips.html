@@ -54,7 +54,9 @@
                         <span>
                             <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"> | </span><!-- end ngIf: trip.days -->
                             <strong class="ng-binding">3</strong>
-                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}">Locations</ng-pluralize>
+                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}">
+                                Locations
+                            </ng-pluralize>
                         </span>
                             <!-- ngIf: trip.persons -->
                         </div>
