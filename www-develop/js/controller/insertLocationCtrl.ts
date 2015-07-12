@@ -360,6 +360,11 @@ module Controller {
 
                 this.getCityFromMarker();
 
+
+            });
+
+            this.$scope.$on('error', (event, data) => {
+                console.log(data);
             });
 
         }

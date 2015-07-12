@@ -201,6 +201,14 @@ var app = angular.module('locator', deps)
         };
     })
 
+    .directive('goBack', function ($window) {
+        return function ($scope, $element) {
+            $element.on('click', function () {
+                $window.history.back();
+            })
+        }
+    })
+
     .directive('contenteditable', [($sce) => {
         return {
             restrict: 'A', // only activate on element attribute
