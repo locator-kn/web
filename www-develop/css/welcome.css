@@ -254,10 +254,6 @@ h2#sub-headline {
 }
 
 .welcome_wrapper .list-selection a {
-    text-overflow: ellipsis;
-    max-width: 265px;
-    white-space: nowrap;
-    overflow: hidden;
     float: left;
 }
 
@@ -482,9 +478,9 @@ a.more-link:hover {
 .beta-badge {
     width: 150px;
     height: 150px;
-    background-image: url(../images/stoerer.png);
+    background-image: url(../images/stoerer.svg);
     background-size: 100%;
-    padding: 20px;
+    padding: 25px;
     -webkit-transform: rotate(-15deg);
     transform: rotate(-15deg);
     position: absolute;
@@ -500,4 +496,17 @@ a.more-link:hover {
 
 .welcome-wrapper .bold {
     font-weight: 600;
+}
+
+.welcome_select .dropdown-arrow {
+    padding-left: 5px;
+}
+
+.welcome_select span.title {
+    float: left;
+    text-decoration: underline;
+    text-overflow: ellipsis;
+    max-width: 295px;
+    white-space: nowrap;
+    overflow: hidden;
 }
