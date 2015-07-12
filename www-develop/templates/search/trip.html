@@ -17,7 +17,8 @@
                         <img class="pointer profile-image" ng-src="{{tc.user.picture + '?s=user'}}">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-7 btn-mood-container">
+                <div class="col-xs-12 col-sm-8 btn-mood-container">
+
                     <div ng-if="!tc.me" class="hidden-xs uppercase message-button pointer" ng-click="tc.participate()">
                         Kontaktieren
                     </div>
@@ -28,6 +29,8 @@
                     <div class="hidden-xs trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
                          ng-style="{'background-image':'url(./images/icons/moods_white/'+tc.trip.mood.icon+')'}">
                     </div>
+                    <span aria-label="Zurück" class="back-wrapper tt tt-small"><a go-back class="previous-button uppercase pointer"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg"></a></span>
+
                 </div>
             </div>
             <div class="col-xs-12 visible-xs move-50-top">
