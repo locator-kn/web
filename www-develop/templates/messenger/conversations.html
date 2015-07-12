@@ -4,7 +4,7 @@
     </div>
     <h2>Kontakte</h2>
     <div class="list">
-        <md-list-item scroll-to="chat" offset="35" ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read'], seen: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from !== userID, replied: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from === userID}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
+        <md-list-item ui-sref-active="active" ng-class="{unread: !conversation[userID + '_read'], seen: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from !== userID, replied: conversation[userID + '_read'] && mc.messagesHash[conversation._id][mc.messagesHash[conversation._id].length - 1].from === userID}" ui-sref="messenger.opponent({ opponentId: conversation._id })" ng-click="mc.select(conversation)" class="item md-3-line pointer" ng-repeat="conversation in mc.conversations">
 
             <img class="md-avatar" ng-src="{{conversation.opponent.picture + '?s=user'}}"/>
 
