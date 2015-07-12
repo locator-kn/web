@@ -97,6 +97,8 @@ module Controller {
                 this.$rootScope.$on('new_message', (evt, newMessage) => {
                     if (this.$state.params.opponentId) {
                         console.log('incoming message while being in messenger, do nothing');
+                        this.MessengerService.clearConversationsCache();
+                        this.MessengerService.clearMessagesCache();
                         return;
                     }
                     if (!this.conversationsHash[newMessage.conversation_id]) {
