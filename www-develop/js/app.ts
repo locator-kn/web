@@ -69,7 +69,6 @@ var deps = [
     'uiGmapgoogle-maps',
     'luegg.directives',
     'monospaced.elastic',
-    'infinite-scroll',
     //'ngFx', 'ngAnimate',
     'geolocation',
     'ngTagsInput'
