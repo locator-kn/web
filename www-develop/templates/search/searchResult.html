@@ -1,9 +1,8 @@
 <div class="results-container container" ng-click="sc.focusResult()" ng-class="{'loading' : src.animateLoading}"
      ng-controller="SearchResultCtrl as src">
-        <div infinite-scroll='src.loadMorePages()' infinite-scroll-distance='2' infinite-scroll-disabled='src.noMoreTrips' class="row">
-            <div class="col-xs-12" ng-repeat="result in src.results">
-                <trip-min-view trip="result" size="'mid'" mood="result.mood"></trip-min-view>
-            </div>
+        <div class="col-xs-12" ng-repeat="result in src.results">
+            <trip-min-view trip="result" size="'mid'" mood="result.mood"></trip-min-view>
         </div>
+        <div class="load-more-button pointer"ng-click="src.loadMorePages()">Mehr Ergbenisse laden</div>
     </div>
 </div>
