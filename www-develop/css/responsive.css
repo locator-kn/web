@@ -29,7 +29,9 @@
 
 /* LG */
 @media (min-width: 992px) {
-
+    .trip-image .placeholder-imaeg {
+        min-height: 509px;
+    }
 }
 
 /* SM */
@@ -332,6 +334,7 @@
     .move-50-top {
         margin-top: -50px;
     }
+
 
 }
 
