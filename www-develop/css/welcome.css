@@ -367,7 +367,7 @@ a.more-link:hover {
     position: absolute;
     bottom: 0;
     color: white;
-    padding: 30px;
+    padding: 30px 45px;
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
     overflow-x: hidden;

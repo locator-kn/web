@@ -69,10 +69,10 @@ var deps = [
     'uiGmapgoogle-maps',
     'luegg.directives',
     'monospaced.elastic',
-    'infinite-scroll',
     //'ngFx', 'ngAnimate',
     'geolocation',
-    'ngTagsInput'
+    'ngTagsInput',
+    'matchMedia'
 ];
 
 var app = angular.module('locator', deps)

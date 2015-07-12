@@ -1,12 +1,11 @@
 module Controller {
     export class SearchResultCtrl {
         results:any;
-        animateLoading = true;
         availableMoods:any = [];
         pageCount:number = 1;
         noMoreTrips:boolean = false;
 
-        dataLoading:boolean = false;
+        dataLoading:boolean = true;
 
         static $inject = ['$rootScope', 'SearchService', '$state', 'DataService'];
         constructor(private $rootScope, private SearchService, private $state, private DataService) {
@@ -16,13 +15,13 @@ module Controller {
             $rootScope.$on('loading', () => {
                 // fade out current results
                 // show loading indicator
-                this.animateLoading = true;
+                this.dataLoading = true;
             });
 
             $rootScope.$on('newSearchResults', (scope, result) => {
                 // stop loading indicator
                 // face in new results
-                this.animateLoading = false;
+                this.dataLoading = false;
                 this.results = result;
             });
 
@@ -48,9 +47,8 @@ module Controller {
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
-                    if (!result.data.length) {
+                    if (!result.data.length || result.data.length < 10) {
                         this.noMoreTrips = true;
-                        this.$rootScope.hideFooter = false;
                     }
                     result.data.forEach(entry => {
                             this.results.push(entry);

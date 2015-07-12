@@ -279,6 +279,8 @@ trip-min-view .result-content-box {
     background-position: center;
     -webkit-transition:.5s;
     transition:.5s;
+    transition-property: background-color;
+    -webkit-transition-property: background-color;
     display: inline-block;
 }
 
@@ -596,5 +598,21 @@ trip-min-view .result-content-box {
 
 .mobile-settings .filter-container .setting-selection-container:first-child {
     padding-top: 0;
+}
+
+.load-more-button {
+    border-radius: 3px;
+    background: #33c4b7;
+    position: relative;
+    width: 260px;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
