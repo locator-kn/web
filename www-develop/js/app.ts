@@ -72,7 +72,8 @@ var deps = [
     'infinite-scroll',
     //'ngFx', 'ngAnimate',
     'geolocation',
-    'ngTagsInput'
+    'ngTagsInput',
+    'matchMedia'
 ];
 
 var app = angular.module('locator', deps)
