@@ -1728,3 +1728,9 @@ h1 {
 .viewport-margin-top-10 {
     margin-top: 10vh;
 }
+
+.mytrips-container .day-amount {
+    padding-bottom: 15px;
+    float: left;
+    width: 100%;
+}

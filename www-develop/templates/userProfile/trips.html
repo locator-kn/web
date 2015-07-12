@@ -20,26 +20,40 @@
 
             <div class="wrapper">
                 <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
-                <div class="col-xs-12"><h3>{{trip.title}}</h3>
+                <div class="col-xs-12"><h3>{{trip.title}} ({{trip.city.title}})</h3>
 
-                    <p>
-                        Von
-                        <resultdate class="orange" date="trip.start_date"></resultdate>
+
+                    <p ng-if="(trip.start_date && trip.end_date) && (trip.start_date !== trip.end_date)">
+                        <resultdate date="trip.start_date"></resultdate>
                         bis
-                        <resultdate class="orange" date="trip.end_date"></resultdate>
+                        <resultdate date="trip.end_date"></resultdate>
                     </p>
+
+                    <p ng-if="(trip.start_date && trip.end_date) && (trip.start_date === trip.end_date)">
+                        <resultdate date="trip.start_date"></resultdate>
+                    </p>
+
 
                 </div>
 
 
                 <div class="content">
 
-                    <div class="col-sm-5">
-                        <h3>{{trip.city.title}}</h3>
-                    </div>
 
-                    <div class="col-sm-7">
+                    <div class="col-xs-12">
                         <p clas="description">{{trip.description}}</p>
+
+                        <div class="day-amount black">
+                            <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"><strong class="ng-binding">1 </strong>
+                            <ng-pluralize count="trip.days" when="{'1': 'Tag', 'other': 'Tage'}">Tag</ng-pluralize>
+                        </span><!-- end ngIf: trip.days -->
+                        <span>
+                            <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"> | </span><!-- end ngIf: trip.days -->
+                            <strong class="ng-binding">3</strong>
+                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}">Locations</ng-pluralize>
+                        </span>
+                            <!-- ngIf: trip.persons -->
+                        </div>
                     </div>
 
                 </div>
