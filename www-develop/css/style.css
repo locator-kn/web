@@ -1747,5 +1747,5 @@ h1 {
 }
 
 .not-selectable span.title {
-    text-decoration: none;
+    text-decoration: none !important;
 }
