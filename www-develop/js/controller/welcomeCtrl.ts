@@ -93,6 +93,11 @@ module Controller {
 
 
         startCreate() {
+
+            if (!this.$rootScope.authenticated) {
+                return this.$rootScope.$emit('openLoginDialog');
+            }
+
             this.$state.go('insertTrip', {
                 city: this.create.selectedCity.title,
                 moods: this.create.selectedMood.query_name,
