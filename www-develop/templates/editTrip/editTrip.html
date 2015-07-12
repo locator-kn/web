@@ -1,7 +1,8 @@
 <div class="edittrip-container container" ng-controller="EditTripCtrl as et">
     <div class="height-wrapper">
-        <div class="row">
-            <div ng-class="{'data-available': et.dataAvailable}" class="col-xs-12 searchbar welcome_select">
+        <div class="min-height-wrapper">
+            <div class="row">
+                <div ng-class="{'data-available': et.dataAvailable}" class="col-xs-12 searchbar welcome_select">
 
 
             <span class="relative red"><span class="margin-right">Du bietest</span>
@@ -22,16 +23,30 @@
                                                                                   selected-name="et.showCities"
                                                                                   open-element="mc.openElement"></div></span>
 
+
+                </div>
+            </div>
+
+            <div class="visible-xs row fixrow" sticky>
+                <div class="fixed-controls">
+                    <div class="col-xs-5"><span scroll-to="select" offset="100" class="pointer red menu">Locations wählen</span>
+                    </div>
+                    <div class="padding-left-0 padding-right-0 col-xs-5"><span scroll-to="selected" offset="100"
+                                                                               class="pointer red menu">gewählte Locations</span>
+                    </div>
+                    <div class="col-xs-2"><span scroll-to="meta" offset="100"
+                                                class="pointer red menu"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_rechts.svg"></span>
+                    </div>
+                </div>
             </div>
         </div>
-
 
         <div class="row">
 
             <div class="col-xs-12 col-sm-9">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 locationpool">
-                        <h3>Locations auswählen</h3>
+                        <h3 id="select">Locations auswählen</h3>
 
                         <div class="border-wrapper">
 
@@ -58,9 +73,10 @@
                                 </div>
 
 
-                                <div ng-repeat="location in et.publicLocations | filter:et.locationSearch track by $index"
-                                     ng-class="{'opened': location.opened}"
-                                     class="relative location border-radius-decent">
+                                <div
+                                    ng-repeat="location in et.publicLocations | filter:et.locationSearch track by $index"
+                                    ng-class="{'opened': location.opened}"
+                                    class="relative location border-radius-decent">
 
 
                                     <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
@@ -90,7 +106,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 locationpool selectedlocations">
 
-                        <h3>Trip beinhaltet</h3>
+                        <h3 id="selected">Trip beinhaltet</h3>
 
                         <div ng-class="{'err' : et.error && et.selectedLocations.length === 0}" class="border-wrapper">
 
@@ -101,7 +117,8 @@
                             </div>
 
 
-                            <div ng-repeat="location in et.selectedLocations track by $index" ng-class="{'opened': location.opened}"
+                            <div ng-repeat="location in et.selectedLocations track by $index"
+                                 ng-class="{'opened': location.opened}"
                                  class="relative location mylocation">
 
                                 <div ng-include="'templates/editTrip/selected-singleTrip.html'" include-replace></div>
@@ -114,7 +131,7 @@
             </div>
             <div ng-class="{'accomodation': et.tripMeta.accommodation}" class="col-xs-12 col-sm-3 metadata">
 
-                <h3>Sonstiges</h3>
+                <h3 id="meta">Sonstiges</h3>
 
                 <div class="border-wrapper">
                     <div ng-class="{'err' : et.error && !et.dateValid}" class="date meta-section">
@@ -218,13 +235,16 @@
 
                 <h3>{{et.tripMeta.title || 'Triptitel'}}</h3>
 
-                <div class="daterange" ng-if="!(et.tripMeta.start_date && et.tripMeta.end_date)"><strong>Ohne Datum</strong></div>
+                <div class="daterange" ng-if="!(et.tripMeta.start_date && et.tripMeta.end_date)"><strong>Ohne
+                    Datum</strong></div>
 
                 <div class="daterange" ng-if="(et.tripMeta.start_date == et.tripMeta.end_date)"><strong>
                     <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
                 </strong></div>
 
-                <div ng-if="(et.tripMeta.start_date && et.tripMeta.end_date) && (et.tripMeta.start_date !== et.tripMeta.end_date)" class="daterange">
+                <div
+                    ng-if="(et.tripMeta.start_date && et.tripMeta.end_date) && (et.tripMeta.start_date !== et.tripMeta.end_date)"
+                    class="daterange">
                     <strong>
                         <resultdate class="black" date="et.tripMeta.start_date"></resultdate>
                     </strong>
@@ -260,12 +280,14 @@
                 <label>Triptitel</label>
 
                 <div class="trip-title">
-                    <input maxlength="40" ng-class="{'error': et.validationFails && et.tripMeta.title.length < 2}" ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
+                    <input maxlength="40" ng-class="{'error': et.validationFails && et.tripMeta.title.length < 2}"
+                           ng-class="{'err': (et.error && et.tripMeta.title < 1) }" reguired
                            ng-model="et.tripMeta.title" placeholder="Triptitel eingeben" type="text">
                 </div>
 
                 <label>Beschreibe deinen Trip <span class="max-length">({{300 - et.tripMeta.description.length}} Zeichen)</span></label>
-            <textarea maxlength="300" ng-class="{'error': et.validationFails && et.tripMeta.description.length < 2}" class="description" ng-model="et.tripMeta.description"
+            <textarea maxlength="300" ng-class="{'error': et.validationFails && et.tripMeta.description.length < 2}"
+                      class="description" ng-model="et.tripMeta.description"
                       placeholder="Beschreibe deinen Trip"></textarea>
             </div>
 
