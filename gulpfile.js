@@ -162,8 +162,14 @@ gulp.task('install', function () {
 gulp.task('compile', ['ts', 'html', 'lib', 'img', 'locale', 'responsiveCss'], function() {
     var target = gulp.src('./www-develop/index.html');
     var sources1 = gulp.src(['./www-develop/css/**/*.css', '!./www-develop/css/response.css'])
-        .pipe(concat('css/all.css')).pipe(cachebust.resources()).pipe(gulp.dest('./www'));
-//    var sources2 = gulp.src(['./www-develop/css/**/*.css', '!./www-develop/css/response.css']).
+        .pipe(concat('css/all.css'))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(minifyCss({compatibility: 'ie8'}))
+        .pipe(cachebust.resources())
+        .pipe(gulp.dest('./www'));
 
     return target.pipe(inject(sources1,  {ignorePath: 'www', addRootSlash: false})).pipe(gulp.dest('./www'));
 });
