@@ -586,3 +586,15 @@ trip-min-view .result-content-box {
 .mobile-settings .settings-container {
     margin-top: 5px;
 }
+
+.toggle-settings .filter-icon {
+    background-image: url(../images/icons/filter_weiss.png);
+    background-size: 30px 30px;
+    background-position: center;
+    width: 30px;
+    height: 34px;
+    float: left;
+    display: inline-block;
+    margin-right: 5px;
+}
+
