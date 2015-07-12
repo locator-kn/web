@@ -23,115 +23,115 @@
         </div>
     </div>
 
+    <div class="row">
+        <div ng-show="pc.defaultLocation" class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
 
-    <div ng-show="pc.defaultLocation" class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
+            <div class="wrapper">
+                <div class="link-to-location-view pointer" ng-click="pc.showLocation(pc.defaultLocation)">
+                    <img class="img-responsive" ng-if="pc.defaultLocation.images.picture"
+                         ng-src="{{pc.defaultLocation.images.picture + '?size=mid'}}">
 
-        <div class="wrapper">
-            <div class="link-to-location-view pointer" ng-click="pc.showLocation(pc.defaultLocation)">
-                <img class="img-responsive" ng-if="pc.defaultLocation.images.picture"
-                     ng-src="{{pc.defaultLocation.images.picture + '?size=mid'}}">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-5">
+                            </div>
+                            <div class="col-xs-12">
+                                <h2>{{pc.defaultLocation.title}}</h2>
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-5">
-                        </div>
-                        <div class="col-xs-12">
-                            <h2>{{pc.defaultLocation.title}}</h2>
+                                <h3>{{pc.defaultLocation.city.title}}</h3>
 
-                            <h3>{{pc.defaultLocation.city.title}}</h3>
-
-                            <p clas="description">{{pc.defaultLocation.description}}</p>
+                                <p clas="description">{{pc.defaultLocation.description}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-if="pc.defaultLocation.tags.length > 0" class="col-xs-12 location-tags locationborder">
-                <span ng-repeat="tag in pc.defaultLocation.tags" class="tag">{{tag}}</span>
-            </div>
+                <div ng-if="pc.defaultLocation.tags.length > 0" class="col-xs-12 location-tags locationborder">
+                    <span ng-repeat="tag in pc.defaultLocation.tags" class="tag">{{tag}}</span>
+                </div>
 
-            <div ng-if="pc.me" class="col-xs-12 location-settings locationborder"
-                 ng-class="{'big-padding': pc.defaultLocation.showdelete}">
-                <div class="action-buttons">
-                    <div ng-hide="!pc.defaultLocation.showdelete" class="fx-fade-up fx-speed-300 delete-message">
-                        <p>Willst du die Strandbar wirklich aus deinem Profil entfernen?</p>
-                        <a ng-click="pc.deleteLocation(pc.defaultLocation)"
-                           class="red button locator-btn pointer">Ja</a>
-                        <a ng-click="pc.defaultLocation.showdelete = !pc.defaultLocation.showdelete"
-                           class="cyan button locator-btn pointer">Abbrechen</a>
-                    </div>
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder"
+                     ng-class="{'big-padding': pc.defaultLocation.showdelete}">
+                    <div class="action-buttons">
+                        <div ng-hide="!pc.defaultLocation.showdelete" class="fx-fade-up fx-speed-300 delete-message">
+                            <p>Willst du die Strandbar wirklich aus deinem Profil entfernen?</p>
+                            <a ng-click="pc.deleteLocation(pc.defaultLocation)"
+                               class="red button locator-btn pointer">Ja</a>
+                            <a ng-click="pc.defaultLocation.showdelete = !pc.defaultLocation.showdelete"
+                               class="cyan button locator-btn pointer">Abbrechen</a>
+                        </div>
 
                     <span ng-click="pc.showDelete(pc.defaultLocation)" aria-label="Location löschen"
                           class="tt tt-small action-button pointer delete"><img
                         src="images/icons/icons_stuff/cross.png"></span>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
 
-    <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
-         class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
-        <div class="wrapper">
-            <div class="link-to-location-view pointer" ng-click="pc.showLocation(location)">
-                <img class="img-responsive" ng-if="location.images.picture"
-                     ng-src="{{location.images.picture + '?size=mid'}}">
+        <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
+             class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
+            <div class="wrapper">
+                <div class="link-to-location-view pointer" ng-click="pc.showLocation(location)">
+                    <img class="img-responsive" ng-if="location.images.picture"
+                         ng-src="{{location.images.picture + '?size=mid'}}">
 
-                <div class="content">
-                    <div class="row">
-                        <div class="col-sm-5">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-sm-5">
 
-                        </div>
+                            </div>
 
-                        <div class="col-xs-12">
-                            <h2>{{location.title}}</h2>
+                            <div class="col-xs-12">
+                                <h2>{{location.title}}</h2>
 
-                            <h3>{{location.city.title}}</h3>
+                                <h3>{{location.city.title}}</h3>
 
-                            <p clas="description">{{location.description}}</p>
+                                <p clas="description">{{location.description}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-if="location.tags.length > 0" class="col-xs-12 location-tags locationborder">
-                <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
-            </div>
-
-            <div ng-if="pc.me" class="col-xs-12 location-settings locationborder"
-                 ng-class="{'big-padding': location.locationReallyDelete}">
-
-                <div class="switch-wrapper">
-                    <span class="toggle-label">Location sichtbar</span>
-
-                    <div class="switch">
-                        <input ng-if="location.public" id="{{location._id}}" checked
-                               class="cmn-toggle cmn-toggle-round"
-                               ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
-                        <input ng-if="!location.public" id="{{location._id}}"
-                               class="cmn-toggle cmn-toggle-round"
-                               ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
-
-                        <label for="{{location._id}}"></label>
-                    </div>
+                <div ng-if="location.tags.length > 0" class="col-xs-12 location-tags locationborder">
+                    <span ng-repeat="tag in location.tags" class="tag">{{tag}}</span>
                 </div>
 
-                <div class="action-buttons">
-                    <div ng-hide="!location.showdelete" class="fx-fade-up fx-speed-300 delete-message">
-                        <a ng-click="pc.deleteLocation(location)"
-                           class="red button locator-btn pointer">Löschen</a>
-                        <a ng-click="location.showdelete = !location.showdelete"
-                           class="cyan button locator-btn pointer">Abbrechen</a>
+                <div ng-if="pc.me" class="col-xs-12 location-settings locationborder"
+                     ng-class="{'big-padding': location.locationReallyDelete}">
+
+                    <div class="switch-wrapper">
+                        <span class="toggle-label">Location sichtbar</span>
+
+                        <div class="switch">
+                            <input ng-if="location.public" id="{{location._id}}" checked
+                                   class="cmn-toggle cmn-toggle-round"
+                                   ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+                            <input ng-if="!location.public" id="{{location._id}}"
+                                   class="cmn-toggle cmn-toggle-round"
+                                   ng-click="pc.togglePublicLocation(location._id)" type="checkbox">
+
+                            <label for="{{location._id}}"></label>
+                        </div>
                     </div>
-                    <div ng-hide="!location.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message"
-                         ng-class="location-settings-new">
-                        <p>Die Location wird in einem Trip verwendet. Wirklich löschen?</p>
-                        <a ng-click="pc.deleteLocationForce(location)"
-                           class="red button locator-btn pointer">Ja</a>
-                        <a ng-click="location.locationReallyDelete = !location.locationReallyDelete"
-                           class="cyan button locator-btn pointer">Nein</a>
-                    </div>
+
+                    <div class="action-buttons">
+                        <div ng-hide="!location.showdelete" class="fx-fade-up fx-speed-300 delete-message">
+                            <a ng-click="pc.deleteLocation(location)"
+                               class="red button locator-btn pointer">Löschen</a>
+                            <a ng-click="location.showdelete = !location.showdelete"
+                               class="cyan button locator-btn pointer">Abbrechen</a>
+                        </div>
+                        <div ng-hide="!location.locationReallyDelete" class="fx-fade-up fx-speed-300 delete-message"
+                             ng-class="location-settings-new">
+                            <p>Die Location wird in einem Trip verwendet. Wirklich löschen?</p>
+                            <a ng-click="pc.deleteLocationForce(location)"
+                               class="red button locator-btn pointer">Ja</a>
+                            <a ng-click="location.locationReallyDelete = !location.locationReallyDelete"
+                               class="cyan button locator-btn pointer">Nein</a>
+                        </div>
 
                     <span ui-sref="editLocation({locationId: location._id})"
                           aria-label="Location bearbeiten" class="tt tt-small action-button pointer edit">
@@ -140,6 +140,7 @@
                           class="tt tt-small action-button pointer delete"><img
                         src="images/icons/icons_stuff/cross.png"></span>
 
+                    </div>
                 </div>
 
             </div>
