@@ -1749,3 +1749,7 @@ h1 {
 .not-selectable span.title {
     text-decoration: none;
 }
+
+.profile-image img {
+    width: 100%;
+}
