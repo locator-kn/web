@@ -39,6 +39,9 @@ module Controller {
             });
             if (this.$rootScope.authenticated) {
                 this.registerSocketEvent();
+            } else {
+                this.$state.go('welcome');
+                this.$rootScope.$emit('openLoginDialog');
             }
 
             this.messagesIdCache = this.CacheFactory.get('messagesId');
