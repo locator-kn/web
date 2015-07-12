@@ -24,11 +24,11 @@ module Service {
         }
 
         clearConversationsCache() {
-            this.messagesIdCache.removeAll();
+            this.messagesIdCache.clearAll();
         }
 
         clearMessagesCache() {
-            this.messagesIdCache.removeAll();
+            this.messagesIdCache.clearAll();
         }
 
         putMessageByConversationId(id, data) {
