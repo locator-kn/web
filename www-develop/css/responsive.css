@@ -25,6 +25,16 @@
         top: -20px;
     }
 
+    .edittrip-container .content-wrapper:hover .select-overlay {
+        display: block;
+    }
+
+    .edittrip-container .location .select-overlay {
+        visibility: visible;
+        opacity: 1;
+        display: none;
+    }
+
 }
 
 /* LG */
