@@ -86,7 +86,7 @@ gulp.task('ts', function () {
 });
 
 gulp.task('serve', function () {
-    gulp.src('www')
+    return gulp.src('www')
         .pipe(server({
             livereload: {
                 enable: false,
@@ -126,15 +126,15 @@ gulp.task('css', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('./www-develop/**/*.html').pipe(gulp.dest('./www'));
+    return gulp.src('./www-develop/**/*.html').pipe(gulp.dest('./www'));
 });
 
 gulp.task('lib', function () {
-    gulp.src('./www-develop/lib/**/*').pipe(gulp.dest('./www/lib'));
+    return gulp.src('./www-develop/lib/**/*').pipe(gulp.dest('./www/lib'));
 });
 
 gulp.task('img', function () {
-    gulp.src('./www-develop/images/**/*').pipe(gulp.dest('./www/images'));
+    return gulp.src('./www-develop/images/**/*').pipe(gulp.dest('./www/images'));
 });
 
 gulp.task('watch', ['ts', 'html', 'lib', 'img', 'css', 'locale'], function () {
@@ -149,7 +149,7 @@ gulp.task('watch', ['ts', 'html', 'lib', 'img', 'css', 'locale'], function () {
 
 
 gulp.task('responsiveCss', function () {
-    gulp.src('./www-develop/css/responsive.css').pipe(gulp.dest('./www/css'));
+    return gulp.src('./www-develop/css/responsive.css').pipe(gulp.dest('./www/css'));
 });
 
 gulp.task('install', function () {
