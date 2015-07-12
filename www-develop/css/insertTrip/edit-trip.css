@@ -614,7 +614,12 @@ span.info.err {
 
 .edittrip-container .back-button {
     padding: 0;
-    height: 16px;
+    text-align: center;
+    margin: 0 auto;
+    float: initial;
+    display: table-cell;
+    height: 22px;
+
 }
 
 .fixrow {
