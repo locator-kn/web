@@ -463,11 +463,16 @@ trip-min-view .result-content-box {
 .filter-container .ui-widget-content,
 .filter-container .ui-state-default,
 .filter-container .ui-widget-content .ui-state-default,
-.filter-container .ui-widget-header .ui-state-default{
+.filter-container .ui-widget-header .ui-state-default,
+.mobile-settings .ui-widget-content,
+.mobile-settings .ui-state-default,
+.mobile-settings .ui-widget-content .ui-state-default,
+.mobile-settings .ui-widget-header .ui-state-default {
     color: white;
 }
 
-.filter-container .dp-highlight .ui-state-default {
+.filter-container .dp-highlight .ui-state-default,
+.mobile-settings .dp-highlight .ui-state-default {
     background-color: white;
     color: #33c4b7;
 }
@@ -538,4 +543,41 @@ trip-min-view .result-content-box {
 
 .container-sidebar .settings.toggle {
     left: 0;
+}
+
+.container-sidebar .settings.toggle {
+    left: 0;
+}
+
+.mobile-settings {
+    width: 100%;
+    height: auto;
+    background-color: #33c4b7;
+    position: relative;
+    float: left;
+    padding: 4px 10px 4px 10px;
+    border-radius: 3px;
+    color: white;
+    display: none;
+    margin-top: 5px;
+}
+
+.mobile-settings .datepicker-container {
+    display: inline-block;
+    float: left;
+}
+
+.mobile-settings hr {
+    display: none;
+}
+
+.toggle-settings {
+    width: 100%;
+    display: block;
+    font-size: 24px;
+}
+
+.mobile-settings .filter-container {
+    display: inline-block;
+    padding-left: 10px;
 }

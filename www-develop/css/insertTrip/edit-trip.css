@@ -597,7 +597,11 @@ span.info.err {
 
 .fixed-controls span.red {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
+}
+
+.fixed-controls span.red.smallarrow {
+    padding: 4px
 }
 
 .stuck {
@@ -610,7 +614,12 @@ span.info.err {
 
 .edittrip-container .back-button {
     padding: 0;
-    height: 28px;
+    text-align: center;
+    margin: 0 auto;
+    float: initial;
+    display: table-cell;
+    height: 22px;
+
 }
 
 .fixrow {

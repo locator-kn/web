@@ -61,6 +61,7 @@
 
     .edittrip-container .min-height-wrapper {
         min-height: 221px;
+        margin-bottom: 10px;
     }
 
     .edittrip-container .datepicker .ui-widget {
@@ -326,6 +327,10 @@
         margin-top: 30px;
     }
 
+    .container-sidebar {
+        display: none;
+    }
+
     .trip-mood-container {
         margin: 0;
         float: left;
@@ -339,6 +344,9 @@
         margin-top: -50px;
     }
 
+    .mobile-settings {
+        display: block;
+    }
 
 }
 
