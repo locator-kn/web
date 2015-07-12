@@ -597,7 +597,7 @@ span.info.err {
 
 .fixed-controls span.red {
     color: white;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .stuck {
@@ -610,7 +610,7 @@ span.info.err {
 
 .edittrip-container .back-button {
     padding: 0;
-    height: 28px;
+    height: 16px;
 }
 
 .fixrow {
