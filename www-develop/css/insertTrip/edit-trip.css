@@ -600,6 +600,10 @@ span.info.err {
     font-size: 16px;
 }
 
+.fixed-controls .span.red.arrow {
+    padding: 4px
+}
+
 .stuck {
     position: fixed;
     top: 45px;
