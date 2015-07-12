@@ -274,7 +274,7 @@ trip-min-view .result-content-box {
 {
     height: 100%;
     width: calc(25% - 4px);
-    background-size: 40px 40px;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     -webkit-transition:.5s;
