@@ -359,6 +359,11 @@ a.more-link:hover {
 
 .welcome-wrapper {
     overflow: hidden;
+    position: relative;
+}
+
+.welcome-wrapper .arrow-down {
+    position: absolute;
 }
 
 .welcome-wrapper .help {
