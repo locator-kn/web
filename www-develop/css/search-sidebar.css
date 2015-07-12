@@ -580,4 +580,9 @@ trip-min-view .result-content-box {
 .mobile-settings .filter-container {
     display: inline-block;
     padding-left: 10px;
+    padding-top: 0;
+}
+
+.mobile-settings .settings-container {
+    margin-top: 5px;
 }
