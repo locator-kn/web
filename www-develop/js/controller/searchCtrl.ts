@@ -56,10 +56,11 @@ module Controller {
             //just do this on xs
             if (angular.element(document).width() > 767) {
                 this.scrollevent = this.UtilityService.softDebounce(this.checkScrollDirection, 250, true);
+                $(window).scroll(() => {
+                    this.scrollevent();
+                });
             }
-            $(window).scroll(() => {
-                this.scrollevent();
-            });
+
 
             //watch the query variable and fire updateUrl() on change
             this.$scope.$watchCollection(angular.bind(this, (query) => {
