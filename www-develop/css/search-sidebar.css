@@ -556,6 +556,7 @@ trip-min-view .result-content-box {
 
 .mobile-settings hr {
     display: none;
+    position: relative;
 }
 
 .toggle-settings {
@@ -572,6 +573,14 @@ trip-min-view .result-content-box {
 
 .mobile-settings .settings-container {
     margin-top: 5px;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 5;
+    background: #33c4b7;
+    width: 100%;
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
 }
 
 .toggle-settings .filter-icon {
@@ -579,7 +588,7 @@ trip-min-view .result-content-box {
     background-size: 30px 30px;
     background-position: center;
     width: 30px;
-    height: 34px;
+    height: 35px;
     float: left;
     display: inline-block;
     margin-right: 5px;
