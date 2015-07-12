@@ -574,6 +574,7 @@ trip-min-view .result-content-box {
 .toggle-settings {
     width: 100%;
     display: block;
+    font-size: 24px;
 }
 
 .mobile-settings .filter-container {

@@ -28,15 +28,15 @@
                          </div>
                     </span>
                 </div>
-                <span class="mobile-settings" ng-init="moreFilter=false">
-                    <div class="toggle-settings" ng-click="moreFilter=!moreFilter">
-                        Weitere Filter
-                    </div>
-                    <div ng-show="moreFilter">
-                    <div class="filter-container" ng-include="'templates/search/filter.html'"></div>
-                    </div>
-            </span>
             </div>
+            <span class="mobile-settings" ng-init="moreFilter=false">
+                <div class="toggle-settings" ng-click="moreFilter=!moreFilter">
+                    Weitere Filter
+                </div>
+                <div ng-show="moreFilter">
+                    <div class="filter-container" ng-include="'templates/search/filter.html'"></div>
+                </div>
+            </span>
         </div>
     </div>
 
