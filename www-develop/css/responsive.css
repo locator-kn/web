@@ -72,6 +72,11 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .result-content-box {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 3px;
+    }
+
     .edittrip-container .min-height-wrapper {
         min-height: 221px;
         margin-bottom: 10px;
