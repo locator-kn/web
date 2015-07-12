@@ -48,7 +48,7 @@ module Controller {
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {
-                    if (!result.data.length) {
+                    if (!result.data.length || result.data.length < 10) {
                         this.noMoreTrips = true;
                     }
                     result.data.forEach(entry => {
