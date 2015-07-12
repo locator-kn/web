@@ -99,6 +99,7 @@ module Controller {
                         console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
+                    this.MessengerService.clearAll();
                     if (!this.conversationsHash[newMessage.conversation_id]) {
                         this.conversationsHash[newMessage.conversation_id] = {};
                     }
