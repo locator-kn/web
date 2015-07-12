@@ -50,7 +50,6 @@ module Controller {
                 .then(result => {
                     if (!result.data.length) {
                         this.noMoreTrips = true;
-                        this.$rootScope.hideFooter = false;
                     }
                     result.data.forEach(entry => {
                             this.results.push(entry);
