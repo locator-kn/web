@@ -59,6 +59,10 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .edittrip-container .min-height-wrapper {
+        min-height: 212px;
+    }
+
     .edittrip-container .datepicker .ui-widget {
         border-width: 1px;
     }

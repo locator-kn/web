@@ -1683,9 +1683,6 @@ h1 {
     margin: 0;
 }
 
-.trip-image .placeholder-imaeg {
-    min-height: 509px;
-}
 
 .flexslider {
     position: relative;
@@ -1733,4 +1730,22 @@ h1 {
     padding-bottom: 15px;
     float: left;
     width: 100%;
+}
+
+.padding-left-0 {
+    padding-left: 0;
+}
+
+.padding-right-0 {
+    padding-right: 0;
+}
+
+.fix-to-top {
+    position: fixed;
+    top: 45px !important;
+    width: 100%
+}
+
+.not-selectable span.title {
+    text-decoration: none;
 }
