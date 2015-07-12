@@ -36,6 +36,10 @@
 
 /* SM */
 @media (max-width: 991px) {
+    .welcome_select span.title {
+        max-width: 260px;
+    }
+
     .flex-direction-nav a {
         background: none;
     }
@@ -46,13 +50,12 @@
 
     .edittrip-container .datepicker .ui-widget {
         border-width: 0px;
-        border-bottom: 1px solid rgb(34,34,34);
+        border-bottom: 1px solid rgb(34, 34, 34);
     }
 
     .edittrip-container .persons.meta-section, .edittrip-container .accomo.meta-section {
         padding: 0 5px;
     }
-
 
 }
 
@@ -346,6 +349,11 @@
 
     .mobile-settings {
         display: block;
+    }
+
+    .messenger-container .messages-wrapper {
+        width: 100%;
+        max-width: none;
     }
 
 }

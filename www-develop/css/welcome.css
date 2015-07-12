@@ -510,3 +510,7 @@ a.more-link:hover {
     white-space: nowrap;
     overflow: hidden;
 }
+
+.welcome_container .createview .welcome_wrapper {
+    padding-right: 15px;
+}
