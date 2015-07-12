@@ -30,6 +30,7 @@
     float: right;
     display: inline-block;
     font-size: 24px;
+    font-weight: 600;
 }
 
 .trip-mood-container {
