@@ -24,9 +24,9 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        static $inject = ['smoothScroll', '$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
+        static $inject = ['screenSize', 'smoothScroll', '$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
 
-        constructor(private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
+        constructor(private screenSize, private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
 
             this.$rootScope.breadcrumb = 'Messenger';
 
@@ -139,11 +139,15 @@ module Controller {
             });
 
             // scroll to chat
-            if (this.initialLoad) {
-                var element = document.getElementById('chat');
-                this.smoothScroll(element, {offset: 60});
-            } else {
-                this.initialLoad = true;
+            console.info(this.screenSize);
+            if (this.screenSize.is('xs')) {
+
+                if (this.initialLoad) {
+                    var element = document.getElementById('chat');
+                    this.smoothScroll(element, {offset: 60});
+                } else {
+                    this.initialLoad = true;
+                }
             }
 
 
