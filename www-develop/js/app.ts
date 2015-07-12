@@ -396,7 +396,7 @@ var app = angular.module('locator', deps)
                     scope._stickyElements = [];
 
                     $win.bind("scroll.sticky", function (e) {
-                        var pos = $win.scrollTop() +23;
+                        var pos = $win.scrollTop() + 26;
                         for (var i = 0; i < scope._stickyElements.length; i++) {
 
                             var item = scope._stickyElements[i];
