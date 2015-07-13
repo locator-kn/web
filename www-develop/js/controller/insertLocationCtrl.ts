@@ -41,9 +41,10 @@ module Controller {
 
         me:any = {};
 
-        static $inject = ['InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
-        constructor(private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        static $inject = ['UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
 
+        constructor(private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+            
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
                 this.headline = 'Neue Location erstellen';
@@ -360,10 +361,10 @@ module Controller {
 
                 this.getCityFromMarker();
 
-
             });
 
             this.$scope.$on('error', (event, data) => {
+                this.UtilityService.errorMsg('GPS Error', 'Prüfe deine GPS Einstellungen');
                 console.log(data);
             });
 
