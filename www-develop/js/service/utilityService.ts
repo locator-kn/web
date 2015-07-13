@@ -75,6 +75,30 @@ module Service {
 
         }
 
+        betaMsg(title, msg) {
+            var modal = this.ngDialog.open({
+                controller: ($scope, $rootScope) => {
+                    $scope.close = () => {
+                        modal.close();
+                    };
+                    $scope.why = ($event) => {
+                        $event.stopPropagation();
+                        modal.close();
+                        $rootScope.$emit('newPopoverSelected', 'stoerersmall');
+                    };
+                },
+                template: '<h3>' + title + '</h3>' +
+                '<p>' + msg + '</p>' +
+                '<div class="padding-left-0 padding-right-7 button-wrapper col-xs-12 col-sm-6">' +
+                '<a class="pointer" ng-click="close()">Alles klar</a>' +
+                '</div>' +
+                '<div class="padding-right-0 padding-left-7 button-wrapper col-xs-12 col-sm-6">' +
+                '<a class="pointer" ng-click="why($event)">Warum?</a>' +
+                '</div>',
+                plain: true
+            });
+        }
+
 
         static serviceId:string = "UtilityService";
     }
