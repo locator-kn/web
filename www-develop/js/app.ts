@@ -72,7 +72,8 @@ var deps = [
     //'ngFx', 'ngAnimate',
     'geolocation',
     'ngTagsInput',
-    'matchMedia'
+    'matchMedia',
+    'ngDialog'
 ];
 
 var app = angular.module('locator', deps)
