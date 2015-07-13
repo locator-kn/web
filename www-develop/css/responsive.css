@@ -427,6 +427,14 @@
         height: auto;
     }
 
+    .stoerer-small {
+        display: none;
+    }
+
+    .welcome_container {
+        min-height: auto;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
