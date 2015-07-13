@@ -1765,7 +1765,7 @@ h1 {
     padding: 15px 30px;
 }
 
-h3#ngdialog1-aria-labelledby {
+.ngdialog h3 {
     margin-top: 0;
     background-color: rgb(34,34,34);
     margin-left: -30px;
