@@ -45,7 +45,6 @@ module Controller {
 
         constructor(private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
-
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
                 this.headline = 'Neue Location erstellen';
@@ -373,10 +372,18 @@ module Controller {
         }
 
         getCityFromMarker() {
+            this.LocationService.getPlaceIdByAddress('Konstanz').then(result => {
+               debugger;
+            });
+
+
             this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
                 .then(result => {
+
+                    debugger;
+
                     var locality;
-                    result.data.results.forEach((item:any) => {
+                    result.forEach((item:any) => {
                         if (item.types[0] == 'locality') {
                             locality = item;
                         }
