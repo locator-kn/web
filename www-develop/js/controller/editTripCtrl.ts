@@ -55,7 +55,7 @@ module Controller {
 
         constructor(private UtilityService, private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
 
-            angular.element('.hover').bind('touchstart touchend', function (e) {
+            angular.element('.content-wrapper').bind('touchstart touchend', function (e) {
                 console.info(e);
                 console.info('hover');
             });
