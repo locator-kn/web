@@ -130,7 +130,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('sound', function () {
-    return gulp.src('./www-develop/sound/*').pipe(gulp.dest('./www'));
+    return gulp.src('./www-develop/**/*.mp3').pipe(gulp.dest('./www'));
 });
 
 gulp.task('lib', function () {
