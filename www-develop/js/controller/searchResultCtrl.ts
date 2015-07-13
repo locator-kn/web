@@ -21,8 +21,14 @@ module Controller {
             $rootScope.$on('newSearchResults', (scope, result) => {
                 // stop loading indicator
                 // face in new results
+                this.pageCount = 1;
                 this.dataLoading = false;
                 this.results = result;
+                if(this.results.length < 10) {
+                    this.noMoreTrips = true;
+                } else {
+                    this.noMoreTrips = false;
+                }
             });
 
             this.DataService.getMoods().then(result => {
@@ -43,7 +49,7 @@ module Controller {
                 return;
             }
 
-            this.dataLoading = true
+            this.dataLoading = true;
             this.pageCount += 1;
             this.SearchService.getMoreTrips(this.pageCount)
                 .then(result => {

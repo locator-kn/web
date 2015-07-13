@@ -1,8 +1,9 @@
 module Service {
     export class UtilityService {
 
-        constructor() {
+        static $inject = ['ngDialog'];
 
+        constructor(private ngDialog) {
         }
 
 
@@ -13,9 +14,9 @@ module Service {
         // Borrowed from: http://davidwalsh.name/javascript-debounce-function
         debounce(func:any, wait:number, immediate:boolean) {
             var timeout;
-            return function() {
+            return function () {
                 var context = this, args = arguments;
-                var later = function() {
+                var later = function () {
                     timeout = null;
                     if (!immediate) func.apply(context, args);
                 };
@@ -28,17 +29,76 @@ module Service {
 
         softDebounce(func:any, wait:number, immediate:boolean) {
             var timeout;
-            return function() {
+            return function () {
                 var context = this, args = arguments;
-                var later = function() {
+                var later = function () {
                     timeout = null;
                     if (!immediate) func.apply(context, args);
                 };
                 var callNow = immediate && !timeout;
-                if(!timeout) timeout = setTimeout(later, wait);
+                if (!timeout) timeout = setTimeout(later, wait);
                 if (callNow) func.apply(context, args);
             };
         }
+
+        errorMsg(title, msg) {
+            var modal = this.ngDialog.open({
+                controller: ($scope) => {
+                    $scope.close = () => {
+                        modal.close();
+                    }
+                },
+                template: '<h3>' + title + '</h3>' +
+                '<p>' + msg + '</p>' +
+                '<div class="button-wrapper"><a class="pointer" ng-click="close()">Alles klar</a></div>',
+                plain: true
+            });
+        }
+
+        genericMsg(title, msg, buttonTitle, buttonFunction) {
+
+            var modal = this.ngDialog.open({
+                controller: ($scope) => {
+
+                    $scope.title = title;
+                    $scope.msg = msg;
+                    $scope.buttonTitle = buttonTitle;
+                    $scope.buttonFunction = buttonFunction;
+
+                    $scope.close = () => {
+                        modal.close();
+                    }
+                },
+                template: "/templates/modal/genericMessage.html",
+                overlay: false
+            });
+
+        }
+
+        betaMsg(title, msg) {
+            var modal = this.ngDialog.open({
+                controller: ($scope, $rootScope) => {
+                    $scope.close = () => {
+                        modal.close();
+                    };
+                    $scope.why = ($event) => {
+                        $event.stopPropagation();
+                        modal.close();
+                        $rootScope.$emit('newPopoverSelected', 'stoerersmall');
+                    };
+                },
+                template: '<h3>' + title + '</h3>' +
+                '<p>' + msg + '</p>' +
+                '<div class="padding-left-0 padding-right-7 button-wrapper col-xs-12 col-sm-6">' +
+                '<a class="pointer" ng-click="close()">Alles klar</a>' +
+                '</div>' +
+                '<div class="padding-right-0 padding-left-7 button-wrapper col-xs-12 col-sm-6">' +
+                '<a class="pointer" ng-click="why($event)">Warum?</a>' +
+                '</div>',
+                plain: true
+            });
+        }
+
 
         static serviceId:string = "UtilityService";
     }

@@ -101,6 +101,8 @@
     color: white;
     transition-duration: 0.2s;
     border: none;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .insert-location-container .content-bottom .location-description {
