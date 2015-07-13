@@ -117,7 +117,7 @@ a.welcome_button:hover {
 }
 
 .welcome_container {
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 45px);
     overflow: hidden;
     padding-bottom: 50px;
 }
@@ -359,6 +359,15 @@ a.more-link:hover {
 
 .welcome-wrapper {
     overflow: hidden;
+    position: relative;
+}
+
+.welcome-wrapper .arrow-down {
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    margin-left: -28px;
+    width: 56px;
 }
 
 .welcome-wrapper .help {

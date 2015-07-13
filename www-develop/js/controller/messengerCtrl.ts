@@ -24,9 +24,9 @@ module Controller {
 
         emojis = [":smile:", ":blush:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:"];
 
-        static $inject = ['screenSize', 'smoothScroll', '$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
+        static $inject = ['$timeout', 'screenSize', 'smoothScroll', '$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
 
-        constructor(private screenSize, private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
+        constructor(private $timeout,private screenSize, private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
 
             this.$rootScope.breadcrumb = 'Messenger';
 
@@ -37,10 +37,16 @@ module Controller {
             $scope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
-            if (this.$rootScope.authenticated) {
-                this.registerSocketEvent();
-            }
+            this.$timeout(() => {
 
+                if (this.$rootScope.authenticated) {
+                    this.registerSocketEvent();
+                } else {
+                    this.$state.go('welcome');
+                    this.$rootScope.$emit('openLoginDialog');
+                }
+
+            }, 0);
             this.messagesIdCache = this.CacheFactory.get('messagesId');
 
             this.debouncedAck = this.UtilityService.debounce(this.emitAck, 1000, false);
