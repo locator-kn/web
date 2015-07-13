@@ -1854,16 +1854,13 @@ h1 {
     height: 40px;
     width: 40px;
     color: white;
-    letter-spacing: -1px;
     font-weight: 600;
     float: left;
     line-height: 40px;
-    text-transform: uppercase;
     border: 1px solid white;
     border-radius: 50%;
     text-align: center;
     background-color: rgb(34, 34, 34);
-    transform: rotate(-15deg);
     margin-top: 10px;
     margin-right: 15px;
 }
