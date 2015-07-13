@@ -50,7 +50,7 @@ module Service {
                 },
                 template: '<h3>' + title + '</h3>' +
                 '<p>' + msg + '</p>' +
-                '<a class="pointer" ng-click="close()">Ok</a>',
+                '<div class="button-wrapper"><a class="pointer" ng-click="close()">Alles klar</a></div>',
                 plain: true
             });
         }
@@ -60,7 +60,7 @@ module Service {
             var modal = this.ngDialog.open({
                 controller: ($scope) => {
 
-                    $scope.ttle = title;
+                    $scope.title = title;
                     $scope.msg = msg;
                     $scope.buttonTitle = buttonTitle;
                     $scope.buttonFunction = buttonFunction;
