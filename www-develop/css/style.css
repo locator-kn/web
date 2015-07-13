@@ -1840,7 +1840,13 @@ h3#ngdialog1-aria-labelledby {
 
 .bar-wrapper .close-button, .moodal .close-button {
     top: 0;
-    right: 0;
+    right: 15px;
     position: absolute;
     height: 20px;
+}
+
+.container.stoerer-container {
+    max-width: 580px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
