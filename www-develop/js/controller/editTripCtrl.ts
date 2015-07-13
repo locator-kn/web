@@ -51,8 +51,9 @@ module Controller {
         dataAvailable:boolean = false;
         locationSearch = '';
 
-        static $inject = ['smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
-        constructor(private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
+        static $inject = ['UtilityService', 'smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
+
+        constructor(private UtilityService, private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
 
 
             if ($state.current.name === 'insertTrip') {
@@ -384,6 +385,8 @@ module Controller {
             var data = this.InsertTripService.getAllValues();
 
             this.tripMeta = data.formData;
+
+
             this.selectedDay = data.day;
             this.selectedMood = data.mood;
 
@@ -402,6 +405,11 @@ module Controller {
             this.LocationService.getLocationById(this.InsertTripService.newCreatedLocationId).then(result => {
                 this.selectLocation(result.data);
                 this.selectedLocations = this.uniqueList(this.selectedLocations);
+
+                var locationSelectable = !!this.lodash.findWhere(this.cities, {'place_id': result.data.city.place_id});
+                if (!locationSelectable) {
+                    this.UtilityService.errorMsg('Vielen Dank für deine Location', 'Du kannst momentan nur Trips in Konstanz erstellen. Sammle weiter Locations und Locator ist auch bald in deiner Stadt.');
+                }
             });
 
 
