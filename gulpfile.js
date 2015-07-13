@@ -129,10 +129,6 @@ gulp.task('html', function () {
     return gulp.src('./www-develop/**/*.html').pipe(gulp.dest('./www'));
 });
 
-gulp.task('sound', function () {
-    return gulp.src('./www-develop/**/*.mp3').pipe(gulp.dest('./www'));
-});
-
 gulp.task('lib', function () {
     return gulp.src('./www-develop/lib/**/*').pipe(gulp.dest('./www/lib'));
 });
