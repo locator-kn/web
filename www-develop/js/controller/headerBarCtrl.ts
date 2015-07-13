@@ -104,7 +104,8 @@ module Controller {
                         this.conversationsHash[newMessage.conversation_id] = {};
                     }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
-                    document.getElementById('new-message-sound').play();
+                    var a:any = document.getElementById('new-message-sound')
+                    a.play();
                     if (this.$rootScope.userID !== newMessage.from) {
                         this.showBadge = true;
                         this.unreadMessages = 1;
