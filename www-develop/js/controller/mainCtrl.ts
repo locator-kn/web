@@ -83,12 +83,7 @@ module Controller {
                 }
 
             });
-
-            setInterval(() => {
-                console.info(this.openElement);
-            }, 1000);
-
-
+            
         }
 
 
