@@ -1,12 +1,37 @@
+<div ng-class="{'opened': mc.openElement === 'stoerersmall'}" class="container-fluid beta-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 center relative">
+                <img ng-click="mc.openElement = ''" class="right pointer close-button" src="images/icons/white_cross.png">
+
+                <h3>Exklusive Konstanz Beta</h3>
+                <p>Locator steckt noch in den Kinderschuhen. Deshalb gibt es die ersten Trips vorerst nur in Konstanz.
+                    Du kannst aber trotzem Locations in deiner Stadt anlegen, nur leider noch keine Trips generieren.
+                    Wir arbeiten ständig an Verbesserungen und sind nur ein Dutzend Studenten, die alles verwalten. Nach
+                    und nach werden wir die Städte mit den meisten Locations freischalten. Also verbreite Locator bei
+                    deinen Freunden und deine Stadt wird garantiert die nächste sein, die die besten Locations und die
+                    heißesten Trips zu bieten hat.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container-fluid">
     <div class="row" ng-controller="HeaderBarCtrl as hc">
+
         <div ng-class="{'logged-in': authenticated, 'logged-out': !authenticated}" class="header-bar">
 
             <img alt="logo" class="logo-small pointer" ui-sref="welcome" src="images/logo/locator_small.png">
+
             <h2 class="breadcrumbs">{{breadcrumb}}</h2>
 
+
+
             <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
+
             <div class="header-right">
+                <span active-popover click-value="'stoerersmall'" compare-to="mc.openElement" class="pointer stoerer-small">Beta</span>
                 <div ng-if="!authenticated" class="btn-group">
 
                     <a class="padding login" ng-click="mc.openLoginDialog()">Anmelden</a>
@@ -38,12 +63,14 @@
 
                 <div class="menu btn-group">
                     <ul>
-                        <li ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}" ng-click="hc.redirectToMessenger()" class="pointer messenger tt tt-small"
+                        <li ng-class="{'not-available not-authenticated': !authenticated || !hc.conversations.length}"
+                            ng-click="hc.redirectToMessenger()" class="pointer messenger tt tt-small"
                             aria-label="Messenger" aria-not-authenticated="Finde Trips und trete mit Leuten in Kontakt"> <!--active-popover
                             click-value="hc.openMessages" compare-to="mc.openElement" ng-click="hc.openPopover()"-->
                             <div class="message-badge" ng-show="hc.showBadge"></div>
                             <img ng-src="images/icons/header/messenger_weiss.png">
-                            <ul ng-if="mc.openElement === hc.openMessages && authenticated" class="messenger-popover fx-fade-up">
+                            <ul ng-if="mc.openElement === hc.openMessages && authenticated"
+                                class="messenger-popover fx-fade-up">
                                 <div class="arrow"></div>
                                 <li class="message pointer" ng-repeat="con in hc.conversations"
                                     ui-sref="messenger.opponent({opponentId: con._id})"
@@ -60,16 +87,16 @@
                         </li>
 
 
-                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertLocation" class="pointer tt tt-small"
-                            aria-label="Erstelle eine neue Location"><img ng-src="images/icons/header/neue_location_weiss.png">
+                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertLocation"
+                            class="pointer tt tt-small"
+                            aria-label="Erstelle eine neue Location"><img
+                            ng-src="images/icons/header/neue_location_weiss.png">
                         </li>
-                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertTrip" class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
+                        <li ng-class="{'not-available not-authenticated': !authenticated}" ui-sref="insertTrip"
+                            class="pointer tt tt-small" aria-label="Füge einen neuen Trip hinzu">
                             <img ng-src="images/icons/header/trip_erstellen_weiss.png"></li>
-                        </ul>
+                    </ul>
                 </div>
-
-
-
             </div>
         </div>
     </div>
