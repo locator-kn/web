@@ -6,7 +6,6 @@
     padding-top: 30px;
 }
 .messenger-container .conversations .list {
-    min-height: calc(100vh - 60px);
     width: 261px;
     float: right;
     margin: 0px -9px 0 0;
