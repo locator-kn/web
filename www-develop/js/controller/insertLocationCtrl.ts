@@ -255,7 +255,7 @@ module Controller {
 
             if (!formValues.city) {
                 console.log('city not defined');
-                //TODO: open modal
+                //TODO: open modal for cities
             }
 
             this.LocationService.saveLocation(formValues, this.documentId).
@@ -392,8 +392,10 @@ module Controller {
                     });
 
                     if (locality) {
-                        
+
                         this.insertLocality(locality);
+                        console.log('found city in first step');
+
                         return;
 
                     } else {
@@ -414,7 +416,7 @@ module Controller {
                                     locality.place_id = nestedResult[0].place_id;
                                     locality.formatted_address = nestedResult[0].formatted_address;
                                     this.insertLocality(locality);
-
+                                    console.log('found city in second step');
                                     return;
                                 })
                                 .catch(error => {
