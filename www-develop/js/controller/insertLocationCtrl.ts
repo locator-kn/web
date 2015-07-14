@@ -372,15 +372,10 @@ module Controller {
         }
 
         getCityFromMarker() {
-            this.LocationService.getPlaceIdByAddress('Konstanz').then(result => {
-               debugger;
-            });
-
 
             this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
                 .then(result => {
 
-                    debugger;
 
                     var locality;
                     result.forEach((item:any) => {
@@ -389,13 +384,44 @@ module Controller {
                         }
                     });
 
-                    if (!locality) {
+                    if (locality) {
+                        this.locationFormDetails.city.title = locality.formatted_address;
+                        this.locationFormDetails.city.place_id = locality.place_id;
+                        this.locationFormDetails.city.id = locality.place_id;
                         return;
+                    } else {
+
+                        var cityname;
+                        result[0].address_components.forEach((item:any) => {
+                            if (item.types[0] == 'locality') {
+                                cityname = item.long_name;
+                            }
+                        });
+
+                        if (cityname) {
+
+                            this.LocationService.getPlaceIdByAddress(cityname)
+                                .then(nestedResult => {
+                                    locality = {};
+                                    locality.place_id = nestedResult[0].place_id;
+                                    locality.formatted_address = nestedResult[0].formatted_address;
+
+                                    this.locationFormDetails.city.title = locality.formatted_address;
+                                    this.locationFormDetails.city.place_id = locality.place_id;
+                                    this.locationFormDetails.city.id = locality.place_id;
+                                    return;
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+
+                        } else {
+                            console.log('no Location found');
+                        }
+
                     }
 
-                    this.locationFormDetails.city.title = locality.formatted_address;
-                    this.locationFormDetails.city.place_id = locality.place_id;
-                    this.locationFormDetails.city.id = locality.place_id;
+
                 });
         }
 

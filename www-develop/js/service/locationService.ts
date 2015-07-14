@@ -76,11 +76,6 @@ module Service {
 
                 var latlng = new google.maps.LatLng(lat, lon);
                 var geocoder = new google.maps.Geocoder();
-                var sw = new google.maps.LatLng(lat - 0.005, lon - 0.030);
-                var ne = new google.maps.LatLng(lat + 0.005, lon + 0.030);
-
-                var bounds = new google.maps.LatLngBounds(sw, ne);
-                console.log(bounds.getCenter());
 
                 var geocoderRequestObject = {
                     location: latlng
@@ -93,8 +88,6 @@ module Service {
                     }
 
                     return resolve(result);
-
-
                 });
 
             });
@@ -120,8 +113,6 @@ module Service {
                     }
 
                     return resolve(result);
-
-
                 });
 
             });
