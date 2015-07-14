@@ -541,6 +541,20 @@ ul.slides {
     float: left;
 }
 
+.moodal .gp-image {
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    float: left;
+}
+
+.moodal .fb-image {
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    float: left;
+}
+
 .pointer {
     cursor: pointer;
 }
