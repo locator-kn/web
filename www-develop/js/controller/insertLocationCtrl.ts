@@ -253,6 +253,11 @@ module Controller {
                 lat: this.map.clickedMarker.latitude
             };
 
+            if (!formValues.city) {
+                console.log('city not defined');
+                //TODO: open modal
+            }
+
             this.LocationService.saveLocation(formValues, this.documentId).
                 then((result) => {
                     if (this.$state.params.tmp) {
