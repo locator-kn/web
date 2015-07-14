@@ -1,9 +1,11 @@
+declare var google;
+
 module Service {
     export class LocationService {
 
-        static $inject = ['$http', 'basePath', 'Upload'];
+        static $inject = ['$q', '$http', 'basePath', 'Upload'];
 
-        constructor(private $http, private basePath, private Upload) {
+        constructor(private $q, private $http, private basePath, private Upload) {
         }
 
         uploadImage(formData, file) {
@@ -69,7 +71,54 @@ module Service {
         }
 
         getCityByCoords(lat, lon) {
-            return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
+
+            return this.$q((resolve, reject) => {
+
+                var latlng = new google.maps.LatLng(lat, lon);
+                var geocoder = new google.maps.Geocoder();
+
+                var geocoderRequestObject = {
+                    location: latlng
+                };
+
+                geocoder.geocode(geocoderRequestObject, (result, status) => {
+
+                    if (!status === google.maps.GeocoderStatus.OK) {
+                        return reject();
+                    }
+
+                    return resolve(result);
+                });
+
+            });
+
+
+            //return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
+        }
+
+        getPlaceIdByAddress(address:string) {
+
+            return this.$q((resolve, reject) => {
+
+                var geocoder = new google.maps.Geocoder();
+
+                var geocoderRequestObject = {
+                    address: address
+                };
+
+                geocoder.geocode(geocoderRequestObject, (result, status) => {
+
+                    if (!status === google.maps.GeocoderStatus.OK) {
+                        return reject();
+                    }
+
+                    return resolve(result);
+                });
+
+            });
+
+
+            //return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
         }
 
 
