@@ -616,3 +616,7 @@ trip-min-view .result-content-box {
     margin-right: auto;
 }
 
+.toggle-settings-container {
+    display: inline-block;
+}
+

@@ -31,8 +31,10 @@
             </div>
             <span class="mobile-settings" ng-init="moreFilter=false">
                 <div class="toggle-settings" ng-click="moreFilter=!moreFilter">
-                    <div class="filter-icon"></div>
-                    Weitere Filter
+                    <div class="toggle-settings-container pointer">
+                        <div class="filter-icon"></div>
+                        <span>Weitere Filter</span>
+                    </div>
                 </div>
                 <div class="settings-container" ng-show="moreFilter">
                     <div class="datepicker-container">
