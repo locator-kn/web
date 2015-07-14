@@ -272,8 +272,8 @@ module Controller {
                     }
 
                 })
-                .catch(() => {
-                    debugger
+                .catch((err) => {
+                    console.log(err);
                 })
         }
 
@@ -285,10 +285,12 @@ module Controller {
                 this.LocationService.getLocationById(this.$state.params.locationId)
                     .then(result => {
 
+
                         this.locationFormDetails = {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
+                            city: result.data.city
                         };
 
                         //handle tags for tagging directive
@@ -407,6 +409,7 @@ module Controller {
 
                             this.LocationService.getPlaceIdByAddress(cityname)
                                 .then(nestedResult => {
+
                                     locality = {};
                                     locality.place_id = nestedResult[0].place_id;
                                     locality.formatted_address = nestedResult[0].formatted_address;
