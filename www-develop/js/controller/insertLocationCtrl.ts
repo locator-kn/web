@@ -392,10 +392,10 @@ module Controller {
                     });
 
                     if (locality) {
-                        this.locationFormDetails.city.title = locality.formatted_address;
-                        this.locationFormDetails.city.place_id = locality.place_id;
-                        this.locationFormDetails.city.id = locality.place_id;
+                        
+                        this.insertLocality(locality);
                         return;
+
                     } else {
 
                         var cityname;
@@ -413,10 +413,8 @@ module Controller {
                                     locality = {};
                                     locality.place_id = nestedResult[0].place_id;
                                     locality.formatted_address = nestedResult[0].formatted_address;
+                                    this.insertLocality(locality);
 
-                                    this.locationFormDetails.city.title = locality.formatted_address;
-                                    this.locationFormDetails.city.place_id = locality.place_id;
-                                    this.locationFormDetails.city.id = locality.place_id;
                                     return;
                                 })
                                 .catch(error => {
@@ -443,6 +441,12 @@ module Controller {
 
 
             return complexArray;
+        }
+
+        insertLocality(locality) {
+            this.locationFormDetails.city.title = locality.formatted_address;
+            this.locationFormDetails.city.place_id = locality.place_id;
+            this.locationFormDetails.city.id = locality.place_id;
         }
 
         static controllerId:string = "InsertLocationCtrl";
