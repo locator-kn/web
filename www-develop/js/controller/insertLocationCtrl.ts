@@ -45,7 +45,6 @@ module Controller {
 
         constructor(private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
-
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
                 this.headline = 'Neue Location erstellen';
@@ -254,6 +253,11 @@ module Controller {
                 lat: this.map.clickedMarker.latitude
             };
 
+            if (!formValues.city) {
+                console.log('city not defined');
+                //TODO: open modal for cities
+            }
+
             this.LocationService.saveLocation(formValues, this.documentId).
                 then((result) => {
                     if (this.$state.params.tmp) {
@@ -268,8 +272,8 @@ module Controller {
                     }
 
                 })
-                .catch(() => {
-                    debugger
+                .catch((err) => {
+                    console.log(err);
                 })
         }
 
@@ -281,10 +285,12 @@ module Controller {
                 this.LocationService.getLocationById(this.$state.params.locationId)
                     .then(result => {
 
+
                         this.locationFormDetails = {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
+                            city: result.data.city
                         };
 
                         //handle tags for tagging directive
@@ -373,22 +379,53 @@ module Controller {
         }
 
         getCityFromMarker() {
+
             this.LocationService.getCityByCoords(this.map.clickedMarker.latitude, this.map.clickedMarker.longitude)
                 .then(result => {
+
+
                     var locality;
-                    result.data.results.forEach((item:any) => {
+                    result.forEach((item:any) => {
                         if (item.types[0] == 'locality') {
                             locality = item;
                         }
                     });
 
-                    if (!locality) {
+                    if (locality) {
+
+                        this.insertLocality(locality);
                         return;
+
+                    } else {
+
+                        var cityname;
+                        result[0].address_components.forEach((item:any) => {
+                            if (item.types[0] == 'locality') {
+                                cityname = item.long_name;
+                            }
+                        });
+
+                        if (cityname) {
+
+                            this.LocationService.getPlaceIdByAddress(cityname)
+                                .then(nestedResult => {
+
+                                    locality = {};
+                                    locality.place_id = nestedResult[0].place_id;
+                                    locality.formatted_address = nestedResult[0].formatted_address;
+                                    this.insertLocality(locality);
+                                    return;
+
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                });
+
+                        } else {
+                            console.log('no Location found');
+                        }
                     }
 
-                    this.locationFormDetails.city.title = locality.formatted_address;
-                    this.locationFormDetails.city.place_id = locality.place_id;
-                    this.locationFormDetails.city.id = locality.place_id;
                 });
         }
 
@@ -402,6 +439,12 @@ module Controller {
 
 
             return complexArray;
+        }
+
+        insertLocality(locality) {
+            this.locationFormDetails.city.title = locality.formatted_address;
+            this.locationFormDetails.city.place_id = locality.place_id;
+            this.locationFormDetails.city.id = locality.place_id;
         }
 
         static controllerId:string = "InsertLocationCtrl";
