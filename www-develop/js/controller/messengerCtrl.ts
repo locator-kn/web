@@ -101,6 +101,10 @@ module Controller {
                         var con = this.getConversationById(this.conversations[0]._id);
                         this.select(con);
                     }
+                }).catch((err) => {
+                    if(err.status === 401) {
+                        this.$state.go('welcome');
+                    }
                 });
         }
 
