@@ -386,7 +386,7 @@ module Controller {
 
                     var locality;
                     result.forEach((item:any) => {
-                        if (item.types[0] == 'locality') {
+                        if (item.types[0] === 'locality') {
                             locality = item;
                         }
                     });
@@ -400,7 +400,7 @@ module Controller {
 
                         var cityname;
                         result[0].address_components.forEach((item:any) => {
-                            if (item.types[0] == 'locality') {
+                            if (item.types[0] === 'locality') {
                                 cityname = item.long_name;
                             }
                         });
