@@ -37,16 +37,11 @@ module Controller {
             $scope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
-            this.$timeout(() => {
 
-                if (this.$rootScope.authenticated) {
-                    this.registerSocketEvent();
-                } else {
-                    this.$state.go('welcome');
-                    this.$rootScope.$emit('openLoginDialog');
-                }
+            if (this.$rootScope.authenticated) {
+                this.registerSocketEvent();
+            }
 
-            }, 0);
             this.messagesIdCache = this.CacheFactory.get('messagesId');
 
             this.debouncedAck = this.UtilityService.debounce(this.emitAck, 1000, false);
@@ -105,6 +100,10 @@ module Controller {
                         this.$state.go('messenger.opponent', {opponentId: this.conversations[0]._id});
                         var con = this.getConversationById(this.conversations[0]._id);
                         this.select(con);
+                    }
+                }).catch((err) => {
+                    if(err.status === 401) {
+                        this.$state.go('welcome');
                     }
                 });
         }

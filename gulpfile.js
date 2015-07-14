@@ -137,7 +137,7 @@ gulp.task('img', function () {
     return gulp.src('./www-develop/images/**/*').pipe(gulp.dest('./www/images'));
 });
 
-gulp.task('watch', ['ts', 'html', 'lib', 'img', 'css', 'locale', 'sound'], function () {
+gulp.task('watch', ['ts', 'html', 'lib', 'img', 'css', 'locale'], function () {
     gulp.watch('./www-develop/**/*.ts', { interval: intervalMS }, ['ts']);
     gulp.watch('./www-develop/**/*.css', { interval: intervalMS }, ['css']);
     gulp.watch('./www-develop/**/*.html', { interval: intervalMS }, ['html']);
@@ -159,7 +159,7 @@ gulp.task('install', function () {
         });
 });
 
-gulp.task('compile', ['ts', 'html', 'lib', 'img', 'locale', 'responsiveCss', 'sound'], function() {
+gulp.task('compile', ['ts', 'html', 'lib', 'img', 'locale', 'responsiveCss'], function() {
     var target = gulp.src('./www-develop/index.html');
     var sources1 = gulp.src(['./www-develop/css/**/*.css', '!./www-develop/css/response.css'])
         .pipe(concat('css/all.css'))
