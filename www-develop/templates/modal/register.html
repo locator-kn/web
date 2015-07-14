@@ -1,8 +1,23 @@
 <img ng-click="mc.closeDialog()" class="right pointer close-button" src="images/icons/white_cross.png">
 
 <div class="btn-grp-white">
-    <a class="fb-login pointer" ng-click="mc.loginFacebook()">Mit Facebook einloggen</a>
-    <a class="gp-login pointer" ng-click="mc.loginGoogle()">Mit Google einloggen</a>
+    <div class="row no-margin-left">
+        <div class="fb">
+            <div class="fb-image" style="background-image: url('./images/svgs/fb_logo_white.svg')" ></div>
+            <a class="fb-login pointer" ng-click="mc.loginFacebook()">Mit Facebook einloggen</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row no-margin-left">
+        <div class="gp">
+            <div class="gp-image" style="background-image: url('./images/svgs/gp_logo_white.svg')"></div>
+            <a class="gp-login pointer" ng-click="mc.loginGoogle()">Mit Google einloggen</a>
+        </div>
+    </div>
+    <hr>
+</div>
+<div class="or">
+    <p>oder</p>
 </div>
 <form autocomplete="off" name="form">
     <input required ng-model="mc.name" type="text" placeholder="Name" name="name">
