@@ -415,7 +415,7 @@ module Controller {
                                     locality.formatted_address = nestedResult[0].formatted_address;
                                     this.insertLocality(locality);
                                     return;
-                                    
+
                                 })
                                 .catch(error => {
                                     console.log(error);
@@ -424,9 +424,7 @@ module Controller {
                         } else {
                             console.log('no Location found');
                         }
-
                     }
-
 
                 });
         }
