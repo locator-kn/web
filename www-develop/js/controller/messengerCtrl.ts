@@ -37,16 +37,11 @@ module Controller {
             $scope.$on('login_success', () => {
                 this.registerSocketEvent();
             });
-            this.$timeout(() => {
 
-                if (this.$rootScope.authenticated) {
-                    this.registerSocketEvent();
-                } else {
-                    this.$state.go('welcome');
-                    this.$rootScope.$emit('openLoginDialog');
-                }
+            if (this.$rootScope.authenticated) {
+                this.registerSocketEvent();
+            }
 
-            }, 0);
             this.messagesIdCache = this.CacheFactory.get('messagesId');
 
             this.debouncedAck = this.UtilityService.debounce(this.emitAck, 1000, false);
