@@ -538,6 +538,7 @@ ul.slides {
 .moodal .btn-grp-white a {
     color: white;
     float: left;
+    margin-left: 10px;
 }
 
 .moodal .gp-image {
@@ -960,6 +961,7 @@ a.forgotpw {
 .moodal .btn-grp-white {
     float: left;
     padding-top: 40px;
+    width: 100%;
 }
 
 input:-webkit-autofill {
