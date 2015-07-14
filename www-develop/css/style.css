@@ -537,7 +537,6 @@ ul.slides {
 
 .moodal .btn-grp-white a {
     color: white;
-    width: 100%;
     float: left;
 }
 
@@ -553,6 +552,10 @@ ul.slides {
     height: 25px;
     width: 25px;
     float: left;
+}
+
+.moodal .no-margin-left {
+    margin-left: 0;
 }
 
 .pointer {
