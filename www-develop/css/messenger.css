@@ -337,6 +337,7 @@ span.bubble {
 .emoji {
     cursor: pointer;
     vertical-align: top;
+    margin-right: 0;
 }
 
 .messenger-container .content-wrapper {
@@ -352,3 +353,4 @@ span.message-content.ng-binding {
 .emoji-overlay.open i {
     margin: 3px;
 }
+

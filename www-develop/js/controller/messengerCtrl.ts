@@ -22,7 +22,7 @@ module Controller {
         debouncedAck:any;
         initialLoad:boolean = false;
 
-        emojis = [":smile:", ":grin:", ":heart_eyes:", ":hushed:", ":weary:", ":sob:", ":satisfied:", ":stuck_out_tongue_closed_eyes:", ":blush:", ":flushed:", ":expressionless:", ":rage:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:", ":clap:", ":wave:", ":hand:", ":ok_hand:", ":no_good:", ":information_desk_person:", ":person_with_pouting_face:", ":boom:", ":runner:", ":couple:", ":couplekiss:"];
+        emojis = [":smile:", ":grin:", ":heart_eyes:", ":hushed:", ":weary:", ":sunglasses:", ":joy:", ":persevere:", ":cry:", ":innocent:", ":sob:", ":satisfied:", ":stuck_out_tongue_closed_eyes:", ":blush:", ":flushed:", ":expressionless:", ":rage:", ":kissing_heart:", ":hear_no_evil:", ":speak_no_evil:", ":see_no_evil:", ":clap:", ":wave:", ":hand:", ":ok_hand:", ":no_good:", ":information_desk_person:", ":person_with_pouting_face:", ":boom:", ":runner:", ":couple:", ":couplekiss:"];
         static $inject = ['$timeout', 'screenSize', 'smoothScroll', '$filter', '$scope', '$sce', 'MessengerService', '$state', 'UserService', '$rootScope', 'SocketService', 'CacheFactory', 'UtilityService', 'TripService'];
 
         constructor(private $timeout, private screenSize, private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
