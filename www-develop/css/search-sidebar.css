@@ -529,11 +529,11 @@ trip-min-view .result-content-box {
     transition-timing-function: ease-in-out;
 }
 
-.container-sidebar .settings.toggle {
+.mobile-settings .settings.toggle {
     left: 0;
 }
 
-.container-sidebar .settings.toggle {
+.mobile-settings .settings.toggle {
     left: 0;
 }
 
@@ -579,13 +579,14 @@ trip-min-view .result-content-box {
 .mobile-settings .settings-container {
     margin-top: 5px;
     position: absolute;
-    top: 45px;
+    top: 48px;
     left: 0;
     z-index: 5;
     background: #33c4b7;
-    width: 100%;
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
+    width: auto;
+    font-size: 12px;
 }
 
 .toggle-settings .filter-icon {
