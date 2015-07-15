@@ -456,6 +456,9 @@
         width: 100%;
     }
 
+    .mobile-settings .settings-container {
+        width: 100%;
+    }
 
 
 }
