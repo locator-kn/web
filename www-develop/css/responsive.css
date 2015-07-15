@@ -422,7 +422,7 @@
     }
 
     .welcome_container {
-        min-height: auto !important;
+        min-height: initial !important;
     }
 
 }
