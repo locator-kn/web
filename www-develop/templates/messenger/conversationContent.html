@@ -35,14 +35,14 @@
             <div class="content locator-scroller" scroll-glue>
                 <div ng-class="{'out' : message.from === $root.userID}" class="message"
                      ng-repeat="message in mc.messagesHash[mc.selectedConversation._id] track by $index">
-                    <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
+                    <p><span ng-bind-html="message.message | emoji" class="message-content"></span>
                         <span class="bubble"></span>
                     </p>
                 </div>
             </div>
 
             <div class="emoji-overlay" ng-class="{'open' : mc.showEmojis}">
-                    <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)"
+                    <span ng-click="mc.selectEmoji(item)" ng-bind-html="item | emoji"
                           ng-repeat="item in mc.emojis"></span>
             </div>
 
