@@ -538,8 +538,8 @@ trip-min-view .result-content-box {
 }
 
 .mobile-settings {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 50px;
     background-color: #33c4b7;
     position: relative;
     float: left;
@@ -567,6 +567,7 @@ trip-min-view .result-content-box {
     width: 100%;
     display: block;
     font-size: 25px;
+    height: 50px;
 }
 
 .mobile-settings .filter-container {
