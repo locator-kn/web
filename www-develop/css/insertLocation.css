@@ -296,7 +296,7 @@ tags-input.error .tags {
     margin: 0;
 }
 
-.tags-input .tags {
+tags-input .tags {
     -webkit-appearance: none !important;
 }
 
