@@ -15,14 +15,12 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-8 no-margin no-padding img-list-container">
+            <div class="col-xs-12 col-sm-7 col-lg-8 no-margin no-padding img-list-container">
                 <img-triplist id="result-slider" size="size" locations="trip.locations" mapwidth="300" mapheight="150"
                               scale="1">
-                    <h2>{{size}} dwqddqwdqqw</h2>
-
                 </img-triplist>
             </div>
-            <div class="colxs-12 col-sm-4 no-margin result-content-box">
+            <div class="col-xs-12 col-sm-5 col-lg-4 no-margin result-content-box">
                 <div class="result-content-wrapper pointer" ui-sref="trip({tripId:trip._id})">
                     <h3 class="result-trip-title">{{trip.title}}</h3>
 
@@ -72,7 +70,7 @@
                             mit Übernachtung
                         </div>
                         <acc-equ-chooser
-                            accommodation-equipment-selectable="trip.accommodation_equipment"
+                            accommodation-equipment-selectable="false"
                             just-show-selected="true"
                             accommodation-equipment="trip.accommodation_equipment"
                             icons-color="'white'">
@@ -82,7 +80,8 @@
                 </div>
                 <div class="result-content-bottom">
                     <div class="icon-container tt tt-small" aria-label="{{trip.mood.title}}"
-                         style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
+                         ng-style="{'background-image':'url(./images/icons/moods_white/'+trip.mood.icon+')'}">
+                    </div>
                     <div class="icon-circle-container">
                         <div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen"
                              ui-sref="trip({tripId: trip._id})"></div>

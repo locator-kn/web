@@ -202,6 +202,14 @@ var app = angular.module('locator', deps)
         };
     })
 
+    .filter('itemsInHash', function() {
+        return function(hashmap) {
+
+            return Object.keys(hashmap).length;
+        };
+
+    })
+
     .directive('goBack', function ($window) {
         return function ($scope, $element) {
             $element.on('click', function () {

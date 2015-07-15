@@ -391,7 +391,7 @@ trip-min-view .result-content-box {
 
 .results-container .trip-min-view .row-container {
     position: relative;
-    height: 300px;
+    height: 330px;
     margin: 0 0 0 0;
 }
 
@@ -494,7 +494,7 @@ trip-min-view .result-content-box {
 }
 
 .results-container .img-list-container img-triplist .flexslider {
-    height: 300px;
+    height: 330px;
     border-radius: 3px 0 0 3px;
 }
 
@@ -548,6 +548,10 @@ trip-min-view .result-content-box {
     color: white;
     display: none;
     margin-top: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
 }
 
 .mobile-settings .datepicker-container {
@@ -564,7 +568,7 @@ trip-min-view .result-content-box {
 .toggle-settings {
     width: 100%;
     display: block;
-    font-size: 24px;
+    font-size: 25px;
 }
 
 .mobile-settings .filter-container {
@@ -614,5 +618,9 @@ trip-min-view .result-content-box {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.toggle-settings-container {
+    display: inline-block;
 }
 

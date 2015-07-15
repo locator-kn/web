@@ -46,15 +46,14 @@
 
                     <div class="col-xs-12">
                         <p clas="description">{{trip.description}}</p>
-
                         <div class="day-amount black">
-                            <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"><strong class="ng-binding">1 </strong>
+                            <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"><strong>{{trip.days}}</strong>
                             <ng-pluralize count="trip.days" when="{'1': 'Tag', 'other': 'Tage'}">Tag</ng-pluralize>
                         </span><!-- end ngIf: trip.days -->
                         <span>
                             <!-- ngIf: trip.days --><span ng-if="trip.days" class="ng-scope"> | </span><!-- end ngIf: trip.days -->
-                            <strong class="ng-binding">3</strong>
-                            <ng-pluralize count="locationCount" when="{'1': 'Location', 'other': 'Locations'}">
+                            <strong>{{trip.locations | itemsInHash}}</strong>
+                            <ng-pluralize count="trip.locations | itemsInHash" when="{'1': 'Location', 'other': 'Locations'}">
                                 Locations
                             </ng-pluralize>
                         </span>

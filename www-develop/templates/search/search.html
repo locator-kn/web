@@ -13,7 +13,7 @@
                             </div>
                     </span>
 
-                    <span class="relative green">
+                    <span class="relative green moods">
                         <div icons="true" list-selection values="sc.moods"
                              selected-model="sc.selectedMood" selected-name="sc.showMoods"
                              open-element="mc.openElement">
@@ -29,12 +29,14 @@
                     </span>
                 </div>
             </div>
-            <span class="mobile-settings" ng-init="moreFilter=false">
-                <div class="toggle-settings" ng-click="moreFilter=!moreFilter">
-                    <div class="filter-icon"></div>
-                    Weitere Filter
+            <span ng-class="{'data-available': sc.dataAvailable}" class="mobile-settings" ng-init="moreFilter=false">
+                <div class="toggle-settings" active-popover click-value="'moreSettings'" compare-to="mc.openElement">
+                    <div class="toggle-settings-container pointer">
+                        <div class="filter-icon"></div>
+                        <span>Weitere Filter</span>
+                    </div>
                 </div>
-                <div class="settings-container" ng-show="moreFilter">
+                <div class="settings-container" ng-show="mc.openElement === 'moreSettings'">
                     <div class="datepicker-container">
                         <datepicker  start-date-real="sc.query.start_date" end-date-real="sc.query.end_date"
                                      on-linked="false"></datepicker>

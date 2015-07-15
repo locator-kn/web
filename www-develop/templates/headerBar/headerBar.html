@@ -1,17 +1,33 @@
 <div ng-class="{'opened': mc.openElement === 'stoerersmall'}" class="container-fluid beta-wrapper">
     <div class="container stoerer-container">
-        <div class="row">
-            <div class="col-xs-12 center relative">
-                <img ng-click="mc.openElement = ''" class="right pointer close-button" src="images/icons/white_cross.png">
+        <div class="row relative">
+            <img ng-click="mc.openElement = ''" class="right pointer close-button" src="images/icons/white_cross.png">
 
-                <h3>Exklusive Konstanz Beta</h3>
-                <p>Locator steckt noch in den Kinderschuhen. Deshalb gibt es die ersten Trips vorerst nur in Konstanz.
-                    Du kannst aber trotzem Locations in deiner Stadt anlegen, nur leider noch keine Trips generieren.
+            <div class="col-sm-6 col-xs-12">
+                <h3>Warum Beta?</h3>
+                <p>Locator befindet sich derzeit noch in einer BETA-Phase. Deshalb kannst vorerst nur Trips im Raum
+                    Konstanz erstellen. Du kannst aber deine Lieblings-Locations überall auf der Welt spotten und
+                    fleißig sammeln. In Kürze werden wir auch in deiner Stadt sein und du kannst Kurztrips mit deinen
+                    Locations erstellen.
                     Wir arbeiten ständig an Verbesserungen und sind nur ein Dutzend Studenten, die alles verwalten. Nach
-                    und nach werden wir die Städte mit den meisten Locations freischalten. Also verbreite Locator bei
-                    deinen Freunden und deine Stadt wird garantiert die nächste sein, die die besten Locations und die
-                    heißesten Trips zu bieten hat.</p>
+                    und nach werden wir andere Städte hinzuschalten. Also verbreite Locator bei deinen Freunden und
+                    deine Stadt wird garantiert die
+                    nächste sein, die die besten Locations und die heißesten Trips zu bieten hat.</p>
             </div>
+
+            <div class="col-sm-6 col-xs-12">
+                <h3>Was sind Trips und Locations?</h3>
+                <p>
+                    Mit Locator kannst du unterschiedliche Locations (Orte), an denen du dich
+                    befindest, fotografieren, mit GPS markieren, beschreiben und mit Stichworten (Tags) versehen. Wenn
+                    du einige davon gesammelt hast und anderen deine
+                    Locations zeigen möchtest, kannst du über das Menü einen Trip erstellen.
+                    Du kannst zu dem Trip eigene Locations und andere Locations, die in deiner Stadt markiert wurden,
+                    hinzufügen und so einen neuen Kurztrip für deine
+                    Stadt erstellen. Wenn du etwas nicht verstehst, schreib uns einfach ein Feedback und wir versuchen,
+                    Locator für dich noch besser zu machen.</p>
+            </div>
+
         </div>
     </div>
 </div>
@@ -27,11 +43,12 @@
             <h2 class="breadcrumbs">{{breadcrumb}}</h2>
 
 
-
             <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
 
             <div class="header-right">
-                <span active-popover click-value="'stoerersmall'" compare-to="mc.openElement" class="pointer stoerer-small"><img class="img-responsive" src="images/beta_icon-01.png"></span>
+                <span active-popover click-value="'stoerersmall'" compare-to="mc.openElement"
+                      class="pointer stoerer-small"><img class="img-responsive" src="images/beta_icon-01.png"></span>
+
                 <div ng-if="!authenticated" class="btn-group">
 
                     <a class="padding login" ng-click="mc.openLoginDialog()">Anmelden</a>
