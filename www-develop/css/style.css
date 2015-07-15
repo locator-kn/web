@@ -1903,7 +1903,12 @@ h1 {
 }
 
 input, textarea {
-    -webkit-appearance: none;
+    -webkit-appearance: none !important;
+}
+
+.container-fluid .footer-container {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 
