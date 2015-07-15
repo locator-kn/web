@@ -1902,6 +1902,10 @@ h1 {
     z-index: 100;
 }
 
+input, textarea {
+    -webkit-appearance: none;
+}
+
 
 
 
