@@ -449,6 +449,12 @@
         height: auto;
     }
 
+    .edittrip-container .location-tags .tag {
+        word-wrap: initial;
+        float: left;
+        margin-bottom: 3px;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
