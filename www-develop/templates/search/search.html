@@ -1,7 +1,7 @@
 <div class="search-container" ng-controller="SearchCtrl as sc">
     <div class="container">
         <div class="fixed-top">
-            <div ng-class="{'data-available': sc.dataAvailable}" class="welcome_select">
+            <span ng-class="{'data-available': sc.dataAvailable}" class="welcome_select">
                 <span ng-class="{'fade-top' : sc.hideBar}" class="search-searchbar">
                     <span class="relative green">
                         <span class="margin-right">Du willst</span>
@@ -32,7 +32,7 @@
                         <div class="toggle-settings" active-popover click-value="'moreSettings'" compare-to="mc.openElement">
                             <div class="toggle-settings-container pointer">
                                 <div class="filter-icon"></div>
-                                <span>Weitere Filter</span>
+                                <span class="more-settings-desc">Weitere Filter</span>
                             </div>
                         </div>
                         <div class="settings-container" ng-show="mc.openElement === 'moreSettings'">
@@ -43,10 +43,9 @@
                             <div class="filter-container" ng-include="'templates/search/filter.html'"></div>
                         </div>
                     </span>
-                </div>
+                </span>
             </div>
         </div>
     </div>
-    <div ng-include="'templates/search/searchSidebar.html'"></div>
     <div ng-include="'templates/search/searchResult.html'"></div>
 </div>
