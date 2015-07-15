@@ -458,8 +458,8 @@
 
     .mobile-settings .settings-container {
         width: 100%;
+        left: 0;
     }
-
 
 }
 

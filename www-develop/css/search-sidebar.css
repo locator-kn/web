@@ -580,7 +580,7 @@ trip-min-view .result-content-box {
     margin-top: 5px;
     position: absolute;
     top: 48px;
-    left: 0;
+    left: -117px;
     z-index: 5;
     background: #33c4b7;
     border-radius: 3px;
