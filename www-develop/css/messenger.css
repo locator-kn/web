@@ -5,6 +5,7 @@
     float: right;
     padding-top: 30px;
 }
+
 .messenger-container .conversations .list {
     width: 261px;
     float: right;
@@ -35,6 +36,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .messenger-container .conversations .item .time {
     font-size: 12px;
     font-weight: normal;
@@ -48,6 +50,7 @@
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 }
+
 .messenger-container .conversations .item.active::after {
     content: ' ';
     position: absolute;
@@ -73,31 +76,36 @@
 .messenger-container .conversations .item.unread {
     color: #33c4b7;
 }
+
 .messenger-container .conversations .item .icon {
     float: left;
     margin: 19px 12px 0 10px;
     padding: 8px;
     background-size: cover;
 }
+
 .messenger-container .conversations .item.unread .icon {
     background-image: url('../images/icons/chat/messenger_erhalten.png');
 }
+
 .messenger-container .conversations .item.seen .icon {
     background-image: url('../images/icons/chat/messenger_angesehn.png');
 }
+
 .messenger-container .conversations .item.replied .icon {
     background-image: url('../images/icons/chat/messenger_antwort.png');
 }
+
 .messenger-container .conversations .profileimage {
     text-align: right;
 }
+
 .messenger-container .conversations .profileimage .profile-image {
     margin: 0;
     height: 92px;
     width: 92px;
     border-radius: 50%;
 }
-
 
 .md-avatar {
     width: 55px;
@@ -110,13 +118,14 @@
 .messenger-container .header {
     float: left;
     width: 100%;
-    background-color: rgb(34,34,34);
+    background-color: rgb(34, 34, 34);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     margin: 85px 0 0 0;
     color: #fff;
     position: relative;
 }
+
 .messenger-container .header span {
     float: right;
     padding: 7px;
@@ -133,22 +142,28 @@
     z-index: 999;
     width: 93%;
 }
+
 .messenger-container .header .trip-preview .result-content-bottom, .messenger-container .header trip-min-view .result-user-info {
     display: none;
 }
+
 .messenger-container .header .trip-preview img-triplist .flexslider, .messenger-container .header .trip-min-view .result-content-wrapper {
     height: 100px;
 }
+
 .messenger-container .header trip-min-view span {
     float: left;
     padding: 2px;
 }
+
 .messenger-container .header .trip-preview .inner-result {
     margin: 0;
 }
+
 .messenger-container .header trip-min-view .result-content-wrapper h3.result-trip-title {
     font-size: 15px;
 }
+
 .messenger-container .header trip-min-view .result-content-wrapper, .messenger-container .header trip-min-view .result-content-wrapper .result-user-info {
     font-size: 10px;
 }
@@ -157,6 +172,7 @@
     .messenger-container .header trip-min-view .col-sm-8 {
         width: 60%;
     }
+
     .messenger-container .header trip-min-view .col-sm-4 {
         width: 40%;
     }
@@ -270,7 +286,7 @@ span.bubble {
 
 .emoji-overlay {
     position: absolute;
-    background-color: rgb(34,34,34);
+    background-color: rgb(34, 34, 34);
     padding: 15px;
     padding: 9px;
     right: 60px;
@@ -310,9 +326,10 @@ span.bubble {
     width: calc(100% - 200px);
     max-width: 600px;
     margin: 0 0 0 100px;
-    float:left;
+    float: left;
     overflow: hidden;
 }
+
 .messenger-container h2 {
     font-size: 22px;
 }
@@ -326,4 +343,12 @@ span.bubble {
     float: left;
     overflow: hidden;
     width: 100%;
+}
+
+span.message-content.ng-binding {
+    font-weight: 500;
+}
+
+.emoji-overlay.open i {
+    margin: 3px;
 }
