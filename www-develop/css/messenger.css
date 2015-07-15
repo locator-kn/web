@@ -9,6 +9,7 @@
     width: 261px;
     float: right;
     margin: 0px -9px 0 0;
+    margin-bottom: 30px;
 }
 
 .messenger-container .conversations .item {
@@ -192,6 +193,8 @@
     float: left;
     margin-bottom: 4px;
     margin-top: 3px;
+    font-size: 14px;
+    line-height: 25px;
 }
 
 .messenger-container .content .message p {
@@ -212,7 +215,7 @@
 
 .messenger-button {
     width: 60px;
-    min-height: 30px;
+    min-height: 34px;
     border: none;
     float: left;
     background: white;
@@ -227,10 +230,10 @@ button#chat_submit {
     background: white;
     border: none;
     float: left;
-    padding: 8px 0 0 11px;
+    padding: 12px 0 0 11px;
     min-height: 22px;
     line-height: 11px;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .chat-input {
@@ -267,10 +270,27 @@ span.bubble {
 
 .emoji-overlay {
     position: absolute;
-    background-color: white;
+    background-color: rgb(34,34,34);
     padding: 15px;
     padding: 9px;
     right: 60px;
+    bottom: 54px;
+    border-radius: 3px;
+    width: 100%;
+    left: 0;
+
+    bottom: -150px;
+    visibility: hidden;
+    opacity: 0;
+
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.emoji-overlay.open {
+    bottom: 50px;
+    visibility: visible;
+    opacity: 1;
 }
 
 .conversations {
@@ -291,7 +311,19 @@ span.bubble {
     max-width: 600px;
     margin: 0 0 0 100px;
     float:left;
+    overflow: hidden;
 }
 .messenger-container h2 {
     font-size: 22px;
+}
+
+.emoji {
+    margin: 3px;
+    cursor: pointer;
+}
+
+.messenger-container .content-wrapper {
+    float: left;
+    overflow: hidden;
+    width: 100%;
 }
