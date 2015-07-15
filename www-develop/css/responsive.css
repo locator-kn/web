@@ -437,6 +437,7 @@
         width: 11.333333%;
         padding: 0;
         line-height: 75px;
+        max-width: 35px;
     }
 
     .edittrip-container .content-wrapper {
