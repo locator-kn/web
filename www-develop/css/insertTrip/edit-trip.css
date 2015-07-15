@@ -644,7 +644,10 @@ span.info.err {
     background-color: rgb(34,34,34);
 }
 
-
 .welcome_select .moods ul {
     min-width: 240px;
+}
+
+.edittrip-container .insert-trip-circle {
+    margin-bottom: 3px;
 }
