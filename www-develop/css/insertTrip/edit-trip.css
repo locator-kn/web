@@ -626,7 +626,18 @@ span.info.err {
 
 .fixrow {
     transition-duration: 0.3s;
-    transition-property: background-color;
+    transition-property: background-color, opacity;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
+}
+
+.fixrow.data-available {
+    opacity: 1;
+    visibility: visible;
 }
 
 .fixrow.stuck {
