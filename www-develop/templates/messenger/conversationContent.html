@@ -1,7 +1,8 @@
-<div class="messages-wrapper">
+<div class="messages-wrapper relative">
 
     <div class="visible-xs col-xs-12">
-        <h2 scroll-to="conversations" offset="60"><img class="back-button" src="images/svgs/back_button_black.svg"> Kontakte</h2>
+        <h2 scroll-to="conversations" offset="60"><img class="back-button" src="images/svgs/back_button_black.svg">
+            Kontakte</h2>
     </div>
 
     <div ng-if="mc.selectedConversation === null" class="content-wrapper">
@@ -14,7 +15,10 @@
 
     <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
         <div class="header">
-            <span class="trip pointer" ng-if="mc.selectedConversation.trip" ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']"><img style="margin: 3px" src="images/icons/trip_weiss.png" height="20"></span>
+            <span class="trip pointer" ng-if="mc.selectedConversation.trip"
+                  ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']"><img
+                style="margin: 3px" src="images/icons/trip_weiss.png" height="20"></span>
+
             <div class="trip pointer" ng-if="mc.selectedConversation['tripPopoverOpen']">
                 <div class="triangle"></div>
                 <div class="trip-preview">
@@ -22,29 +26,36 @@
                     <!--<div class="addtional-text">asdasd asd asd as das d</div>-->
                 </div>
             </div>
-            <span class="profile pointer tt tt-small" ui-sref="user({profileId: mc.selectedConversation.opponent._id})" aria-label="{{mc.selectedConversation.opponent.name}}" ><img src="images/icons/profile_white.png" height="20"></span>
+            <span class="profile pointer tt tt-small" ui-sref="user({profileId: mc.selectedConversation.opponent._id})"
+                  aria-label="{{mc.selectedConversation.opponent.name}}"><img src="images/icons/profile_white.png"
+                                                                              height="20"></span>
         </div>
 
-        <div class="content locator-scroller" scroll-glue>
-            <div ng-class="{'out' : message.from === $root.userID}" class="message" ng-repeat="message in mc.messagesHash[mc.selectedConversation._id] track by $index">
-                <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
-                    <span class="bubble"></span>
-                </p>
-
+        <div class="content-wrapper">
+            <div class="content locator-scroller" scroll-glue>
+                <div ng-class="{'out' : message.from === $root.userID}" class="message"
+                     ng-repeat="message in mc.messagesHash[mc.selectedConversation._id] track by $index">
+                    <p><span ng-bind-html="mc.toTrusted(message.message)" class="message-content"></span>
+                        <span class="bubble"></span>
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
 
+            <div class="emoji-overlay" ng-class="{'open' : mc.showEmojis}">
+                    <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)"
+                          ng-repeat="item in mc.emojis"></span>
+            </div>
+
+        </div>
+
+    </div>
     <form class="relative chat-input" ng-if="mc.selectedConversation != null">
 
-        <div class="emoji-overlay" ng-if="mc.showEmojis">
-
-            <span ng-click="mc.selectEmoji(item)" ng-bind-html="mc.toTrusted(item)" ng-repeat="item in mc.emojis"></span>
-
-        </div>
         <textarea id="chat_box" focus ng-model="mc.textbox" ng-keydown="mc.sendMessage($event)"></textarea>
-        <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji"><img class="emoji-icon" src="./images/icons/face.png"></button>
+        <button class="messenger-button" ng-click="mc.showEmojis = !mc.showEmojis" type="button" id="emoji"><img
+            class="emoji-icon" src="./images/icons/face.png"></button>
         <!--<button class="messenger-button" ng-click="mc.sendMessage()" type="button" id="chat_submit">Submit</button>-->
     </form>
+
 
 </div>
