@@ -318,8 +318,8 @@ span.bubble {
 }
 
 .emoji {
-    margin: 3px;
     cursor: pointer;
+    vertical-align: top;
 }
 
 .messenger-container .content-wrapper {
