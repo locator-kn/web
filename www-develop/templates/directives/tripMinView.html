@@ -80,7 +80,8 @@
                 </div>
                 <div class="result-content-bottom">
                     <div class="icon-container tt tt-small" aria-label="{{trip.mood.title}}"
-                         style="background-image: url('./images/icons/moods_white/{{trip.mood.icon}}')"></div>
+                         ng-style="{'background-image':'url(./images/icons/moods_white/'+trip.mood.icon+')'}">
+                    </div>
                     <div class="icon-circle-container">
                         <div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen"
                              ui-sref="trip({tripId: trip._id})"></div>
