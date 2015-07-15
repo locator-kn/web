@@ -1906,7 +1906,7 @@ input, textarea {
     -webkit-appearance: none !important;
 }
 
-.footer-container {
+.container-fluid .footer-container {
     padding-left: 15px;
     padding-right: 15px;
 }
