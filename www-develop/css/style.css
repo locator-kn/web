@@ -1638,6 +1638,7 @@ tags-input .tags .input, tags-input .tags .tag-item {
     transition-delay: 0.2s;
 }
 
+.search-container .mobile-settings.data-available,
 .search-container .welcome_select.data-available {
     opacity: 1;
     visibility: visible;

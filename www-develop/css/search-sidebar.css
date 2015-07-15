@@ -548,6 +548,10 @@ trip-min-view .result-content-box {
     color: white;
     display: none;
     margin-top: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.5s;
+    transition-delay: 0.2s;
 }
 
 .mobile-settings .datepicker-container {

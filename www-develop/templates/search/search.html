@@ -29,7 +29,7 @@
                     </span>
                 </div>
             </div>
-            <span class="mobile-settings" ng-init="moreFilter=false">
+            <span ng-class="{'data-available': sc.dataAvailable}" class="mobile-settings" ng-init="moreFilter=false">
                 <div class="toggle-settings" active-popover click-value="'moreSettings'" compare-to="mc.openElement">
                     <div class="toggle-settings-container pointer">
                         <div class="filter-icon"></div>
