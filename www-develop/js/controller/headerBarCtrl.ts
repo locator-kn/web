@@ -28,6 +28,8 @@ module Controller {
         usersOnline:number = 0;
         lastMessageIn:string = '';
 
+        $audio_elem:any = angular.element('#incoming_message')[0];
+
         static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService'];
         constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
@@ -105,6 +107,9 @@ module Controller {
                     }
                     this.conversationsHash[newMessage.conversation_id][this.$rootScope.userID + '_read'] = false;
                     if (this.$rootScope.userID !== newMessage.from) {
+                        if(this.$audio_elem.paused) {
+                            this.$audio_elem.play();
+                        }
                         this.showBadge = true;
                         this.unreadMessages = 1;
                         this.lastMessageIn = newMessage.conversation_id;

@@ -57,6 +57,32 @@
         padding: 0 5px;
     }
 
+    .edittrip-container .location .select-overlay {
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        width: 11.333333%;
+        padding: 0;
+        line-height: 75px;
+        max-width: 35px;
+    }
+
+    .edittrip-container .content-wrapper {
+        padding-right: 7px;
+    }
+
+    .edittrip-container .location .select-overlay img {
+        padding: 5px;
+        width: 100%;
+        height: auto;
+    }
+
+    .edittrip-container .location-tags .tag {
+        word-wrap: initial;
+        float: left;
+        margin-bottom: 3px;
+    }
+
 }
 
 /* XS */
@@ -352,10 +378,6 @@
         margin-top: -50px;
     }
 
-    .mobile-settings {
-        display: block;
-    }
-
     .messenger-container .messages-wrapper {
         width: 100%;
         max-width: none;
@@ -422,7 +444,21 @@
     }
 
     .welcome_container {
-        min-height: auto !important;
+        min-height: initial !important;
+    }
+
+    .absolute-slider {
+        height: 100%;
+        min-height: initial;
+    }
+
+    .mobile-settings {
+        width: 100%;
+    }
+
+    .mobile-settings .settings-container {
+        width: 100%;
+        left: 0;
     }
 
 }

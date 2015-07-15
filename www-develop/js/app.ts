@@ -54,7 +54,7 @@ var deps = [
     'smoothScroll',
     'ui.router',
     'pascalprecht.translate',
-    'emoji', 'base64',
+    'base64',
     'angularFileUpload',
     'ngMapAutocomplete',
     'ngFileUpload',
@@ -65,7 +65,7 @@ var deps = [
     'locator.datepicker',
     'locator.scrollfix',
     'locator.accommodation-equipment-chooser',
-    'emoji',
+    'dbaq.emoji',
     'uiGmapgoogle-maps',
     'luegg.directives',
     'monospaced.elastic',
@@ -202,8 +202,8 @@ var app = angular.module('locator', deps)
         };
     })
 
-    .filter('itemsInHash', function() {
-        return function(hashmap) {
+    .filter('itemsInHash', function () {
+        return function (hashmap) {
 
             return Object.keys(hashmap).length;
         };

@@ -1830,7 +1830,7 @@ h1 {
 }
 
 .ngdialog a:hover {
-    background: rgb(34,34,34);
+    background: rgb(34, 34, 34);
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-close:before {
@@ -1902,6 +1902,30 @@ h1 {
     z-index: 100;
 }
 
+input, textarea {
+    -webkit-appearance: none !important;
+}
 
+.container-fluid .footer-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.cropper-view-box {
+    outline: 1px solid #33c4b7 !important;
+    outline-color: #33c4b7 !important;
+}
+
+.cropper-point.point-se:before {
+    background-color: #33c4b7 !important;
+}
+
+.cropper-line {
+    background-color: #33c4b7 !important;
+}
+
+.cropper-point {
+    background-color: #33c4b7 !important;
+}
 
 
