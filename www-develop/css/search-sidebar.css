@@ -529,29 +529,27 @@ trip-min-view .result-content-box {
     transition-timing-function: ease-in-out;
 }
 
-.container-sidebar .settings.toggle {
+.mobile-settings .settings.toggle {
     left: 0;
 }
 
-.container-sidebar .settings.toggle {
+.mobile-settings .settings.toggle {
     left: 0;
 }
 
 .mobile-settings {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 50px;
     background-color: #33c4b7;
     position: relative;
     float: left;
     padding: 4px 10px 4px 10px;
     border-radius: 3px;
     color: white;
-    display: none;
     margin-top: 5px;
-    opacity: 0;
-    visibility: hidden;
     transition-duration: 0.5s;
     transition-delay: 0.2s;
+    display: inline-block;
 }
 
 .mobile-settings .datepicker-container {
@@ -569,6 +567,7 @@ trip-min-view .result-content-box {
     width: 100%;
     display: block;
     font-size: 25px;
+    height: 50px;
 }
 
 .mobile-settings .filter-container {
@@ -580,24 +579,24 @@ trip-min-view .result-content-box {
 .mobile-settings .settings-container {
     margin-top: 5px;
     position: absolute;
-    top: 45px;
-    left: 0;
+    top: 48px;
+    left: -117px;
     z-index: 5;
     background: #33c4b7;
-    width: 100%;
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
+    width: auto;
+    font-size: 12px;
 }
 
 .toggle-settings .filter-icon {
     background-image: url(../images/icons/filter_weiss.png);
-    background-size: 30px 30px;
+    background-size: 40px 40px;
     background-position: center;
-    width: 30px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     float: left;
     display: inline-block;
-    margin-right: 5px;
 }
 
 .mobile-settings .filter-container .setting-selection-container:first-child {
@@ -622,5 +621,10 @@ trip-min-view .result-content-box {
 
 .toggle-settings-container {
     display: inline-block;
+    width: auto;
+}
+
+.more-settings-desc {
+    display: none;
 }
 

@@ -378,10 +378,6 @@
         margin-top: -50px;
     }
 
-    .mobile-settings {
-        display: block;
-    }
-
     .messenger-container .messages-wrapper {
         width: 100%;
         max-width: none;
@@ -456,7 +452,14 @@
         min-height: initial;
     }
 
+    .mobile-settings {
+        width: 100%;
+    }
 
+    .mobile-settings .settings-container {
+        width: 100%;
+        left: 0;
+    }
 
 }
 
