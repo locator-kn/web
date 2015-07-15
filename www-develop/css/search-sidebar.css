@@ -590,13 +590,12 @@ trip-min-view .result-content-box {
 
 .toggle-settings .filter-icon {
     background-image: url(../images/icons/filter_weiss.png);
-    background-size: 30px 30px;
+    background-size: 40px 40px;
     background-position: center;
-    width: 30px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     float: left;
     display: inline-block;
-    margin-right: 5px;
 }
 
 .mobile-settings .filter-container .setting-selection-container:first-child {
@@ -621,5 +620,10 @@ trip-min-view .result-content-box {
 
 .toggle-settings-container {
     display: inline-block;
+    width: auto;
+}
+
+.more-settings-desc {
+    display: none;
 }
 

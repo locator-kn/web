@@ -1,6 +1,6 @@
 <div class="search-container" ng-controller="SearchCtrl as sc">
     <div class="container">
-        <div class="fixed-top">
+        <span class="fixed-top">
             <span ng-class="{'data-available': sc.dataAvailable}" class="welcome_select">
                 <span ng-class="{'fade-top' : sc.hideBar}" class="search-searchbar">
                     <span class="relative green">
@@ -44,8 +44,8 @@
                         </div>
                     </span>
                 </span>
-            </div>
-        </div>
+                </span>
+            </span>
     </div>
     <div ng-include="'templates/search/searchResult.html'"></div>
 </div>

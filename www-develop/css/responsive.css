@@ -452,6 +452,10 @@
         min-height: initial;
     }
 
+    .mobile-settings {
+        width: 100%;
+    }
+
 
 
 }
