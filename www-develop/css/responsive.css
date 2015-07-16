@@ -57,7 +57,7 @@
         padding: 0 5px;
     }
 
-    .edittrip-container .location .select-overlay {
+    /*.edittrip-container .location .select-overlay {
         height: 100%;
         opacity: 1;
         visibility: visible;
@@ -66,16 +66,16 @@
         line-height: 75px;
         max-width: 35px;
     }
-
+*/
     .edittrip-container .content-wrapper {
         padding-right: 7px;
     }
 
-    .edittrip-container .location .select-overlay img {
+   /* .edittrip-container .location .select-overlay img {
         padding: 5px;
         width: 100%;
         height: auto;
-    }
+    }*/
 
     .edittrip-container .location-tags .tag {
         word-wrap: initial;
