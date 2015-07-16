@@ -167,6 +167,7 @@ module Controller {
         }
 
         deSelectLocation(locationtodeselect) {
+
             this._removeLocation(this.selectedLocations, locationtodeselect);
 
             if (locationtodeselect.origin === 'both') {
