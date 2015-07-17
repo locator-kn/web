@@ -260,7 +260,7 @@ module Controller {
                     this.closeDialog();
                     this.$state.go("messenger.opponent", {opponentId: result.data.id});
                 })
-                .error(result => {
+                .catch(result => {
                     console.info("Oops");
                     console.info(result);
 
