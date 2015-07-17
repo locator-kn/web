@@ -287,6 +287,7 @@ tags-input.error .tags {
 
     display: none;
 }
+
 .help-trigger:hover .help-box {
     display: block;
     font-size: 12px;
@@ -300,3 +301,35 @@ tags-input .tags {
     -webkit-appearance: none !important;
 }
 
+.ngdialog .location-city {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid rgb(204, 204, 204);
+    background: white;
+    color: rgb(34, 34, 34);
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.pac-container {
+    z-index: 100000;
+}
+
+.moodal input, .moodal p {
+    color: white;
+}
+
+.moodal .button-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.moodal .button-wrapper a {
+    width: 50%;
+    display: inline-block;
+    color: white;
+    background-color: #ff4637;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 3px;
+}
