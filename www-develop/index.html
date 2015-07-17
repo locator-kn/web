@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 
-<body ng-cloak id="page-top" ng-class="{'slider': slider}">
+<body ng-cloak id="page-top" ng-class="{'slider': slider, 'mobile': mc.isMobile}">
 
 <div ng-if="slider" class="absolute-slider" ng-controller="SlideCtrl as sc">
 
