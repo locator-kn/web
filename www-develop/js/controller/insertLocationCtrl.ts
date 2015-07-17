@@ -18,10 +18,22 @@ module Controller {
         error:boolean = false;
         gpsLoading:boolean = false;
 
+        edgeCity = {
+            id: '',
+            place_id: '',
+            name: ''
+        };
+
         locationTitle:string = '';
 
         googlePlacesOptions = {
             country: 'de'
+        };
+
+        googleCityOptions = {
+            country: 'de',
+            types: '(cities)'
+
         };
 
         headline:string;
@@ -41,9 +53,9 @@ module Controller {
 
         me:any = {};
 
-        static $inject = ['UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
+        static $inject = ['$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
 
-        constructor(private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
@@ -211,8 +223,6 @@ module Controller {
                     this.isUploading = false;
                     this.progressPercentage = 0;
                 });
-
-            //this.InsertTripService.uploadImage(formData);
         }
 
         clearFileSelection() {
@@ -239,6 +249,23 @@ module Controller {
                 return;
             }
 
+            //detect edgeedgecase and open manual city select
+            if (!this.locationFormDetails.city.place_id && !this.edgeCity.place_id) {
+                this.openCityModal();
+                return;
+            }
+
+            /*city is undefined and edgecity is defined
+             this should normally happen when someone triggers save() from edgemodal*/
+            if (!this.locationFormDetails.city.place_id && this.edgeCity.place_id) {
+
+                this.locationFormDetails.city.place_id = this.edgeCity.place_id;
+                this.locationFormDetails.city.title = this.edgeCity.name;
+                this.locationFormDetails.city.id = this.edgeCity.id;
+                this.$rootScope.overlay = false;
+
+            }
+
             var formValues = angular.copy(this.locationFormDetails);
 
             var stringTags = [];
@@ -253,10 +280,6 @@ module Controller {
                 lat: this.map.clickedMarker.latitude
             };
 
-            if (!formValues.city) {
-                console.log('city not defined');
-                //TODO: open modal for cities
-            }
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then((result) => {
@@ -445,6 +468,13 @@ module Controller {
             this.locationFormDetails.city.title = locality.formatted_address;
             this.locationFormDetails.city.place_id = locality.place_id;
             this.locationFormDetails.city.id = locality.place_id;
+        }
+
+        openCityModal() {
+            this.$rootScope.overlay = true;
+            angular.element('#edgecase').addClass('active');
+            console.info(angular.element('#edgecase'));
+            $('#edgecase').addClass('active');
         }
 
         static controllerId:string = "InsertLocationCtrl";
