@@ -3,15 +3,17 @@
 <div class="btn-grp-white">
     <div class="row no-margin-left">
         <div class="fb">
-            <div class="fb-image" style="background-image: url('./images/svgs/fb_logo_white.svg')" ></div>
-            <a class="fb-login pointer" ng-click="mc.loginFacebook()">Mit Facebook registrieren</a>
+            <a class="fb-login pointer" ng-click="mc.loginFacebook()"><img class="fb-image"
+                                                                           src="images/svgs/fb_logo_white.svg">Mit
+                Facebook registrieren</a>
         </div>
     </div>
     <hr>
     <div class="row no-margin-left">
         <div class="gp">
-            <div class="gp-image" style="background-image: url('./images/svgs/gp_logo_white.svg')"></div>
-            <a class="gp-login pointer" ng-click="mc.loginGoogle()">Mit Google registrieren</a>
+            <a class="gp-login pointer" ng-click="mc.loginGoogle()"><img class="gp-image"
+                                                                         src="images/svgs/gp_logo_white.svg">Mit Google
+                registrieren</a>
         </div>
     </div>
     <hr>
@@ -23,6 +25,7 @@
     <input required ng-model="mc.name" type="text" placeholder="Name" name="name">
     <input required ng-model="mc.mail" type="email" placeholder="E-Mail" name="inputMail">
     <input required ng-model="mc.password" type="password" placeholder="Passwort" name="inputPassword">
+
     <div ng-class="{open: mc.errormsg}" class="msg error-msg">{{mc.errormsg}}</div>
     <input ng-click="mc.register(form)" class="pointer register submit button" value="Registrieren" type="submit">
     <a ng-click="mc.closeDialog(); mc.openLoginDialog()" class="pointer forgotpw">Schon registriert?</a>
