@@ -638,5 +638,9 @@ trip-min-view .result-content-box {
     width: 63px;
 }
 
+.setting-selection-container input.cmn-toggle-round:checked + label:after {
+    background-color: #D5D5D5;
+}
+
 
 
