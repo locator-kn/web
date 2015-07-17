@@ -1938,4 +1938,12 @@ input, textarea {
     background-color: #33c4b7 !important;
 }
 
+.single-button {
+    width: 100%;
+}
+
+.single-button a {
+    width: 50%;
+}
+
 

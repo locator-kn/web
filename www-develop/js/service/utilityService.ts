@@ -59,7 +59,7 @@ module Service {
                 },
                 template: '<h3>' + title + '</h3>' +
                 '<p>' + msg + '</p>' +
-                '<div class="button-wrapper"><a class="pointer" ng-click="close()">Alles klar</a></div>',
+                '<div class="button-wrapper single-button"><a class="pointer" ng-click="close()">Alles klar</a></div>',
                 plain: true
             });
         }
