@@ -413,6 +413,7 @@ form.passwordforget {
 .header-bar .user a {
     margin: 0 2px 0;
     padding: 0 5px;
+    line-height: 45px;
 }
 
 .header-bar .user .user-dropdown {
@@ -543,8 +544,11 @@ form.passwordforget {
 .moodal .btn-grp-white a {
     color: white;
     float: left;
-    margin-left: 10px;
-    margin-top: 3px;
+    line-height: 25px;
+}
+
+.moodal .fb-image, .moodal .gp-image {
+    margin-right: 7px;
 }
 
 .moodal .or {
