@@ -242,6 +242,15 @@ module Controller {
             this.headerImagePath = data.location + '?size=mid&c=' + cacheBuster;
         }
 
+        /* Save a Location with the edgecase modal */
+        edgeCaseSave() {
+            this.locationFormDetails.city.place_id = this.edgeCity.place_id;
+            this.locationFormDetails.city.title = this.edgeCity.name;
+            this.locationFormDetails.city.id = this.edgeCity.id;
+            this.$rootScope.overlay = false;
+            this.save();
+        }
+
         save() {
 
             if (!this.mapMarkerSet || !this.locationFormDetails.title || !this.locationFormDetails.description || !this.locationFormDetails.tags) {
@@ -253,17 +262,6 @@ module Controller {
             if (!this.locationFormDetails.city.place_id && !this.edgeCity.place_id) {
                 this.openCityModal();
                 return;
-            }
-
-            /*city is undefined and edgecity is defined
-             this should normally happen when someone triggers save() from edgemodal*/
-            if (!this.locationFormDetails.city.place_id && this.edgeCity.place_id) {
-
-                this.locationFormDetails.city.place_id = this.edgeCity.place_id;
-                this.locationFormDetails.city.title = this.edgeCity.name;
-                this.locationFormDetails.city.id = this.edgeCity.id;
-                this.$rootScope.overlay = false;
-
             }
 
             var formValues = angular.copy(this.locationFormDetails);
