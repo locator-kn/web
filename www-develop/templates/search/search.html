@@ -36,11 +36,7 @@
                             </div>
                         </div>
                         <div class="settings-container" ng-show="mc.openElement === 'moreSettings'">
-                            <div class="datepicker-container">
-                                <datepicker  start-date-real="sc.query.start_date" end-date-real="sc.query.end_date"
-                                             on-linked="false"></datepicker>
-                            </div>
-                            <div class="filter-container" ng-include="'templates/search/filter.html'"></div>
+                            <more-Settings></more-Settings>
                         </div>
                     </span>
                 </span>

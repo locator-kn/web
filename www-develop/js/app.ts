@@ -509,6 +509,18 @@ var app = angular.module('locator', deps)
         }
     })
 
+    .directive('moreSettings', function ($rootScope) {
+        return {
+            link: (scope:any, element) => {
+                element.bind('click', (event) => {
+                    // stop event from bubbling up to the body
+                    event.stopPropagation();
+                });
+            },
+            templateUrl: 'templates/directives/moreSettings.html'
+        }
+    })
+
     .directive('focus', function () {
         return function (scope, elem, attr) {
             angular.element(elem).focus();

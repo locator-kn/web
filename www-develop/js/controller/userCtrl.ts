@@ -116,7 +116,7 @@ module Controller {
                         this.trips.forEach((entry:any) => {
                             entry.username = this.user.name + ' ' + this.user.surname;
                         })
-                    })
+                    });
 
             }
 
@@ -239,34 +239,21 @@ module Controller {
             this.$rootScope.overlay = true;
             angular.element(this.$element).find('#conversationModal').addClass('active');
 
-            angular.element('.overlay').bind('click', () => {
-                this.closeDialog();
-            });
-
             this.$rootScope.$emit('new_conversation');
 
         }
 
-        closeDialog() {
-            this.$rootScope.overlay = false;
-            angular.element(this.$element).find('.moodal.active').removeClass('active');
-        }
 
         submitConversation() {
             this.MessengerService.startConversation(this.textMessage, this.user._id)
 
                 .then(result => {
-                    console.info("Started Conversation");
-                    this.closeDialog();
                     this.$state.go("messenger.opponent", {opponentId: result.data.id});
                 })
                 .catch(result => {
-                    console.info("Oops");
-                    console.info(result);
 
-                    if (result.statusCode === 409) {
-                        this.closeDialog();
-                        this.$state.go("messenger.opponent", {opponentId: result.data.id});
+                    if (result.data.statusCode === 409) {
+                        this.$state.go("messenger.opponent", {opponentId: result.data.data.id});
 
                     }
                 });
@@ -326,8 +313,7 @@ module Controller {
                 modal: false,
                 rotatable: false,
                 crop: (data) => {
-                    console.log(data)
-                    this.imageCropData = data
+                    this.imageCropData = data;
                 }
             });
         }
@@ -375,7 +361,6 @@ module Controller {
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
             this.profileImagePath = data.imageLocation + '?' + Date.now();
-            debugger;
         }
 
         setNewPassword() {
@@ -452,7 +437,7 @@ module Controller {
         showLocation(location) {
             this.$state.go('locationView', {
                 locationId: location._id
-            })
+            });
         }
 
         deleteLocation(location) {
@@ -469,7 +454,7 @@ module Controller {
                         location.showdelete = false;
                         location.locationReallyDelete = true;
                     }
-                })
+                });
         }
 
         deleteLocationForce(location) {
@@ -487,7 +472,7 @@ module Controller {
                     console.log('Hard deletion error');
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
-                })
+                });
         }
 
         deleteTrip(trip) {
@@ -502,7 +487,7 @@ module Controller {
                 })
                 .catch(result => {
                     console.info('Deletion Error');
-                })
+                });
         }
 
         static
