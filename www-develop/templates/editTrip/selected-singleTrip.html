@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-xs-3 img-wrapper pointer"
-         ng-click="et.triggerPrevew(location)" style="background-image: url({{location.images.picture + '?s=small' || location.images.googlemap + '&size=400x234'}}); background-size: cover;">
+         ng-click="et.triggerPrevew(location)" style="background-image: url({{location.images.picture + '?s=small' || location.images.googlemap + '&s=400x234'}}); background-size: cover;">
 
         <img ng-if="!location.opened" class="bigger-button" src="images/icons/bigger.png">
         <img ng-if="location.opened" class="bigger-button smaller-button" src="images/icons/smaller.png">
