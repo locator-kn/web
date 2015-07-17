@@ -325,7 +325,7 @@ trip-min-view .result-content-box {
     display: inline-block;
 }
 
-.locationview-container .icon-circle:first-child {
+.locationview-container .link-container .padding {
     margin-right: 10px;
 }
 
@@ -421,27 +421,6 @@ trip-min-view .result-content-box {
     height: 250px;
     width: 100%;
     border: none;
-}
-
-.setting-selection-container input.cmn-toggle-round:checked + label:before {
-    background-color: white;
-}
-
-.setting-selection-container input.cmn-toggle-round + label:after {
-    width: 30px;
-    background-color: #33c4b7;
-    border-radius: 100%;
-    transition: margin 0.4s;
-    border: solid white 3px;
-    box-shadow: none;
-}
-
-.setting-selection-container input.cmn-toggle-round + label:before {
-    right: 1px;
-    background-color: #33c4b7;
-    border-radius: 60px;
-    transition: background 0.4s;
-    border: solid white 3px;
 }
 
 .setting-selection-container span {
@@ -650,3 +629,18 @@ trip-min-view .result-content-box {
 .hide-settings {
     display: none;
 }
+
+.setting-selection-container input.cmn-toggle-round:checked + label:before {
+    background-color: white;
+}
+
+.setting-selection-container input.cmn-toggle-round + label {
+    width: 63px;
+}
+
+.setting-selection-container input.cmn-toggle-round:checked + label:after {
+    background-color: #D5D5D5;
+}
+
+
+

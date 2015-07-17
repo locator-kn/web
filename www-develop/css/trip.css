@@ -47,6 +47,17 @@
     margin-right: 5px;
 }
 
+.trip-mood-container .icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 .btn-mood-container {
     margin-top: -51px;
     float: right;

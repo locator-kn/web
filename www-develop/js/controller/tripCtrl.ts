@@ -45,6 +45,7 @@ module Controller {
                     this.HelperService.getMoodByQueryName(this.trip.moods[0])
                         .then(result => {
                             this.trip.mood = result;
+                            this.trip.moodImage = 'images/icons/moods_white/'+result.icon;
                         });
 
                 });

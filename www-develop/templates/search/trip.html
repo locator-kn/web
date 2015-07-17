@@ -26,11 +26,14 @@
                          class="uppercase message-button pointer">
                         Bearbeiten
                     </div>
-                    <div class="hidden-xs trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
-                         ng-style="{'background-image':'url(./images/icons/moods_white/'+tc.trip.mood.icon+')'}">
+                    <div class="hidden-xs trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}">
+                        <img class="icon" ng-src="{{tc.trip.moodImage}}">
                     </div>
-                    <span aria-label="Zurück" class="back-wrapper tt tt-small"><a go-back class="previous-button uppercase pointer"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg"></a></span>
-
+                    <span aria-label="Zurück" class="back-wrapper tt tt-small">
+                        <a go-back class="previous-button uppercase pointer">
+                            <img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg">
+                        </a>
+                    </span>
                 </div>
             </div>
             <div class="col-xs-12 visible-xs move-50-top">
