@@ -16,7 +16,7 @@
     <div ng-if="mc.selectedConversation !== null" class="content-wrapper">
         <div class="header">
 
-            <h4 ui-sref="user({profileId: mc.selectedConversation.opponent._id})">{{mc.selectedConversation.opponent.name}}</h4>
+            <h4 class="opponent_name" ui-sref="user({profileId: mc.selectedConversation.opponent._id})">{{mc.selectedConversation.opponent.name}}</h4>
 
             <span class="trip pointer" ng-if="mc.selectedConversation.trip"
                   ng-click="mc.selectedConversation['tripPopoverOpen'] = !mc.selectedConversation['tripPopoverOpen']"><img

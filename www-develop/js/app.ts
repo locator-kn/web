@@ -73,7 +73,9 @@ var deps = [
     'geolocation',
     'ngTagsInput',
     'matchMedia',
-    'ngDialog'
+    'ngDialog',
+    'angulartics',
+    'angulartics.google.analytics'
 ];
 
 var app = angular.module('locator', deps)
