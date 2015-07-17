@@ -568,12 +568,12 @@ trip-min-view .result-content-box {
     margin-top: 5px;
     position: absolute;
     top: 48px;
-    left: -117px;
+    left: -124px;
     z-index: 5;
     background: #33c4b7;
     border-radius: 3px;
-    padding: 5px 5px 5px 5px;
-    width: auto;
+    padding: 12px;
+    width: 184px;
     font-size: 12px;
 }
 
