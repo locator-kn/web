@@ -83,24 +83,28 @@
                          ng-style="{'background-image':'url(./images/icons/moods_white/'+trip.mood.icon+')'}">
                     </div>
                     <div class="icon-circle-container">
-                        <img class="icon-circle" src="images/icons/trip-min-view/trip_ansicht.svg">
-                        <!--<div class="icon-circle look-icon tt tt-small" aria-label="Trip ansehen"
-                             ui-sref="trip({tripId: trip._id})"></div>-->
+                        <span class="tt-wrapper tt tt-small" aria-label="Trip ansehen">
+                        <img class="icon-circle tt tt-small"
+                             src="images/icons/trip-min-view/trip_ansicht.svg" ui-sref="trip({tripId: trip._id})">
+                        </span>
                     </div>
                     <div class="icon-circle-container">
-                        <img class="icon-circle" src="images/icons/trip-min-view/locations.svg">
-                        <!--<div class="icon-circle location-icon tt tt-small " aria-label="Locations ansehen"
-                             ng-click="showLocations()"></div>-->
-                    </div>
+                        <span class="tt-wrapper tt tt-small " aria-label="Locations ansehen">
+                            <img class="icon-circle" ng-click="showLocations()"
+                                 src="images/icons/trip-min-view/locations.svg">
+                        </span>
+                     </div>
                     <div ng-if="meId != trip.userid" class="icon-circle-container">
-                        <img class="icon-circle" src="images/icons/trip-min-view/chat.svg">
-                        <!--<div class="icon-circle messenger-icon tt tt-small" aria-label="Teilnehmen"
-                             ng-click="participate()"></div>-->
+                        <span class="tt-wrapper tt tt-small" aria-label="Teilnehmen">
+                            <img class="icon-circle" ng-click="participate()"
+                                 src="images/icons/trip-min-view/chat.svg">
+                        </span>
                     </div>
                     <div ng-if="meId == trip.userid" class="icon-circle-container">
-                        <img class="icon-circle" src="images/icons/trip-min-view/edit.svg">
-                        <!--<div class="icon-circle edit-icon tt tt-small" ui-sref="editTrip({tripId: trip._id})"
-                             aria-label="Bearbeiten"></div>-->
+                        <span class="tt-wrapper tt tt-small" aria-label="Bearbeiten">
+                            <img class="icon-circle" ui-sref="editTrip({tripId: trip._id})"
+                                src="images/icons/trip-min-view/edit.svg">
+                        </span>
                     </div>
                 </div>
             </div>
