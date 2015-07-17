@@ -822,6 +822,7 @@ textarea {
     margin-top: -75px;
     position: absolute;
     z-index: 10;
+    background-color: white;
 }
 
 .content-header {
@@ -1802,6 +1803,7 @@ h1 {
 
 .profile-image img {
     width: 100%;
+    background-color: white;
 }
 
 .ngdialog.ngdialog-theme-default .ngdialog-content {

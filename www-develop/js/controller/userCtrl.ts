@@ -159,7 +159,7 @@ module Controller {
                 .then(result => {
                     this.user = result.data;
                     if (!result.data.picture) {
-                        this.profileImagePath = "/images/profile.png"
+                        this.profileImagePath = "/images/profile.svg"
                     } else {
                         this.profileImagePath = result.data.picture;
                     }
