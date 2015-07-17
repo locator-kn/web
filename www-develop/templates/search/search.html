@@ -35,7 +35,7 @@
                                 <span class="more-settings-desc">Weitere Filter</span>
                             </div>
                         </div>
-                        <div class="settings-container" ng-show="mc.openElement === 'moreSettings'">
+                        <div ng-class="{'hide-settings' : sc.hideBar}" class="settings-container" ng-show="mc.openElement === 'moreSettings'">
                             <more-Settings></more-Settings>
                         </div>
                     </span>

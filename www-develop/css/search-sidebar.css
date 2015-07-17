@@ -646,3 +646,7 @@ trip-min-view .result-content-box {
     margin-left: auto;
     margin-right: auto;
 }
+
+.hide-settings {
+    display: none;
+}
