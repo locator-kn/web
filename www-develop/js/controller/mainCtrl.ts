@@ -19,13 +19,15 @@ module Controller {
         mail:any;
         password:any;
 
+        isMobile:boolean;
+
         forgotPassword:boolean = false;
 
         static $inject = ['UtilityService','$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window'];
 
         constructor(private UtilityService, private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window) {
 
-            console.info(this.UtilityService.isMobile());
+            this.isMobile = this.UtilityService.isMobile();
 
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
