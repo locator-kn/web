@@ -298,7 +298,8 @@ body.slider {
 
 .header-bar .btn-group a {
     color: #fff;
-    line-height: 45px;
+    line-height: 35px;
+    float: left;
 }
 
 .header-bar .btn-group a:hover {
@@ -348,6 +349,10 @@ ul.slides {
 
 .blackopac {
     background: rgba(34, 34, 34, 0.9);
+}
+
+form.passwordforget {
+    padding-top: 45px;
 }
 
 .overlay.active {
