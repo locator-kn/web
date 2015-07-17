@@ -1946,4 +1946,8 @@ input, textarea {
     width: 50%;
 }
 
+.twohundred-max {
+    max-width: 200px;
+}
+
 
