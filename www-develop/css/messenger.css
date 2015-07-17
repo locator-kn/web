@@ -354,3 +354,10 @@ span.message-content.ng-binding {
     margin: 3px;
 }
 
+h4.opponent_name {
+    float: left;
+    margin: 0;
+    padding: 0;
+    line-height: 40px;
+    padding-left: 10px;
+}
