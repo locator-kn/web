@@ -325,7 +325,7 @@ trip-min-view .result-content-box {
     display: inline-block;
 }
 
-.locationview-container .icon-circle:first-child {
+.locationview-container .link-container .padding {
     margin-right: 10px;
 }
 
@@ -650,3 +650,5 @@ trip-min-view .result-content-box {
 .hide-settings {
     display: none;
 }
+
+
