@@ -351,6 +351,10 @@ ul.slides {
     background: rgba(34, 34, 34, 0.9);
 }
 
+form.passwordforget {
+    padding-top: 45px;
+}
+
 .overlay.active {
     opacity: 1;
     display: block;
