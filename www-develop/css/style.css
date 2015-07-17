@@ -299,6 +299,7 @@ body.slider {
 .header-bar .btn-group a {
     color: #fff;
     line-height: 45px;
+    float: left;
 }
 
 .header-bar .btn-group a:hover {
