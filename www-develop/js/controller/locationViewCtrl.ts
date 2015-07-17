@@ -37,7 +37,7 @@ module Controller {
                             this.user = resultUser.data;
                             this.me = this.$rootScope.userID === this.userId;
                             if (!this.user.picture) {
-                                this.profileImagePath = '/images/profile.png?size=user';
+                                this.profileImagePath = '/images/profile.svg';
                             } else {
                                 this.profileImagePath = this.user.picture + '?size=user';
                             }

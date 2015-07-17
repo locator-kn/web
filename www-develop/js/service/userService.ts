@@ -41,7 +41,7 @@ module Service {
         decorateUserImage = (data) => {
             return this.$q((resolve, reject) => {
                 if (!data.data.picture) {
-                    data.data.picture = 'images/profile.png'
+                    data.data.picture = 'images/profile.svg'
                 }
                 resolve(data);
             });
