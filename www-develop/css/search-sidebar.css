@@ -460,6 +460,14 @@ trip-min-view .result-content-box {
     color: white;
 }
 
+.mobile-settings .ui-datepicker .ui-datepicker-next span {
+    background-image: url('../images/icons/icons_stuff/arrow_right_white.svg');
+}
+
+.mobile-settings .ui-datepicker .ui-datepicker-prev span {
+    background-image: url('../images/icons/icons_stuff/arrow_left_white.svg');
+}
+
 .filter-container .dp-highlight .ui-state-default,
 .mobile-settings .dp-highlight .ui-state-default {
     background-color: white;
