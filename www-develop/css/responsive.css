@@ -57,7 +57,6 @@
         padding: 0 5px;
     }
 
-
 }
 
 /* XS */
@@ -436,6 +435,14 @@
         left: 0;
     }
 
+    .search-searchbar .mobile-settings {
+        height: 43px;
+    }
+
+    .search-searchbar .toggle-settings .filter-icon {
+        height: 35px;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
@@ -443,7 +450,6 @@
         max-width: 900px;
     }
 }
-
 
 .mobile .hide-mobile {
     display: none;
@@ -467,8 +473,6 @@
     max-width: 35px;
     width: 58.33333333%;
 }
-
-
 
 .mobile .edittrip-container .content-wrapper {
     padding-right: 7px;
