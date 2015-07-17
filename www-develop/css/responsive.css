@@ -57,31 +57,6 @@
         padding: 0 5px;
     }
 
-    .edittrip-container .location .select-overlay {
-        height: 100%;
-        opacity: 1;
-        visibility: visible;
-        width: 11.333333%;
-        padding: 0;
-        line-height: 75px;
-        max-width: 35px;
-    }
-
-    .edittrip-container .content-wrapper {
-        padding-right: 7px;
-    }
-
-    .edittrip-container .location .select-overlay img {
-        padding: 5px;
-        width: 100%;
-        height: auto;
-    }
-
-    .edittrip-container .location-tags .tag {
-        word-wrap: initial;
-        float: left;
-        margin-bottom: 3px;
-    }
 
 }
 
@@ -467,6 +442,48 @@
     .container {
         max-width: 900px;
     }
+}
+
+
+.mobile .hide-mobile {
+    display: none;
+}
+
+.hide-desktop {
+    display: none;
+}
+
+.mobile .hide-desktop {
+    display: block;
+}
+
+.mobile .edittrip-container .location .select-overlay {
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    width: 11.333333%;
+    padding: 0;
+    line-height: 75px;
+    max-width: 35px;
+    width: 58.33333333%;
+}
+
+
+
+.mobile .edittrip-container .content-wrapper {
+    padding-right: 7px;
+}
+
+.mobile .edittrip-container .location .select-overlay img {
+    padding: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.mobile .edittrip-container .location-tags .tag {
+    word-wrap: initial;
+    float: left;
+    margin-bottom: 3px;
 }
 
 
