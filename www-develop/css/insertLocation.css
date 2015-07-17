@@ -332,4 +332,5 @@ tags-input .tags {
     font-size: 16px;
     padding: 5px;
     border-radius: 3px;
+    text-decoration: none;
 }
