@@ -12,10 +12,10 @@
                          ui-sref="user({profileId: lt.userId})">
                 </div>
                 <div class="col-xs-8 minus-fifty-top">
-                   <div class="link-container" ng-hide="lt.userId === 'locator-app'">
-                            <div class="icon-circle all-locations-icon pointer tt tt-small" aria-label="Alle Locations anzeigen" ng-click="lt.moveToAllLocations()"></div>
-                            <div ng-hide="lt.me" class="icon-circle messenger-icon pointer tt tt-small" aria-label="Kontakt aufnehmen" ng-click="lt.moveToMessenger()"></div>
-                            <div ng-hide="!lt.me" class="icon-circle edit-icon tt tt-small" aria-label="Location bearbeiten" ng-click="lt.moveToEditTrip()"></div>
+                    <div class="link-container" ng-hide="lt.userId === 'locator-app'">
+                        <img src="images/icons/trip-min-view/alle_locations.svg" class="icon-circle pointer tt tt-small" aria-label="Alle Locations anzeigen" ng-click="lt.moveToAllLocations()">
+                        <img src="images/icons/trip-min-view/chat.svg" ng-hide="lt.me" class="icon-circle pointer tt tt-small" aria-label="Kontakt aufnehmen" ng-click="lt.moveToMessenger()">
+                        <img src="images/icons/trip-min-view/edit.svg" ng-hide="!lt.me" class="icon-circle edit-icon tt tt-small" aria-label="Location bearbeiten" ng-click="lt.moveToEditTrip()">
                     </div>
                     <span aria-label="Zurück zum Trip" class="back-wrapper tt tt-small"><a ng-if="previousTrip != ''" ui-sref="trip({tripId: previousTrip})" class="previous-trip-button uppercase pointer"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_links.svg"></a></span>
 
