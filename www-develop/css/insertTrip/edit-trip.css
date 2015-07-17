@@ -71,6 +71,11 @@
     visibility: visible;
 }
 
+.edittrip-container .content-wrapper:focus .select-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
 .edittrip-container h2 {
     width: 100%;
     float: left;
