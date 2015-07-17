@@ -423,6 +423,7 @@ form.passwordforget {
     width: 140px;
     z-index: 10000;
     min-width: 120px;
+    top: 45px;
 }
 
 .header-bar .user ul.user-dropdown {
