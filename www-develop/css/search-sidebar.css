@@ -296,6 +296,7 @@ trip-min-view .result-content-box {
     -webkit-transition:.5s;
     transition:.5s;
     display: inline-block;
+    position: relative;
 }
 
 .locationview-container .icon-circle,
@@ -629,6 +630,11 @@ trip-min-view .result-content-box {
 }
 
 .tt-wrapper {
-
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
