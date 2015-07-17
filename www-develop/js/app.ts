@@ -164,6 +164,11 @@ var app = angular.module('locator', deps)
             .state('error', {
                 url: "/error?r&t",
                 templateUrl: "templates/error/genericLorenz.html"
+            })
+
+            .state('impressum', {
+                url: "/impressum",
+                templateUrl: "templates/static/impressum.html"
             });
 
         $urlRouterProvider.otherwise('welcome');
