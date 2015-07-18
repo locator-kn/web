@@ -25,7 +25,7 @@
                     <h3 class="result-trip-title">{{trip.title}}</h3>
 
 
-                    <div class="daterange" ng-if="!(trip.start_date && trip.end_date)"><strong>Ohne Datum</strong></div>
+                    <div class="daterange" ng-if="!(trip.start_date && trip.end_date)"><strong>Kein Datum festgelegt</strong></div>
 
                     <div class="daterange" ng-if="(trip.start_date == trip.end_date)"><strong>
                         <resultdate class="black" date="trip.start_date"></resultdate>
