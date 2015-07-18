@@ -50,7 +50,7 @@ module Controller {
 
             this.getMe();
 
-            this.$rootScope.$on('updateProfileImage', (s, newPath) => {
+            this.$rootScope.$on('updateProfileImage', (newPath) => {
                 if(this.user && this.user.picture) {
                     this.user.picture = newPath + '&c=' + Date.now();
                 }
