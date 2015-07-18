@@ -51,9 +51,9 @@ module Controller {
         dataAvailable:boolean = false;
         locationSearch = '';
 
-        static $inject = ['UtilityService', 'smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
+        static $inject = ['$analytics', 'UtilityService', 'smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
 
-        constructor(private UtilityService, private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
+        constructor(private $analytics, private UtilityService, private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
 
 
             angular.element('.content-wrapper').click((event) => {
@@ -221,6 +221,8 @@ module Controller {
 
         tripPreview() {
 
+            this.$analytics.eventTrack('trigger trippreview');
+
             if (this.selectedLocations.length === 0) {
 
                 this.error = true;
@@ -295,7 +297,14 @@ module Controller {
                         break;
                     }
 
+                    if (this.$state.params.tripId) {
+                        this.$analytics.eventTrack('trip edit success');
+                    } else {
+                        this.$analytics.eventTrack('trip create success');
+                    }
+
                     this.$state.go('editTripSuccess');
+
                 })
                 .catch(err => {
                     var timestamp = Date.now();
