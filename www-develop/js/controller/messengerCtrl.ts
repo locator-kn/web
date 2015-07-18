@@ -60,7 +60,6 @@ module Controller {
         registerSocketEvent() {
             //this.SocketService.offEvent('new_message');
             this.$scope.$on('new_message', (evt, newMessage) => {
-                console.log('neWmEssage');
                 if (this.$state.params.opponentId === newMessage.conversation_id) {
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
