@@ -46,6 +46,8 @@ module Controller {
         tripSearch:string;
         locationReallyDelete:boolean = false;
 
+        invalidText:boolean = false;
+
         static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
         constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
@@ -245,6 +247,10 @@ module Controller {
 
 
         submitConversation() {
+            if (!this.textMessage.length){
+                this.invalidText = true;
+                return
+            }
             this.MessengerService.startConversation(this.textMessage, this.user._id)
 
                 .then(result => {

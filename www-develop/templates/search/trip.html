@@ -23,7 +23,7 @@
                         Kontaktieren
                     </div>
                     <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me"
-                         class="uppercase message-button pointer">
+                         class="hidden-xs uppercase message-button pointer">
                         Bearbeiten
                     </div>
                     <div class="hidden-xs trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}">
@@ -42,7 +42,11 @@
                     <img class="icon" ng-src="{{tc.trip.moodImage}}">
                 </div>
 
-                <div ng-if="!tc.me" class="uppercase message-button pointer" ng-click="tc.participate()">Kontaktieren
+                <div ng-if="!tc.me" class="uppercase message-button pointer" ng-click="tc.participate()">
+                    Kontaktieren
+                </div>
+                <div ng-if="tc.me" ui-sref="editTrip({tripId: tc.trip._id})" class="uppercase message-button pointer">
+                    Bearbeiten
                 </div>
             </div>
 
