@@ -440,11 +440,11 @@ trip-min-view .result-content-box {
 }
 
 .mobile-settings .ui-datepicker .ui-datepicker-next span {
-    background-image: url('../images/icons/icons_stuff/arrow_right_white.svg');
+    background-image: url('../images/icons/icons_stuff/arrow_right.svg');
 }
 
 .mobile-settings .ui-datepicker .ui-datepicker-prev span {
-    background-image: url('../images/icons/icons_stuff/arrow_left_white.svg');
+    background-image: url('../images/icons/icons_stuff/arrow_left.svg');
 }
 
 .filter-container .dp-highlight .ui-state-default,
