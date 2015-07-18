@@ -38,8 +38,8 @@
             </div>
             <div class="col-xs-12 visible-xs move-50-top">
 
-                <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}"
-                     ng-style="{'background-image':'url(./images/icons/moods_white/'+tc.trip.mood.icon+')'}">
+                <div class="trip-mood-container tt tt-small" aria-label="{{tc.trip.mood.title}}">
+                    <img class="icon" ng-src="{{tc.trip.moodImage}}">
                 </div>
 
                 <div ng-if="!tc.me" class="uppercase message-button pointer" ng-click="tc.participate()">Kontaktieren
