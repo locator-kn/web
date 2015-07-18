@@ -23,7 +23,6 @@ module Controller {
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
 
                     this.locationImagePath = this.location.images.picture;
-                    console.log(this.locationImagePath);
 
                     if (this.locationImagePath === undefined) {
                         this.locationImagePath = this.location.images.googlemap + '&size=1400x819&scale=2';
