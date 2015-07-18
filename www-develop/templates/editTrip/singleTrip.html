@@ -14,7 +14,7 @@
     </div>
 
     <div class="col-xs-3 img-wrapper pointer"
-         ng-if="!location.images.picture" ng-click="et.triggerPrevew(location)" class="pointer" style="background-image: url({{location.images.googlemap + '&size=400x234'}}); background-size: cover;">
+         ng-if="!location.images.picture" ng-click="et.triggerPrevew(location)" class="pointer" style="background-image: url({{location.images.googlemap + '&size=400x234&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4'}}); background-size: cover;">
 
         <img ng-if="!location.opened" class="bigger-button" src="images/icons/bigger.png">
         <img ng-if="location.opened" class="bigger-button smaller-button" src="images/icons/smaller.png">
@@ -29,7 +29,7 @@
 
         <h3>{{location.title}}</h3>
 
-        <p ng-if="!location.opened" class="location-description short hidden-sm hidden-xs">{{location.description | truncate: 72}}</p>
+        <p ng-if="!location.opened" class="location-description short hidden-sm hidden-xs">{{location.description | truncate: 67}}</p>
         <p ng-if="location.opened" class="location-description">{{location.description}}</p>
 
         <div class="location-tags tags">

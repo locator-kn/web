@@ -613,7 +613,6 @@ span.info.err {
     z-index: 10;
 }
 
-
 .edittrip-container .back-button {
     padding: 0;
     text-align: center;
@@ -641,7 +640,7 @@ span.info.err {
 }
 
 .fixrow.stuck {
-    background-color: rgb(34,34,34);
+    background-color: rgb(34, 34, 34);
 }
 
 .welcome_select .moods ul {
@@ -650,4 +649,9 @@ span.info.err {
 
 .edittrip-container .insert-trip-circle {
     margin-bottom: 3px;
+}
+
+.edittrip-container #tripviewpreview .daterange {
+    float: left;
+    width: 100%;
 }
