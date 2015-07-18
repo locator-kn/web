@@ -29,7 +29,7 @@
 
         <h3>{{location.title}}</h3>
 
-        <p ng-if="!location.opened" class="location-description short hidden-sm hidden-xs">{{location.description | truncate: 67}}</p>
+        <p ng-if="!location.opened" class="location-description short hide-mobile">{{location.description | truncate: 67}}</p>
         <p ng-if="location.opened" class="location-description">{{location.description}}</p>
 
         <div class="location-tags tags">

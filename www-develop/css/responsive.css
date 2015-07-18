@@ -480,6 +480,11 @@
 
 .mobile .edittrip-container .content-wrapper {
     padding-right: 7px;
+    width: 55%;
+}
+
+.mobile .edittrip-container .opened .content-wrapper {
+    width: 100%;
 }
 
 .mobile .edittrip-container .location .select-overlay img {
@@ -493,6 +498,7 @@
     float: left;
     margin-bottom: 3px;
 }
+
 
 
 
