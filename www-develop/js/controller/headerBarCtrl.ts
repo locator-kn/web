@@ -62,7 +62,6 @@ module Controller {
                     this.conversations.forEach((element:any) => {
                         this.conversationsHash[element._id] = element;
                         if (this.$rootScope.userID && !element[this.$rootScope.userID + '_read']) {
-                            console.log('there is an unread message from', element);
                             this.showBadge = true;
                         }
                         this.UserService.getUser(element['opponent'])
@@ -99,7 +98,6 @@ module Controller {
                 // it doesnt need to be called after socketInit
                 this.$rootScope.$on('new_message', (evt, newMessage) => {
                     if (this.$state.params.opponentId) {
-                        console.log('incoming message while being in messenger, do nothing');
                         return;
                     }
                     this.MessengerService.clearAll();

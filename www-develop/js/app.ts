@@ -397,10 +397,8 @@ var app = angular.module('locator', deps)
                     // stop event from bubbling up to the body
                     event.stopPropagation();
                     if (scope.compareTo === scope.clickValue) {
-                        console.log('closing all popovers, clicked on:', scope.clickValue);
                         scope.compareTo = '';
                     } else {
-                        console.log('open popover', scope.clickValue);
                         scope.compareTo = scope.clickValue;
                     }
                     $rootScope.$emit('newPopoverSelected', scope.clickValue);
