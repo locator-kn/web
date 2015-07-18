@@ -335,11 +335,6 @@
     color: white;
 }
 
-.edittrip-container .datepicker .round-right a {
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-}
-
 .edittrip-container .accommodation span {
     color: rgb(34, 34, 34);
     margin: 0;
