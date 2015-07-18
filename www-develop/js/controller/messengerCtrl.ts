@@ -191,7 +191,6 @@ module Controller {
             this.MessengerService.sendMessage(this.textbox, this.selectedConversation._id, this.selectedConversation.opponent._id, this.$rootScope.userID)
 
                 .then(result => {
-                    console.info("Msg Success");
                     this.textbox = '';
                 })
                 .catch(result => {

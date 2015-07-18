@@ -53,9 +53,9 @@ module Controller {
 
         me:any = {};
 
-        static $inject = ['$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
+        static $inject = ['$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
 
-        constructor(private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
@@ -281,7 +281,11 @@ module Controller {
 
             this.LocationService.saveLocation(formValues, this.documentId).
                 then((result) => {
+
+
                     if (this.$state.params.tmp) {
+
+                        this.$analytics.eventTrack('create location on the fly');
 
                         var data = this.InsertTripService.getAllValues();
                         this.InsertTripService.newCreatedLocationId = result.data.id;
@@ -289,6 +293,13 @@ module Controller {
                         this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title, tmp: 'true'});
 
                     } else {
+
+                        if (this.$state.params.locationId) {
+                            this.$analytics.eventTrack('edit location success');
+                        } else {
+                            this.$analytics.eventTrack('create location success');
+                        }
+
                         this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
                     }
 
@@ -306,6 +317,7 @@ module Controller {
                 this.LocationService.getLocationById(this.$state.params.locationId)
                     .then(result => {
 
+                        this.$analytics.eventTrack('start edit location');
 
                         this.locationFormDetails = {
                             tags: this.simpleToObjectArray(result.data.tags),
@@ -347,6 +359,7 @@ module Controller {
                     })
                     .catch(err => {
                         console.info("error during getlocation");
+                        this.$analytics.eventTrack('gps error');
                         this.UtilityService.errorMsg('GPS Fehler', 'Positionsbestimmung nict möglich. Bitte Prüfe deine Datenschutzeinstellungen.');
                     })
             }
@@ -466,12 +479,14 @@ module Controller {
             this.locationFormDetails.city.title = locality.formatted_address;
             this.locationFormDetails.city.place_id = locality.place_id;
             this.locationFormDetails.city.id = locality.place_id;
+            this.$analytics.eventTrack('create location error');
         }
 
         openCityModal() {
             this.$rootScope.overlay = true;
             angular.element('#edgecase').addClass('active');
             console.info(angular.element('#edgecase'));
+            this.$analytics.eventTrack('location edgecase modal opened');
             $('#edgecase').addClass('active');
         }
 
