@@ -60,7 +60,6 @@ module Controller {
         registerSocketEvent() {
             //this.SocketService.offEvent('new_message');
             this.$scope.$on('new_message', (evt, newMessage) => {
-                console.log('neWmEssage');
                 if (this.$state.params.opponentId === newMessage.conversation_id) {
 
                     this.debouncedAck(newMessage.from, newMessage.conversation_id);
@@ -162,11 +161,7 @@ module Controller {
             if (from === this.$rootScope.userID) {
                 return
             }
-            console.log('send ack for received message', {
-                from: this.$rootScope.userID,
-                opponent: from,
-                conversation_id: conversation_id
-            });
+
             setTimeout(() => {
                 this.SocketService.emit('message_ack', {
                     from: this.$rootScope.userID,
