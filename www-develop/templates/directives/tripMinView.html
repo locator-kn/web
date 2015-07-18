@@ -58,7 +58,11 @@
                         </span>
                         <span ng-if="trip.persons">
                             <span ng-show="trip.days || trip.persons "> | </span>
-                            <strong>{{trip.persons}}</strong>
+                            <strong>
+                                <ng-pluralize count="trip.persons"
+                                              when="{'5': '4+', 'other': '{}'}">
+                                </ng-pluralize>
+                            </strong>
                             <ng-pluralize count="trip.persons"
                                           when="{'1': 'Person', 'other': 'Personen'}"></ng-pluralize>
                         </span>
