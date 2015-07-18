@@ -34,7 +34,6 @@ module Service {
                 var parsedData = JSON.parse(cacheData[1])
                 parsedData.push(data);
                 cacheData[1] = JSON.stringify(parsedData);
-                console.log('update cache for:', this.basePathRealtime + '/messages/' + id);
 
                 this.messagesIdCache.put(this.basePathRealtime + '/messages/' + id, cacheData);
             }
