@@ -24,7 +24,7 @@
 
             <div class="wrapper">
                 <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
-                <div class="col-xs-12" ui-sref="trip({tripId: trip._id})"><h3>{{trip.title}} ({{trip.city.title}})</h3>
+                <div class="col-xs-12 pointer" ui-sref="trip({tripId: trip._id})"><h3>{{trip.title}} ({{trip.city.title}})</h3>
 
 
                     <p ng-if="(trip.start_date && trip.end_date) && (trip.start_date !== trip.end_date)">
