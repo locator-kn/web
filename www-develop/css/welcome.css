@@ -490,8 +490,6 @@ a.more-link:hover {
     background-image: url(../images/stoerer.svg);
     background-size: 100%;
     padding: 25px;
-    -webkit-transform: rotate(-15deg);
-    transform: rotate(-15deg);
     position: absolute;
     right: 160px;
     top: -50px;

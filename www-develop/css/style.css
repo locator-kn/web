@@ -1955,6 +1955,9 @@ input, textarea {
 .start-conversation-profil {
     min-height: 120px;
 }
+.start-conversation-profil.red {
+    border-color: #ff4637;
+}
 
 .start-conversation-button {
     float: left !important;

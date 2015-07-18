@@ -479,7 +479,6 @@ module Controller {
             this.locationFormDetails.city.title = locality.formatted_address;
             this.locationFormDetails.city.place_id = locality.place_id;
             this.locationFormDetails.city.id = locality.place_id;
-            this.$analytics.eventTrack('create location error');
         }
 
         openCityModal() {
