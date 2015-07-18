@@ -404,7 +404,6 @@ module Controller {
 
             this.$scope.$on('error', (event, data) => {
                 this.UtilityService.errorMsg('GPS Error', 'Prüfe deine GPS Einstellungen');
-                console.log(data);
             });
 
         }
@@ -452,8 +451,6 @@ module Controller {
                                     console.log(error);
                                 });
 
-                        } else {
-                            console.log('no Location found');
                         }
                     }
 
