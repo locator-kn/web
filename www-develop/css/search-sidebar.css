@@ -642,3 +642,6 @@ trip-min-view .result-content-box {
     pointer: default !important;
 }
 
+.mobile .edittrip-container .without-overlay .location .select-overlay {
+    visibility: hidden;
+}
