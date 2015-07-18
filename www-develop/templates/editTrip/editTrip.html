@@ -13,8 +13,8 @@
                          open-element="mc.openElement"></div></span>
 
              <span class="relative red moods"><div icons="true" list-selection values="et.moods"
-                                             selected-model="et.selectedMood" selected-name="et.showMoods"
-                                             open-element="mc.openElement"></div></span>
+                                                   selected-model="et.selectedMood" selected-name="et.showMoods"
+                                                   open-element="mc.openElement"></div></span>
 
 
              <span class="relative red"><span class="margin-right">in </span><div class="list-selection" list-selection
@@ -35,7 +35,8 @@
                                                                                class="pointer red menu">bereits gewählt</span>
                     </div>
                     <div class="col-xs-2"><span scroll-to="meta" offset="100"
-                                                class="pointer red menu smallarrow"><img class="back-button" src="images/icons/icons_stuff/slideshow_slider_rechts.svg"></span>
+                                                class="pointer red menu smallarrow"><img class="back-button"
+                                                                                         src="images/icons/icons_stuff/slideshow_slider_rechts.svg"></span>
                     </div>
                 </div>
             </div>
@@ -102,7 +103,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="red button insert-location" analytics-on="click" analytics-event="trip/createnewlocation" ng-click="et.createNewLocation()">Neue Location erstellen</a>
+                        <a class="red button insert-location" analytics-on="click"
+                           analytics-event="trip/createnewlocation" ng-click="et.createNewLocation()">Neue Location
+                            erstellen</a>
                     </div>
                     <div class="col-xs-12 col-sm-6 locationpool selectedlocations">
 
@@ -259,16 +262,19 @@
 
             <span>| {{et.selectedLocations.length}} Location<span
                 ng-if="et.selectedLocations.length !== 1">s</span></span>
-                <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
-                ng-show="et.tripMeta.persons > 1">en</span>
+               <span ng-if="et.tripMeta.persons"> <span> | <strong>{{et.tripMeta.persons}}</strong> Person</span><span
+                ng-show="et.tripMeta.persons > 1">en</span></span>
 
 
-                <span class="equ-headline info-headline" ng-show="et.tripMeta.accommodation">mit Übernachtung</span>
-                <acc-equ-chooser class="equ-chooser" ng-show="et.tripMeta.accommodation"
-                                 just-show-selected=true
-                                 accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
-                                 accommodation-equipment="et.tripMeta.accommodation_equipment" icons-color="'white'">
-                </acc-equ-chooser>
+                <div class="accu-container">
+                    <span class="equ-headline info-headline" ng-show="et.tripMeta.accommodation">mit Übernachtung</span>
+                    <acc-equ-chooser class="equ-chooser" ng-show="et.tripMeta.accommodation"
+                                     just-show-selected=true
+                                     accommodation-equipment-selectable="et.accommodationEquipmentSelectable"
+                                     accommodation-equipment="et.tripMeta.accommodation_equipment"
+                                     icons-color="'white'">
+                    </acc-equ-chooser>
+                </div>
 
 
             </div>
