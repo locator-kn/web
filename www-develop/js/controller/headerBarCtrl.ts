@@ -50,6 +50,12 @@ module Controller {
 
             this.getMe();
 
+            this.$rootScope.$on('updateProfileImage', () => {
+                if(this.user && this.user.picture) {
+                    this.user.picture += '&c=' + Date.now();
+                }
+            });
+
         }
 
         getConversations() {

@@ -365,6 +365,7 @@ module Controller {
         showNewImage(data) {
             this.imageHasBeenUploaded = true;
             this.profileImagePath = data.imageLocation + '?' + Date.now();
+            this.$rootScope.$emit('updateProfileImage');
         }
 
         setNewPassword() {
