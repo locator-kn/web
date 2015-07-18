@@ -126,7 +126,6 @@ module Controller {
                 latitude: lat,
                 longitude: lon
             };
-            console.log(this.map.clickedMarker);
             this.mapMarkerSet = true;
             this.$scope.$apply();
 
@@ -212,9 +211,7 @@ module Controller {
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = Math.round(perc * 100);
-                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
-                    console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.documentId = data.id;
                     this.showNewImage(headers());
