@@ -6,6 +6,8 @@ module Controller {
         error = false;
         validationFails = false;
 
+        setUpLocationsHasBeenFired:boolean = false;
+
         dateValid = true;
 
         tripId;
@@ -90,6 +92,7 @@ module Controller {
                         this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city);
                     }
 
+
                     this.initEdit();
 
                     $scope.$watch(angular.bind(this, () => {
@@ -99,11 +102,17 @@ module Controller {
                             this.setUpLocations();
                         }
                     });
-                    this.setUpLocations();
+                    if (!$state.params.tripId) this.setUpLocations();
                 });
         }
 
         setUpLocations() {
+
+            if (this.setUpLocationsHasBeenFired) {
+                return;
+            }
+
+            this.setUpLocationsHasBeenFired = true;
             this.fetchLocations();
             this.selectedLocations = [];
             if (!this.$state.params.tripId) this.$location.search('city', this.selectedCity.title);
@@ -331,20 +340,22 @@ module Controller {
                         this.tripMeta.description = result.data.description;
                         this.tripMeta.title = result.data.title;
                         this.tripMeta.persons = result.data.persons;
+                        this.tripMeta.accommodation = result.data.accommodation;
 
                         this.selectedDay = this.HelperService.getObjectById(this.days, result.data.days);
                         this.selectedCity = this.HelperService.getCityByTitle(this.cities, result.data.city.title);
                         this.selectedMood = this.HelperService.getObjectByQueryName(this.moods, result.data.moods.join('.'));
 
+
                         this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
 
+
+                        this.filledLocations = result.data.locations;
 
                         //city is set, so get the locations for it
                         this.fetchLocations();
 
-                        this.filledLocations = result.data.locations;
-
-                        if (this.tripMeta.accommodation = result.data.accommodation) {
+                        if (this.tripMeta.accommodation) {
                             this.tripMeta.accommodation_equipment = result.data.accommodation_equipment;
                             this.accommodationEquipmentSelectable = true;
                         }
@@ -368,10 +379,10 @@ module Controller {
 
                 this.LocationService.getLocationById(key).then(result => {
                     this.selectLocation(result.data);
+                    this.selectedLocations = this.uniqueList(this.selectedLocations);
                 });
-
             }
-            this.uniqueList(this.selectedLocations);
+
         }
 
         //create new location and save context
@@ -384,9 +395,10 @@ module Controller {
                 mood: this.selectedMood,
                 locations: this.selectedLocations,
                 accommodation_equipment: this.tripMeta.accommodation_equipment,
-                accomodation: this.tripMeta.accomodation,
+                accommodation: this.tripMeta.accommodation,
                 tripId: this.tripId
             };
+
 
             this.InsertTripService.setStateStored(true);
             this.InsertTripService.storeAllValues(data);
@@ -409,8 +421,7 @@ module Controller {
             this.datePickerOnLinked = true;
 
             this.tripMeta.accommodation_equipment = data.accommodation_equipment;
-            this.tripMeta.accommodation = data.accomodation;
-
+            this.tripMeta.accommodation = data.accommodation;
 
             //select stored locations
             data.locations.forEach(item => {
