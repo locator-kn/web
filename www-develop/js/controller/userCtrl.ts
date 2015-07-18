@@ -340,9 +340,7 @@ module Controller {
                 .progress(evt => {
                     var perc:number = evt.loaded / evt.total;
                     this.progressPercentage = Math.round(perc * 100);
-                    console.log('progress:', this.progressPercentage, '% ', evt.config.file.name);
                 }).success((data, status, headers, config) => {
-                    console.log('file', config.file.name, 'uploaded. Response:', data);
                     this.clearFileSelection();
                     this.showNewImage(data);
                     this.uploadIsDone = true;
@@ -468,14 +466,12 @@ module Controller {
                 .then(result => {
                     location.locationReallyDelete = false;
                     location.showdelete = false;
-                    console.log('Hard deletion success');
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
                 .catch(result => {
                     location.locationReallyDelete = false;
                     location.showdelete = false;
-                    console.log('Hard deletion error');
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 });

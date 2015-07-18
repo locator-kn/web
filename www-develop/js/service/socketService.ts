@@ -16,7 +16,6 @@ module Service {
         getSocket() {
             return this.$q((resolve, reject) => {
                 if(this.socket || this.isOpening) {
-                    console.log('resolving existing socket');
                     this.$timeout(() => {
                         resolve(this.socket);
                     }, 500);
@@ -27,7 +26,6 @@ module Service {
                             reject(err);
                         })
                         .then(response => {
-                            console.log('connecting to socketio');
                             //var myIoSocket = io.connect(':3002' + response.data.namespace);
                             var socketNd = io();
                             this.socket = this.socketFactory({ioSocket: socketNd});

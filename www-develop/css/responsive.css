@@ -233,10 +233,14 @@
     }
 
     .edittrip-container .infobox {
-        height: auto;
+        height: 140px;
         padding: 15px;
         margin-left: 15px;
         margin-right: 15px;
+    }
+
+    .edittrip-container .infobox.accomo {
+        height: 240px;
     }
 
     .edittrip-container .infobox h3 {
