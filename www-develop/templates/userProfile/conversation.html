@@ -1,5 +1,9 @@
 <form name="form">
-    <h3>Start a Conversation with {{pc.user.name}}</h3>
-    <textarea ng-model="pc.textMessage" id="message" class="text-responsive" name="text"></textarea>
-    <input ng-click="pc.submitConversation()" class="pointer login submit button" value="Submit" type="submit">
+    <h3>Beginne eine Unterhaltung mit {{pc.user.name}}</h3>
+
+    <div ng-attr-contenteditable="{{true}}" class="description start-conversation-profil input col-xs-12" ng-model="pc.textMessage" strip-br="true"></div>
+
+    <div ng-click="pc.submitConversation()" class="pointer start-conversation-button message-button">
+        Anschreiben
+    </div>
 </form>

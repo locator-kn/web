@@ -1952,4 +1952,11 @@ input, textarea {
     max-width: 200px;
 }
 
+.start-conversation-profil {
+    min-height: 120px;
+}
+
+.start-conversation-button {
+    float: left !important;
+}
 
