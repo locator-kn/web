@@ -148,7 +148,8 @@
 }
 
 .messenger-container .header .trip-preview img-triplist .flexslider, .messenger-container .header .trip-min-view .result-content-wrapper {
-    height: 100px;
+    height: 20vh;
+    max-height: 200px;
 }
 
 .messenger-container .header trip-min-view span {
