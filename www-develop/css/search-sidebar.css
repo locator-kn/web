@@ -638,8 +638,8 @@ trip-min-view .result-content-box {
     background-color: #D5D5D5;
 }
 
-.without-pointer .trip-wrapper .img-wrapper {
-    pointer: default !important;
+.without-pointer .trip-wrapper .pointer {
+    cursor: default;
 }
 
 .mobile .edittrip-container .without-overlay .location .select-overlay {
