@@ -1,7 +1,8 @@
 <form name="form">
     <h3>Beginne eine Unterhaltung mit {{pc.user.name}}</h3>
 
-    <div ng-attr-contenteditable="{{true}}" class="description start-conversation-profil input col-xs-12" ng-model="pc.textMessage" strip-br="true"></div>
+    <div ng-attr-contenteditable="{{true}}" ng-class="{'red':pc.invalidText}"
+         class="description start-conversation-profil input col-xs-12" ng-model="pc.textMessage" strip-br="true"></div>
 
     <div ng-click="pc.submitConversation()" class="pointer start-conversation-button message-button">
         Anschreiben
