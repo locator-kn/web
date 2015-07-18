@@ -87,7 +87,7 @@ module Controller {
             this.$state.go('search', {
                 city: this.search.selectedCity.title,
                 moods: this.search.selectedMood.query_name,
-                days: this.search.selectedDay.id
+                days: this.search.selectedDay.query_name
             });
         }
 
@@ -98,10 +98,11 @@ module Controller {
                 return this.$rootScope.$emit('openLoginDialog');
             }
 
+
             this.$state.go('insertTrip', {
                 city: this.create.selectedCity.title,
                 moods: this.create.selectedMood.query_name,
-                days: this.create.selectedDay.id
+                days: this.create.selectedDay.query_name
             });
 
         }
