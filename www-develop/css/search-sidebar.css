@@ -376,7 +376,7 @@ trip-min-view .result-content-box {
     background-color: rgb(34, 34, 34);
     width: 300px;
     height: 100%;
-    z-index: 5;
+    z-index: 3;
     padding: 0 5px 0 5px;
     overflow: scroll;
 }
@@ -440,11 +440,11 @@ trip-min-view .result-content-box {
 }
 
 .mobile-settings .ui-datepicker .ui-datepicker-next span {
-    background-image: url('../images/icons/icons_stuff/arrow_right_white.svg');
+    background-image: url('../images/icons/icons_stuff/arrow_right.svg');
 }
 
 .mobile-settings .ui-datepicker .ui-datepicker-prev span {
-    background-image: url('../images/icons/icons_stuff/arrow_left_white.svg');
+    background-image: url('../images/icons/icons_stuff/arrow_left.svg');
 }
 
 .filter-container .dp-highlight .ui-state-default,
