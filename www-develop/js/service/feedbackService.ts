@@ -8,7 +8,7 @@ module Service {
         }
 
         sendFeedback(data) {
-            var doveBasePath = 'http://locator-app.com';
+            var doveBasePath = 'https://locator-app.com';
             return this.$http.post(doveBasePath + '/mail/feedback', data);
         }
 
