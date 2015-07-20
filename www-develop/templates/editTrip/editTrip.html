@@ -292,7 +292,7 @@
                 </div>
 
                 <label>Beschreibe deinen Trip <span class="max-length">({{300 - et.tripMeta.description.length}} Zeichen)</span></label>
-            <textarea maxlength="300" ng-class="{'error': et.validationFails && et.tripMeta.description.length < 2}"
+            <textarea ng-trim="false" maxlength="300" ng-class="{'error': et.validationFails && et.tripMeta.description.length < 2}"
                       class="description" ng-model="et.tripMeta.description"
                       placeholder="Beschreibe deinen Trip"></textarea>
             </div>

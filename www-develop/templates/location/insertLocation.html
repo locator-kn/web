@@ -110,7 +110,7 @@
 
 
                         <label>Beschreibung <span class="max-length">({{300 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
-                        <textarea
+                        <textarea ng-trim="false"
                             maxlength="300"
                             ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
                             class="location-description text-fields" placeholder="Beschreibe deine Location"
