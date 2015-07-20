@@ -22,11 +22,17 @@ module Controller {
 
         debouncedGetTripsByQuery:any;
 
+        localStorageAvailable:boolean;
+
         static $inject = ['UtilityService', 'HelperService', '$scope', '$rootScope', '$location', 'SearchService', 'DataService', '$state', '$q'];
         constructor(private UtilityService, private HelperService, private $scope, private $rootScope, private $location,
                     private SearchService, private DataService, private $state, private $q) {
 
+
+
             this.$rootScope.breadcrumb = 'Suchergebnisse';
+
+            this.localStorageAvailable = this.HelperService.lsAvailable();
 
             this.query = $location.search();
             this.query.accommodation = false;
@@ -47,8 +53,9 @@ module Controller {
                     this.dataAvailable = true;
 
                     this.selectedMood = HelperService.getObjectByQueryName(this.moods, $state.params.moods) || this.moods[Math.floor((Math.random() * this.moods.length))];
-                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[Math.floor((Math.random() * this.cities.length))];
+                    this.selectedCity = HelperService.getCityByTitle(this.cities, $state.params.city) || this.cities[0];
                     this.selectedDay = HelperService.getObjectByQueryName(this.days, $state.params.days) || this.days[Math.floor((Math.random() * this.days.length))];
+                    this.query.city = this.selectedCity.title;
                     this.updateUrl();
                 });
 
@@ -116,7 +123,9 @@ module Controller {
 
         updateUrl() {
             this.$location.search(this.query);
-            this.HelperService.saveSearchContext(this.query);
+            if(this.localStorageAvailable) {
+                this.HelperService.saveSearchContext(this.query);
+            }
             this.search();
         }
 

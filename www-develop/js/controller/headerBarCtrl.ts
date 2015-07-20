@@ -30,6 +30,8 @@ module Controller {
 
         $audio_elem:any = angular.element('#incoming_message')[0];
 
+        localStorageAvailble:boolean;
+
         static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService'];
         constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
 
@@ -55,6 +57,8 @@ module Controller {
                     this.user.picture = newPath + '&c=' + Date.now();
                 }
             });
+
+            this.localStorageAvailble = this.HelperService.lsAvailable();
 
         }
 
@@ -187,7 +191,12 @@ module Controller {
         }
 
         searchWithContext() {
-            this.$state.go('search', this.HelperService.getSearchContext());
+            if(this.localStorageAvailble) {
+                this.$state.go('search', this.HelperService.getSearchContext());
+            } else {
+                this.$state.go('search');
+            }
+
         }
 
         static controllerId:string = "HeaderBarCtrl";

@@ -73,10 +73,22 @@ module Service {
 
         saveSearchContext(query) {
             localStorage.setItem('searchContext', JSON.stringify(query));
+
         }
 
         getSearchContext() {
             return JSON.parse(localStorage.getItem('searchContext'));
+        }
+
+        lsAvailable(){
+            var test = 'test';
+            try {
+                localStorage.setItem(test, test);
+                localStorage.removeItem(test);
+                return true;
+            } catch(e) {
+                return false;
+            }
         }
 
         getMoodByQueryName(query_name) {
