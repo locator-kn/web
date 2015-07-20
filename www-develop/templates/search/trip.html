@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-8 btn-mood-container">
 
-                    <div ng-if="!tc.me" class="hidden-xs uppercase message-button pointer" ng-click="tc.participate()">
+                    <div ng-if="!tc.me" class="hidden-xs uppercase message-button pointer" analytics-on="click" analytics-event="tripdetail/kontaktieren" ng-click="tc.participate()">
                         Kontaktieren
                     </div>
                     <div ui-sref="editTrip({tripId: tc.trip._id})" ng-if="tc.me"
