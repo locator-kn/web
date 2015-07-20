@@ -451,6 +451,10 @@
         font-size: 13px;
     }
 
+    .usermenu .profile-button {
+        padding: 0;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
