@@ -46,6 +46,11 @@ module Controller {
         tripSearch:string;
         locationReallyDelete:boolean = false;
 
+        googleCityOptions = {
+            country: 'de',
+            types: '(cities)'
+        };
+
         invalidText:boolean = false;
 
         static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
