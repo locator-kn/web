@@ -46,7 +46,7 @@
             <span class="users" ng-bind="hc.usersOnline" ng-if="authenticated && hc.usersOnline"></span>
 
             <div class="header-right">
-                <span active-popover click-value="'stoerersmall'" compare-to="mc.openElement"
+                <span active-popover analytics-on="click" analytics-event="usermenu/betabutton" click-value="'stoerersmall'" compare-to="mc.openElement"
                       class="pointer stoerer-small"><img class="img-responsive" src="images/beta_icon-01.png"></span>
 
                 <div ng-if="!authenticated" class="btn-group">
