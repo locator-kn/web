@@ -65,10 +65,14 @@ module Controller {
                 description: 'save',
                 allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
                 callback: () => {
-                    if (this.tab === 'info') {
-                        this.updateProfile();
-                    } else if (this.tab === 'account') {
-                        this.setNewPassword();
+
+                    if (this.me) {
+
+                        if (this.tab === 'info') {
+                            this.updateProfile();
+                        } else if (this.tab === 'account') {
+                            this.setNewPassword();
+                        }
                     }
                 }
             });
