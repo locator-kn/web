@@ -447,6 +447,11 @@
         height: 35px;
     }
 
+    .usermenu {
+        padding: 0;
+        font-size: 13px;
+    }
+
 }
 
 @media screen and (min-width: 1200px), screen and (min-width: 992px) {
@@ -499,10 +504,6 @@
     margin-bottom: 3px;
 }
 
-.usermenu {
-    padding: 0;
-    font-size: 13px;
-}
 
 
 
