@@ -49,33 +49,9 @@ module Controller {
         invalidText:boolean = false;
 
         static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
+
         constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
 
-            this.hotkeys.add({
-                combo: 'esc',
-                description: 'escape',
-                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-                callback: () => {
-                    this.reset();
-                }
-            });
-
-            this.hotkeys.add({
-                combo: 'return',
-                description: 'save',
-                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-                callback: () => {
-
-                    if (this.me) {
-
-                        if (this.tab === 'info') {
-                            this.updateProfile();
-                        } else if (this.tab === 'account') {
-                            this.setNewPassword();
-                        }
-                    }
-                }
-            });
 
             this.DataService.getMoods().then(result => {
                 this.availableMoods = result.data;
@@ -144,7 +120,6 @@ module Controller {
 
                 this.LocationService.getLocationsByUser(this.user._id)
                     .then(result => {
-                        console.info(result.data);
                         this.locations = result.data;
                     });
 
@@ -183,6 +158,10 @@ module Controller {
                                 }
                                 this.conversationId = user._id || '';
                             });
+                    } else {
+
+                        this.registerHotkeys();
+
                     }
 
                     this.user.birthdate = new Date(result.data.birthdate);
@@ -222,13 +201,11 @@ module Controller {
             this.UserService.updateProfile(this.user)
 
                 .then(result => {
-                    console.info('updated profile');
                     this.editTrigger();
 
                     this.infoForm.$setPristine();
                 })
                 .catch(result => {
-                    console.info(this.user);
                     console.info('error during update');
                 });
         }
@@ -251,7 +228,7 @@ module Controller {
 
 
         submitConversation() {
-            if (!this.textMessage.length){
+            if (!this.textMessage.length) {
                 this.invalidText = true;
                 return
             }
@@ -394,11 +371,8 @@ module Controller {
 
             this.UserService.setNewPassword(this.password)
                 .then(result => {
-                    console.info('updated password');
                     this.errormsg = '';
                     this.editTrigger();
-                    this.successmsg = 'Passwort erfolgreich geändert.';
-                    //this.accountForm.$setPristine();
                 })
                 .catch(result => {
                     this.errormsg = 'Fehler';
@@ -495,6 +469,41 @@ module Controller {
                 .catch(result => {
                     console.info('Deletion Error');
                 });
+        }
+
+        registerHotkeys() {
+
+            this.hotkeys.add({
+                combo: 'esc',
+                description: 'escape',
+                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+                callback: () => {
+
+                    if (this.edit) {
+                        this.reset();
+                    }
+
+                }
+            });
+
+            this.hotkeys.add({
+                combo: 'return',
+                description: 'save',
+                allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+                callback: () => {
+
+                    if (this.edit) {
+
+                        if (this.tab === 'info') {
+                            this.updateProfile();
+                        } else if (this.tab === 'account') {
+                            this.setNewPassword();
+                        }
+                    }
+
+
+                }
+            });
         }
 
         static
