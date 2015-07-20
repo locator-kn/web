@@ -246,9 +246,7 @@ var app = angular.module('locator', deps)
                 // Write data to the model
                 function read() {
                     var html = element.html();
-                    var tmp = document.createElement("DIV");
-                    tmp.innerHTML = html;
-                    html = tmp.textContent || tmp.innerText || "";
+                    html = html.replace(/<\/?[^>]+(>|$)/g, "");
                     ngModel.$setViewValue(html);
                 }
             }
