@@ -27,11 +27,9 @@ module Controller {
         locationTitle:string = '';
 
         googlePlacesOptions = {
-            country: 'de'
         };
 
         googleCityOptions = {
-            country: 'de',
             types: '(cities)'
 
         };
