@@ -122,17 +122,13 @@ module Service {
         }
 
         getLatestLocations(element, page) {
-
-            if (element < 0) {
-                console.log('elements should be positive')
-                return;
-            }
-
+            
             return this.$http.get({
                 url: this.basePath + '/locations/latest',
                 elements: element,
                 page: page
             });
+
         }
 
 
