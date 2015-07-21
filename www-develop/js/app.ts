@@ -12,6 +12,8 @@
 
 /// <reference path="./controller/userCtrl.ts" />
 
+/// <reference path="./controller/welcomeFeedCtrl.ts" />
+
 /// <reference path="./controller/welcomeCtrl.ts" />
 
 /// <reference path="./controller/static/staticButtonCtrl.ts" />
@@ -193,6 +195,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.LocationViewCtrl.controllerId, Controller.LocationViewCtrl)
     .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
     .controller(Controller.ErrorCtrl.controllerId, Controller.ErrorCtrl)
+    .controller(Controller.WelcomeFeedCtrl.controllerId, Controller.WelcomeFeedCtrl)
 
 
     .filter('truncate', function () {
