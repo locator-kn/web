@@ -122,11 +122,14 @@ module Service {
         }
 
         getLatestLocations(element, page) {
-            
-            return this.$http.get({
+
+            return this.$http({
+                method: 'GET',
                 url: this.basePath + '/locations/latest',
-                elements: element,
-                page: page
+                params: {
+                    elements: element,
+                    page: page
+                }
             });
 
         }
