@@ -38,9 +38,9 @@ module Controller {
         dataAvailable:boolean = false;
 
 
-        static $inject = ['LocationService', '$state', '$rootScope', 'DataService', '$q'];
+        static $inject = ['$state', '$rootScope', 'DataService', '$q'];
 
-        constructor(private $state, private $rootScope, private DataService, private $q, private LocationService) {
+        constructor(private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
