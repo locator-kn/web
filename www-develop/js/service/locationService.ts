@@ -121,6 +121,20 @@ module Service {
             //return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
         }
 
+        getLatestLocations(element, page) {
+
+            if (element < 0) {
+                console.log('elements should be positive')
+                return;
+            }
+
+            return this.$http.get({
+                url: this.basePath + '/locations/latest',
+                elements: element,
+                page: page
+            });
+        }
+
 
         static serviceId:string = "LocationService";
     }
