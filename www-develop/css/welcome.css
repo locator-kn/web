@@ -521,3 +521,12 @@ a.more-link:hover {
 .welcome_container .createview .welcome_wrapper {
     padding-right: 15px;
 }
+
+.onepage-container .edittrip-container, .onepage-container .myLocations {
+    float: left;
+    width: 100%;
+}
+
+.onepage-container .edittrip-container .location {
+    width: inherit;
+}
