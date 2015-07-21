@@ -33,13 +33,14 @@ module Controller {
             showDays: 'showDaysCreate'
         };
 
+        latestLocations;
 
         dataAvailable:boolean = false;
 
 
-        static $inject = ['$state', '$rootScope', 'DataService', '$q'];
+        static $inject = ['LocationService', '$state', '$rootScope', 'DataService', '$q'];
 
-        constructor(private $state, private $rootScope, private DataService, private $q) {
+        constructor(private $state, private $rootScope, private DataService, private $q, private LocationService) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
@@ -105,6 +106,13 @@ module Controller {
                 days: this.create.selectedDay.query_name
             });
 
+        }
+
+        getLatestLocations() {
+            this.LocationService.getLatestLocations(12, 0)
+                .then(result => {
+                    this.latestLocations = result.data;
+                });
         }
 
         static controllerId:string = "WelcomeCtrl";
