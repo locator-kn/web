@@ -108,12 +108,6 @@ module Controller {
 
         }
 
-        getLatestLocations() {
-            this.LocationService.getLatestLocations(12, 0)
-                .then(result => {
-                    this.latestLocations = result.data;
-                });
-        }
 
         static controllerId:string = "WelcomeCtrl";
     }
