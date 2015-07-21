@@ -4,7 +4,9 @@
             <div class="col-xs-12 center logocontainer relative">
                 <img class="welcome_logo" src="images/logo/locator_schriftzug.png">
 
-                <div analytics-on="click" analytics-event="welcome/betabutton" active-popover click-value="'stoerersmall'" compare-to="mc.openElement" class="pointer hidden-xs hidden-sm beta-badge">
+                <div analytics-on="click" analytics-event="welcome/betabutton" active-popover
+                     click-value="'stoerersmall'" compare-to="mc.openElement"
+                     class="pointer hidden-xs hidden-sm beta-badge">
 
                 </div>
             </div>
@@ -16,12 +18,12 @@
         </div>
     </div>
 
-    <div ng-class="{'showup': wc.searchHelp}" class="search help" ng-include="'templates/welcome/searchHelp.html'"></div>
-    <div ng-class="{'showup': wc.createHelp}" class="create help" ng-include="'templates/welcome/createHelp.html'"></div>
+    <div ng-class="{'showup': wc.searchHelp}" class="search help"
+         ng-include="'templates/welcome/searchHelp.html'"></div>
+    <div ng-class="{'showup': wc.createHelp}" class="create help"
+         ng-include="'templates/welcome/createHelp.html'"></div>
     <div class="arrow-down pointer" scroll-to="video-section" offset="45"><img src="images/svgs/arrow-down.svg"></div>
 </div>
-
-
 
 
 <div ng-hide="!showSteffen" class="container absolute steffencontainer">
@@ -29,6 +31,32 @@
 
     <h3>oops, a server error occured, Steffen has been notified</h3>
 </div>
+
+
+<div class="container-fluid onepage-container grey" id="feed-section" ng-controller="WelcomeFeedCtrl as wfc">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Neuste Locations</h3>
+            </div>
+
+            <div class="edittrip-container">
+                <div class="myLocations without-overlay">
+                    <div
+                        ng-repeat="location in wfc.latestLocations track by $index"
+                        ng-class="{'opened': location.opened}"
+                        class="col-xs-12 col-sm-4 relative location border-radius-decent">
+
+
+                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid onepage-container video-fluid grey" id="video-section">
     <div class="container video-container">
