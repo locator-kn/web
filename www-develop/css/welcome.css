@@ -546,13 +546,28 @@ a.more-link:hover {
 }
 
 .latest-locations .location:hover .content {
-    top: calc(100% - 118px);
+    top: calc(100% - 112px);
 }
 
-.latest-locations p {
+.latest-locations .location img {
+    width: 100%;
+}
+
+.latest-locations p.description {
     padding: 5px;
     margin-bottom: 0;
+    width: 100%;
     min-height: 50px;
+    float: left;
+    padding-top: 0;
+}
+
+.latest-locations p.city {
+    padding: 5px;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+
 }
 
 .latest-locations .welcome-location-title {
@@ -575,9 +590,13 @@ a.more-link:hover {
     margin: 5px;
 }
 
+.latest-locations .city {
+    float: left;
+}
+
 .latest-locations .tags .tag {
     float: left;
-    background-color: rgb(34,34,34);
+    background-color: rgb(34, 34, 34);
     padding: 3px;
     margin-right: 3px;
     margin-bottom: 5px;

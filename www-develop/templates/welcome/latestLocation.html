@@ -3,18 +3,17 @@
     <img ng-if="location.images.picture" class="pointer img-responsive"
          ng-src="http://ec2-52-28-125-160.eu-central-1.compute.amazonaws.com{{location.images.picture}}?size=mid"
          alt="Location image">
-    <img ng-if="!location.images.picture" class="pointer img-responsive" src="{{location.images.googlemap}}&size=695x410"
+    <img ng-if="!location.images.picture" class="pointer img-responsive"
+         src="{{location.images.googlemap}}&size=695x410"
          alt="Location image">
 
 
     <div class="content">
         <h3 class="pointer welcome-location-title">{{::location.title}}</h3>
+        <p class="city">{{::location.city.title}}</p>
+        <p class="description pointer">{{::location.description | truncate: 120}}</p>
 
-        <p>{{::location.description | truncate: 110}}</p>
 
-        <div class="tags">
-            <div class="tag" ng-repeat="tag in location.tags | limitTo:3">{{tag}}</div>
-        </div>
 
     </div>
 
