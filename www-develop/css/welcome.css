@@ -549,6 +549,10 @@ a.more-link:hover {
     top: calc(100% - 112px);
 }
 
+.mobile .latest-locations .locations .content {
+    top: calc(100% - 32px) !important;
+}
+
 .latest-locations .location img {
     width: 100%;
 }
