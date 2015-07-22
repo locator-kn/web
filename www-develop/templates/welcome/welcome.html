@@ -33,24 +33,22 @@
 </div>
 
 
-<div class="container-fluid onepage-container grey" id="feed-section" ng-controller="WelcomeFeedCtrl as wfc">
+<div class="container-fluid onepage-container white" id="feed-section" ng-controller="WelcomeFeedCtrl as wfc">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h3>Neuste Locations</h3>
             </div>
 
-            <div class="edittrip-container">
-                <div class="myLocations without-overlay">
-                    <div
-                        ng-repeat="location in wfc.latestLocations track by $index"
-                        ng-class="{'opened': location.opened}"
-                        class="col-xs-12 col-sm-4 relative location border-radius-decent">
+            <div class="latest-locations">
+
+                <div
+                    ng-repeat="location in wfc.latestLocations track by $index"
+                    class="col-xs-12 col-sm-6">
 
 
-                        <div ng-include="'templates/editTrip/singleTrip.html'" include-replace></div>
+                    <div ng-include="'templates/welcome/latestLocation.html'" include-replace="true"></div>
 
-                    </div>
                 </div>
             </div>
         </div>
