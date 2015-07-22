@@ -13,7 +13,7 @@ module Controller {
 
         getLatestLocations() {
 
-            this.LocationService.getLatestLocations(12, 0)
+            this.LocationService.getLatestLocations(4, 0)
                 .then(result => {
                     this.latestLocations = result.data;
                 });

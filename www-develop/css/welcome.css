@@ -527,6 +527,82 @@ a.more-link:hover {
     width: 100%;
 }
 
-.onepage-container .edittrip-container .location {
-    width: inherit;
+.latest-locations .location {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.latest-locations .location .content {
+    position: absolute;
+    top: calc(100% - 32px);
+
+    width: 100%;
+    background-color: rgba(51, 196, 183, 0.8);
+    color: white;
+
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+}
+
+.latest-locations .location:hover .content {
+    top: calc(100% - 112px);
+}
+
+.mobile .latest-locations .locations .content {
+    top: calc(100% - 32px) !important;
+}
+
+.latest-locations .location img {
+    width: 100%;
+}
+
+.latest-locations p.description {
+    padding: 5px;
+    margin-bottom: 0;
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    padding-top: 0;
+}
+
+.latest-locations p.city {
+    padding: 5px;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+
+}
+
+.latest-locations .welcome-location-title {
+    padding: 5px;
+    color: white;
+    background-color: #33c4b7;
+    border-radius: 3px;
+    font-size: 20px;
+    margin: 0;
+    width: 100%;
+}
+
+.latest-locations {
+    float: left;
+    width: 100%;
+    margin-left: 5px;
+}
+
+.latest-locations .tags {
+    margin: 5px;
+}
+
+.latest-locations .city {
+    float: left;
+}
+
+.latest-locations .tags .tag {
+    float: left;
+    background-color: rgb(34, 34, 34);
+    padding: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    border-radius: 3px;
 }

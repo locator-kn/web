@@ -1,0 +1,19 @@
+<div class="location relative" ui-sref="locationView({locationId: location._id})">
+
+    <img ng-if="location.images.picture" class="pointer img-responsive"
+         ng-src="{{location.images.picture}}?size=mid"
+         alt="Location image">
+    <img ng-if="!location.images.picture" class="pointer img-responsive"
+         src="{{location.images.googlemap}}&size=400x234&scale=2&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4"
+         alt="Location image">
+
+    <div class="content">
+        <h3 class="pointer welcome-location-title">{{::location.title}}</h3>
+
+        <p class="city">{{::location.city.title}}</p>
+
+        <p class="description pointer">{{::location.description | truncate: 120}}</p>
+
+    </div>
+
+</div>
