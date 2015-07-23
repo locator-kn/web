@@ -1,15 +1,15 @@
 <div class="location relative" ui-sref="locationView({locationId: location._id})">
 
-    <img ng-if="location.images.picture" class="pointer img-responsive full"
+    <img ui-sref="location({locationId: location._id})" ng-if="location.images.picture" class="pointer img-responsive full"
          ng-src="{{location.images.picture}}?size=mid"
          alt="Location image">
-    <img ng-if="!location.images.picture" class="pointer img-responsive full"
+    <img ui-sref="location({locationId: location._id})" ng-if="!location.images.picture" class="pointer img-responsive full"
          ng-src="{{location.images.googlemap}}&size=400x234&scale=2&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4"
          alt="Location image">
 
     <div class="content">
-        <h3 class="bold pointer welcome-location-title">{{::location.title}} <span class="arrow-trigger"></span></h3>
-        <p class="city-name">von <span class="bold">{{::location.user.name}}</span> in <span class="bold">{{location.city.title}}</span></p>
+        <h3 ui-sref="location({locationId: location._id})" class="bold pointer welcome-location-title">{{::location.title}} <span class="arrow-trigger"></span></h3>
+        <p class="pointer city-name">von <span ui-sref="user({profileId: location.userid})" class="bold pointer">{{::location.user.name}}</span> in <span class="bold">{{location.city.title}}</span></p>
 
 
 
