@@ -1,7 +1,7 @@
 <div class="location relative" ui-sref="locationView({locationId: location._id})">
 
     <img ng-if="location.images.picture" class="pointer img-responsive full"
-         ng-src="http://ec2-52-28-125-160.eu-central-1.compute.amazonaws.com{{location.images.picture}}?size=mid"
+         ng-src="{{location.images.picture}}?size=mid"
          alt="Location image">
     <img ng-if="!location.images.picture" class="pointer img-responsive full"
          ng-src="{{location.images.googlemap}}&size=400x234&scale=2&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4"
@@ -9,14 +9,11 @@
 
     <div class="content">
         <h3 class="bold pointer welcome-location-title">{{::location.title}} <span class="arrow-trigger"></span></h3>
-        <p class="city-name">in <span class="bold">{{location.city.title}}</span></p>
+        <p class="city-name">von <span class="bold">{{::location.user.name}}</span> in <span class="bold">{{location.city.title}}</span></p>
 
 
-        <img class="zero-padding-left col-xs-6 pointer img-responsive preview-google"
-             ng-src="{{location.images.googlemap}}&size=200x195&scale=2&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4"
-             alt="Location image">
 
-        <p class="col-xs-6 description pointer">{{::location.description | truncate: 90}}</p>
+        <p class="description pointer">{{::location.description | characters:75}}</p>
 
         <div class="tags">
             <div class="tag" ng-repeat="tag in location.tags | limitTo:3">{{::tag}}</div>
