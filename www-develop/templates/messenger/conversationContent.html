@@ -20,7 +20,7 @@
                aria-label="{{mc.selectedConversation.opponent.name}}">
 
                 <img class="profile_thumbnail"
-                     ng-src="https://locator-app.com/{{mc.selectedConversation.opponent.picture}}?s=userThumb">
+                     ng-src="{{mc.selectedConversation.opponent.picture}}?s=userThumb">
                 <h4 class="pointer opponent_name"
                     ui-sref="user({profileId: mc.selectedConversation.opponent._id})">
                     {{mc.selectedConversation.opponent.name}}</h4>
