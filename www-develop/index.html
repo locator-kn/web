@@ -52,6 +52,7 @@
         window._trackJs = {
             token: '1d3930d45f584dbf94fb5f73d5fa9889',
             application: 'locator_web',
+            enabled: !(window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('amazonaws') >= 0),
             onError:  function (payload, error) {
                 var i = 0;
                 var commonCrypticExtensionErrors = [
