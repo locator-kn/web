@@ -527,6 +527,124 @@ a.more-link:hover {
     width: 100%;
 }
 
-.onepage-container .edittrip-container .location {
-    width: inherit;
+.latest-locations .location {
+    overflow: hidden;
+    border: 4px solid white;
+}
+
+.latest-locations .location .content {
+    position: absolute;
+    bottom: -89px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    padding: 8px;
+    padding-top: 2px;
+    height: 115px;
+}
+
+.latest-locations .location:hover .content {
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.mobile .latest-locations .locations .content {
+    bottom: -89px !important;
+}
+
+.latest-locations .location img.full {
+    width: 100%;
+}
+
+.latest-locations p.description {
+    margin-bottom: 0;
+    float: left;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 5px;
+    line-height: 16px;
+    min-height: 32px;
+    width: 100%;
+    margin-top: 3px;
+    overflow: hidden;
+}
+
+.latest-locations p.city {
+    padding: 5px;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+
+}
+
+.latest-locations .welcome-location-title {
+    padding-top: 5px;
+    color: black;
+    font-size: 16px;
+    margin: 0;
+    width: 100%;
+}
+
+.latest-locations {
+    float: left;
+    width: 100%;
+}
+
+.latest-locations .tags {
+    margin-top: 7px;
+    float: left;
+    font-size: 11px;
+    width: 100%;
+}
+
+.latest-locations .city {
+    float: left;
+}
+
+.latest-locations .tags .tag {
+    float: left;
+    background-color: rgb(34, 34, 34);
+    padding: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+.onepage-container .welcome-feed-container {
+    max-width: 1000px !important;
+}
+
+.welcome-feed-container .city-name {
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.welcome-feed-container .arrow-trigger {
+    float: right;
+    background-image: url(../images/icons/arrow_up.svg);
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 16px;
+    margin-top: 3px;
+    background-size: 100%;
+
+}
+
+.welcome-feed-container .location:hover .arrow-trigger {
+    background-image: url(../images/icons/arrow_down.svg);
+}
+
+.location-padding {
+    padding: 3px 10px;
+}
+
+.location-include-wrapper {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 15px;
+    float: left;
+    width: 100%;
 }

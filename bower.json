@@ -39,7 +39,8 @@
     "angular-daterange-picker": "~0.3.4",
     "angular-media-queries": "~0.4.0",
     "angular-emoji-filter-hd": "git://github.com/dbaq/angular-emoji-filter-hd.git#~0.0.4",
-    "angulartics": "~0.19.0"
+    "angulartics": "~0.19.0",
+    "angular-truncate": "*"
   },
   "resolutions": {
     "angular": "~1.3",

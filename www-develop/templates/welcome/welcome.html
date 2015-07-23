@@ -33,6 +33,32 @@
 </div>
 
 
+<div class="container-fluid onepage-container grey" id="feed-section" ng-controller="WelcomeFeedCtrl as wfc">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Neuste Locations</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="container welcome-feed-container">
+        <div class="row">
+            <div class="latest-locations">
+
+                <div
+                    ng-repeat="location in wfc.latestLocations track by $index"
+                    class="location-padding col-xs-12 col-sm-6 col-md-4">
+
+
+                    <div class="location-include-wrapper" ng-include="'templates/welcome/latestLocation.html'"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid onepage-container video-fluid grey" id="video-section">
     <div class="container video-container">

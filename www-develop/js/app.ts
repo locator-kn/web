@@ -77,7 +77,8 @@ var deps = [
     'matchMedia',
     'ngDialog',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
+    'truncate'
 ];
 
 var app = angular.module('locator', deps)

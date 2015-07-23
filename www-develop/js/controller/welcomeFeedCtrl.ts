@@ -1,11 +1,11 @@
-
 module Controller {
     export class WelcomeFeedCtrl {
 
         latestLocations;
 
-        static $inject = ['LocationService'];
-        constructor(private LocationService) {
+        static $inject = ['LocationService', 'UserService'];
+
+        constructor(private LocationService, private UserService) {
 
             this.getLatestLocations();
 
@@ -13,9 +13,22 @@ module Controller {
 
         getLatestLocations() {
 
-            this.LocationService.getLatestLocations(12, 0)
+            this.LocationService.getLatestLocations(6, 0)
                 .then(result => {
+
+
+                    result.data.forEach((item:any) => {
+
+                        item.city.title = item.city.title.split(',')[0];
+                        this.UserService.getUser(item.userid).then(result => {
+                            item.user = result.data;
+                        });
+
+                    });
+
                     this.latestLocations = result.data;
+
+
                 });
         }
 

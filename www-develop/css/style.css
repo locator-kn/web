@@ -1963,3 +1963,14 @@ input, textarea {
     float: left !important;
 }
 
+.zero-padding-left {
+    padding-left: 0;
+}
+
+.zero-padding-right {
+    padding-right: 0;
+}
+
+.bold {
+    font-weight: 500;
+}
