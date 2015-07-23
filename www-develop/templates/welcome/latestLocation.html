@@ -1,4 +1,4 @@
-<div class="location relative" ui-sref="locationView({locationId: location._id})">
+<div class="location relative">
 
     <img ui-sref="location({locationId: location._id})" ng-if="location.images.picture" class="pointer img-responsive full"
          ng-src="{{location.images.picture}}?size=mid"
@@ -13,7 +13,7 @@
 
 
 
-        <p class="description pointer">{{::location.description | characters:75}}</p>
+        <p ui-sref="location({locationId: location._id})" class="description pointer">{{::location.description | characters:75}}</p>
 
         <div class="tags">
             <div class="tag" ng-repeat="tag in location.tags | limitTo:3">{{::tag}}</div>
