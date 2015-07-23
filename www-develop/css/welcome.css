@@ -567,7 +567,7 @@ a.more-link:hover {
     padding-left: 0;
     padding-right: 5px;
     line-height: 16px;
-    max-height: 32px;
+    min-height: 32px;
     width: 100%;
     margin-top: 3px;
     overflow: hidden;
