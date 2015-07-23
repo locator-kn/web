@@ -528,9 +528,7 @@ a.more-link:hover {
 }
 
 .latest-locations .location {
-    margin-top: 15px;
     overflow: hidden;
-    border-radius: 3px;
     border: 4px solid white;
 }
 
@@ -641,4 +639,12 @@ a.more-link:hover {
 
 .location-padding {
     padding: 3px 10px;
+}
+
+.location-include-wrapper {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 15px;
+    float: left;
+    width: 100%;
 }
