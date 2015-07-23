@@ -47,6 +47,30 @@
 
     <link rel="stylesheet" href="css/responsive.css">
 
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">
+        window._trackJs = {
+            token: '1d3930d45f584dbf94fb5f73d5fa9889',
+            application: 'locator_web',
+            onError:  function (payload, error) {
+                var i = 0;
+                var commonCrypticExtensionErrors = [
+                    '401 Unauthorized: GET /api/v1/r/my/conversations',
+                    '401 Unauthorized: GET /api/v1/users/me'
+                ];
+                for (i = 0; i < commonCrypticExtensionErrors.length; i++) {
+                    if (payload.message.indexOf(commonCrypticExtensionErrors[i]) > -1) {
+                        // returning any kind of falsy value will reject error
+                        return false;
+                    }
+                }
+                return true;
+            }
+        };
+    </script>
+    <script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js" crossorigin></script>
+    <!-- END TRACKJS -->
+
 </head>
 
 <body ng-cloak id="page-top" ng-class="{'slider': slider, 'mobile': mc.isMobile}">
