@@ -48,8 +48,6 @@ module Controller {
                 this.getMe();
             });
 
-            this.getConversations();
-
             this.getMe();
 
             this.$rootScope.$on('updateProfileImage', (s, newPath) => {
