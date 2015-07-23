@@ -531,39 +531,42 @@ a.more-link:hover {
     margin-top: 15px;
     margin-bottom: 15px;
     overflow: hidden;
+    border-radius: 3px;
+    border: 4px solid white;
 }
 
 .latest-locations .location .content {
     position: absolute;
-    top: calc(100% - 32px);
+    top: calc(100% - 21px);
 
     width: 100%;
-    background-color: rgba(51, 196, 183, 0.8);
-    color: white;
+    height: 100%;
+    background-color: white;
+    color: black;
 
     transition-duration: 0.3s;
     transition-timing-function: ease-out;
 }
 
 .latest-locations .location:hover .content {
-    top: calc(100% - 112px);
+    top: 0;
 }
 
 .mobile .latest-locations .locations .content {
-    top: calc(100% - 32px) !important;
+    top: calc(100% - 21px) !important;
 }
 
-.latest-locations .location img {
+.latest-locations .location img.full {
     width: 100%;
 }
 
 .latest-locations p.description {
-    padding: 5px;
     margin-bottom: 0;
-    width: 100%;
-    min-height: 50px;
     float: left;
     padding-top: 0;
+    padding-left: 0;
+    padding-right: 5px;
+    line-height: 16px;
 }
 
 .latest-locations p.city {
@@ -575,11 +578,9 @@ a.more-link:hover {
 }
 
 .latest-locations .welcome-location-title {
-    padding: 5px;
-    color: white;
-    background-color: #33c4b7;
-    border-radius: 3px;
-    font-size: 20px;
+    padding-top: 5px;
+    color: black;
+    font-size: 14px;
     margin: 0;
     width: 100%;
 }
@@ -587,11 +588,12 @@ a.more-link:hover {
 .latest-locations {
     float: left;
     width: 100%;
-    margin-left: 5px;
 }
 
 .latest-locations .tags {
-    margin: 5px;
+    margin-top: 7px;
+    float: left;
+    font-size: 11px;
 }
 
 .latest-locations .city {
@@ -604,5 +606,28 @@ a.more-link:hover {
     padding: 3px;
     margin-right: 3px;
     margin-bottom: 5px;
-    border-radius: 3px;
+    color: white;
+    border-radius: 5px;
+}
+
+.onepage-container .welcome-feed-container {
+    max-width: 1000px !important;
+}
+
+.welcome-feed-container .city-name {
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.welcome-feed-container .arrow-trigger {
+    float: right;
+    background-image:url(../images/icons/arrow_up.svg);
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 22px;
+
+}
+
+.welcome-feed-container .location:hover .arrow-trigger {
+    background-image:url(../images/icons/arrow_down.svg);
 }
