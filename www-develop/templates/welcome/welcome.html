@@ -39,12 +39,16 @@
             <div class="col-xs-12">
                 <h3>Neuste Locations</h3>
             </div>
+        </div>
+    </div>
 
+    <div class="container welcome-feed-container">
+        <div class="row">
             <div class="latest-locations">
 
                 <div
                     ng-repeat="location in wfc.latestLocations track by $index"
-                    class="col-xs-12 col-sm-6">
+                    class="col-xs-12 col-sm-6 col-md-4">
 
 
                     <div ng-include="'templates/welcome/latestLocation.html'" include-replace="true"></div>
