@@ -536,7 +536,7 @@ a.more-link:hover {
 
 .latest-locations .location .content {
     position: absolute;
-    top: calc(100% - 25px);
+    bottom: -89px;
     width: 100%;
     background-color: rgba(255, 255, 255, 1);
     color: black;
@@ -548,12 +548,12 @@ a.more-link:hover {
 }
 
 .latest-locations .location:hover .content {
-    top: 70px;
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.95);
 }
 
 .mobile .latest-locations .locations .content {
-    top: calc(100% - 25px) !important;
+    bottom: -89px !important;
 }
 
 .latest-locations .location img.full {
