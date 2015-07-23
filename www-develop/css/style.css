@@ -1052,7 +1052,7 @@ trip-min-view .header-image {
 }
 
 .locationview-container .header-image {
-    width: 100vw;
+    width: 100%;
 }
 
 .ng-hide-add, .ng-hide-remove {
