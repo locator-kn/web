@@ -1,3 +1,5 @@
+declare var cheet;
+
 module Controller {
     export class UserCtrl {
 
@@ -84,6 +86,7 @@ module Controller {
 
             this.$rootScope.breadcrumb = 'Profil | ' + this.tab;
 
+            this.egg();
 
         }
 
@@ -508,6 +511,13 @@ module Controller {
 
 
                 }
+            });
+        }
+
+        egg() {
+            cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
+                this.profileImagePath = 'images/casual_lorenz.svg';
+                this.$scope.$apply();
             });
         }
 
