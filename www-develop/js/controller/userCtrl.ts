@@ -515,12 +515,14 @@ module Controller {
         }
 
         egg() {
-            if (this.me) {
-                cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
+
+            cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
+                if (this.me) {
                     this.profileImagePath = 'images/casual_lorenz.svg';
                     this.$scope.$apply();
-                });
-            }
+                }
+            });
+
 
         }
 
