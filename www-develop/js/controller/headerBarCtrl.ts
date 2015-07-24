@@ -82,6 +82,11 @@ module Controller {
 
         redirectToMessenger() {
 
+            // do nothing if current state is messenger
+            if (this.$state.opponentId) {
+                return;
+            }
+
             if (!this.$rootScope.authenticated) {
                 return this.$rootScope.$emit('openLoginDialog');
             }
