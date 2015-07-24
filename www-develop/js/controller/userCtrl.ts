@@ -515,10 +515,13 @@ module Controller {
         }
 
         egg() {
-            cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
-                this.profileImagePath = 'images/casual_lorenz.svg';
-                this.$scope.$apply();
-            });
+            if (this.me) {
+                cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
+                    this.profileImagePath = 'images/casual_lorenz.svg';
+                    this.$scope.$apply();
+                });
+            }
+
         }
 
         static
