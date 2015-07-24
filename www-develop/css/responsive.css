@@ -36,6 +36,11 @@
 
 /* SM */
 @media (max-width: 991px) {
+
+    .header-image-container, .header-image-container .flexslider {
+        height: 40vh;
+    }
+
     .welcome_select span.title {
         max-width: 260px;
     }
@@ -61,6 +66,10 @@
 
 /* XS */
 @media (max-width: 767px) {
+
+    .header-image-container, .header-image-container .flexslider {
+        height: 25vh;
+    }
 
     .result-content-box {
         border-top-right-radius: 0;
