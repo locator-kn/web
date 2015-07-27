@@ -20,7 +20,7 @@
 
 
         <div class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 tripsmall"
-             ng-repeat="trip in pc.trips | filter:pc.tripSearch">
+             ng-repeat="trip in pc.trips | filter:pc.tripSearch track by $index">
 
             <div class="wrapper">
                 <img-triplist locations="trip.locations" mapwidth="600" mapheight="150" scale="1"></img-triplist>
