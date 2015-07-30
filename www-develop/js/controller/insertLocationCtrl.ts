@@ -363,11 +363,13 @@ module Controller {
 
         selectLocationFromInput() {
 
+            debugger;
+
             var lat;
             var lon;
 
-            lat = this.selectedPlaceDetails.geometry.location.A;
-            lon = this.selectedPlaceDetails.geometry.location.F;
+            lat = this.selectedPlaceDetails.geometry.location.lat() ;
+            lon = this.selectedPlaceDetails.geometry.location.lng() ;
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = lon;
