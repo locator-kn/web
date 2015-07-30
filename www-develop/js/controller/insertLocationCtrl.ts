@@ -362,9 +362,7 @@ module Controller {
         }
 
         selectLocationFromInput() {
-
-            debugger;
-
+            
             var lat;
             var lon;
 
