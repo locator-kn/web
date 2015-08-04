@@ -436,6 +436,9 @@ module Controller {
                 .then(result => {
                     location.showdelete = false;
 
+                    if (location.isDefault) {
+                        return this.defaultLocation = '';
+                    }
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
