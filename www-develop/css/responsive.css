@@ -68,7 +68,7 @@
 @media (max-width: 767px) {
 
     .header-image-container, .header-image-container .flexslider {
-        height: 25vh;
+        height: 55vh;
     }
 
     .result-content-box {

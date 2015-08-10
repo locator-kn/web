@@ -1,3 +1,5 @@
+declare var cheet;
+
 module Controller {
     export class UserCtrl {
 
@@ -84,6 +86,7 @@ module Controller {
 
             this.$rootScope.breadcrumb = 'Profil | ' + this.tab;
 
+            this.egg();
 
         }
 
@@ -433,6 +436,9 @@ module Controller {
                 .then(result => {
                     location.showdelete = false;
 
+                    if (location.isDefault) {
+                        return this.defaultLocation = '';
+                    }
                     //remove location from outdated view
                     this.locations.splice(this.lodash.indexOf(this.locations, location), 1);
                 })
@@ -509,6 +515,18 @@ module Controller {
 
                 }
             });
+        }
+
+        egg() {
+
+            cheet('↑ ↑ ↓ ↓ h i g h a s f u c k', () => {
+                if (this.me) {
+                    this.profileImagePath = 'images/casual_lorenz.svg';
+                    this.$scope.$apply();
+                }
+            });
+
+
         }
 
         static

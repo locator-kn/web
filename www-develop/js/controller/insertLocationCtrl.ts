@@ -96,8 +96,8 @@ module Controller {
             });
 
             $scope.$on('mapentrySelected', (event, details) => {
-                this.map.center.latitude = details.geometry.location.A;
-                this.map.center.longitude = details.geometry.location.F;
+                this.map.center.latitude = details.geometry.location.lat();
+                this.map.center.longitude = details.geometry.location.lng();
             });
 
             this.initEdit();
@@ -366,12 +366,13 @@ module Controller {
             var lat;
             var lon;
 
-            lat = this.selectedPlaceDetails.geometry.location.A;
-            lon = this.selectedPlaceDetails.geometry.location.F;
+            lat = this.selectedPlaceDetails.geometry.location.lat() ;
+            lon = this.selectedPlaceDetails.geometry.location.lng() ;
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = lon;
             this.map.zoom = 15;
+
             this.map.center.latitude = lat;
             this.map.center.longitude = lon;
             this.mapMarkerSet = true;

@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div ng-repeat="location in pc.locations | filter:pc.locationSearch"
+        <div ng-repeat="location in pc.locations | filter:pc.locationSearch track by $index"
              class="fx-fade-up fx-speed-150 col-xs-12 col-sm-12 location relative">
             <div class="wrapper">
                 <div class="link-to-location-view pointer" ng-click="pc.showLocation(location)">

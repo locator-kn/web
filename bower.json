@@ -40,7 +40,8 @@
     "angular-media-queries": "~0.4.0",
     "angular-emoji-filter-hd": "git://github.com/dbaq/angular-emoji-filter-hd.git#~0.0.4",
     "angulartics": "~0.19.0",
-    "angular-truncate": "*"
+    "angular-truncate": "*",
+    "cheet.js": "~0.3.3"
   },
   "resolutions": {
     "angular": "~1.3",

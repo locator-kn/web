@@ -550,7 +550,7 @@ a.more-link:hover {
     background-color: rgba(255, 255, 255, 0.95);
 }
 
-.mobile .latest-locations .locations .content {
+.mobile .latest-locations .location:hover .content {
     bottom: -89px !important;
 }
 

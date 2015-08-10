@@ -2,5 +2,4 @@
 
 # locator-app.com
 
-> under construction, go somewhere else and come back Juli 18th
 

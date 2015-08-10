@@ -142,7 +142,6 @@ module Controller {
             });
 
             // scroll to chat
-            console.info(this.screenSize);
             if (this.screenSize.is('xs')) {
 
                 if (this.initialLoad) {
