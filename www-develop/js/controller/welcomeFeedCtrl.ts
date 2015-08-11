@@ -28,8 +28,8 @@ module Controller {
             var newPage = Math.round(this.latestLocations.length / 7);
             this.LocationService.getLatestLocations(6, newPage)
             .then(result => {
-                    if(!result.data.length) {
-                        return this.disableLoadMore = true;
+                    if(result.data.length < 6) {
+                        this.disableLoadMore = true;
                     }
                     this.decorateLocationsWithUser(result.data);
                     this.latestLocations = this.latestLocations.concat(result.data);
