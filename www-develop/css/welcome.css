@@ -656,3 +656,7 @@ a.more-link:hover {
 .latest-locations .load-more-container .load-more-button {
     width: 310px;
 }
+
+.latest-locations .load-more-container .load-more-button.disabled-btn {
+    display:none;
+}
