@@ -653,3 +653,6 @@ a.more-link:hover {
     width: 100%;
     margin: 25px auto 0;
 }
+.latest-locations .load-more-container .load-more-button {
+    width: 310px;
+}
