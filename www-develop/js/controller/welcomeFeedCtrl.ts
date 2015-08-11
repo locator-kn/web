@@ -29,7 +29,7 @@ module Controller {
             this.LocationService.getLatestLocations(6, newPage)
             .then(result => {
                     if(!result.data.length) {
-                        this.disableLoadMore = true;
+                        return this.disableLoadMore = true;
                     }
                     this.decorateLocationsWithUser(result.data);
                     this.latestLocations = this.latestLocations.concat(result.data);
