@@ -2,6 +2,7 @@ module Controller {
     export class WelcomeFeedCtrl {
 
         latestLocations;
+        disableLoadMore:boolean = false;
 
         static $inject = ['LocationService', 'UserService'];
 
@@ -27,6 +28,9 @@ module Controller {
             var newPage = Math.round(this.latestLocations.length / 7);
             this.LocationService.getLatestLocations(6, newPage)
             .then(result => {
+                    if(!result.data.length) {
+                        this.disableLoadMore = true;
+                    }
                     this.decorateLocationsWithUser(result.data);
                     this.latestLocations = this.latestLocations.concat(result.data);
                 });
