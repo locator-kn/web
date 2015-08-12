@@ -648,3 +648,15 @@ a.more-link:hover {
     float: left;
     width: 100%;
 }
+.latest-locations .load-more-container {
+    float:left;
+    width: 100%;
+    margin: 25px auto 0;
+}
+.latest-locations .load-more-container .load-more-button {
+    width: 310px;
+}
+
+.latest-locations .load-more-container .load-more-button.disabled-btn {
+    display:none;
+}
