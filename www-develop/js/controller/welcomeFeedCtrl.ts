@@ -4,9 +4,9 @@ module Controller {
         latestLocations;
         disableLoadMore:boolean = false;
 
-        static $inject = ['LocationService', 'UserService'];
+        static $inject = ['LocationService', 'UserService', '$analytics'];
 
-        constructor(private LocationService, private UserService) {
+        constructor(private LocationService, private UserService, private $analytics) {
 
             this.getLatestLocations();
 
@@ -26,9 +26,11 @@ module Controller {
         loadMoreLocations() {
             // calculate next page number
             var newPage = Math.round(this.latestLocations.length / 7);
+            this.$analytics.eventTrack('welcome/loadMoreLocatons, page:' + newPage);
             this.LocationService.getLatestLocations(6, newPage)
             .then(result => {
                     if(result.data.length < 6) {
+                        this.$analytics.eventTrack('welcome/loadMoreLocatons, reached the end');
                         this.disableLoadMore = true;
                     }
                     this.decorateLocationsWithUser(result.data);
