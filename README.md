@@ -2,4 +2,5 @@
 
 # locator-app.com
 
-
+In this repository lives the source of [https://locator-app.com](https://locator-app.com).
+It's build with [AngularJs](https://angularjs.org/) and [Typescript](http://www.typescriptlang.org/). 
