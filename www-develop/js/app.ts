@@ -95,7 +95,7 @@ var app = angular.module('locator', deps)
      });
      })*/
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
 
             .state('welcome', {
@@ -175,6 +175,8 @@ var app = angular.module('locator', deps)
                 url: "/impressum",
                 templateUrl: "templates/static/impressum.html"
             });
+
+        $locationProvider.html5Mode(true);
 
         $urlRouterProvider.otherwise('welcome');
     })
