@@ -4,11 +4,10 @@
             <div class="col-xs-12 center logocontainer relative">
                 <img class="welcome_logo" src="images/logo/locator_schriftzug.png">
 
-                <div analytics-on="click" analytics-event="welcome/betabutton" active-popover
-                     click-value="'stoerersmall'" compare-to="mc.openElement"
-                     class="pointer hidden-xs hidden-sm beta-badge">
-
-                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.ionicframework.locator164612"
+                   target="_blank" analytics-on="click" analytics-event="welcome/googleplay_button"
+                   class="pointer hidden-xs hidden-sm beta-badge">
+                </a>
             </div>
         </div>
 
@@ -55,7 +54,9 @@
 
                 </div>
                 <div class="load-more-container">
-                    <div class="load-more-button pointer" ng-class="{ 'disabled-btn' : wfc.disableLoadMore }" ng-click="wfc.loadMoreLocations()">Weitere Locations anzeigen</div>
+                    <div class="load-more-button pointer" ng-class="{ 'disabled-btn' : wfc.disableLoadMore }"
+                         ng-click="wfc.loadMoreLocations()">Weitere Locations anzeigen
+                    </div>
                 </div>
             </div>
         </div>
