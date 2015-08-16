@@ -31,6 +31,7 @@ module Controller {
 
 
             this.$rootScope.breadcrumb = 'Suchergebnisse';
+            this.$scope.$emit('updateTitle', 'Suchergebnisse');
 
             this.localStorageAvailable = this.HelperService.lsAvailable();
 

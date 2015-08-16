@@ -56,9 +56,10 @@ module Controller {
         static $inject = ['$analytics', 'UtilityService', 'smoothScroll', '$q', 'lodash', '$scope', '$rootScope', '$state', '$location', 'InsertTripService', 'TripService', 'LocationService', 'DataService', 'HelperService', 'ErrorService'];
 
         constructor(private $analytics, private UtilityService, private smoothScroll, private $q, private lodash, private $scope, private $rootScope, private $state, private $location, private InsertTripService, private TripService, private LocationService, private DataService, private HelperService, private ErrorService) {
-            
+
             if ($state.current.name === 'insertTrip') {
                 this.$rootScope.breadcrumb = 'Trip einstellen';
+                this.$scope.$emit('updateTitle', 'Trip einstellen');
             }
 
             var moods = this.DataService.getMoods();
@@ -342,6 +343,7 @@ module Controller {
 
 
                         this.$rootScope.breadcrumb = 'Trip bearbeiten | ' + this.tripMeta.title;
+                        this.$scope.$emit('updateTitle', 'Trip bearbeiten');
 
 
                         this.filledLocations = result.data.locations;

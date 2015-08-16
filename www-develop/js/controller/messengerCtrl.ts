@@ -28,8 +28,7 @@ module Controller {
         constructor(private $timeout, private screenSize, private smoothScroll, private $filter, private $scope, private $sce, private MessengerService, private $state, private UserService, private $rootScope, private SocketService, private CacheFactory, private UtilityService, private TripService) {
 
             this.$rootScope.breadcrumb = 'Messenger';
-
-            this.$scope.$emit('updateTitle', '');
+            this.$scope.$emit('updateTitle', 'Messenger');
 
             this.getConversations();
 
@@ -127,6 +126,7 @@ module Controller {
 
             if (this.selectedConversation.opponent.name) {
                 this.$rootScope.breadcrumb = 'Messenger | ' + this.selectedConversation.opponent.name;
+                this.$scope.$emit('updateTitle', 'Messenger | ' + this.selectedConversation.opponent.name);
             }
 
             this.getConversation(this.selectedConversation).then(result => {
