@@ -57,6 +57,7 @@ module Controller {
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
+                this.$scope.$emit('updateTitle', 'Location erstellen');
                 this.headline = 'Neue Location erstellen';
             }
 
@@ -345,9 +346,11 @@ module Controller {
 
                         if (this.$state.current.name === 'insertLocation') {
                             this.$rootScope.breadcrumb = 'Location erstellen';
+                            this.$scope.$emit('updateTitle', 'Location erstellen');
                         } else {
                             this.headline = 'Location ' + this.locationFormDetails.title + '  bearbeiten';
                             this.$rootScope.breadcrumb = 'Location bearbeiten | ' + this.locationFormDetails.title;
+                            this.$scope.$emit('updateTitle', 'Location bearbeiten');
                         }
 
 

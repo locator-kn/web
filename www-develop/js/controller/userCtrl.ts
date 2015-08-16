@@ -153,6 +153,7 @@ module Controller {
                         this.profileImagePath = result.data.picture;
                     }
 
+                    this.$scope.$emit('updateTitle', this.user.name);
                     this.getTrips();
                     this.getLocations();
 

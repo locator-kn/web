@@ -13,16 +13,18 @@ module Controller {
 
         slides:string[] = [];
 
-        static $inject = ['$rootScope', '$stateParams', 'SearchService', 'TripService', 'DataService', 'UserService', 'LocationService', 'HelperService'];
-        constructor(private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
+        static $inject = ['$scope', '$rootScope', '$stateParams', 'SearchService', 'TripService', 'DataService', 'UserService', 'LocationService', 'HelperService'];
+        constructor(private $scope, private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
 
             this.SearchService.getTripById(this.$stateParams.tripId)
                 .then(result => {
+
                     this.trip = result.data;
                     this.$rootScope.breadcrumb = 'Tripdetail | ' + this.trip.title;
+                    this.$scope.$emit('updateTitle', this.trip.title + ' | ' + this.trip.city.title);
 
                     this.UserService.getUser(this.trip.userid)
                         .then(result => {
