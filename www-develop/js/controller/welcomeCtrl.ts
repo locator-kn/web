@@ -38,15 +38,18 @@ module Controller {
         dataAvailable:boolean = false;
 
 
-        static $inject = ['$state', '$rootScope', 'DataService', '$q'];
+        static $inject = ['$scope', '$state', '$rootScope', 'DataService', '$q'];
 
-        constructor(private $state, private $rootScope, private DataService, private $q) {
+        constructor(private $scope, private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
 
             this.getData();
             this.$rootScope.breadcrumb = '';
+
+            //default title
+            this.$scope.$emit('updateTitle', '');
 
         }
 

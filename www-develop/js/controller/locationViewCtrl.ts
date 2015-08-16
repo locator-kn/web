@@ -12,8 +12,8 @@ module Controller {
         conversationId:any;
 
 
-        static $inject = ['$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
-        constructor(private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
+        static $inject = ['$scope', '$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
+        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
             this.locationId = $stateParams.locationId;
 
 
@@ -21,6 +21,8 @@ module Controller {
                 .then(result => {
                     this.location = result.data;
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
+
+                    this.$scope.$emit('updateTitle', this.location.title + ' | ' + this.location.city.title);
 
                     this.locationImagePath = this.location.images.picture;
 
