@@ -52,7 +52,7 @@ module Controller {
                 }
                 if(ogElem.image) {
                     // check if image url is relative
-                    if(ogElem.image.indexOf('http') !== -1) {
+                    if(ogElem.image.indexOf('http') === -1) {
                         // add origin to relative image path
                         ogElem.image = window.location.origin + ogElem.image;
                     }
