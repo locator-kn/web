@@ -626,6 +626,10 @@ a.more-link:hover {
     margin-bottom: 3px;
 }
 
+.welcome-feed-container .city-name a, .welcome-feed-container .city-name a:hover {
+    color:#2D2D2D;
+}
+
 .welcome-feed-container .arrow-trigger {
     float: right;
     background-image: url(../images/icons/arrow_up.svg);
