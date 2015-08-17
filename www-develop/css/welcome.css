@@ -579,7 +579,11 @@ a.more-link:hover {
 
 }
 
-.latest-locations .welcome-location-title {
+.latest-locations .location h3 {
+    margin: 0;
+}
+
+.latest-locations .welcome-location-title a {
     padding-top: 5px;
     color: black;
     font-size: 16px;
@@ -622,13 +626,17 @@ a.more-link:hover {
     margin-bottom: 3px;
 }
 
+.welcome-feed-container .city-name a, .welcome-feed-container .city-name a:hover {
+    color:#2D2D2D;
+}
+
 .welcome-feed-container .arrow-trigger {
     float: right;
     background-image: url(../images/icons/arrow_up.svg);
     background-repeat: no-repeat;
     height: 10px;
     width: 16px;
-    margin-top: 3px;
+    margin-top: 9px;
     background-size: 100%;
 
 }

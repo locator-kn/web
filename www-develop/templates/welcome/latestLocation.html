@@ -10,10 +10,10 @@
          alt="Location image">
 
     <div class="content">
-        <h3 ui-sref="locationView({locationId: location._id})" analytics-on="click" analytics-event="welcome/latestLocations/headline" class="bold pointer welcome-location-title">
-            {{::location.title}} <span class="arrow-trigger"></span></h3>
+        <h3 class="bold pointer welcome-location-title">
+            <a ui-sref="locationView({locationId: location._id})" analytics-on="click" analytics-event="welcome/latestLocations/headline">{{::location.title}}</a> <span class="arrow-trigger"></span></h3>
 
-        <p class="pointer city-name">von <span ui-sref="user({profileId: location.userid})" analytics-on="click" analytics-event="welcome/latestLocations/user" class="bold pointer">{{::location.user.name}}</span>
+        <p class="pointer city-name">von <a ui-sref="user({profileId: location.userid})" analytics-on="click" analytics-event="welcome/latestLocations/user" class="bold pointer">{{::location.user.name}}</a>
             in <span class="bold">{{location.city.title}}</span></p>
 
         <p ui-sref="locationView({locationId: location._id})" analytics-on="click" analytics-event="welcome/latestLocations/desc" class="description pointer">{{::location.description |

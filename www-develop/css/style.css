@@ -4,6 +4,10 @@
     word-wrap: break-word;
 }
 
+a, a:hover {
+    color:#ff4637;
+}
+
 html {
     overflow-y: scroll;
 }
