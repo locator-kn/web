@@ -50,6 +50,13 @@ module Controller {
                     // reset og elements, defaults from index.html will be applied
                     return this.$rootScope.ogElements = angular.copy(this.ogElements);
                 }
+                if(ogElem.image) {
+                    // check if image url is relative
+                    if(ogElem.image.indexOf('http') !== -1) {
+                        // add origin to relative image path
+                        ogElem.image = window.location.origin + ogElem.image;
+                    }
+                }
                 this.$rootScope.ogElements = ogElem;
             });
 
