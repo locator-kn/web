@@ -22,7 +22,7 @@ module Controller {
                     this.location = result.data;
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
 
-                    this.$scope.$emit('updateTitle', this.location.title + ' | ' + this.location.city.title);
+
 
                     this.locationImagePath = this.location.images.picture;
 
@@ -31,6 +31,16 @@ module Controller {
                     } else {
                         this.locationImagePath = this.locationImagePath + '?size=max'
                     }
+
+                    this.$scope.$emit('updateTitle', this.location.title + ' | ' + this.location.city.title);
+
+                    this.$scope.$emit('updateOgElements', {
+                        title: this.location.title + ' | ' + this.location.city.title,
+                        description: this.location.description,
+                        url: window.location.href,
+                        image: this.locationImagePath
+                    });
+
 
                     this.userId = this.location.userid;
                     this.UserService.getUser(this.userId)
