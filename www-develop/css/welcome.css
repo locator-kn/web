@@ -579,7 +579,11 @@ a.more-link:hover {
 
 }
 
-.latest-locations .welcome-location-title {
+.latest-locations .location h3 {
+    margin: 0;
+}
+
+.latest-locations .welcome-location-title a {
     padding-top: 5px;
     color: black;
     font-size: 16px;
