@@ -36,13 +36,21 @@ module Controller {
 
             this.isMobile = this.UtilityService.isMobile();
 
-            this.$rootScope.ogElements = this.ogElements;
+            this.$rootScope.ogElements = angular.copy(this.ogElements);
 
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
             $rootScope.$on('$stateChangeSuccess', function () {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
+
+            $rootScope.$on('updateOgElements', (scope, ogElem) => {
+                if(!ogElem) {
+                    // reset og elements, defaults from index.html will be applied
+                    return this.$rootScope.ogElements = angular.copy(this.ogElements);
+                }
+                this.$rootScope.ogElements = ogElem;
             });
 
             $rootScope.$on('updateTitle', (scope, title:any) => {
