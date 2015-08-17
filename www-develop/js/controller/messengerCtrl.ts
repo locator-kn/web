@@ -30,6 +30,8 @@ module Controller {
             this.$rootScope.breadcrumb = 'Messenger';
             this.$scope.$emit('updateTitle', 'Messenger');
 
+            this.$scope.$emit('updateOgElements', '');
+
             this.getConversations();
 
             $scope.$on('login_success', () => {
