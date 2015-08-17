@@ -19,6 +19,13 @@ module Controller {
         mail:any;
         password:any;
 
+        ogElements:any = {
+            title: '',
+            description: '',
+            url: '',
+            image: ''
+        };
+
         isMobile:boolean;
 
         forgotPassword:boolean = false;
