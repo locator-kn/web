@@ -32,8 +32,8 @@ module Controller {
 
         localStorageAvailble:boolean;
 
-        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService'];
-        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService) {
+        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService', '$analytics'];
+        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService, private $analytics) {
 
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
@@ -148,6 +148,8 @@ module Controller {
                     this.$rootScope.userImageUrl = result.data.picture || '';
 
                     this.$rootScope.$broadcast('login_success');
+                    this.$analytics.eventTrack('visit from logged in user:' + result.data._id);
+
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
                     if(this.user.isAdmin) {
@@ -155,6 +157,7 @@ module Controller {
                     }
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
+                    this.$analytics.eventTrack('visit from not logged in user:');
                 });
         }
 
