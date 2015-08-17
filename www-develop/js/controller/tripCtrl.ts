@@ -44,6 +44,13 @@ module Controller {
                     }
                     this.slides = this.TripService.getHeaderImagesByTrip(this.trip);
 
+                    this.$scope.$emit('updateOgElements', {
+                        title: this.trip.title + ' | ' + this.trip.city.title,
+                        description: this.trip.description,
+                        url: window.location.href,
+                        image: this.slides[0]
+                    });
+
                     this.HelperService.getMoodByQueryName(this.trip.moods[0])
                         .then(result => {
                             this.trip.mood = result;
