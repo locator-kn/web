@@ -59,6 +59,13 @@ module Controller {
                 this.$rootScope.breadcrumb = 'Location erstellen';
                 this.$scope.$emit('updateTitle', 'Location erstellen');
                 this.headline = 'Neue Location erstellen';
+
+                this.$scope.$emit('updateOgElements', {
+                    title: 'Erstelle schnell und einfach deine Lieblingslocations',
+                    description: 'Mit Locator kannst du schnell und bequem deine Lieblingslocations sammeln und mit allen teilen',
+                    url: window.location.href,
+                    image: ''
+                });
             }
 
             $scope.$watch(angular.bind(this, () => {
