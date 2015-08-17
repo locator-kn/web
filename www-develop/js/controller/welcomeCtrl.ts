@@ -50,6 +50,7 @@ module Controller {
 
             //default title
             this.$scope.$emit('updateTitle', '');
+            this.$scope.$emit('updateOgElements', '');
 
         }
 

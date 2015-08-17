@@ -154,6 +154,14 @@ module Controller {
                     }
 
                     this.$scope.$emit('updateTitle', this.user.name);
+
+                    this.$scope.$emit('updateOgElements', {
+                        title: this.user.name,
+                        description: this.user.description,
+                        url: window.location.href,
+                        image: this.profileImagePath
+                    });
+
                     this.getTrips();
                     this.getLocations();
 

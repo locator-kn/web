@@ -60,6 +60,13 @@ module Controller {
             if ($state.current.name === 'insertTrip') {
                 this.$rootScope.breadcrumb = 'Trip einstellen';
                 this.$scope.$emit('updateTitle', 'Trip einstellen');
+
+                this.$scope.$emit('updateOgElements', {
+                    title: 'Zeige deine Stadt!',
+                    description: 'Erstelle einen Trip mit deinen Lieblingslocations und zeige Fremden oder Freunde deine Stadt',
+                    url: window.location.href,
+                    image: ''
+                });
             }
 
             var moods = this.DataService.getMoods();

@@ -19,6 +19,13 @@ module Controller {
         mail:any;
         password:any;
 
+        ogElements:any = {
+            title: '',
+            description: '',
+            url: '',
+            image: ''
+        };
+
         isMobile:boolean;
 
         forgotPassword:boolean = false;
@@ -29,11 +36,28 @@ module Controller {
 
             this.isMobile = this.UtilityService.isMobile();
 
+            this.$rootScope.ogElements = angular.copy(this.ogElements);
+
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
             $rootScope.$on('$stateChangeSuccess', function () {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
+
+            $rootScope.$on('updateOgElements', (scope, ogElem) => {
+                if(!ogElem) {
+                    // reset og elements, defaults from index.html will be applied
+                    return this.$rootScope.ogElements = angular.copy(this.ogElements);
+                }
+                if(ogElem.image) {
+                    // check if image url is relative
+                    if(ogElem.image.indexOf('http') === -1) {
+                        // add origin to relative image path
+                        ogElem.image = window.location.origin + ogElem.image;
+                    }
+                }
+                this.$rootScope.ogElements = ogElem;
             });
 
             $rootScope.$on('updateTitle', (scope, title:any) => {

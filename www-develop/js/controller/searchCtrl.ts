@@ -33,6 +33,13 @@ module Controller {
             this.$rootScope.breadcrumb = 'Suchergebnisse';
             this.$scope.$emit('updateTitle', 'Suchergebnisse');
 
+            this.$scope.$emit('updateOgElements', {
+                title: 'Suchergebnisse',
+                description: '',
+                url: window.location.href,
+                image: ''
+            });
+
             this.localStorageAvailable = this.HelperService.lsAvailable();
 
             this.query = $location.search();
