@@ -36,6 +36,8 @@ module Controller {
 
             this.isMobile = this.UtilityService.isMobile();
 
+            this.$rootScope.ogElements = this.ogElements;
+
             this.$rootScope.overlay = false;
             this.$rootScope.openElement = this.openElement;
 
