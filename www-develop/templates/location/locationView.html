@@ -57,7 +57,7 @@
             </div>
             <div class="latest-locations welcome-feed-container" ng-if="lt.relatedLocations.length">
                 <h3 class="col-xs-12">Auch schön in {{lt.location.city.title}}</h3>
-                <div ng-repeat="location in lt.relatedLocations track by $index" class="location-padding col-xs-12 col-sm-6 col-md-4">
+                <div ng-repeat="location in lt.relatedLocations track by $index" class="location-padding col-xs-12 col-sm-4">
 
                     <div class="location-include-wrapper" ng-include="'templates/welcome/latestLocation.html'"></div>
 
