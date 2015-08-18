@@ -41,7 +41,7 @@
                                  ui-sref="user({profileId: lt.userId})"><strong>{{lt.user.name}}</strong></a> am
                         <strong>
                             <resultdate class="black" date="lt.location.create_date"></resultdate>
-                        </strong></p>
+                        </strong> in {{lt.location.city.title}}</p>
                 </div>
                 <div class="location-description">
                     <p>{{lt.location.description}}</p>
@@ -54,6 +54,14 @@
 
                 <div class="map-image"
                      ng-style="{'background-image': 'url('+lt.location.images.googlemap+'&size=600x420&key=AIzaSyCveLtBw4QozQIkMstvefLSTd3_opSvHS4)'}" style="background-size: cover; background-position:center;"></div>
+            </div>
+            <div class="col-xs-12 col-sm-12 latest-locations welcome-feed-container" ng-if="lt.relatedLocations.length">
+                <h3 class="col-xs-12 col-sm-12">Auch schön in {{lt.location.city.title}}</h3>
+                <div ng-repeat="location in lt.relatedLocations track by $index" class="location-padding col-xs-12 col-sm-6 col-md-4">
+
+                    <div class="location-include-wrapper" ng-include="'templates/welcome/latestLocation.html'"></div>
+
+                </div>
             </div>
         </div>
     </div>

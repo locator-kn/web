@@ -96,6 +96,16 @@ module Service {
             //return this.$http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true');
         }
 
+        getRelatedLocationsByLocationId(locationId:string, elements:number) {
+            return this.$http({
+                url: this.basePath + '/locations/' + locationId + '/related',
+                method: 'GET',
+                params: {
+                    elements: elements
+                }
+            });
+        }
+
         getPlaceIdByAddress(address:string) {
 
             return this.$q((resolve, reject) => {
