@@ -11,11 +11,17 @@ module Controller {
         me:boolean = false;
         conversationId:any;
 
+        relatedLocations: any;
+
 
         static $inject = ['$scope', '$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
         constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
             this.locationId = $stateParams.locationId;
 
+            this.LocationService.getRelatedLocationsByLocationId(this.locationId, 3)
+            .then((result:any) => {
+                    this.relatedLocations = result.data;
+                });
 
             this.LocationService.getLocationById(this.locationId)
                 .then(result => {
