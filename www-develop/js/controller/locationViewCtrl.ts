@@ -11,7 +11,7 @@ module Controller {
         me:boolean = false;
         conversationId:any;
 
-        relatedLocations: any;
+        relatedLocations: any = [];
 
 
         static $inject = ['$scope', '$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
