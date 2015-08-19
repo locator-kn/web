@@ -4,11 +4,21 @@ interface Window {
 }
 
 module Service {
+    declare var EXIF;
+
     export class UtilityService {
 
         static $inject = ['ngDialog'];
 
         mobileDevice:boolean;
+
+
+        orientationInDegree:any = {
+            '1':0,
+            '8': -90,
+            '3': 180,
+            '6': 90
+        };
 
         constructor(private ngDialog) {
         }
@@ -114,20 +124,37 @@ module Service {
 
 
         // borrowed from http://stackoverflow.com/questions/17040360/javascript-function-to-rotate-a-base-64-image-by-x-degrees-and-return-new-base64
-        rotateBase64ByOrientation(base64data:string, orient, cb) {
-            var canvas:any = document.createElement("canvas");
-            var ctx = canvas.getContext("2d");
+        rotateBase64ByOrientation(selectedFile, cb) {
 
-            var image = new Image();
-            image.src = base64data;
-            image.onload = function() {
-                canvas.width = image.width;
-                canvas.height = image.height;
-                ctx.translate(image.width, image.height);
-                ctx.rotate(180 * Math.PI / 180);
-                ctx.drawImage(image, 0, 0);
-                cb(canvas.toDataURL());
-            };
+            EXIF.getData(selectedFile, () => {
+
+                var orient = EXIF.getTag(selectedFile, "Orientation");
+                var reader = new FileReader();
+
+                reader.readAsDataURL(selectedFile);
+                reader.onload = (_file:any) => {
+                    var base64Original = _file.target.result;
+                    var orDeg = this.orientationInDegree[orient];
+                    if(!orDeg) {
+                        // no need to turn the image if orDeg === 0
+                        return cb(base64Original);
+                    }
+                    var canvas:any = document.createElement("canvas");
+                    var ctx = canvas.getContext("2d");
+                    var image = new Image();
+                    image.src = base64Original;
+
+                    image.onload = function(){
+                        canvas.width = image.width;
+                        canvas.height = image.height;
+                        ctx.translate(image.width, image.height);
+                        ctx.rotate(orDeg * Math.PI / 180);
+                        ctx.drawImage(image, 0, 0);
+                        cb(canvas.toDataURL());
+                    };
+                }
+            });
+
         }
 
         isMobile() {
