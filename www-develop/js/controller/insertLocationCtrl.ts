@@ -141,7 +141,7 @@ module Controller {
 
         selectImage(file) {
             if (file.files && file.files[0]) {
-                var selectedFile = file.files[0];
+                var selectedFile = this.selectedImage = file.files[0];
 
                 if (selectedFile.size >= 6291456) {
                     this.$rootScope.overlay = true;
