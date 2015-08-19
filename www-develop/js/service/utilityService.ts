@@ -148,7 +148,7 @@ module Service {
                         canvas.width = image.width;
                         canvas.height = image.height;
                         ctx.translate(image.width, image.height);
-                        ctx.rotate(orDeg * Math.PI / 180);
+                        ctx.rotate(orDeg * Math.PI / orDeg);
                         ctx.drawImage(image, 0, 0);
                         cb(canvas.toDataURL());
                     };
