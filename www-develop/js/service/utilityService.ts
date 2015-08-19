@@ -15,7 +15,7 @@ module Service {
 
         orientationInDegree:any = {
             '1':0,
-            '8': -90,
+            '8': 270,
             '3': 180,
             '6': 90
         };
