@@ -115,12 +115,14 @@ module Service {
 
         // borrowed from http://stackoverflow.com/questions/17040360/javascript-function-to-rotate-a-base-64-image-by-x-degrees-and-return-new-base64
         rotateBase64ByOrientation(base64data:string, orient, cb) {
-            var canvas = document.createElement("canvas");
+            var canvas:any = document.createElement("canvas");
             var ctx = canvas.getContext("2d");
 
             var image = new Image();
             image.src = base64data;
             image.onload = function() {
+                canvas.width = image.width;
+                canvas.height = image.height;
                 ctx.translate(image.width, image.height);
                 ctx.rotate(180 * Math.PI / 180);
                 ctx.drawImage(image, 0, 0);
