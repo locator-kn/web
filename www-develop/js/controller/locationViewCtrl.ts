@@ -20,6 +20,12 @@ module Controller {
 
             this.LocationService.getRelatedLocationsByLocationId(this.locationId, 3)
             .then((result:any) => {
+                    result.data.forEach((item:any) => {
+                        item.city.title = item.city.title.split(',')[0];
+                        this.UserService.getUser(item.userid).then(result => {
+                            item.user = result.data;
+                        });
+                    });
                     this.relatedLocations = result.data;
                 });
 
