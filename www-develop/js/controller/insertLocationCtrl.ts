@@ -141,6 +141,13 @@ module Controller {
 
         selectImage(file) {
             if (file.files && file.files[0]) {
+
+                EXIF.getData(file.files[0], function() {
+                    console.log(EXIF.pretty(this));
+                });
+                return;
+
+
                 var reader = new FileReader();
                 var image = new Image();
                 this.selectedImage = file.files[0];
