@@ -1,4 +1,5 @@
 module Controller {
+    declare var EXIF;
 
     export class InsertLocationCtrl {
         progressPercentage:number = 0;
@@ -144,6 +145,9 @@ module Controller {
 
                 EXIF.getData(file.files[0], function() {
                     console.log(EXIF.pretty(this));
+                    var orient = EXIF.getTag(this, "Orientation");
+                    console.log(orient);
+                    debugger
                 });
                 return;
 
