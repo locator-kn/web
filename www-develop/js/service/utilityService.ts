@@ -124,7 +124,7 @@ module Service {
 
 
         // borrowed from http://stackoverflow.com/questions/17040360/javascript-function-to-rotate-a-base-64-image-by-x-degrees-and-return-new-base64
-        rotateBase64ByOrientation(selectedFile, cb) {
+        rotateImageByFile(selectedFile, cb) {
 
             EXIF.getData(selectedFile, () => {
 

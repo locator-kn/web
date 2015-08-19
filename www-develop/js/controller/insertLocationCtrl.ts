@@ -153,7 +153,7 @@ module Controller {
                 this.$rootScope.overlay = true;
                 this.showImageUploadModal = true;
 
-                this.UtilityService.rotateBase64ByOrientation(selectedFile, (newData:any) => {
+                this.UtilityService.rotateImageByFile(selectedFile, (newData:any) => {
 
                     this.imagePath = newData;
                     this.$scope.$apply();
