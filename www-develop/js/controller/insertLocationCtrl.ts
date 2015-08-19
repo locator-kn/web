@@ -168,7 +168,7 @@ module Controller {
                 reader.readAsDataURL(file.files[0]);
                 reader.onload = (_file) => {
 
-                    this.imagePath = _file.target;
+                    this.imagePath = this.UtilityService.rotateBase64ByOrientation(_file.target);
                     this.$scope.$apply();
                     this.addImage();
                 }
