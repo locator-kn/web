@@ -1,5 +1,4 @@
 module Controller {
-    declare var EXIF;
 
     export class InsertLocationCtrl {
         progressPercentage:number = 0;
