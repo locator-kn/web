@@ -55,9 +55,9 @@ module Controller {
 
         invalidText:boolean = false;
 
-        static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService'];
+        static $inject = ['hotkeys', 'lodash', 'DataService', '$location', 'TripService', 'LocationService', '$scope', 'UserService', '$state', '$stateParams', '$rootScope', '$element', 'MessengerService', 'UtilityService'];
 
-        constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService) {
+        constructor(private hotkeys, private lodash, private DataService, private $location, private TripService, private LocationService, private $scope, private UserService, private $state, private $stateParams, private $rootScope, private $element, private MessengerService, private UtilityService) {
 
 
             this.DataService.getMoods().then(result => {
@@ -272,9 +272,7 @@ module Controller {
 
         selectImage(file) {
             if (file.files && file.files[0]) {
-                var reader = new FileReader();
-                var image = new Image();
-                this.selectedImage = file.files[0];
+                var selectedFile = this.selectedImage = file.files[0];
 
                 if (this.selectedImage.size >= 6291456) {
                     this.$rootScope.overlay = true;
@@ -286,13 +284,12 @@ module Controller {
                 this.$rootScope.overlay = true;
                 this.showImageUploadModal = true;
 
-                reader.readAsDataURL(file.files[0]);
-                reader.onload = (_file) => {
+                this.UtilityService.rotateImageByFile(selectedFile, (newData:any) => {
 
-                    this.imagePath = _file.target;
+                    this.imagePath = newData;
                     this.$scope.$apply();
                     this.addImage();
-                }
+                });
             }
         }
 
