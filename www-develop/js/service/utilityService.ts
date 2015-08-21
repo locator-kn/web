@@ -139,17 +139,33 @@ module Service {
                         // no need to turn the image if orDeg === 0
                         return cb(base64Original);
                     }
+
                     var canvas:any = document.createElement("canvas");
                     var ctx = canvas.getContext("2d");
                     var image = new Image();
                     image.src = base64Original;
-
+                    var cw;
+                    var ch;
                     image.onload = function(){
-                        canvas.width = image.width;
-                        canvas.height = image.height;
-                        ctx.translate(image.width, image.height);
-                        ctx.rotate(orDeg * Math.PI / orDeg);
-                        ctx.drawImage(image, 0, 0);
+
+                        if(orDeg === 270 || orDeg === 90) {
+                            cw = image.height;
+                            ch = image.width;
+                        } else {
+                            cw = image.width;
+                            ch = image.height;
+                        }
+
+                        canvas.width = cw;
+                        canvas.height = ch;
+                        ctx.translate(cw/2, ch/2);
+                        ctx.rotate(orDeg * (Math.PI / 180));
+
+                        if(orDeg === 180) {
+                            ctx.drawImage(image, -cw/2, -ch/2);
+                        } else {
+                            ctx.drawImage(image, -ch/2, -cw/2);
+                        }
                         cb(canvas.toDataURL());
                     };
                 }
