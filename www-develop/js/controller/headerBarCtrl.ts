@@ -148,7 +148,7 @@ module Controller {
                     this.$rootScope.userImageUrl = result.data.picture || '';
 
                     this.$rootScope.$broadcast('login_success');
-                    this.$analytics.eventTrack('visit from logged in user:' + result.data._id);
+                    this.$analytics.eventTrack('visit from logged in user');
 
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
