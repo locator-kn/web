@@ -38,8 +38,9 @@
 
         <div ng-class="{'logged-in': authenticated, 'logged-out': !authenticated}" class="header-bar">
 
-            <img alt="logo" class="logo-small pointer" ui-sref="welcome" src="images/logo/locator_small.png">
-
+            <a href="/welcome" ui-sref="welcome">
+                <img alt="logo" class="logo-small pointer" src="images/logo/locator_small.png">
+            </a>
             <h2 class="breadcrumbs">{{breadcrumb}}</h2>
 
 
