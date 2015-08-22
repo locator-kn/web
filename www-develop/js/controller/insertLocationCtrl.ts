@@ -141,11 +141,9 @@ module Controller {
 
         selectImage(file) {
             if (file.files && file.files[0]) {
-                var reader = new FileReader();
-                var image = new Image();
-                this.selectedImage = file.files[0];
+                var selectedFile = this.selectedImage = file.files[0];
 
-                if (this.selectedImage.size >= 6291456) {
+                if (selectedFile.size >= 6291456) {
                     this.$rootScope.overlay = true;
                     this.showImageTooLargeModal = true;
                     this.$rootScope.$apply();
@@ -154,13 +152,18 @@ module Controller {
 
                 this.$rootScope.overlay = true;
                 this.showImageUploadModal = true;
-                reader.readAsDataURL(file.files[0]);
-                reader.onload = (_file) => {
 
-                    this.imagePath = _file.target;
+                this.UtilityService.rotateImageByFile(selectedFile, (newData:any) => {
+
+                    this.imagePath = newData;
                     this.$scope.$apply();
                     this.addImage();
-                }
+                });
+
+
+
+
+
             }
         }
 

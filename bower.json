@@ -41,7 +41,8 @@
     "angular-emoji-filter-hd": "git://github.com/dbaq/angular-emoji-filter-hd.git#~0.0.4",
     "angulartics": "~0.19.0",
     "angular-truncate": "*",
-    "cheet.js": "~0.3.3"
+    "cheet.js": "~0.3.3",
+    "exif-js": "~2.1.1"
   },
   "resolutions": {
     "angular": "~1.3",
