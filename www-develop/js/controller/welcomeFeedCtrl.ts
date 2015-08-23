@@ -25,7 +25,7 @@ module Controller {
         }
 
         loadMoreLocations() {
-
+            this.currentPage++;
             this.$analytics.eventTrack('welcome/loadMoreLocatons, page:' + this.currentPage);
             this.LocationService.getLatestLocations(6, this.currentPage)
             .then(result => {
@@ -35,7 +35,7 @@ module Controller {
                     }
                     this.decorateLocationsWithUser(result.data);
                     this.latestLocations = this.latestLocations.concat(result.data);
-                    this.currentPage++;
+
                 });
         }
 
