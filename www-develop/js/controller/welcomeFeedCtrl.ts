@@ -25,8 +25,8 @@ module Controller {
         }
 
         loadMoreLocations() {
-            if(!this.isLoading) {
-
+            if(this.isLoading) {
+                return;
             }
             this.isLoading = true;
             // calculate next page number
