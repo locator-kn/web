@@ -3,6 +3,7 @@ module Controller {
 
         latestLocations;
         disableLoadMore:boolean = false;
+        isLoading:boolean = false;
 
         static $inject = ['LocationService', 'UserService', '$analytics'];
 
@@ -24,6 +25,10 @@ module Controller {
         }
 
         loadMoreLocations() {
+            if(!this.isLoading) {
+
+            }
+            this.isLoading = true;
             // calculate next page number
             var newPage = Math.round(this.latestLocations.length / 7);
             this.$analytics.eventTrack('welcome/loadMoreLocatons, page:' + newPage);
@@ -35,6 +40,7 @@ module Controller {
                     }
                     this.decorateLocationsWithUser(result.data);
                     this.latestLocations = this.latestLocations.concat(result.data);
+                    this.isLoading = false;
                 });
         }
 
