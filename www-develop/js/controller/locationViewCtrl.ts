@@ -79,6 +79,26 @@ module Controller {
                 });
         }
 
+        schoenHier() {
+            this.LocationService.schoenHier(this.locationId)
+                .then(() => {
+                    debugger
+                })
+                .catch(() => {
+                    debugger
+                });
+        }
+
+        nichtMehrSchoenHier() {
+            this.LocationService.nichtMehrSchoenHier(this.locationId)
+                .then(() => {
+                    debugger
+                })
+                .catch(() => {
+                    debugger
+                });
+        }
+
         moveToAllLocations() {
             this.$state.go('user', {
                 profileId: this.userId,
