@@ -144,10 +144,10 @@ module Service {
 
         }
 
-        schoenhier(locationid) {
+        schoenHier(locationid) {
             return this.$http.post(this.basePath + '/locations/' + locationid + '/schoenHier');
         }
-        nichtMehrSchoenhier(locationid) {
+        nichtMehrSchoenHier(locationid) {
             return this.$http.post(this.basePath + '/locations/' + locationid + '/nichtMehrSchoenHier');
         }
 
