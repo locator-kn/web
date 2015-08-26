@@ -144,6 +144,13 @@ module Service {
 
         }
 
+        schoenhier(locationid) {
+            return this.$http.post(this.basePath + '/locations/' + locationid + '/schoenHier');
+        }
+        nichtMehrSchoenhier(locationid) {
+            return this.$http.post(this.basePath + '/locations/' + locationid + '/nichtMehrSchoenHier');
+        }
+
 
         static serviceId:string = "LocationService";
     }
