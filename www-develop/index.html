@@ -94,14 +94,16 @@
 
 <div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay"></div>
 
+
+
+<div class="uiview" autoscroll="true" ng-include="'templates/static/staticButtons.html'"></div>
+<div ui-view></div>
+
 <div class="relative bar-wrapper">
     <div class="fixed-bar">
         <div class="container-fluid blackopac" ng-include="'templates/headerBar/headerBar.html'"></div>
     </div>
 </div>
-
-<div class="uiview" autoscroll="true" ng-include="'templates/static/staticButtons.html'"></div>
-<div ui-view></div>
 
 
 <div class="container-fluid footer" ng-include="'templates/static/footer.html'"></div>
