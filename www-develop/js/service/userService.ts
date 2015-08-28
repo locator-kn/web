@@ -148,6 +148,10 @@ module Service {
             return this.$http.get(this.basePathRealtime + '/users/stats');
         }
 
+        getMySchoenHiers() {
+            return this.$http.get(this.basePath + '/my/schoenHiers');
+        }
+
         static serviceId:string = "UserService";
     }
 }
