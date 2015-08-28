@@ -82,7 +82,11 @@ module Controller {
         schoenHier() {
             this.LocationService.schoenHier(this.locationId)
                 .then(() => {
-                    debugger
+                    if(!this.location.schoenhiers) {
+                        this.location.schoenhiers = 1;
+                    } else {
+                        this.location.schoenhiers++;
+                    }
                 })
                 .catch(() => {
                     debugger
@@ -92,7 +96,11 @@ module Controller {
         nichtMehrSchoenHier() {
             this.LocationService.nichtMehrSchoenHier(this.locationId)
                 .then(() => {
-                    debugger
+                    if(this.location.schoenhiers === 1) {
+                        delete this.location.schoenhiers;
+                    } else {
+                        this.location.schoenhiers--;
+                    }
                 })
                 .catch(() => {
                     debugger
