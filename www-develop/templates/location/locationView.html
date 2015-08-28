@@ -45,7 +45,8 @@
                 </div>
                 <div class="schoenhier">
                     <span ng-if="lt.location.schoenhiers">{{lt.location.schoenhiers}} schön hier's</span>
-                    <p><span ng-click="lt.schoenHier()">schön hier</span></p>
+                    <p><span ng-click="lt.schoenHier()" ng-hide="mySchoenHiers.locations[lt.id]">schön hier</span></p>
+                    <p><span ng-click="lt.nichtMehrSchoenHier()" ng-hide="!mySchoenHiers.locations[lt.id]">nicht mehr schön hier</span></p>
                 </div>
                 <div class="location-description">
                     <p>{{lt.location.description}}</p>
