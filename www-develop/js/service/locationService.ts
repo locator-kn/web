@@ -145,6 +145,11 @@ module Service {
         }
 
         schoenHier(locationid) {
+
+            if(!locationid) {
+                throw new Error('Missing locationid');
+            }
+
             if(!this.$rootScope.mySchoenHiers.locations) {
                 this.$rootScope.mySchoenHiers.locations = {};
             }
@@ -152,6 +157,11 @@ module Service {
             return this.$http.post(this.basePath + '/locations/' + locationid + '/schoenHier');
         }
         nichtMehrSchoenHier(locationid) {
+
+            if(!locationid) {
+                throw new Error('Missing locationid');
+            }
+
             if(!this.$rootScope.mySchoenHiers.locations) {
                 this.$rootScope.mySchoenHiers.locations = {};
             }
