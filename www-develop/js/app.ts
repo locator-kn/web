@@ -539,12 +539,12 @@ var app = angular.module('locator', deps)
             scope: {
                 location: "=",
             },
-            controller: function ($scope, $rootScope, LocationService) {
+            controller: ($scope, $rootScope, LocationService) => {
 
             },
             templateUrl: 'templates/directives/schoenHier.html'
         }
-    });
+    })
 
 
     .config(function ($translateProvider) {
