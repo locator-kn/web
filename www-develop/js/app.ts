@@ -176,7 +176,7 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/static/impressum.html"
             });
 
-        $locationProvider.html5Mode(true).hashPrefix('!');
+        //$locationProvider.html5Mode(true).hashPrefix('!');
 
         $urlRouterProvider.otherwise('welcome');
     })
@@ -536,6 +536,7 @@ var app = angular.module('locator', deps)
 
     .directive('schoenHier', () => {
         return {
+            restrict: 'E',
             scope: {
                 location: "=",
                 mySchoenHiers: "="
@@ -552,30 +553,37 @@ var app = angular.module('locator', deps)
 
 
                 $scope.schoenHier = () => {
-                    LocationService.schoenHier($scope.location._id)
-                        .then(() => {
-                            if(!$scope.location.schoenhiers) {
-                                $scope.location.schoenhiers = 1;
-                            } else {
-                                $scope.location.schoenhiers++;
-                            }
-                            $scope.mySchoenHiers.locations[$scope.location._id] = true;
-                        })
-                        .catch(() => {
-                            debugger
-                        });
-                }
+                    if(!$scope.mySchoenHiers.locations[$scope.location._id]) {
+                        if(!$scope.location.schoenhiers) {
+                            $scope.location.schoenhiers = 1;
+                        } else {
+                            $scope.location.schoenhiers++;
+                        }
+                        $scope.mySchoenHiers.locations[$scope.location._id] = true;
+                        LocationService.schoenHier($scope.location._id)
+                            .then(() => {
 
-                $scope.nichtMehrSchoenHier = () => {
-                    LocationService.nichtMehrSchoenHier($scope.location._id)
-                        .then(() => {
-                            $scope.location.schoenhiers--;
-                            $scope.mySchoenHiers.locations[$scope.location._id] = false;
-                        })
-                        .catch(() => {
-                            debugger
-                        });
-                }
+
+                            })
+                            .catch(() => {
+
+                                $scope.location.schoenhiers--;
+                                $scope.mySchoenHiers.locations[$scope.location._id] = false;
+                            });
+                    } else {
+                        $scope.location.schoenhiers--;
+                        $scope.mySchoenHiers.locations[$scope.location._id] = false;
+
+                        LocationService.nichtMehrSchoenHier($scope.location._id)
+                            .then(() => {
+                            })
+                            .catch(() => {
+                                $scope.location.schoenhiers++;
+                                $scope.mySchoenHiers.locations[$scope.location._id] = true;
+
+                            });
+                    }
+                };
             },
             templateUrl: 'templates/directives/schoenHier.html'
         }
