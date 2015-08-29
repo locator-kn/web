@@ -79,34 +79,6 @@ module Controller {
                 });
         }
 
-        schoenHier() {
-            this.LocationService.schoenHier(this.locationId)
-                .then(() => {
-                    if(!this.location.schoenhiers) {
-                        this.location.schoenhiers = 1;
-                    } else {
-                        this.location.schoenhiers++;
-                    }
-                })
-                .catch(() => {
-                    debugger
-                });
-        }
-
-        nichtMehrSchoenHier() {
-            this.LocationService.nichtMehrSchoenHier(this.locationId)
-                .then(() => {
-                    if(this.location.schoenhiers === 1) {
-                        delete this.location.schoenhiers;
-                    } else {
-                        this.location.schoenhiers--;
-                    }
-                })
-                .catch(() => {
-                    debugger
-                });
-        }
-
         moveToAllLocations() {
             this.$state.go('user', {
                 profileId: this.userId,
