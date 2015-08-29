@@ -553,6 +553,9 @@ var app = angular.module('locator', deps)
 
 
                 $scope.schoenHier = () => {
+                    if(!$rootScope.authenticated) {
+                        return $scope.$emit('openLoginDialog')
+                    }
                     if(!$scope.mySchoenHiers.locations[$scope.location._id]) {
                         if(!$scope.location.schoenhiers) {
                             $scope.location.schoenhiers = 1;
