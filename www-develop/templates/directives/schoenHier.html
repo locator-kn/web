@@ -1,1 +1,21 @@
-schoen hier
+
+<div>
+    <span ng-if="location.schoenhiers === 1 && mySchoenHiers.locations[location._id]">Du findest’s schön hier</span>
+    <span ng-hide="mySchoenHiers.locations[location._id]" ng-if="!location.schoenhiers || location.schoenhiers > 1">
+        <ng-pluralize count="location.schoenhiers||0"
+                      when="{
+                        '0': 'Ist es nicht schön hier?',
+                        '1': 'Einer findet’s schön hier.',
+                        'other': '{} finden’s schön hier.'
+                      }"></ng-pluralize>
+    </span>
+
+    <span ng-if="mySchoenHiers.locations[location._id] && (!location.schoenhiers || location.schoenhiers > 1)">
+        <div><span ng-bind="location.schoenhiers - 1"></span> und du finden’s schön hier.</div>
+    </span>
+
+
+    <p><span ng-click="schoenHier()" ng-hide="mySchoenHiers.locations[location._id]">schön hier</span></p>
+    <p><span ng-click="nichtMehrSchoenHier()" ng-hide="!mySchoenHiers.locations[location._id]">nicht mehr schön hier</span></p>
+</div>
+
