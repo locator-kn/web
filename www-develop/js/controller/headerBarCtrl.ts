@@ -35,6 +35,8 @@ module Controller {
         static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService', '$analytics'];
         constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService, private $analytics) {
 
+            $rootScope.mySchoenHiers = {};
+
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
                 this.getConversations();
