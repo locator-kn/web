@@ -43,17 +43,13 @@
                             <resultdate class="black" date="lt.location.create_date"></resultdate>
                         </strong> in {{lt.location.city.title}}</p>
                 </div>
-                <div class="schoenhier">
-                    <span ng-if="lt.location.schoenhiers">{{lt.location.schoenhiers}} schön hier's</span>
-                    <p><span ng-click="lt.schoenHier()" ng-hide="mySchoenHiers.locations[lt.locationId]">schön hier</span></p>
-                    <p><span ng-click="lt.nichtMehrSchoenHier()" ng-hide="!mySchoenHiers.locations[lt.locationId]">nicht mehr schön hier</span></p>
-                </div>
                 <div class="location-description">
                     <p>{{lt.location.description}}</p>
                 </div>
                 <div class="location-tags" ng-if="lt.location.tags.length > 0">
                     <span ng-repeat="tag in lt.location.tags" class="tag">{{tag}}</span>
                 </div>
+                <schoen-hier location="lt.location" my-schoen-hiers="mySchoenHiers"></schoen-hier>
             </div>
             <div class="col-xs-12 col-sm-5 col-sm-offset-2">
 
