@@ -534,6 +534,18 @@ var app = angular.module('locator', deps)
         };
     })
 
+    .directive('schoenHier', () => {
+        return {
+            scope: {
+                location: "=",
+            },
+            controller: function ($scope, $rootScope, LocationService) {
+
+            },
+            templateUrl: 'templates/directives/schoenHier.html'
+        }
+    });
+
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
