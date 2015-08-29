@@ -1,5 +1,4 @@
-
-<div>
+<div class="text">
     <span ng-if="location.schoenhiers === 1 && mySchoenHiers.locations[location._id]">Du findest’s schön hier</span>
     <span ng-hide="mySchoenHiers.locations[location._id]" ng-if="!location.schoenhiers || location.schoenhiers > 1">
         <ng-pluralize count="location.schoenhiers||0"
@@ -11,11 +10,10 @@
     </span>
 
     <span ng-if="mySchoenHiers.locations[location._id] && (!location.schoenhiers || location.schoenhiers > 1)">
-        <div><span ng-bind="location.schoenhiers - 1"></span> und du finden’s schön hier.</div>
+        <span ng-bind="location.schoenhiers - 1"></span> und du finden’s schön hier.
     </span>
-
-
-    <p><span ng-click="schoenHier()" ng-hide="mySchoenHiers.locations[location._id]">schön hier</span></p>
-    <p><span ng-click="nichtMehrSchoenHier()" ng-hide="!mySchoenHiers.locations[location._id]">nicht mehr schön hier</span></p>
+</div>
+<div class="schoen-hier-btn pointer" ng-class="{'active': mySchoenHiers.locations[location._id]}">
+    <span ng-click="schoenHier()">schön hier</span>
 </div>
 
