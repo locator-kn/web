@@ -538,9 +538,44 @@ var app = angular.module('locator', deps)
         return {
             scope: {
                 location: "=",
+                mySchoenHiers: "="
             },
-            controller: ($scope, $rootScope, LocationService) => {
+            controller: function($scope, $rootScope, LocationService) {
+                $scope.markedByMe = () => {
+                    return $scope.mySchoenHiers.locations[$scope.location._id];
+                };
 
+                $scope.onlyMe = () => {
+                    return $scope.location.schoenhiers === 1 && $scope.markedByMe();
+                };
+
+
+
+                $scope.schoenHier = () => {
+                    LocationService.schoenHier($scope.location._id)
+                        .then(() => {
+                            if(!$scope.location.schoenhiers) {
+                                $scope.location.schoenhiers = 1;
+                            } else {
+                                $scope.location.schoenhiers++;
+                            }
+                            $scope.mySchoenHiers.locations[$scope.location._id] = true;
+                        })
+                        .catch(() => {
+                            debugger
+                        });
+                }
+
+                $scope.nichtMehrSchoenHier = () => {
+                    LocationService.nichtMehrSchoenHier($scope.location._id)
+                        .then(() => {
+                            $scope.location.schoenhiers--;
+                            $scope.mySchoenHiers.locations[$scope.location._id] = false;
+                        })
+                        .catch(() => {
+                            debugger
+                        });
+                }
             },
             templateUrl: 'templates/directives/schoenHier.html'
         }
