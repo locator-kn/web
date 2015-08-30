@@ -3,9 +3,9 @@ declare var google;
 module Service {
     export class LocationService {
 
-        static $inject = ['$q', '$http', 'basePath', 'Upload'];
+        static $inject = ['$q', '$http', 'basePath', 'Upload', '$rootScope'];
 
-        constructor(private $q, private $http, private basePath, private Upload) {
+        constructor(private $q, private $http, private basePath, private Upload, private $rootScope) {
         }
 
         uploadImage(formData, file) {
@@ -142,6 +142,31 @@ module Service {
                 }
             });
 
+        }
+
+        schoenHier(locationid) {
+
+            if(!locationid) {
+                throw new Error('Missing locationid');
+            }
+
+            if(!this.$rootScope.mySchoenHiers.locations) {
+                this.$rootScope.mySchoenHiers.locations = {};
+            }
+            this.$rootScope.mySchoenHiers.locations[locationid] = true;
+            return this.$http.post(this.basePath + '/locations/' + locationid + '/schoenHier');
+        }
+        nichtMehrSchoenHier(locationid) {
+
+            if(!locationid) {
+                throw new Error('Missing locationid');
+            }
+
+            if(!this.$rootScope.mySchoenHiers.locations) {
+                this.$rootScope.mySchoenHiers.locations = {};
+            }
+            this.$rootScope.mySchoenHiers.locations[locationid] = false;
+            return this.$http.post(this.basePath + '/locations/' + locationid + '/nichtMehrSchoenHier');
         }
 
 

@@ -157,7 +157,9 @@ module Controller {
                     console.info("Logout Success");
                     this.$rootScope.authenticated = false;
                     this.$rootScope.userID = '';
-                    this.$state.go('welcome');
+                    this.$state.go('welcome').then(() => {
+                        window.location.reload();
+                    });
                     this.$rootScope.$broadcast('logout_success');
                 }).catch(() => {
                     console.info("Logout Error");

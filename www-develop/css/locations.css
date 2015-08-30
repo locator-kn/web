@@ -175,5 +175,11 @@
     margin-right: 5px;
 }
 
+.locationview-container hr {
+    border-top: 1px solid #333;
+    margin-bottom: 13px;
+    margin-top: 10px;
+}
+
 
 

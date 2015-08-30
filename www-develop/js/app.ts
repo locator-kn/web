@@ -534,6 +534,55 @@ var app = angular.module('locator', deps)
         };
     })
 
+    .directive('schoenHier', () => {
+        return {
+            restrict: 'E',
+            scope: {
+                location: "=",
+                mySchoenHiers: "="
+            },
+            controller: function($scope, $rootScope, LocationService) {
+
+                $scope.schoenHier = () => {
+                    if(!$rootScope.authenticated) {
+                        return $scope.$emit('openLoginDialog')
+                    }
+                    if(!$scope.mySchoenHiers.locations[$scope.location._id]) {
+                        if(!$scope.location.schoenhiers) {
+                            $scope.location.schoenhiers = 1;
+                        } else {
+                            $scope.location.schoenhiers++;
+                        }
+                        $scope.mySchoenHiers.locations[$scope.location._id] = true;
+                        LocationService.schoenHier($scope.location._id)
+                            .then(() => {
+
+
+                            })
+                            .catch(() => {
+
+                                $scope.location.schoenhiers--;
+                                $scope.mySchoenHiers.locations[$scope.location._id] = false;
+                            });
+                    } else {
+                        $scope.location.schoenhiers--;
+                        $scope.mySchoenHiers.locations[$scope.location._id] = false;
+
+                        LocationService.nichtMehrSchoenHier($scope.location._id)
+                            .then(() => {
+                            })
+                            .catch(() => {
+                                $scope.location.schoenhiers++;
+                                $scope.mySchoenHiers.locations[$scope.location._id] = true;
+
+                            });
+                    }
+                };
+            },
+            templateUrl: 'templates/directives/schoenHier.html'
+        }
+    })
+
 
     .config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({

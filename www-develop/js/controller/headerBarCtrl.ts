@@ -35,6 +35,8 @@ module Controller {
         static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService', '$analytics'];
         constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService, private $analytics) {
 
+            $rootScope.mySchoenHiers = {};
+
             this.$rootScope.$on('login_success', () => {
                 this.registerWebsockets();
                 this.getConversations();
@@ -146,6 +148,11 @@ module Controller {
                     this.$rootScope.userID = result.data._id;
                     this.$rootScope.userName = result.data.name + ' ' + result.data.surname;
                     this.$rootScope.userImageUrl = result.data.picture || '';
+
+                    this.UserService.getMySchoenHiers()
+                        .then(schoenHierResult => {
+                            this.$rootScope.mySchoenHiers = schoenHierResult.data;
+                        });
 
                     this.$rootScope.$broadcast('login_success');
                     this.$analytics.eventTrack('visit from logged in user');

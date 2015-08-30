@@ -1979,3 +1979,30 @@ input, textarea {
 .bold {
     font-weight: 500;
 }
+schoen-hier .text {
+    padding: 7px 0 0;
+    float: left;
+    width: calc(100% - 105px);
+}
+schoen-hier .schoen-hier-btn span {
+    float: right;
+    color: #33c4b7;
+    border: 1px solid #33c4b7;
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+schoen-hier .schoen-hier-btn:hover span, schoen-hier .schoen-hier-btn.active span {
+    color: #fff;
+    background-color: #33c4b7;
+}
+schoen-hier svg#liegestuhl {
+    width: 20px;
+    float: right;
+    margin: 0 0 0 3px;
+}
+schoen-hier svg#liegestuhl path {
+    fill: #33c4b7;
+}
+schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier-btn.active svg#liegestuhl path {
+    fill: #fff;
+}
