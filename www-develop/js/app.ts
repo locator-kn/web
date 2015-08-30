@@ -547,12 +547,17 @@ var app = angular.module('locator', deps)
                     if(!$rootScope.authenticated) {
                         return $scope.$emit('openLoginDialog')
                     }
-                    if(!$scope.mySchoenHiers.locations[$scope.location._id]) {
+                    if(!$scope.mySchoenHiers || !$scope.mySchoenHiers.locations || !$scope.mySchoenHiers.locations[$scope.location._id]) {
                         if(!$scope.location.schoenhiers) {
                             $scope.location.schoenhiers = 1;
                         } else {
                             $scope.location.schoenhiers++;
                         }
+
+                        if(!$scope.mySchoenHiers.locations) {
+                            $scope.mySchoenHiers.locations = {};
+                        }
+
                         $scope.mySchoenHiers.locations[$scope.location._id] = true;
                         LocationService.schoenHier($scope.location._id)
                             .then(() => {
