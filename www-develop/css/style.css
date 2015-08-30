@@ -1982,6 +1982,7 @@ input, textarea {
 schoen-hier .text {
     padding: 7px 0 0;
     float: left;
+    width: calc(100% - 105px);
 }
 schoen-hier .schoen-hier-btn span {
     float: right;
