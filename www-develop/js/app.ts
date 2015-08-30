@@ -542,15 +542,6 @@ var app = angular.module('locator', deps)
                 mySchoenHiers: "="
             },
             controller: function($scope, $rootScope, LocationService) {
-                $scope.markedByMe = () => {
-                    return $scope.mySchoenHiers.locations[$scope.location._id];
-                };
-
-                $scope.onlyMe = () => {
-                    return $scope.location.schoenhiers === 1 && $scope.markedByMe();
-                };
-
-
 
                 $scope.schoenHier = () => {
                     if(!$rootScope.authenticated) {
