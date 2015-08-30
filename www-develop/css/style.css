@@ -1995,9 +1995,9 @@ schoen-hier .schoen-hier-btn:hover span, schoen-hier .schoen-hier-btn.active spa
     background-color: #33c4b7;
 }
 schoen-hier svg#liegestuhl {
-    width: 22px;
+    width: 20px;
     float: right;
-    padding: 0 0 0 2px;
+    margin: 0 0 0 3px;
 }
 schoen-hier svg#liegestuhl path {
     fill: #33c4b7;
