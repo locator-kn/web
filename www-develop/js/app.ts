@@ -541,10 +541,11 @@ var app = angular.module('locator', deps)
                 location: "=",
                 mySchoenHiers: "="
             },
-            controller: function($scope, $rootScope, LocationService) {
+            controller: function($scope, $rootScope, LocationService, $analytics) {
 
                 $scope.schoenHier = () => {
                     if(!$rootScope.authenticated) {
+                        $analytics.eventTrack('schoenhier/userNotLoggedIn');
                         return $scope.$emit('openLoginDialog')
                     }
                     if(!$scope.mySchoenHiers || !$scope.mySchoenHiers.locations || !$scope.mySchoenHiers.locations[$scope.location._id]) {
@@ -561,8 +562,7 @@ var app = angular.module('locator', deps)
                         $scope.mySchoenHiers.locations[$scope.location._id] = true;
                         LocationService.schoenHier($scope.location._id)
                             .then(() => {
-
-
+                                $analytics.eventTrack('schoenhier/+');
                             })
                             .catch(() => {
 
@@ -575,6 +575,7 @@ var app = angular.module('locator', deps)
 
                         LocationService.nichtMehrSchoenHier($scope.location._id)
                             .then(() => {
+                                $analytics.eventTrack('schoenhier/-');
                             })
                             .catch(() => {
                                 $scope.location.schoenhiers++;
