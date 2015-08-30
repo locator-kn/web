@@ -4,13 +4,17 @@
         <ng-pluralize count="location.schoenhiers||0"
                       when="{
                         '0': 'Ist es nicht schön hier?',
-                        '1': 'Einer findet’s schön hier.',
+                        '1': 'Eine Person findet’s schön hier.',
                         'other': '{} finden’s schön hier.'
                       }"></ng-pluralize>
     </span>
 
     <span ng-if="mySchoenHiers.locations[location._id] && (!location.schoenhiers || location.schoenhiers > 1)">
-        <span ng-bind="location.schoenhiers - 1"></span> und du finden’s schön hier.
+        Du und <ng-pluralize count="location.schoenhiers - 1"
+                when="{
+                    '1':'eine Person',
+                    'other': '{}'
+                }"></ng-pluralize> finden’s schön hier.
     </span>
 </div>
 <div class="schoen-hier-btn pointer" ng-class="{'active': mySchoenHiers.locations[location._id]}">
