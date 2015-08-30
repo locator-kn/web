@@ -1987,7 +1987,7 @@ schoen-hier .schoen-hier-btn span {
     float: right;
     color: #33c4b7;
     border: 1px solid #33c4b7;
-    padding: 5px 5px 5px 5px;
+    padding: 5px 7px;
     border-radius: 3px;
 }
 schoen-hier .schoen-hier-btn:hover span, schoen-hier .schoen-hier-btn.active span {
@@ -1995,8 +1995,9 @@ schoen-hier .schoen-hier-btn:hover span, schoen-hier .schoen-hier-btn.active spa
     background-color: #33c4b7;
 }
 schoen-hier svg#liegestuhl {
-    width: 20px;
+    width: 22px;
     float: right;
+    padding: 0 0 0 2px;
 }
 schoen-hier svg#liegestuhl path {
     fill: #33c4b7;
