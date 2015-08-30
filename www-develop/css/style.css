@@ -1987,13 +1987,20 @@ schoen-hier .schoen-hier-btn span {
     float: right;
     color: #33c4b7;
     border: 1px solid #33c4b7;
-    padding: 5px 30px 5px 5px;
+    padding: 5px 5px 5px 5px;
     border-radius: 3px;
-    background: transparent url("../images/icons/liegestuhl-02.png") 69px center  no-repeat;
-    background-size: 25px 25px;
 }
 schoen-hier .schoen-hier-btn:hover span, schoen-hier .schoen-hier-btn.active span {
     color: #fff;
-    background: #33c4b7 url("../images/icons/liegestuhl-01.png") 69px center no-repeat;
-    background-size: 25px 25px;
+    background-color: #33c4b7;
+}
+schoen-hier svg#liegestuhl {
+    width: 20px;
+    float: right;
+}
+schoen-hier svg#liegestuhl path {
+    fill: #33c4b7;
+}
+schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier-btn.active svg#liegestuhl path {
+    fill: #fff;
 }
