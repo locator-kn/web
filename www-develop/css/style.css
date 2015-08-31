@@ -2017,12 +2017,16 @@ schoen-hier span.schoen-hier-text {
     width: 62px;
     height:20px;
     float: left;
+
+    animation: text-in .2s, in .2s;
+
+    animation-fill-mode:forwards;
 }
 schoen-hier .active span.schoen-hier-text {
-    animation: fadeout .2s, identifier .2s;
+    animation: text-out .2s, out .2s;
     animation-fill-mode:forwards;
     animation-timing-function: cubic-bezier(.42,0,.58,1);
-    animation-delay: .7s;
+    /*animation-delay: .7s;*/
 }
 schoen-hier svg#liegestuhl path {
     fill: #33c4b7;
@@ -2032,12 +2036,21 @@ schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier
 }
 
 
-@keyframes identifier {
+@keyframes out {
     from { width: 62px; }
     to { width: 0; margin: 0; }
 }
-@keyframes fadeout {
+@keyframes text-out {
     from { opacity: 1; }
     to { opacity: 0;
         height: 0; }
+}
+@keyframes in {
+    from { width: 0; }
+    to { width: 62px; margin: 0 3px 0 0; }
+}
+@keyframes text-in {
+    from { opacity: 0; }
+    to { opacity: 1;
+        height: 20px; }
 }
