@@ -7,3 +7,4 @@ npm-debug.log
 typings/
 www/
 *.db
+env.json

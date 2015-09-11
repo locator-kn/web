@@ -13,8 +13,8 @@ module Controller {
 
         slides:string[] = [];
 
-        static $inject = ['$scope', '$rootScope', '$stateParams', 'SearchService', 'TripService', 'DataService', 'UserService', 'LocationService', 'HelperService'];
-        constructor(private $scope, private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService) {
+        static $inject = ['$scope', '$rootScope', '$stateParams', 'SearchService', 'TripService', 'DataService', 'UserService', 'LocationService', 'HelperService', 'KeenService'];
+        constructor(private $scope, private $rootScope, private $stateParams, private SearchService, private TripService, private DataService, private UserService, private LocationService, private HelperService, private KeenService) {
             this.$rootScope.showSearchButton = true;
             this.$rootScope.showCreateButton = true;
 
@@ -56,6 +56,8 @@ module Controller {
                             this.trip.mood = result;
                             this.trip.moodImage = 'images/icons/moods_white/'+result.icon;
                         });
+
+                    this.KeenService.add('pv', result.data, 'trip');
 
                 });
 

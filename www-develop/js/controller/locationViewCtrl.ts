@@ -14,8 +14,8 @@ module Controller {
         relatedLocations: any = [];
 
 
-        static $inject = ['$scope', '$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash'];
-        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash) {
+        static $inject = ['$scope', '$stateParams', 'LocationService', 'UserService', '$state', '$rootScope', 'MessengerService', 'lodash', 'KeenService'];
+        constructor(private $scope, private $stateParams, private LocationService, private UserService, private $state, private $rootScope, private MessengerService, private lodash, private KeenService) {
             this.locationId = $stateParams.locationId;
 
             this.LocationService.getRelatedLocationsByLocationId(this.locationId, 3)
@@ -27,6 +27,7 @@ module Controller {
                         });
                     });
                     this.relatedLocations = result.data;
+
                 });
 
             this.LocationService.getLocationById(this.locationId)
@@ -34,7 +35,7 @@ module Controller {
                     this.location = result.data;
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
 
-
+                    this.KeenService.add('pv', result.data, 'location');
 
                     this.locationImagePath = this.location.images.picture;
 

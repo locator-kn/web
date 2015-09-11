@@ -32,6 +32,7 @@
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
 /// <reference path="./service/errorService.ts" />
+/// <reference path="./service/keenService.ts" />
 
 /// <reference path="./controller/feedbackCtrl.ts" />
 
@@ -85,6 +86,8 @@ var app = angular.module('locator', deps)
 
     .constant('basePath', '<%= basePath %>')
     .constant('basePathRealtime', '<%= basePathRealtime %>')
+    .constant('KEEN_PROJECT_ID', '<%= keenProjectId %>')
+    .constant('KEEN_WRITE_KEY', '<%= keenWriteKey %>')
 
     .config(function (CacheFactoryProvider) {
         angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
@@ -541,11 +544,15 @@ var app = angular.module('locator', deps)
                 location: "=",
                 mySchoenHiers: "="
             },
-            controller: function($scope, $rootScope, LocationService, $analytics) {
+            controller: function($scope, $rootScope, LocationService, $analytics, KeenService) {
 
                 $scope.schoenHier = () => {
                     if(!$rootScope.authenticated) {
                         $analytics.eventTrack('schoenhier/userNotLoggedIn');
+                        KeenService.add('sh', {
+                            loc: $scope.location,
+                            mode: 'try'
+                        });
                         return $scope.$emit('openLoginDialog')
                     }
                     if(!$scope.mySchoenHiers || !$scope.mySchoenHiers.locations || !$scope.mySchoenHiers.locations[$scope.location._id]) {
@@ -563,6 +570,10 @@ var app = angular.module('locator', deps)
                         LocationService.schoenHier($scope.location._id)
                             .then(() => {
                                 $analytics.eventTrack('schoenhier/+');
+                                KeenService.add('sh', {
+                                    loc: $scope.location,
+                                    mode: 'add'
+                                });
                             })
                             .catch(() => {
 
@@ -576,6 +587,10 @@ var app = angular.module('locator', deps)
                         LocationService.nichtMehrSchoenHier($scope.location._id)
                             .then(() => {
                                 $analytics.eventTrack('schoenhier/-');
+                                KeenService.add('sh', {
+                                    loc: $scope.location,
+                                    mode: 'remove'
+                                });
                             })
                             .catch(() => {
                                 $scope.location.schoenhiers++;
@@ -607,5 +622,6 @@ var app = angular.module('locator', deps)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
     .service(Service.UtilityService.serviceId, Service.UtilityService)
     .service(Service.FeedbackService.serviceId, Service.FeedbackService)
-    .service(Service.ErrorService.serviceId, Service.ErrorService);
+    .service(Service.ErrorService.serviceId, Service.ErrorService)
+    .service(Service.KeenService.serviceId, Service.KeenService);
 

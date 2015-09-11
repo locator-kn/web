@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
@@ -15,9 +17,20 @@ var inject = require('gulp-inject');
 var concat = require('gulp-concat');
 var Cachebuster = require('gulp-cachebust');
 var cachebust = new Cachebuster();
+var fs = require('fs');
 
 var intervalMS = 500;
 
+var templateObject = {};
+
+var envData;
+
+
+var _envData = fs.readFileSync('./env.json', 'utf-8');
+envData = JSON.parse(_envData);
+console.log(envData.keen)
+templateObject.keenProjectId = envData.keen.PROJECT_ID;
+templateObject.keenWriteKey = envData.keen.WRITE_KEY;
 
 var tsProjectEmily = ts.createProject({
     declarationFiles: true,
@@ -29,10 +42,12 @@ var tsProjectEmily = ts.createProject({
     typescript: typescript15
 });
 
+
 gulp.task('default', ['compile']);
 
 
 gulp.task('ts', function () {
+
     intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
     var live = process.argv.indexOf('--live') !== -1;
     var baseIdx = process.argv.indexOf('--base');
@@ -42,16 +57,14 @@ gulp.task('ts', function () {
         baseUrl = process.argv[baseIdx + 1];
     }
 
+
     if(production !== -1) {
         live = true;
         baseIdx = 1;
         baseUrl = '/api/v1';
     }
-
-    var templateObject = {
-        live: live || '',
-        basePath: baseUrl || 'http://localhost:3001/api/v1'
-    };
+    templateObject.live = live || '';
+    templateObject.basePath = baseUrl || 'http://localhost:3001/api/v1';
 
     var realtimeUrl = url.parse(templateObject.basePath);
     var port = parseInt(realtimeUrl.port, 10) + 1;
@@ -63,9 +76,10 @@ gulp.task('ts', function () {
     }
 
 
+
     console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
-        .pipe(template(templateObject))
+        .pipe(template(templateObject).on('error', console.error.bind(console)))
         .pipe(sourcemaps.init())
         .pipe(ts(tsProjectEmily));
 
