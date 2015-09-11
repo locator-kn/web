@@ -77,7 +77,6 @@ module Service {
         }
 
         getTripData(data) {
-            debugger
             var _data = {
                 id: data.id || data._id,
                 page_type: 'trip',
