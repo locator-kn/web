@@ -166,6 +166,7 @@ module Controller {
                 }).catch(() => {
                     this.$rootScope.authenticated = false;
                     this.$analytics.eventTrack('visit from not logged in user');
+                    this.KeenService.add('v', {});
                 });
         }
 
