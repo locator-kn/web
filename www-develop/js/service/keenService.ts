@@ -29,7 +29,7 @@ module Service {
 
         }
 
-        add(evName:string, type:string, data) {
+        add(evName:string, data, type?:string) {
             var _data;
             if(!this.keenEvents[evName]) {
                 console.info('implementation error; event', evName, 'is not defined');

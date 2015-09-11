@@ -57,7 +57,7 @@ module Controller {
                             this.trip.moodImage = 'images/icons/moods_white/'+result.icon;
                         });
 
-                    this.KeenService.add('pv', 'trip', result.data);
+                    this.KeenService.add('pv', result.data, 'trip');
 
                 });
 

@@ -35,7 +35,7 @@ module Controller {
                     this.location = result.data;
                     this.$rootScope.breadcrumb = 'Locationdetail | ' + this.location.title;
 
-                    this.KeenService.add('pv', 'location', result.data);
+                    this.KeenService.add('pv', result.data, 'location');
 
                     this.locationImagePath = this.location.images.picture;
 
