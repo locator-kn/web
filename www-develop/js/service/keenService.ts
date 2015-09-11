@@ -1,4 +1,5 @@
 module Service {
+    declare var Keen;
     export class KeenService {
 
         static $inject = [];
@@ -12,7 +13,16 @@ module Service {
             'tu': 'trip_update'
         };
 
+        client:any;
+
         constructor() {
+
+            this.client = new Keen({
+                projectId: "YOUR_PROJECT_ID",
+                writeKey: "YOUR_WRITE_KEY",
+                readKey: "YOUR_READ_KEY"
+
+            });
 
         }
 
