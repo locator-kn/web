@@ -19,6 +19,7 @@ module Service {
 
         constructor(private KEEN_PROJECT_ID, private KEEN_WRITE_KEY, private $rootScope) {
 
+            // decide if we disable tracking
             this.doNothing = window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('amazonaws') >= 0;
 
             this.client = new Keen({
