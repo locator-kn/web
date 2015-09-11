@@ -15,8 +15,49 @@ var inject = require('gulp-inject');
 var concat = require('gulp-concat');
 var Cachebuster = require('gulp-cachebust');
 var cachebust = new Cachebuster();
+var fs = require('fs');
 
 var intervalMS = 500;
+
+
+var templateObject = {
+    live: live || '',
+    basePath: baseUrl || 'http://localhost:3001/api/v1'
+};
+
+var live = process.argv.indexOf('--live') !== -1;
+var baseIdx = process.argv.indexOf('--base');
+var production = process.argv.indexOf('--production');
+var baseUrl = '';
+if (baseIdx !== -1) {
+    baseUrl = process.argv[baseIdx + 1];
+}
+
+intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
+
+var realtimeUrl = url.parse(templateObject.basePath);
+if(production !== -1) {
+    live = true;
+    baseIdx = 1;
+    baseUrl = '/api/v1';
+}
+var port = parseInt(realtimeUrl.port, 10) + 1;
+if(baseIdx === -1) {
+
+    templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
+} else {
+    templateObject.basePathRealtime = templateObject.basePath + '/r';
+}
+
+
+var envData = null;
+
+
+fs.readFile('./env.json', 'utf-8', function(err, data) {
+    envData = JSON.parse(data);
+    templateObject.keenProjectId = envData.keen.PROJECT_ID;
+    templateObject.keenWriteKey = envData.keen.WRITE_KEY;
+});
 
 
 var tsProjectEmily = ts.createProject({
@@ -29,38 +70,12 @@ var tsProjectEmily = ts.createProject({
     typescript: typescript15
 });
 
+
 gulp.task('default', ['compile']);
 
 
 gulp.task('ts', function () {
-    intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
-    var live = process.argv.indexOf('--live') !== -1;
-    var baseIdx = process.argv.indexOf('--base');
-    var production = process.argv.indexOf('--production');
-    var baseUrl = '';
-    if (baseIdx !== -1) {
-        baseUrl = process.argv[baseIdx + 1];
-    }
 
-    if(production !== -1) {
-        live = true;
-        baseIdx = 1;
-        baseUrl = '/api/v1';
-    }
-
-    var templateObject = {
-        live: live || '',
-        basePath: baseUrl || 'http://localhost:3001/api/v1'
-    };
-
-    var realtimeUrl = url.parse(templateObject.basePath);
-    var port = parseInt(realtimeUrl.port, 10) + 1;
-    if(baseIdx === -1) {
-
-        templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
-    } else {
-        templateObject.basePathRealtime = templateObject.basePath + '/r';
-    }
 
 
     console.log(templateObject);
