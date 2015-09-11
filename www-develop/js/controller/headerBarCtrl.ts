@@ -32,8 +32,8 @@ module Controller {
 
         localStorageAvailble:boolean;
 
-        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService', '$analytics'];
-        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService, private $analytics) {
+        static $inject = ['$scope', '$state', '$rootScope', 'UserService', 'MessengerService', 'SocketService', '$timeout', 'HelperService', '$analytics', 'KeenService'];
+        constructor(private $scope, private $state, private $rootScope, private UserService, private MessengerService, private SocketService, private $timeout, private HelperService, private $analytics, private KeenService) {
 
             $rootScope.mySchoenHiers = {};
 
@@ -156,6 +156,7 @@ module Controller {
 
                     this.$rootScope.$broadcast('login_success');
                     this.$analytics.eventTrack('visit from logged in user');
+                    this.KeenService.add('v', {});
 
                     this.getConversations();
                     // TODO: getMe maps currently to user_public view. So we cant get this info
