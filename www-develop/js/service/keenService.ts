@@ -40,7 +40,7 @@ module Service {
             } else if(evName === 'v') {
                 // nothing special yet
             } else if(evName === 'sh') {
-
+                _data = this.getSchoenHierData(data);
             }
 
             _data = this.decorateWithVisitorData(_data);
@@ -85,6 +85,16 @@ module Service {
                 creator_id: data.userid
             };
             return _data;
+        }
+
+        getSchoenHierData(data) {
+            return {
+                id: data.id || data._id,
+                city: data.city,
+                title: data.title,
+                creator_id: data.userid,
+                action: data.mode
+            }
         }
 
         decorateWithVisitorData(data) {
