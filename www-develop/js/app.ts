@@ -32,6 +32,7 @@
 /// <reference path="./service/LocationService.ts" />
 /// <reference path="./service/insertTripService.ts" />
 /// <reference path="./service/errorService.ts" />
+/// <reference path="./service/keenService.ts" />
 
 /// <reference path="./controller/feedbackCtrl.ts" />
 
@@ -607,5 +608,6 @@ var app = angular.module('locator', deps)
     .service(Service.InsertTripService.serviceId, Service.InsertTripService)
     .service(Service.UtilityService.serviceId, Service.UtilityService)
     .service(Service.FeedbackService.serviceId, Service.FeedbackService)
-    .service(Service.ErrorService.serviceId, Service.ErrorService);
+    .service(Service.ErrorService.serviceId, Service.ErrorService)
+    .service(Service.KeenService.serviceId, Service.KeenService);
 
