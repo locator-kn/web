@@ -32,13 +32,16 @@ module Service {
         add(evName:string, type:string, data) {
             var _data;
             if(!this.keenEvents[evName]) {
+                console.info('implementation error; event', evName, 'is not defined');
                 return;
             }
             if(evName === 'pv') {
                 _data = this.getDataByType(data, type);
             } else if(evName === 'v') {
                 // nothing special yet
-            } else if(evName === 'sh')
+            } else if(evName === 'sh') {
+
+            }
 
             _data = this.decorateWithVisitorData(_data);
             this.client.addEvent(this.keenEvents[evName], _data,(err, res) => {
