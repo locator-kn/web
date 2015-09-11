@@ -86,6 +86,8 @@ var app = angular.module('locator', deps)
 
     .constant('basePath', '<%= basePath %>')
     .constant('basePathRealtime', '<%= basePathRealtime %>')
+    .constant('KEEN_PROJECT_ID', '<%= keenProjectId %>')
+    .constant('KEEN_WRITE_KEY', '<%= keenWriteKey %>')
 
     .config(function (CacheFactoryProvider) {
         angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
