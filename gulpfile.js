@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
@@ -19,36 +21,7 @@ var fs = require('fs');
 
 var intervalMS = 500;
 
-
-var templateObject = {
-    live: live || '',
-    basePath: baseUrl || 'http://localhost:3001/api/v1'
-};
-
-var live = process.argv.indexOf('--live') !== -1;
-var baseIdx = process.argv.indexOf('--base');
-var production = process.argv.indexOf('--production');
-var baseUrl = '';
-if (baseIdx !== -1) {
-    baseUrl = process.argv[baseIdx + 1];
-}
-
-intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
-
-var realtimeUrl = url.parse(templateObject.basePath);
-if(production !== -1) {
-    live = true;
-    baseIdx = 1;
-    baseUrl = '/api/v1';
-}
-var port = parseInt(realtimeUrl.port, 10) + 1;
-if(baseIdx === -1) {
-
-    templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
-} else {
-    templateObject.basePathRealtime = templateObject.basePath + '/r';
-}
-
+var templateObject = {};
 
 var envData = null;
 
@@ -75,6 +48,33 @@ gulp.task('default', ['compile']);
 
 
 gulp.task('ts', function () {
+
+    intervalMS = process.argv.indexOf('--highcpu') !== -1 ? 200 : intervalMS;
+    var live = process.argv.indexOf('--live') !== -1;
+    var baseIdx = process.argv.indexOf('--base');
+    var production = process.argv.indexOf('--production');
+    var baseUrl = '';
+    if (baseIdx !== -1) {
+        baseUrl = process.argv[baseIdx + 1];
+    }
+
+
+    if(production !== -1) {
+        live = true;
+        baseIdx = 1;
+        baseUrl = '/api/v1';
+    }
+    templateObject.live = live || '';
+    templateObject.basePath = baseUrl || 'http://localhost:3001/api/v1';
+
+    var realtimeUrl = url.parse(templateObject.basePath);
+    var port = parseInt(realtimeUrl.port, 10) + 1;
+    if(baseIdx === -1) {
+
+        templateObject.basePathRealtime = url.parse(realtimeUrl.protocol + '//' + realtimeUrl.hostname + ':' + port + realtimeUrl.path + '/r').href;
+    } else {
+        templateObject.basePathRealtime = templateObject.basePath + '/r';
+    }
 
 
 
