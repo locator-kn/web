@@ -15,13 +15,11 @@ module Service {
 
         client:any;
 
-        constructor() {
+        constructor(private KEEN_PROJECT_ID, private KEEN_WRITE_KEY) {
 
             this.client = new Keen({
-                projectId: "YOUR_PROJECT_ID",
-                writeKey: "YOUR_WRITE_KEY",
-                readKey: "YOUR_READ_KEY"
-
+                projectId: this.KEEN_PROJECT_ID,
+                writeKey: this.KEEN_WRITE_KEY
             });
 
         }
