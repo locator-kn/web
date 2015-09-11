@@ -29,12 +29,16 @@ module Service {
         }
 
         add(evName:string, type:string, data) {
-            var _data = {};
+            var _data;
             if(!this.keenEvents[evName]) {
                 return;
             }
+            if(evName === 'pv') {
+                _data = this.getDataByType(data, type);
+            } else if(evName === 'visit') {
+                // nothing special yet
+            }
 
-            _data = this.getDataByType(data, type);
             _data = this.decorateWithVisitorData(_data);
             this.client.addEvent(this.keenEvents[evName], _data,(err, res) => {
                 if(err){
@@ -49,6 +53,8 @@ module Service {
 
             if(type === 'location') {
                 _data = this.getLocationData(data);
+            } else if(type === 'trip') {
+                _data = this.getTripData(data);
             }
 
             return _data;
@@ -58,6 +64,18 @@ module Service {
             var _data = {
                 id: data.id || data._id,
                 page_type: 'location',
+                city: data.city,
+                title: data.title,
+                creator_id: data.userid
+            };
+            return _data;
+        }
+
+        getTripData(data) {
+            debugger
+            var _data = {
+                id: data.id || data._id,
+                page_type: 'trip',
                 city: data.city,
                 title: data.title,
                 creator_id: data.userid
@@ -101,6 +119,9 @@ module Service {
                 },
                 "output" : "parsed_user_agent"
             });
+
+            _data.keen.timestamp = "2015-09-03T12:44:50.722Z";
+
 
 
             return _data;
