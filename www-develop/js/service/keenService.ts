@@ -134,9 +134,6 @@ module Service {
                 "output" : "parsed_user_agent"
             });
 
-            _data.keen.timestamp = "2015-09-03T12:44:50.722Z";
-
-
 
             return _data;
         }
