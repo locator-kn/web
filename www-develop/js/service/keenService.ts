@@ -34,7 +34,6 @@ module Service {
                 return;
             }
 
-            debugger;
             _data = this.getDataByType(data, type);
             _data = this.decorateWithVisitorData(_data);
             //this.client.addEvent(this.keenEvents[evName], data,(err, res) => {
