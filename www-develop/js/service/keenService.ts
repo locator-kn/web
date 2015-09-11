@@ -36,9 +36,12 @@ module Service {
 
             _data = this.getDataByType(data, type);
             _data = this.decorateWithVisitorData(_data);
-            //this.client.addEvent(this.keenEvents[evName], data,(err, res) => {
-            //    debugger
-            //});
+            this.client.addEvent(this.keenEvents[evName], _data,(err, res) => {
+                if(err){
+                    return console.error(err);
+                }
+                console.log('track success');
+            });
         }
 
         getDataByType(data, type) {
@@ -82,6 +85,7 @@ module Service {
             // bad hack to prevent lodash-template from freaking out
             _data.ip_address = ['$', '{keen.ip}'].join('');
             _data.keen.addons.push({
+                "name": 'keen:ip_to_geo',
                 "input" : {
                     "ip" : "ip_address"
                 },
@@ -91,6 +95,7 @@ module Service {
             // bad hack to prevent lodash-template from freaking out
             _data.user_agent = ['$','{keen.user_agent}'].join('');
             _data.keen.addons.push({
+                "name": 'keen:ua_parser',
                 "input" : {
                     "ua_string" : "user_agent"
                 },
