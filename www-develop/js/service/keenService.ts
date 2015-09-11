@@ -39,6 +39,7 @@ module Service {
                 _data = this.getDataByType(data, type);
             } else if(evName === 'v') {
                 // nothing special yet
+                _data = data;
             } else if(evName === 'sh') {
                 _data = this.getSchoenHierData(data);
             }
