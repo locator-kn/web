@@ -23,15 +23,14 @@ var intervalMS = 500;
 
 var templateObject = {};
 
-var envData = null;
+var envData;
 
 
-fs.readFile('./env.json', 'utf-8', function(err, data) {
-    envData = JSON.parse(data);
-    templateObject.keenProjectId = envData.keen.PROJECT_ID;
-    templateObject.keenWriteKey = envData.keen.WRITE_KEY;
-});
-
+var _envData = fs.readFileSync('./env.json', 'utf-8');
+envData = JSON.parse(_envData);
+console.log(envData.keen)
+templateObject.keenProjectId = envData.keen.PROJECT_ID;
+templateObject.keenWriteKey = envData.keen.WRITE_KEY;
 
 var tsProjectEmily = ts.createProject({
     declarationFiles: true,
@@ -80,7 +79,7 @@ gulp.task('ts', function () {
 
     console.log(templateObject);
     var tsResult = gulp.src(['./www-develop/**/*.ts', '!./www-develop/lib/components/**/*.ts'])
-        .pipe(template(templateObject))
+        .pipe(template(templateObject).on('error', console.error.bind(console)))
         .pipe(sourcemaps.init())
         .pipe(ts(tsProjectEmily));
 
