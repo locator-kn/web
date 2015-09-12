@@ -109,6 +109,8 @@ module Service {
                 user_name: this.$rootScope.userName || 'unknown'
             };
 
+            _data.timeSinceStart = Date.now() - this.$rootScope.sessionStart;
+
 
             if (!_data.keen) {
                 _data.keen = {};
