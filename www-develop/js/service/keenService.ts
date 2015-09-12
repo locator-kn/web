@@ -9,7 +9,10 @@ module Service {
             'sh': 'schoen_hier',
             'lu': 'location_update',
             'pu': 'profile_update',
-            'tu': 'trip_update'
+            'tu': 'trip_update',
+            'r': 'registration',
+            'li': 'login',
+            'lo': 'logout'
         };
 
         client:any;
