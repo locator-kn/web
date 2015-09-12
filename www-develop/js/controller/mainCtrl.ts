@@ -34,6 +34,8 @@ module Controller {
 
         constructor(private UtilityService, private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window) {
 
+            this.$rootScope.sessionStart = Date.now();
+
             this.isMobile = this.UtilityService.isMobile();
 
             this.$rootScope.ogElements = angular.copy(this.ogElements);
