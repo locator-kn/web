@@ -34,22 +34,22 @@ module Service {
 
         add(evName:string, data, type?:string) {
             var _data;
-            if(!this.keenEvents[evName]) {
+            if (!this.keenEvents[evName]) {
                 console.info('implementation error; event', evName, 'is not defined');
                 return;
             }
-            if(evName === 'pv') {
+            if (evName === 'pv') {
                 _data = this.getDataByType(data, type);
-            } else if(evName === 'v') {
+            } else if (evName === 'v') {
                 // nothing special yet
                 _data = data;
-            } else if(evName === 'sh') {
+            } else if (evName === 'sh') {
                 _data = this.getSchoenHierData(data);
             }
 
             _data = this.decorateWithVisitorData(_data);
-            this.client.addEvent(this.keenEvents[evName], _data,(err, res) => {
-                if(err){
+            this.client.addEvent(this.keenEvents[evName], _data, (err, res) => {
+                if (err) {
                     return console.error(err);
                 }
                 console.log('track success');
@@ -59,9 +59,9 @@ module Service {
         getDataByType(data, type) {
             var _data = {};
 
-            if(type === 'location') {
+            if (type === 'location') {
                 _data = this.getLocationData(data);
-            } else if(type === 'trip') {
+            } else if (type === 'trip') {
                 _data = this.getTripData(data);
             }
 
@@ -110,9 +110,9 @@ module Service {
             };
 
 
-            if(!_data.keen) {
+            if (!_data.keen) {
                 _data.keen = {};
-                if(!_data.keen.addons) {
+                if (!_data.keen.addons) {
                     _data.keen.addons = [];
                 }
             }
@@ -121,20 +121,20 @@ module Service {
             _data.ip_address = ['$', '{keen.ip}'].join('');
             _data.keen.addons.push({
                 "name": 'keen:ip_to_geo',
-                "input" : {
-                    "ip" : "ip_address"
+                "input": {
+                    "ip": "ip_address"
                 },
-                "output" : "ip_geo_info"
+                "output": "ip_geo_info"
             });
 
             // bad hack to prevent lodash-template from freaking out
-            _data.user_agent = ['$','{keen.user_agent}'].join('');
+            _data.user_agent = ['$', '{keen.user_agent}'].join('');
             _data.keen.addons.push({
                 "name": 'keen:ua_parser',
-                "input" : {
-                    "ua_string" : "user_agent"
+                "input": {
+                    "ua_string": "user_agent"
                 },
-                "output" : "parsed_user_agent"
+                "output": "parsed_user_agent"
             });
 
 
