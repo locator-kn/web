@@ -45,6 +45,10 @@ module Service {
                 _data = data;
             } else if (evName === 'sh') {
                 _data = this.getSchoenHierData(data);
+            } else if (evName === 'r') {
+                _data = this.getRegistrationData(data);
+            } else {
+                _data = data;
             }
 
             _data = this.decorateWithVisitorData(_data);
@@ -97,6 +101,13 @@ module Service {
                 title: data.title,
                 creator_id: data.userid,
                 action: data.mode
+            }
+        }
+
+        getRegistrationData(data) {
+            return {
+                id: data.id || data._id,
+                strategy: 'default'
             }
         }
 

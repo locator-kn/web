@@ -30,9 +30,9 @@ module Controller {
 
         forgotPassword:boolean = false;
 
-        static $inject = ['UtilityService','$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window'];
+        static $inject = ['UtilityService','$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window', 'KeenService'];
 
-        constructor(private UtilityService, private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window) {
+        constructor(private UtilityService, private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window, private KeenService) {
 
             this.$rootScope.sessionStart = Date.now();
 
@@ -245,6 +245,8 @@ module Controller {
                 .then(result => {
                     console.info("Register Success");
                     this.$rootScope.$emit('get_me');
+
+                    this.KeenService.add('r', result.data);
 
                     //close the dialog after success
                     this.closeDialog();
