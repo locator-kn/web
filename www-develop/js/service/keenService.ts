@@ -12,7 +12,9 @@ module Service {
             'tu': 'trip_update',
             'r': 'registrations',
             'li': 'login',
-            'lo': 'logout'
+            'lo': 'logout',
+            'lc': 'location_create',
+            'tc': 'trip_create'
         };
 
         client:any;
