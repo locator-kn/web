@@ -51,9 +51,9 @@ module Controller {
 
         me:any = {};
 
-        static $inject = ['$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService'];
+        static $inject = ['$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService', 'KeenService'];
 
-        constructor(private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService) {
+        constructor(private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService, private KeenService) {
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
@@ -299,11 +299,13 @@ module Controller {
                         this.$state.go('editTrip', {tripId: data.tripId, city: data.city.title, tmp: 'true'});
 
                     } else {
-
+                        formValues.create_info = result.data;
                         if (this.$state.params.locationId) {
                             this.$analytics.eventTrack('edit location success');
+                            this.KeenService.add('lu', formValues);
                         } else {
                             this.$analytics.eventTrack('create location success');
+                            this.KeenService.add('cl', formValues);
                         }
 
                         this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
