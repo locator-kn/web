@@ -305,7 +305,7 @@ module Controller {
                             this.KeenService.add('lu', formValues);
                         } else {
                             this.$analytics.eventTrack('create location success');
-                            this.KeenService.add('cl', formValues);
+                            this.KeenService.add('lc', formValues);
                         }
 
                         this.$state.go('user', {tab: 'locations', profileId: this.$rootScope.userID});
