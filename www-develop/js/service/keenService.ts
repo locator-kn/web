@@ -49,6 +49,8 @@ module Service {
                 _data = this.getSchoenHierData(data);
             } else if (evName === 'r') {
                 _data = this.getRegistrationData(data);
+            } else if (evName === 'lc') {
+                _data = this.getCreateLocationData(data);
             } else {
                 _data = data;
             }
@@ -94,6 +96,16 @@ module Service {
                 creator_id: data.userid
             };
             return _data;
+        }
+
+        getCreateLocationData(data) {
+            return {
+                id: data.create_info.id || data.create_info._id,
+                title: data.title,
+                city: data.city,
+                geo_choords: data.geotag,
+                tags: data.tags
+            }
         }
 
         getSchoenHierData(data) {
