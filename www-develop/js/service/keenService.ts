@@ -60,7 +60,6 @@ module Service {
                 if (err) {
                     return console.error(err);
                 }
-                console.log('track success');
             });
         }
 
