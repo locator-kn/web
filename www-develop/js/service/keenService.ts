@@ -10,7 +10,7 @@ module Service {
             'lu': 'location_update',
             'pu': 'profile_update',
             'tu': 'trip_update',
-            'r': 'registration',
+            'r': 'registrations',
             'li': 'login',
             'lo': 'logout'
         };
