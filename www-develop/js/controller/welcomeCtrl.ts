@@ -52,6 +52,12 @@ module Controller {
             this.$scope.$emit('updateTitle', '');
             this.$scope.$emit('updateOgElements', '');
 
+
+            //open login modal when url param 'login' is set
+            if ($state.params.login) {
+                $rootScope.$emit('openLoginDialog');
+            }
+
         }
 
         getData() {
