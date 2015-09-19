@@ -102,7 +102,7 @@ var app = angular.module('locator', deps)
         $stateProvider
 
             .state('welcome', {
-                url: "/welcome",
+                url: "/welcome?login",
                 templateUrl: "templates/welcome/welcome.html"
             })
 
