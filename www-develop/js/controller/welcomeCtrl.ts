@@ -85,7 +85,7 @@ module Controller {
                     this.dataAvailable = true;
                     angular.element('.welcome_container .logocontainer').addClass('visible');
 
-                    //open login modal when url param 'login' is set
+                    //open login modal when state is 'login'
                     if (this.$state.current.name === 'login') {
                         this.$timeout(() => {
                             this.$rootScope.$emit('openLoginDialog');
