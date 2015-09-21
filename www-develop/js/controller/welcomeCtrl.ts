@@ -87,6 +87,12 @@ module Controller {
 
                     //open login modal when state is 'login'
                     if (this.$state.current.name === 'login') {
+
+                        if (this.$rootScope.authenticated) {
+                            this.$state.go('welcome');
+                            return;
+                        }
+
                         this.$timeout(() => {
                             this.$rootScope.$emit('openLoginDialog');
                         }, 800);
