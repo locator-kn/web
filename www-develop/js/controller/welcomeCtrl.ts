@@ -53,11 +53,6 @@ module Controller {
             this.$scope.$emit('updateOgElements', '');
 
 
-            //open login modal when url param 'login' is set
-            if ($state.params.login) {
-                $rootScope.$emit('openLoginDialog');
-            }
-
         }
 
         getData() {
@@ -89,6 +84,11 @@ module Controller {
 
                     this.dataAvailable = true;
                     angular.element('.welcome_container .logocontainer').addClass('visible');
+
+                    //open login modal when url param 'login' is set
+                    if (this.$state.current.name === 'login') {
+                        setTimeout(this.$rootScope.$emit('openLoginDialog'), 1000);
+                    }
                 });
 
 
