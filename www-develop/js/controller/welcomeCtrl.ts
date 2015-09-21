@@ -87,7 +87,7 @@ module Controller {
 
                     //open login modal when url param 'login' is set
                     if (this.$state.current.name === 'login') {
-                        setTimeout(this.$rootScope.$emit('openLoginDialog'), 1000);
+                        this.$rootScope.$emit('openLoginDialog');
                     }
                 });
 
