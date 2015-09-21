@@ -38,9 +38,9 @@ module Controller {
         dataAvailable:boolean = false;
 
 
-        static $inject = ['$scope', '$state', '$rootScope', 'DataService', '$q'];
+        static $inject = ['$timeout', '$scope', '$state', '$rootScope', 'DataService', '$q'];
 
-        constructor(private $scope, private $state, private $rootScope, private DataService, private $q) {
+        constructor(private $timeout, private $scope, private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
@@ -87,7 +87,9 @@ module Controller {
 
                     //open login modal when url param 'login' is set
                     if (this.$state.current.name === 'login') {
-                        this.$rootScope.$emit('openLoginDialog');
+                        this.$timeout(() => {
+                            this.$rootScope.$emit('openLoginDialog');
+                        }, 1000);
                     }
                 });
 
