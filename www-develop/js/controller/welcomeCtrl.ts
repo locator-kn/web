@@ -89,7 +89,7 @@ module Controller {
                     if (this.$state.current.name === 'login') {
                         this.$timeout(() => {
                             this.$rootScope.$emit('openLoginDialog');
-                        }, 1000);
+                        }, 800);
                     }
                 });
 
