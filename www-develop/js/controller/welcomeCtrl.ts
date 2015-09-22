@@ -38,9 +38,9 @@ module Controller {
         dataAvailable:boolean = false;
 
 
-        static $inject = ['$scope', '$state', '$rootScope', 'DataService', '$q'];
+        static $inject = ['$timeout', '$scope', '$state', '$rootScope', 'DataService', '$q'];
 
-        constructor(private $scope, private $state, private $rootScope, private DataService, private $q) {
+        constructor(private $timeout, private $scope, private $state, private $rootScope, private DataService, private $q) {
 
             $rootScope.showSearchButton = false;
             $rootScope.showCreateButton = false;
@@ -51,6 +51,7 @@ module Controller {
             //default title
             this.$scope.$emit('updateTitle', '');
             this.$scope.$emit('updateOgElements', '');
+
 
         }
 
@@ -83,6 +84,19 @@ module Controller {
 
                     this.dataAvailable = true;
                     angular.element('.welcome_container .logocontainer').addClass('visible');
+
+                    //open login modal when state is 'login'
+                    if (this.$state.current.name === 'login') {
+
+                        if (this.$rootScope.authenticated) {
+                            this.$state.go('welcome');
+                            return;
+                        }
+
+                        this.$timeout(() => {
+                            this.$rootScope.$emit('openLoginDialog');
+                        }, 800);
+                    }
                 });
 
 

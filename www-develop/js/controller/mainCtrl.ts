@@ -83,8 +83,9 @@ module Controller {
                 this.openElement = this.$rootScope.openElement = clickValue;
             });
 
+            //enable slider for welcome and login state
             this.$rootScope.$on("$locationChangeStart", () => {
-                $rootScope.slider = $location.$$path === '/welcome';
+                $rootScope.slider = $location.$$path === '/welcome' || $location.$$path === '/login';
             });
 
             $rootScope.$on('openLoginDialog', () => {

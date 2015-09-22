@@ -106,6 +106,11 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/welcome/welcome.html"
             })
 
+            .state('login', {
+                url: "/login",
+                templateUrl: "templates/welcome/welcome.html"
+            })
+
             .state('context', {
                 url: "/context",
                 controller: "ContextCtrl"
