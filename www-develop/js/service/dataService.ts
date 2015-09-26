@@ -10,6 +10,14 @@ module Service {
         dayCache;
         fixedCitiesCache;
 
+        mainCategoryDefinitions = {
+            gastro: "Gastronomie",
+            nightlife: "Nachtleben",
+            sportLeisure: "Sport & Freizeit",
+            cultureSightseeing: "Kultur & Sightseeing",
+            nature: "Natur"
+        };
+
         availableMoods = [{
             id: "buddytrip",
             query_name: "buddytrip",
@@ -96,6 +104,7 @@ module Service {
         }];
 
         static $inject = ['$http', 'basePath', 'CacheFactory', '$q'];
+
         constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
