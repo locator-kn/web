@@ -11,11 +11,26 @@ module Service {
         fixedCitiesCache;
 
         mainCategoryDefinitions = {
-            gastro: "Gastronomie",
-            nightlife: "Nachtleben",
-            sportLeisure: "Sport & Freizeit",
-            cultureSightseeing: "Kultur & Sightseeing",
-            nature: "Natur"
+            "gastro": {
+                "query_name": "gastro",
+                "title": "Gastronomie"
+            },
+            "nightlife": {
+                "query_name": "nightlife",
+                "title": "Nachtleben"
+            },
+            "sportLeisure": {
+                "query_name": "sportLeisure",
+                "title": "Sport & Freizeit"
+            },
+            "cultureSightseeing": {
+                "query_name": "cultureSightseeing",
+                "title": "Kultur & Sightseeing"
+            },
+            "nature": {
+                "query_name": "nature",
+                "title": "Natur"
+            }
         };
 
         availableMoods = [{
