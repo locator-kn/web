@@ -340,6 +340,14 @@ module Controller {
                             category: result.data.category
                         };
 
+                        // append categories for old locations
+                        if (!this.locationFormDetails.category) {
+                            this.locationFormDetails.category = {
+                                main: {},
+                                sub: {},
+                            }
+                        }
+
                         //handle tags for tagging directive
                         //this.locationFormDetails.tags = this.simpleToObjectArray(this.locationFormDetails.tags);
 
