@@ -164,6 +164,11 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/location/insertLocation.html"
             })
 
+            .state('explore', {
+                url: "/explore",
+                templateUrl: "templates/location/explore.html"
+            })
+
             .state('locationView', {
                 url: "/location/:locationId",
                 templateUrl: "templates/location/locationView.html"
