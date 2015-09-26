@@ -119,9 +119,9 @@
 
                             <div class="col-sm-5 col-xs-12 category-picker">
 
-                                <label ng-class="{selected: ilc.locationFormDetails.category.main.title}" class="category-label" ng-click="ilc.mainCategoryOpen = !ilc.mainCategoryOpen">{{ilc.locationFormDetails.category.main.title || 'Kategorie wählen'}} <img class="category-icon" ng-if="ilc.locationFormDetails.category.main.title" src="{{ilc.locationFormDetails.category.main.query_name}}.svg"></label>
+                                <label ng-class="{selected: ilc.locationFormDetails.category.main.title}" class="category-label" ng-click="ilc.mainCategoryOpen = !ilc.mainCategoryOpen">{{ilc.locationFormDetails.category.main.title || 'Kategorie wählen'}} <img class="category-icon" ng-if="ilc.locationFormDetails.category.main.title" src="images/icons/categories/white/{{ilc.locationFormDetails.category.main.query_name}}.svg"></label>
                                 <ul ng-class="{open: ilc.mainCategoryOpen}" class="category-list">
-                                    <li ng-class="{active: ilc.locationFormDetails.category.main === item}" ng-click="ilc.setMainCategory(item)" ng-repeat="item in ilc.mainCategoryDefinitions">{{ item.title }} <img class="category-icon" src="{{item.query_name}}.svg"></li>
+                                    <li ng-class="{active: ilc.locationFormDetails.category.main === item}" ng-click="ilc.setMainCategory(item)" ng-repeat="item in ilc.mainCategoryDefinitions">{{ item.title }} <img class="category-icon" src="images/icons/categories/white/{{item.query_name}}.svg"></li>
                                 </ul>
 
                             </div>
