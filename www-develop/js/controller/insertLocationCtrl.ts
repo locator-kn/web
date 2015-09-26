@@ -26,8 +26,7 @@ module Controller {
 
         locationTitle:string = '';
 
-        googlePlacesOptions = {
-        };
+        googlePlacesOptions = {};
 
         googleCityOptions = {
             types: '(cities)'
@@ -44,7 +43,11 @@ module Controller {
             tags: '',
             title: '',
             description: '',
-            city: {}
+            city: {},
+            category: {
+                main: {},
+                sub: {}
+            },
         };
 
 
@@ -163,9 +166,6 @@ module Controller {
                     this.$scope.$apply();
                     this.addImage();
                 });
-
-
-
 
 
             }
@@ -385,8 +385,8 @@ module Controller {
             var lat;
             var lon;
 
-            lat = this.selectedPlaceDetails.geometry.location.lat() ;
-            lon = this.selectedPlaceDetails.geometry.location.lng() ;
+            lat = this.selectedPlaceDetails.geometry.location.lat();
+            lon = this.selectedPlaceDetails.geometry.location.lng();
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = lon;
@@ -499,6 +499,14 @@ module Controller {
             console.info(angular.element('#edgecase'));
             this.$analytics.eventTrack('location edgecase modal opened');
             $('#edgecase').addClass('active');
+        }
+
+
+        setMainCategory(categoryKey) {
+            var obj = {};
+            obj[categoryKey] = this.mainCategoryDefinitions[categoryKey];
+
+            this.locationFormDetails.category.main = obj;
         }
 
         static controllerId:string = "InsertLocationCtrl";
