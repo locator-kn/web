@@ -121,7 +121,7 @@
 
                                 <label>Kategorie</label>
                                 <ul class="category-list">
-                                    <li ng-repeat="(key, value) in ilc.mainCategoryDefinitions">{{ value }} <img src="{{key}}.svg"></li>
+                                    <li ng-click="ilc.setMainCategory(key)" ng-repeat="(key, value) in ilc.mainCategoryDefinitions">{{ value }} <img src="{{key}}.svg"></li>
                                 </ul>
 
                             </div>
