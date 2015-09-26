@@ -335,7 +335,8 @@ module Controller {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
-                            city: result.data.city
+                            city: result.data.city,
+                            category: result.data.category
                         };
 
                         //handle tags for tagging directive
