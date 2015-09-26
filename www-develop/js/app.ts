@@ -186,7 +186,6 @@ var app = angular.module('locator', deps)
 
 
         if ('<%= live %>') {
-            console.info('live');
             $locationProvider.html5Mode(true).hashPrefix('!');
         }
 
