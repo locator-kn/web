@@ -1,4 +1,33 @@
 .category-list {
     list-style: none;
     padding: 0;
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    border-radius: 3px;
+    float: left;
+    width: 100%;
+}
+
+.category-list.open {
+    display: block;
+}
+
+.category-picker li {
+    background: white;
+    padding: 5px;
+}
+
+.category-picker li.active {
+    background: #8ebf53;
+    color: white;
+}
+
+.category-picker li img {
+    float: right;
+}
+
+.category-picker {
+    padding-left: 0;
+    padding-right: 0;
 }
