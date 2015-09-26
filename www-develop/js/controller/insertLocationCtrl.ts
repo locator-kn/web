@@ -54,7 +54,6 @@ module Controller {
         showImageTooLargeModal:boolean = false;
         mainCategoryDefinitions = {};
         mainCategoryOpen = false;
-        currentSelectedCategory = '';
 
         me:any = {};
 
@@ -341,8 +340,6 @@ module Controller {
                             category: result.data.category
                         };
 
-                        this.currentSelectedCategory = result.data.category.main;
-
                         // append categories for old locations
                         if (!this.locationFormDetails.category) {
                             this.locationFormDetails.category = {
@@ -516,6 +513,9 @@ module Controller {
 
 
         setMainCategory(categorObject) {
+            if(!this.locationFormDetails.category) {
+                this.locationFormDetails.category = {};
+            }
             this.locationFormDetails.category.main = categorObject;
             this.mainCategoryOpen = false;
         }
