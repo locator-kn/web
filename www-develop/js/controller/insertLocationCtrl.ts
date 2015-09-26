@@ -53,6 +53,7 @@ module Controller {
 
         showImageTooLargeModal:boolean = false;
         mainCategoryDefinitions = {};
+        mainCategoryOpen = false;
 
         me:any = {};
 
@@ -508,6 +509,7 @@ module Controller {
             obj[categoryKey] = this.mainCategoryDefinitions[categoryKey];
 
             this.locationFormDetails.category.main = obj;
+            this.mainCategoryOpen = false;
         }
 
         static controllerId:string = "InsertLocationCtrl";
