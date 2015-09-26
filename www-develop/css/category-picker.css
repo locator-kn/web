@@ -16,6 +16,7 @@
 .category-picker li {
     background: white;
     padding: 5px;
+    cursor: pointer;
 }
 
 .category-picker li.active {
@@ -23,8 +24,11 @@
     color: white;
 }
 
-.category-picker li img {
+.category-picker .category-icon {
     float: right;
+    margin-right: 5px;
+    height: 20px;
+    width: auto;
 }
 
 .category-picker {
@@ -39,4 +43,15 @@
     width: calc(100% - 15px);
     padding: 9px 4px;
     border-radius: 3px;
+    margin-left: 0 !important;
+    color: rgb(163, 163, 163) !important;
+    font-weight: 300 !important;
+    font-size: 14px;
+}
+
+.category-label.selected {
+    color: white !important;
+    background: #8ebf53;
+    font-weight: 400 !important;
+    border: none !important;
 }
