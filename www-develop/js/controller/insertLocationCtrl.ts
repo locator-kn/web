@@ -515,12 +515,8 @@ module Controller {
         }
 
 
-        setMainCategory(categoryKey) {
-            var obj = {};
-            obj[categoryKey] = this.mainCategoryDefinitions[categoryKey];
-
-            this.locationFormDetails.category.main = obj;
-            this.currentSelectedCategory = categoryKey;
+        setMainCategory(categorObject) {
+            this.locationFormDetails.category.main = categorObject;
             this.mainCategoryOpen = false;
         }
 
