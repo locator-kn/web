@@ -341,6 +341,8 @@ module Controller {
                             category: result.data.category
                         };
 
+                        this.currentSelectedCategory = result.data.category.main;
+
                         // append categories for old locations
                         if (!this.locationFormDetails.category) {
                             this.locationFormDetails.category = {
