@@ -47,13 +47,17 @@ module Controller {
             city: {}
         };
 
+
         showImageTooLargeModal:boolean = false;
+        mainCategoryDefinitions = {};
 
         me:any = {};
 
-        static $inject = ['$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService', 'KeenService'];
+        static $inject = ['DataService', '$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService', 'KeenService'];
 
-        constructor(private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService, private KeenService) {
+        constructor(private DataService, private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService, private KeenService) {
+
+            this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
