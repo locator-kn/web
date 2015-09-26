@@ -67,6 +67,10 @@
 /* XS */
 @media (max-width: 767px) {
 
+    .category-picker {
+        padding-left: 15px;
+    }
+
     .header-image-container, .header-image-container .flexslider {
         height: 55vh;
     }
