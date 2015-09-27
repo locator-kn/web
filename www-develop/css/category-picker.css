@@ -57,3 +57,7 @@
     font-weight: 400 !important;
     border: none !important;
 }
+.category-picker li:hover {
+    background-color: #96c45f;
+    color: #fff;
+}
