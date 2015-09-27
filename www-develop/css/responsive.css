@@ -69,6 +69,11 @@
 
     .category-picker {
         padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    .category-label {
+        margin-top: 0;
     }
 
     .header-image-container, .header-image-container .flexslider {
