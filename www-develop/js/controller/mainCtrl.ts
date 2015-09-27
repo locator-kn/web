@@ -1,6 +1,4 @@
-interface Location {
-    origin:any;
-}
+
 
 module Controller {
     export class MainCtrl {
