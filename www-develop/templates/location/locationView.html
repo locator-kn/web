@@ -13,6 +13,12 @@
                 </div>
                 <div class="col-xs-8 minus-fifty-top">
                     <div class="link-container" ng-hide="lt.userId === 'locator-app'">
+
+                        <span class="tt-container tt tt-small padding" aria-label="{{lt.location.category.main.title}}">
+                            <img ng-src="images/icons/categories/farbe/{{lt.location.category.main.query_name}}.svg" class="icon-circle">
+                        </span>
+
+
                         <span class="tt-container tt tt-small padding" aria-label="Alle Locations anzeigen">
                             <img src="images/icons/trip-min-view/alle_locations.svg" class="icon-circle pointer"
                                  ng-click="lt.moveToAllLocations()">
