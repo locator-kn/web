@@ -14,7 +14,7 @@
                 <div class="col-xs-8 minus-fifty-top">
                     <div class="link-container" ng-hide="lt.userId === 'locator-app'">
 
-                        <span class="tt-container tt tt-small padding" aria-label="{{lt.location.category.main.title}}">
+                        <span ng-if="lt.location.category.main.title" class="tt-container tt tt-small padding" aria-label="{{lt.location.category.main.title}}">
                             <img ng-src="images/icons/categories/farbe/{{lt.location.category.main.query_name}}.svg" class="icon-circle">
                         </span>
 
