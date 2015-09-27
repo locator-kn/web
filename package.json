@@ -28,7 +28,7 @@
     "gulp-util": "^2.2.14",
     "merge2": "^0.3.2",
     "node-notifier": "^4.1.2",
-    "typescript": "^1.5.0-alpha"
+      "typescript": "^1.6.2"
   },
   "repository": {
     "type": "git",
