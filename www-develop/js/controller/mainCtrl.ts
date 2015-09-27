@@ -1,5 +1,3 @@
-
-
 module Controller {
     export class MainCtrl {
 
