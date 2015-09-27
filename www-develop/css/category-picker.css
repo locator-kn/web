@@ -15,8 +15,9 @@
 
 .category-picker li {
     background: white;
-    padding: 5px;
+    padding: 0 7px;
     cursor: pointer;
+    line-height: 40px;
 }
 
 .category-picker li.active {
@@ -26,9 +27,9 @@
 
 .category-picker .category-icon {
     float: right;
-    margin-right: 5px;
-    height: 20px;
+    height: 30px;
     width: auto;
+    margin-top: 5px;
 }
 
 .category-picker {
@@ -41,12 +42,13 @@
     border: 1px solid rgb(204, 204, 204) !important;
     background-color: rgba(34, 34, 34, 0.1);
     width: calc(100% - 15px);
-    padding: 9px 4px;
+    padding: 0 7px;
     border-radius: 3px;
     margin-left: 0 !important;
     color: rgb(163, 163, 163) !important;
     font-weight: 300 !important;
     font-size: 14px;
+    line-height: 40px;
 }
 
 .category-label.selected {
