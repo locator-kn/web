@@ -26,8 +26,7 @@ module Controller {
 
         locationTitle:string = '';
 
-        googlePlacesOptions = {
-        };
+        googlePlacesOptions = {};
 
         googleCityOptions = {
             types: '(cities)'
@@ -44,16 +43,25 @@ module Controller {
             tags: '',
             title: '',
             description: '',
-            city: {}
+            city: {},
+            category: {
+                main: {},
+                sub: {}
+            },
         };
 
+
         showImageTooLargeModal:boolean = false;
+        mainCategoryDefinitions = {};
+        mainCategoryOpen = 'category-chooser';
 
         me:any = {};
 
-        static $inject = ['$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService', 'KeenService'];
+        static $inject = ['DataService', '$analytics', '$element', 'UtilityService', 'ngDialog', 'InsertTripService', 'geolocation', '$state', '$scope', '$rootScope', 'LocationService', 'UserService', 'KeenService'];
 
-        constructor(private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService, private KeenService) {
+        constructor(private DataService, private $analytics, private $element, private UtilityService, private ngDialog, private InsertTripService, private geolocation, private $state, private $scope, private $rootScope, private LocationService, private UserService, private KeenService) {
+
+            this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
             if (this.$state.current.name === 'insertLocation') {
                 this.$rootScope.breadcrumb = 'Location erstellen';
@@ -159,9 +167,6 @@ module Controller {
                     this.$scope.$apply();
                     this.addImage();
                 });
-
-
-
 
 
             }
@@ -331,8 +336,17 @@ module Controller {
                             tags: this.simpleToObjectArray(result.data.tags),
                             title: result.data.title,
                             description: result.data.description,
-                            city: result.data.city
+                            city: result.data.city,
+                            category: result.data.category
                         };
+
+                        // append categories for old locations
+                        if (!this.locationFormDetails.category) {
+                            this.locationFormDetails.category = {
+                                main: {},
+                                sub: {},
+                            }
+                        }
 
                         //handle tags for tagging directive
                         //this.locationFormDetails.tags = this.simpleToObjectArray(this.locationFormDetails.tags);
@@ -381,8 +395,8 @@ module Controller {
             var lat;
             var lon;
 
-            lat = this.selectedPlaceDetails.geometry.location.lat() ;
-            lon = this.selectedPlaceDetails.geometry.location.lng() ;
+            lat = this.selectedPlaceDetails.geometry.location.lat();
+            lon = this.selectedPlaceDetails.geometry.location.lng();
 
             this.map.clickedMarker.latitude = lat;
             this.map.clickedMarker.longitude = lon;
@@ -496,6 +510,15 @@ module Controller {
             this.$analytics.eventTrack('location edgecase modal opened');
             $('#edgecase').addClass('active');
         }
+
+
+        setMainCategory(categorObject) {
+            if(!this.locationFormDetails.category) {
+                this.locationFormDetails.category = {};
+            }
+            this.locationFormDetails.category.main = categorObject;
+        }
+
 
         static controllerId:string = "InsertLocationCtrl";
     }

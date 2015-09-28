@@ -1,5 +1,5 @@
-
-<div class="insert-location-container full-without-header container content-width" ng-controller="InsertLocationCtrl as ilc">
+<div class="insert-location-container full-without-header container content-width"
+     ng-controller="InsertLocationCtrl as ilc">
     <div class="moodal" id="edgecase" ng-include="'templates/location/edgeCaseCityModal.html'"></div>
 
     <div class="row">
@@ -81,7 +81,8 @@
                     </div>
                     <a class="pointer help-trigger"><img class="img-responsive" src="images/icons/fragezeichen.png">
 
-                        <div class="help-box"><p>Damit man deine Location auch findet, kannst du sie auf der Karte markieren.
+                        <div class="help-box"><p>Damit man deine Location auch findet, kannst du sie auf der Karte
+                            markieren.
                             <br>Klicke auf das Fähnchen, wenn du dich direkt dort aufhälst.</p></div>
                     </a>
 
@@ -103,28 +104,46 @@
                             ng-model="ilc.locationFormDetails.title" name="locationTitle"
                             required>
 
-                        <label>Tags (z.B. Bar, Cocktails, günstig, ...)</label>
-                        <tags-input add-on-space="true" add-on-comma="true"
-                                    ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}"
-                                    placeholder="Tag hinzufügen" ng-model="ilc.locationFormDetails.tags"></tags-input>
+                        <div class="row">
+                            <div class="col-sm-7 col-xs-12">
 
+                                <label>Tags & Kategorie</label>
+                                <tags-input add-on-space="true" add-on-comma="true"
+                                            ng-class="{'error' : ilc.error && ilc.locationFormDetails.tags.length < 1}"
+                                            placeholder="Tag hinzufügen"
+                                            ng-model="ilc.locationFormDetails.tags"></tags-input>
+
+                            </div>
+
+
+
+                            <div class="col-sm-5 col-xs-12 category-picker">
+
+                                <label ng-class="{selected: ilc.locationFormDetails.category.main.title}" active-popover click-value="ilc.mainCategoryOpen" compare-to="mc.openElement" class="category-label pointer">{{ilc.locationFormDetails.category.main.title || 'Kategorie wählen'}} <img class="category-icon" ng-if="ilc.locationFormDetails.category.main.title" ng-src="images/icons/categories/white/{{ilc.locationFormDetails.category.main.query_name}}.svg"></label>
+                                <ul ng-class="{open: ilc.mainCategoryOpen === mc.openElement}" class="category-list">
+                                    <li ng-class="{active: ilc.locationFormDetails.category.main.query_name === item.query_name}" ng-click="ilc.setMainCategory(item)" ng-repeat="item in ilc.mainCategoryDefinitions">{{ item.title }} <img class="category-icon" ng-src="images/icons/categories/white/{{item.query_name}}.svg"></li>
+                                </ul>
+
+                            </div>
+
+                        </div>
 
                         <label>Beschreibung <span class="max-length">({{300 - ilc.locationFormDetails.description.length}} Zeichen)</span></label>
                         <textarea ng-trim="false"
-                            maxlength="300"
-                            ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
-                            class="location-description text-fields" placeholder="Beschreibe deine Location"
-                            ng-model="ilc.locationFormDetails.description" name="locationDescription"
-                            required></textarea>
+                                  maxlength="300"
+                                  ng-class="{'error' : (ilc.error) && ilc.form.locationDescription.$error.required}"
+                                  class="location-description text-fields" placeholder="Beschreibe deine Location"
+                                  ng-model="ilc.locationFormDetails.description" name="locationDescription"
+                                  required></textarea>
 
 
                         <div class="save pointer">
                             <input ng-if="!ilc.$state.params.locationId"
-                                class="red button uppercase" type="submit"
-                                ng-click="ilc.save()" value="Location erstellen"/>
+                                   class="red button uppercase" type="submit"
+                                   ng-click="ilc.save()" value="Location erstellen"/>
                             <input ng-if="ilc.$state.params.locationId"
-                                class="red button uppercase" type="submit"
-                                ng-click="ilc.save()" value="Location speichern"/>
+                                   class="red button uppercase" type="submit"
+                                   ng-click="ilc.save()" value="Location speichern"/>
                         </div>
 
                     </form>

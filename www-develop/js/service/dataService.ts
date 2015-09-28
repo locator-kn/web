@@ -10,6 +10,29 @@ module Service {
         dayCache;
         fixedCitiesCache;
 
+        mainCategoryDefinitions = [
+            {
+                "query_name": "gastro",
+                "title": "Gastronomie"
+            },
+            {
+                "query_name": "nightlife",
+                "title": "Nachtleben"
+            },
+            {
+                "query_name": "sportLeisure",
+                "title": "Sport & Freizeit"
+            },
+            {
+                "query_name": "cultureSightseeing",
+                "title": "Kultur & Sightseeing"
+            },
+            {
+                "query_name": "nature",
+                "title": "Natur"
+            }
+        ];
+
         availableMoods = [{
             id: "buddytrip",
             query_name: "buddytrip",
@@ -95,9 +118,9 @@ module Service {
             description: ""
         }];
 
-        static $inject = ['$http', 'basePath', 'CacheFactory', '$q', 'UtilityService'];
+        static $inject = ['$http', 'basePath', 'CacheFactory', '$q'];
 
-        constructor(private $http, private basePath, private CacheFactory, private $q, private UtilityService) {
+        constructor(private $http, private basePath, private CacheFactory, private $q) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 

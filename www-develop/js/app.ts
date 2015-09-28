@@ -193,7 +193,10 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/static/impressum.html"
             });
 
-        $locationProvider.html5Mode(true).hashPrefix('!');
+
+        if ('<%= live %>') {
+            $locationProvider.html5Mode(true).hashPrefix('!');
+        }
 
         $urlRouterProvider.otherwise('welcome');
     })
