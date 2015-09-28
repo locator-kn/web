@@ -1,8 +1,8 @@
-<div ng-controller="ExploreCtrl as ec" class="container-fluid explore">
+<div ng-controller="ExploreCtrl as ec" class="container-fluid explore full-without-header">
     <div class="container">
         <div class="row">
 
-            <input-dropdown filter-list-method="ec.filterDropdown(userInput)" class="col-sm-4 col-xs-12"
+            <input-dropdown filter-list-method="ec.filterDropdown(userInput)" display-property="'title'" class="col-sm-4 col-xs-12"
                 selected-item="ec.selectedCity"
                 default-dropdown-items="ec.availableCities">
             </input-dropdown>
