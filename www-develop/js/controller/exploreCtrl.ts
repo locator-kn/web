@@ -3,8 +3,6 @@ module Controller {
     export class ExploreCtrl {
 
         locations = [];
-        cityId = '';
-        category = '';
         query:any = {};
         availableCities = null;
         mainCategoryDefinitions = [];
@@ -17,11 +15,9 @@ module Controller {
         constructor(private $state, private ExploreService, private $scope, private $rootScope, private $location, private DataService, private lodash, private $q, private $filter) {
 
             this.query = $location.search();
-            this.cityId = this.$state.params.cityId;
-            this.category = this.$state.params.category;
             this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
-            this.ExploreService.searchLocations(this.cityId, this.category).then(result => {
+            this.ExploreService.searchLocations(this.query.city, this.query.category).then(result => {
                 this.locations = result.data;
             });
 
@@ -48,7 +44,11 @@ module Controller {
         }
 
         selectCity(city) {
-            debugger
+            if(this.query.city === city.place_id) {
+                return;
+            }
+            this.query.city = city.place_id;
+            this.$location.search({city: city.place_id, category: this.query.category});
         }
 
         static
