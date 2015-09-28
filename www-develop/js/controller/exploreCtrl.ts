@@ -6,11 +6,15 @@ module Controller {
         cityId = '';
         category = '';
         query:any = {};
-        availableCities = [];
+        availableCities = null;
         mainCategoryDefinitions = [];
 
-        static $inject = ['$state', 'ExploreService', '$scope', '$rootScope', '$location', 'DataService'];
-        constructor(private $state, private ExploreService, private $scope, private $rootScope, private $location, private DataService) {
+        selectedCity = null;
+
+
+        static $inject = ['$state', 'ExploreService', '$scope', '$rootScope', '$location', 'DataService', 'lodash', '$q', '$filter'];
+
+        constructor(private $state, private ExploreService, private $scope, private $rootScope, private $location, private DataService, private lodash, private $q, private $filter) {
 
             this.query = $location.search();
             this.cityId = this.$state.params.cityId;
@@ -27,6 +31,13 @@ module Controller {
 
         }
 
-        static controllerId:string = "ExploreCtrl";
+        filterDropdown(userInput){
+
+            //
+
+        }
+
+        static
+            controllerId:string = "ExploreCtrl";
     }
 }
