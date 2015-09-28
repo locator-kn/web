@@ -52,7 +52,7 @@ module Controller {
 
 
         showImageTooLargeModal:boolean = false;
-        mainCategoryDefinitions = {};
+        mainCategoryDefinitions = [];
         mainCategoryOpen = 'category-chooser';
 
         me:any = {};
