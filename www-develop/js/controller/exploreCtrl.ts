@@ -2,8 +2,10 @@ module Controller {
 
     export class ExploreCtrl {
 
-        static $inject = ['$state'];
-        constructor(private $state) {
+        locations = [];
+
+        static $inject = ['$state', 'ExploreService'];
+        constructor(private $state, private ExploreService) {
 
         }
 
