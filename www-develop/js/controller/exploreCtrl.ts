@@ -47,6 +47,10 @@ module Controller {
 
         }
 
+        selectCity(city) {
+            debugger
+        }
+
         static
             controllerId:string = "ExploreCtrl";
     }
