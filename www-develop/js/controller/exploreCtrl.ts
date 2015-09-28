@@ -31,9 +31,19 @@ module Controller {
 
         }
 
-        filterDropdown(userInput){
-
-            //
+        filterDropdown(userInput) {
+            return this.$q((resolve, reject) => {
+                var resultArr = this.availableCities.filter((elem) => {
+                    if (elem.title.toLowerCase().indexOf(userInput.toLowerCase()) >= 0) {
+                        return true;
+                    }
+                });
+                if (resultArr.length) {
+                    resolve(resultArr);
+                } else {
+                    reject([]);
+                }
+            });
 
         }
 
