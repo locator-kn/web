@@ -3,18 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <meta name="google-site-verification" content="ksfuna4CtZzkx4zDKzIntbgwwszDKK-Z7109feqkGrk" />
+    <meta name="google-site-verification" content="ksfuna4CtZzkx4zDKzIntbgwwszDKK-Z7109feqkGrk"/>
     <title ng-bind="mc.title || mc.defaultTitle">Locator | Die Plattform für Kurztrips aus deiner Perspektive.</title>
 
-    <meta property="description" content="Werde Locator! Du machst dich auf einen Städte-Kurztrip, hast aber keine Lust auf die üblichen Sehenswürdigkeiten? Du willst eine Reise nach deinen Vorstellungen und Plätze kennenlernen, die nicht im Reiseführer stehen? Oder hast du Lust, anderen die coolsten Orte deiner Stadt zu zeigen? Beides ist mit Locator möglich.">
-    <meta property="og:description" content="{{ogElements.description || 'Du machst dich auf einen Städte-Kurztrip, hast aber keine Lust auf die üblichen Sehenswürdigkeiten? Du willst eine Reise nach deinen Vorstellungen und Plätze kennenlernen, die nicht im Reiseführer stehen? Oder hast du Lust, anderen die coolsten Orte deiner Stadt zu zeigen? Beides ist mit Locator möglich.'}}"/>
+    <meta property="description"
+          content="Werde Locator! Du machst dich auf einen Städte-Kurztrip, hast aber keine Lust auf die üblichen Sehenswürdigkeiten? Du willst eine Reise nach deinen Vorstellungen und Plätze kennenlernen, die nicht im Reiseführer stehen? Oder hast du Lust, anderen die coolsten Orte deiner Stadt zu zeigen? Beides ist mit Locator möglich.">
+    <meta property="og:description"
+          content="{{ogElements.description || 'Du machst dich auf einen Städte-Kurztrip, hast aber keine Lust auf die üblichen Sehenswürdigkeiten? Du willst eine Reise nach deinen Vorstellungen und Plätze kennenlernen, die nicht im Reiseführer stehen? Oder hast du Lust, anderen die coolsten Orte deiner Stadt zu zeigen? Beides ist mit Locator möglich.'}}"/>
     <meta property="og:url" content="{{ogElements.url || 'https://locator-app.com'}}"/>
     <meta property="og:title" content="{{ogElements.title || 'Die Plattform für Kurztrips aus deiner Perspektive'}}"/>
     <meta property="og:image" content="{{ogElements.image || 'https://locator-app.com/images/fb-post.jpg'}}"/>
-    <meta property="og:image:secure_url" content="{{ogElements.image || 'https://locator-app.com/images/fb-post.jpg'}}"/>
+    <meta property="og:image:secure_url"
+          content="{{ogElements.image || 'https://locator-app.com/images/fb-post.jpg'}}"/>
 
     <base href="/"/>
-    <meta name="fragment" content="!" />
+    <meta name="fragment" content="!"/>
 
     <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
@@ -50,6 +53,9 @@
     <link rel="stylesheet" href="lib/components/angular-fix-on-scroll/css/fix-on-scroll.css">
     <link rel="stylesheet" href="lib/components/angular-accommodation-equipment-chooser/css/accommodationEquipment.css">
     <link rel="stylesheet" href="lib/components/ngDialog/css/ngDialog.min.css">
+    
+    <link rel='stylesheet' href='lib/components/angular-input-dropdown/inputDropdownStyles.css'/>
+    <script src="lib/components/angular-input-dropdown/inputDropdown.js"></script>
 
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -59,7 +65,7 @@
             token: '1d3930d45f584dbf94fb5f73d5fa9889',
             application: 'locator_web',
             enabled: !(window.location.host.indexOf('localhost') >= 0 || window.location.host.indexOf('amazonaws') >= 0),
-            onError:  function (payload, error) {
+            onError: function (payload, error) {
                 var i = 0;
                 var commonCrypticExtensionErrors = [
                     '401 Unauthorized: GET /api/v1/r/my/conversations',
@@ -75,7 +81,8 @@
             }
         };
     </script>
-    <script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js" crossorigin></script>
+    <script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"
+            crossorigin></script>
     <!-- END TRACKJS -->
 
 </head>
@@ -94,7 +101,6 @@
 
 
 <div ng-class="{'active': overlay}" ng-click="mc.closeOverlay()" class="overlay"></div>
-
 
 
 <div class="uiview" autoscroll="true" ng-include="'templates/static/staticButtons.html'"></div>
@@ -165,7 +171,6 @@
 <script src="lib/components/keen-js/dist/keen.min.js"></script>
 
 
-
 <script>
 
     var gaProperty = 'UA-65290211-1';
@@ -181,13 +186,20 @@
 </script>
 
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-65290211-1', 'auto');
- /*   ga('send', 'pageview');*/
+    /*   ga('send', 'pageview');*/
 
 </script>
 
