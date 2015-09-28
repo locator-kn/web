@@ -7,7 +7,7 @@ module Controller {
         availableCities = null;
         mainCategoryDefinitions = [];
 
-        selectedCity = null;
+        selectedCity = {};
 
 
         static $inject = ['$state', 'ExploreService', '$scope', '$rootScope', '$location', 'DataService', 'lodash', '$q', '$filter'];
@@ -23,6 +23,13 @@ module Controller {
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCities = result.data;
+                if(this.query.city) {
+                    result.data.forEach((city) => {
+                        if(city.place_id == this.query.city) {
+                            this.selectedCity = city;
+                        }
+                    })
+                }
             });
 
         }
@@ -49,6 +56,7 @@ module Controller {
             }
             this.query.city = city.place_id;
             this.$location.search({city: city.place_id, category: this.query.category});
+
         }
 
         static
