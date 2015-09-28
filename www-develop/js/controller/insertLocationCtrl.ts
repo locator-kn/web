@@ -53,7 +53,7 @@ module Controller {
 
         showImageTooLargeModal:boolean = false;
         mainCategoryDefinitions = {};
-        mainCategoryOpen = false;
+        mainCategoryOpen = 'category-chooser';
 
         me:any = {};
 
@@ -517,7 +517,6 @@ module Controller {
                 this.locationFormDetails.category = {};
             }
             this.locationFormDetails.category.main = categorObject;
-            this.mainCategoryOpen = false;
         }
 
 
