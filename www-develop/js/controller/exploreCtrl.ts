@@ -17,9 +17,7 @@ module Controller {
             this.query = $location.search();
             this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
-            this.ExploreService.searchLocations(this.query.city, this.query.category).then(result => {
-                this.locations = result.data;
-            });
+            this.searchLocations(this.query.city, this.query.category);
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCities = result.data;
@@ -32,6 +30,12 @@ module Controller {
                 }
             });
 
+        }
+
+        searchLocations(city, category) {
+            return this.ExploreService.searchLocations(city, category).then(result => {
+                return this.locations = result.data;
+            });
         }
 
         filterDropdown(userInput) {
@@ -56,7 +60,7 @@ module Controller {
             }
             this.query.city = city.place_id;
             this.$location.search({city: city.place_id, category: this.query.category});
-
+            this.searchLocations(city.place_id, this.query.category)
         }
 
         static
