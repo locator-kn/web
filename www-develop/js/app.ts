@@ -165,7 +165,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('explore', {
-                url: "/explore",
+                url: "/explore/:cityId/:category",
                 templateUrl: "templates/location/explore.html"
             })
 
@@ -554,10 +554,10 @@ var app = angular.module('locator', deps)
                 location: "=",
                 mySchoenHiers: "="
             },
-            controller: function($scope, $rootScope, LocationService, $analytics, KeenService) {
+            controller: function ($scope, $rootScope, LocationService, $analytics, KeenService) {
 
                 $scope.schoenHier = () => {
-                    if(!$rootScope.authenticated) {
+                    if (!$rootScope.authenticated) {
                         $analytics.eventTrack('schoenhier/userNotLoggedIn');
                         KeenService.add('sh', {
                             loc: $scope.location,
@@ -565,14 +565,14 @@ var app = angular.module('locator', deps)
                         });
                         return $scope.$emit('openLoginDialog')
                     }
-                    if(!$scope.mySchoenHiers || !$scope.mySchoenHiers.locations || !$scope.mySchoenHiers.locations[$scope.location._id]) {
-                        if(!$scope.location.schoenhiers) {
+                    if (!$scope.mySchoenHiers || !$scope.mySchoenHiers.locations || !$scope.mySchoenHiers.locations[$scope.location._id]) {
+                        if (!$scope.location.schoenhiers) {
                             $scope.location.schoenhiers = 1;
                         } else {
                             $scope.location.schoenhiers++;
                         }
 
-                        if(!$scope.mySchoenHiers.locations) {
+                        if (!$scope.mySchoenHiers.locations) {
                             $scope.mySchoenHiers.locations = {};
                         }
 
@@ -633,5 +633,7 @@ var app = angular.module('locator', deps)
     .service(Service.UtilityService.serviceId, Service.UtilityService)
     .service(Service.FeedbackService.serviceId, Service.FeedbackService)
     .service(Service.ErrorService.serviceId, Service.ErrorService)
-    .service(Service.KeenService.serviceId, Service.KeenService);
+    .service(Service.KeenService.serviceId, Service.KeenService)
+    .service(Service.ExploreService.serviceId, Service.ExploreService);
+
 
