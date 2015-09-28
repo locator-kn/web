@@ -95,8 +95,9 @@ module Service {
             description: ""
         }];
 
-        static $inject = ['$http', 'basePath', 'CacheFactory', '$q'];
-        constructor(private $http, private basePath, private CacheFactory, private $q) {
+        static $inject = ['$http', 'basePath', 'CacheFactory', '$q', 'UtilityService'];
+
+        constructor(private $http, private basePath, private CacheFactory, private $q, private UtilityService) {
             this.checkinDate = new Date();
             this.checkoutDate = moment(this.checkinDate).add(3, 'days').toDate();
 
@@ -139,6 +140,10 @@ module Service {
 
         getAvailableCities() {
             return this.$http.get(this.basePath + '/data/cities');
+        }
+
+        getLocationCities() {
+            return this.$http.get(this.basePath + '/data/locationCities');
         }
 
         getAvailableAmountOfDays() {
