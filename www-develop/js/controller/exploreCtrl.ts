@@ -6,7 +6,8 @@ module Controller {
         cityId = '';
         category = '';
         query:any = {};
-        availableCities;
+        availableCities = [];
+        mainCategoryDefinitions = [];
 
         static $inject = ['$state', 'ExploreService', '$scope', '$rootScope', '$location', 'DataService'];
         constructor(private $state, private ExploreService, private $scope, private $rootScope, private $location, private DataService) {
@@ -14,6 +15,7 @@ module Controller {
             this.query = $location.search();
             this.cityId = this.$state.params.cityId;
             this.category = this.$state.params.category;
+            this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
             this.ExploreService.searchLocations(this.cityId, this.category).then(result => {
                 this.locations = result.data;
