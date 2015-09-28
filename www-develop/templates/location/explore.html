@@ -1,7 +1,11 @@
 <div ng-controller="ExploreCtrl as ec" class="container-fluid explore">
     <div class="container">
         <div class="row">
-            <h2>Locations</h2>
+
+            <input-dropdown filter-list-method="ec.filterDropdown(userInput)" class="col-sm-4 col-xs-12"
+                selected-item="ec.selectedCity"
+                default-dropdown-items="ec.availableCities">
+            </input-dropdown>
 
             <div ng-repeat="location in ec.locations" class="location">
                 <h2>{{location.title}}</h2>
