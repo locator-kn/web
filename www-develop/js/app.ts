@@ -169,7 +169,8 @@ var app = angular.module('locator', deps)
 
             .state('explore', {
                 url: "/explore/:cityId?category",
-                templateUrl: "templates/location/explore.html"
+                templateUrl: "templates/location/explore.html",
+                reloadOnSearch: false
             })
 
             .state('locationView', {
