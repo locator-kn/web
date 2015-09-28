@@ -47,6 +47,9 @@
 /// <reference path="./controller/tripCtrl.ts" />
 /// <reference path="./controller/editTripCtrl.ts" />
 
+/// <reference path="./controller/exploreCtrl.ts" />
+/// <reference path="./service/exploreService.ts" />
+
 
 var deps = [
     'locator.moodselection',
@@ -165,7 +168,7 @@ var app = angular.module('locator', deps)
             })
 
             .state('explore', {
-                url: "/explore/:cityId/:category",
+                url: "/explore/:cityId?category",
                 templateUrl: "templates/location/explore.html"
             })
 
@@ -212,6 +215,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
     .controller(Controller.ErrorCtrl.controllerId, Controller.ErrorCtrl)
     .controller(Controller.WelcomeFeedCtrl.controllerId, Controller.WelcomeFeedCtrl)
+    .controller(Controller.ExploreCtrl.controllerId, Controller.ExploreCtrl)
 
 
     .filter('truncate', function () {
