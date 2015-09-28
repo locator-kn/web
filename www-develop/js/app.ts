@@ -82,7 +82,8 @@ var deps = [
     'ngDialog',
     'angulartics',
     'angulartics.google.analytics',
-    'truncate'
+    'truncate',
+    'inputDropdown'
 ];
 
 var app = angular.module('locator', deps)
