@@ -1,0 +1,11 @@
+.city-search {
+
+}
+.city-search input {
+    background: rgba(34,34,34,.1);
+    border: 1px solid rgba(204,204,204,1);
+    border-radius: 4px;
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+}
