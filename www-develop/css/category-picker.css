@@ -19,6 +19,7 @@
     padding: 0 7px;
     cursor: pointer;
     line-height: 40px;
+    color: black;
 }
 
 .category-picker .category-icon {
@@ -52,11 +53,6 @@
     background: #a3a67d;
     font-weight: 400 !important;
     border: none !important;
-}
-
-.category-list {
-    background-color: #b1b491;
-    color: #fff;
 }
 
 .category-picker li.active {
