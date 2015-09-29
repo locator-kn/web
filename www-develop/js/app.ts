@@ -399,10 +399,21 @@ var app = angular.module('locator', deps)
                 availableCategories: '=',
                 selectedCategory: '=',
                 popupIdent: '@',
-                mainPopupIdent: '='
+                mainPopupIdent: '=',
+                selectItemFn: '&'
             },
             link: (scope:any, element) => {
-                debugger
+                element.find('ul').on('click', (event) => {
+                    var clickedElem = angular.element(event.target);
+                    var clickedElemItem = clickedElem.data().$scope.item;
+                    if (clickedElemItem.query_name !== scope.selectedCategory.query_name) {
+                        scope.selectedCategory = clickedElemItem;
+                        if(scope.selectItemFn) {
+                            scope.selectItemFn({category: clickedElemItem})
+                        }
+                    }
+                });
+
             },
             templateUrl: 'templates/directives/locationCategories.html'
         }
