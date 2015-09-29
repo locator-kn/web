@@ -392,6 +392,21 @@ var app = angular.module('locator', deps)
         }
     })
 
+    .directive('locationCategories', () => {
+
+        return {
+            scope: {
+                availableCategories: '=',
+                selectedCategory: '@',
+                popupIdent: '@'
+            },
+            link: (scope:any, element) => {
+                debugger
+            },
+            templateUrl: 'templates/directives/locationCategories.html'
+        }
+    })
+
     .directive('chatScroller', function () {
         return {
             scope: {

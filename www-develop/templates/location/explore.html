@@ -10,6 +10,12 @@
                             input-placeholder="Stadt"
                             max-items="5">
             </input-dropdown>
+            <div class="col-sm-5 col-xs-12">
+
+                <location-categories available-categories="" popup-ident="aaa" selected-category=""></location-categories>
+
+            </div>
+
 
             <div ng-repeat="location in ec.locations" class="location">
                 <h2>{{location.title}}</h2>
