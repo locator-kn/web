@@ -28,7 +28,7 @@ module Controller {
 
             this.category.main = this.mainCategoryDefinitions.filter((elem) => {
                 return this.query.category === elem.query_name;
-            });
+            })[0];
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCitiesFilterList = angular.copy(result.data);
