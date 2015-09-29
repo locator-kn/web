@@ -2099,18 +2099,20 @@ schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier
     float: left;
     width: calc(100% - 50px);
     margin: 0;
+    font-size: 20px;
 }
 
 .explore .location h3 {
     float: left;
-    width: 100%;
+    width: calc(100% - 50px);
     margin: 0 !important;
+    font-size: 18px;
 }
 
 .explore .location .schoenhiers {
     width: 100%;
     float: left;
-    color: rgb(33,33,33);
+    color: rgb(33, 33, 33);
     background-color: white;
     padding: 5px;
     width: 100%;
@@ -2123,5 +2125,13 @@ schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier
     left: 0;
     padding: 5px;
     width: 100%;
-    background: linear-gradient(rgba(255,255,255, 0.2), rgba(33,33,33, 0.8));
+    background: linear-gradient(rgba(33, 33, 33, 0.0), rgba(33, 33, 33, 0.9));
+}
+
+.explore .location {
+    padding: 5px;
+}
+
+.explore .result {
+    padding-top: 50px;
 }
