@@ -24,11 +24,19 @@ module Controller {
             this.query = $location.search();
             this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
+            $scope.$on('$locationChangeSuccess', () => {
+                this.query = $location.search();
+                this.searchLocations(this.query.city, this.query.category);
+            });
+
             this.searchLocations(this.query.city, this.query.category);
 
-            this.category.main = this.mainCategoryDefinitions.filter((elem) => {
-                return this.query.category === elem.query_name;
-            })[0];
+            // if there is already a selected category
+            if(this.query.category) {
+                this.category.main = this.mainCategoryDefinitions.filter((elem) => {
+                    return this.query.category === elem.query_name;
+                })[0];
+            }
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCitiesFilterList = angular.copy(result.data);
@@ -60,8 +68,6 @@ module Controller {
         }
 
         selectCategory(category) {
-            this.searchLocations(this.query.city, category.query_name);
-
             this.$location.search('category', category.query_name);
         }
 
@@ -88,11 +94,8 @@ module Controller {
             if (this.query.city === city.place_id) {
                 return;
             }
-            this.query.city = city.place_id;
             this.$location.search('city', city.place_id);
-            this.searchLocations(city.place_id, this.query.category)
         }
-
         static
             controllerId:string = "ExploreCtrl";
     }
