@@ -20,11 +20,6 @@
     line-height: 40px;
 }
 
-.category-picker li.active {
-    background: #8ebf53;
-    color: white;
-}
-
 .category-picker .category-icon {
     float: right;
     height: 30px;
@@ -53,11 +48,17 @@
 
 .category-label.selected {
     color: white !important;
-    background: #8ebf53;
+    background: #a3a67d;
     font-weight: 400 !important;
     border: none !important;
 }
+
 .category-picker li:hover {
-    background-color: #96c45f;
+    background-color: #b1b491;
     color: #fff;
+}
+
+.category-picker li.active {
+    background: #a3a67d;
+    color: white;
 }
