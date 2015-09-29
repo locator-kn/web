@@ -25,6 +25,7 @@
     right: 10px;
     top: 10px;
     display: none;
+    cursor: pointer;
 }
 .clear-value.visible {
     display: block;
