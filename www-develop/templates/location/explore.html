@@ -6,7 +6,8 @@
                             class="col-sm-4 col-xs-12"
                             selected-item="ec.selectedCity"
                             default-dropdown-items="ec.availableCities"
-                            item-selected-method="ec.selectCity(item)">
+                            item-selected-method="ec.selectCity(item)"
+                            max-items="2">
             </input-dropdown>
 
             <div ng-repeat="location in ec.locations" class="location">
