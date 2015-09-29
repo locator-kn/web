@@ -3,15 +3,16 @@
         <div class="row">
 
             <input-dropdown filter-list-method="ec.filterDropdown(userInput)" display-property="'title'"
-                            class="col-sm-4 col-xs-12"
+                            class="col-sm-4 col-xs-12 city-search"
                             selected-item="ec.selectedCity"
                             default-dropdown-items="ec.availableCities"
                             item-selected-method="ec.selectCity(item)"
                             input-placeholder="Stadt"
                             max-items="5">
             </input-dropdown>
-            <div class="col-sm-5 col-xs-12">
-                <location-categories available-categories="ec.mainCategoryDefinitions"
+            <div class="">
+                <location-categories class="col-sm-5 col-xs-12"
+                                     available-categories="ec.mainCategoryDefinitions"
                                      main-popup-ident="mc.openElement"
                                      popup-ident="exploreCategory"
                                      selected-category="ec.category.main"
