@@ -20,6 +20,9 @@ module Controller {
             this.searchLocations(this.query.city, this.query.category);
 
             this.DataService.getLocationCities().then(result => {
+                result.data.sort((a, b) => {
+                    return a.total <= b.total;
+                });
                 this.availableCities = result.data;
                 if(this.query.city) {
                     result.data.forEach((city) => {
