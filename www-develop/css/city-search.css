@@ -9,3 +9,14 @@
     font-size: 14px;
     padding: 10px;
 }
+.city-search ul {
+    border:none!important;
+}
+.city-search ul li {
+    background-color: #fff;
+}
+.city-search ul li:hover, .city-search ul li.active {
+    background-color: #b1b491 !important;
+    color: #fff;
+}
+
