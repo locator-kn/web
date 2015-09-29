@@ -6,9 +6,15 @@ module Controller {
         query:any = {};
         availableCities = null;
         mainCategoryDefinitions = [];
+
         availableCitiesFilterList = [];
 
         selectedCity = {};
+
+        category = {
+            main: {},
+            sub: {}
+        };
 
 
         static $inject = ['$state', 'ExploreService', '$scope', '$rootScope', '$location', 'DataService', 'lodash', '$q', '$filter'];
@@ -19,6 +25,10 @@ module Controller {
             this.mainCategoryDefinitions = DataService.mainCategoryDefinitions;
 
             this.searchLocations(this.query.city, this.query.category);
+
+            this.category.main = this.mainCategoryDefinitions.filter((elem) => {
+                return this.query.category === elem.query_name;
+            });
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCitiesFilterList = angular.copy(result.data);
