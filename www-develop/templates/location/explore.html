@@ -24,9 +24,24 @@
 
         <div class="row result">
             <div ng-repeat="location in ec.locations" class="col-sm-4 col-xs-12 location">
-                <h2>{{location.title}}</h2>
+
                 <!-- TODO: remove absolute image path before production! -->
-                <img class="img-responsive" ng-src="http://ec2-52-28-125-160.eu-central-1.compute.amazonaws.com{{location.images.picture}}?size=mid" alt="{{location.title}} Image">
+                <div class="relative image-wrapper">
+                    <img class="location-thumb img-responsive"
+                         ng-src="http://ec2-52-28-125-160.eu-central-1.compute.amazonaws.com{{location.images.picture}}?size=mid"
+                         alt="{{location.title}} Image">
+
+                    <div class="location-blackgradient-absolute-wrapper">
+                        <h2 class="title">{{location.title}}</h2>
+                        <span class="category-icon-wrapper"><img class="category-icon"
+                                   ng-src="/images/icons/categories/farbe/{{location.category.main.query_name}}.svg"
+                                   alt="category icon"></span>
+
+                        <h3 class="city">in {{location.city.title}}</h3>
+                    </div>
+                </div>
+
+                <div class="schoenhiers">{{location.schoenhiers}} findens schön hier</div>
             </div>
         </div>
     </div>
