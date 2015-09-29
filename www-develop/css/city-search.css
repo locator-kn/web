@@ -20,13 +20,13 @@
     color: #fff;
 }
 
-.clear-value {
+.city-search .input-dropdown .clear-value {
     position: absolute;
     right: 10px;
     top: 10px;
     display: none;
     cursor: pointer;
 }
-.clear-value.visible {
+.city-search .input-dropdown:hover .clear-value.visible {
     display: block;
 }
