@@ -7,6 +7,7 @@
     border-radius: 3px;
     float: left;
     width: calc(100% - 15px);
+    z-index: 1;
 }
 
 .category-list.open {
@@ -53,7 +54,7 @@
     border: none !important;
 }
 
-.category-picker li:hover {
+.category-list {
     background-color: #b1b491;
     color: #fff;
 }
