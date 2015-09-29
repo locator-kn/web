@@ -59,6 +59,10 @@ module Controller {
             });
         }
 
+        selectCategory(category) {
+            debugger
+        }
+
         filterDropdown(userInput) {
             return this.$q((resolve, reject) => {
                 var resultArr = this.availableCitiesFilterList.filter((elem) => {
