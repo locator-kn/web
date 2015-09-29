@@ -1,7 +1,7 @@
 <div class="category-picker">
 
-    <label ng-class="{selected: selectedCategory.title}" active-popover click-value="popupIdent" compare-to="mc.openElement" class="category-label pointer">{{selectedCategory.title || 'Kategorie wählen'}} <img class="category-icon" ng-if="selectedCategory.title" ng-src="images/icons/categories/white/{{selectedCategory.query_name}}.svg"></label>
-    <ul ng-class="{open: popupIdent === mc.openElement}" class="category-list">
+    <label ng-class="{selected: selectedCategory.title}" active-popover click-value="popupIdent" compare-to="mainPopupIdent" class="category-label pointer">{{selectedCategory.title || 'Kategorie wählen'}} <img class="category-icon" ng-if="selectedCategory.title" ng-src="images/icons/categories/white/{{selectedCategory.query_name}}.svg"></label>
+    <ul ng-class="{open: popupIdent === mainPopupIdent}" class="category-list">
         <li ng-class="{active: selectedCategory.query_name === item.query_name}" ng-click="ilc.setMainCategory(item)" ng-repeat="item in availableCategories">{{ item.title }} <img class="category-icon" ng-src="images/icons/categories/white/{{item.query_name}}.svg"></li>
     </ul>
 

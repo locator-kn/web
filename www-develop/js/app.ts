@@ -398,7 +398,8 @@ var app = angular.module('locator', deps)
             scope: {
                 availableCategories: '=',
                 selectedCategory: '=',
-                popupIdent: '@'
+                popupIdent: '@',
+                mainPopupIdent: '='
             },
             link: (scope:any, element) => {
                 debugger
