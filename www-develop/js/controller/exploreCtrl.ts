@@ -26,9 +26,12 @@ module Controller {
 
             this.searchLocations(this.query.city, this.query.category);
 
-            this.category.main = this.mainCategoryDefinitions.filter((elem) => {
-                return this.query.category === elem.query_name;
-            })[0];
+            // if there is already a selected category
+            if(this.query.category) {
+                this.category.main = this.mainCategoryDefinitions.filter((elem) => {
+                    return this.query.category === elem.query_name;
+                })[0];
+            }
 
             this.DataService.getLocationCities().then(result => {
                 this.availableCitiesFilterList = angular.copy(result.data);
