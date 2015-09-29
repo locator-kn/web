@@ -397,7 +397,7 @@ var app = angular.module('locator', deps)
         return {
             scope: {
                 availableCategories: '=',
-                selectedCategory: '@',
+                selectedCategory: '=',
                 popupIdent: '@'
             },
             link: (scope:any, element) => {
