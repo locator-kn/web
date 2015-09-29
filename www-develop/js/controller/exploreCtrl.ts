@@ -60,7 +60,9 @@ module Controller {
         }
 
         selectCategory(category) {
-            debugger
+            this.searchLocations(this.query.city, category.query_name);
+
+            this.$location.search('category', category.query_name);
         }
 
         filterDropdown(userInput) {
@@ -87,7 +89,7 @@ module Controller {
                 return;
             }
             this.query.city = city.place_id;
-            this.$location.search({city: city.place_id, category: this.query.category});
+            this.$location.search('city', city.place_id);
             this.searchLocations(city.place_id, this.query.category)
         }
 
