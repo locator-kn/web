@@ -6,6 +6,7 @@ module Controller {
         query:any = {};
         availableCities = null;
         mainCategoryDefinitions = [];
+        availableCitiesFilterList = [];
 
         selectedCity = {};
 
@@ -20,6 +21,7 @@ module Controller {
             this.searchLocations(this.query.city, this.query.category);
 
             this.DataService.getLocationCities().then(result => {
+                this.availableCitiesFilterList = angular.copy(result.data);
                 result.data.sort((a, b) => {
                     return a.total <= b.total;
                 });
@@ -35,6 +37,12 @@ module Controller {
 
         }
 
+        sortByTotal(array)  {
+            return array.sort((a, b) => {
+                return a.total <= b.total;
+            });
+        }
+
         searchLocations(city, category) {
             return this.ExploreService.searchLocations(city, category).then(result => {
                 return this.locations = result.data;
@@ -43,13 +51,16 @@ module Controller {
 
         filterDropdown(userInput) {
             return this.$q((resolve, reject) => {
-                var resultArr = this.availableCities.filter((elem) => {
-                    if (elem.title.toLowerCase().indexOf(userInput.toLowerCase()) >= 0) {
+                var resultArr = this.availableCitiesFilterList.filter((elem) => {
+                    if (elem.title.toLowerCase().startsWith(userInput.toLowerCase())) {
                         return true;
                     }
+                    //if (elem.title.toLowerCase().indexOf(userInput.toLowerCase()) >= 0) {
+                    //    return true;
+                    //}
                 });
                 if (resultArr.length) {
-                    resolve(resultArr);
+                    resolve(this.sortByTotal(resultArr));
                 } else {
                     reject([]);
                 }
