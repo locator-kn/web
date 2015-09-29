@@ -10,15 +10,12 @@
                             input-placeholder="Stadt"
                             max-items="5">
             </input-dropdown>
-            <div class="">
-                <location-categories class="col-sm-5 col-xs-12"
-                                     available-categories="ec.mainCategoryDefinitions"
-                                     main-popup-ident="mc.openElement"
-                                     popup-ident="exploreCategory"
-                                     selected-category="ec.category.main"
-                                     select-item-fn="ec.selectCategory(category)"></location-categories>
-            </div>
-
+            <location-categories class="col-sm-5 col-xs-12"
+                                 available-categories="ec.mainCategoryDefinitions"
+                                 main-popup-ident="mc.openElement"
+                                 popup-ident="exploreCategory"
+                                 selected-category="ec.category.main"
+                                 select-item-fn="ec.selectCategory(category)"></location-categories>
 
             <div ng-repeat="location in ec.locations" class="location">
                 <h2>{{location.title}}</h2>
