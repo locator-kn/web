@@ -23,7 +23,7 @@
 
 
         <div class="row result">
-            <div ng-repeat="location in ec.locations" class="col-sm-4 col-xs-12 location">
+            <div ui-sref="locationView({locationId: location._id})" ng-repeat="location in ec.locations" class="pointer col-sm-4 col-xs-12 location">
 
                 <!-- TODO: remove absolute image path before production! -->
                 <div class="relative image-wrapper">
