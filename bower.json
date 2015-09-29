@@ -44,7 +44,7 @@
     "cheet.js": "~0.3.3",
     "exif-js": "~2.1.1",
     "keen-js": "~3.2.7",
-    "angular-input-dropdown": "https://github.com/locator-kn/angular-input-dropdown.git#~1.3.0"
+    "angular-input-dropdown": "https://github.com/locator-kn/angular-input-dropdown.git#~1.3.1"
   },
   "resolutions": {
     "angular": "~1.3",
