@@ -26,9 +26,9 @@ module Controller {
                     return a.total <= b.total;
                 });
                 this.availableCities = result.data;
-                if(this.query.city) {
+                if (this.query.city) {
                     result.data.forEach((city) => {
-                        if(city.place_id == this.query.city) {
+                        if (city.place_id == this.query.city) {
                             this.selectedCity = city;
                         }
                     })
@@ -37,7 +37,7 @@ module Controller {
 
         }
 
-        sortByTotal(array)  {
+        sortByTotal(array) {
             return array.sort((a, b) => {
                 return a.total <= b.total;
             });
@@ -69,7 +69,7 @@ module Controller {
         }
 
         selectCity(city) {
-            if(this.query.city === city.place_id) {
+            if (this.query.city === city.place_id) {
                 return;
             }
             this.query.city = city.place_id;
