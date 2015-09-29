@@ -159,6 +159,7 @@ gulp.task('watch', ['ts', 'html', 'lib', 'img', 'css', 'locale', 'sounds'], func
     gulp.watch('./www-develop/**/*.ts', { interval: intervalMS }, ['ts']);
     gulp.watch('./www-develop/**/*.css', { interval: intervalMS }, ['css']);
     gulp.watch('./www-develop/**/*.html', { interval: intervalMS }, ['html']);
+    gulp.watch('./www-develop/lib/**/*', { interval: intervalMS }, ['lib']);
     gulp.watch('./www-develop/locale/**/*', { interval: intervalMS }, ['locale']);
     gulp.watch('./www-develop/images/**/*', { interval: intervalMS }, ['img']);
 
