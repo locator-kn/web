@@ -5,7 +5,7 @@
 }
 
 a, a:hover {
-    color:#ff4637;
+    color: #ff4637;
 }
 
 html {
@@ -1960,6 +1960,7 @@ input, textarea {
 .start-conversation-profil {
     min-height: 120px;
 }
+
 .start-conversation-profil.red {
     border-color: #ff4637;
 }
@@ -1979,11 +1980,13 @@ input, textarea {
 .bold {
     font-weight: 500;
 }
+
 schoen-hier .text {
     padding: 7px 0 0;
     float: left;
     width: calc(100% - 105px);
 }
+
 schoen-hier .schoen-hier-btn span.schoen-hier-wrapper {
     float: right;
     color: #33c4b7;
@@ -1992,21 +1995,26 @@ schoen-hier .schoen-hier-btn span.schoen-hier-wrapper {
     border-radius: 3px;
     overflow: hidden;
 }
+
 schoen-hier .schoen-hier-btn:hover span.schoen-hier-wrapper, schoen-hier .schoen-hier-btn.active span.schoen-hier-wrapper {
     color: #fff;
     background-color: #33c4b7;
 }
+
 schoen-hier svg#liegestuhl {
     width: 20px;
     float: right;
 }
+
 schoen-hier .active svg#liegestuhl {
     margin: 0;
 }
+
 schoen-hier svg path.cross, schoen-hier .active svg path.cross {
-    display:none;
-    transform:scale(0.5);
+    display: none;
+    transform: scale(0.5);
 }
+
 schoen-hier .active:hover svg path.cross {
     display: block;
 }
@@ -2015,42 +2023,105 @@ schoen-hier span.schoen-hier-text {
     opacity: 1;
     margin: 0 3px 0 0;
     width: 62px;
-    height:20px;
+    height: 20px;
     float: left;
 
     animation: text-in .2s, in .2s;
 
-    animation-fill-mode:forwards;
+    animation-fill-mode: forwards;
 }
+
 schoen-hier .active span.schoen-hier-text {
     animation: text-out .2s, out .2s;
-    animation-fill-mode:forwards;
-    animation-timing-function: cubic-bezier(.42,0,.58,1);
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.42, 0, .58, 1);
     /*animation-delay: .7s;*/
 }
+
 schoen-hier svg#liegestuhl path {
     fill: #33c4b7;
 }
+
 schoen-hier .schoen-hier-btn:hover svg#liegestuhl path, schoen-hier .schoen-hier-btn.active svg#liegestuhl path {
     fill: #fff;
 }
 
-
 @keyframes out {
-    from { width: 62px; }
-    to { width: 0; margin: 0; }
+    from {
+        width: 62px;
+    }
+    to {
+        width: 0;
+        margin: 0;
+    }
 }
+
 @keyframes text-out {
-    from { opacity: 1; }
-    to { opacity: 0;
-        height: 0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        height: 0;
+    }
 }
+
 @keyframes in {
-    from { width: 0; }
-    to { width: 62px; margin: 0 3px 0 0; }
+    from {
+        width: 0;
+    }
+    to {
+        width: 62px;
+        margin: 0 3px 0 0;
+    }
 }
+
 @keyframes text-in {
-    from { opacity: 0; }
-    to { opacity: 1;
-        height: 20px; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        height: 20px;
+    }
+}
+
+.category-icon {
+    height: 30px;
+    width: auto;
+}
+
+.explore .category-icon-wrapper {
+    float: right;
+}
+
+.explore .location h2 {
+    float: left;
+    width: calc(100% - 50px);
+    margin: 0;
+}
+
+.explore .location h3 {
+    float: left;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.explore .location .schoenhiers {
+    width: 100%;
+    float: left;
+    color: rgb(33,33,33);
+    background-color: white;
+    padding: 5px;
+    width: 100%;
+}
+
+.location-blackgradient-absolute-wrapper {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+    background: linear-gradient(rgba(255,255,255, 0.2), rgba(33,33,33, 0.8));
 }
