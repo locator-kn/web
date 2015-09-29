@@ -14,12 +14,14 @@
     display: block;
 }
 
+.category-picker ul {
+    background-color: #f5f5f5;
+}
 .category-picker li {
-    background: white;
     padding: 0 7px;
     cursor: pointer;
     line-height: 40px;
-    color: black;
+    color: #424242;
 }
 
 .category-picker .category-icon {
