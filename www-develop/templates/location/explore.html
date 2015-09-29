@@ -1,6 +1,7 @@
 <div ng-controller="ExploreCtrl as ec" class="container-fluid explore full-without-header">
     <div class="container">
-        <div class="row">
+        <div class="row filter">
+
 
             <input-dropdown filter-list-method="ec.filterDropdown(userInput)" display-property="'title'"
                             class="col-sm-4 col-xs-12 city-search"
@@ -17,8 +18,15 @@
                                  selected-category="ec.category.main"
                                  select-item-fn="ec.selectCategory(category)"></location-categories>
 
-            <div ng-repeat="location in ec.locations" class="location">
+            <!-- row zu -->
+        </div>
+
+
+        <div class="row result">
+            <div ng-repeat="location in ec.locations" class="col-sm-4 col-xs-12 location">
                 <h2>{{location.title}}</h2>
+                <!-- TODO: remove absolute image path before production! -->
+                <img class="img-responsive" ng-src="http://ec2-52-28-125-160.eu-central-1.compute.amazonaws.com{{location.images.picture}}?size=mid" alt="{{location.title}} Image">
             </div>
         </div>
     </div>
