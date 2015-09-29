@@ -56,8 +56,10 @@
     font-weight: 400 !important;
     border: none !important;
 }
+.category-picker li:hover {
 
+}
 .category-picker li.active {
-    background: #a3a67d;
+    background: #b1b491;
     color: white;
 }
