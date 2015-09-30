@@ -1,7 +1,7 @@
 .city-search {
     margin-top: 25px;
 }
-.city-search input {
+.city-search .input-dropdown input {
     background: rgba(34,34,34,.1);
     border: 1px solid rgba(204,204,204,1);
     border-radius: 4px;
@@ -9,11 +9,11 @@
     font-size: 14px;
     padding: 10px;
 }
-.city-search ul {
+.city-search .input-dropdown ul {
     border:none!important;
-    background-color: #f5f5f5;
+    background-color: #f5f5f5!important;
 }
-.city-search ul li:hover, .city-search ul li.active {
+.city-search .input-dropdown ul li:hover, .city-search .input-dropdown ul li.active {
     background-color: #b1b491 !important;
     color: #fff;
 }
