@@ -11,9 +11,7 @@
 }
 .city-search ul {
     border:none!important;
-}
-.city-search ul li {
-    background-color: #fff;
+    background-color: #f5f5f5;
 }
 .city-search ul li:hover, .city-search ul li.active {
     background-color: #b1b491 !important;
