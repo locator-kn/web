@@ -35,7 +35,7 @@ module Controller {
 
         forgotPassword:boolean = false;
 
-        static $inject = ['UtilityService','$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window', 'KeenService'];
+        static $inject = ['UtilityService', '$state', '$timeout', '$element', 'UserService', 'hotkeys', '$scope', '$rootScope', '$location', '$window', 'KeenService'];
 
         constructor(private UtilityService, private $state, private $timeout, private $element, private UserService, private hotkeys, private $scope, private $rootScope, private $location, private $window, private KeenService) {
 
@@ -53,13 +53,13 @@ module Controller {
             });
 
             $rootScope.$on('updateOgElements', (scope, ogElem) => {
-                if(!ogElem) {
+                if (!ogElem) {
                     // reset og elements, defaults from index.html will be applied
                     return this.$rootScope.ogElements = angular.copy(this.ogElements);
                 }
-                if(ogElem.image) {
+                if (ogElem.image) {
                     // check if image url is relative
-                    if(ogElem.image.indexOf('http') === -1) {
+                    if (ogElem.image.indexOf('http') === -1) {
                         // add origin to relative image path
                         ogElem.image = window.location.origin + ogElem.image;
                     }
