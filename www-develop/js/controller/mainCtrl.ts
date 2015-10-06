@@ -31,6 +31,7 @@ module Controller {
         };
 
         isMobile:boolean;
+        registrationInProgress:boolean = false;
 
         forgotPassword:boolean = false;
 
@@ -242,7 +243,7 @@ module Controller {
         }
 
         register(form) {
-            if (form.$invalid) {
+            if (form.$invalid || this.registrationInProgress) {
                 return;
             }
 
@@ -255,6 +256,7 @@ module Controller {
 
                     //close the dialog after success
                     this.closeDialog();
+                    this.registrationInProgress = false;
 
                 })
                 .catch(resp => {
@@ -265,6 +267,7 @@ module Controller {
                     console.info("Register Error");
                     console.info(resp);
                     this.errormsg = "Oops, da lief etwas falsch";
+                    this.registrationInProgress = false;
                 });
 
         }
