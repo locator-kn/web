@@ -246,6 +246,7 @@ module Controller {
             if (form.$invalid || this.registrationInProgress) {
                 return;
             }
+            this.registrationInProgress = true;
 
             this.UserService.register(this.name, this.mail, this.password)
                 .then(result => {
