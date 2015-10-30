@@ -51,7 +51,7 @@ module Service {
             
             var eventFunction = keenEventHandlers[evName];
             if(eventFunction){
-                _data = eventFunction();
+                _data = eventFunction(data, type);
             } else {
                 _data = data;
             }
