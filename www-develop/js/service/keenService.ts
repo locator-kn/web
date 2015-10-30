@@ -40,17 +40,18 @@ module Service {
                 console.info('implementation error; event', evName, 'is not defined');
                 return;
             }
-            if (evName === 'pv') {
-                _data = this.getDataByType(data, type);
-            } else if (evName === 'v') {
-                // nothing special yet
-                _data = data;
-            } else if (evName === 'sh') {
-                _data = this.getSchoenHierData(data);
-            } else if (evName === 'r') {
-                _data = this.getRegistrationData(data);
-            } else if (evName === 'lc') {
-                _data = this.getCreateLocationData(data);
+            
+            var keenEventHandlers = {
+                'pv': this.getDataByType,
+                'v': data => data,
+                'sh': this.getSchoenHierData,
+                'r': this.getRegistrationData,
+                'lc': this.getCreateLocationData
+            }
+            
+            var eventFunction = keenEventHandlers[evName];
+            if(eventFunction){
+                _data = eventFunction();
             } else {
                 _data = data;
             }
