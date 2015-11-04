@@ -1,4 +1,3 @@
-
 interface Window {
     opera:any;
 }
@@ -14,7 +13,7 @@ module Service {
 
 
         orientationInDegree:any = {
-            '1':0,
+            '1': 0,
             '8': 270,
             '3': 180,
             '6': 90
@@ -22,8 +21,6 @@ module Service {
 
         constructor(private ngDialog) {
         }
-
-
 
 
         // Returns a function, that, as long as it continues to be invoked, will not
@@ -135,7 +132,7 @@ module Service {
                 reader.onload = (_file:any) => {
                     var base64Original = _file.target.result;
                     var orDeg = this.orientationInDegree[orient];
-                    if(!orDeg) {
+                    if (!orDeg) {
                         // no need to turn the image if orDeg === 0
                         return cb(base64Original);
                     }
@@ -146,9 +143,9 @@ module Service {
                     image.src = base64Original;
                     var cw;
                     var ch;
-                    image.onload = function(){
+                    image.onload = function () {
 
-                        if(orDeg === 270 || orDeg === 90) {
+                        if (orDeg === 270 || orDeg === 90) {
                             cw = image.height;
                             ch = image.width;
                         } else {
@@ -158,13 +155,13 @@ module Service {
 
                         canvas.width = cw;
                         canvas.height = ch;
-                        ctx.translate(cw/2, ch/2);
+                        ctx.translate(cw / 2, ch / 2);
                         ctx.rotate(orDeg * (Math.PI / 180));
 
-                        if(orDeg === 180) {
-                            ctx.drawImage(image, -cw/2, -ch/2);
+                        if (orDeg === 180) {
+                            ctx.drawImage(image, -cw / 2, -ch / 2);
                         } else {
-                            ctx.drawImage(image, -ch/2, -cw/2);
+                            ctx.drawImage(image, -ch / 2, -cw / 2);
                         }
                         cb(canvas.toDataURL());
                     };
@@ -181,6 +178,18 @@ module Service {
 
             this.mobileDevice = check;
             return check;
+        }
+
+        getMobileOs() {
+
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
+                return 'ios';
+            } else if (userAgent.match(/Android/i)) {
+                return 'android';
+            } else {
+                return 'unknown';
+            }
         }
 
 

@@ -36,6 +36,8 @@
 
 /// <reference path="./controller/feedbackCtrl.ts" />
 
+/// <reference path="./controller/appRedirectionCtrl.ts" />
+
 
 /// <reference path="./service/helperService.ts" />
 /// <reference path="./service/utilityService.ts" />
@@ -179,6 +181,11 @@ var app = angular.module('locator', deps)
                 templateUrl: "templates/error/genericLorenz.html"
             })
 
+            .state('app', {
+                url: "/app",
+                controller: "AppRedirectionCtrl"
+            })
+
             .state('impressum', {
                 url: "/impressum",
                 templateUrl: "templates/static/impressum.html"
@@ -210,6 +217,7 @@ var app = angular.module('locator', deps)
     .controller(Controller.FeedbackCtrl.controllerId, Controller.FeedbackCtrl)
     .controller(Controller.ErrorCtrl.controllerId, Controller.ErrorCtrl)
     .controller(Controller.WelcomeFeedCtrl.controllerId, Controller.WelcomeFeedCtrl)
+    .controller(Controller.AppRedirectionCtrl.controllerId, Controller.AppRedirectionCtrl)
 
 
     .filter('truncate', function () {
