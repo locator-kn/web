@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
 var ts = require('gulp-typescript');
-var notifier = require('node-notifier');
 var sourcemaps = require('gulp-sourcemaps');
 var merge = require('merge2');
 var server = require('gulp-server-livereload');
@@ -22,15 +21,8 @@ var fs = require('fs');
 var intervalMS = 500;
 
 var templateObject = {};
-
-var envData;
-
-
-var _envData = fs.readFileSync('./env.json', 'utf-8');
-envData = JSON.parse(_envData);
-console.log(envData.keen)
-templateObject.keenProjectId = envData.keen.PROJECT_ID;
-templateObject.keenWriteKey = envData.keen.WRITE_KEY;
+templateObject.keenProjectId = "yoyo";
+templateObject.keenWriteKey = "yolo";
 
 var tsProjectEmily = ts.createProject({
     declarationFiles: true,
@@ -83,16 +75,6 @@ gulp.task('ts', function () {
         .pipe(sourcemaps.init())
         .pipe(ts(tsProjectEmily));
 
-    tsResult._events.error[0] = function (error) {
-        if(!error.__safety || !error.__safety.toString) {
-            return;
-        }
-        notifier.notify({
-            'title': 'Compilation error',
-            'message': error.__safety.toString(),
-            sound: true
-        });
-    };
     return merge([
         tsResult.dts.pipe(gulp.dest('./www/definitions')),
         tsResult.js.pipe(gulp.dest('./www'))

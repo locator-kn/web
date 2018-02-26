@@ -1,5 +1,4 @@
 module Service {
-    declare
     var io;
     export class SocketService {
 

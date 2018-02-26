@@ -1,5 +1,4 @@
 module Controller {
-    declare
     var io;
     export class HeaderBarCtrl {
         user:any;
