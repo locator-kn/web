@@ -3,6 +3,20 @@ module Controller {
 
         searchHelp:boolean = false;
         createHelp:boolean = false;
+        
+        searchhelp =  [{
+        'id': '01',
+        'text': '1. Bestimme, wie lange dein Trip dauern soll'
+        }, {
+        'id': '02',
+        'text': '2. Such eine Stimmung für deinen Trip aus'
+        }, {
+        'id': '03',
+        'text': '3. Wähle die Stadt, in die du reisen möchtest'
+        }, {
+        'id': '04',
+        'text': '4. Verfeinere deine Suche mit den Filtern'
+        }];
 
         search:any = {
             moods: [],

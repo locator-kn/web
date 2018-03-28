@@ -8,25 +8,37 @@
 
     <span class="separator"></span>
 
+    <div class="col-xs-12" ng-repeat="searchHelpItem in wc.searchhelp">
+    <div class="col-xs-12">
+        <h4 class="help-item"><img src="images/icons/help/Erkläricons-{{::searchHelpItem.id}}.png" class="help-icon"> <span ng-bind="::searchHelpItem.text"></span></h4>
+    </div>
+    <script>
+      this.searchhelp =  [{
+        'id': '01',
+        'text': '1. Bestimme, wie lange dein Trip dauern soll'
+        }, {
+        'id': '02',
+        'text': '2. Such eine Stimmung für deinen Trip aus'
+        }, {
+        'id': '03',
+        'text': '3. Wähle die Stadt, in die du reisen möchtest'
+        }, {
+        'id': '04',
+        'text': '4. Verfeinere deine Suche mit den Filtern'
+        }]
+    </script>
+    
+
+    <div class="col-xs-12 right">
+        <h4 class="help-item"><img src="images/icons/help/Erkläricons-03.png" class="help-icon"> <span></span></h4>
+    </div>
 
     <div class="col-xs-12">
-        <h4 class="help-item"><img src="images/icons/help/Erkläricons-01.png" class="help-icon"> <span>1. Bestimme, wie lange
-            dein Trip dauern soll</span></h4>
+        <h4 class="help-item"><img src="images/icons/help/Erkläricons-02.png" class="help-icon"> <span></span></h4>
     </div>
 
     <div class="col-xs-12 right">
-        <h4 class="help-item"><img src="images/icons/help/Erkläricons-03.png" class="help-icon"> <span>2. Such eine Stimmung
-            für deinen Trip aus</span></h4>
-    </div>
-
-    <div class="col-xs-12">
-        <h4 class="help-item"><img src="images/icons/help/Erkläricons-02.png" class="help-icon"> <span>3. Wähle die Stadt, in
-            die du reisen möchtest</span></h4>
-    </div>
-
-    <div class="col-xs-12 right">
-        <h4 class="help-item"><img src="images/icons/help/Erkläricons-04.png" class="help-icon"> <span>4. Verfeinere deine
-            Suche mit den Filtern</span></h4>
+        <h4 class="help-item"><img src="images/icons/help/Erkläricons-04.png" class="help-icon"> <span></span></h4>
     </div>
 
     <span class="separator second"></span>
